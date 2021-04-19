@@ -12,6 +12,8 @@ class Press:
         self.p2 = deque(maxlen=self.avg_samples)
         self.p3 = deque(maxlen=self.avg_samples)
         self.p4 = deque(maxlen=self.avg_samples)
+        self.p5 = deque(maxlen=self.avg_samples)
+        self.p6 = deque(maxlen=self.avg_samples)
 
         self.p1_avg = 0
         self.p2_avg = 0
@@ -59,10 +61,20 @@ class Press:
             self.p4_avg = sum(self.p4) / self.avg_samples
             self.p34_avg = (self.p3_avg + self.p4_avg) / 2
 
+        elif sample_id == "p5":
+            # self.p4.popleft()
+            self.p5.append(sample_val)
+
+        elif sample_id == "p6":
+            # self.p4.popleft()
+            self.p6.append(sample_val)
+
         else:
             return
 
         self._delta_up_down = abs(self.p34_avg - self.p12_avg)
+        self.log.write("Added pessure sample: {}\n".format(str(sample)))
+        self.log.write("New delta_up_down: {}\n".format(str(self._delta_up_down)))
 
         # We can start using the samples once:
         #       We received data from all pressure sensors

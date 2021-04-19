@@ -36,4 +36,6 @@ task = {
     "setpoint_end": 50 # will be used for type 3
 }
 
-safety = {}
+safety = {
+    "min_alt": 5
+}

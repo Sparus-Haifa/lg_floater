@@ -6,6 +6,7 @@ from lib.press_ctrl import *
 from lib.temp_ctrl import *
 from lib.imu_ctrl import *
 from lib.safety_ctrl import *
+from lib.fyi_ctrl import *
 
 #read line from serial port; decode it, store the data and execute an appropriate callback
 def get_next_serial_line():
@@ -26,7 +27,7 @@ def get_next_serial_line():
         t_callback()
 
     #IMU
-    elif serial_line[0].upper() in ["X", "Y", "Z"]:
+    elif serial_line[0].upper().startswith("XYZ"):
         print("adding {}".format(serial_line))
         sensTemp.add_sample(serial_line)
         imu_callback()
@@ -45,13 +46,13 @@ def t_callback():
 
 #when a new pressure sample arrives
 def p_callback():
-    if cfg.pressure.Current_state == cfg.State.INIT:
-        if sensPress.queues_are_full:
-            cfg.pressure.Current_state = cfg.State.WAIT_FOR_WATER
+    if cfg.Current_state == cfg.State.INIT:
+        if sensPress._queues_are_full:
+            cfg.Current_state = cfg.State.WAIT_FOR_WATER
 
-        elif cfg.pressure.Current_state == cfg.State.WAIT_FOR_WATER:
-            if sensPress.get_delta_up_down >= cfg.pressure["epsilon"]:
-                cfg.pressure.Current_state = cfg.State.EXEC_TASK
+    elif cfg.Current_state == cfg.State.WAIT_FOR_WATER:
+        if sensPress.get_delta_up_down() >= cfg.pressure["epsilon"]:
+            cfg.Current_state = cfg.State.EXEC_TASK
 
 #when a new IMU sample arrives
 def imu_callback():
@@ -67,7 +68,8 @@ def safety_callback():
 if __name__ == "__main__":
     log = logger.Logger()
 
-    safety = Safety(log)
+    safety = Safety(cfg.safety["min_alt"], log)
+    fyi = FYI(log)
     sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
     sensTemp = Temp(cfg.temperature["avg_samples"], log)
     sensIMU = IMU(cfg.imu["avg_samples"], log)

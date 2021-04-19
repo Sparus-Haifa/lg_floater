@@ -10,6 +10,7 @@ class Temp:
         self.t2 = deque(maxlen=self.avg_samples)
         self.t3 = deque(maxlen=self.avg_samples)
         self.t4 = deque(maxlen=self.avg_samples)
+        self.t5 = deque(maxlen=self.avg_samples) #Accumulator temperature
 
         self.t1_avg = 0
         self.t2_avg = 0
@@ -22,13 +23,12 @@ class Temp:
         self._queues_are_full = False
         self.log.write("Temperature controller was initialized successfully\n")
 
-    def add_sample(self, sample):
-        # sample_arr = sample.split(":")
-        if len(sample) != 2:
+    def add_sample(self, sample_arr):
+        if len(sample_arr) != 2:
             return
 
-        sample_id = sample[0].lower()
-        sample_val = float(sample[1])
+        sample_id = sample_arr[0].lower()
+        sample_val = float(sample_arr[1])
 
         if sample_id == "t1":
             # self.p1.popleft()
@@ -49,13 +49,17 @@ class Temp:
             self.t34_avg = (self.t3_avg + self.t4_avg) / 2
 
         elif sample_id == "t4":
-            # self.p4.popleft()
             self.t4.append(sample_val)
             self.t4_avg = sum(self.t4) / self.avg_samples
             self.t34_avg = (self.t3_avg + self.t4_avg) / 2
 
+        elif sample_id == "t5":
+            self.t5.append(sample_val)
+
         else:
             return
+
+        self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 
         # We can start using the samples once:
         #       We received data from all temperature sensors
