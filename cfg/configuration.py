@@ -10,8 +10,19 @@ class State(Enum):
 Current_state = State.INIT
 
 serial = {
+    # /dev/ttyUSB0
+    # "port": "/dev/ttyACM0",
     "port": "COM3",
-    "baud_rate": 9600
+    "timeout" : 3,
+    "baud_rate": 115200
+}
+
+serial_safety = {
+    # /dev/ttyUSB0
+    # "port": "/dev/ttyACM0",
+    "port": "COM3",
+    "timeout" : 3,
+    "baud_rate": 115200
 }
 
 pressure = {
@@ -33,9 +44,11 @@ task = {
     "duration": 300, # seconds
     "setpoint": 300, # will be used for types 1 & 2
     "setpoint_start": 25, # will be used for type 3
-    "setpoint_end": 50 # will be used for type 3
+    "setpoint_end": 50 # will be used for type 3cd
+    
 }
 
 safety = {
-    "min_alt": 5
+    "min_alt": 5,
+    "max_interval_between_pings" : 5
 }

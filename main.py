@@ -1,3 +1,4 @@
+import time
 import cfg.configuration as cfg
 import lib.logger as logger
 import lib.comm_serial as ser
@@ -8,7 +9,7 @@ from lib.imu_ctrl import *
 from lib.safety_ctrl import *
 from lib.fyi_ctrl import *
 
-#read line from serial port; decode it, store the data and execute an appropriate callback
+#get line from main arduino; decode it, store the data and execute an appropriate callback
 def get_next_serial_line():
     serial_line = comm.read() # e.g. data=['P1', '1.23']
     print("raw: {}".format(serial_line))
@@ -29,13 +30,31 @@ def get_next_serial_line():
     #IMU
     elif serial_line[0].upper().startswith("XYZ"):
         print("adding {}".format(serial_line))
-        sensTemp.add_sample(serial_line)
+        sensIMU.add_sample(serial_line)
         imu_callback()
 
     # Depth
     elif serial_line[0].upper().startswith("D"):
         print("adding {}".format(serial_line))
-        sensTemp.add_sample(serial_line)
+        safety.add_sample(serial_line)
+
+#get line from secondary arduino;
+def get_next_serial_line_safety():
+    # send "I'm alive message"
+    comm_safety.write("N:11")
+
+    serial_line = comm.read()  # e.g. data=['P1', '1.23']
+    print("raw: {}".format(serial_line))
+    serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
+
+    if serial_line[0].upper().startswith("N"):
+        print("adding {}".format(serial_line))
+        safety.add_sample(serial_line)
+        safety_callback()
+
+def end_mission(why):
+    log.write("mission was ended: {}".format(why))
+
 
 
 #---------- Callbacks--------------#
@@ -60,7 +79,9 @@ def imu_callback():
 
 #when a new IMU sample arrives
 def safety_callback():
-    pass
+    if safety.is_emergency_state():
+        comm_safety.write("N:13") #report emergency to secondary arduino
+        comm.write("U:193")
 
 
 #-----------------------MAIN BODY--------------------------#
@@ -68,16 +89,34 @@ def safety_callback():
 if __name__ == "__main__":
     log = logger.Logger()
 
-    safety = Safety(cfg.safety["min_alt"], log)
+    safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
     fyi = FYI(log)
     sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
     sensTemp = Temp(cfg.temperature["avg_samples"], log)
     sensIMU = IMU(cfg.imu["avg_samples"], log)
 
+    # Main arduino
     comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], log)
     if not comm.ser:
         print("-E- Failed to init serial port")
         exit()
 
+    # Secondary arduino (safety)
+    comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], log)
+    if not comm.ser:
+        print("-E- Failed to init safety serial port")
+        exit()
+
     while True:
         get_next_serial_line()
+        get_next_serial_line_safety()
+        #comm.write("U:55.55")
+        #time.sleep(4)
+        #comm.write("U:0")
+        #time.sleep(4)
+        # comm.write(bytes('D:55.55'))
+        # time.sleep(1)
+        # comm.write(bytes('U:0'))
+        # time.sleep(1)
+        # comm.write(bytes('D:0'))
+        # time.sleep(1)
