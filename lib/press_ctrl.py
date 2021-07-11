@@ -91,5 +91,7 @@ class Press:
         return self._delta_up_down
 
 
+    def get_current_pressure(self):
+        return (self.p34_avg + self.p12_avg)/2
 
 

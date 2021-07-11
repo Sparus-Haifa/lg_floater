@@ -8,6 +8,8 @@ from lib.temp_ctrl import *
 from lib.imu_ctrl import *
 from lib.safety_ctrl import *
 from lib.fyi_ctrl import *
+from lib.profile import *
+from lib.task_ctrl import *
 
 #get line from main arduino; decode it, store the data and execute an appropriate callback
 def get_next_serial_line():
@@ -73,6 +75,13 @@ def p_callback():
         if sensPress.get_delta_up_down() >= cfg.pressure["epsilon"]:
             cfg.Current_state = cfg.State.EXEC_TASK
 
+    elif cfg.Current_state == cfg.State.EXEC_TASK:
+        cmd_to_send = task_ctrl.exec()
+        if cmd_to_send: #not None
+            comm.write(cmd_to_send)
+
+
+
 #when a new IMU sample arrives
 def imu_callback():
     pass
@@ -94,9 +103,11 @@ if __name__ == "__main__":
     sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
     sensTemp = Temp(cfg.temperature["avg_samples"], log)
     sensIMU = IMU(cfg.imu["avg_samples"], log)
+    profile = Profile("cfg/profile.txt", log)
+    task_ctrl = Task(sensPress, log)
 
     # Main arduino
-    comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], log)
+    comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
     if not comm.ser:
         print("-E- Failed to init serial port")
         exit()
@@ -109,7 +120,9 @@ if __name__ == "__main__":
 
     while True:
         get_next_serial_line()
-        get_next_serial_line_safety()
+        # get_next_serial_line_safety()
+
+
         #comm.write("U:55.55")
         #time.sleep(4)
         #comm.write("U:0")

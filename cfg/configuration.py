@@ -20,7 +20,7 @@ serial = {
 serial_safety = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
-    "port": "COM3",
+    "port": "COM4",
     "timeout" : 3,
     "baud_rate": 115200
 }
@@ -29,7 +29,6 @@ pressure = {
     "epsilon": 0.05,
     "avg_samples": 5
 }
-
 
 temperature = {
     "avg_samples": 5
@@ -43,9 +42,16 @@ task = {
     "type": 1, # 1- pressure, 2-density, 3-profiling
     "duration": 300, # seconds
     "setpoint": 300, # will be used for types 1 & 2
-    "setpoint_start": 25, # will be used for type 3
-    "setpoint_end": 50 # will be used for type 3cd
-    
+    "setpoint_tollerance": 5, #asumming we won't hit the exact setpoint - +/1 setpoint_tollerance is good enough
+    "fullduty_exec_time": 5, #num of seconds to operate the pump while in full-duty cycle mode
+    "fullduty_min_distance": 100,
+    "max_interval_between_movements": 100,
+    "min_interval_between_movements": 5
+
+
+
+    # "setpoint_start": 25, # will be used for type 3
+    # "setpoint_end": 50 # will be used for type 3cd
 }
 
 safety = {
