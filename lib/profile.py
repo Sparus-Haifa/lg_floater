@@ -1,5 +1,5 @@
 import os.path
-import gsw
+# import gsw
 import lib.logger as logger
 import numpy as np
 
@@ -31,8 +31,8 @@ class Profile:
             p = fields[0]
             t = fields[1]
             SA = fields[2]
-            CT = gsw.CT_from_t(SA, t, p)
-            return gsw.density.rho(SA, CT, p)
+            # CT = gsw.CT_from_t(SA, t, p)
+            return None #gsw.density.rho(SA, CT, p)
 
 
 if __name__ == "__main__":

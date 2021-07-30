@@ -6,67 +6,36 @@ class Temp:
         self.avg_samples = avg_samples
         self.log = log
 
-        self.t1 = deque(maxlen=self.avg_samples)
-        self.t2 = deque(maxlen=self.avg_samples)
-        self.t3 = deque(maxlen=self.avg_samples)
-        self.t4 = deque(maxlen=self.avg_samples)
-        self.t5 = deque(maxlen=self.avg_samples) #Accumulator temperature
-
-        self.t1_avg = 0
-        self.t2_avg = 0
-        self.t3_avg = 0
-        self.t4_avg = 0
-
-        self.t12_avg = 0
-        self.t34_avg = 0
+        self.t = deque(maxlen=self.avg_samples)
 
         self._queues_are_full = False
         self.log.write("Temperature controller was initialized successfully\n")
 
     def add_sample(self, sample_arr):
-        if len(sample_arr) != 2:
-            return
+        # if len(sample_arr) != 2:
+            # return
 
-        sample_id = sample_arr[0].lower()
-        sample_val = float(sample_arr[1])
+        # sample_id = sample_arr[0].lower()
+        # sample_val = float(sample_arr[1])
+        
+        # TODO:: try catch parse
 
-        if sample_id == "t1":
-            # self.p1.popleft()
-            self.t1.append(sample_val)
-            self.t1_avg = sum(self.t1) / self.avg_samples
-            self.t12_avg = (self.t1_avg + self.t2_avg) / 2
+        self.t.append(float(sample_arr))
 
-        elif sample_id == "t2":
-            # self.p2.popleft()
-            self.t2.append(sample_val)
-            self.t2_avg = sum(self.t2) / self.avg_samples
-            self.t12_avg = (self.t1_avg + self.t2_avg) / 2
-
-        elif sample_id == "t3":
-            # self.p3.popleft()
-            self.t3.append(sample_val)
-            self.t3_avg = sum(self.t3) / self.avg_samples
-            self.t34_avg = (self.t3_avg + self.t4_avg) / 2
-
-        elif sample_id == "t4":
-            self.t4.append(sample_val)
-            self.t4_avg = sum(self.t4) / self.avg_samples
-            self.t34_avg = (self.t3_avg + self.t4_avg) / 2
-
-        elif sample_id == "t5":
-            self.t5.append(sample_val)
-
-        else:
-            return
-
-        self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
+        # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 
         # We can start using the samples once:
         #       We received data from all temperature sensors
         #       We received enough samples from all sensors
-        if not self._queues_are_full:
-            if len(self.t1) == self.avg_samples and \
-                    len(self.t2) == self.avg_samples and \
-                    len(self.t3) == self.avg_samples and \
-                    len(self.t4) == self.avg_samples:
-                self._queues_are_full = True
+        # if not self._queues_are_full:
+        #     if len(self.t1) == self.avg_samples and \
+        #             len(self.t2) == self.avg_samples and \
+        #             len(self.t3) == self.avg_samples and \
+        #             len(self.t4) == self.avg_samples:
+        #         self._queues_are_full = True
+
+    def getLast(self):
+        if len(self.t)>0:
+            return self.t[0]
+        print("buffer empty")
+        return 0

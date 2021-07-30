@@ -27,15 +27,27 @@ serial_safety = {
 
 pressure = {
     "epsilon": 0.05,
-    "avg_samples": 5
+    "avg_samples": 1
 }
 
 temperature = {
-    "avg_samples": 5
+    "avg_samples": 1
 }
 
 imu = {
-    "avg_samples": 5
+    "avg_samples": 1
+}
+
+bladder = {
+    "avg_samples": 1
+}
+
+altimeter = {
+    "avg_samples": 1
+}
+
+rpm = {
+    "avg_samples": 1
 }
 
 task = {
