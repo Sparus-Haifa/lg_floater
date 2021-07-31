@@ -10,7 +10,14 @@ class Comm():
         self.client_socket.setblocking(False)
         self.addr = ("127.0.0.1", 12000)
         self.pid = 0
-        self.totalPID = 0
+        self.lastPID = 0
+        self.pump = "off"
+        self.voltage = 0.0
+        self.timeOn = 0.0
+        self.timeOff = 0.0
+        self.direction = 1
+        # up (D:1)
+        # down (D:2)
 
         # for debug
         self.p = 0
@@ -44,14 +51,16 @@ class Comm():
             # print("header",header)
             # print("value",value)
             if header=="V":
+                if self.direction != 1.0:
+                    value*=-1
                 self.pid = value
-                self.totalPID = value
+                self.lastPID = value
             elif header=="D":
-                if value == 2:
-                    self.pid*=-1
+                self.direction = value
             elif header=="T":
                 self.T = value
                 self.pid = self.pid * self.T
+
 
             # for debug only
             elif header=="d":
@@ -79,7 +88,7 @@ class YuriSim():
         self.nextSensor = 0
         self.depth = 0
         # print(f"{len(self.sensorNames)}, {len(self.sensorValue)}")
-        self.phase = 1
+        # self.phase = 1
         # phase 1 - normal pid to target
         # phase 2 - interpolation
         # phase 3 - TBD
@@ -87,9 +96,11 @@ class YuriSim():
     def startSim(self):
 
         counter = 0.0
-        frame = 0
+        frame = 0 # just a counter to time sensors i/o
 
         pg.init()
+        FPS = 60
+        SimFactor = 1.0
 
         myfont = pg.font.SysFont("monospace", 15)
 
@@ -162,7 +173,8 @@ class YuriSim():
                 drag*=-1
 
             NETFORCE = MASS*GRAVITY - BUOYANCY - BLADDERCURRENT - drag
-            NETFORCE /= 60 # FPS
+            NETFORCE /= FPS
+            NETFORCE *= SimFactor
 
 
             y_change += NETFORCE
@@ -186,7 +198,7 @@ class YuriSim():
             label_timer = myfont.render(f"[real time:{str_time} secs]", 1, DARKBLUE)
             display.blit(label_timer, (20, 20))
 
-            counter+=1/60
+            counter+=SimFactor/FPS
             counter_str = "{:.4f}".format(counter)
             label_counter = myfont.render(f"[sim time:{counter_str} secs]", 1, DARKBLUE)
             display.blit(label_counter, (20, 40))
@@ -195,7 +207,7 @@ class YuriSim():
             label_depth = myfont.render(f"[depth:{depth_str} px]", 1, DARKBLUE)
             display.blit(label_depth, (20, 60))
 
-            vel_str = "{:.4f}".format(y_change*60)
+            vel_str = "{:.4f}".format(y_change*FPS/SimFactor)
             label_speed = myfont.render(f"[velocity:{vel_str} px/s]", 1, DARKBLUE)
             display.blit(label_speed, (20, 80))
 
@@ -225,7 +237,7 @@ class YuriSim():
             label_drag = myfont.render(f"[drag:{drag_str} px/s^2]", 1, DARKBLUE)
             display.blit(label_drag, (20, 200))
 
-            acc_str = "{:.6f}".format(NETFORCE*60)
+            acc_str = "{:.6f}".format(NETFORCE*FPS/SimFactor)
             label_acceleration = myfont.render(f"[acceleration:{acc_str} px/s^2]", 1, DARKBLUE)
             display.blit(label_acceleration, (20, 220))
 
@@ -242,7 +254,7 @@ class YuriSim():
             label_d = myfont.render(f"[d:{d_str} * kd:{kd_str} = {td_str}]", 1, DARKBLUE)
             display.blit(label_d, (20, 260))
 
-            tpid_str = "{:.2f}".format(self.comm.totalPID)
+            tpid_str = "{:.2f}".format(self.comm.lastPID)
             label_tpid = myfont.render(f"[pid:{tpid_str}]", 1, DARKBLUE)
             display.blit(label_tpid, (20, 280))
 
@@ -275,9 +287,24 @@ class YuriSim():
             display.blit(label_trip, (20, 340))
 
             # phase_str = "{:.2f}".format(self.comm.trip*100)
-            label_phase = myfont.render(f"[phase :{self.phase} ]", 1, DARKBLUE)
+            label_phase = myfont.render(f"[phase :{self.comm.phase} ]", 1, DARKBLUE)
             display.blit(label_phase, (20, 360))
 
+            # right side UI
+            label_pump = myfont.render(f"[pump :{self.comm.pump} ]", 1, DARKBLUE)
+            display.blit(label_pump, (450, 20))
+
+            label_voltage = myfont.render(f"[voltage :{self.comm.voltage} Vdc] [direction :{self.comm.direction}]", 1, DARKBLUE)
+            display.blit(label_voltage, (450, 40))
+
+            label_dc = myfont.render(f"[timeOn :{self.comm.timeOn} sec] [timeOff :{self.comm.timeOff} sec]", 1, DARKBLUE)
+            display.blit(label_dc, (450, 60))
+
+
+            fps = clock.get_fps()
+            fps_str = "{:.2f}".format(fps)
+            label_fps = myfont.render(f"[fps :{fps_str} ]", 1, DARKBLUE)
+            display.blit(label_fps, (450, 80))
 
 
 
@@ -289,12 +316,13 @@ class YuriSim():
             # send sensor data
             frame+=1
             # if int(counter) % 10 ==0 and counter.is_integer():
-            if frame % 60 == 0:
+            # if frame % (FPS/SimFactor) == 0:
+            if frame % 2 == 0:
                 self.sendStats(counter)
 
             self.depth=y
             self.comm.recieveMessage()
-            clock.tick(60)
+            clock.tick(FPS)
 
         pg.quit()
 

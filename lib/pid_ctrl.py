@@ -37,7 +37,7 @@ class PID:
     def getDirection(self,curr_err):
         # up (D:1)
         # down (D:2)
-        return "D:1" if curr_err > 0 else "D:2"
+        return 1 if curr_err > 0 else 2
         
     def interp_timeOn(self, current_err):
         x1 = 0 # no error - spot on target!
