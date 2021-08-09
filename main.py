@@ -313,10 +313,10 @@ class App():
             print("change PID")
             self.pid_controller.doInterpolation = True
             kp=1.4 # madeup
-            kd=96.5 # madeup
+            kd=9.65 # madeup
         else:
             kp=3.6
-            kd=34.5
+            kd=3.45
 
 
         # Sens debug data - for sim only

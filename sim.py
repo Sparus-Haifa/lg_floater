@@ -115,55 +115,42 @@ class YuriSim():
         player_image.fill(DARKBLUE)
 
         x = width * 0.45
-        y = 0
-        x_change = 0
-        y_change = 0
+        # self.depth = 0 # Depth in meter
+        y_change = 0 # Speed in px per 1/FPS
         on_ground = False
         first_loop_sync = True
 
         # A constant value that you add to the y_change each frame.
-        MASS = 1.0
-        GRAVITY  = .00098
-        BUOYANCY = .0005 
+        PIXELRATIO = 10.0 # pixel to meter
+        MASS = 20.3
+        GRAVITY  = 9.8
+        VOLUME_FLOATER = 0.0197 # m^3
+        MAX_BLADDER_VOLUME = 0.00065 # m^3
+        currentBladderVolume = MAX_BLADDER_VOLUME # start at max
+        FW = 1025 # kg / m^3
+        BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW #9.6 # Volume * g * fw
         NETFORCE = .000
-        BCONST = 100.0 # drag_coefficient * Object_area * fluid_density
-        BLADDERMAX = 0.001
-        BLADDERCURRENT = 0.00048
+        BCONST = 1000.0 # drag_coefficient * Object_area * fluid_density
+        # BLADDERMAX = 0.6
+        # BLADDERCURRENT = 0.6
 
         startTime = time.time()
         done = False
         while not done:
             if self.comm.pid > 10:
-                BLADDERCURRENT -= 0.0001 * self.comm.pid * 0.001
+                currentBladderVolume -= 0.01 * self.comm.pid * 0.00001
                 self.comm.pid=0
             elif self.comm.pid <-10:
-                BLADDERCURRENT += 0.0001 * self.comm.pid * -0.001
+                currentBladderVolume += 0.01 * self.comm.pid * -0.00001
                 self.comm.pid=0
-            if BLADDERCURRENT < 0:
-                BLADDERCURRENT = 0
-            if BLADDERCURRENT > BLADDERMAX:
-                BLADDERCURRENT = BLADDERMAX
+            if currentBladderVolume < 0:
+                currentBladderVolume = 0
+            if currentBladderVolume > MAX_BLADDER_VOLUME:
+                currentBladderVolume = MAX_BLADDER_VOLUME
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     done = True
-                elif event.type == pg.KEYDOWN:
-                    if event.key == pg.K_a:
-                        x_change = -5
-                    elif event.key == pg.K_d:
-                        x_change = 5
-                    elif event.key == pg.K_s:
-                        BUOYANCY -= 0.00002
-                    elif event.key == pg.K_w:
-                        # if on_ground:  # Only jump if the player is on_ground.
-                        #     y_change = -12
-                        #     on_ground = False
-                        # else:
-                        BUOYANCY += 0.00002
-                elif event.type == pg.KEYUP:
-                    if event.key == pg.K_a and x_change < 0:
-                        x_change = 0
-                    elif event.key == pg.K_d and x_change > 0:
-                        x_change = 0
+
 
             # Add the GRAVITY value to y_change, so that
             # the object moves faster each frame.
@@ -172,22 +159,26 @@ class YuriSim():
             if y_change < 0:
                 drag*=-1
 
-            NETFORCE = MASS*GRAVITY - BUOYANCY - BLADDERCURRENT - drag
+            bouyancyBladder = currentBladderVolume * GRAVITY * FW
+
+            NETFORCE = MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder - drag
             NETFORCE /= FPS
             NETFORCE *= SimFactor
 
 
             y_change += NETFORCE
-            x += x_change
-            y += y_change
+            self.depth += y_change
             # Stop the object when it's near the bottom of the screen.
-            if y >= height - 130:
-                y = height - 130
+            if self.depth >= (height - 130)*PIXELRATIO:
+                self.depth = (height - 130)*PIXELRATIO
                 y_change = 0
                 on_ground = True
-            if y <=0 :
+            if self.depth <=0 :
                 y_change=0
-                y=0
+                self.depth=0
+
+            # self.depth=y
+            y = self.depth * PIXELRATIO
 
             # Draw everything.
             display.fill(LIGHTBLUE)
@@ -198,47 +189,48 @@ class YuriSim():
             label_timer = myfont.render(f"[real time:{str_time} secs]", 1, DARKBLUE)
             display.blit(label_timer, (20, 20))
 
+            # frameRa
             counter+=SimFactor/FPS
             counter_str = "{:.4f}".format(counter)
             label_counter = myfont.render(f"[sim time:{counter_str} secs]", 1, DARKBLUE)
             display.blit(label_counter, (20, 40))
 
-            depth_str = "{:.4f}".format(y)
-            label_depth = myfont.render(f"[depth:{depth_str} px]", 1, DARKBLUE)
+            depth_str = "{:.4f}".format(self.depth)
+            label_depth = myfont.render(f"[depth:{depth_str} meter]", 1, DARKBLUE)
             display.blit(label_depth, (20, 60))
 
             vel_str = "{:.4f}".format(y_change*FPS/SimFactor)
-            label_speed = myfont.render(f"[velocity:{vel_str} px/s]", 1, DARKBLUE)
+            label_speed = myfont.render(f"[velocity:{vel_str} m/s]", 1, DARKBLUE)
             display.blit(label_speed, (20, 80))
 
             g_str = "{:.6f}".format(GRAVITY)
-            label_g = myfont.render(f"[gravity :{g_str} px/s^2]", 1, DARKBLUE)
+            label_g = myfont.render(f"[gravity :{g_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_g, (20, 100))  
 
 
 
-            buoyancy_str = "{:.6f}".format(BUOYANCY)
-            label_buoyancy = myfont.render(f"[object buoyancy:{buoyancy_str} px/s^2]", 1, DARKBLUE)
+            buoyancy_str = "{:.6f}".format(BUOYANCY_FLOATER)
+            label_buoyancy = myfont.render(f"[object buoyancy:{buoyancy_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_buoyancy, (20, 120))
 
-            bladder_str = "{:.6f}".format(BLADDERCURRENT)
-            label_bladder = myfont.render(f"[bladder buoyancy:{bladder_str} px/s^2]", 1, DARKBLUE)
+            bladder_str = "{:.6f}".format(bouyancyBladder)
+            label_bladder = myfont.render(f"[bladder buoyancy:{bladder_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_bladder, (20, 140))
 
-            bladderSize_str = "{:.2f}".format(BLADDERCURRENT*100/BLADDERMAX)
+            bladderSize_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
             label_bladder = myfont.render(f"[bladder size:{bladderSize_str}%]", 1, DARKBLUE)
             display.blit(label_bladder, (20, 160))
 
-            totalb_str = "{:.6f}".format(BUOYANCY + BLADDERCURRENT)
-            label_totalb = myfont.render(f"[total buoyancy:{totalb_str} px/s^2]", 1, DARKBLUE)
+            totalb_str = "{:.6f}".format(BUOYANCY_FLOATER + currentBladderVolume)
+            label_totalb = myfont.render(f"[total buoyancy:{totalb_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_totalb, (20, 180))
 
             drag_str = "{:.6f}".format(drag*60)
-            label_drag = myfont.render(f"[drag:{drag_str} px/s^2]", 1, DARKBLUE)
+            label_drag = myfont.render(f"[drag:{drag_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_drag, (20, 200))
 
             acc_str = "{:.6f}".format(NETFORCE*FPS/SimFactor)
-            label_acceleration = myfont.render(f"[acceleration:{acc_str} px/s^2]", 1, DARKBLUE)
+            label_acceleration = myfont.render(f"[acceleration:{acc_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_acceleration, (20, 220))
 
             p_str = "{:.2f}".format(self.comm.p)
@@ -320,7 +312,7 @@ class YuriSim():
             if frame % 2 == 0:
                 self.sendStats(counter)
 
-            self.depth=y
+            
             self.comm.recieveMessage()
             clock.tick(FPS)
 
