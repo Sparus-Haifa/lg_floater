@@ -282,7 +282,7 @@ class App():
             
         print()
 
-        target_sdpeth = 1200 # on 80% plus change PID 
+        target_sdpeth = 1300 # on 80% plus change PID 
         print(target_sdpeth) 
         # 1022*=(1 + self.depth * 0.01) 
         # target_depth=1022*(1 + target_sdpeth) * 0.01
@@ -312,8 +312,8 @@ class App():
         if abs(target_sdpeth - avg) < (0.2 *  target_sdpeth):
             print("change PID")
             self.pid_controller.doInterpolation = True
-            kp=1.4 # madeup
-            kd=9.65 # madeup
+            kp=2.4 # madeup
+            kd=3.65 # madeup
         else:
             kp=3.6
             kd=3.45
@@ -340,8 +340,9 @@ class App():
         # PID result
         scalar = p*kp-d*kd
 
-        voltage = self.pid_controller.normal_pumpVoltage(scalar)
         direction = self.pid_controller.getDirection(scalar)
+        # scalar = abs(scalar)
+        voltage = self.pid_controller.normal_pumpVoltage(scalar)
         dc = self.pid_controller.interp_dutyCycle(scalar)
         timeOn = self.pid_controller.interp_timeOn(scalar)
         timeOff = self.pid_controller.calc_timeOff(timeOn,dc)
@@ -355,8 +356,8 @@ class App():
         self.comm.write(f"phase:{phase}\n")
 
         # normalize scalar
-        if abs(scalar) > 100:
-            scalar = 100
+        # if abs(scalar) > 100:
+        #     scalar = 100
         # if abs(scalar) < 40:
         #     scalar = 0  
 
@@ -364,20 +365,10 @@ class App():
         # if scalar==0:
         #     return
 
-        self.comm.write(f"V:{abs(scalar)}\n")
+        self.comm.write(f"PID:{scalar}")
+        self.comm.write(f"V:{voltage}\n")
         self.comm.write(f"D:{direction}")
-
-        # if scalar <= -40:
-        #     self.comm.write(f"D:{1}\n") # up (D:1)
-        # elif scalar >= 40:
-        #     self.comm.write(f"D:{2}\n") # down (D:2)
-
-        
-        # interpulation
-        # self.pid_controller.interp(5)
-
-
-        self.comm.write(f"T:{(trip/100)*(5-0.5) + 0.5}\n")
+        self.comm.write(f"T:{timeOn}\n")
         time.sleep(0.01)
 
     #get line from secondary arduino;

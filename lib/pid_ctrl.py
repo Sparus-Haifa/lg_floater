@@ -30,6 +30,8 @@ class PID:
         voltage = abs(current_err)
         if voltage >= 100:
             voltage = 100
+        if voltage <= 40:
+            voltage = 40
 
         print("voltage", voltage)
         return voltage
@@ -40,6 +42,8 @@ class PID:
         return 1 if curr_err > 0 else 2
         
     def interp_timeOn(self, current_err):
+        if current_err > 100:
+            current_err = 100
         x1 = 0 # no error - spot on target!
         x2 = 100 # max error
         y1 = 0.5 # min timeOn is 0.5 sec

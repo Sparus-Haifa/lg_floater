@@ -35,48 +35,57 @@ class Comm():
 
 
     def recieveMessage(self):
-        try:
-            message, address = self.client_socket.recvfrom(1024)
-        except Exception as e:
-            '''no data yet..'''
-            pass
-            # print(e)
-            # print('''no data yet..''')
-        else:
-            # message = message.upper()
-            print(message)
-            s = message.decode('utf-8','ignore')
-            header, value = s.strip().split(":")
-            value = float(value)
-            # print("header",header)
-            # print("value",value)
-            if header=="V":
-                if self.direction != 1.0:
-                    value*=-1
-                self.pid = value
-                self.lastPID = value
-            elif header=="D":
-                self.direction = value
-            elif header=="T":
-                self.T = value
-                self.pid = self.pid * self.T
+        while True:
+            try:
+                message, address = self.client_socket.recvfrom(1024)
+            except Exception as e:
+                '''no data yet..'''
+                break
+                pass
+                # print(e)
+                # print('''no data yet..''')
+            else:
+                # message = message.upper()
+                print(message)
+                s = message.decode('utf-8','ignore')
+                header, value = s.strip().split(":")
+                value = float(value)
+                # print("header",header)
+                # print("value",value)
+                if header=="V":
+                    # if self.direction != 1.0:
+                        # value*=-1
+                    # self.pid = value
+                    # self.lastPID = value
+                    self.voltage = value
+                    # if self.voltage < 40:
+                        # self.voltage = 40
+                elif header=="D":
+                    self.direction = value
+                elif header=="T":
+                    # self.T = value
+                    # self.pid = self.pid * value
+                    self.timeOn = value
+                elif header=="PID":
+                    self.lastPID = value
+                    self.pid = value
 
 
-            # for debug only
-            elif header=="d":
-                self.d = value
-            elif header=="p":
-                self.p = value
-            elif header=="kd":
-                self.kd = value
-            elif header=="kp":
-                self.kp = value
-            elif header=="target":
-                self.targetDepth = value
-            elif header=="trip":
-                self.trip = value
-            elif header=="phase":
-                self.phase = value
+                # for debug only
+                elif header=="d":
+                    self.d = value
+                elif header=="p":
+                    self.p = value
+                elif header=="kd":
+                    self.kd = value
+                elif header=="kp":
+                    self.kp = value
+                elif header=="target":
+                    self.targetDepth = value
+                elif header=="trip":
+                    self.trip = value
+                elif header=="phase":
+                    self.phase = value
 
 
 
@@ -99,7 +108,7 @@ class YuriSim():
         frame = 0 # just a counter to time sensors i/o
 
         pg.init()
-        FPS = 60
+        FPS = 2
         SimFactor = 1.0
 
         myfont = pg.font.SysFont("monospace", 15)
@@ -121,18 +130,17 @@ class YuriSim():
         first_loop_sync = True
 
         # A constant value that you add to the y_change each frame.
-        PIXELRATIO = 10.0 # pixel to meter
-        MASS = 20.3
-        GRAVITY  = 9.8
+        PIXELRATIO = 1.0 # pixel to meter
+        MASS = 20.3 # kg
+        GRAVITY  = 9.8 # m/sec^2
         VOLUME_FLOATER = 0.0197 # m^3
         MAX_BLADDER_VOLUME = 0.00065 # m^3
         currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         FW = 1025 # kg / m^3
         BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW #9.6 # Volume * g * fw
         NETFORCE = .000
-        BCONST = 1000.0 # drag_coefficient * Object_area * fluid_density
-        # BLADDERMAX = 0.6
-        # BLADDERCURRENT = 0.6
+        BCONST = 1.0 # drag_coefficient * Object_area * fluid_density (FW)
+
 
         startTime = time.time()
         done = False
@@ -169,10 +177,10 @@ class YuriSim():
             y_change += NETFORCE
             self.depth += y_change
             # Stop the object when it's near the bottom of the screen.
-            if self.depth >= (height - 130)*PIXELRATIO:
-                self.depth = (height - 130)*PIXELRATIO
-                y_change = 0
-                on_ground = True
+            # if self.depth >= (height - 130)*PIXELRATIO:
+            #     self.depth = (height - 130)*PIXELRATIO
+            #     y_change = 0
+            #     on_ground = True
             if self.depth <=0 :
                 y_change=0
                 self.depth=0
@@ -217,8 +225,9 @@ class YuriSim():
             label_bladder = myfont.render(f"[bladder buoyancy:{bladder_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_bladder, (20, 140))
 
-            bladderSize_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
-            label_bladder = myfont.render(f"[bladder size:{bladderSize_str}%]", 1, DARKBLUE)
+            bladderSize_str = "{:.2f}".format(currentBladderVolume*1000000)
+            bladderPercent_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
+            label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
             display.blit(label_bladder, (20, 160))
 
             totalb_str = "{:.6f}".format(BUOYANCY_FLOATER + currentBladderVolume)
@@ -233,21 +242,21 @@ class YuriSim():
             label_acceleration = myfont.render(f"[acceleration:{acc_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_acceleration, (20, 220))
 
-            p_str = "{:.2f}".format(self.comm.p)
+            p_str  = "{:.2f}".format(self.comm.p)
             kp_str = "{:.2f}".format(self.comm.kp)
             tp_str = "{:.2f}".format(self.comm.p*self.comm.kp)
             label_p = myfont.render(f"[p:{p_str} * kp:{kp_str} = {tp_str}]", 1, DARKBLUE)
             display.blit(label_p, (20, 240))
 
 
-            d_str = "{:.2f}".format(self.comm.d)
+            d_str  = "{:.2f}".format(self.comm.d)
             kd_str = "{:.2f}".format(self.comm.kd)
             td_str = "{:.2f}".format(self.comm.kd * self.comm.d)
             label_d = myfont.render(f"[d:{d_str} * kd:{kd_str} = {td_str}]", 1, DARKBLUE)
             display.blit(label_d, (20, 260))
 
             tpid_str = "{:.2f}".format(self.comm.lastPID)
-            label_tpid = myfont.render(f"[pid:{tpid_str}]", 1, DARKBLUE)
+            label_tpid = myfont.render(f"[raw pid:{tpid_str}]", 1, DARKBLUE)
             display.blit(label_tpid, (20, 280))
 
 
@@ -258,7 +267,7 @@ class YuriSim():
             for i, sensor in enumerate(self.sensorNames):
                 if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
                     value = float(self.sensorValue[i])
-                    value*=(1 + self.depth * 0.01)
+                    value*=(1 + self.depth * 0.001)
                     if value<10 or value > 65536:
                         continue
                     avg+=value
@@ -266,12 +275,14 @@ class YuriSim():
             if avg_count>0:
                 avg/=avg_count 
 
-            avgSens_str = "{:.2f}".format(avg)
-            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} milibar]", 1, DARKBLUE)
+            # 1000 milibar = 10.0 decibar
+            # 1 decibar ~= 1 meter.
+            avgSens_str = "{:.2f}".format(avg/100)
+            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} decibar]", 1, DARKBLUE)
             display.blit(label_avgSens, (20, 300))
 
-            targetSens_str = "{:.2f}".format(self.comm.targetDepth)
-            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} milibar]", 1, DARKBLUE)
+            targetSens_str = "{:.2f}".format(self.comm.targetDepth/100)
+            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} decibar]", 1, DARKBLUE)
             display.blit(label_targetSens, (20, 320))
 
             trip_str = "{:.2f}".format(self.comm.trip*100)
@@ -286,10 +297,17 @@ class YuriSim():
             label_pump = myfont.render(f"[pump :{self.comm.pump} ]", 1, DARKBLUE)
             display.blit(label_pump, (450, 20))
 
-            label_voltage = myfont.render(f"[voltage :{self.comm.voltage} Vdc] [direction :{self.comm.direction}]", 1, DARKBLUE)
+            d_str = "Down"
+            if self.comm.direction != 1.0:
+                d_str = "Up"
+            
+            
+            voltage_str = "{:.2f}".format(self.comm.voltage)
+            label_voltage = myfont.render(f"[PID to pump :{voltage_str} %] [direction :{d_str}]", 1, DARKBLUE)
             display.blit(label_voltage, (450, 40))
 
-            label_dc = myfont.render(f"[timeOn :{self.comm.timeOn} sec] [timeOff :{self.comm.timeOff} sec]", 1, DARKBLUE)
+            timeOn_str = "{:.2f}".format(self.comm.timeOn)
+            label_dc = myfont.render(f"[timeOn :{timeOn_str} sec] [timeOff :{self.comm.timeOff} sec]", 1, DARKBLUE)
             display.blit(label_dc, (450, 60))
 
 
@@ -309,16 +327,18 @@ class YuriSim():
             frame+=1
             # if int(counter) % 10 ==0 and counter.is_integer():
             # if frame % (FPS/SimFactor) == 0:
-            if frame % 2 == 0:
-                self.sendStats(counter)
-
-            
+            if frame % FPS == 0:
+                self.sendAllSensors()
             self.comm.recieveMessage()
             clock.tick(FPS)
 
         pg.quit()
 
-    def sendStats(self, counter):
+    def sendAllSensors(self):
+        for _ in range(len(self.sensorNames)):
+            self.sendStats()
+
+    def sendStats(self):
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)}\n",'utf-8'))
         if self.nextSensor == len(self.sensorNames):
             self.nextSensor = 0
@@ -327,7 +347,7 @@ class YuriSim():
         value = self.sensorValue[self.nextSensor]
 
         if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
-            value*=(1 + self.depth * 0.01) 
+            value*=(1 + self.depth * 0.001) 
         message = sensor + ':' + "{:.2f}".format(value)
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
         print(f"sending: {message}")
