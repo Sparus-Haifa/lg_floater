@@ -42,6 +42,7 @@ class PID:
         return 1 if curr_err > 0 else 2
         
     def interp_timeOn(self, current_err):
+        current_err = abs(current_err)
         if current_err > 100:
             current_err = 100
         x1 = 0 # no error - spot on target!

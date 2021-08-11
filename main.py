@@ -8,6 +8,7 @@ import cfg.configuration as cfg
 import lib.logger as logger
 import lib.comm_serial as ser
 import lib.comm_udp as com
+# import lib.comm_tcp as com
 
 from lib.press_ctrl import *
 from lib.temp_ctrl import *
@@ -109,6 +110,7 @@ class App():
         #     exit()
 
         # Simulated via udp
+        # self.comm = com.UdpComm()
         self.comm = com.UdpComm()
         if not self.comm.server_socket:
             print("-E- Failed to init udp port")
@@ -309,20 +311,21 @@ class App():
 
         # doInterpulation = False # TODO: move to PID.moveToPhaseTwo = True
         
-        if abs(target_sdpeth - avg) < (0.2 *  target_sdpeth):
+        # if abs(target_sdpeth - avg) < (0.2 *  target_sdpeth):
+        if p < 200:
             print("change PID")
             self.pid_controller.doInterpolation = True
-            kp=2.4 # madeup
-            kd=3.65 # madeup
+            kp=0.05 # madeup
+            kd=0.30 # madeup
         else:
-            kp=3.6
-            kd=3.45
+            kp=1.0
+            kd=2.0
 
 
         # Sens debug data - for sim only
         # on 20% trip change PID
-        trip = 1 - abs(target_sdpeth - avg)/target_sdpeth # precent 80%
-        self.comm.write(f"trip:{trip}\n")
+        # trip = 1 - abs(target_sdpeth - avg)/target_sdpeth # precent 80%
+        self.comm.write(f"error:{p}\n")
 
         self.comm.write(f"p:{p}\n")
         time.sleep(0.01)
@@ -370,6 +373,7 @@ class App():
         self.comm.write(f"D:{direction}")
         self.comm.write(f"T:{timeOn}\n")
         time.sleep(0.01)
+        time.sleep(timeOn + timeOff)
 
     #get line from secondary arduino;
     def get_next_serial_line_safety(self):

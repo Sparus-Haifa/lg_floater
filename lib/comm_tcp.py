@@ -4,18 +4,20 @@ import errno
 from time import sleep
 
 
-class UdpComm():
+class TcpComm():
     def __init__(self) -> None:
-        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.server_socket.settimeout(1.0)
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # self.server_socket.settimeout(1.0)
         # self.server_socket.setblocking(False)
         self.server_socket.bind(('', 12000))
         self.address= ("127.0.0.1", 12003)
+        self.server_socket.listen()
+        self.conn, self.addr = self.server_socket.accept()
 
 
     def read(self):
         try:
-            message, self.address = self.server_socket.recvfrom(1024)
+            message = self.conn.recv(1024)
         except socket.error as e:
             err = e.args[0]
             if err== errno.EAGAIN or err==errno.EWOULDBLOCK:
@@ -26,13 +28,13 @@ class UdpComm():
 
     def write(self, message = b"noting\n"):
         line = bytes(message, encoding='utf-8')
-        self.server_socket.sendto(line, self.address)
+        self.conn.sendall(line, self.address)
 
 
 
 
 if __name__=="__main__":
-    comm = UdpComm()
+    comm = TcpComm()
     i = 0
     while True:
         i+=1

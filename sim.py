@@ -2,13 +2,17 @@ import pygame as pg
 import time
 import socket
 
+from pygame.event import pump
+
 
 class Comm():
     def __init__(self) -> None:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.settimeout(1.0)
         self.client_socket.setblocking(False)
         self.addr = ("127.0.0.1", 12000)
+        # self.client_socket.connect(self.addr)
         self.pid = 0
         self.lastPID = 0
         self.pump = "off"
@@ -27,11 +31,13 @@ class Comm():
         self.targetDepth = 0
         self.trip = 0
         self.phase = 1
+        self.error = 0
 
 
     def sendMessage(self, message = b'test'):
         # message 
         self.client_socket.sendto(message, self.addr)
+        # self.client_socket.sendall(message)
 
 
     def recieveMessage(self):
@@ -53,18 +59,10 @@ class Comm():
                 # print("header",header)
                 # print("value",value)
                 if header=="V":
-                    # if self.direction != 1.0:
-                        # value*=-1
-                    # self.pid = value
-                    # self.lastPID = value
                     self.voltage = value
-                    # if self.voltage < 40:
-                        # self.voltage = 40
                 elif header=="D":
                     self.direction = value
                 elif header=="T":
-                    # self.T = value
-                    # self.pid = self.pid * value
                     self.timeOn = value
                 elif header=="PID":
                     self.lastPID = value
@@ -82,8 +80,8 @@ class Comm():
                     self.kp = value
                 elif header=="target":
                     self.targetDepth = value
-                elif header=="trip":
-                    self.trip = value
+                elif header=="error":
+                    self.error = value
                 elif header=="phase":
                     self.phase = value
 
@@ -96,6 +94,11 @@ class YuriSim():
         self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0.00, 0.00,    0, 23.00 ] 
         self.nextSensor = 0
         self.depth = 0
+        self.pumpIsOn = False
+        self.pumpOnDuration = 0.0 # pump on time - max 5 sec
+        self.pumpOnTime = 0.0 # dateTime stamp of turning on the pump
+        self.pumpTimer = 0.0 # time the pump is working in the currect duty cycle
+        
         # print(f"{len(self.sensorNames)}, {len(self.sensorValue)}")
         # self.phase = 1
         # phase 1 - normal pid to target
@@ -108,13 +111,14 @@ class YuriSim():
         frame = 0 # just a counter to time sensors i/o
 
         pg.init()
-        FPS = 2
-        SimFactor = 1.0
+
 
         myfont = pg.font.SysFont("monospace", 15)
 
         LIGHTBLUE = pg.Color('lightskyblue2')
         DARKBLUE = pg.Color(11, 8, 69)
+        RED = pg.Color(120,8,11)
+        GREEN = pg.Color(11,120,8)
 
         display = pg.display.set_mode((800, 500))
         width, height = display.get_size()
@@ -125,36 +129,82 @@ class YuriSim():
 
         x = width * 0.45
         # self.depth = 0 # Depth in meter
-        y_change = 0 # Speed in px per 1/FPS
+        # y_change = 0 # Speed in px per 1/FPS
+        
         on_ground = False
         first_loop_sync = True
 
-        # A constant value that you add to the y_change each frame.
+        # Const params
         PIXELRATIO = 1.0 # pixel to meter
         MASS = 20.3 # kg
         GRAVITY  = 9.8 # m/sec^2
         VOLUME_FLOATER = 0.0197 # m^3
         MAX_BLADDER_VOLUME = 0.00065 # m^3
-        currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         FW = 1025 # kg / m^3
-        BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW #9.6 # Volume * g * fw
-        NETFORCE = .000
-        BCONST = 1.0 # drag_coefficient * Object_area * fluid_density (FW)
+        BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW # Volume * g * fw
+        DRAG_COEFFECIENT = 0.82
+        FLOATAREA = 3.14 * 0.18 * 0.18 / 4
+        BCONST = 0.5 * FW * DRAG_COEFFECIENT * FLOATAREA # drag_coefficient * Object_area * fluid_density (FW)
+        FPS = 2
+        
+        # Variables
+        acceleration = .000
+        currentBladderVolume = MAX_BLADDER_VOLUME # start at max
+        speed = 0
+        SimFactor = 1.0
 
 
         startTime = time.time()
         done = False
         while not done:
-            if self.comm.pid > 10:
-                currentBladderVolume -= 0.01 * self.comm.pid * 0.00001
-                self.comm.pid=0
-            elif self.comm.pid <-10:
-                currentBladderVolume += 0.01 * self.comm.pid * -0.00001
-                self.comm.pid=0
+            # handle pump
+            if self.comm.timeOn > 0:
+                if not self.pumpIsOn:
+                    print("starting pump")
+                    print("setting timer for", self.comm.timeOn)
+                    self.pumpIsOn = True
+                    self.pumpOnDuration = self.comm.timeOn
+                    self.pumpOnTime = time.time()
+                else:
+                    print("Pump is already on")
+                    self.pumpTimer = time.time() - self.pumpOnTime
+                    timeOnOver = self.pumpTimer > self.pumpOnDuration # Time on has passed. now time off
+                    bladderIsFull = currentBladderVolume == MAX_BLADDER_VOLUME
+                    bladderIsEmpty = currentBladderVolume == 0
+                    limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
+                    if timeOnOver or limitPump:
+                        print("turn off pump")
+                        # case timeOn is 100%
+                        # case timeOn is 0%
+                        self.pumpIsOn = False
+            else:
+                print("time off?")
+
+
+
+                # pumpOnTime = time.time()
+                # while
+            # if self.pumpIsOn and self.comm.pid > 10:
+            #     currentBladderVolume -= 0.01 * self.comm.pid * 0.00001
+            #     self.comm.pid=0
+            # elif self.pumpIsOn and self.comm.pid <-10:
+            #     currentBladderVolume += 0.01 * self.comm.pid * -0.00001
+            #     self.comm.pid=0
+            if self.pumpIsOn:
+                value = 0.01 * self.comm.voltage * 0.00001
+                if self.comm.direction != 1.0:
+                    value*=-1
+                currentBladderVolume -= value
+                # self.comm.pid=0
+
+
             if currentBladderVolume < 0:
                 currentBladderVolume = 0
+                self.pumpIsOn = False
             if currentBladderVolume > MAX_BLADDER_VOLUME:
                 currentBladderVolume = MAX_BLADDER_VOLUME
+                self.pumpIsOn = False
+
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     done = True
@@ -163,27 +213,23 @@ class YuriSim():
             # Add the GRAVITY value to y_change, so that
             # the object moves faster each frame.
 
-            drag = BCONST * y_change* y_change
-            if y_change < 0:
+            drag = BCONST * speed * speed
+            if speed > 0:
                 drag*=-1
 
             bouyancyBladder = currentBladderVolume * GRAVITY * FW
 
-            NETFORCE = MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder - drag
-            NETFORCE /= FPS
-            NETFORCE *= SimFactor
+            acceleration = (MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/MASS
+            TIMESTEP = 1 / FPS
+            speed = speed + acceleration * TIMESTEP
+            speed *= SimFactor
 
+            self.depth = self.depth + speed * TIMESTEP 
 
-            y_change += NETFORCE
-            self.depth += y_change
-            # Stop the object when it's near the bottom of the screen.
-            # if self.depth >= (height - 130)*PIXELRATIO:
-            #     self.depth = (height - 130)*PIXELRATIO
-            #     y_change = 0
-            #     on_ground = True
             if self.depth <=0 :
-                y_change=0
                 self.depth=0
+                speed=0
+                acceleration = 0
 
             # self.depth=y
             y = self.depth * PIXELRATIO
@@ -193,54 +239,72 @@ class YuriSim():
             
             # render text
             diff_time = time.time() - startTime
-            str_time = "{:.4f}".format(diff_time)
+            str_time = "{:.2f}".format(diff_time)
             label_timer = myfont.render(f"[real time:{str_time} secs]", 1, DARKBLUE)
             display.blit(label_timer, (20, 20))
 
             # frameRa
+
+            fps = clock.get_fps()
+            fps_str = "{:.2f}".format(fps)
+            # label_fps = myfont.render(f"[fps :{fps_str} ]", 1, DARKBLUE)
+            # display.blit(label_fps, (450, 100))
+
+
             counter+=SimFactor/FPS
-            counter_str = "{:.4f}".format(counter)
-            label_counter = myfont.render(f"[sim time:{counter_str} secs]", 1, DARKBLUE)
+            counter_str = "{:.2f}".format(counter)
+            label_counter = myfont.render(f"[sim time:{counter_str} secs] [FPS: {fps_str}]", 1, DARKBLUE)
             display.blit(label_counter, (20, 40))
 
             depth_str = "{:.4f}".format(self.depth)
             label_depth = myfont.render(f"[depth:{depth_str} meter]", 1, DARKBLUE)
             display.blit(label_depth, (20, 60))
 
-            vel_str = "{:.4f}".format(y_change*FPS/SimFactor)
+            vel_str = "{:.4f}".format(speed*FPS/SimFactor)
             label_speed = myfont.render(f"[velocity:{vel_str} m/s]", 1, DARKBLUE)
             display.blit(label_speed, (20, 80))
 
-            g_str = "{:.6f}".format(GRAVITY)
-            label_g = myfont.render(f"[gravity :{g_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_g, (20, 100))  
+            acc_str = "{:.6f}".format(acceleration*FPS/SimFactor)
+            label_acceleration = myfont.render(f"[acceleration:{acc_str} m/s^2]", 1, DARKBLUE)
+            display.blit(label_acceleration, (20, 100))
 
-
-
-            buoyancy_str = "{:.6f}".format(BUOYANCY_FLOATER)
-            label_buoyancy = myfont.render(f"[object buoyancy:{buoyancy_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_buoyancy, (20, 120))
-
-            bladder_str = "{:.6f}".format(bouyancyBladder)
-            label_bladder = myfont.render(f"[bladder buoyancy:{bladder_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_bladder, (20, 140))
-
-            bladderSize_str = "{:.2f}".format(currentBladderVolume*1000000)
-            bladderPercent_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
-            label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
-            display.blit(label_bladder, (20, 160))
-
-            totalb_str = "{:.6f}".format(BUOYANCY_FLOATER + currentBladderVolume)
-            label_totalb = myfont.render(f"[total buoyancy:{totalb_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_totalb, (20, 180))
 
             drag_str = "{:.6f}".format(drag*60)
-            label_drag = myfont.render(f"[drag:{drag_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_drag, (20, 200))
+            label_drag = myfont.render(f"[drag:{drag_str} N]", 1, DARKBLUE)
+            display.blit(label_drag, (20, 120))
 
-            acc_str = "{:.6f}".format(NETFORCE*FPS/SimFactor)
-            label_acceleration = myfont.render(f"[acceleration:{acc_str} m/s^2]", 1, DARKBLUE)
-            display.blit(label_acceleration, (20, 220))
+
+
+
+            avg = 0
+            avg_count = 0
+            for i, sensor in enumerate(self.sensorNames):
+                if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
+                    value = float(self.sensorValue[i])
+                    # value*=(1 + self.depth * 1) # 1 decibar = 1 meter
+                    if value<10 or value > 65536:
+                        # print("sensor error:",sensor,"value=",value)
+                        continue
+                    value += self.depth*100
+                    avg+=value
+                    avg_count+=1
+            if avg_count>0:
+                avg/=avg_count 
+
+            # 1000 milibar = 10.0 decibar
+            # 1 decibar ~= 1 meter.
+            avgSens_str = "{:.2f}".format(avg/100)
+            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} decibar]", 1, DARKBLUE)
+            display.blit(label_avgSens, (20, 160))
+
+            targetSens_str = "{:.2f}".format(self.comm.targetDepth/100)
+            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} decibar]", 1, DARKBLUE)
+            display.blit(label_targetSens, (20, 180))
+
+
+
+
+
 
             p_str  = "{:.2f}".format(self.comm.p)
             kp_str = "{:.2f}".format(self.comm.kp)
@@ -250,8 +314,8 @@ class YuriSim():
 
 
             d_str  = "{:.2f}".format(self.comm.d)
-            kd_str = "{:.2f}".format(self.comm.kd)
-            td_str = "{:.2f}".format(self.comm.kd * self.comm.d)
+            kd_str = "{:.2f}".format(self.comm.kd * -1)
+            td_str = "{:.2f}".format(self.comm.kd * self.comm.d * -1)
             label_d = myfont.render(f"[d:{d_str} * kd:{kd_str} = {td_str}]", 1, DARKBLUE)
             display.blit(label_d, (20, 260))
 
@@ -262,31 +326,11 @@ class YuriSim():
 
 
 
-            avg = 0
-            avg_count = 0
-            for i, sensor in enumerate(self.sensorNames):
-                if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
-                    value = float(self.sensorValue[i])
-                    value*=(1 + self.depth * 0.001)
-                    if value<10 or value > 65536:
-                        continue
-                    avg+=value
-                    avg_count+=1
-            if avg_count>0:
-                avg/=avg_count 
 
-            # 1000 milibar = 10.0 decibar
-            # 1 decibar ~= 1 meter.
-            avgSens_str = "{:.2f}".format(avg/100)
-            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} decibar]", 1, DARKBLUE)
-            display.blit(label_avgSens, (20, 300))
 
-            targetSens_str = "{:.2f}".format(self.comm.targetDepth/100)
-            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} decibar]", 1, DARKBLUE)
-            display.blit(label_targetSens, (20, 320))
 
-            trip_str = "{:.2f}".format(self.comm.trip*100)
-            label_trip = myfont.render(f"[trip percentage:{trip_str} %]", 1, DARKBLUE)
+            error_str = "{:.2f}".format(self.comm.error)
+            label_trip = myfont.render(f"[error :{error_str} meter]", 1, DARKBLUE)
             display.blit(label_trip, (20, 340))
 
             # phase_str = "{:.2f}".format(self.comm.trip*100)
@@ -294,16 +338,13 @@ class YuriSim():
             display.blit(label_phase, (20, 360))
 
             # right side UI
-            label_pump = myfont.render(f"[pump :{self.comm.pump} ]", 1, DARKBLUE)
+            pump_str = "On" if self.pumpIsOn else "Off"
+            color = GREEN if self.pumpIsOn else RED
+            label_pump = myfont.render(f"[Pump :{pump_str} ]", 1, color)
             display.blit(label_pump, (450, 20))
 
-            d_str = "Down"
-            if self.comm.direction != 1.0:
-                d_str = "Up"
-            
-            
-            voltage_str = "{:.2f}".format(self.comm.voltage)
-            label_voltage = myfont.render(f"[PID to pump :{voltage_str} %] [direction :{d_str}]", 1, DARKBLUE)
+            d_str = "Down" if self.comm.direction == 1.0 else "Up"
+            label_voltage = myfont.render(f"[Direction :{d_str}]", 1, DARKBLUE)
             display.blit(label_voltage, (450, 40))
 
             timeOn_str = "{:.2f}".format(self.comm.timeOn)
@@ -311,10 +352,20 @@ class YuriSim():
             display.blit(label_dc, (450, 60))
 
 
-            fps = clock.get_fps()
-            fps_str = "{:.2f}".format(fps)
-            label_fps = myfont.render(f"[fps :{fps_str} ]", 1, DARKBLUE)
-            display.blit(label_fps, (450, 80))
+            timerPump_str = "{:.2f}".format(self.pumpTimer)
+            label_dc = myfont.render(f"[timeOn time :{timerPump_str} sec]", 1, DARKBLUE)
+            display.blit(label_dc, (450, 80))
+
+            voltage_str = "{:.2f}".format(self.comm.voltage)
+            label_dc = myfont.render(f"[Voltage :{voltage_str} %]", 1, DARKBLUE)
+            display.blit(label_dc, (450, 100))
+
+
+            bladderSize_str = "{:.2f}".format(currentBladderVolume*1000000)
+            bladderPercent_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
+            label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
+            display.blit(label_bladder, (450, 120))
+
 
 
 
@@ -327,7 +378,8 @@ class YuriSim():
             frame+=1
             # if int(counter) % 10 ==0 and counter.is_integer():
             # if frame % (FPS/SimFactor) == 0:
-            if frame % FPS == 0:
+
+            if not self.pumpIsOn:# and frame % FPS == 0:
                 self.sendAllSensors()
             self.comm.recieveMessage()
             clock.tick(FPS)
@@ -347,11 +399,14 @@ class YuriSim():
         value = self.sensorValue[self.nextSensor]
 
         if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
-            value*=(1 + self.depth * 0.001) 
+            # value*=(1 + self.depth * 1) 
+            if 10 < value and value < 65536: # handle bad sensors
+                value += self.depth*100
+
         message = sensor + ':' + "{:.2f}".format(value)
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
         print(f"sending: {message}")
-        self.comm.sendMessage(bytes(f"{message}\n",'utf-8'))
+        self.comm.sendMessage(bytes(f"{message}",'utf-8'))
 
         self.nextSensor+=1
     
