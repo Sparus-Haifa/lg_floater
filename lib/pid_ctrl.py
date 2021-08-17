@@ -32,6 +32,7 @@ class PID:
             voltage = 100
         if voltage <= 40:
             voltage = 40
+            # voltage = 0
 
         print("voltage", voltage)
         return voltage
@@ -59,6 +60,10 @@ class PID:
         return timeOn
 
     def interp_dutyCycle(self, current_err):
+        current_err = abs(current_err)
+        if current_err > 100:
+            current_err = 100
+
         x1 = 0 # no error
         x2 = 100 # max error
         y1 = 0 # min utility 0% (min dc)
@@ -84,6 +89,7 @@ class PID:
         # dc * (timeOn+timeOff) = timeOn
         # timeOn + timeOff = timeOn / dc
         timeOff = timeOn / dc - timeOn
+        print("timeOff",timeOff)
         return timeOff
 
 

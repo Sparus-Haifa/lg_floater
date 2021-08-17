@@ -29,6 +29,10 @@ class App():
         # fyi = FYI(log)
         # 
 
+        self.timeOff = 0.0
+        self.timeOn = 0.0
+        self.dcTimer = None
+
         self.pressureSensors = {}
         # for i in range(6):
         sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
@@ -128,7 +132,7 @@ class App():
     def get_next_serial_line(self):
         serial_line = self.comm.read() # e.g. data=['P1', '1.23']
         if serial_line == None:
-            print(f"Garbage: {serial_line}")
+            print(f"Waiting for message from arduino. Received: {serial_line}")
             return
         print("raw: {}".format(serial_line))
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
@@ -202,11 +206,15 @@ class App():
 
         elif header=="PC":
             self.altimeter.add_confidance(value)
-            self.logSensors()
-            self.sendPID()
 
         elif header=="RPM":
             self.rpm.add_sample(value)
+            # last sensor received, send pid commands to arduino
+            self.logSensors()
+            if self.timeOn > 0 and self.timeOff > 0 and time.time() - self.dcTimer < self.timeOn +  self.timeOff:
+                print("time Off sleep?", self.timeOn, self.timeOff)
+            else:
+                self.sendPID()
 
         elif header=="PU":
             self.pump_is_on.add_sample(value)
@@ -262,7 +270,7 @@ class App():
 
 
     def sendPID(self):
-        print("sending PID result to arduino")
+        print("start sending PID result to arduino")
         avg = 0
         count = 0
         for sensor in self.pressureSensors:
@@ -284,7 +292,7 @@ class App():
             
         print()
 
-        target_sdpeth = 1300 # on 80% plus change PID 
+        target_sdpeth = 1500 # on 80% plus change PID 
         print(target_sdpeth) 
         # 1022*=(1 + self.depth * 0.01) 
         # target_depth=1022*(1 + target_sdpeth) * 0.01
@@ -312,14 +320,14 @@ class App():
         # doInterpulation = False # TODO: move to PID.moveToPhaseTwo = True
         
         # if abs(target_sdpeth - avg) < (0.2 *  target_sdpeth):
-        if p < 200:
+        if False: #self.pid_controller.doInterpolation or p < 200:
             print("change PID")
             self.pid_controller.doInterpolation = True
-            kp=0.05 # madeup
-            kd=0.30 # madeup
+            kp=0.1 # madeup
+            kd=4.00 # madeup
         else:
-            kp=1.0
-            kd=2.0
+            kp=0.2
+            kd=7
 
 
         # Sens debug data - for sim only
@@ -347,8 +355,8 @@ class App():
         # scalar = abs(scalar)
         voltage = self.pid_controller.normal_pumpVoltage(scalar)
         dc = self.pid_controller.interp_dutyCycle(scalar)
-        timeOn = self.pid_controller.interp_timeOn(scalar)
-        timeOff = self.pid_controller.calc_timeOff(timeOn,dc)
+        self.timeOn = self.pid_controller.interp_timeOn(scalar)
+        self.timeOff = self.pid_controller.calc_timeOff(self.timeOn,dc)
 
 
         phase = 1
@@ -356,7 +364,7 @@ class App():
         if self.pid_controller.doInterpolation:
             phase = 2
             print("yes")
-        self.comm.write(f"phase:{phase}\n")
+        self.comm.write(f"phase:{phase}\n") # sim debug
 
         # normalize scalar
         # if abs(scalar) > 100:
@@ -368,12 +376,18 @@ class App():
         # if scalar==0:
         #     return
 
-        self.comm.write(f"PID:{scalar}")
+        print("sending PID")
+        self.comm.write(f"PID:{scalar}") # sim debug
+        self.comm.write(f"O:{self.timeOff}\n") # sim debug
         self.comm.write(f"V:{voltage}\n")
         self.comm.write(f"D:{direction}")
-        self.comm.write(f"T:{timeOn}\n")
+        self.comm.write(f"T:{self.timeOn}\n")
         time.sleep(0.01)
-        time.sleep(timeOn + timeOff)
+
+        self.dcTimer = time.time()
+        
+
+        # time.sleep(timeOn + timeOff)
 
     #get line from secondary arduino;
     def get_next_serial_line_safety(self):
