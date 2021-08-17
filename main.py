@@ -147,14 +147,9 @@ class App():
 
 
         # Pressure
-        if header=="AT":
-            self.internalTemperatureSensors["AT"].add_sample(value)
 
-        elif header=="AP":
-            self.internalTemperatureSensors["AP"].add_sample(value)
 
-        elif header=="TT1":
-            
+        if header=="TT1":
             self.temperatureSensors["TT1"].add_sample(value)
 
         elif header=="TT2":
@@ -192,8 +187,7 @@ class App():
         elif header=="Z":
             self.IMUSensors["Z"].add_sample(value)
 
-        elif header=="BV":
-            self.bladderVolume.add_sample(value)
+
 
         elif header=="H1":
             self.leak_h_flag.add_sample(value)
@@ -207,19 +201,53 @@ class App():
         elif header=="PC":
             self.altimeter.add_confidance(value)
 
+        elif header=="PU":
+            self.pump_is_on.add_sample(value)
+            # maybe pid triger
+        # else:
+            # logSensors() # Last sensor update
+
+            
+
+
+        # TimeOn stats:
         elif header=="RPM":
             self.rpm.add_sample(value)
             # last sensor received, send pid commands to arduino
+ 
+
+
+
+        # remove
+        # elif header=="AT":
+        #     self.internalTemperatureSensors["AT"].add_sample(value)
+
+        # elif header=="AP":
+        #     self.internalTemperatureSensors["AP"].add_sample(value)
+
+        elif header=="BV": # on both cycles
+            self.bladderVolume.add_sample(value)
+            
+            # send pid
             self.logSensors()
             if self.timeOn > 0 and self.timeOff > 0 and time.time() - self.dcTimer < self.timeOn +  self.timeOff:
                 print("time Off sleep?", self.timeOn, self.timeOff)
             else:
                 self.sendPID()
 
-        elif header=="PU":
-            self.pump_is_on.add_sample(value)
-        # else:
-            # logSensors() # Last sensor update
+        # on done
+        elif header=="PF":
+            if value==1:
+                print("pump turned on")
+            elif value==0:
+                print("pump is off")
+            elif value==2:
+                print("pump not working")
+                # leak
+                
+
+    
+
         time.sleep(0.01)
     
     def logSensors(self):
