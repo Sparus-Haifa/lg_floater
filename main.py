@@ -29,8 +29,8 @@ class App():
         # fyi = FYI(log)
         # 
 
-        self.timeOff = 0.0
-        self.timeOn = 0.0
+        self.timeOff = None
+        self.timeOn = None
         self.dcTimer = None
 
         self.pressureSensors = {}
@@ -230,8 +230,15 @@ class App():
             
             # send pid
             self.logSensors()
-            if self.timeOn > 0 and self.timeOff > 0 and time.time() - self.dcTimer < self.timeOn +  self.timeOff:
+
+
+            if not self.timeOn: # first time running. still no timeOn calc available
+                self.sendPID()
+
+            elif self.timeOn > 0 and self.timeOff > 0 and time.time() - self.dcTimer < self.timeOn +  self.timeOff:
                 print("time Off sleep?", self.timeOn, self.timeOff)
+
+ 
             else:
                 self.sendPID()
 
