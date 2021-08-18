@@ -134,7 +134,7 @@ class App():
         if serial_line == None:
             print(f"Waiting for message from arduino. Received: {serial_line}")
             return
-        print("raw: {}".format(serial_line))
+        # print("raw: {}".format(serial_line))
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
         # split_line = serial_line.split(":")
         # print(serial_line)
@@ -237,12 +237,16 @@ class App():
 
         # on done
         elif header=="PF":
+            value = int(float(value))
             if value==1:
                 print("pump turned on")
+                self.pump_is_on.add_sample(1)
             elif value==0:
                 print("pump is off")
+                self.pump_is_on.add_sample(0)
             elif value==2:
                 print("pump not working")
+                self.pump_is_on.add_sample(2)
                 # leak
                 
 
@@ -281,7 +285,9 @@ class App():
         res["H2"]=self.leak_e_flag.getLast()
 
         res["pump"]=self.pump_is_on.getLast()
+        res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
+        res["PF"]=self.pump_is_on.getLast()
 
 
         for key in res:

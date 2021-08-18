@@ -96,7 +96,7 @@ class YuriSim():
         self.comm = comm
         self.sensorNames = ["BT1", "BT2", "TT1", "TT2", "AT", "AP",  "X",  "Y",  "Z",   "BP1",   "BP2",   "TP1",   "TP2", "HP",      "PD", "PC", "H1", "H2", "PU", "BV", "RPM" ] # bv
         self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0.00, 0.00,    0, 0.00,  23.00 ] # cc
-        self.nextSensor = 0
+        # self.nextSensor = 0
         self.depth = 0
         self.pumpIsOn = False
         self.startPumpTimer = False
@@ -104,6 +104,7 @@ class YuriSim():
         self.pumpOnTime = 0.0 # dateTime stamp of turning on the pump
         self.pumpTimer = 0.0 # time the pump is working in the currect duty cycle
         self.offTimer = 0
+        self.currentBladderVolume = 0
 
         
         # print(f"{len(self.sensorNames)}, {len(self.sensorValue)}")
@@ -156,7 +157,7 @@ class YuriSim():
         
         # Variables
         acceleration = .000
-        currentBladderVolume = MAX_BLADDER_VOLUME # start at max
+        self.currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         speed = 0
         SimFactor = 1.0
 
@@ -183,8 +184,8 @@ class YuriSim():
                         # timeOnOver = self.pumpTimer > self.pumpOnDuration # Time on has passed. now time off
                         timeOnOver = self.pumpTimer > self.comm.timeOn # Time on has passed. now time off
 
-                        bladderIsFull = currentBladderVolume == MAX_BLADDER_VOLUME
-                        bladderIsEmpty = currentBladderVolume == 0
+                        bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+                        bladderIsEmpty = self.currentBladderVolume == 0
                         limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
                         if timeOnOver or limitPump: # turn on pump
                             print("turn off pump")
@@ -235,16 +236,21 @@ class YuriSim():
                 value = 0.01 * self.comm.voltage * 0.00001
                 if self.comm.direction != 1.0:
                     value*=-1
-                currentBladderVolume -= value
+                self.currentBladderVolume -= value
                 # self.comm.pid=0
+                # self.pumpFlag=1
+                self.sendMessage("PF",1)
 
 
-            if currentBladderVolume < 0:
-                currentBladderVolume = 0
+            if self.currentBladderVolume < 0:
+                self.currentBladderVolume = 0
                 self.pumpIsOn = False
-            if currentBladderVolume > MAX_BLADDER_VOLUME:
-                currentBladderVolume = MAX_BLADDER_VOLUME
+            if self.currentBladderVolume > MAX_BLADDER_VOLUME:
+                self.currentBladderVolume = MAX_BLADDER_VOLUME
                 self.pumpIsOn = False
+
+            if not self.pumpIsOn:
+                self.sendMessage("PF",0)
 
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -258,7 +264,7 @@ class YuriSim():
             if speed > 0:
                 drag*=-1
 
-            bouyancyBladder = currentBladderVolume * GRAVITY * FW
+            bouyancyBladder = self.currentBladderVolume * GRAVITY * FW
 
             acceleration = (MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/MASS
             TIMESTEP = 1 / FPS
@@ -404,8 +410,8 @@ class YuriSim():
             display.blit(label_dc, (450, 100))
 
 
-            bladderSize_str = "{:.2f}".format(currentBladderVolume*1000000)
-            bladderPercent_str = "{:.2f}".format(currentBladderVolume*100/MAX_BLADDER_VOLUME)
+            bladderSize_str = "{:.2f}".format(self.currentBladderVolume*1000000)
+            bladderPercent_str = "{:.2f}".format(self.currentBladderVolume*100/MAX_BLADDER_VOLUME)
             label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
             display.blit(label_bladder, (450, 120))
 
@@ -425,36 +431,53 @@ class YuriSim():
             # if int(counter) % 10 ==0 and counter.is_integer():
             # if frame % (FPS/SimFactor) == 0:
 
-            if not self.pumpIsOn:# and frame % FPS == 0:
+            self.updateBladderValue()
+            if self.pumpIsOn:# and frame % FPS == 0:
+                self.sendPumpSensors()
+            else:
                 self.sendAllSensors()
             self.comm.recieveMessage()
             clock.tick(FPS)
 
         pg.quit()
 
-    def sendAllSensors(self):
-        for _ in range(len(self.sensorNames)):
-            self.sendStats()
+    def updateBladderValue(self):
+        sensorNum = self.sensorNames.index("BV")
+        self.sensorValue[sensorNum]=self.currentBladderVolume
+        print(f"value of sensor {sensorNum} {self.sensorNames[sensorNum]} is {self.sensorValue[sensorNum]}")
+    
+    def sendPumpSensors(self):
+        for sensorNum in range(len(self.sensorNames)-1,len(self.sensorNames)-3,-1):
+            print("sending sensor",sensorNum)
+            self.sendStats(sensorNum)
 
-    def sendStats(self):
+    def sendAllSensors(self):
+        for sensorNum in range(len(self.sensorNames) - 1):
+            self.sendStats(sensorNum)
+
+    def sendStats(self, sensorNum):
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)}\n",'utf-8'))
-        if self.nextSensor == len(self.sensorNames) - 1:
-            self.nextSensor = 0
+        # if self.nextSensor == len(self.sensorNames) - 1:
+        #     self.nextSensor = 0
         
-        sensor = self.sensorNames[self.nextSensor]
-        value = self.sensorValue[self.nextSensor]
+        sensor = self.sensorNames[sensorNum]
+        value = self.sensorValue[sensorNum]
 
         if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
             # value*=(1 + self.depth * 1) 
             if 10 < value and value < 65536: # handle bad sensors
                 value += self.depth*100
 
-        message = sensor + ':' + "{:.2f}".format(value)
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
+        self.sendMessage(sensor,value)
+
+    def sendMessage(self,header,value):
+        message = header + ':' + "{:.4f}".format(value)
         print(f"sending: {message}")
         self.comm.sendMessage(bytes(f"{message}",'utf-8'))
 
-        self.nextSensor+=1
+
+        
     
 if __name__=="__main__":
     comm = Comm()
