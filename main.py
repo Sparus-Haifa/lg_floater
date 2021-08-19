@@ -260,10 +260,27 @@ class App():
                 return
             elif self.current_state == State.WAIT_FOR_WATER:
                 print("Waiting for water")
+                self.current_state = State.EXEC_TASK
                 return
                 
             elif self.current_state == State.EXEC_TASK:
                 # print("Executing task")
+
+
+                if not self.timeOn: # first time running. still no timeOn calc available
+                    self.sendPID()
+
+
+                # elif timeOnStarted and timeOffStarted and betweenOnandOff:
+                else:
+                    betweenOnandOff = time.time() - self.dcTimer < self.timeOn + self.timeOff
+                    if self.dcTimer and betweenOnandOff:
+                        print("time Off sleep?", self.timeOn, self.timeOff)
+
+ 
+                    else:
+                        self.sendPID()
+
                 pass
             elif self.current_state == State.END_TASK:
                 # print("Ending task")
@@ -277,19 +294,7 @@ class App():
             # logics
             # timeOnStarted = self.timeOn > 0
             # timeOffStarted = self.timeOff > 0
-            betweenOnandOff = time.time() - self.dcTimer < self.timeOn + self.timeOff
 
-            if not self.timeOn: # first time running. still no timeOn calc available
-                self.sendPID()
-
-            
-            # elif timeOnStarted and timeOffStarted and betweenOnandOff:
-            elif self.dcTimer and betweenOnandOff:
-                print("time Off sleep?", self.timeOn, self.timeOff)
-
- 
-            else:
-                self.sendPID()
 
         # on done
         elif header=="PF":
