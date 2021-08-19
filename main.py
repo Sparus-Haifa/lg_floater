@@ -272,7 +272,7 @@ class App():
                     print("Waiting for water")
                     self.waterTestTimer = time.time()
                 elapsedSeconds = time.time() - self.waterTestTimer
-                limitSeconds = 60
+                limitSeconds = 20
                 if  elapsedSeconds > limitSeconds:
                     print("Done waiting for water")
                     if self.pressureController.senseWater():

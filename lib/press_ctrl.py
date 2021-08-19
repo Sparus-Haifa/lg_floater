@@ -21,4 +21,16 @@ class Press_ctrl():
         return self.sensors
 
     def senseWater(self):
+        tp1 = self.sensors["TP1"]
+        tp2 = self.sensors["TP2"]
+        bp1 = self.sensors["BP1"]
+        bp2 = self.sensors["BP2"]
+
+        avgTop = ( tp1.getLast() + tp2.getLast() ) / 2
+        avgBottom = ( bp1.getLast() + bp2.getLast() ) / 2
+        delta = avgBottom - avgTop
+        print(f"{delta} > {self.epsilon}")
+        if  delta > self.epsilon:
+            return True
+
         return False
