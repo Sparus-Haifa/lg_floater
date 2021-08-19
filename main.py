@@ -49,22 +49,29 @@ class App():
 
         self.sensors = {}
 
-        self.pressureSensors = {}
+        self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        self.pressureController.addSensor("BP1")
+        self.pressureController.addSensor("BP2")
+        self.pressureController.addSensor("TP1")
+        self.pressureController.addSensor("TP2")
+        self.pressureController.addSensor("HP")
+
+        self.pressureSensors = self.pressureController.getSensors()
         # for i in range(6):
-        sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        self.pressureSensors["BP1"]=sensPress
+        # sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        # self.pressureSensors["BP1"]=sensPress
 
-        sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        self.pressureSensors["BP2"]=sensPress
+        # sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        # self.pressureSensors["BP2"]=sensPress
 
-        sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        self.pressureSensors["TP1"]=sensPress
+        # sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        # self.pressureSensors["TP1"]=sensPress
 
-        sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        self.pressureSensors["TP2"]=sensPress
+        # sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        # self.pressureSensors["TP2"]=sensPress
 
-        sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        self.pressureSensors["HP"]=sensPress
+        # sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        # self.pressureSensors["HP"]=sensPress
 
 
 
@@ -265,12 +272,17 @@ class App():
                     print("Waiting for water")
                     self.waterTestTimer = time.time()
                 elapsedSeconds = time.time() - self.waterTestTimer
-                if  elapsedSeconds > 60:
+                limitSeconds = 60
+                if  elapsedSeconds > limitSeconds:
                     print("Done waiting for water")
-                    self.current_state = State.EXEC_TASK
+                    if self.pressureController.senseWater():
+                        self.current_state = State.EXEC_TASK
+                    else:
+                        print("water not detected")
+                        self.waterTestTimer = time.time()
                 else:
                     print("Waiting for water")
-                    print(f"{round(elapsedSeconds)}/60 secs")
+                    print(f"{round(elapsedSeconds)}/{limitSeconds} secs")
                 return
                 
             elif self.current_state == State.EXEC_TASK:

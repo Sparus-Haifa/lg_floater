@@ -1,32 +1,24 @@
 from collections import deque
+from lib.press_sens import Press
 from lib.sensor import Sensor
+from lib.press_ctrl import *
 
-class Press(Sensor):
-    _delta_up_down = ...  # type: float
 
-    def __init__(self, name, avg_samples, precision, epsilon, log):
-        super().__init__(name, avg_samples, precision)
-        # self.name = name
-        # self.avg_samples = avg_samples
+class Press_ctrl():
+    def __init__(self, avg_samples, precision, epsilon, log):
+        self.avg_samples = avg_samples
+        self.precision = precision
         self.epsilon = epsilon
         self.log = log
+        self.sensors = {}
 
 
-        self._queues_are_full = False
+    def addSensor(self, header):
+        sensor = Press(header,self.avg_samples,self.precision,self.log)
+        self.sensors[header]=sensor
 
-        self.log.write("Press controller was initialized successfully\n")
+    def getSensors(self):
+        return self.sensors
 
-
-    def add_sample(self, sample):
-        # TODO: try catch parse
-        super().add_sample(float(sample))
-
-    # def getLast(self):
-    #     if len(self.t)<self.avg_samples:
-    #         # print(f"{self.getName()} buffer is empty")
-    #         return "Buffering"
-    #     return self.t[0]
-            
-
-    # def getName(self):
-    #     return self.name
+    def senseWater(self):
+        return False
