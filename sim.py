@@ -100,13 +100,10 @@ class YuriSim():
     def __init__(self, comm):
         self.comm = comm
         self.sensorNames = ["BT1", "BT2", "TT1", "TT2", "AT", "AP",  "X",  "Y",  "Z",   "BP1",   "BP2",   "TP1",   "TP2", "HP",      "PD", "PC", "H1", "H2", "BV", "RPM" ] # bv
-        # self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0.00, 0.00, 0.00,  23.00 ] # cc
-        self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1021.00,    0, -26607.00, 9.00, 0.00, 0.00, 0.00,  23.00 ] # cc
-        # self.nextSensor = 0
+        self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0.00, 0.00, 0.00,  23.00 ] # cc
         self.depth = 0
         self.pumpIsOn = False
         self.startPumpTimer = False
-        # self.pumpOnDuration = 0.0 # pump on time - max 5 sec # use self.comm.timeOn
         self.pumpOnTime = 0.0 # dateTime stamp of turning on the pump
         self.pumpTimer = 0.0 # time the pump is working in the currect duty cycle
         self.offTimer = 0

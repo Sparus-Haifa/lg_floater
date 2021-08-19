@@ -1,7 +1,7 @@
 from collections import deque
 from lib.press_sens import Press
 from lib.sensor import Sensor
-from lib.press_ctrl import *
+# from lib.press_ctrl import *
 
 
 class Press_ctrl():

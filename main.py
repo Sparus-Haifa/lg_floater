@@ -55,62 +55,22 @@ class App():
         self.pressureController.addSensor("TP1")
         self.pressureController.addSensor("TP2")
         self.pressureController.addSensor("HP")
-
         self.pressureSensors = self.pressureController.getSensors()
-        # for i in range(6):
-        # sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        # self.pressureSensors["BP1"]=sensPress
-
-        # sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        # self.pressureSensors["BP2"]=sensPress
-
-        # sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        # self.pressureSensors["TP1"]=sensPress
-
-        # sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        # self.pressureSensors["TP2"]=sensPress
-
-        # sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
-        # self.pressureSensors["HP"]=sensPress
 
 
+        self.temperatureController = Temp_ctrl(cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
+        self.temperatureController.addSensor("BT1")
+        self.temperatureController.addSensor("BT2")
+        self.temperatureController.addSensor("TT1")
+        self.temperatureController.addSensor("TT2")
+        self.temperatureSensors = self.temperatureController.getSensors()
 
-        self.temperatureSensors = {}
-        # for i in range(5):
-        sensTemp = Temp("Buttom Temperatue 1", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
-        self.temperatureSensors["BT1"]=sensTemp
-
-        sensTemp = Temp("Bottom Temperatue 2", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
-        self.temperatureSensors["BT2"]=sensTemp
-
-        sensTemp = Temp("Top Temperature 1", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
-        self.temperatureSensors["TT1"]=sensTemp
-
-        sensTemp = Temp("Top Temperature 2", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
-        self.temperatureSensors["TT2"]=sensTemp
-
-
-
-
-        # self.internalTemperatureSensors = {}
-        # # for i in range(2):
-        # sensTemp = Temp("AT", cfg.temperature["avg_samples"], log)
-        # self.internalTemperatureSensors["AT"]=sensTemp
-
-        # sensTemp = Temp("AP", cfg.temperature["avg_samples"], log)
-        # self.internalTemperatureSensors["AP"]=sensTemp
-
-        self.IMUSensors = {}
-        # for i in range(3):
-        sensIMU = IMU("X", cfg.imu["avg_samples"], cfg.imu["precision"], log)
-        self.IMUSensors["X"]=sensIMU
-
-        sensIMU = IMU("Y", cfg.imu["avg_samples"], cfg.imu["precision"], log)
-        self.IMUSensors["Y"]=sensIMU
-
-        sensIMU = IMU("Z", cfg.imu["avg_samples"], cfg.imu["precision"], log)
-        self.IMUSensors["Z"]=sensIMU
-
+        self.IMUController = IMU_ctrl(cfg.imu["avg_samples"], cfg.imu["precision"], log)
+        self.IMUController.addSensor("X")
+        self.IMUController.addSensor("Y")
+        self.IMUController.addSensor("Z")
+        self.IMUSensors = self.IMUController.getSensors()
+        
         
         self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], log)
 
