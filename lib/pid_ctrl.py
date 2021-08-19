@@ -34,7 +34,7 @@ class PID:
             voltage = 40
             # voltage = 0
 
-        print("voltage", voltage)
+        # print("voltage", voltage)
         return voltage
 
     def getDirection(self,curr_err):
@@ -53,10 +53,10 @@ class PID:
 
         m = (y2-y1)/(x2-x1)
 
-        print("m",m)
+        # print("m",m)
 
         timeOn = 0.5 + m * current_err
-        print("timeOn",timeOn)
+        # print("timeOn",timeOn)
         return timeOn
 
     def interp_dutyCycle(self, current_err):
@@ -73,7 +73,7 @@ class PID:
         # print("m",m)
 
         dc = 0.0 + m * current_err
-        print("duty cycle", dc)
+        # print("duty cycle", dc)
         return dc
 
     def calc_timeOff(self, timeOn, dc):
@@ -89,7 +89,7 @@ class PID:
         # dc * (timeOn+timeOff) = timeOn
         # timeOn + timeOff = timeOn / dc
         timeOff = timeOn / dc - timeOn
-        print("timeOff",timeOff)
+        # print("timeOff",timeOff)
         return timeOff
 
 

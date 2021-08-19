@@ -273,9 +273,11 @@ class App():
 
                 # elif timeOnStarted and timeOffStarted and betweenOnandOff:
                 else:
-                    betweenOnandOff = time.time() - self.dcTimer < self.timeOn + self.timeOff
+                    elapsedSeconds = time.time() - self.dcTimer
+                    dutyCycleDuration = self.timeOn + self.timeOff
+                    betweenOnandOff = elapsedSeconds < dutyCycleDuration
                     if self.dcTimer and betweenOnandOff:
-                        print("time Off sleep?", self.timeOn, self.timeOff)
+                        print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
 
  
                     else:
@@ -401,30 +403,30 @@ class App():
 
 
     def sendPID(self):
-        print("start sending PID result to arduino")
+        print("sending PID results to arduino")
         avg = 0
         count = 0
         for sensor in self.pressureSensors:
             value = float(self.pressureSensors[sensor].getLast())
-            print(f"{sensor}:{value}")
+            # print(f"{sensor}:{value}")
             if 10 > value or value > 65536:
-                print(f"error in {sensor } sensor value: {value}")
-                print("out of bound")
+                print(f"error in {sensor } sensor value: {value} is out of bound!")
+                # print("")
                 break
             avg+=value
             count+=1
         
         if count==0:
-            print("error /0")
+            print("error /0") # no valid presure sensors data
             return
         avg/=count
 
-        print(f"avg = {avg}")
+        # print(f"avg = {avg}")
             
-        print()
+        # print()
 
         target_sdpeth = 1500 # on 80% plus change PID 
-        print(target_sdpeth) 
+        # print(target_sdpeth) 
         # 1022*=(1 + self.depth * 0.01) 
         # target_depth=1022*(1 + target_sdpeth) * 0.01
         # print(target_depth)
@@ -434,18 +436,18 @@ class App():
         # TODO: divide by time
         nowTime = time.time()
         deltaTime = nowTime - self.lastTime
-        print(f"loop epoch time = {deltaTime}")
+        # print(f"loop epoch time = {deltaTime}")
         self.lastTime = nowTime
 
         # PID
         Error = target_sdpeth - avg
         p = Error
-        print("p",p)
+        # print("p",p)
         if self.lastP != 0:
             d = (self.lastP - p) / deltaTime
         else:
             d = 0
-        print("d",d)
+        # print("d",d)
         self.lastP = p
 
         # doInterpulation = False # TODO: move to PID.moveToPhaseTwo = True
@@ -491,10 +493,10 @@ class App():
 
 
         phase = 1
-        print("Do inter",self.pid_controller.doInterpolation)
+        # print("Do inter",self.pid_controller.doInterpolation)
         if self.pid_controller.doInterpolation:
             phase = 2
-            print("yes")
+            # print("yes")
         self.comm.write(f"phase:{phase}\n") # sim debug
 
         # normalize scalar
