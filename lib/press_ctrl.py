@@ -26,7 +26,7 @@ class Press(Sensor):
     def getLast(self):
         if len(self.t)<1:
             print(f"{self.getName()} buffer is empty")
-            return 0
+            return None
         return self.t[0]
             
 

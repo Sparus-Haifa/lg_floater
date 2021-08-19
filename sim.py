@@ -2,6 +2,7 @@ from main import State
 import pygame as pg
 import time
 import socket
+import random
 
 from pygame.event import pump
 
@@ -489,6 +490,17 @@ class YuriSim():
                 value += self.depth*100
 
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
+
+        # add noise
+        plusOrMinus = random.randint(0,1)
+        fraction = random.random()
+        noise = value*fraction / 1000
+        if plusOrMinus == 0:
+            value+=noise
+        else:
+            value-=noise
+
+
         self.sendMessage(sensor,value)
 
     def sendMessage(self,header,value):

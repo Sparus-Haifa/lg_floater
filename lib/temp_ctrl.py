@@ -39,7 +39,7 @@ class Temp(Sensor):
     def getLast(self):
         if len(self.t)<1:
             print(f"{self.getName()} buffer empty")
-            return 0
+            return None
         return self.t[0]
 
     # def getName(self):

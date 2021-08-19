@@ -248,18 +248,23 @@ class App():
             self.logSensors()
 
             if self.current_state == State.INIT:
-                print("Init")
-                time.sleep(0.01)
+                # print("Init")
+                # time.sleep(0.01)
+                # check sensor buffer is full before advancing
                 return
             elif self.current_state == State.WAIT_FOR_WATER:
-                print("Waiting for water")
+                # print("Waiting for water")
+                pass
                 
             elif self.current_state == State.EXEC_TASK:
-                print("Executing task")
+                # print("Executing task")
+                pass
             elif self.current_state == State.END_TASK:
-                print("Ending task")
+                # print("Ending task")
+                pass
             elif self.current_state == State.EMERGENCY:
-                print("Emergency")
+                # print("Emergency")
+                pass
 
             
 
@@ -284,13 +289,13 @@ class App():
         elif header=="PF":
             value = int(float(value))
             if value==1:
-                print("pump turned on")
+                # print("pump turned on")
                 self.pump_is_on.add_sample(1)
             elif value==0:
-                print("pump is off")
+                # print("pump is off")
                 self.pump_is_on.add_sample(0)
             elif value==2:
-                print("pump not working")
+                # print("pump not working")
                 self.pump_is_on.add_sample(2)
                 # leak
                 
@@ -334,10 +339,12 @@ class App():
         res["rpm"]=self.rpm.getLast()
         res["PF"]=self.pump_is_on.getLast()
 
+        res["State"]=self.current_state
+
 
         for key in res:
             end = len(str(res[key])) + 1 - len(key)
-            if len(key)>end:
+            if len(key)>len(str(res[key])):
                 end=1
             print(f"{key}" ,end=" "*end)
         print()
@@ -354,7 +361,8 @@ class App():
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
         # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0
 
-
+        # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
+        # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
 
 
     def sendPID(self):
