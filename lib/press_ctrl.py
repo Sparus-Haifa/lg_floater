@@ -5,13 +5,11 @@ class Press(Sensor):
     _delta_up_down = ...  # type: float
 
     def __init__(self, name, avg_samples, epsilon, log):
-        super().__init__(name)
+        super().__init__(name, avg_samples)
         # self.name = name
-        self.avg_samples = avg_samples
+        # self.avg_samples = avg_samples
         self.epsilon = epsilon
         self.log = log
-
-        self.t = deque(maxlen=self.avg_samples)
 
 
         self._queues_are_full = False
@@ -21,13 +19,13 @@ class Press(Sensor):
 
     def add_sample(self, sample):
         # TODO: try catch parse
-        self.t.append(float(sample))
+        super().add_sample(float(sample))
 
-    def getLast(self):
-        if len(self.t)<1:
-            print(f"{self.getName()} buffer is empty")
-            return None
-        return self.t[0]
+    # def getLast(self):
+    #     if len(self.t)<self.avg_samples:
+    #         # print(f"{self.getName()} buffer is empty")
+    #         return "Buffering"
+    #     return self.t[0]
             
 
     # def getName(self):

@@ -4,9 +4,9 @@ from lib.sensor import Sensor
 
 class IMU(Sensor):
     def __init__(self, name, avg_samples, log):
-        super().__init__(name)
+        super().__init__(name, avg_samples)
         self.log = log
-        self.avg_samples = avg_samples
+        # self.avg_samples = avg_samples
 
         # self.imu_samples = deque(maxlen=self.avg_samples) #queue of lists - [ [x,y,z,a], [x,y,z,a] ]
         self.t = deque(maxlen=self.avg_samples)
@@ -23,7 +23,8 @@ class IMU(Sensor):
         # self.imu_samples.append(sample_arr)
         # self.log.write("Added IMU sample: {}\n".format(str(sample_arr)))
         # TODO: try except parse
-        self.t.append(float(sample))
+        # self.t.append(float(sample))
+        super().add_sample(float(sample))
 
     def getLast(self):
         if len(self.t)<1:

@@ -4,8 +4,8 @@ from lib.sensor import Sensor
 
 class Temp(Sensor):
     def __init__(self, name, avg_samples, log):
-        super().__init__(name)
-        self.avg_samples = avg_samples
+        super().__init__(name, avg_samples)
+        # self.avg_samples = avg_samples
         self.log = log
 
         self.t = deque(maxlen=self.avg_samples)
@@ -22,7 +22,8 @@ class Temp(Sensor):
         
         # TODO:: try catch parse
 
-        self.t.append(float(sample_arr))
+        # self.t.append(float(sample_arr))
+        super().add_sample(float(sample_arr))
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

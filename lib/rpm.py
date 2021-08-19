@@ -6,8 +6,8 @@ class RPM(Sensor):
     _delta_up_down = ...  # type: float
 
     def __init__(self, name, avg_samples, log):
-        super().__init__(name)
-        self.avg_samples = avg_samples
+        super().__init__(name, avg_samples)
+        # self.avg_samples = avg_samples
         self.log = log
 
         self.t = deque(maxlen=self.avg_samples)

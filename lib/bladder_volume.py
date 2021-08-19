@@ -4,8 +4,8 @@ from lib.sensor import Sensor
 
 class Bladder(Sensor):
     def __init__(self, name, avg_samples, log):
-        super().__init__(name)
-        self.avg_samples = avg_samples
+        super().__init__(name, avg_samples)
+        # self.avg_samples = avg_samples
         self.log = log
 
         self.t = deque(maxlen=self.avg_samples)
@@ -20,7 +20,8 @@ class Bladder(Sensor):
         # sample_id = sample_arr[0].lower()
         # sample_val = float(sample_arr[1])
 
-        self.t.append(sample_arr)
+        # self.t.append(sample_arr)
+        super().add_sample(float(sample_arr))
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

@@ -3,8 +3,8 @@ from lib.sensor import Sensor
 
 class Altimeter(Sensor):
     def __init__(self, name, avg_samples, log):
-        super().__init__(name)
-        self.avg_samples = avg_samples
+        super().__init__(name, avg_samples)
+        # self.avg_samples = avg_samples
         self.log = log
 
         self.distance = deque(maxlen=self.avg_samples)
