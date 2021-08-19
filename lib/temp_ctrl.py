@@ -37,10 +37,10 @@ class Temp(Sensor):
         #         self._queues_are_full = True
 
     def getLast(self):
-        if len(self.t)>0:
-            return self.t[0]
-        print(f"{self.getName()} buffer empty")
-        return 0
+        if len(self.t)<1:
+            print(f"{self.getName()} buffer empty")
+            return 0
+        return self.t[0]
 
     # def getName(self):
     #     return self.name

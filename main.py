@@ -81,13 +81,13 @@ class App():
 
 
 
-        self.internalTemperatureSensors = {}
-        # for i in range(2):
-        sensTemp = Temp("AT", cfg.temperature["avg_samples"], log)
-        self.internalTemperatureSensors["AT"]=sensTemp
+        # self.internalTemperatureSensors = {}
+        # # for i in range(2):
+        # sensTemp = Temp("AT", cfg.temperature["avg_samples"], log)
+        # self.internalTemperatureSensors["AT"]=sensTemp
 
-        sensTemp = Temp("AP", cfg.temperature["avg_samples"], log)
-        self.internalTemperatureSensors["AP"]=sensTemp
+        # sensTemp = Temp("AP", cfg.temperature["avg_samples"], log)
+        # self.internalTemperatureSensors["AP"]=sensTemp
 
         self.IMUSensors = {}
         # for i in range(3):
@@ -308,10 +308,10 @@ class App():
             # print(f"{key} {value}")
             res[key]=value
         
-        for key in self.internalTemperatureSensors:
-            value = self.internalTemperatureSensors[key].getLast()
-            # print(f"{key} {value}")
-            res[key]=value
+        # for key in self.internalTemperatureSensors:
+        #     value = self.internalTemperatureSensors[key].getLast()
+        #     # print(f"{key} {value}")
+        #     res[key]=value
 
         for key in self.IMUSensors:
             value = self.IMUSensors[key].getLast()
@@ -336,11 +336,20 @@ class App():
 
 
         for key in res:
-            print(f"{key}" ,end=" ")
+            end = len(str(res[key])) + 1 - len(key)
+            if len(key)>end:
+                end=1
+            print(f"{key}" ,end=" "*end)
         print()
 
         for key in res:
-            print(f"{res[key]}" ,end=" ")
+            end = 1
+            # res = len(str(res[key])) + 3 - len(key)
+            # if len(str(res[key])) > res:
+            #     end = res
+            if len(key)>len(str(res[key])):
+                end=len(key) + 1 - len(str(res[key]))
+            print(f"{res[key]}" ,end=" "*end)
         print()
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
         # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0
