@@ -23,7 +23,8 @@ class Temp(Sensor):
         # TODO:: try catch parse
 
         # self.t.append(float(sample_arr))
-        super().add_sample(float(sample_arr))
+        # super().add_sample(float(sample_arr))
+        super().add_sample(sample_arr)
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

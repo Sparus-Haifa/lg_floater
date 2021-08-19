@@ -21,7 +21,8 @@ class Bladder(Sensor):
         # sample_val = float(sample_arr[1])
 
         # self.t.append(sample_arr)
-        super().add_sample(float(sample_arr))
+        # super().add_sample(float(sample_arr))
+        super().add_sample(sample_arr)
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

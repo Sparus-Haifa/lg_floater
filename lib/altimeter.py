@@ -12,31 +12,37 @@ class Altimeter(Sensor):
 
         self._queues_are_full = False
         self.log.write("Temperature controller was initialized successfully\n")
+        self.skipNext = False
 
     def add_sample(self, sample_arr):
-        # if len(sample_arr) != 2:
-            # return
+        if self.skipNext:
+            self.skipNext = False
+            print("skipping adding alt sample")
+            return
+        try:
+            value = float(sample_arr)
+        except ValueError as e:
+            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            self.skipNext=True
+            return
+        # self.t.append(sample)
+        # self.t.append(value)
 
-        # sample_id = sample_arr[0].lower()
-        # sample_val = float(sample_arr[1])
-
-        self.distance.append(sample_arr)
+        self.distance.append(value)
 
     def add_confidance(self, sample):
-        # TODO:// try except prase
-        self.confidance.append(float(sample))
+        if self.skipNext:
+            self.skipNext = False
+            print("skipping adding confidance sample")
+            return
+        try:
+            value = float(sample)
+        except ValueError as e:
+            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            self.skipNext=True
+            return
+        self.confidance.append(value)
 
-        # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
-
-        # We can start using the samples once:
-        #       We received data from all temperature sensors
-        #       We received enough samples from all sensors
-        # if not self._queues_are_full:
-        #     if len(self.t1) == self.avg_samples and \
-        #             len(self.t2) == self.avg_samples and \
-        #             len(self.t3) == self.avg_samples and \
-        #             len(self.t4) == self.avg_samples:
-        #         self._queues_are_full = True
 
     def getLast(self):
         if len(self.distance)<self.avg_samples:

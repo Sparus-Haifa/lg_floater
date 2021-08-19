@@ -23,7 +23,17 @@ class Sensor:
 
     def add_sample(self, sample):
         # TODO: try catch parse
-        self.t.append(sample)
+        try:
+            value = float(sample)
+        # except Exception as e:
+        except ValueError as e:
+            # print(e)
+            # print(sample)
+            # exit()
+            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            return
+        # self.t.append(sample)
+        self.t.append(value)
 
     def isBufferFull(self):
         return self.avg_samples == len(self.t)

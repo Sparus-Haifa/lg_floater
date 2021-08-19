@@ -19,7 +19,8 @@ class Press(Sensor):
 
     def add_sample(self, sample):
         # TODO: try catch parse
-        super().add_sample(float(sample))
+        # super().add_sample(float(sample))
+        super().add_sample(sample)
 
     # def getLast(self):
     #     if len(self.t)<self.avg_samples:

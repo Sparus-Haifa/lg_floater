@@ -189,12 +189,8 @@ class App():
 
         elif header=="PU":
             self.pumpFlag.add_sample(value)
-            # maybe pid triger
-        # else:
-            # logSensors() # Last sensor update
 
             
-
 
         # TimeOn stats:
         elif header=="RPM":
@@ -202,15 +198,23 @@ class App():
             # last sensor received, send pid commands to arduino
  
 
+        # pump flag
+        elif header=="PF":
+            value = int(float(value))
+            if value==1:
+                # print("pump turned on")
+                self.pumpFlag.add_sample(1)
+            elif value==0:
+                # print("pump is off")
+                self.pumpFlag.add_sample(0)
+            elif value==2:
+                # print("pump not working")
+                self.pumpFlag.add_sample(2)
+                # leak
+                self.current_state = State.EMERGENCY
 
 
-        # remove
-        # elif header=="AT":
-        #     self.internalTemperatureSensors["AT"].add_sample(value)
-
-        # elif header=="AP":
-        #     self.internalTemperatureSensors["AP"].add_sample(value)
-
+        # bladder volume - pid trigger
         elif header=="BV": # on both cycles
             self.bladderVolume.add_sample(value)
             
@@ -282,19 +286,7 @@ class App():
 
 
         # on done
-        elif header=="PF":
-            value = int(float(value))
-            if value==1:
-                # print("pump turned on")
-                self.pumpFlag.add_sample(1)
-            elif value==0:
-                # print("pump is off")
-                self.pumpFlag.add_sample(0)
-            elif value==2:
-                # print("pump not working")
-                self.pumpFlag.add_sample(2)
-                # leak
-                self.current_state = State.EMERGENCY
+
                 
 
     
@@ -332,12 +324,7 @@ class App():
         for key in self.temperatureSensors:
             value = self.temperatureSensors[key].getLast()
             # print(f"{key} {value}")
-            res[key]=value
-        
-        # for key in self.internalTemperatureSensors:
-        #     value = self.internalTemperatureSensors[key].getLast()
-        #     # print(f"{key} {value}")
-        #     res[key]=value
+            res[key]=value   
 
         for key in self.IMUSensors:
             value = self.IMUSensors[key].getLast()
@@ -355,7 +342,6 @@ class App():
         res["H1"]=self.leak_h_flag.getLast()
         res["H2"]=self.leak_e_flag.getLast()
 
-        # res["pump"]=self.pump_is_on.getLast()
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
         res["PF"]=self.pumpFlag.getLast()
@@ -364,9 +350,17 @@ class App():
 
 
         for key in res:
-            end = len(str(res[key])) + 1 - len(key)
-            if len(key)>len(str(res[key])):
+            value = res[key]
+
+            #shorten floats
+            check_float = isinstance(value, float)
+            if check_float:
+                value = "{:.2f}".format(value)
+
+            end = len(str(value)) + 1 - len(key)
+            if len(key)>len(str(value)):
                 end=1
+
             print(f"{key}" ,end=" "*end)
         print()
 
@@ -375,9 +369,19 @@ class App():
             # res = len(str(res[key])) + 3 - len(key)
             # if len(str(res[key])) > res:
             #     end = res
-            if len(key)>len(str(res[key])):
-                end=len(key) + 1 - len(str(res[key]))
-            print(f"{res[key]}" ,end=" "*end)
+            value = res[key]
+
+            #shorten floats
+            check_float = isinstance(value, float)
+            if check_float:
+                value = "{:.2f}".format(value)
+
+            if len(key)>len(str(value)):
+                end=len(key) + 1 - len(str(value))
+            
+
+            
+            print(f"{value}" ,end=" "*end)
         print()
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
         # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0

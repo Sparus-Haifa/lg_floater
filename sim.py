@@ -257,7 +257,7 @@ class YuriSim():
                 self.currentBladderVolume -= value
                 # self.comm.pid=0
                 # self.pumpFlag=1
-                self.sendMessage("PF",1)
+                self.sendMessage("PF",1, True)
 
 
             if self.currentBladderVolume < 0:
@@ -268,7 +268,7 @@ class YuriSim():
                 self.pumpIsOn = False
 
             if not self.pumpIsOn:
-                self.sendMessage("PF",0)
+                self.sendMessage("PF",0, True)
             
             button = pg.Rect(450, 160, 50, 50)
             mouse_pos = (0,0)
@@ -285,7 +285,7 @@ class YuriSim():
                     # prints current location of mouse
                     print('button was pressed at {0}'.format(mouse_pos))
                     button_color = [255,0,0]
-                    self.sendMessage("PF",2)
+                    self.sendMessage("PF",2,True)
 
 
             # Add the GRAVITY value to y_change, so that
@@ -518,11 +518,20 @@ class YuriSim():
         else:
             value-=noise
 
+        # add errors
+        addErrors = random.randint(1,100) > 99
+        if addErrors:
+            value = "ovf"
 
-        self.sendMessage(sensor,value)
 
-    def sendMessage(self,header,value):
-        message = header + ':' + "{:.4f}".format(value)
+        self.sendMessage(sensor,value, True)
+
+    def sendMessage(self,header,value, rawValue):
+        # message = ""
+        if rawValue:
+            message = header + ':' + str(value)
+        else:
+            message = header + ':' + "{:.4f}".format(value)
         print(f"sending: {message}")
         self.comm.sendMessage(bytes(f"{message}",'utf-8'))
 

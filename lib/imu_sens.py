@@ -24,7 +24,9 @@ class IMU(Sensor):
         # self.log.write("Added IMU sample: {}\n".format(str(sample_arr)))
         # TODO: try except parse
         # self.t.append(float(sample))
-        super().add_sample(float(sample))
+
+        # super().add_sample(float(sample))
+        super().add_sample(sample)
 
     def getLast(self):
         if len(self.t)<1:
