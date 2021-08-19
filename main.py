@@ -18,6 +18,17 @@ from lib.fyi_ctrl import *
 from lib.profile import *
 from lib.task_ctrl import *
 
+from enum import Enum
+
+class State(Enum):
+    INIT = 1
+    WAIT_FOR_WATER = 2
+    EXEC_TASK = 3
+    END_TASK = 4
+    EMERGENCY = 5
+
+# Current_state = State.INIT
+
 class App():
     def __init__(self):
         log = logger.Logger()
@@ -28,6 +39,7 @@ class App():
         # flags
         # fyi = FYI(log)
         # 
+        self.current_state = State.INIT
 
         self.timeOff = None
         self.timeOn = None
@@ -35,35 +47,35 @@ class App():
 
         self.pressureSensors = {}
         # for i in range(6):
-        sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
         self.pressureSensors["BP1"]=sensPress
 
-        sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
         self.pressureSensors["BP2"]=sensPress
 
-        sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
         self.pressureSensors["TP1"]=sensPress
 
-        sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
         self.pressureSensors["TP2"]=sensPress
 
-        sensPress = Press(cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
         self.pressureSensors["HP"]=sensPress
 
 
 
         self.temperatureSensors = {}
         # for i in range(5):
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Buttom Temperatue 1", cfg.temperature["avg_samples"], log)
         self.temperatureSensors["BT1"]=sensTemp
 
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Bottom Temperatue 2", cfg.temperature["avg_samples"], log)
         self.temperatureSensors["BT2"]=sensTemp
 
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Top Temperature 1", cfg.temperature["avg_samples"], log)
         self.temperatureSensors["TT1"]=sensTemp
 
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Top Temperature 2", cfg.temperature["avg_samples"], log)
         self.temperatureSensors["TT2"]=sensTemp
 
 
@@ -71,33 +83,33 @@ class App():
 
         self.internalTemperatureSensors = {}
         # for i in range(2):
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("AT", cfg.temperature["avg_samples"], log)
         self.internalTemperatureSensors["AT"]=sensTemp
 
-        sensTemp = Temp(cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("AP", cfg.temperature["avg_samples"], log)
         self.internalTemperatureSensors["AP"]=sensTemp
 
         self.IMUSensors = {}
         # for i in range(3):
-        sensIMU = IMU(cfg.imu["avg_samples"], log)
+        sensIMU = IMU("X", cfg.imu["avg_samples"], log)
         self.IMUSensors["X"]=sensIMU
 
-        sensIMU = IMU(cfg.imu["avg_samples"], log)
+        sensIMU = IMU("Y", cfg.imu["avg_samples"], log)
         self.IMUSensors["Y"]=sensIMU
 
-        sensIMU = IMU(cfg.imu["avg_samples"], log)
+        sensIMU = IMU("Z", cfg.imu["avg_samples"], log)
         self.IMUSensors["Z"]=sensIMU
 
         
-        self.bladderVolume = Bladder(cfg.bladder["avg_samples"], log)
+        self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], log)
 
-        self.altimeter = Altimeter(cfg.altimeter["avg_samples"], log)
+        self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], log)
 
-        self.leak_h_flag = Flag(log) # hull leak
-        self.leak_e_flag = Flag(log) # Engine leak
+        self.leak_h_flag = Flag("Hull leak", log) # hull leak
+        self.leak_e_flag = Flag("Engine leak", log) # Engine leak
 
-        self.pump_is_on = Flag(log)
-        self.rpm = RPM(cfg.rpm["avg_samples"], log)
+        self.pump_is_on = Flag("Pump", log)
+        self.rpm = RPM("RPM", cfg.rpm["avg_samples"], log)
 
 
 
@@ -105,7 +117,9 @@ class App():
 
 
         self.profile = Profile("cfg/profile.txt", log)
-        self.task_ctrl = Task(sensPress, log)
+        # self.task_ctrl = Task(sensPress, log)
+
+
 
         # Main arduino
         # self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
@@ -229,13 +243,37 @@ class App():
             self.bladderVolume.add_sample(value)
             
             # send pid
+            self.comm.write(f"State:{self.current_state}\n") # debug send state
+
             self.logSensors()
 
+            if self.current_state == State.INIT:
+                print("Init")
+                time.sleep(0.01)
+                return
+            elif self.current_state == State.WAIT_FOR_WATER:
+                print("Waiting for water")
+                
+            elif self.current_state == State.EXEC_TASK:
+                print("Executing task")
+            elif self.current_state == State.END_TASK:
+                print("Ending task")
+            elif self.current_state == State.EMERGENCY:
+                print("Emergency")
+
+            
+
+            # logics
+            # timeOnStarted = self.timeOn > 0
+            # timeOffStarted = self.timeOff > 0
+            betweenOnandOff = time.time() - self.dcTimer < self.timeOn + self.timeOff
 
             if not self.timeOn: # first time running. still no timeOn calc available
                 self.sendPID()
 
-            elif self.timeOn > 0 and self.timeOff > 0 and time.time() - self.dcTimer < self.timeOn +  self.timeOff:
+            
+            # elif timeOnStarted and timeOffStarted and betweenOnandOff:
+            elif self.dcTimer and betweenOnandOff:
                 print("time Off sleep?", self.timeOn, self.timeOff)
 
  

@@ -1,8 +1,10 @@
 from collections import deque
+from os import name
+from lib.sensor import Sensor
 
-
-class Bladder:
-    def __init__(self, avg_samples, log):
+class Bladder(Sensor):
+    def __init__(self, name, avg_samples, log):
+        super().__init__(name)
         self.avg_samples = avg_samples
         self.log = log
 
@@ -35,5 +37,5 @@ class Bladder:
     def getLast(self):
         if len(self.t)>0:
             return self.t[0]
-        print("buffer empty")
+        print(f"{self.getName()} buffer empty")
         return 0

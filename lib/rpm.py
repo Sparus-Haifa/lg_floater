@@ -1,9 +1,12 @@
 from collections import deque
+# from os import name
+from lib.sensor import Sensor
 
-class RPM:
+class RPM(Sensor):
     _delta_up_down = ...  # type: float
 
-    def __init__(self, avg_samples, log):
+    def __init__(self, name, avg_samples, log):
+        super().__init__(name)
         self.avg_samples = avg_samples
         self.log = log
 
@@ -20,7 +23,7 @@ class RPM:
 
     def getLast(self):
         if len(self.t)<1:
-            print("buffer is empty")
+            print(f"{self.getName()} buffer is empty")
             return 0
         return self.t[0]
             

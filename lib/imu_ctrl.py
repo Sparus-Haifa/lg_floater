@@ -1,8 +1,10 @@
 from collections import deque
+from os import name
+from lib.sensor import Sensor
 
-
-class IMU:
-    def __init__(self, avg_samples, log):
+class IMU(Sensor):
+    def __init__(self, name, avg_samples, log):
+        super().__init__(name)
         self.log = log
         self.avg_samples = avg_samples
 
@@ -25,6 +27,6 @@ class IMU:
 
     def getLast(self):
         if len(self.t)<1:
-            print("buffer is empty")
+            print(f"{self.getName()} buffer is empty")
             return 0
         return self.t[0]

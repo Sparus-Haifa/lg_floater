@@ -1,9 +1,12 @@
 from collections import deque
+from lib.sensor import Sensor
 
-class Press:
+class Press(Sensor):
     _delta_up_down = ...  # type: float
 
-    def __init__(self, avg_samples, epsilon, log):
+    def __init__(self, name, avg_samples, epsilon, log):
+        super().__init__(name)
+        # self.name = name
         self.avg_samples = avg_samples
         self.epsilon = epsilon
         self.log = log
@@ -22,9 +25,10 @@ class Press:
 
     def getLast(self):
         if len(self.t)<1:
-            print("buffer is empty")
+            print(f"{self.getName()} buffer is empty")
             return 0
         return self.t[0]
             
 
-
+    # def getName(self):
+    #     return self.name

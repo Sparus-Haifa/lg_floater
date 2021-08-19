@@ -1,3 +1,4 @@
+from main import State
 import pygame as pg
 import time
 import socket
@@ -33,6 +34,7 @@ class Comm():
         self.trip = 0
         self.phase = 1
         self.error = 0
+        self.current_state = 0
 
 
     def sendMessage(self, message = b'test'):
@@ -56,38 +58,40 @@ class Comm():
                 print(message)
                 s = message.decode('utf-8','ignore')
                 header, value = s.strip().split(":")
-                value = float(value)
+                # value = float(value)
                 # print("header",header)
                 # print("value",value)
                 if header=="V":
-                    self.voltage = value
+                    self.voltage = float(value)
                 elif header=="D":
-                    self.direction = value
+                    self.direction = int(value)
                 elif header=="T":
-                    self.timeOn = value
+                    self.timeOn = float(value)
                     self.pumpOnTimeStamp = time.time()
                 elif header=="PID":
-                    self.lastPID = value
-                    self.pid = value
+                    self.lastPID = float(value)
+                    self.pid = float(value)
 
 
                 # for debug only
                 elif header=="d":
-                    self.d = value
+                    self.d = float(value)
                 elif header=="p":
-                    self.p = value
+                    self.p = float(value)
                 elif header=="kd":
-                    self.kd = value
+                    self.kd = float(value)
                 elif header=="kp":
-                    self.kp = value
+                    self.kp = float(value)
                 elif header=="target":
-                    self.targetDepth = value
+                    self.targetDepth = float(value)
                 elif header=="error":
-                    self.error = value
+                    self.error = float(value)
                 elif header=="phase":
-                    self.phase = value
+                    self.phase = int(value)
                 elif header=="O":
-                    self.timeOff = value
+                    self.timeOff = float(value)
+                elif header=="State":
+                    self.current_state = value
 
 
 
@@ -144,9 +148,9 @@ class YuriSim():
 
         # Const params
         PIXELRATIO = 20.0 # pixel to meter
-        MASS = 20.3 # kg
+        MASS = 20.4 # kg
         GRAVITY  = 9.8 # m/sec^2
-        VOLUME_FLOATER = 0.0197 # m^3
+        VOLUME_FLOATER = 0.01965 # m^3
         MAX_BLADDER_VOLUME = 0.00065 # m^3
         FW = 1025 # kg / m^3
         BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW # Volume * g * fw
@@ -166,6 +170,17 @@ class YuriSim():
         done = False
         while not done:
             # handle pump
+
+            if self.comm.current_state == State.INIT:
+                print("Init")
+            elif self.comm.current_state == State.WAIT_FOR_WATER:
+                print("Waiting for water")
+            elif self.comm.current_state == State.EXEC_TASK:
+                print("Executing task")
+            elif self.comm.current_state == State.END_TASK:
+                print("Ending task")
+            elif self.comm.current_state == State.EMERGENCY:
+                print("Emergency")
             
             if self.comm.timeOn > 0:
                 elapsed = time.time() - self.comm.pumpOnTimeStamp # elapsed seconds since pump turned on
@@ -415,6 +430,11 @@ class YuriSim():
             label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
             display.blit(label_bladder, (450, 120))
 
+            
+            # state_str = "{:.2f}".format(self.comm.current_state)
+            label_bladder = myfont.render(f"[state:{self.comm.current_state}]", 1, DARKBLUE)
+            display.blit(label_bladder, (450, 140))
+
 
 
             depth = (self.comm.targetDepth - 1035)* PIXELRATIO / 100
@@ -443,7 +463,7 @@ class YuriSim():
 
     def updateBladderValue(self):
         sensorNum = self.sensorNames.index("BV")
-        self.sensorValue[sensorNum]=self.currentBladderVolume
+        self.sensorValue[sensorNum]=self.currentBladderVolume*1000000 # send in cc
         print(f"value of sensor {sensorNum} {self.sensorNames[sensorNum]} is {self.sensorValue[sensorNum]}")
     
     def sendPumpSensors(self):

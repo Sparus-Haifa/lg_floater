@@ -1,8 +1,9 @@
 from collections import deque
+from lib.sensor import Sensor
 
-
-class Altimeter:
-    def __init__(self, avg_samples, log):
+class Altimeter(Sensor):
+    def __init__(self, name, avg_samples, log):
+        super().__init__(name)
         self.avg_samples = avg_samples
         self.log = log
 
@@ -40,12 +41,12 @@ class Altimeter:
     def getLast(self):
         if len(self.distance)>0:
             return self.distance[0]
-        print("buffer empty")
+        print(f"{self.getName()} buffer empty")
         return 0
 
 
     def getConfidance(self):
         if len(self.confidance)>0:
             return self.confidance[0]
-        print("buffer empty")
+        print(f"{self.getName()} buffer empty")
         return 0
