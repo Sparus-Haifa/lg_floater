@@ -39,14 +39,18 @@ class Altimeter(Sensor):
         #         self._queues_are_full = True
 
     def getLast(self):
-        if len(self.distance)>0:
-            return self.distance[0]
-        print(f"{self.getName()} buffer empty")
-        return 0
+        if len(self.distance)<self.avg_samples:
+            print(f"{self.getName()} buffer empty")
+            return 0
+        return self.distance[0]
 
 
     def getConfidance(self):
-        if len(self.confidance)>0:
-            return self.confidance[0]
-        print(f"{self.getName()} buffer empty")
-        return 0
+        if len(self.confidance)<self.avg_samples:
+            print(f"{self.getName()} buffer empty")
+            return 0
+        return self.confidance[0]
+
+
+    def isBufferFull(self):
+        return self.avg_samples == len(self.distance) and self.avg_samples == len(self.confidance)

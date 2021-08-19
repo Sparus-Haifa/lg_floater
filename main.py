@@ -45,6 +45,8 @@ class App():
         self.timeOn = None
         self.dcTimer = None
 
+        self.sensors = {}
+
         self.pressureSensors = {}
         # for i in range(6):
         sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
@@ -108,12 +110,13 @@ class App():
         self.leak_h_flag = Flag("Hull leak", log) # hull leak
         self.leak_e_flag = Flag("Engine leak", log) # Engine leak
 
-        self.pump_is_on = Flag("Pump", log)
+        # self.pump_is_on = Flag("Pump", log)
+        self.pumpFlag = Flag("Pump",log)
         self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], log)
 
 
 
-
+        self.addSensorsToDict()
 
 
         self.profile = Profile("cfg/profile.txt", log)
@@ -216,7 +219,7 @@ class App():
             self.altimeter.add_confidance(value)
 
         elif header=="PU":
-            self.pump_is_on.add_sample(value)
+            self.pumpFlag.add_sample(value)
             # maybe pid triger
         # else:
             # logSensors() # Last sensor update
@@ -251,10 +254,13 @@ class App():
                 # print("Init")
                 # time.sleep(0.01)
                 # check sensor buffer is full before advancing
+                if self.sensorsReady():
+                    self.current_state = State.WAIT_FOR_WATER
+
                 return
             elif self.current_state == State.WAIT_FOR_WATER:
-                # print("Waiting for water")
-                pass
+                print("Waiting for water")
+                return
                 
             elif self.current_state == State.EXEC_TASK:
                 # print("Executing task")
@@ -290,19 +296,43 @@ class App():
             value = int(float(value))
             if value==1:
                 # print("pump turned on")
-                self.pump_is_on.add_sample(1)
+                self.pumpFlag.add_sample(1)
             elif value==0:
                 # print("pump is off")
-                self.pump_is_on.add_sample(0)
+                self.pumpFlag.add_sample(0)
             elif value==2:
                 # print("pump not working")
-                self.pump_is_on.add_sample(2)
+                self.pumpFlag.add_sample(2)
                 # leak
                 
 
     
 
         time.sleep(0.01)
+
+    def addSensorsToDict(self):
+        for sensor in self.temperatureSensors:
+            self.sensors[sensor]=self.temperatureSensors[sensor]
+        for sensor in self.pressureSensors:
+            self.sensors[sensor]=self.pressureSensors[sensor]
+        for sensor in self.IMUSensors:
+            self.sensors[sensor]=self.IMUSensors[sensor]
+
+        self.sensors["PD"]=self.altimeter
+        self.sensors["PC"]=self.altimeter
+        self.sensors["H1"]=self.leak_h_flag
+        self.sensors["H2"]=self.leak_e_flag
+        self.sensors["BV"]=self.bladderVolume
+        self.sensors["rpm"]=self.rpm
+        self.sensors["PF"]=self.pumpFlag
+
+
+    def sensorsReady(self):
+        for sensor in self.sensors:
+            if sensor!="rpm" and not self.sensors[sensor].isBufferFull():
+                print(f"sensor {sensor} is not ready")
+                return False
+        return True
     
     def logSensors(self):
 
@@ -334,10 +364,10 @@ class App():
         res["H1"]=self.leak_h_flag.getLast()
         res["H2"]=self.leak_e_flag.getLast()
 
-        res["pump"]=self.pump_is_on.getLast()
+        # res["pump"]=self.pump_is_on.getLast()
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
-        res["PF"]=self.pump_is_on.getLast()
+        res["PF"]=self.pumpFlag.getLast()
 
         res["State"]=self.current_state
 

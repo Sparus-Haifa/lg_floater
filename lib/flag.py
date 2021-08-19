@@ -36,3 +36,6 @@ class Flag:
 
     def getLast(self):
         return self.status
+
+    def isBufferFull(self):
+        return self.status != None
