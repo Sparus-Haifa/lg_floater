@@ -41,6 +41,8 @@ class App():
         # 
         self.current_state = State.INIT
 
+
+        self.waterTestTimer = None
         self.timeOff = None
         self.timeOn = None
         self.dcTimer = None
@@ -259,8 +261,16 @@ class App():
 
                 return
             elif self.current_state == State.WAIT_FOR_WATER:
-                print("Waiting for water")
-                self.current_state = State.EXEC_TASK
+                if not self.waterTestTimer:
+                    print("Waiting for water")
+                    self.waterTestTimer = time.time()
+                elapsedSeconds = time.time() - self.waterTestTimer
+                if  elapsedSeconds > 60:
+                    print("Done waiting for water")
+                    self.current_state = State.EXEC_TASK
+                else:
+                    print("Waiting for water")
+                    print(f"{round(elapsedSeconds)}/60 secs")
                 return
                 
             elif self.current_state == State.EXEC_TASK:
