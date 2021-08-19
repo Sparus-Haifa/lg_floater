@@ -2,9 +2,9 @@ from collections import deque
 from os import name
 from lib.sensor import Sensor
 
-class Flag(Sensor):
+class Flag:
     def __init__(self, name, log):
-        super().__init__(name, 1)
+        # super().__init__(name, 1)
         # self.avg_samples = avg_samples
         self.log = log
 

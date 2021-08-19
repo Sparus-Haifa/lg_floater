@@ -47,35 +47,35 @@ class App():
 
         self.pressureSensors = {}
         # for i in range(6):
-        sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Bottom Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureSensors["BP1"]=sensPress
 
-        sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Bottom Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureSensors["BP2"]=sensPress
 
-        sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Top Pressure 1", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureSensors["TP1"]=sensPress
 
-        sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Top Pressure 2", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureSensors["TP2"]=sensPress
 
-        sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["epsilon"], log)
+        sensPress = Press("Hull Presure", cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureSensors["HP"]=sensPress
 
 
 
         self.temperatureSensors = {}
         # for i in range(5):
-        sensTemp = Temp("Buttom Temperatue 1", cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Buttom Temperatue 1", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
         self.temperatureSensors["BT1"]=sensTemp
 
-        sensTemp = Temp("Bottom Temperatue 2", cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Bottom Temperatue 2", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
         self.temperatureSensors["BT2"]=sensTemp
 
-        sensTemp = Temp("Top Temperature 1", cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Top Temperature 1", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
         self.temperatureSensors["TT1"]=sensTemp
 
-        sensTemp = Temp("Top Temperature 2", cfg.temperature["avg_samples"], log)
+        sensTemp = Temp("Top Temperature 2", cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
         self.temperatureSensors["TT2"]=sensTemp
 
 
@@ -91,25 +91,25 @@ class App():
 
         self.IMUSensors = {}
         # for i in range(3):
-        sensIMU = IMU("X", cfg.imu["avg_samples"], log)
+        sensIMU = IMU("X", cfg.imu["avg_samples"], cfg.imu["precision"], log)
         self.IMUSensors["X"]=sensIMU
 
-        sensIMU = IMU("Y", cfg.imu["avg_samples"], log)
+        sensIMU = IMU("Y", cfg.imu["avg_samples"], cfg.imu["precision"], log)
         self.IMUSensors["Y"]=sensIMU
 
-        sensIMU = IMU("Z", cfg.imu["avg_samples"], log)
+        sensIMU = IMU("Z", cfg.imu["avg_samples"], cfg.imu["precision"], log)
         self.IMUSensors["Z"]=sensIMU
 
         
-        self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], log)
+        self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], log)
 
-        self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], log)
+        self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], cfg.altimeter["precision"], log)
 
         self.leak_h_flag = Flag("Hull leak", log) # hull leak
         self.leak_e_flag = Flag("Engine leak", log) # Engine leak
 
         self.pump_is_on = Flag("Pump", log)
-        self.rpm = RPM("RPM", cfg.rpm["avg_samples"], log)
+        self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], log)
 
 
 

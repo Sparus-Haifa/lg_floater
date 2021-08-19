@@ -4,8 +4,8 @@ from lib.sensor import Sensor
 class Press(Sensor):
     _delta_up_down = ...  # type: float
 
-    def __init__(self, name, avg_samples, epsilon, log):
-        super().__init__(name, avg_samples)
+    def __init__(self, name, avg_samples, precision, epsilon, log):
+        super().__init__(name, avg_samples, precision)
         # self.name = name
         # self.avg_samples = avg_samples
         self.epsilon = epsilon

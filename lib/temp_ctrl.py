@@ -3,8 +3,8 @@ from lib.sensor import Sensor
 
 
 class Temp(Sensor):
-    def __init__(self, name, avg_samples, log):
-        super().__init__(name, avg_samples)
+    def __init__(self, name, avg_samples, precision, log):
+        super().__init__(name, avg_samples, precision)
         # self.avg_samples = avg_samples
         self.log = log
 
