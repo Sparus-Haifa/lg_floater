@@ -250,11 +250,13 @@ class App():
 
 
                 if not self.timeOn: # first time running. still no timeOn calc available
+                    # before DC starts
                     self.sendPID()
 
 
                 # elif timeOnStarted and timeOffStarted and betweenOnandOff:
                 else:
+                    # during DC
                     elapsedSeconds = time.time() - self.dcTimer
                     dutyCycleDuration = self.timeOn + self.timeOff
                     betweenOnandOff = elapsedSeconds < dutyCycleDuration
@@ -263,16 +265,15 @@ class App():
 
  
                     else:
+                        # after DC finishes
                         self.sendPID()
 
-                pass
             elif self.current_state == State.END_TASK:
                 # print("Ending task")
                 pass
             elif self.current_state == State.EMERGENCY:
-                # print("Emergency")
-                pass
-
+                print("Emergency")
+                return
             
 
             # logics
@@ -293,6 +294,7 @@ class App():
                 # print("pump not working")
                 self.pumpFlag.add_sample(2)
                 # leak
+                self.current_state = State.EMERGENCY
                 
 
     

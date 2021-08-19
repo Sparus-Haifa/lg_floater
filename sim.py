@@ -164,6 +164,10 @@ class YuriSim():
         speed = 0
         SimFactor = 1.0
 
+        # GUI
+        button_color = [0,255,0]
+
+
 
         startTime = time.time()
         done = False
@@ -265,10 +269,23 @@ class YuriSim():
 
             if not self.pumpIsOn:
                 self.sendMessage("PF",0)
-
+            
+            button = pg.Rect(450, 160, 50, 50)
+            mouse_pos = (0,0)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     done = True
+                if event.type == pg.MOUSEBUTTONDOWN:
+                    mouse_pos = event.pos  # gets mouse position    
+                    print("click")
+
+                # checks if mouse position is over the button
+
+                if button.collidepoint(mouse_pos):
+                    # prints current location of mouse
+                    print('button was pressed at {0}'.format(mouse_pos))
+                    button_color = [255,0,0]
+                    self.sendMessage("PF",2)
 
 
             # Add the GRAVITY value to y_change, so that
@@ -434,6 +451,9 @@ class YuriSim():
             label_bladder = myfont.render(f"[state:{self.comm.current_state}]", 1, DARKBLUE)
             display.blit(label_bladder, (450, 140))
 
+
+            
+            pg.draw.rect(display, button_color, button)  # draw button
 
 
             depth = (self.comm.targetDepth - 1035)* PIXELRATIO / 100
