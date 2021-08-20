@@ -21,7 +21,9 @@ class SerialComm:
 
 
     def read(self):
-        return self.ser.readline()
+        if (self.ser.inWaiting()>0):
+            return self.ser.readline()
+        return b''
 
     def write(self, text):
         line = bytes(text, encoding='utf-8')

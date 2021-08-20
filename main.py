@@ -40,6 +40,7 @@ class App():
         # fyi = FYI(log)
         # 
         self.current_state = State.INIT
+        self.weightDropped = False
 
 
         self.waterTestTimer = None
@@ -110,7 +111,7 @@ class App():
         self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], log)
         if not self.comm_safety.ser:
             print("-E- Failed to init safety serial port")
-            # exit()
+            exit()
 
 
 
@@ -277,6 +278,7 @@ class App():
                 pass
             elif self.current_state == State.EMERGENCY:
                 print("Emergency")
+                # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
                 return
             
 
@@ -318,7 +320,6 @@ class App():
         return True
     
     def logSensors(self):
-
         res = {}
 
         for key in self.temperatureSensors:
@@ -388,6 +389,8 @@ class App():
 
         # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
         # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
+        if self.weightDropped:
+            print("weight dropped!")
 
 
     def sendPID(self):
@@ -512,17 +515,45 @@ class App():
 
     #get line from secondary arduino;
     def get_next_serial_line_safety(self):
-        self.comm_safety.write("N:11")
+        # self.comm_safety.write("N:11")
+        
         # send "I'm alive message"
 
         serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
-        print("raw: {}".format(serial_line))
         serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
+        
+        if len(serial_line) < 2: # skip if no message
+            # print("Waiting for message from safety. Received: None")
+            return
+        
+        # print("raw: {}".format(serial_line))
+
+        header = serial_line[0]
+        value = int(float(serial_line[1]))
+
 
         if serial_line[0].upper().startswith("N"):
-            print("adding {}".format(serial_line))
-            self.safety.add_sample(serial_line)
-            safety_callback()
+            # print("adding {}".format(serial_line))
+            # self.safety.add_sample(serial_line)
+            # safety_callback()
+            if value==1:
+                if self.current_state == State.EMERGENCY:
+                    self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
+                print("pong!")
+                pass # ping acknowledge
+            if value==2:
+                print("safety weight dropped on command acknowledge")
+                self.weightDropped = True
+                pass # drop weight acknowledge
+            if value==3: # Saftey requests a ping
+                print("ping!")
+                self.comm_safety.write("N:1") # sending ping to saftey
+            if value==4:
+                print("weight dropped due to over time acknowledge")
+                self.current_state = State.EMERGENCY
+                self.weightDropped = True
+                pass # weight dropped due to over time
+            
 
     def end_mission(why):
         log.write("mission was ended: {}".format(why))
@@ -574,6 +605,8 @@ if __name__ == "__main__":
     app.lastTime = time.time()
     while True:
         app.get_next_serial_line()
+        app.get_next_serial_line_safety()
+
         # logSensors()
         # get_next_serial_line_safety()
 
