@@ -41,6 +41,7 @@ class App():
         # 
         self.current_state = State.INIT
         self.weightDropped = False
+        self.safteyTimer = None
 
 
         self.waterTestTimer = None
@@ -519,6 +520,15 @@ class App():
         
         # send "I'm alive message"
 
+        # TODO: add timer if no ping from safety inflate bladder
+        if not self.safteyTimer:
+            self.safteyTimer = time.time()
+
+        timeout = time.time() - self.safteyTimer > 30
+        if timeout:
+            print("safety not responding!")
+            self.current_state = State.EMERGENCY # will make weight drop on reconnection
+
         serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
         serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
         
@@ -539,6 +549,7 @@ class App():
             if value==1:
                 if self.current_state == State.EMERGENCY:
                     self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
+                self.safteyTimer = time.time()
                 print("pong!")
                 pass # ping acknowledge
             if value==2:
