@@ -520,7 +520,7 @@ class App():
         
         # send "I'm alive message"
 
-        # TODO: add timer if no ping from safety inflate bladder
+        # timer if no ping from safety inflate bladder
         if not self.safteyTimer:
             self.safteyTimer = time.time()
 
@@ -528,6 +528,7 @@ class App():
         if timeout:
             print("safety not responding!")
             self.current_state = State.EMERGENCY # will make weight drop on reconnection
+            # TODO: inflate bladder
 
         serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
         serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")

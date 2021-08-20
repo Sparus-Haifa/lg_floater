@@ -165,7 +165,9 @@ class YuriSim():
         SimFactor = 1.0
 
         # GUI
-        button_color = [0,255,0]
+        button_colorPF = [0,255,0]
+        button_colorH1 = [0,255,0]
+        button_colorH2 = [0,255,0]
 
 
 
@@ -270,7 +272,9 @@ class YuriSim():
             if not self.pumpIsOn:
                 self.sendMessage("PF",0, True)
             
-            button = pg.Rect(450, 160, 50, 50)
+            button_PF = pg.Rect(450, 160, 50, 50)
+            button_H1 = pg.Rect(500 + 10, 160, 50, 50)
+            button_H2 = pg.Rect(550 + 10 + 10, 160, 50, 50)
             mouse_pos = (0,0)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -281,11 +285,23 @@ class YuriSim():
 
                 # checks if mouse position is over the button
 
-                if button.collidepoint(mouse_pos):
+                if button_PF.collidepoint(mouse_pos):
                     # prints current location of mouse
-                    print('button was pressed at {0}'.format(mouse_pos))
-                    button_color = [255,0,0]
+                    print('button PF was pressed at {0}'.format(mouse_pos))
+                    button_colorPF = [255,0,0]
                     self.sendMessage("PF",2,True)
+
+                if button_H1.collidepoint(mouse_pos):
+                    # prints current location of mouse
+                    print('button H1 was pressed at {0}'.format(mouse_pos))
+                    button_colorH1 = [255,0,0]
+                    # self.sendMessage("H1",2,True)
+
+                if button_H2.collidepoint(mouse_pos):
+                    # prints current location of mouse
+                    print('button H2 was pressed at {0}'.format(mouse_pos))
+                    button_colorH2 = [255,0,0]
+                    # self.sendMessage("H2",2,True)
 
 
             # Add the GRAVITY value to y_change, so that
@@ -453,8 +469,22 @@ class YuriSim():
 
 
             
-            pg.draw.rect(display, button_color, button)  # draw button
+            # DRAW BUTTONS
 
+            pg.draw.rect(display, button_colorPF, button_PF)  # draw button
+            label_btnPF = myfont.render(f"PF", 1, DARKBLUE)
+            display.blit(label_btnPF, (450 + 15, 160 + 15))
+
+
+            pg.draw.rect(display, button_colorH1, button_H1)  # draw button
+            label_btnH1 = myfont.render(f"H1", 1, DARKBLUE)
+            display.blit(label_btnH1, (510 + 15, 160 + 15))
+
+            pg.draw.rect(display, button_colorH2, button_H2)  # draw button
+            label_btnH2 = myfont.render(f"H2", 1, DARKBLUE)
+            display.blit(label_btnH2, (570 + 15, 160 + 15))
+
+            # DRAW LINES
 
             depth = (self.comm.targetDepth - 1035)* PIXELRATIO / 100
             pg.draw.line(display, (255, 0, 0), (0, depth), (width, depth))
