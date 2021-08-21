@@ -22,6 +22,7 @@ class Comm():
         self.timeOn = 0.0 # timeOn duration in seconds
         self.timeOff = 0.0
         self.direction = 1
+        self.freshPID = False # handle each pid only once
         # up (D:1)
         # down (D:2)
         self.pumpOnTimeStamp = None # Time of received command to turn on pump
@@ -69,6 +70,7 @@ class Comm():
                 elif header=="T":
                     self.timeOn = float(value)
                     self.pumpOnTimeStamp = time.time()
+                    self.freshPID = True
                 elif header=="PID":
                     self.lastPID = float(value)
                     self.pid = float(value)
@@ -153,7 +155,7 @@ class YuriSim():
         RED = pg.Color(120,8,11)
         GREEN = pg.Color(11,120,8)
 
-        PIXELRATIO = 2.0 # pixel to meter
+        PIXELRATIO = 1.0 # pixel to meter
 
         display = pg.display.set_mode((800, 500))
         width, height = display.get_size()
@@ -198,7 +200,6 @@ class YuriSim():
         startTime = time.time()
         done = False
         while not done:
-            # handle pump
 
             if self.comm.current_state == State.INIT:
                 print("Init")
@@ -210,50 +211,119 @@ class YuriSim():
                 print("Ending task")
             elif self.comm.current_state == State.EMERGENCY:
                 print("Emergency")
-            
-            if self.comm.timeOn > 0:
-                elapsed = time.time() - self.comm.pumpOnTimeStamp # elapsed seconds since pump turned on
-                # elapsed*=SimFactor
-                # pump on
-                if elapsed < self.comm.timeOn: # if on "timeOn" cycle
-                    if not self.pumpIsOn: # turn on pump
-                        print("starting pump")
-                        print("setting timer for", self.comm.timeOn)
-                        self.pumpIsOn = True
-                        # self.pumpOnDuration = self.comm.timeOn
-                        self.pumpOnTime = time.time()
-                    else: # keep pump on
-                        print("Pump is running")
-                        self.pumpTimer = time.time() - self.pumpOnTime
-                        self.offTimer = 0
-                        # timeOnOver = self.pumpTimer > self.pumpOnDuration # Time on has passed. now time off
-                        timeOnOver = self.pumpTimer > self.comm.timeOn # Time on has passed. now time off
 
-                        bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
-                        bladderIsEmpty = self.currentBladderVolume == 0
-                        limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
-                        if timeOnOver or limitPump: # turn on pump
-                            print("turn off pump")
-                            # case timeOn is 100%
-                            # case timeOn is 0%
-                            self.pumpIsOn = False
-                            self.pumpTimer = 0
+
+            # handle pump
+            # States:
+            # 1.idle - waiting for command 
+            #   1.1 waiting for first command (pump is off)
+            #   1.2 after duty cycle completes (pump is off)
+            # 2.PID recieved - (turn pump on)
+            #   2.1 pump was off (normal)
+            #   2.2 pump was on (fault)
+            # 3.During Duty Cycle
+            #   3.1 timeOn
+            #       3.1.1 pump is on
+            #           3.1.1.1 limit max/min
+            #       3.1.2 pump is off
+            #           3.1.2.1 arduinoMega timed early
+            #           3.1.2.2 limit reached 
+            #   3.2 timeOff
+            #       3.1.1 pump is off
+            #       3.1.2 pump is on
+
+
+            def turnOffPump():
+                self.pumpIsOn = False
+                self.pumpTimer = 0
+                self.sensors["PF"]=0
+                self.sendMessage("PF",0,True)
+
+            
+
+            if not self.comm.timeOn:
+                print("idle - waiting for first command")
+            else:
+
+                # if recived a fresh PID command (TimeOn)
+                if self.comm.freshPID: 
+                    print("PID recived")
+                    self.comm.freshPID = False
+                    if self.pumpIsOn:
+                        print("ERROR: pump is already on!")
+                    # else:
+                    # turn on pump
+                    # TODO: check limits
+                    print("starting pump")
+                    print("setting timer for", self.comm.timeOn)
+                    # TODO: check pump limit reached
+                    self.pumpIsOn = True
+                    # self.pumpOnDuration = self.comm.timeOn
+                    self.pumpOnTime = time.time()
+                    self.sendMessage("PF",1, True)
+                    self.sensors["PF"]=1
+
+
+
+
+                # elapsed seconds since pump was turned on
+                # pumpOnTimeStamp - Timestamp of when received timeOn from rpi
+                elapsed = (time.time() - self.comm.pumpOnTimeStamp)*SimFactor 
+                # elapsed*=SimFactor
+                # pump is running on timeOn 
+                if elapsed < self.comm.timeOn: # if still on "timeOn" cycle
+                    print("timeOn")
+                    if self.pumpIsOn:
+                        print("Pump is running")
+                    else:
+                        print("pump not running")
+                    # else: # keep pump on
+                    self.pumpTimer = (time.time() - self.pumpOnTime)*SimFactor
+                    self.offTimer = 0 # ?
+                    # timeOnOver = self.pumpTimer > self.pumpOnDuration # Time on has passed. now time off
+                    timeOnOver = self.pumpTimer > self.comm.timeOn # Time on has passed. now time off
+
+                    bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+                    bladderIsEmpty = self.currentBladderVolume == 0
+                    limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
+                    if timeOnOver or limitPump: # turn off pump
+                        if timeOnOver:
+                            print("timeout")
+                        
+                        if limitPump:
+                            print("pump limit reached")
+                            if bladderIsEmpty:
+                                print("bladder is empty")
+                            if bladderIsFull:
+                                print(bladderIsFull)
+
+                        if self.pumpIsOn:
+                            print("turning off pump")
+                            turnOffPump()
+                            
+                        
                 # pump off
-                elif elapsed > self.comm.timeOn and self.comm.timeOn + self.comm.timeOff: # if on "timeOff" cycle
-                        print("turn off pump")
+                elif elapsed > self.comm.timeOn and elapsed < self.comm.timeOn + self.comm.timeOff: # if on "timeOff" cycle
+                        print("timeOff")
+
+                        if self.pumpIsOn:
+                            print("turning off pump")
+                            turnOffPump()
+                        
+                        # print("turn off pump")
                         # case timeOn is 100%
                         # case timeOn is 0%
-                        self.pumpIsOn = False
-                        self.pumpTimer = 0
                         # self.offTimer = time.time() - self.pumpOnTime - self.pumpOnDuration
                         # self.offTimer = elapsed - self.pumpOnDuration
+
+                        
                         self.offTimer = elapsed - self.comm.timeOn
 
 
                         if self.offTimer < 0 :
                             print("pump on timer", time.time() - self.pumpOnTime)
                             print("timer error", self.offTimer)
-                            assert()
+                            # assert() #TODO:fix
                             # return
                 
                 # can resend PID
@@ -261,11 +331,12 @@ class YuriSim():
                     # self.pumpOnDuration = 0
                     # self.comm.timeOn=0
                     # self.comm.timeOff=0
+                    print("idle")
                     pass
 
 
-            else:
-                print("time off?")
+                else:
+                    print("time off?")
 
 
 
@@ -284,8 +355,8 @@ class YuriSim():
                 self.currentBladderVolume -= value
                 # self.comm.pid=0
                 # self.pumpFlag=1
-                self.sendMessage("PF",1, True)
-                self.sensors["PF"]=1
+                # self.sendMessage("PF",1, True)
+                # self.sensors["PF"]=1
 
 
             if self.currentBladderVolume < 0:
@@ -295,9 +366,9 @@ class YuriSim():
                 self.currentBladderVolume = MAX_BLADDER_VOLUME
                 self.pumpIsOn = False
 
-            if not self.pumpIsOn:
-                self.sendMessage("PF",0, True)
-                self.sensors["PF"]=0
+            # if not self.pumpIsOn:
+            #     self.sendMessage("PF",0, True)
+            #     self.sensors["PF"]=0
             
             button_PF = pg.Rect(450, 160, 50, 50)
             button_H1 = pg.Rect(500 + 10, 160, 50, 50)
@@ -359,8 +430,8 @@ class YuriSim():
             # seafloor = height - 70 - 60
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
-            print(f"self.depth >= seafloorDepth:")
-            print(f"{self.depth} >= {seafloorDepth}:")
+            # print(f"self.depth >= seafloorDepth:")
+            # print(f"{self.depth} >= {seafloorDepth}:")
             
 
             if self.depth >= seafloorDepth:
@@ -386,7 +457,8 @@ class YuriSim():
             # display.blit(label_fps, (450, 100))
 
 
-            counter+=SimFactor/FPS
+            # counter+=SimFactor/FPS
+            counter+=1/FPS
             counter_str = "{:.2f}".format(counter)
             label_counter = myfont.render(f"[sim time:{counter_str} secs] [FPS: {fps_str}]", 1, DARKBLUE)
             display.blit(label_counter, (20, 40))
@@ -395,11 +467,13 @@ class YuriSim():
             label_depth = myfont.render(f"[depth:{depth_str} meter]", 1, DARKBLUE)
             display.blit(label_depth, (20, 60))
 
-            vel_str = "{:.4f}".format(speed*FPS/SimFactor)
+            # vel_str = "{:.4f}".format(speed*FPS/SimFactor)
+            vel_str = "{:.4f}".format(speed)
             label_speed = myfont.render(f"[velocity:{vel_str} m/s]", 1, DARKBLUE)
             display.blit(label_speed, (20, 80))
 
-            acc_str = "{:.6f}".format(acceleration*FPS/SimFactor)
+            # acc_str = "{:.6f}".format(acceleration*FPS/SimFactor)
+            acc_str = "{:.6f}".format(acceleration)
             label_acceleration = myfont.render(f"[acceleration:{acc_str} m/s^2]", 1, DARKBLUE)
             display.blit(label_acceleration, (20, 100))
 
@@ -556,7 +630,7 @@ class YuriSim():
         sensor = "BV"
         newValue = self.currentBladderVolume*1000000 # send in cc
         self.sensors[sensor]=newValue
-        print(f"{sensor} set to {newValue}")
+        # print(f"{sensor} set to {newValue}")
     
     def sendPumpSensors(self):
         self.sendStats("RPM")
@@ -567,7 +641,7 @@ class YuriSim():
 
     def sendAllSensors(self):
         for sensor in self.sensors:
-            if sensor!="RPM":
+            if sensor!="RPM" and sensor!="PF":
                 self.sendStats(sensor)
         # for sensorNum in range(len(self.sensorNames) - 1):
         #     self.sendStats(sensorNum)
@@ -618,7 +692,7 @@ class YuriSim():
             message = header + ':' + str(value)
         else:
             message = header + ':' + "{:.4f}".format(value)
-        print(f"sending: {message}")
+        # print(f"sending: {message}")
         self.comm.sendMessage(bytes(f"{message}",'utf-8'))
 
 

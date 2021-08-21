@@ -42,6 +42,7 @@ class App():
         self.current_state = State.INIT
         self.weightDropped = False
         self.safteyTimer = None
+        self.idle = True # bladder already at max or min
 
 
         self.waterSenseDuration = 5 # sould be 5 min = 60*5 [sec]
@@ -49,6 +50,7 @@ class App():
         self.timeOff = None
         self.timeOn = None
         self.dcTimer = None
+        self.simFactor = 1.0
 
         self.sensors = {}
 
@@ -203,16 +205,25 @@ class App():
 
         # pump flag
         elif header=="PF":
+            print(header,value)
             # value = int(float(value))
+            lastValue = self.pumpFlag.getLast()
             self.pumpFlag.add_sample(value)
             value = self.pumpFlag.getLast()
             if value==1:
-                # print("pump turned on")
-                # self.pumpFlag.add_sample(1)
+                print("pump turned on")
+                self.pumpFlag.add_sample(1)
                 pass
             elif value==0:
-                if self.timeOn and  self.timeOn>0 and time.time() - self.dcTimer < self.timeOn:
-                    print("WTF")
+                # pump is off:
+                # 1. pump init
+                # 2. pump cut on time
+                # 3. pump cut before time
+                if lastValue and lastValue != value:
+                    print("pump changed")
+                if self.timeOn and  self.timeOn>0 and (time.time() - self.dcTimer)*self.simFactor < self.timeOn and self.bladderVolume:
+                    print("Waiting on pump to start")
+                    self.dcTimer = time.time()
                 # print("pump is off")
                 # self.pumpFlag.add_sample(0)
                 pass
@@ -249,7 +260,7 @@ class App():
                 if not self.waterTestTimer:
                     print("Waiting for water")
                     self.waterTestTimer = time.time()
-                elapsedSeconds = time.time() - self.waterTestTimer
+                elapsedSeconds = (time.time() - self.waterTestTimer)*self.simFactor
                 limitSeconds = self.waterSenseDuration
                 if  elapsedSeconds > limitSeconds:
                     print("Done waiting for water")
@@ -271,11 +282,14 @@ class App():
                     # before DC starts
                     self.sendPID()
 
+                elif self.idle:
+                    print("idle")
+                    self.sendPID()
 
                 # elif timeOnStarted and timeOffStarted and betweenOnandOff:
                 else:
                     # during DC
-                    elapsedSeconds = time.time() - self.dcTimer
+                    elapsedSeconds = (time.time() - self.dcTimer)*self.simFactor
                     dutyCycleDuration = self.timeOn + self.timeOff
                     betweenOnandOff = elapsedSeconds < dutyCycleDuration
                     if self.dcTimer and betweenOnandOff:
@@ -326,8 +340,9 @@ class App():
 
 
     def sensorsReady(self):
+        bypass = ["rpm","PF"]
         for sensor in self.sensors:
-            if sensor!="rpm" and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
+            if sensor not in bypass and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 print(f"sensor {sensor} is not ready")
                 return False
         return True
@@ -431,7 +446,7 @@ class App():
 
         p0 = 10.35
         m = 1
-        target_dpeth_in_meters = 150
+        target_dpeth_in_meters = 50
         corrected = p0 + m*target_dpeth_in_meters # linear function
         target_dpeth = corrected * 100 # in milibar
         # target_dpeth = 1500 # on 80% plus change PID 
@@ -444,7 +459,7 @@ class App():
         # TODO: find delta time
         # TODO: divide by time
         nowTime = time.time()
-        deltaTime = nowTime - self.lastTime
+        deltaTime = (nowTime - self.lastTime)*self.simFactor
         # print(f"loop epoch time = {deltaTime}")
         self.lastTime = nowTime
 
@@ -500,6 +515,9 @@ class App():
         self.timeOn = self.pid_controller.interp_timeOn(scalar)
         self.timeOff = self.pid_controller.calc_timeOff(self.timeOn,dc)
 
+        if self.timeOff < 0.5:
+            self.timeOff=0.5
+
 
         phase = 1
         # print("Do inter",self.pid_controller.doInterpolation)
@@ -518,12 +536,28 @@ class App():
         # if scalar==0:
         #     return
 
-        print("sending PID")
         self.comm.write(f"PID:{scalar}") # sim debug
         self.comm.write(f"O:{self.timeOff}\n") # sim debug
-        self.comm.write(f"V:{voltage}\n")
-        self.comm.write(f"D:{direction}")
-        self.comm.write(f"T:{self.timeOn}\n")
+        
+        
+        bv =self.sensors["BV"].getLast()
+
+
+
+        print("BV",bv,"Direction",direction)
+
+        maxDive =  bv==0.0 and direction == 1
+        maxAscend = bv==650.0 and direction == 2
+
+        if maxAscend or maxDive:
+            print("bladder at max")
+            self.idle = True
+        else:
+            print("sending PID")
+            self.comm.write(f"V:{voltage}\n")
+            self.comm.write(f"D:{direction}")
+            self.comm.write(f"T:{self.timeOn}\n")
+            self.idle = False
         time.sleep(0.01)
 
         self.dcTimer = time.time()
