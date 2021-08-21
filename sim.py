@@ -99,8 +99,28 @@ class Comm():
 class YuriSim():
     def __init__(self, comm):
         self.comm = comm
-        self.sensorNames = ["BT1", "BT2", "TT1", "TT2", "AT", "AP",  "X",  "Y",  "Z",   "BP1",   "BP2",   "TP1",   "TP2", "HP",      "PD", "PC", "H1", "H2", "BV", "RPM" ] # bv
-        self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0.00, 0.00, 0.00,  23.00 ] # cc
+        # self.sensorNames = ["BT1", "BT2", "TT1", "TT2", "AT", "AP",  "X",  "Y",  "Z",   "BP1",   "BP2",   "TP1",   "TP2", "HP",      "PD", "PC", "H1", "H2", "BV", "RPM" ] # bv
+        # self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0   , 0   , 0.00,  23.00 ] # cc
+        self.sensors = {"BT1":23.66,
+                        "BT2":23.14,
+                        "TT1":23.29,
+                        "TT2":23.34,
+                        "X":0.01,
+                        "Y":-0.00,
+                        "Z":0.00,
+                        "BP1":1031.60,
+                        "BP2":1035.30,
+                        "TP1":1022.40,
+                        "TP2":1034.00,
+                        "HP":0,
+                        "PD":-26607.00,
+                        "PC":9.00,
+                        "H1":0,
+                        "H2":0,
+                        "BV":0.00,
+                        "RPM":23.00,
+                        "PF":0
+                        }
         self.depth = 0
         self.pumpIsOn = False
         self.startPumpTimer = False
@@ -108,6 +128,8 @@ class YuriSim():
         self.pumpTimer = 0.0 # time the pump is working in the currect duty cycle
         self.offTimer = 0
         self.currentBladderVolume = 0
+        self.surfacePressure = 1035
+
 
         
         # print(f"{len(self.sensorNames)}, {len(self.sensorValue)}")
@@ -131,11 +153,14 @@ class YuriSim():
         RED = pg.Color(120,8,11)
         GREEN = pg.Color(11,120,8)
 
+        PIXELRATIO = 2.0 # pixel to meter
+
         display = pg.display.set_mode((800, 500))
         width, height = display.get_size()
         clock = pg.time.Clock()
 
-        player_image = pg.Surface((30, 60))
+        # player_image = pg.Surface((30, 60))
+        player_image = pg.Surface((1*PIXELRATIO, 5*PIXELRATIO))
         player_image.fill(DARKBLUE)
 
         x = width * 0.45
@@ -146,7 +171,6 @@ class YuriSim():
         first_loop_sync = True
 
         # Const params
-        PIXELRATIO = 20.0 # pixel to meter
         MASS = 20.4 # kg
         GRAVITY  = 9.8 # m/sec^2
         VOLUME_FLOATER = 0.01965 # m^3
@@ -189,6 +213,7 @@ class YuriSim():
             
             if self.comm.timeOn > 0:
                 elapsed = time.time() - self.comm.pumpOnTimeStamp # elapsed seconds since pump turned on
+                # elapsed*=SimFactor
                 # pump on
                 if elapsed < self.comm.timeOn: # if on "timeOn" cycle
                     if not self.pumpIsOn: # turn on pump
@@ -260,6 +285,7 @@ class YuriSim():
                 # self.comm.pid=0
                 # self.pumpFlag=1
                 self.sendMessage("PF",1, True)
+                self.sensors["PF"]=1
 
 
             if self.currentBladderVolume < 0:
@@ -271,6 +297,7 @@ class YuriSim():
 
             if not self.pumpIsOn:
                 self.sendMessage("PF",0, True)
+                self.sensors["PF"]=0
             
             button_PF = pg.Rect(450, 160, 50, 50)
             button_H1 = pg.Rect(500 + 10, 160, 50, 50)
@@ -290,6 +317,7 @@ class YuriSim():
                     print('button PF was pressed at {0}'.format(mouse_pos))
                     button_colorPF = [255,0,0]
                     self.sendMessage("PF",2,True)
+                    self.sensors["PF"]=2
 
                 if button_H1.collidepoint(mouse_pos):
                     # prints current location of mouse
@@ -316,7 +344,7 @@ class YuriSim():
             acceleration = (MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/MASS
             TIMESTEP = 1 / FPS
             speed = speed + acceleration * TIMESTEP
-            speed *= SimFactor
+            # speed *= SimFactor
 
             self.depth = self.depth + speed * TIMESTEP 
 
@@ -324,6 +352,19 @@ class YuriSim():
                 self.depth=0
                 speed=0
                 acceleration = 0
+            
+            # seafloorInMeters = 20
+            # seafloorDepth = (3000 - self.surfacePressure)/100
+            seafloorDepth = 200
+            # seafloor = height - 70 - 60
+            # if self.depth*PIXELRATIO >= seafloor:
+            #     self.depth = seafloor/PIXELRATIO
+            print(f"self.depth >= seafloorDepth:")
+            print(f"{self.depth} >= {seafloorDepth}:")
+            
+
+            if self.depth >= seafloorDepth:
+                self.depth = seafloorDepth
 
             # self.depth=y
             y = self.depth * PIXELRATIO
@@ -372,9 +413,9 @@ class YuriSim():
 
             avg = 0
             avg_count = 0
-            for i, sensor in enumerate(self.sensorNames):
+            for sensor in self.sensors:
                 if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
-                    value = float(self.sensorValue[i])
+                    value = float(self.sensors[sensor])
                     # value*=(1 + self.depth * 1) # 1 decibar = 1 meter
                     if value<10 or value > 65536:
                         # print("sensor error:",sensor,"value=",value)
@@ -486,11 +527,12 @@ class YuriSim():
 
             # DRAW LINES
 
-            depth = (self.comm.targetDepth - 1035)* PIXELRATIO / 100
-            pg.draw.line(display, (255, 0, 0), (0, depth), (width, depth))
+            targetDepthLinePX = (self.comm.targetDepth - self.surfacePressure)* PIXELRATIO / 100
+            pg.draw.line(display, (255, 0, 0), (0, targetDepthLinePX), (width, targetDepthLinePX))
             # display.blit(player_image, (x, y))
 
-            pg.draw.line(display, (0, 0, 0), (0, height-70), (width, height-70))
+            # pg.draw.line(display, (0, 0, 0), (0, height-70), (width, height-70))
+            pg.draw.line(display, (0, 0, 0), (0, seafloorDepth*PIXELRATIO), (width, seafloorDepth*PIXELRATIO))
             display.blit(player_image, (x, y))
 
             pg.display.update()
@@ -506,31 +548,38 @@ class YuriSim():
             else:
                 self.sendAllSensors()
             self.comm.recieveMessage()
-            clock.tick(FPS)
+            clock.tick(FPS*SimFactor)
 
         pg.quit()
 
     def updateBladderValue(self):
-        sensorNum = self.sensorNames.index("BV")
-        self.sensorValue[sensorNum]=self.currentBladderVolume*1000000 # send in cc
-        print(f"value of sensor {sensorNum} {self.sensorNames[sensorNum]} is {self.sensorValue[sensorNum]}")
+        sensor = "BV"
+        newValue = self.currentBladderVolume*1000000 # send in cc
+        self.sensors[sensor]=newValue
+        print(f"{sensor} set to {newValue}")
     
     def sendPumpSensors(self):
-        for sensorNum in range(len(self.sensorNames)-1,len(self.sensorNames)-3,-1):
-            print("sending sensor",sensorNum)
-            self.sendStats(sensorNum)
+        self.sendStats("RPM")
+        self.sendStats("BV")
+        # for sensorNum in range(len(self.sensorNames)-1,len(self.sensorNames)-3,-1):
+        #     print("sending sensor",sensorNum)
+        #     self.sendStats(sensorNum)
 
     def sendAllSensors(self):
-        for sensorNum in range(len(self.sensorNames) - 1):
-            self.sendStats(sensorNum)
+        for sensor in self.sensors:
+            if sensor!="RPM":
+                self.sendStats(sensor)
+        # for sensorNum in range(len(self.sensorNames) - 1):
+        #     self.sendStats(sensorNum)
 
-    def sendStats(self, sensorNum):
+    def sendStats(self, sensor):
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)}\n",'utf-8'))
         # if self.nextSensor == len(self.sensorNames) - 1:
         #     self.nextSensor = 0
         
-        sensor = self.sensorNames[sensorNum]
-        value = self.sensorValue[sensorNum]
+        # sensor = self.sensorNames[sensorNum]
+        # value = self.sensorValue[sensorNum]
+        value = self.sensors[sensor]
 
         if sensor.startswith("TP") or sensor == "HP" or sensor.startswith("BP"):
             # value*=(1 + self.depth * 1) 
@@ -539,19 +588,26 @@ class YuriSim():
 
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
 
-        # add noise
-        plusOrMinus = random.randint(0,1)
-        fraction = random.random()
-        noise = value*fraction / 1000
-        if plusOrMinus == 0:
-            value+=noise
-        else:
-            value-=noise
+        
+        # skip flags
 
-        # add errors
-        addErrors = random.randint(1,100) > 99
-        if addErrors:
-            value = "ovf"
+        flags = ["H1","H2","PF"]
+
+        if sensor not in flags:
+
+            # add noise
+            plusOrMinus = random.randint(0,1)
+            fraction = random.random()
+            noise = value*fraction / 1000
+            if plusOrMinus == 0:
+                value+=noise
+            else:
+                value-=noise
+
+            # add errors
+            addErrors = random.randint(1,100) > 99
+            if addErrors:
+                value = "ovf"
 
 
         self.sendMessage(sensor,value, True)

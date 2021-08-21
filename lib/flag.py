@@ -20,8 +20,8 @@ class Flag:
         # sample_id = sample_arr[0].lower()
         # sample_val = float(sample_arr[1])
 
-        # self.status=int(float(sample_arr))
-        self.status=sample_arr
+        self.status=int(float(sample_arr))
+        # self.status=sample_arr
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

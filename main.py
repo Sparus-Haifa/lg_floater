@@ -44,6 +44,7 @@ class App():
         self.safteyTimer = None
 
 
+        self.waterSenseDuration = 5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
         self.timeOff = None
         self.timeOn = None
@@ -51,6 +52,7 @@ class App():
 
         self.sensors = {}
 
+        # Pressure
         self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
         self.pressureController.addSensor("BP1")
         self.pressureController.addSensor("BP2")
@@ -59,7 +61,7 @@ class App():
         self.pressureController.addSensor("HP")
         self.pressureSensors = self.pressureController.getSensors()
 
-
+        # Temperature
         self.temperatureController = Temp_ctrl(cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
         self.temperatureController.addSensor("BT1")
         self.temperatureController.addSensor("BT2")
@@ -67,27 +69,26 @@ class App():
         self.temperatureController.addSensor("TT2")
         self.temperatureSensors = self.temperatureController.getSensors()
 
+        # IMU
         self.IMUController = IMU_ctrl(cfg.imu["avg_samples"], cfg.imu["precision"], log)
         self.IMUController.addSensor("X")
         self.IMUController.addSensor("Y")
         self.IMUController.addSensor("Z")
         self.IMUSensors = self.IMUController.getSensors()
         
-        
+        # Other sensors
         self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], log)
-
         self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], cfg.altimeter["precision"], log)
-
-        self.leak_h_flag = Flag("Hull leak", log) # hull leak
-        self.leak_e_flag = Flag("Engine leak", log) # Engine leak
-
-        # self.pump_is_on = Flag("Pump", log)
-        self.pumpFlag = Flag("Pump",log)
         self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], log)
 
 
+        # Flags
+        self.pumpFlag = Flag("Pump",log) # PF
+        self.leak_h_flag = Flag("Hull leak", log) # hull leak
+        self.leak_e_flag = Flag("Engine leak", log) # Engine leak
 
-        self.addSensorsToDict()
+
+        self.addSensorsToDict() # Including flags
 
 
         self.profile = Profile("cfg/profile.txt", log)
@@ -202,18 +203,27 @@ class App():
 
         # pump flag
         elif header=="PF":
-            value = int(float(value))
+            # value = int(float(value))
+            self.pumpFlag.add_sample(value)
+            value = self.pumpFlag.getLast()
             if value==1:
                 # print("pump turned on")
-                self.pumpFlag.add_sample(1)
+                # self.pumpFlag.add_sample(1)
+                pass
             elif value==0:
+                if self.timeOn and  self.timeOn>0 and time.time() - self.dcTimer < self.timeOn:
+                    print("WTF")
                 # print("pump is off")
-                self.pumpFlag.add_sample(0)
+                # self.pumpFlag.add_sample(0)
+                pass
             elif value==2:
                 # print("pump not working")
-                self.pumpFlag.add_sample(2)
+                # self.pumpFlag.add_sample(2)
                 # leak
                 self.current_state = State.EMERGENCY
+            else:
+                print("PF value error",value)
+                # assert()
 
 
         # bladder volume - pid trigger
@@ -229,6 +239,8 @@ class App():
                 # print("Init")
                 # time.sleep(0.01)
                 # check sensor buffer is full before advancing
+
+                # TODO: add waiting for safety to ping
                 if self.sensorsReady():
                     self.current_state = State.WAIT_FOR_WATER
 
@@ -238,7 +250,7 @@ class App():
                     print("Waiting for water")
                     self.waterTestTimer = time.time()
                 elapsedSeconds = time.time() - self.waterTestTimer
-                limitSeconds = 20
+                limitSeconds = self.waterSenseDuration
                 if  elapsedSeconds > limitSeconds:
                     print("Done waiting for water")
                     if self.pressureController.senseWater():
@@ -315,7 +327,7 @@ class App():
 
     def sensorsReady(self):
         for sensor in self.sensors:
-            if sensor!="rpm" and not self.sensors[sensor].isBufferFull():
+            if sensor!="rpm" and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 print(f"sensor {sensor} is not ready")
                 return False
         return True
@@ -417,7 +429,12 @@ class App():
             
         # print()
 
-        target_sdpeth = 1500 # on 80% plus change PID 
+        p0 = 10.35
+        m = 1
+        target_dpeth_in_meters = 150
+        corrected = p0 + m*target_dpeth_in_meters # linear function
+        target_dpeth = corrected * 100 # in milibar
+        # target_dpeth = 1500 # on 80% plus change PID 
         # print(target_sdpeth) 
         # 1022*=(1 + self.depth * 0.01) 
         # target_depth=1022*(1 + target_sdpeth) * 0.01
@@ -432,7 +449,7 @@ class App():
         self.lastTime = nowTime
 
         # PID
-        Error = target_sdpeth - avg
+        Error = target_dpeth - avg
         p = Error
         # print("p",p)
         if self.lastP != 0:
@@ -468,7 +485,7 @@ class App():
         time.sleep(0.01)
         self.comm.write(f"kd:{kd}\n")
         time.sleep(0.01)
-        self.comm.write(f"target:{target_sdpeth}\n")
+        self.comm.write(f"target:{target_dpeth}\n")
         time.sleep(0.01)
 
 
@@ -540,8 +557,12 @@ class App():
         # print("raw: {}".format(serial_line))
 
         header = serial_line[0]
-        value = int(float(serial_line[1]))
-
+        value = None
+        try:
+            value = int(float(serial_line[1]))
+        except ValueError as e:
+            print(f"Error parsing value {value} from safety")
+            return
 
         if serial_line[0].upper().startswith("N"):
             # print("adding {}".format(serial_line))
