@@ -16,9 +16,12 @@ float outMsg[3], inMsg[1];
 char OutgoingIdentifier[2];
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= FLAGS
-byte DropWeightFlag = 0;
+int DropWeightFlag = 0;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= GENERAL
 unsigned long PreviousMillisIn = 0, PreviousMillisOut = 0;
-byte HBwait = 20000; // Wair time (in milliseconds)
-byte MotorTime = 20000; // Duration of DW motor actuation
+unsigned long HBwait = 20000; // Wait time (in milliseconds)
+unsigned long MotorTime = 20000; // Duration of DW motor actuation
+
+bool rpiIsAlive = false;
+int graceTime = 5000;
