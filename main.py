@@ -53,6 +53,7 @@ class App():
         self.simFactor = 2.0
 
         self.sensors = {}
+        self.flags = {}
 
         # Pressure
         self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
@@ -90,7 +91,8 @@ class App():
         self.leak_e_flag = Flag("Engine leak", log) # Engine leak
 
 
-        self.addSensorsToDict() # Including flags
+        self.addSensorsToDict()
+        self.addFlagsToDict()
 
 
         self.profile = Profile("cfg/profile.txt", log)
@@ -180,11 +182,17 @@ class App():
 
 
 
-        elif header=="H1":
+        elif header=="HL":
             self.leak_h_flag.add_sample(value)
+            value = self.leak_h_flag.getLast()
+            if value == 1:
+                self.current_state = State.EMERGENCY
 
-        elif header=="H2":
+        elif header=="EL":
             self.leak_e_flag.add_sample(value)
+            value = self.leak_e_flag.getLast()
+            if value==1:
+                self.current_state = State.EMERGENCY
 
         elif header=="PD":
             self.altimeter.add_sample(value)
@@ -332,19 +340,28 @@ class App():
 
         self.sensors["PD"]=self.altimeter
         self.sensors["PC"]=self.altimeter
-        self.sensors["H1"]=self.leak_h_flag
-        self.sensors["H2"]=self.leak_e_flag
         self.sensors["BV"]=self.bladderVolume
         self.sensors["rpm"]=self.rpm
-        self.sensors["PF"]=self.pumpFlag
+    
+    def addFlagsToDict(self):
+        self.flags["PF"]=self.pumpFlag
+        self.flags["HL"]=self.leak_h_flag
+        self.flags["EL"]=self.leak_e_flag
+
 
 
     def sensorsReady(self):
-        bypass = ["rpm","PF"]
+        bypassSens = ["rpm"]
         for sensor in self.sensors:
-            if sensor not in bypass and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
+            if sensor not in bypassSens and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 print(f"sensor {sensor} is not ready")
                 return False
+        bypassFlag = ["PF"]
+        for flag in self.flags:
+            if flag not in bypassFlag and not self.flags[flag].isBufferFull():
+                print(f"flag {flag} is not ready")
+                return False
+
         return True
     
     def logSensors(self):
@@ -368,8 +385,8 @@ class App():
         res["PD"]=self.altimeter.getLast()
         res["PC"]=self.altimeter.getConfidance()
 
-        res["H1"]=self.leak_h_flag.getLast()
-        res["H2"]=self.leak_e_flag.getLast()
+        res["HL"]=self.leak_h_flag.getLast()
+        res["EL"]=self.leak_e_flag.getLast()
 
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
@@ -546,8 +563,8 @@ class App():
 
         print("BV",bv,"Direction",direction)
 
-        maxDive =  bv==0.0 and direction == 1
-        maxAscend = bv==650.0 and direction == 2
+        maxDive =  bv<10.0 and direction == 1
+        maxAscend = bv>640.0 and direction == 2
 
         if maxAscend or maxDive:
             print("bladder at max")

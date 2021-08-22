@@ -103,26 +103,29 @@ class YuriSim():
         self.comm = comm
         # self.sensorNames = ["BT1", "BT2", "TT1", "TT2", "AT", "AP",  "X",  "Y",  "Z",   "BP1",   "BP2",   "TP1",   "TP2", "HP",      "PD", "PC", "H1", "H2", "BV", "RPM" ] # bv
         # self.sensorValue = [23.66, 23.14, 23.29, 23.34,    0,    0, 0.01,-0.00, 0.00, 1031.60, 1035.30, 1022.40, 1034.00,    0, -26607.00, 9.00, 0   , 0   , 0.00,  23.00 ] # cc
-        self.sensors = {"BT1":23.66,
-                        "BT2":23.14,
-                        "TT1":23.29,
-                        "TT2":23.34,
-                        "X":0.01,
-                        "Y":-0.00,
-                        "Z":0.00,
-                        "BP1":1031.60,
-                        "BP2":1035.30,
-                        "TP1":1022.40,
-                        "TP2":1034.00,
-                        "HP":0,
-                        "PD":-26607.00,
-                        "PC":9.00,
-                        "H1":0,
-                        "H2":0,
-                        "BV":0.00,
-                        "RPM":23.00,
-                        "PF":0
-                        }
+        self.sensors = {
+            "BT1":23.66,
+            "BT2":23.14,
+            "TT1":23.29,
+            "TT2":23.34,
+            "X":0.01,
+            "Y":-0.00,
+            "Z":0.00,
+            "BP1":1031.60,
+            "BP2":1035.30,
+            "TP1":1022.40,
+            "TP2":1034.00,
+            "HP":0,
+            "PD":-26607.00,
+            "PC":9.00,
+            "BV":0.00,
+            "RPM":23.00,
+        }
+        self.flags = {
+            "HL":0,
+            "EL":0,
+            "PF":0
+        }
         self.depth = 0
         self.pumpIsOn = False
         self.startPumpTimer = False
@@ -192,8 +195,8 @@ class YuriSim():
 
         # GUI
         button_colorPF = [0,255,0]
-        button_colorH1 = [0,255,0]
-        button_colorH2 = [0,255,0]
+        button_colorHL = [0,255,0]
+        button_colorEL = [0,255,0]
 
 
 
@@ -371,8 +374,8 @@ class YuriSim():
             #     self.sensors["PF"]=0
             
             button_PF = pg.Rect(450, 160, 50, 50)
-            button_H1 = pg.Rect(500 + 10, 160, 50, 50)
-            button_H2 = pg.Rect(550 + 10 + 10, 160, 50, 50)
+            button_HL = pg.Rect(500 + 10, 160, 50, 50)
+            button_EL = pg.Rect(550 + 10 + 10, 160, 50, 50)
             mouse_pos = (0,0)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -390,16 +393,18 @@ class YuriSim():
                     self.sendMessage("PF",2,True)
                     self.sensors["PF"]=2
 
-                if button_H1.collidepoint(mouse_pos):
+                if button_HL.collidepoint(mouse_pos):
                     # prints current location of mouse
-                    print('button H1 was pressed at {0}'.format(mouse_pos))
-                    button_colorH1 = [255,0,0]
-                    # self.sendMessage("H1",2,True)
+                    print('button HL was pressed at {0}'.format(mouse_pos))
+                    button_colorHL = [255,0,0]
+                    self.flags["HL"]=1
+                    # self.sendMessage("HL",2,True)
 
-                if button_H2.collidepoint(mouse_pos):
+                if button_EL.collidepoint(mouse_pos):
                     # prints current location of mouse
-                    print('button H2 was pressed at {0}'.format(mouse_pos))
-                    button_colorH2 = [255,0,0]
+                    print('button EL was pressed at {0}'.format(mouse_pos))
+                    button_colorEL = [255,0,0]
+                    self.flags["EL"]=1
                     # self.sendMessage("H2",2,True)
 
 
@@ -591,12 +596,12 @@ class YuriSim():
             display.blit(label_btnPF, (450 + 15, 160 + 15))
 
 
-            pg.draw.rect(display, button_colorH1, button_H1)  # draw button
-            label_btnH1 = myfont.render(f"H1", 1, DARKBLUE)
+            pg.draw.rect(display, button_colorHL, button_HL)  # draw button
+            label_btnH1 = myfont.render(f"HL", 1, DARKBLUE)
             display.blit(label_btnH1, (510 + 15, 160 + 15))
 
-            pg.draw.rect(display, button_colorH2, button_H2)  # draw button
-            label_btnH2 = myfont.render(f"H2", 1, DARKBLUE)
+            pg.draw.rect(display, button_colorEL, button_EL)  # draw button
+            label_btnH2 = myfont.render(f"EL", 1, DARKBLUE)
             display.blit(label_btnH2, (570 + 15, 160 + 15))
 
             # DRAW LINES
@@ -643,6 +648,11 @@ class YuriSim():
         for sensor in self.sensors:
             if sensor!="RPM" and sensor!="PF":
                 self.sendStats(sensor)
+        
+        for flag in self.flags:
+            if flag != "PF":
+                value = self.flags[flag]
+                self.sendMessage(flag,value, True)
         # for sensorNum in range(len(self.sensorNames) - 1):
         #     self.sendStats(sensorNum)
 
@@ -665,7 +675,7 @@ class YuriSim():
         
         # skip flags
 
-        flags = ["H1","H2","PF"]
+        flags = ["HL","EL","PF"]
 
         if sensor not in flags:
 
