@@ -38,7 +38,9 @@ void loop()
   // Check the incoming serial buffer
 
   ReceiveMsg();
-
+//  SendMsg("VA", PumpVoltage);
+//  SendMsg("DA", PumpDirection);
+//  SendMsg("TA", PumpTime);
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= END MISSION
   // If the surface/end-mission command is received the bladder is fully inflated.
 
@@ -59,8 +61,9 @@ void loop()
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= PUMP ACTUATION
   // If all three pump actuation parameters are non-zero then start pump
 
-  if ((PumpVoltage != 0) && (PumpD == 1) || (PumpD == 2) && (PumpTime != 0))
+  if ((PumpVoltage != 0) && ((PumpDirection == 1) || (PumpDirection == 2)) && (PumpTime != 0))
   {
+    SendMsg("U", 1);
     EngagePump();
   }
 
@@ -87,9 +90,9 @@ void loop()
   SendMsg("BP2", SensorsBottom[3]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-  //  ReadPress(4);
-  //  SensorsBottom[4] = PresSensor.pressure();
-  //  SendMsg("HP", SensorsBottom[4]);
+    ReadPress(4);
+    SensorsBottom[4] = PresSensor.pressure();
+    SendMsg("HP", SensorsBottom[4]);
   Serial.println("");
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS

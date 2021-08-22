@@ -12,22 +12,22 @@ void FullSurface()
 
   if (BladdVol > BladderUpperLimit)
   {
-    analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+    D2Acmd(0); // Send STOP signal to pump
     //Serial.println("      !!!   Bladder volume out of bounds   !!!");
     return;
   }
 
-  int BladderVolSetPoint = 630, PumpDirection = HIGH;
+  int BladderVolSetPoint = 630, PumpDirectionBool = HIGH;
 
   // Reset timers
   PreviousMillis = millis();
   //wdt_enable(WDTO_2S); // enable watchdog timer
 
   // Feed commands into pump
-  digitalWrite(PumpDirectionPin, PumpDirection);
+  digitalWrite(PumpDirectionPin, PumpDirectionBool);
   digitalWrite(ValvePin, HIGH);
   delay(200);
-  analogWrite(PumpControlPin, 255);
+  D2Acmd(100);
 
   // Verify that the Pump started
   delay(1000);
@@ -41,14 +41,14 @@ void FullSurface()
   {
     wdt_reset(); // reset the watchdog each loop
 
-    analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+    D2Acmd(0); // Send STOP signal to pump
     delay(1000);
 
     //    Serial.print(" Pump stalled, retry #");
     //    Serial.println(whilecounter);
 
     PreviousMillis = millis();
-    analogWrite(PumpControlPin, 255);
+    D2Acmd(100);
     //Serial.println(" Pump restarted ");
     delay(1000);
 
@@ -75,7 +75,7 @@ void FullSurface()
 
     if ((BladdVol > BladderUpperLimit) || (BladdVol < BladderLowerLimit))
     {
-      analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+      D2Acmd(0); // Send STOP signal to pump
       //Serial.println("Bladder volume out of bounds!!!");
       break;
     }
@@ -92,7 +92,7 @@ void FullSurface()
   wdt_reset();
   //wdt_disable(); // disable watchdog after exit from while() loop
 
-  analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+  D2Acmd(0); // Send STOP signal to pump
   delay(200);
   digitalWrite(ValvePin, LOW);
 }

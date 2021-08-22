@@ -18,11 +18,14 @@ void setup()
   pinMode(HullLeakPin, INPUT);
   pinMode(VBEoutPin, OUTPUT);
 
+  //-=-=-=-=-=-=-=-=-=-=-=-=-= engage main battery
+  digitalWrite(MainRelayPin, HIGH); // enable main relay
+  
   //-=-=-=-=-=-=-=-=-=-=-=-=-= LIGHT SIGNAL = START OF SETUP
   digitalWrite(LightPin, HIGH); // turn light on
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= PUMP INIT.
-  analogWrite(PumpControlPin, 0); // stop the pump
+  D2Acmd(0);  // stop the pump
   digitalWrite(ValvePin, LOW);    // close the valve
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= WATCHDOG TIMER INIT
@@ -68,9 +71,9 @@ void setup()
   SendMsg("BP2", SensorsBottom[3]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-  //  InitPress(4);
-  //  SensorsBottom[4] = PresSensor.pressure();
-  //  SendMsg("HP", SensorsBottom[4]);
+  InitPress(4);
+  SensorsBottom[4] = PresSensor.pressure();
+  SendMsg("HP", SensorsBottom[4]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS
   myMux.begin(TopMux);
