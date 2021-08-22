@@ -50,7 +50,7 @@ class App():
         self.timeOff = None
         self.timeOn = None
         self.dcTimer = None
-        self.simFactor = 1.0
+        self.simFactor = 2.0
 
         self.sensors = {}
 

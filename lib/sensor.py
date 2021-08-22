@@ -19,7 +19,7 @@ class Sensor:
 
         avg = sum(self.t)/len(self.t)
         # return self.t[0]
-        return round(avg,2)
+        return round(avg,self.precision)
 
     def add_sample(self, sample):
         # TODO: try catch parse

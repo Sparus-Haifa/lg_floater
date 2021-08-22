@@ -15,17 +15,17 @@ class RPM(Sensor):
 
         self._queues_are_full = False
 
-        self.log.write("Press controller was initialized successfully\n")
+        self.log.write("rpm controller was initialized successfully\n")
 
 
-    def add_sample(self, sample):
-        self.t.append(sample)
+    # def add_sample(self, sample):
+    #     self.t.append(sample)
 
-    def getLast(self):
-        if len(self.t)<1:
-            print(f"{self.getName()} buffer is empty")
-            return None
-        return self.t[0]
+    # def getLast(self):
+    #     if len(self.t)<1:
+    #         print(f"{self.getName()} buffer is empty")
+    #         return None
+    #     return round(self.t[0],self.precision)
             
 
 

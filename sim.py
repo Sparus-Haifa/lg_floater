@@ -188,7 +188,7 @@ class YuriSim():
         acceleration = .000
         self.currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         speed = 0
-        SimFactor = 1.0
+        SimFactor = 2.0
 
         # GUI
         button_colorPF = [0,255,0]
