@@ -118,6 +118,8 @@ class YuriSim():
             "HP":0,
             "PD":-26607.00,
             "PC":9.00,
+            "AT":0.0,
+            "AP":0.0,
             "BV":0.00,
             "RPM":23.00,
         }
@@ -441,6 +443,9 @@ class YuriSim():
 
             if self.depth >= seafloorDepth:
                 self.depth = seafloorDepth
+
+            self.sensors["PD"]=seafloorDepth - self.depth
+            self.sensors["PC"]= (100 - self.sensors["PD"]*100/seafloorDepth)
 
             # self.depth=y
             y = self.depth * PIXELRATIO

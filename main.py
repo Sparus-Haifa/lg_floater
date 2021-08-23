@@ -62,6 +62,7 @@ class App():
         self.pressureController.addSensor("TP1")
         self.pressureController.addSensor("TP2")
         self.pressureController.addSensor("HP")
+        self.pressureController.addSensor("AP")
         self.pressureSensors = self.pressureController.getSensors()
 
         # Temperature
@@ -70,6 +71,7 @@ class App():
         self.temperatureController.addSensor("BT2")
         self.temperatureController.addSensor("TT1")
         self.temperatureController.addSensor("TT2")
+        self.temperatureController.addSensor("AT")
         self.temperatureSensors = self.temperatureController.getSensors()
 
         # IMU
@@ -83,6 +85,7 @@ class App():
         self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], log)
         self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], cfg.altimeter["precision"], log)
         self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], log)
+
 
 
         # Flags
@@ -153,6 +156,9 @@ class App():
 
         elif header=="BT2":
             self.temperatureSensors["BT2"].add_sample(value)
+
+        elif header=="AT":
+            self.temperatureSensors["AT"].add_sample(value)
             
         elif header=="BP1":
             self.pressureSensors["BP1"].add_sample(value)
@@ -169,7 +175,8 @@ class App():
         elif header=="HP":
             self.pressureSensors["HP"].add_sample(value)
             
-            
+        elif header=="AP":
+            self.pressureSensors["AP"].add_sample(value)
 
         elif header=="X":
             self.IMUSensors["X"].add_sample(value)
