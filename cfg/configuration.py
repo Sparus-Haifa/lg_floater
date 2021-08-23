@@ -12,7 +12,7 @@ Current_state = State.INIT
 serial = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
-    "port": "COM3",
+    "port": "COM4",
     "timeout" : 3,
     "baud_rate": 115200
 }
@@ -21,7 +21,7 @@ serial_safety = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
     # "port": "COM4",
-    "port": "COM3",
+    "port": "COM8",
     "timeout" : 3,
     "baud_rate": 115200
 }

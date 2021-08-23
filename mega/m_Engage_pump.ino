@@ -10,26 +10,35 @@ void EngagePump()
   // CHECK IF THE BLADDER IS AT PHYSICAL LIMITS, IF YES EXIT THE FUNCTION
   CalcBladderVol();
 
-  if ((BladdVol >= BladderUpperLimit) || (BladdVol <= BladderLowerLimit))
+  if  (BladdVol <= BladderLowerLimit && PumpDirection == 1)
   {
-    analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+    D2Acmd(0); // Send STOP signal to pump
     //Serial.println("Bladder volume out of bounds!!!");
+    SendMsg("PF", 3); // Send pump on limit
     return;
   }
 
-  if (PumpD == 1)
-    PumpDirection = LOW;   // LOW = INTO ACCUMULATOR
-  else if (PumpD == 2)
-    PumpDirection = HIGH;  // HIGH = INTO BLADDER
+    if (BladdVol >= BladderUpperLimit && PumpDirection == 2)
+  {
+    D2Acmd(0); // Send STOP signal to pump
+    //Serial.println("Bladder volume out of bounds!!!");
+    SendMsg("PF",4); // Send pump on limit
+    return;
+  }
 
-  digitalWrite(PumpDirectionPin, PumpDirection);
+  if (PumpDirection == 1)
+    PumpDirectionBool = LOW;   // LOW = INTO ACCUMULATOR
+  else if (PumpDirection == 2)
+    PumpDirectionBool = HIGH;  // HIGH = INTO BLADDER
+
+  digitalWrite(PumpDirectionPin, PumpDirectionBool);
   digitalWrite(ValvePin, HIGH);
   delay(250); // Time for the valve to respond
 
   PreviousMillis = millis(); // Reset the pump timer
 
   // Start pump @100% voltage and then drop to required input
-  analogWrite(PumpControlPin, 255);
+  D2Acmd(100);
 
   //wdt_enable(WDTO_4S); // enable watchdog timer
 
@@ -45,14 +54,14 @@ void EngagePump()
   {
     wdt_reset(); // reset the watchdog each loop
 
-    analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+    D2Acmd(0); // Send STOP signal to pump
     delay(1000);
 
     //    Serial.print(" Pump stalled, retry #");
     //    Serial.println(whilecounter);
 
     PreviousMillis = millis();
-    analogWrite(PumpControlPin, 255);
+    D2Acmd(100);
     //Serial.println(" Pump restarted ");
     delay(1000);
 
@@ -70,9 +79,9 @@ void EngagePump()
 
   SendMsg("PU", 1); // Send pump started to RPi
   delay(250);
-  analogWrite(PumpControlPin, PumpVoltage * 255 / 100);
+  D2Acmd(PumpVoltage);
 
-  while (PumpTime > PreviousMillis)
+  while (PumpTime*1000 > (millis() - PreviousMillis))
   {
     wdt_reset();
 
@@ -81,9 +90,9 @@ void EngagePump()
     {
       // If the pump stalls retry to start the pump until it starts
       PreviousMillis = millis();
-      analogWrite(PumpControlPin, 255);
+      D2Acmd(100);
       delay(1000);
-      analogWrite(PumpControlPin, PumpVoltage * 255 / 100);
+      D2Acmd(PumpVoltage);
     }
 
     // Calculate bladder volume
@@ -92,7 +101,7 @@ void EngagePump()
     
     if ((BladdVol >= BladderUpperLimit) || (BladdVol <= BladderLowerLimit))
     {
-      analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+      D2Acmd(0); // Send STOP signal to pump
       //Serial.println("Bladder volume out of bounds!!!");
       break;
     }
@@ -100,7 +109,7 @@ void EngagePump()
 
   wdt_reset();
 
-  analogWrite(PumpControlPin, 0); // Send STOP signal to pump
+  D2Acmd(0); // Send STOP signal to pump
   SendMsg("PU", 0);
   delay(200);
   digitalWrite(ValvePin, LOW);

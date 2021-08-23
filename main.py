@@ -104,17 +104,17 @@ class App():
 
 
         # Main arduino
-        # self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
-        # if not self.comm.ser:
-        #     print("-E- Failed to init serial port")
-        #     exit()
+        self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
+        if not self.comm.ser:
+            print("-E- Failed to init serial port")
+            exit()
 
         # Simulated via udp
         # self.comm = com.UdpComm()
-        self.comm = com.UdpComm()
-        if not self.comm.server_socket:
-            print("-E- Failed to init udp port")
-            exit() 
+        # self.comm = com.UdpComm()
+        # if not self.comm.server_socket:
+        #     print("-E- Failed to init udp port")
+        #     exit() 
 
         # Secondary arduino (safety)
         self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], log)
@@ -130,8 +130,9 @@ class App():
         if serial_line == None:
             print(f"Waiting for message from arduino. Received: {serial_line}")
             return
-        # print("raw: {}".format(serial_line))
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
+        if serial_line!=b"" and ("User message received" in serial_line) or ("U:" in serial_line):
+            print("raw: {}".format(serial_line))
         # split_line = serial_line.split(":")
         # print(serial_line)
         header = serial_line[0]
@@ -216,6 +217,9 @@ class App():
         elif header=="RPM":
             self.rpm.add_sample(value)
             # last sensor received, send pid commands to arduino
+
+        elif header=="VA" or header=="DA" or header=="TA":
+            print("recived:",header,value)
  
 
         # pump flag
@@ -257,7 +261,7 @@ class App():
             self.bladderVolume.add_sample(value)
             
             # send pid
-            self.comm.write(f"State:{self.current_state}\n") # debug send state
+            # self.comm.write(f"State:{self.current_state}\n") # debug send state
 
             self.logSensors()
 
@@ -514,17 +518,17 @@ class App():
         # Sens debug data - for sim only
         # on 20% trip change PID
         # trip = 1 - abs(target_sdpeth - avg)/target_sdpeth # precent 80%
-        self.comm.write(f"error:{p}\n")
+        # self.comm.write(f"error:{p}\n")
 
-        self.comm.write(f"p:{p}\n")
+        # self.comm.write(f"p:{p}\n")
         time.sleep(0.01)
-        self.comm.write(f"kp:{kp}\n")
+        # self.comm.write(f"kp:{kp}\n")
         time.sleep(0.01)
-        self.comm.write(f"d:{d}\n")
+        # self.comm.write(f"d:{d}\n")
         time.sleep(0.01)
-        self.comm.write(f"kd:{kd}\n")
+        # self.comm.write(f"kd:{kd}\n")
         time.sleep(0.01)
-        self.comm.write(f"target:{target_dpeth}\n")
+        # self.comm.write(f"target:{target_dpeth}\n")
         time.sleep(0.01)
 
 
@@ -548,7 +552,7 @@ class App():
         if self.pid_controller.doInterpolation:
             phase = 2
             # print("yes")
-        self.comm.write(f"phase:{phase}\n") # sim debug
+        # self.comm.write(f"phase:{phase}\n") # sim debug
 
         # normalize scalar
         # if abs(scalar) > 100:
@@ -560,8 +564,8 @@ class App():
         # if scalar==0:
         #     return
 
-        self.comm.write(f"PID:{scalar}") # sim debug
-        self.comm.write(f"O:{self.timeOff}\n") # sim debug
+        # self.comm.write(f"PID:{scalar}\n") # sim debug
+        # self.comm.write(f"O:{self.timeOff}\n") # sim debug
         
         
         bv =self.sensors["BV"].getLast()
@@ -570,16 +574,29 @@ class App():
 
         print("BV",bv,"Direction",direction)
 
-        maxDive =  bv<10.0 and direction == 1
-        maxAscend = bv>640.0 and direction == 2
+        buffer = 15
+        maxDive =  bv<200.0 + buffer and direction == 1
+        maxAscend = bv>450.0 - buffer and direction == 2
 
         if maxAscend or maxDive:
-            print("bladder at max")
+            if maxAscend:
+                print("Max ascending")
+            if maxDive:
+                print("Max dive")
             self.idle = True
         else:
-            print("sending PID")
+            print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.timeOn}")
+            # self.comm.ser.write(bytes("V:",'utf-8'))
+            # self.comm.ser.write(voltage)
+            # self.comm.ser.write(bytes("\n",'utf-8'))
+
+
+            # self.comm.ser.write(bytes("D:",'utf-8'))
+            # self.comm.ser.write(direction)
+            # self.comm.ser.write(bytes("\n",'utf-8'))
+
             self.comm.write(f"V:{voltage}\n")
-            self.comm.write(f"D:{direction}")
+            self.comm.write(f"D:{direction}\n")
             self.comm.write(f"T:{self.timeOn}\n")
             self.idle = False
         time.sleep(0.01)

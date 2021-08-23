@@ -20,6 +20,9 @@ QWIICMUX myMux;
 #define BottomMux 0x70
 #define TopMux    0x71
 
+// MCP4725A0 D2A address 
+#define MCP4725_ADDR 0x60 
+
 // define GPS library object
 I2CGPS myI2CGPS; 
 
@@ -42,9 +45,9 @@ static const int ledPin = LED_BUILTIN;
 BNO080 myIMU;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= VARIABLES DECLARATIONS
-bool PumpDirection;
+bool PumpDirectionBool;
 float PumpVoltage, PumpTime;
-int PumpD, Duty, PumpRPM, BladderVolSetPoint;
+int PumpDirection, Duty, PumpRPM, BladderVolSetPoint;
 float Time, Freq, Period;
 
 // COMMS
@@ -89,4 +92,4 @@ float T1 = (273.15 + 24.4);
 float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC
-int BladderUpperLimit = 620, BladderLowerLimit = 5;
+int BladderUpperLimit = 450, BladderLowerLimit = 200;
