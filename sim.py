@@ -193,7 +193,7 @@ class YuriSim():
         acceleration = .000
         self.currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         speed = 0
-        SimFactor = 2.0
+        SimFactor = 1.0
 
         # GUI
         button_colorPF = [0,255,0]
@@ -433,7 +433,7 @@ class YuriSim():
             
             # seafloorInMeters = 20
             # seafloorDepth = (3000 - self.surfacePressure)/100
-            seafloorDepth = 200
+            seafloorDepth = 50
             # seafloor = height - 70 - 60
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
@@ -443,6 +443,7 @@ class YuriSim():
 
             if self.depth >= seafloorDepth:
                 self.depth = seafloorDepth
+                print("Crash!")
 
             self.sensors["PD"]=seafloorDepth - self.depth
             self.sensors["PC"]= (100 - self.sensors["PD"]*100/seafloorDepth)

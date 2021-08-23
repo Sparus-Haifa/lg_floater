@@ -21,7 +21,7 @@ serial_safety = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
     # "port": "COM4",
-    "port": "COM8",
+    "port": "COM3",
     "timeout" : 3,
     "baud_rate": 115200
 }

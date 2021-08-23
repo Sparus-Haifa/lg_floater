@@ -20,6 +20,9 @@ from lib.task_ctrl import *
 
 from enum import Enum
 
+import sys # for args
+
+
 class State(Enum):
     INIT = 1
     WAIT_FOR_WATER = 2
@@ -30,7 +33,7 @@ class State(Enum):
 # Current_state = State.INIT
 
 class App():
-    def __init__(self):
+    def __init__(self, simulation):
         log = logger.Logger()
         self.lastTime = time.time()
         self.lastP=0
@@ -50,7 +53,8 @@ class App():
         self.timeOff = None
         self.timeOn = None
         self.dcTimer = None
-        self.simFactor = 2.0
+        self.simulation = simulation
+        self.simFactor = 1.0
 
         self.sensors = {}
         self.flags = {}
@@ -104,17 +108,17 @@ class App():
 
 
         # Main arduino
-        self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
-        if not self.comm.ser:
-            print("-E- Failed to init serial port")
-            exit()
-
+        if not self.simulation:
+            self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
+            if not self.comm.ser:
+                print("-E- Failed to init serial port")
+                exit()
+        else:
         # Simulated via udp
-        # self.comm = com.UdpComm()
-        # self.comm = com.UdpComm()
-        # if not self.comm.server_socket:
-        #     print("-E- Failed to init udp port")
-        #     exit() 
+            self.comm = com.UdpComm()
+            if not self.comm.server_socket:
+                print("-E- Failed to init udp port")
+                exit() 
 
         # Secondary arduino (safety)
         self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], log)
@@ -204,6 +208,19 @@ class App():
 
         elif header=="PD":
             self.altimeter.add_sample(value)
+            # TODO: decide which comes first from arduino
+            # assuming PC comes first
+            value = self.altimeter.getLast()
+            confidance = self.altimeter.getConfidance()
+            
+            if confidance > 50:
+                if 10 < value and value <= 20:
+                    print("yellow line!")
+                elif value <= 10:
+                    print("red line. Abort!")
+                    self.current_state = State.EMERGENCY
+
+
 
         elif header=="PC":
             self.altimeter.add_confidance(value)
@@ -261,7 +278,8 @@ class App():
             self.bladderVolume.add_sample(value)
             
             # send pid
-            # self.comm.write(f"State:{self.current_state}\n") # debug send state
+            if self.simulation:
+                self.comm.write(f"State:{self.current_state}\n") # debug send state
 
             self.logSensors()
 
@@ -518,18 +536,19 @@ class App():
         # Sens debug data - for sim only
         # on 20% trip change PID
         # trip = 1 - abs(target_sdpeth - avg)/target_sdpeth # precent 80%
-        # self.comm.write(f"error:{p}\n")
+        if self.simulation:
+            self.comm.write(f"error:{p}\n")
 
-        # self.comm.write(f"p:{p}\n")
-        time.sleep(0.01)
-        # self.comm.write(f"kp:{kp}\n")
-        time.sleep(0.01)
-        # self.comm.write(f"d:{d}\n")
-        time.sleep(0.01)
-        # self.comm.write(f"kd:{kd}\n")
-        time.sleep(0.01)
-        # self.comm.write(f"target:{target_dpeth}\n")
-        time.sleep(0.01)
+            self.comm.write(f"p:{p}\n")
+            time.sleep(0.01)
+            self.comm.write(f"kp:{kp}\n")
+            time.sleep(0.01)
+            self.comm.write(f"d:{d}\n")
+            time.sleep(0.01)
+            self.comm.write(f"kd:{kd}\n")
+            time.sleep(0.01)
+            self.comm.write(f"target:{target_dpeth}\n")
+            time.sleep(0.01)
 
 
 
@@ -552,7 +571,10 @@ class App():
         if self.pid_controller.doInterpolation:
             phase = 2
             # print("yes")
-        # self.comm.write(f"phase:{phase}\n") # sim debug
+        if self.simulation:            
+            self.comm.write(f"phase:{phase}\n") # sim debug
+            self.comm.write(f"PID:{scalar}\n") # sim debug
+            self.comm.write(f"O:{self.timeOff}\n") # sim debug
 
         # normalize scalar
         # if abs(scalar) > 100:
@@ -564,15 +586,13 @@ class App():
         # if scalar==0:
         #     return
 
-        # self.comm.write(f"PID:{scalar}\n") # sim debug
-        # self.comm.write(f"O:{self.timeOff}\n") # sim debug
         
         
         bv =self.sensors["BV"].getLast()
 
 
 
-        print("BV",bv,"Direction",direction)
+        # print("BV",bv,"Direction",direction)
 
         buffer = 15
         maxDive =  bv<200.0 + buffer and direction == 1
@@ -586,15 +606,6 @@ class App():
             self.idle = True
         else:
             print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.timeOn}")
-            # self.comm.ser.write(bytes("V:",'utf-8'))
-            # self.comm.ser.write(voltage)
-            # self.comm.ser.write(bytes("\n",'utf-8'))
-
-
-            # self.comm.ser.write(bytes("D:",'utf-8'))
-            # self.comm.ser.write(direction)
-            # self.comm.ser.write(bytes("\n",'utf-8'))
-
             self.comm.write(f"V:{voltage}\n")
             self.comm.write(f"D:{direction}\n")
             self.comm.write(f"T:{self.timeOn}\n")
@@ -706,10 +717,25 @@ class App():
 
 if __name__ == "__main__":
     
+    # print("num of args",len(sys.argv))
+    # print("args",sys.argv)
+
+    # app = App()
+
+    if len(sys.argv)>1:
+        arg = sys.argv[1]
+        # print(arg)
+        # print("True" in arg)
+        if "True" in arg:
+            # app.simulation=True
+            print("Simulation mode")
+            app = App(True)
+        else:
+            app = App(False)
+
 
  
 
-    app = App()
     app.lastTime = time.time()
     while True:
         app.get_next_serial_line()
