@@ -1,7 +1,8 @@
 import datetime
 import os
 import sys
-from time import sleep, time
+import time
+# from time import sleep, time
 base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(base_path + os.sep + "cfg")
 import configuration as cfg
@@ -10,6 +11,38 @@ class PID:
     def __init__(self):
         last_cmd_was_sent_at = None
         self.doInterpolation = False
+        # 
+        self.lastP = None
+        self.lastTime = time.time()
+        self.p = None
+        self.d = None
+        self.kp = 0.2
+        self.kd = 7.0
+
+    def pid(self, error):
+        # set timers
+        nowTime = time.time()
+        deltaTime = (nowTime - self.lastTime)
+        self.lastTime = nowTime
+
+        # calc PID
+        self.p = error
+        if self.lastP != None:
+            self.d = (self.lastP - self.p) / deltaTime
+        else:
+            self.d = 0
+        self.lastP = self.p
+
+        scalar = self.p*self.kp-self.d*self.kd
+        return scalar
+
+    def unpack(self, scalar):
+        direction = self.getDirection(scalar)
+        voltage = self.normal_pumpVoltage(scalar)
+        dc = self.interp_dutyCycle(scalar)
+        self.timeOn = self.interp_timeOn(scalar)
+        self.timeOff = self.calc_timeOff(self.timeOn,dc)
+        return direction, voltage, dc, self.timeOn, self.timeOff      
 
     def get_next_move(self, curr_press):
         setpoint_err = cfg.task["setpoint"] - curr_press

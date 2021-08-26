@@ -160,7 +160,7 @@ class YuriSim():
         RED = pg.Color(120,8,11)
         GREEN = pg.Color(11,120,8)
 
-        PIXELRATIO = 1.0 # pixel to meter
+        PIXELRATIO = 5.0 # pixel to meter
 
         display = pg.display.set_mode((800, 500))
         width, height = display.get_size()
@@ -433,7 +433,7 @@ class YuriSim():
             
             # seafloorInMeters = 20
             # seafloorDepth = (3000 - self.surfacePressure)/100
-            seafloorDepth = 50
+            seafloorDepth = 60
             # seafloor = height - 70 - 60
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
