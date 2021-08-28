@@ -322,25 +322,25 @@ class App():
             # print("Executing task")
 
 
-            if not self.timeOn: # first time running. still no timeOn calc available
+            if self.timeOn is None: # first time running. still no timeOn calc available
                 # before DC starts
                 self.sendPID()
 
             elif self.idle:
                 print("idle")
-                self.sendPID()
+                self.sendPID()  # we check again
 
             # elif timeOnStarted and timeOffStarted and betweenOnandOff:
             else:
                 # during DC
                 elapsedSeconds = (time.time() - self.dcTimer)*self.simFactor
                 dutyCycleDuration = self.timeOn + self.timeOff
-                betweenOnandOff = elapsedSeconds < dutyCycleDuration
+                during_dutycycle = elapsedSeconds < dutyCycleDuration
 
                 if self.flags["PF"].getLast()==0 and self.idle == False:
                     print("Waiting on pump to start")
 
-                if self.dcTimer and betweenOnandOff:
+                if during_dutycycle:
                     print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
 
 

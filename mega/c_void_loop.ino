@@ -38,9 +38,7 @@ void loop()
   // Check the incoming serial buffer
 
   ReceiveMsg();
-//  SendMsg("VA", PumpVoltage);
-//  SendMsg("DA", PumpDirection);
-//  SendMsg("TA", PumpTime);
+
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= END MISSION
   // If the surface/end-mission command is received the bladder is fully inflated.
 
@@ -90,11 +88,10 @@ void loop()
   SendMsg("BP2", SensorsBottom[3]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-    ReadPress(4);
-    SensorsBottom[4] = PresSensor.pressure();
-    SendMsg("HP", SensorsBottom[4]);
-  Serial.println("");
-
+  ReadPress(4);
+  SensorsBottom[4] = PresSensor.pressure();
+  SendMsg("HP", SensorsBottom[4]);
+  
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS
   myMux.begin(TopMux);
   wdt_reset();
@@ -116,8 +113,7 @@ void loop()
   ReadPress(5);
   SensorsTop[5] = PresSensor.pressure();
   SendMsg("TP2", SensorsTop[5]);
-  Serial.println("");
-
+  
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER VOLUME
   CalcBladderVol();
   //SendMsg("GV", GasVol);

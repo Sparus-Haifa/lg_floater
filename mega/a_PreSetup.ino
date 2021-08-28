@@ -47,7 +47,7 @@ BNO080 myIMU;
 //-=-=-=-=-=-=-=-=-=-=-=-=-= VARIABLES DECLARATIONS
 bool PumpDirectionBool;
 float PumpVoltage, PumpTime;
-int PumpDirection, Duty, PumpRPM, BladderVolSetPoint;
+int PumpDirection, Duty, PumpRPM, BladderVolSetPoint, BladderBuffer = 10;
 float Time, Freq, Period;
 
 // COMMS
@@ -73,22 +73,22 @@ int LeakTH = 50;
 unsigned long PreviousMillis = 0, LoopCounter = 1;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= PINS ALLOCATION
-#define PumpControlPin     2  // PWM 0-5V motor speed control pin
-#define RPMReadPin        22  // Digital motor RPM feedback pin
-#define PumpDirectionPin   3  // Pump direction control pin
-#define DropDown12VEnable 53  // 12V DropDown chip enable
-#define ValvePin          52  // Cutoff valve command pin = Relay 1 enable
-#define MainRelayPin      11  // Main Relay ON
-#define LightPin          12  // Signal light control pin
-#define VBEoutPin          7  // VBE leak detector voltage pin - not all Digital legs are PWM !!!
-#define VBEinPin          A8  // VBE leak detector detector pin
-#define HullLeakPin       50  // Hull Leak Signal Pin
+#define PumpControlPin       2  // PWM 0-5V motor speed control pin
+#define RPMReadPin          22  // Digital motor RPM feedback pin
+#define PumpDirectionPin     3  // Pump direction control pin
+#define DropDown12VEnable   53  // 12V DropDown chip enable
+#define ValvePin            52  // Cutoff valve command pin = Relay 1 enable
+#define MainRelayPin        11  // Main Relay ON
+#define LightPin            12  // Signal light control pin
+#define VBEoutPin            7  // VBE leak detector voltage pin - not all Digital legs are PWM !!!
+#define VBEinPin            A8  // VBE leak detector detector pin
+#define HullLeakPin         50  // Hull Leak Signal Pin
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER PARAMETERS
 // V1 = 0.7 L for accumulator full of oil, V1=1.4L for accumulator empty of oil
 float V1 = 1430 - 724;
-float P1 = 9961 * (0.98692 / 1000.0);
-float T1 = (273.15 + 24.4);
+float P1 = 10513 * (0.98692 / 1000.0);
+float T1 = (273.15 + 27.46);
 float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC

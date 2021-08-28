@@ -11,7 +11,8 @@
  *  at start of mission. The WAKE-UP command will be given by pulling the connected Pi I/O
  *  pin to HIGH
  *  
- *  The incoming handshake header: N: 1 = OK / 2 = dropweight
+ *  The incoming handshake header: N: 1 = OK / 2 = drop weight
  *  The outgoing handshake header: NN: 1 = OK / 2 = weight dropped due to command / 
  *  3 = NANO alive / 4 = weight dropped due to over time / 111 = NANO AWAKE / 222 = NANO ASLEEP
+ *  
  */ 

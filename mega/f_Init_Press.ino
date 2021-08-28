@@ -5,10 +5,7 @@ void InitPress(byte port)
   myMux.setPort(port);
   myMux.enablePort(port);
   while (!PresSensor.init()) {
-    Serial.println("Init failed!");
-    Serial.println("Are SDA/SCL connected correctly?");
-    Serial.println("Blue Robotics Bar30: White=SDA, Green=SCL");
-    Serial.println("\n\n\n");
+    SendMsg("PS", port);
     delay(1000);
   }
   PresSensor.read();

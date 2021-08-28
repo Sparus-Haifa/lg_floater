@@ -10,14 +10,12 @@ void FullSurface()
   CalcBladderVol();
   SendMsg("BV", BladdVol);
 
-  if (BladdVol > BladderUpperLimit)
+  if (BladdVol >= BladderUpperLimit)
   {
-    D2Acmd(0); // Send STOP signal to pump
-    //Serial.println("      !!!   Bladder volume out of bounds   !!!");
     return;
   }
 
-  int BladderVolSetPoint = 630, PumpDirectionBool = HIGH;
+  int BladderVolSetPoint = BladderUpperLimit, PumpDirectionBool = HIGH;
 
   // Reset timers
   PreviousMillis = millis();
@@ -35,8 +33,8 @@ void FullSurface()
 
   int whilecounter = 1;
 
-  // IF THE READ RPM IS BELLOW 1000 -> THE PUMP DIDN'T START, ALLOW 3 TIMES TO RESTART
-  // OR ABORT
+  // IF THE READ RPM IS BELLOW 1000 -> THE PUMP DIDN'T START,
+  // ALLOW 3 TIMES TO RESTART AND THEN ABORT
   while (PumpRPM < 1000)
   {
     wdt_reset(); // reset the watchdog each loop
@@ -44,20 +42,14 @@ void FullSurface()
     D2Acmd(0); // Send STOP signal to pump
     delay(1000);
 
-    //    Serial.print(" Pump stalled, retry #");
-    //    Serial.println(whilecounter);
-
     PreviousMillis = millis();
     D2Acmd(100);
-    //Serial.println(" Pump restarted ");
     delay(1000);
 
     PumpRPM = RPMRead();
-    //    Serial.print("Pump RPM: ");
-    //    Serial.println( PumpRPM );
-
-    if (whilecounter >= 5)
+    if (whilecounter >= 3)
     {
+      SendMsg("PF", 2);
       return;
     }
 
@@ -76,16 +68,8 @@ void FullSurface()
     if ((BladdVol > BladderUpperLimit) || (BladdVol < BladderLowerLimit))
     {
       D2Acmd(0); // Send STOP signal to pump
-      //Serial.println("Bladder volume out of bounds!!!");
       break;
     }
-    //    USER/SERIAL STOP COMMAND
-    //    if ((Serial.available() > 0))
-    //    {
-    //      analogWrite(PumpControlPin, 0); // Send STOP signal to pump
-    //      Serial.println("                                 --- LOOP STOPPED BY USER !!! ---");
-    //      break;
-
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= END of WHILE LOOP
   }
 
