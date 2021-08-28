@@ -45,6 +45,9 @@ class App():
         self.safteyTimer = None
         self.idle = True # bladder already at max or min
 
+        self.bladder_is_at_min_volume = False
+        self.bladder_is_at_max_volume = False
+
 
         self.waterSenseDuration = 5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
@@ -90,9 +93,10 @@ class App():
 
 
         # Flags
-        self.pumpFlag = Flag("Pump",log) # PF
-        self.leak_h_flag = Flag("Hull leak", log) # hull leak
-        self.leak_e_flag = Flag("Engine leak", log) # Engine leak
+        self.pumpFlag = Flag("Pump flag",log)  # PF
+        self.bladder_flag = Flag("Bladder flag", log)  # BF
+        self.leak_h_flag = Flag("Hull leak", log)  # HL
+        self.leak_e_flag = Flag("Engine leak", log)  # EL
 
 
         self.addSensorsToDict()
@@ -140,13 +144,14 @@ class App():
         self.flags["PF"]=self.pumpFlag
         self.flags["HL"]=self.leak_h_flag
         self.flags["EL"]=self.leak_e_flag
+        self.flags["BF"]=self.bladder_flag
 
 
     #get line from main arduino; decode it, store the data and execute an appropriate callback
     def get_next_serial_line(self):
         serial_line = self.comm.read() # e.g. data=['P1', '1.23']
         if serial_line == None:
-            print(f"Waiting for message from arduino. Received: {serial_line}")
+            # print(f"Waiting for message from arduino. Received: {serial_line}")
             return
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
         if serial_line!=b"" and ("User message received" in serial_line) or ("U:" in serial_line):
@@ -193,6 +198,9 @@ class App():
         elif header=="EL":
             self.leak_e_flag.add_sample(value) # trigger
             self.handle_EL()
+        elif header=="BF":
+            self.bladder_flag.add_sample(value)
+            self.handle_BF()
         elif header=="PD":
             self.altimeter.add_sample(value) # trigger
             self.handle_PD()
@@ -212,6 +220,15 @@ class App():
 
         time.sleep(0.01)
 
+    def handle_BF(self):
+        value = self.bladder_flag.getLast()
+        if value == 0:
+            self.bladder_is_at_max_volume = False
+            self.bladder_is_at_min_volume = False
+        elif value == 1:  # Bladder at min.
+            self.bladder_is_at_min_volume = True
+        elif value == 2:
+            self.bladder_is_at_max_volume = True
 
 
     def handle_HL(self):
@@ -234,6 +251,7 @@ class App():
                 print("yellow line!")
                 # Alert
                 # Start emergency ascending with bladder first
+                self.current_state = State.END_TASK
             elif value <= 10:
                 print("red line. Abort!")
                 self.current_state = State.EMERGENCY
@@ -263,6 +281,7 @@ class App():
             # self.pumpFlag.add_sample(2)
             # leak
             self.current_state = State.EMERGENCY
+            self.comm_safety.write("N:2")
         else:
             print("PF value error",value)
             # assert()
@@ -318,7 +337,7 @@ class App():
                 dutyCycleDuration = self.timeOn + self.timeOff
                 betweenOnandOff = elapsedSeconds < dutyCycleDuration
 
-                if self.flags["PF"].getLast()==0:
+                if self.flags["PF"].getLast()==0 and self.idle == False:
                     print("Waiting on pump to start")
 
                 if self.dcTimer and betweenOnandOff:
@@ -388,9 +407,10 @@ class App():
         res["PC"]=self.altimeter.getConfidance()
         res["HL"]=self.leak_h_flag.getLast()
         res["EL"]=self.leak_e_flag.getLast()
+        res["BF"]=self.bladder_flag.getLast()
         res["BV"]=self.bladderVolume.getLast()
-        res["rpm"]=self.rpm.getLast()
         res["PF"]=self.pumpFlag.getLast()
+        res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
 
         for key in res:
@@ -470,7 +490,7 @@ class App():
             target_depth = corrected * 100 # in milibar
             return target_depth
 
-        target_depth_in_meters = 40
+        target_depth_in_meters = 20
         target_depth = getTargetDepth(target_depth_in_meters)
     
 
@@ -505,22 +525,23 @@ class App():
             time.sleep(0.01)
 
         
-        bv = self.sensors["BV"].getLast()
-        buffer = 15
-        maxDive =  bv<200.0 + buffer and direction == 1
-        maxAscend = bv>450.0 - buffer and direction == 2
+        # bv = self.sensors["BV"].getLast()
+        # buffer = 15
+        # maxDive =  bv<200.0 + buffer and direction == 1
+        # maxAscend = bv>450.0 - buffer and direction == 2
 
-        if maxAscend or maxDive:
-            if maxAscend:
-                print("Max ascending")
-            if maxDive:
-                print("Max dive")
+        if self.bladder_is_at_max_volume and direction == 2:
+            print("Bladder is at max volume")
+            self.idle = True
+        elif self.bladder_is_at_min_volume and direction == 1:
+            print("Bladder is at min volume")
             self.idle = True
         else:
             print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.timeOn}")
             self.comm.write(f"V:{voltage}\n")
             self.comm.write(f"D:{direction}\n")
             self.comm.write(f"T:{self.timeOn}\n")
+            # TODO: dont start untill arduino sends PF=1
             self.idle = False
         time.sleep(0.01)
 
@@ -567,13 +588,14 @@ class App():
             # self.safety.add_sample(serial_line)
             # safety_callback()
             if value==1:
-                if self.current_state == State.EMERGENCY:
-                    self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
+                # if self.current_state == State.EMERGENCY:
+                #     self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
                 self.safteyTimer = time.time()
                 print("pong!")
                 pass # ping acknowledge
             if value==2:
                 print("safety weight dropped on command acknowledge")
+                self.current_state = State.EMERGENCY                
                 self.weightDropped = True
                 pass # drop weight acknowledge
             if value==3: # Saftey requests a ping

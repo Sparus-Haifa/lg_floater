@@ -71,6 +71,7 @@ class Comm():
                     self.timeOn = float(value)
                     self.pumpOnTimeStamp = time.time()
                     self.freshPID = True
+                    print("timeOn (PID) command recieved")
                 elif header=="PID":
                     self.lastPID = float(value)
                     self.pid = float(value)
@@ -126,7 +127,8 @@ class YuriSim():
         self.flags = {
             "HL":0,
             "EL":0,
-            "PF":0
+            "PF":0,
+            "BF":0
         }
         self.depth = 0
         self.pumpIsOn = False
@@ -246,8 +248,8 @@ class YuriSim():
 
             
 
-            if not self.comm.timeOn:
-                print("idle - waiting for first command")
+            if self.comm.timeOn <= 0.0:
+                print("idle - waiting for PID command")
             else:
 
                 # if recived a fresh PID command (TimeOn)
@@ -290,6 +292,17 @@ class YuriSim():
 
                     bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
                     bladderIsEmpty = self.currentBladderVolume == 0
+                    
+                    
+                    if bladderIsEmpty:
+                        self.flags["BF"]=1
+                    elif bladderIsFull:
+                        self.flags["BF"]=2
+                    else:
+                        self.flags["BF"]=0
+                    
+                    
+                    
                     limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
                     if timeOnOver or limitPump: # turn off pump
                         if timeOnOver:
@@ -301,6 +314,7 @@ class YuriSim():
                                 print("bladder is empty")
                             if bladderIsFull:
                                 print(bladderIsFull)
+                            
 
                         if self.pumpIsOn:
                             print("turning off pump")
@@ -366,10 +380,12 @@ class YuriSim():
 
             if self.currentBladderVolume < 0:
                 self.currentBladderVolume = 0
-                self.pumpIsOn = False
+                # self.pumpIsOn = False
+                # turnOffPump()
             if self.currentBladderVolume > MAX_BLADDER_VOLUME:
                 self.currentBladderVolume = MAX_BLADDER_VOLUME
-                self.pumpIsOn = False
+                # self.pumpIsOn = False
+                # turnOffPump()
 
             # if not self.pumpIsOn:
             #     self.sendMessage("PF",0, True)
