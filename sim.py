@@ -234,12 +234,21 @@ class YuriSim():
 
 
             def turnOffPump():
+                print("turning off pump")
                 self.pumpIsOn = False
                 self.pumpTimer = 0
                 self.sensors["PF"]=0
+                # self.pumpOnTime = 0
                 self.sendMessage("PF",0,True)
 
-            
+            def turnOnPump():
+                # TODO: check pump limit reached
+                print("starting pump")
+                print("setting timer for", self.comm.timeOn)
+                self.pumpIsOn = True
+                self.pumpOnTime = time.time()
+                self.sendMessage("PF",1, True)
+                self.sensors["PF"]=1           
 
             if self.comm.timeOn <= 0.0:
                 print("idle - waiting for PID command")
@@ -247,36 +256,28 @@ class YuriSim():
 
                 # if recived a fresh PID command (TimeOn)
                 if self.comm.freshPID: 
-                    print("PID recived")
+                    print("new PID recived!")
                     self.comm.freshPID = False
                     if self.pumpIsOn:
                         print("ERROR: pump is already on!")
-                    # else:
-                    # turn on pump
-                    # TODO: check limits
-                    print("starting pump")
-                    print("setting timer for", self.comm.timeOn)
-                    # TODO: check pump limit reached
-                    self.pumpIsOn = True
-                    # self.pumpOnDuration = self.comm.timeOn
-                    self.pumpOnTime = time.time()
-                    self.sendMessage("PF",1, True)
-                    self.sensors["PF"]=1
+                        # TODO: Test when timeoff is off. Handle
 
+                    turnOnPump()
 
-
-
-                # elapsed seconds since pump was turned on
-                # pumpOnTimeStamp - Timestamp of when received timeOn from rpi
-                elapsed = (time.time() - self.comm.pumpOnTimeStamp)*SimFactor 
-                # elapsed*=SimFactor
-                # pump is running on timeOn 
-                if elapsed < self.comm.timeOn: # if still on "timeOn" cycle
+                # elapsed = (time.time() - self.comm.pumpOnTimeStamp)*SimFactor  # Elapsed seconds since pump was turned on
+                elapsed = (time.time() - self.pumpOnTime)*SimFactor  # Elapsed seconds since pump was turned on
+                # Dutycycle state booleans:
+                on_time_on = elapsed < self.comm.timeOn  # timeOn dutycycle.
+                on_time_off = elapsed > self.comm.timeOn and elapsed < self.comm.timeOn + self.comm.timeOff  # timeOff dutycycle.
+                after_time_off = elapsed > self.comm.timeOn + self.comm.timeOff  # After timeOff.
+                
+                # timeOn 
+                if on_time_on: # if still on "timeOn" cycle
                     print("timeOn")
                     if self.pumpIsOn:
                         print("Pump is running")
                     else:
-                        print("pump not running")
+                        print("pump is not running")
                     # else: # keep pump on
                     self.pumpTimer = (time.time() - self.pumpOnTime)*SimFactor
                     self.offTimer = 0 # ?
@@ -310,13 +311,17 @@ class YuriSim():
                             
 
                         if self.pumpIsOn:
-                            print("turning off pump")
                             turnOffPump()
                             
                         
-                # pump off
-                elif elapsed > self.comm.timeOn and elapsed < self.comm.timeOn + self.comm.timeOff: # if on "timeOff" cycle
-                        print("timeOff")
+                # on time-off or after dutycycle is over
+                else:
+                # elif on_time_off or after_time_off: 
+                        
+                        if on_time_off:
+                            print("timeOff")
+                        elif after_time_off:
+                            print("idle")
 
                         if self.pumpIsOn:
                             print("turning off pump")
@@ -331,27 +336,13 @@ class YuriSim():
                         
                         self.offTimer = elapsed - self.comm.timeOn
 
-
-                        if self.offTimer < 0 :
-                            print("pump on timer", time.time() - self.pumpOnTime)
-                            print("timer error", self.offTimer)
-                            # assert() #TODO:fix
-                            # return
                 
-                # can resend PID
-                elif elapsed > self.comm.timeOn + self.comm.timeOff: # after duty-cycle. if no new dc command is ready.
-                    # self.pumpOnDuration = 0
-                    # self.comm.timeOn=0
-                    # self.comm.timeOff=0
-                    if self.pumpIsOn:
-                            print("turning off pump")
-                            turnOffPump()
-                    print("idle")
-                    pass
+                
 
 
-                else:
-                    print("time off?")
+
+                # else:
+                #     print("time off?")
 
 
 

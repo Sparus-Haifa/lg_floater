@@ -355,8 +355,8 @@ class App():
                 self.sendPID()
             # after
             elif self.time_on_duration is None:
-                print("waiting for timeOff to finish")
                 elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
+                print(f"waiting for timeOff to finish {elapsedSeconds} of {round(self.time_off_duration,2)}")
                 if elapsedSeconds > self.time_off_duration:
                     print("timeOff is over")
                     self.time_off_duration = None
