@@ -379,14 +379,22 @@ class App():
 
         # END TASK
         elif self.current_state == State.END_TASK:
-            # print("Ending task")
-            pass
+            print("Ending task")
+            if self.pressureController.senseAir():
+                print("we've reached the surface!")
+                self.current_state = State.WAIT_FOR_PICKUP
+
+        # Wait for pickup
+        elif self.current_state == State.WAIT_FOR_PICKUP:
+            print("waiting for pickup")
 
         # EMERGENCY
         elif self.current_state == State.EMERGENCY:
             print("Emergency")
             # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
             return
+
+
 
 
 
