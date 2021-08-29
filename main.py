@@ -29,7 +29,8 @@ class State(Enum):
     WAIT_FOR_WATER = 2
     EXEC_TASK = 3
     END_TASK = 4
-    EMERGENCY = 5
+    WAIT_FOR_PICKUP = 5
+    EMERGENCY = 6
 
 # Current_state = State.INIT
 
@@ -105,6 +106,7 @@ class App():
         self.bladder_flag = Flag("Bladder flag", log)  # BF
         self.leak_h_flag = Flag("Hull leak", log)  # HL
         self.leak_e_flag = Flag("Engine leak", log)  # EL
+        self.full_surface_flag = Flag("Full surface initiated", log)
 
 
         self.addSensorsToDict()
@@ -153,6 +155,7 @@ class App():
         self.flags["HL"]=self.leak_h_flag
         self.flags["EL"]=self.leak_e_flag
         self.flags["BF"]=self.bladder_flag
+        self.flags["FS"]=self.full_surface_flag
 
 
     #get line from main arduino; decode it, store the data and execute an appropriate callback
@@ -225,8 +228,15 @@ class App():
         elif header=="BV":
             self.bladderVolume.add_sample(value) # trigger
             self.handle_BV()
+        elif header=="SF":
+            self.full_surface_flag.add_sample(value)
+            self.handle_SF()
 
         # time.sleep(0.01)
+
+    def handle_SF(self):
+        # send S:1
+        pass
 
     def handle_BF(self):
         value = self.bladder_flag.getLast()
@@ -256,12 +266,13 @@ class App():
         confidance = self.altimeter.getConfidance()
         if confidance > 50:
             if 10 < value and value <= 20:
-                print("yellow line!")
+                print("Yellow line! Ending mission!")
                 # Alert
                 # Start emergency ascending with bladder first
+                self.comm_safety.write("S:1")
                 self.current_state = State.END_TASK
             elif value <= 10:
-                print("red line. Abort!")
+                print("Red line! Aborting mission!")
                 self.current_state = State.EMERGENCY
 
 
@@ -356,7 +367,7 @@ class App():
             # after
             elif self.time_on_duration is None:
                 elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
-                print(f"waiting for timeOff to finish {elapsedSeconds} of {round(self.time_off_duration,2)}")
+                print(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
                 if elapsedSeconds > self.time_off_duration:
                     print("timeOff is over")
                     self.time_off_duration = None
@@ -365,40 +376,6 @@ class App():
             else:
                 print("waiting for timeOn to finish")
 
-            
-
-            # Dutycycle is off
-            # elif self.idle:
-            #     print("idle")  # Off dutycycle time.
-            #     self.sendPID()  # we check again
-
-            # During DC
-            # else:
-                
-                # dutyCycleDuration = self.timeOn + self.timeOff
-                # during_dutycycle = elapsedSeconds < dutyCycleDuration
-                
-                # pf_value = self.flags["PF"].getLast()
-
-                # if pf_value==0:
-                #     print("Waiting on pump to start in mission seq")
-                # else:
-                #     print("pump is running")                    
-                    # else:
-                        # print("Restarting dutycycle")
-                        # self.sendPID()
-
-                # else:
-                #     # if during_dutycycle:
-                #         print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
-                #     else:
-                #         print("waiting for pump to start during dc")
-                # elif pf_value==1:
-                #     print("pump is running")
-
-                # else:
-                #     # after DC finishes
-                #     self.sendPID()
 
         # END TASK
         elif self.current_state == State.END_TASK:
@@ -419,7 +396,7 @@ class App():
             if sensor not in bypassSens and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 print(f"sensor {sensor} is not ready")
                 return False
-        bypassFlag = ["PF"]
+        bypassFlag = ["PF", "FS"]
         for flag in self.flags:
             if flag not in bypassFlag and not self.flags[flag].isBufferFull():
                 print(f"flag {flag} is not ready")
@@ -451,8 +428,9 @@ class App():
         res["HL"]=self.leak_h_flag.getLast()
         res["EL"]=self.leak_e_flag.getLast()
         res["BF"]=self.bladder_flag.getLast()
-        res["BV"]=self.bladderVolume.getLast()
+        res["SF"]=self.full_surface_flag.getLast()
         res["PF"]=self.pumpFlag.getLast()
+        res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
 
