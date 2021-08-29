@@ -350,6 +350,9 @@ class YuriSim():
                     # self.pumpOnDuration = 0
                     # self.comm.timeOn=0
                     # self.comm.timeOff=0
+                    if self.pumpIsOn:
+                            print("turning off pump")
+                            turnOffPump()
                     print("idle")
                     pass
 
@@ -449,7 +452,7 @@ class YuriSim():
             
             # seafloorInMeters = 20
             # seafloorDepth = (3000 - self.surfacePressure)/100
-            seafloorDepth = 60
+            seafloorDepth = 80
             # seafloor = height - 70 - 60
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
@@ -565,8 +568,8 @@ class YuriSim():
 
 
 
-            error_str = "{:.2f}".format(self.comm.error)
-            label_trip = myfont.render(f"[error :{error_str} meter]", 1, DARKBLUE)
+            error_str = "{:.2f}".format(self.comm.error / 100)
+            label_trip = myfont.render(f"[error :{error_str} decibar]", 1, DARKBLUE)
             display.blit(label_trip, (20, 340))
 
             # phase_str = "{:.2f}".format(self.comm.trip*100)
@@ -691,6 +694,7 @@ class YuriSim():
             # value*=(1 + self.depth * 1) 
             if 10 < value and value < 65536: # handle bad sensors
                 value += self.depth*100
+                print(sensor,value)
 
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
 

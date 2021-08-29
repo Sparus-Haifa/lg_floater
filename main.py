@@ -226,7 +226,7 @@ class App():
             self.bladderVolume.add_sample(value) # trigger
             self.handle_BV()
 
-        time.sleep(0.01)
+        # time.sleep(0.01)
 
     def handle_BF(self):
         value = self.bladder_flag.getLast()
@@ -512,7 +512,7 @@ class App():
                 if 10 > value or value > 65536:
                     print(f"error in {sensor } sensor value: {value} is out of bound!")
                     # print("")
-                    break
+                    continue
                 avg+=value
                 count+=1
             
@@ -524,6 +524,7 @@ class App():
 
         avg = getAvgDepthSensorsRead()
         if not avg:
+            print("ERROR: Could not calculate depth - not enough working sensors")
             return
 
         def getTargetDepth(target_depth_in_meters):
@@ -533,12 +534,13 @@ class App():
             target_depth = corrected * 100 # in milibar
             return target_depth
 
-        target_depth_in_meters = 20
+        target_depth_in_meters = 50
         target_depth = getTargetDepth(target_depth_in_meters)
     
 
         # PID
         error = target_depth - avg
+        print("Error",error, "target", target_depth, "avg", avg)
         scalar = self.pid_controller.pid(error)
         direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar)
 
@@ -548,24 +550,24 @@ class App():
         phase = 1
 
         if self.simulation:
-            self.comm.write(f"error:{self.pid_controller.p}\n")
-            time.sleep(0.01)
+            self.comm.write(f"error:{error}\n")
+            # time.sleep(0.01)
             self.comm.write(f"p:{self.pid_controller.p}\n")
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"kp:{self.pid_controller.kp}\n")
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"d:{self.pid_controller.d}\n")
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"kd:{self.pid_controller.kd}\n")
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"target:{target_depth}\n")
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"phase:{phase}\n") # sim debug
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"PID:{scalar}\n") # sim debug
-            time.sleep(0.01)
+            # time.sleep(0.01)
             self.comm.write(f"O:{self.time_off_duration}\n") # sim debug
-            time.sleep(0.01)
+            # time.sleep(0.01)
 
         
         # bv = self.sensors["BV"].getLast()
@@ -593,7 +595,7 @@ class App():
             self.comm.write(f"T:{self.time_on_duration}\n")
             # TODO: dont start untill arduino sends PF=1
             # self.idle = False
-        time.sleep(0.01)
+        # time.sleep(0.01)
 
         self.dcTimer = time.time()
         
@@ -728,7 +730,7 @@ if __name__ == "__main__":
     while True:
         app.get_next_serial_line()
         app.get_next_serial_line_safety()
-        time.sleep(0.01)
+        # time.sleep(0.01)
 
         # logSensors()
         # get_next_serial_line_safety()
