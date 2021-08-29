@@ -36,7 +36,7 @@ class Comm():
         self.trip = 0
         self.phase = 1
         self.error = 0
-        self.current_state = 0
+        self.current_state = State.INIT
 
 
     def sendMessage(self, message = b'test'):
@@ -57,7 +57,7 @@ class Comm():
                 # print('''no data yet..''')
             else:
                 # message = message.upper()
-                print(message)
+                # print(message)
                 s = message.decode('utf-8','ignore')
                 header, value = s.strip().split(":")
                 # value = float(value)
@@ -96,6 +96,8 @@ class Comm():
                     self.timeOff = float(value)
                 elif header=="State":
                     self.current_state = value
+                else:
+                    print("Unknown header:", header)
 
 
 
@@ -208,16 +210,7 @@ class YuriSim():
         done = False
         while not done:
 
-            if self.comm.current_state == State.INIT:
-                print("Init")
-            elif self.comm.current_state == State.WAIT_FOR_WATER:
-                print("Waiting for water")
-            elif self.comm.current_state == State.EXEC_TASK:
-                print("Executing task")
-            elif self.comm.current_state == State.END_TASK:
-                print("Ending task")
-            elif self.comm.current_state == State.EMERGENCY:
-                print("Emergency")
+            print((self.comm.current_state))
 
 
             # handle pump
@@ -694,7 +687,7 @@ class YuriSim():
             # value*=(1 + self.depth * 1) 
             if 10 < value and value < 65536: # handle bad sensors
                 value += self.depth*100
-                print(sensor,value)
+                # print(sensor,value)
 
         # self.comm.sendMessage(bytes(f"hello from sim {int(counter)} {message}\n",'utf-8'))
 

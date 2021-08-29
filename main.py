@@ -24,12 +24,12 @@ import sys # for args
 
 
 class State(Enum):
-    INIT = 1
-    WAIT_FOR_SAFETY = 2
-    WAIT_FOR_WATER = 3
-    EXEC_TASK = 4
-    END_TASK = 5
-    EMERGENCY = 6
+    INIT = 0
+    WAIT_FOR_SAFETY = 1
+    WAIT_FOR_WATER = 2
+    EXEC_TASK = 3
+    END_TASK = 4
+    EMERGENCY = 5
 
 # Current_state = State.INIT
 
@@ -276,10 +276,10 @@ class App():
                 print("Pump turned off. Starting timeOff timer.")
                 self.time_on_duration = None
                 self.time_off_timer = time.time()
-            if self.time_on_duration and  self.time_on_duration>0 and (time.time() - self.dcTimer)*self.simFactor < self.time_on_duration and self.bladderVolume:
-                print("Waiting on pump to start")
-                exit()
-                self.dcTimer = time.time()
+            # if self.time_on_duration and  self.time_on_duration>0 and (time.time() - self.dcTimer)*self.simFactor < self.time_on_duration and self.bladderVolume:
+            #     print("Waiting on pump to start")
+            #     exit()
+            #     self.dcTimer = time.time()
             # print("pump is off")
             # self.pumpFlag.add_sample(0)
             pass
@@ -540,34 +540,28 @@ class App():
 
         # PID
         error = target_depth - avg
-        print("Error",error, "target", target_depth, "avg", avg)
+        # print("Error",error, "target", target_depth, "avg", avg)
         scalar = self.pid_controller.pid(error)
         direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar)
 
         if self.time_off_duration < 0.5:
             self.time_off_duration = 0.5
 
+        if self.time_off_duration > 20.0:
+            self.time_off_duration = 20.0
+
         phase = 1
 
         if self.simulation:
             self.comm.write(f"error:{error}\n")
-            # time.sleep(0.01)
             self.comm.write(f"p:{self.pid_controller.p}\n")
-            # time.sleep(0.01)
             self.comm.write(f"kp:{self.pid_controller.kp}\n")
-            # time.sleep(0.01)
             self.comm.write(f"d:{self.pid_controller.d}\n")
-            # time.sleep(0.01)
             self.comm.write(f"kd:{self.pid_controller.kd}\n")
-            # time.sleep(0.01)
             self.comm.write(f"target:{target_depth}\n")
-            # time.sleep(0.01)
             self.comm.write(f"phase:{phase}\n") # sim debug
-            # time.sleep(0.01)
             self.comm.write(f"PID:{scalar}\n") # sim debug
-            # time.sleep(0.01)
             self.comm.write(f"O:{self.time_off_duration}\n") # sim debug
-            # time.sleep(0.01)
 
         
         # bv = self.sensors["BV"].getLast()
@@ -597,7 +591,7 @@ class App():
             # self.idle = False
         # time.sleep(0.01)
 
-        self.dcTimer = time.time()
+        # self.time_off_timer = time.time()
         
 
         # time.sleep(timeOn + timeOff)
