@@ -25,10 +25,11 @@ import sys # for args
 
 class State(Enum):
     INIT = 1
-    WAIT_FOR_WATER = 2
-    EXEC_TASK = 3
-    END_TASK = 4
-    EMERGENCY = 5
+    WAIT_FOR_SAFETY = 2
+    WAIT_FOR_WATER = 3
+    EXEC_TASK = 4
+    END_TASK = 5
+    EMERGENCY = 6
 
 # Current_state = State.INIT
 
@@ -41,9 +42,10 @@ class App():
         # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
 
         self.current_state = State.INIT
+        self.is_safety_responding = False
         self.weightDropped = False
         self.safteyTimer = None
-        self.idle = True # bladder already at max or min
+        self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
@@ -54,6 +56,7 @@ class App():
         self.timeOff = None
         self.timeOn = None
         self.dcTimer = None
+        self.pid_sent_time = None
         self.simulation = simulation
         self.simFactor = 1.0
 
@@ -290,15 +293,31 @@ class App():
     def handle_BV(self):
          # send pid
         if self.simulation:
-            self.comm.write(f"State:{self.current_state}\n") # debug send state
+            self.comm.write(f"State:{self.current_state}\n")  # debug send state
 
+        self.run_mission_sequence()
+        
+
+
+        
+    
+
+
+    def run_mission_sequence(self):
         self.logSensors()
 
         if self.current_state == State.INIT:
             # TODO: add waiting for safety to ping
             if self.sensorsReady():
-                self.current_state = State.WAIT_FOR_WATER
+                self.current_state = State.WAIT_FOR_SAFETY
             return
+
+        elif self.current_state == State.WAIT_FOR_SAFETY:
+            if self.is_safety_responding:
+                self.current_state = State.WAIT_FOR_WATER
+            else:
+                print("waiting for safety to respond")
+                
 
         elif self.current_state == State.WAIT_FOR_WATER:
             if not self.waterTestTimer:
@@ -336,11 +355,13 @@ class App():
                 elapsedSeconds = (time.time() - self.dcTimer)*self.simFactor
                 dutyCycleDuration = self.timeOn + self.timeOff
                 during_dutycycle = elapsedSeconds < dutyCycleDuration
+                
+                pf_value = self.flags["PF"].getLast()
 
-                if self.flags["PF"].getLast()==0 and self.idle == False:
+                if pf_value==0 and self.idle == False:
                     print("Waiting on pump to start")
 
-                if during_dutycycle:
+                elif during_dutycycle:
                     print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
 
 
@@ -355,18 +376,6 @@ class App():
             print("Emergency")
             # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
             return
-        
-
-        # logics
-        # timeOnStarted = self.timeOn > 0
-        # timeOffStarted = self.timeOff > 0
-
-
-    # on done
-        
-    
-
-
 
 
 
@@ -563,6 +572,7 @@ class App():
         timeout = time.time() - self.safteyTimer > 30
         if timeout:
             print("safety not responding!")
+            self.is_safety_responding = False
             self.current_state = State.EMERGENCY # will make weight drop on reconnection
             # TODO: inflate bladder
 
@@ -592,6 +602,7 @@ class App():
                 #     self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
                 self.safteyTimer = time.time()
                 print("pong!")
+                self.is_safety_responding = True
                 pass # ping acknowledge
             if value==2:
                 print("safety weight dropped on command acknowledge")
