@@ -45,7 +45,7 @@ class App():
         self.is_safety_responding = False
         self.weightDropped = False
         self.safteyTimer = None
-        self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
+        # self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
@@ -53,9 +53,14 @@ class App():
 
         self.waterSenseDuration = 5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
-        self.timeOff = None
-        self.timeOn = None
-        self.dcTimer = None
+
+        # Task execusion timers
+        self.time_off_duration = None
+        self.time_on_duration = None
+        # self.dcTimer = None
+        self.time_off_timer = None
+        
+        # self.pid_sent
         self.pid_sent_time = None
         self.simulation = simulation
         self.simFactor = 1.0
@@ -268,16 +273,19 @@ class App():
             # 2. pump cut on time
             # 3. pump cut before time
             if lastValue and lastValue != value:
-                print("pump changed state")
-            if self.timeOn and  self.timeOn>0 and (time.time() - self.dcTimer)*self.simFactor < self.timeOn and self.bladderVolume:
+                print("Pump turned off. Starting timeOff timer.")
+                self.time_on_duration = None
+                self.time_off_timer = time.time()
+            if self.time_on_duration and  self.time_on_duration>0 and (time.time() - self.dcTimer)*self.simFactor < self.time_on_duration and self.bladderVolume:
                 print("Waiting on pump to start")
+                exit()
                 self.dcTimer = time.time()
             # print("pump is off")
             # self.pumpFlag.add_sample(0)
             pass
         elif value==1:
             print("pump turned on")
-            self.pumpFlag.add_sample(1)
+            # self.pumpFlag.add_sample(1)
             pass
         elif value==2:
             # print("pump not working")
@@ -299,26 +307,25 @@ class App():
         
 
 
-        
     
-
-
     def run_mission_sequence(self):
         self.logSensors()
 
+        # INIT
         if self.current_state == State.INIT:
             # TODO: add waiting for safety to ping
             if self.sensorsReady():
                 self.current_state = State.WAIT_FOR_SAFETY
             return
 
+        # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_WATER
             else:
                 print("waiting for safety to respond")
                 
-
+        # WAIT FOR WATER
         elif self.current_state == State.WAIT_FOR_WATER:
             if not self.waterTestTimer:
                 print("Waiting for water")
@@ -336,42 +343,69 @@ class App():
                 print("Waiting for water")
                 print(f"{round(elapsedSeconds)}/{limitSeconds} secs")
             return
-            
+
+        # EXECUTE TASK
         elif self.current_state == State.EXEC_TASK:
             # print("Executing task")
 
-
-            if self.timeOn is None: # first time running. still no timeOn calc available
+            # Before starting a dutycycle.
+            if self.time_off_duration is None: 
                 # before DC starts
+                print("starting a new dutycycle")
                 self.sendPID()
+            # after
+            elif self.time_on_duration is None:
+                print("waiting for timeOff to finish")
+                elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
+                if elapsedSeconds > self.time_off_duration:
+                    print("timeOff is over")
+                    self.time_off_duration = None
+                    self.time_off_timer = None
 
-            elif self.idle:
-                print("idle")
-                self.sendPID()  # we check again
-
-            # elif timeOnStarted and timeOffStarted and betweenOnandOff:
             else:
-                # during DC
-                elapsedSeconds = (time.time() - self.dcTimer)*self.simFactor
-                dutyCycleDuration = self.timeOn + self.timeOff
-                during_dutycycle = elapsedSeconds < dutyCycleDuration
+                print("waiting for timeOn to finish")
+
+            
+
+            # Dutycycle is off
+            # elif self.idle:
+            #     print("idle")  # Off dutycycle time.
+            #     self.sendPID()  # we check again
+
+            # During DC
+            # else:
                 
-                pf_value = self.flags["PF"].getLast()
+                # dutyCycleDuration = self.timeOn + self.timeOff
+                # during_dutycycle = elapsedSeconds < dutyCycleDuration
+                
+                # pf_value = self.flags["PF"].getLast()
 
-                if pf_value==0 and self.idle == False:
-                    print("Waiting on pump to start")
+                # if pf_value==0:
+                #     print("Waiting on pump to start in mission seq")
+                # else:
+                #     print("pump is running")                    
+                    # else:
+                        # print("Restarting dutycycle")
+                        # self.sendPID()
 
-                elif during_dutycycle:
-                    print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
+                # else:
+                #     # if during_dutycycle:
+                #         print(f"Waiting for dutycycle to complete: {round(elapsedSeconds,2)} sec of {round(self.timeOn + self.timeOff,2)} sec")
+                #     else:
+                #         print("waiting for pump to start during dc")
+                # elif pf_value==1:
+                #     print("pump is running")
 
+                # else:
+                #     # after DC finishes
+                #     self.sendPID()
 
-                else:
-                    # after DC finishes
-                    self.sendPID()
-
+        # END TASK
         elif self.current_state == State.END_TASK:
             # print("Ending task")
             pass
+
+        # EMERGENCY
         elif self.current_state == State.EMERGENCY:
             print("Emergency")
             # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
@@ -506,10 +540,10 @@ class App():
         # PID
         error = target_depth - avg
         scalar = self.pid_controller.pid(error)
-        direction, voltage, dc, self.timeOn, self.timeOff = self.pid_controller.unpack(scalar)
+        direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar)
 
-        if self.timeOff < 0.5:
-            self.timeOff=0.5
+        if self.time_off_duration < 0.5:
+            self.time_off_duration = 0.5
 
         phase = 1
 
@@ -530,7 +564,7 @@ class App():
             time.sleep(0.01)
             self.comm.write(f"PID:{scalar}\n") # sim debug
             time.sleep(0.01)
-            self.comm.write(f"O:{self.timeOff}\n") # sim debug
+            self.comm.write(f"O:{self.time_off_duration}\n") # sim debug
             time.sleep(0.01)
 
         
@@ -541,17 +575,24 @@ class App():
 
         if self.bladder_is_at_max_volume and direction == 2:
             print("Bladder is at max volume")
-            self.idle = True
+            # self.idle = True
+            self.time_on_duration = None
+            self.time_off_duration = None
+            self.time_off_timer = None
+            
         elif self.bladder_is_at_min_volume and direction == 1:
             print("Bladder is at min volume")
-            self.idle = True
+            # self.idle = True
+            self.time_on_duration = None
+            self.time_off_duration = None
+            self.time_off_timer = None
         else:
-            print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.timeOn}")
+            print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.time_on_duration}  timeOff:{self.time_off_duration}")
             self.comm.write(f"V:{voltage}\n")
             self.comm.write(f"D:{direction}\n")
-            self.comm.write(f"T:{self.timeOn}\n")
+            self.comm.write(f"T:{self.time_on_duration}\n")
             # TODO: dont start untill arduino sends PF=1
-            self.idle = False
+            # self.idle = False
         time.sleep(0.01)
 
         self.dcTimer = time.time()
