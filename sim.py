@@ -38,6 +38,7 @@ class Comm():
         self.error = 0
         self.current_state = State.INIT
         self.full_surface = False
+        self.weight_dropped = False
 
 
     def sendMessage(self, message = b'test'):
@@ -100,6 +101,8 @@ class Comm():
                     self.timeOff = float(value)
                 elif header=="State":
                     self.current_state = State[value.split(".")[1]]
+                elif header=="weight":
+                    self.weight_dropped = True
                 else:
                     print("Unknown header:", header)
 
@@ -186,7 +189,8 @@ class YuriSim():
         first_loop_sync = True
 
         # Const params
-        MASS = 20.4 # kg
+        MASS_FLOATER = 19.4 # kg
+        MASS_WEIGHT = 1.0 # kg
         GRAVITY  = 9.8 # m/sec^2
         VOLUME_FLOATER = 0.01965 # m^3
         MAX_BLADDER_VOLUME = 0.00065 # m^3
@@ -419,8 +423,11 @@ class YuriSim():
                 drag*=-1
 
             bouyancyBladder = self.currentBladderVolume * GRAVITY * FW
-
-            acceleration = (MASS*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/MASS
+            if self.comm.weight_dropped:
+                total_mass = MASS_FLOATER
+            else:
+                total_mass = MASS_FLOATER + MASS_WEIGHT
+            acceleration = (total_mass*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/total_mass
             TIMESTEP = 1 / FPS
             speed = speed + acceleration * TIMESTEP
             # speed *= SimFactor

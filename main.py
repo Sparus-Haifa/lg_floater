@@ -45,6 +45,8 @@ class App():
         self.current_state = State.INIT
         self.is_safety_responding = False
         self.weightDropped = False
+        self.drop_weight_command_sent = False
+        self.surface_command_sent = False
         self.safteyTimer = None
         # self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
@@ -259,6 +261,23 @@ class App():
         if value==1:
             self.current_state = State.EMERGENCY
 
+    # Start emergency ascending with bladder first
+    def surface(self):
+        if self.surface_command_sent:
+            print("waiting for surface command")
+        else:
+            print("sending surface command")
+            self.comm_safety.write("S:1")
+
+    # sending the command to drop the dropweight to saftey
+    def drop_weight(self):
+        if self.drop_weight_command_sent:
+            print("waiting for weight to drop")
+        else:
+            print("dropping weight")
+            self.comm_safety.write("N:2")
+            self.drop_weight_command_sent = True
+
     def handle_PD(self):
         # TODO: decide which comes first from arduino
         # assuming PC comes first
@@ -268,11 +287,11 @@ class App():
             if 10 < value and value <= 20:
                 print("Yellow line! Ending mission!")
                 # Alert
-                # Start emergency ascending with bladder first
-                self.comm_safety.write("S:1")
+                # self.surface()
                 self.current_state = State.END_TASK
             elif value <= 10:
                 print("Red line! Aborting mission!")
+                # self.drop_weight()
                 self.current_state = State.EMERGENCY
 
 
@@ -303,7 +322,8 @@ class App():
             # self.pumpFlag.add_sample(2)
             # leak
             self.current_state = State.EMERGENCY
-            self.comm_safety.write("N:2")
+            # self.comm_safety.write("N:2")
+            # self.drop_weight()
         else:
             print("PF value error",value)
             # assert()
@@ -380,6 +400,13 @@ class App():
         # END TASK
         elif self.current_state == State.END_TASK:
             print("Ending task")
+
+            full_surface = self.full_surface_flag.getLast()
+            if full_surface is not None:
+                self.surface()
+            else:
+                print("Surfacing")
+
             if self.pressureController.senseAir():
                 print("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
@@ -391,7 +418,13 @@ class App():
         # EMERGENCY
         elif self.current_state == State.EMERGENCY:
             print("Emergency")
-            # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
+            if not self.weightDropped:
+            #     # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
+                self.drop_weight()
+
+            if self.pressureController.senseAir():
+                print("we've reached the surface!")
+                self.current_state = State.WAIT_FOR_PICKUP
             return
 
 
@@ -587,6 +620,8 @@ class App():
         # self.comm_safety.write("N:11")
         
         # send "I'm alive message"
+        if self.weightDropped:
+            return
 
         # timer if no ping from safety inflate bladder
         if not self.safteyTimer:
@@ -631,6 +666,7 @@ class App():
                 print("safety weight dropped on command acknowledge")
                 self.current_state = State.EMERGENCY                
                 self.weightDropped = True
+                self.comm.write("weight:1")
                 pass # drop weight acknowledge
             if value==3: # Saftey requests a ping
                 print("ping!")
@@ -639,6 +675,7 @@ class App():
                 print("weight dropped due to over time acknowledge")
                 self.current_state = State.EMERGENCY
                 self.weightDropped = True
+                self.comm.write("weight:1")
                 pass # weight dropped due to over time
             
 
