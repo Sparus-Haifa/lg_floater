@@ -13,7 +13,7 @@ class Safety:
         self.max_interval_between_pings = max_interval_between_pings
         self.last_ping = datetime.datetime.now()
 
-        self.log.write("Safety controller was initialized successfully\n")
+        self.log.info("Safety controller was initialized successfully")
 
 
     def add_sample(self, sample_arr):
@@ -39,7 +39,7 @@ class Safety:
         else:
             return
 
-        self.log.write("Updating safety info {}\n".format(sample_arr))
+        self.log.info("Updating safety info {}\n".format(sample_arr))
 
     def is_emergency_state(self):
         if self.hull_leak:

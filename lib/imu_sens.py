@@ -11,7 +11,7 @@ class IMU(Sensor):
         # self.imu_samples = deque(maxlen=self.avg_samples) #queue of lists - [ [x,y,z,a], [x,y,z,a] ]
         self.t = deque(maxlen=self.avg_samples)
 
-        self.log.write("IMU controller was initialized successfully\n")
+        self.log.info(f"{self.name} IMU sensor was initialized successfully")
 
     #IMU sample looks like XYZ:x,y,z,a
     def add_sample(self, sample):

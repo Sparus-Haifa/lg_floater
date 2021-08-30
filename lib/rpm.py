@@ -15,7 +15,7 @@ class RPM(Sensor):
 
         self._queues_are_full = False
 
-        self.log.write("rpm controller was initialized successfully\n")
+        self.log.info("rpm controller was initialized successfully")
 
 
     # def add_sample(self, sample):

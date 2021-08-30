@@ -5,7 +5,7 @@ from lib.altimeter import Altimeter
 from lib.bladder_volume import Bladder
 import time
 import cfg.configuration as cfg
-import lib.logger as logger
+# import lib.logger as logger
 import lib.comm_serial as ser
 import lib.comm_udp as com
 # import lib.comm_tcp as com
@@ -20,8 +20,12 @@ from lib.task_ctrl import *
 
 from enum import Enum
 
-import sys # for args
+import sys # for args, and log out
 
+import logging
+
+# logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
+# logging.basicConfig(level=0)
 
 class State(Enum):
     INIT = 0
@@ -36,7 +40,36 @@ class State(Enum):
 
 class App():
     def __init__(self, simulation):
-        log = logger.Logger()
+        # log = logger.Logger()
+        # logging.basicConfig(level=logging.DEBUG)
+        # self.log = logging.getLogger(__name__)
+        self.log = logging.getLogger()
+        self.log.setLevel(logging.DEBUG)
+        # self.log.info("init")
+        # self.log.setLevel(logging.NOTSET)
+
+        print("log level", self.log.level)
+
+        console_handler = logging.StreamHandler(sys.stdout)
+        file_handler = logging.FileHandler('log\\logfile.log')
+
+        console_handler.setLevel(logging.WARNING)
+        print("log level", self.log.level)
+        file_handler.setLevel(logging.NOTSET)
+        print("log level", self.log.level)
+
+        formatter    = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+        console_handler.setFormatter(formatter)
+        file_handler.setFormatter(formatter)
+
+
+        
+
+        self.log.addHandler(console_handler)
+        self.log.addHandler(file_handler)
+
+        self.log.debug("debug")
+
         self.lastTime = time.time()
         self.lastP=0 # TODO: move to pid module
         self.pid_controller = PID()
@@ -72,7 +105,7 @@ class App():
         self.flags = {}
 
         # Pressure
-        self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], log)
+        self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], self.log)
         self.pressureController.addSensor("BP1")
         self.pressureController.addSensor("BP2")
         self.pressureController.addSensor("TP1")
@@ -82,7 +115,7 @@ class App():
         self.pressureSensors = self.pressureController.getSensors()
 
         # Temperature
-        self.temperatureController = Temp_ctrl(cfg.temperature["avg_samples"], cfg.temperature["precision"], log)
+        self.temperatureController = Temp_ctrl(cfg.temperature["avg_samples"], cfg.temperature["precision"], self.log)
         self.temperatureController.addSensor("BT1")
         self.temperatureController.addSensor("BT2")
         self.temperatureController.addSensor("TT1")
@@ -91,50 +124,50 @@ class App():
         self.temperatureSensors = self.temperatureController.getSensors()
 
         # IMU
-        self.IMUController = IMU_ctrl(cfg.imu["avg_samples"], cfg.imu["precision"], log)
+        self.IMUController = IMU_ctrl(cfg.imu["avg_samples"], cfg.imu["precision"], self.log)
         self.IMUController.addSensor("X")
         self.IMUController.addSensor("Y")
         self.IMUController.addSensor("Z")
         self.IMUSensors = self.IMUController.getSensors()
         
         # Other sensors
-        self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], log)
-        self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], cfg.altimeter["precision"], log)
-        self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], log)
+        self.bladderVolume = Bladder("Bladder Volume", cfg.bladder["avg_samples"], cfg.bladder["precision"], self.log)
+        self.altimeter = Altimeter("Altimeter", cfg.altimeter["avg_samples"], cfg.altimeter["precision"], self.log)
+        self.rpm = RPM("RPM", cfg.rpm["avg_samples"], cfg.rpm["precision"], self.log)
 
 
         # Flags
-        self.pumpFlag = Flag("Pump flag",log)  # PF
-        self.bladder_flag = Flag("Bladder flag", log)  # BF
-        self.leak_h_flag = Flag("Hull leak", log)  # HL
-        self.leak_e_flag = Flag("Engine leak", log)  # EL
-        self.full_surface_flag = Flag("Full surface initiated", log)
+        self.pumpFlag = Flag("Pump",self.log)  # PF
+        self.bladder_flag = Flag("Bladder", self.log)  # BF
+        self.leak_h_flag = Flag("Hull leak", self.log)  # HL
+        self.leak_e_flag = Flag("Engine leak", self.log)  # EL
+        self.full_surface_flag = Flag("Full surface initiated", self.log)
 
 
         self.addSensorsToDict()
         self.addFlagsToDict()
 
 
-        self.profile = Profile("cfg/profile.txt", log)
+        self.profile = Profile("cfg/profile.txt", self.log)
         # self.task_ctrl = Task(sensPress, log)
 
         # Main arduino
         if not self.simulation:
-            self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], log)
+            self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], self.log)
             if not self.comm.ser:
-                print("-E- Failed to init serial port")
+                self.log.critical("-E- Failed to init serial port")
                 exit()
         else:
         # Simulated via udp
             self.comm = com.UdpComm()
             if not self.comm.server_socket:
-                print("-E- Failed to init udp port")
+                self.log.critical("-E- Failed to init udp port")
                 exit() 
 
         # Secondary arduino (safety)
-        self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], log)
+        self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
         if not self.comm_safety.ser:
-            print("-E- Failed to init safety serial port")
+            self.log.critical("-E- Failed to init safety serial port")
             exit()
 
 
@@ -168,7 +201,7 @@ class App():
             return
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
         if serial_line!=b"" and ("User message received" in serial_line) or ("U:" in serial_line):
-            print("raw: {}".format(serial_line))
+            self.log.debug("raw: {}".format(serial_line))
         header = serial_line[0]
         if len(serial_line)<2:
             return #no Value, break
@@ -264,17 +297,17 @@ class App():
     # Start emergency ascending with bladder first
     def surface(self):
         if self.surface_command_sent:
-            print("waiting for surface command")
+            self.log.debug("waiting for surface command")
         else:
-            print("sending surface command")
+            self.log.info("sending surface command")
             self.comm_safety.write("S:1")
 
     # sending the command to drop the dropweight to saftey
     def drop_weight(self):
         if self.drop_weight_command_sent:
-            print("waiting for weight to drop")
+            self.log.debug("waiting for weight to drop")
         else:
-            print("dropping weight")
+            self.log.info("dropping weight")
             self.comm_safety.write("N:2")
             self.drop_weight_command_sent = True
 
@@ -285,12 +318,12 @@ class App():
         confidance = self.altimeter.getConfidance()
         if confidance > 50:
             if 10 < value and value <= 20:
-                print("Yellow line! Ending mission!")
+                self.log.warning("Yellow line! Ending mission!")
                 # Alert
                 # self.surface()
                 self.current_state = State.END_TASK
             elif value <= 10:
-                print("Red line! Aborting mission!")
+                self.log.critical("Red line! Aborting mission!")
                 # self.drop_weight()
                 self.current_state = State.EMERGENCY
 
@@ -303,7 +336,7 @@ class App():
             # 2. pump cut on time
             # 3. pump cut before time
             if lastValue and lastValue != value:
-                print("Pump turned off. Starting timeOff timer.")
+                self.log.info("Pump turned off. Starting timeOff timer.")
                 self.time_on_duration = None
                 self.time_off_timer = time.time()
             # if self.time_on_duration and  self.time_on_duration>0 and (time.time() - self.dcTimer)*self.simFactor < self.time_on_duration and self.bladderVolume:
@@ -314,7 +347,7 @@ class App():
             # self.pumpFlag.add_sample(0)
             pass
         elif value==1:
-            print("pump turned on")
+            self.log.info("pump turned on")
             # self.pumpFlag.add_sample(1)
             pass
         elif value==2:
@@ -325,7 +358,7 @@ class App():
             # self.comm_safety.write("N:2")
             # self.drop_weight()
         else:
-            print("PF value error",value)
+            self.log.error("PF value error",value)
             # assert()
 
 
@@ -344,103 +377,93 @@ class App():
 
         # INIT
         if self.current_state == State.INIT:
-            # TODO: add waiting for safety to ping
             if self.sensorsReady():
                 self.current_state = State.WAIT_FOR_SAFETY
-            return
 
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_WATER
             else:
-                print("waiting for safety to respond")
+                self.log.info("waiting for safety to respond")
                 
         # WAIT FOR WATER
         elif self.current_state == State.WAIT_FOR_WATER:
             if not self.waterTestTimer:
-                print("Waiting for water")
+                self.log.info("Waiting for water")
                 self.waterTestTimer = time.time()
             elapsedSeconds = (time.time() - self.waterTestTimer)*self.simFactor
             limitSeconds = self.waterSenseDuration
             if  elapsedSeconds > limitSeconds:
-                print("Done waiting for water")
+                self.log.info("Done waiting for water")
                 if self.pressureController.senseWater():
                     self.current_state = State.EXEC_TASK
                 else:
-                    print("water not detected")
+                    self.log.info("water not detected")
                     self.waterTestTimer = time.time()
             else:
-                print("Waiting for water")
-                print(f"{round(elapsedSeconds)}/{limitSeconds} secs")
-            return
+                self.log.info("Waiting for water")
+                self.log.info(f"{round(elapsedSeconds)}/{limitSeconds} secs")
 
         # EXECUTE TASK
         elif self.current_state == State.EXEC_TASK:
             # print("Executing task")
-
             # Before starting a dutycycle.
             if self.time_off_duration is None: 
                 # before DC starts
-                print("starting a new dutycycle")
+                self.log.info("starting a new dutycycle")
                 self.sendPID()
             # after
             elif self.time_on_duration is None:
                 elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
-                print(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
+                self.log.info(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
                 if elapsedSeconds > self.time_off_duration:
-                    print("timeOff is over")
+                    self.log.info("timeOff is over")
                     self.time_off_duration = None
                     self.time_off_timer = None
-
             else:
-                print("waiting for timeOn to finish")
+                self.log.info("waiting for timeOn to finish")
 
 
         # END TASK
         elif self.current_state == State.END_TASK:
-            print("Ending task")
-
+            self.log.info("Ending task")
             full_surface = self.full_surface_flag.getLast()
+
             if full_surface is not None:
                 self.surface()
             else:
-                print("Surfacing")
+                self.log.info("Surfacing")
 
             if self.pressureController.senseAir():
-                print("we've reached the surface!")
+                self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
 
-        # Wait for pickup
+        # Wait for pickup - Iradium
         elif self.current_state == State.WAIT_FOR_PICKUP:
-            print("waiting for pickup")
+            self.log.info("waiting for pickup")
+            # send iradium flag (I:1)
 
         # EMERGENCY
         elif self.current_state == State.EMERGENCY:
-            print("Emergency")
+            self.log.warning("Emergency")
             if not self.weightDropped:
             #     # self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
                 self.drop_weight()
-
             if self.pressureController.senseAir():
-                print("we've reached the surface!")
+                self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
-            return
-
-
-
-
-
+            
     def sensorsReady(self):
         bypassSens = ["rpm"]
         for sensor in self.sensors:
             if sensor not in bypassSens and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
-                print(f"sensor {sensor} is not ready")
+                self.log.warning(f"sensor {sensor} is not ready")
                 return False
         bypassFlag = ["PF", "FS"]
         for flag in self.flags:
             if flag not in bypassFlag and not self.flags[flag].isBufferFull():
-                print(f"flag {flag} is not ready")
+                self.log.warning(f"flag {flag} is not ready")
                 return False
 
         return True
@@ -475,6 +498,8 @@ class App():
         res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
 
+
+        headers = []
         for key in res:
             value = res[key]
 
@@ -487,9 +512,14 @@ class App():
             if len(key)>len(str(value)):
                 end=1
 
-            print(f"{key}" ,end=" "*end)
-        print()
+            line = f"{key}"
+            full_line = line + " "*end
+            # print(line ,end=" "*end)
+            headers.append(full_line)
+        # print()
+        self.log.info("".join(headers))
 
+        values = []
         for key in res:
             end = 1
             # res = len(str(res[key])) + 3 - len(key)
@@ -506,20 +536,23 @@ class App():
                 end=len(key) + 1 - len(str(value))
             
 
-            
-            print(f"{value}" ,end=" "*end)
-        print()
+            line = f"{value}"
+            full_line = line + " "*end
+            # print(line, end=" "*end)
+            values.append(full_line)
+        # print()
+        self.log.info("".join(values))
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
         # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0
 
         # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
         # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
         if self.weightDropped:
-            print("weight dropped!")
+            self.log.warning("weight dropped!")
 
 
     def sendPID(self):
-        print("calculating PID")
+        self.log.debug("calculating PID")
 
 
         def getAvgDepthSensorsRead():
@@ -529,21 +562,21 @@ class App():
                 value = float(self.pressureSensors[sensor].getLast())
                 # print(f"{sensor}:{value}")
                 if 10 > value or value > 65536:
-                    print(f"error in {sensor } sensor value: {value} is out of bound!")
+                    self.log.error(f"error in {sensor } sensor value: {value} is out of bound!")
                     # print("")
                     continue
                 avg+=value
                 count+=1
             
             if count==0:
-                print("error /0") # no valid presure sensors data
+                self.log.error("error /0. no valid pressure sensors data available") # no valid presure sensors data
                 return None
             avg/=count
             return avg
 
         avg = getAvgDepthSensorsRead()
         if not avg:
-            print("ERROR: Could not calculate depth - not enough working sensors")
+            self.log.error("ERROR: Could not calculate depth - not enough working sensors")
             return
 
         def getTargetDepth(target_depth_in_meters):
@@ -589,31 +622,24 @@ class App():
         # maxAscend = bv>450.0 - buffer and direction == 2
 
         if self.bladder_is_at_max_volume and direction == 2:
-            print("Bladder is at max volume")
+            self.log.info("Bladder is at max volume")
             # self.idle = True
             self.time_on_duration = None
             self.time_off_duration = None
             self.time_off_timer = None
             
         elif self.bladder_is_at_min_volume and direction == 1:
-            print("Bladder is at min volume")
+            self.log.info("Bladder is at min volume")
             # self.idle = True
             self.time_on_duration = None
             self.time_off_duration = None
             self.time_off_timer = None
         else:
-            print(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.time_on_duration}  timeOff:{self.time_off_duration}")
+            self.log.info(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.time_on_duration}  timeOff:{self.time_off_duration}")
             self.comm.write(f"V:{voltage}\n")
             self.comm.write(f"D:{direction}\n")
             self.comm.write(f"T:{self.time_on_duration}\n")
-            # TODO: dont start untill arduino sends PF=1
-            # self.idle = False
-        # time.sleep(0.01)
 
-        # self.time_off_timer = time.time()
-        
-
-        # time.sleep(timeOn + timeOff)
 
     #get line from secondary arduino;
     def get_next_serial_line_safety(self):

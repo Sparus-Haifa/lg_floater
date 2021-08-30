@@ -11,7 +11,7 @@ class Altimeter(Sensor):
         self.confidance = deque(maxlen=self.avg_samples)
 
         self._queues_are_full = False
-        self.log.write("Temperature controller was initialized successfully\n")
+        self.log.info("Altimeter controller was initialized successfully")
         self.skipNext = False
 
     def add_sample(self, sample_arr):

@@ -8,7 +8,7 @@ class Temp_ctrl():
         self.precision = precision
         self.log = log
         self.sensors = {}
-        self.log.write("Temperature controller was initialized successfully\n")
+        self.log.info("Temperature controller was initialized successfully")
 
 
     def addSensor(self, header):

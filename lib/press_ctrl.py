@@ -11,6 +11,7 @@ class Press_ctrl():
         self.precision = precision
         self.epsilon = epsilon
         self.log = log
+        self.log.info("Pressure controller was initialized successfully")
         self.sensors = {}
 
 

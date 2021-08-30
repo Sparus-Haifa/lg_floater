@@ -11,7 +11,7 @@ class Temp(Sensor):
         self.t = deque(maxlen=self.avg_samples)
 
         self._queues_are_full = False
-        self.log.write("Temperature controller was initialized successfully\n")
+        self.log.info(f"{self.name} temperature sensor was initialized successfully")
 
     def add_sample(self, sample_arr):
         # if len(sample_arr) != 2:

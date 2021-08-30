@@ -7,11 +7,12 @@ class Flag:
         # super().__init__(name, 1)
         # self.avg_samples = avg_samples
         self.log = log
+        self.name = name
 
         self.status = None
 
         # self._queues_are_full = False
-        self.log.write("Temperature controller was initialized successfully\n")
+        self.log.info(f"{self.name} flag controller was initialized successfully")
 
     def add_sample(self, sample_arr):
         # if len(sample_arr) != 2:
@@ -23,7 +24,7 @@ class Flag:
         self.status=int(float(sample_arr))
         # self.status=sample_arr
 
-        # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
+        # self.log.info("Added temperature sample: {}\n".format(str(sample_arr)))
 
         # We can start using the samples once:
         #       We received data from all temperature sensors

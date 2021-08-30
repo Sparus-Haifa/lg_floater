@@ -9,23 +9,25 @@ class Profile:
         self.log = log
         self.table = []
         self.__loadfile()
-        self.log.write("Profile class was initialized successfully\n")
+        self.log.info("Profile class was initialized successfully\n")
 
     def __loadfile(self):
         #fields: pressure, temp, salinity
-        print("attempting to load profile: " + self .filepath)
-        self.log.write("attempting to load profile: " + self.filepath + "\n")
+        # print("attempting to load profile: " + self .filepath)
+        self.log.debug("attempting to load profile: " + self.filepath)
         for line in open(self .filepath, 'r').readlines():
             fields = line.strip().split()
             fields = [float(i) for i in fields] # convert to floats
             fields.append(self.__getdensity(fields))
-            self.log.write(str(fields) + "\n")
+            # self.log.info(str(fields) + "\n")
             self.table.append(fields)
+        self.log.info("Profile file loaded successfully\n")
+        
 
 
     def __getdensity(self, fields):
         if (len(fields) != 3):
-            self.log.write("invalid profile line: " + fields)
+            self.log.warning("invalid profile line: " + fields)
             return
         else:
             p = fields[0]
