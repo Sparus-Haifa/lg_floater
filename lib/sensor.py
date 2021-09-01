@@ -1,10 +1,11 @@
 from collections import deque
 class Sensor:
-    def __init__(self, name, avg_samples, precision):
+    def __init__(self, name, avg_samples, precision, log):
         self.name = name
         self.avg_samples = avg_samples
         self.t = deque(maxlen=self.avg_samples)
         self.precision = precision
+        self.log = log
 
 
 
@@ -31,7 +32,7 @@ class Sensor:
             # print(e)
             # print(sample)
             # exit()
-            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            self.log.error(f"SENSOR ERROR: [{self.name}] Overflow value: [{sample}]") # TODO: handle
             return
         # self.t.append(sample)
         self.t.append(value)

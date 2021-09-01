@@ -4,8 +4,8 @@ from lib.sensor import Sensor
 
 class IMU(Sensor):
     def __init__(self, name, avg_samples, precision, log):
-        super().__init__(name, avg_samples, precision)
-        self.log = log
+        super().__init__(name, avg_samples, precision, log)
+        # self.log = log
         # self.avg_samples = avg_samples
 
         # self.imu_samples = deque(maxlen=self.avg_samples) #queue of lists - [ [x,y,z,a], [x,y,z,a] ]

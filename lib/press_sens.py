@@ -5,11 +5,11 @@ class Press(Sensor):
     _delta_up_down = ...  # type: float
 
     def __init__(self, name, avg_samples, precision, log):
-        super().__init__(name, avg_samples, precision)
+        super().__init__(name, avg_samples, precision, log)
         # self.name = name
         # self.avg_samples = avg_samples
         # self.epsilon = epsilon
-        self.log = log
+        # self.log = log
 
 
         self._queues_are_full = False

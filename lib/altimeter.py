@@ -3,9 +3,9 @@ from lib.sensor import Sensor
 
 class Altimeter(Sensor):
     def __init__(self, name, avg_samples, precision, log):
-        super().__init__(name, avg_samples, precision)
+        super().__init__(name, avg_samples, precision, log)
         # self.avg_samples = avg_samples
-        self.log = log
+        # self.log = log
 
         self.distance = deque(maxlen=self.avg_samples)
         self.confidance = deque(maxlen=self.avg_samples)
@@ -22,7 +22,7 @@ class Altimeter(Sensor):
         try:
             value = float(sample_arr)
         except ValueError as e:
-            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            self.log.error(f"SENSOR ERROR: [{self.name}] Overflow value [{sample_arr}]") # TODO: add to log
             self.skipNext=True
             return
         # self.t.append(sample)
@@ -38,7 +38,7 @@ class Altimeter(Sensor):
         try:
             value = float(sample)
         except ValueError as e:
-            print(f"SENSOR ERROR: [{self.name}]Overflow value") # TODO: add to log
+            self.log.error(f"SENSOR ERROR: [{self.name}] Overflow value [{sample}]") # TODO: handale, duplicates
             self.skipNext=True
             return
         self.confidance.append(value)

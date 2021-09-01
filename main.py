@@ -71,6 +71,11 @@ class App():
         self.log.debug("debug")
 
         self.lastTime = time.time()
+
+        MIN_TIME_OFF_DURATION = cfg.task["min_time_off_duration"]
+        MAX_TIME_OFF_DURATION = cfg.task["max_time_off_duration"]
+
+
         self.lastP=0 # TODO: move to pid module
         self.pid_controller = PID()
         # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
@@ -86,8 +91,8 @@ class App():
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
 
-
-        self.waterSenseDuration = 5 # sould be 5 min = 60*5 [sec]
+        WAIT_FOR_WATER_DURATION = cfg.pickup["wait_for_water_duration"]
+        self.waterSenseDuration =  WAIT_FOR_WATER_DURATION  #  5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
 
         # Task execusion timers
@@ -655,10 +660,10 @@ class App():
 
         timeout = time.time() - self.safteyTimer > 30
         if timeout:
-            print("safety not responding!")
+            self.log.critical("safety not responding!")
             self.is_safety_responding = False
+            # TODO: move to emergency state only if you're in exec or...
             self.current_state = State.EMERGENCY # will make weight drop on reconnection
-            # TODO: inflate bladder
 
         serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
         serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
@@ -674,7 +679,7 @@ class App():
         try:
             value = int(float(serial_line[1]))
         except ValueError as e:
-            print(f"Error parsing value {value} from safety")
+            self.log.error(f"Error parsing value {value} from safety")
             return
 
         if serial_line[0].upper().startswith("N"):
@@ -685,20 +690,24 @@ class App():
                 # if self.current_state == State.EMERGENCY:
                 #     self.comm_safety.write("N:2") # sending the command to drop the dropweight to saftey
                 self.safteyTimer = time.time()
-                print("pong!")
+                # print("pong!")
+                self.log.info("pong recieved by safety")
                 self.is_safety_responding = True
                 pass # ping acknowledge
             if value==2:
-                print("safety weight dropped on command acknowledge")
+                # print("safety weight dropped on command acknowledge")
+                self.log.info("safety acknowledges weight was dropped on command ")
                 self.current_state = State.EMERGENCY                
                 self.weightDropped = True
                 self.comm.write("weight:1")
                 pass # drop weight acknowledge
             if value==3: # Saftey requests a ping
-                print("ping!")
+                # print("ping!")
+                self.log.info("ping sent from safety")
                 self.comm_safety.write("N:1") # sending ping to saftey
             if value==4:
-                print("weight dropped due to over time acknowledge")
+                # print("weight dropped due to over time acknowledge")
+                self.log.info("safety acknowledges weight was dropped due to over time")
                 self.current_state = State.EMERGENCY
                 self.weightDropped = True
                 self.comm.write("weight:1")
