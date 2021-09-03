@@ -1,13 +1,22 @@
 from enum import Enum
 
-class State(Enum):
-    INIT = 1
-    WAIT_FOR_WATER = 2
-    EXEC_TASK = 3
-    END_TASK = 4
-    EMERGENCY = 5
+# class State(Enum):
+#     INIT = 0
+#     WAIT_FOR_SAFETY = 1
+#     WAIT_FOR_WATER = 2
+#     EXEC_TASK = 3
+#     END_TASK = 4
+#     WAIT_FOR_PICKUP = 5
+#     EMERGENCY = 6
 
-Current_state = State.INIT
+
+app = {
+    "simulation" : True,
+    "disable_safety" : True,
+    "test_mode" : True
+}
+
+# Current_state = State.INIT
 
 serial = {
     # /dev/ttyUSB0
@@ -21,7 +30,7 @@ serial_safety = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
     # "port": "COM4",
-    "port": "COM3",
+    "port": "COM4",
     "timeout" : 3,
     "baud_rate": 115200
 }
@@ -58,22 +67,33 @@ rpm = {
 }
 
 task = {
-    "type": 1, # 1- pressure, 2-density, 3-profiling
-    "duration": 300, # seconds
-    "setpoint": 300, # will be used for types 1 & 2
-    "setpoint_tollerance": 5, #asumming we won't hit the exact setpoint - +/1 setpoint_tollerance is good enough
-    "fullduty_exec_time": 5, #num of seconds to operate the pump while in full-duty cycle mode
-    "fullduty_min_distance": 100,
-    "max_interval_between_movements": 100,
-    "min_interval_between_movements": 5
+    # "type": 1, # 1- pressure, 2-density, 3-profiling
+    # "duration": 300, # seconds
+    # "setpoint": 300, # will be used for types 1 & 2
+    # "setpoint_tollerance": 5, #asumming we won't hit the exact setpoint - +/1 setpoint_tollerance is good enough
+    # "fullduty_exec_time": 5, #num of seconds to operate the pump while in full-duty cycle mode
+    # "fullduty_min_distance": 100,
+    # "max_interval_between_movements": 100,
+    # "min_interval_between_movements": 5
 
 
 
     # "setpoint_start": 25, # will be used for type 3
     # "setpoint_end": 50 # will be used for type 3cd
+    
+    "target_depth_in_meters" : 50,
+    
+    "min_time_off_duration_limit" : 0.5,
+    # "max_time_off_duration" : 100.0
+
+}
+
+pickup = {
+    "wait_for_water_duration" : 10
 }
 
 safety = {
-    "min_alt": 5,
-    "max_interval_between_pings" : 5
+    # "min_alt": 5,
+    # "max_interval_between_pings" : 5
+    "timeout" : 30  # In seconds
 }

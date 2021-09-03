@@ -1,0 +1,76 @@
+
+TODO:
+1. task mission timout
+
+2. send flag iradium every X minutes, recieve flag from iradium, 
+    then time water pressure raise, or count epochs
+
+3. AP and AT:
+    if sensor error or out of bound:
+    emergency drop weight - don't inflate bladder
+
+unlike: HL and EL:
+    then we do both.
+
+
+
+4. handle bad sensors:
+    on every sample 
+    on pressure sensor average
+
+    slack: 1 top pressure
+            1 bottom pressure
+
+            1 top temperatue
+            1 bottom temperatue
+
+
+
+
+5. handle altimeter - 5 samples from PD
+                from PC easy same
+
+
+
+
+6. leak during waiting for pickup - handle (iridium)
+
+7. Safety handshake and logs
+
+8. fix PID HUD
+
+9. headless RPI
+
+10. Experimets… design tests. Pool and pressure chamber.
+
+11. burn RPI
+
+12. Handle usb disconnect
+
+
+13. test experiment
+    script: Stop all!
+    sense water, sense air, transmit iridium, sink, wait 2 min, climb, 
+    surface test
+    iridium script
+    
+
+14. on init. time: 30 seconds. check bladder, inflate bladder on startup to max,
+
+15. water sense is air sense:
+delta + 1000+-50
+
+16. if pressure > 250 decibar:
+    drop weight
+
+
+Nice to Have:
+*. target buffer interval handle
+-altimeter general average function etc.
+-parameters
+
+*. 3rd log
+*. log dates
+*. profile
+*. profile file - get salinity
+*. time alt samples

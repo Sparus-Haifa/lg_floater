@@ -64,8 +64,8 @@ class PID:
         if voltage >= 100:
             voltage = 100
         if voltage <= 40:
-            voltage = 40
-            # voltage = 0
+            # voltage = 40
+            voltage = 0
 
         # print("voltage", voltage)
         return voltage
@@ -99,7 +99,7 @@ class PID:
 
         x1 = 0 # no error
         x2 = 100 # max error
-        y1 = 0 # min utility 0% (min dc)
+        y1 = 0.05 # min utility 0% (min dc)
         y2 = 1 # max utility 100% (max dc)
 
         m = (y2-y1)/(x2-x1)

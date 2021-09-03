@@ -5,6 +5,7 @@ from lib.altimeter import Altimeter
 from lib.bladder_volume import Bladder
 import time
 import cfg.configuration as cfg
+# from cfg import Mode
 # import lib.logger as logger
 import lib.comm_serial as ser
 import lib.comm_udp as com
@@ -27,6 +28,14 @@ import logging
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
 
+# task
+MIN_TIME_OFF_DURATION = cfg.task["min_time_off_duration_limit"]
+# MAX_TIME_OFF_DURATION = cfg.task["max_time_off_duration"]
+TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
+
+# safety
+SAFETY_TIMEOUT = cfg.safety["timeout"]
+
 class State(Enum):
     INIT = 0
     WAIT_FOR_SAFETY = 1
@@ -39,7 +48,7 @@ class State(Enum):
 # Current_state = State.INIT
 
 class App():
-    def __init__(self, simulation):
+    def __init__(self):
         # log = logger.Logger()
         # logging.basicConfig(level=logging.DEBUG)
         # self.log = logging.getLogger(__name__)
@@ -53,7 +62,8 @@ class App():
         console_handler = logging.StreamHandler(sys.stdout)
         file_handler = logging.FileHandler('log\\logfile.log')
 
-        console_handler.setLevel(logging.WARNING)
+        # console_handler.setLevel(logging.WARNING)
+        console_handler.setLevel(logging.INFO)
         print("log level", self.log.level)
         file_handler.setLevel(logging.NOTSET)
         print("log level", self.log.level)
@@ -72,8 +82,7 @@ class App():
 
         self.lastTime = time.time()
 
-        MIN_TIME_OFF_DURATION = cfg.task["min_time_off_duration"]
-        MAX_TIME_OFF_DURATION = cfg.task["max_time_off_duration"]
+
 
 
         self.lastP=0 # TODO: move to pid module
@@ -103,7 +112,19 @@ class App():
         
         # self.pid_sent
         self.pid_sent_time = None
-        self.simulation = simulation
+
+        self.simulation = cfg.app["simulation"]
+        if self.simulation:
+            self.log.warning("Simulation mode")
+
+        self.disable_safety = cfg.app["disable_safety"]
+        if self.disable_safety:
+            self.log.warning("Safety is disabled")
+
+        self.test_mode = cfg.app["test_mode"]
+        if self.test_mode:
+            self.log.warning("Test mode")
+            
         self.simFactor = 1.0
 
         self.sensors = {}
@@ -170,10 +191,14 @@ class App():
                 exit() 
 
         # Secondary arduino (safety)
-        self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
-        if not self.comm_safety.ser:
-            self.log.critical("-E- Failed to init safety serial port")
-            exit()
+        if self.disable_safety:
+            # self.log.warning("")
+            pass
+        else:
+            self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
+            if not self.comm_safety.ser:
+                self.log.critical("-E- Failed to init safety serial port")
+                exit()
 
 
     def addSensorsToDict(self):
@@ -372,10 +397,16 @@ class App():
         if self.simulation:
             self.comm.write(f"State:{self.current_state}\n")  # debug send state
 
-        self.run_mission_sequence()
+        if self.test_mode:
+            self.run_test_sequence()
+        else:
+            self.run_mission_sequence()
         
 
 
+    def run_test_sequence(self):
+        print("running test")
+        pass
     
     def run_mission_sequence(self):
         self.logSensors()
@@ -591,7 +622,7 @@ class App():
             target_depth = corrected * 100 # in milibar
             return target_depth
 
-        target_depth_in_meters = 50
+        target_depth_in_meters = TARGET_DEPTH_IN_METERS
         target_depth = getTargetDepth(target_depth_in_meters)
     
 
@@ -601,11 +632,11 @@ class App():
         scalar = self.pid_controller.pid(error)
         direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar)
 
-        if self.time_off_duration < 0.5:
-            self.time_off_duration = 0.5
+        if self.time_off_duration < MIN_TIME_OFF_DURATION:
+            self.time_off_duration = MIN_TIME_OFF_DURATION
 
-        if self.time_off_duration > 20.0:
-            self.time_off_duration = 20.0
+        # if self.time_off_duration > MAX_TIME_OFF_DURATION:
+        #     self.time_off_duration = MAX_TIME_OFF_DURATION
 
         phase = 1
 
@@ -658,7 +689,7 @@ class App():
         if not self.safteyTimer:
             self.safteyTimer = time.time()
 
-        timeout = time.time() - self.safteyTimer > 30
+        timeout = time.time() - self.safteyTimer > SAFETY_TIMEOUT
         if timeout:
             self.log.critical("safety not responding!")
             self.is_safety_responding = False
@@ -704,7 +735,7 @@ class App():
             if value==3: # Saftey requests a ping
                 # print("ping!")
                 self.log.info("ping sent from safety")
-                self.comm_safety.write("N:1") # sending ping to saftey
+                # self.comm_safety.write("N:1") # sending ping to saftey
             if value==4:
                 # print("weight dropped due to over time acknowledge")
                 self.log.info("safety acknowledges weight was dropped due to over time")
@@ -762,18 +793,8 @@ if __name__ == "__main__":
 
     # app = App()
 
-    def isSimulation():
-        if len(sys.argv)>1:
-            arg = sys.argv[1]
-            if "True" in arg:
-                return True
-            return False
 
-    if isSimulation():
-        print("Simulation mode")
-        app = App(True)
-    else:
-        app = App(False)
+    app = App()
 
 
  
@@ -781,7 +802,8 @@ if __name__ == "__main__":
     app.lastTime = time.time()
     while True:
         app.get_next_serial_line()
-        app.get_next_serial_line_safety()
+        if not app.disable_safety:
+            app.get_next_serial_line_safety()
         # time.sleep(0.01)
 
         # logSensors()
