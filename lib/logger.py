@@ -24,6 +24,7 @@ class Logger:
 
         #e.g. 20210310_103412.log
         log_name = caurrent_date + "_" + current_time + ".log"
+        self.log_name = log_name
 
         #e.g. C:\Users\Ilan\projects\lg_floater\rpi\dev\lib
         current_dir = os.path.dirname(os.path.realpath(__file__))
@@ -34,8 +35,8 @@ class Logger:
         #e.g. C:\Users\Ilan\projects\lg_floater\rpi\dev\log\20210310_103412.log
         log_abs_path = log_dir + os.sep + log_name
 
-        self.__log = open(log_abs_path, "w")
-        self.write("Log was initialized successfully\n")
+        # self.__log = open(log_abs_path, "w")
+        # self.write("Log was initialized successfully\n")
 
 
 

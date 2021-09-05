@@ -25,6 +25,8 @@ import sys # for args, and log out
 
 import logging
 
+import os  # for log file path
+
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
 
@@ -58,9 +60,16 @@ class App():
         # self.log.setLevel(logging.NOTSET)
 
         print("log level", self.log.level)
-
         console_handler = logging.StreamHandler(sys.stdout)
-        file_handler = logging.FileHandler('log\\logfile.log')
+        # file_handler = logging.FileHandler(os.path.join('log','logfile.log')
+        from lib.logger import Logger
+        l = Logger()
+        s = l.log_name
+        # file_handler = logging.FileHandler('log/logfile.log')
+        print(s)
+        file_handler = logging.FileHandler(s)
+
+
 
         # console_handler.setLevel(logging.WARNING)
         console_handler.setLevel(logging.INFO)
