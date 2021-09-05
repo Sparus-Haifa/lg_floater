@@ -12,8 +12,10 @@ from enum import Enum
 
 app = {
     "simulation" : True,
+    "simulation_udp_port" : 12000,
     "disable_safety" : True,
-    "test_mode" : True
+    "test_mode" : True,
+    "test_mode_udp_port" : 12001
 }
 
 # Current_state = State.INIT
