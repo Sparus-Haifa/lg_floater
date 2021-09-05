@@ -3,6 +3,7 @@ import pygame as pg
 import time
 import socket
 import random
+import cfg.configuration as cfg
 
 from pygame.event import pump
 
@@ -13,7 +14,8 @@ class Comm():
         # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.settimeout(1.0)
         self.client_socket.setblocking(False)
-        self.addr = ("127.0.0.1", 12000)
+        # self.addr = ("127.0.0.1", 12000)
+        self.addr = ("127.0.0.1", cfg.app["simulation_udp_port"])
         # self.client_socket.connect(self.addr)
         self.pid = 0
         self.lastPID = 0

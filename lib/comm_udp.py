@@ -1,3 +1,4 @@
+import cfg
 import random
 import socket
 import errno
@@ -5,11 +6,12 @@ from time import sleep
 
 
 class UdpComm():
-    def __init__(self) -> None:
+    def __init__(self, port) -> None:
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.server_socket.settimeout(1.0)
         # self.server_socket.setblocking(False)
-        self.server_socket.bind(('', 12000))
+        # self.server_socket.bind(('', 12000))
+        self.server_socket.bind(('', port))
         self.address= ("127.0.0.1", 12003)
 
 
