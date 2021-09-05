@@ -194,7 +194,7 @@ class App():
                 exit()
         else:
         # Simulated via udp
-            self.comm = com.UdpComm()
+            self.comm = com.UdpComm(cfg.app["simulation_udp_port"])
             if not self.comm.server_socket:
                 self.log.critical("-E- Failed to init udp port")
                 exit() 
@@ -208,6 +208,13 @@ class App():
             if not self.comm_safety.ser:
                 self.log.critical("-E- Failed to init safety serial port")
                 exit()
+
+        # Test mode
+        if self.test_mode:
+            self.comm_cli = com.UdpComm(cfg.app["test_mode_udp_port"])
+            if not self.comm_cli.server_socket:
+                self.log.critical("-E- Failed to init cli udp port")
+                exit()    
 
 
     def addSensorsToDict(self):
@@ -230,6 +237,18 @@ class App():
         self.flags["EL"]=self.leak_e_flag
         self.flags["BF"]=self.bladder_flag
         self.flags["FS"]=self.full_surface_flag
+
+    def get_cli_command(self):
+        line = self.comm_cli.read()
+        if line is None:
+            return
+        line = line.decode('utf-8','ignore').strip().split(':')
+        if line != b'':
+            self.log.debug(f"CLI:{line}")
+
+        header, value = line
+        if header == "stop":
+            print("stop")
 
 
     #get line from main arduino; decode it, store the data and execute an appropriate callback
@@ -415,6 +434,7 @@ class App():
 
     def run_test_sequence(self):
         print("running test")
+        self.logSensors()
         pass
     
     def run_mission_sequence(self):
@@ -813,6 +833,8 @@ if __name__ == "__main__":
         app.get_next_serial_line()
         if not app.disable_safety:
             app.get_next_serial_line_safety()
+        if app.test_mode:
+            app.get_cli_command()
         # time.sleep(0.01)
 
         # logSensors()
