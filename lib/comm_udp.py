@@ -9,15 +9,17 @@ class UdpComm():
     def __init__(self, port) -> None:
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.server_socket.settimeout(1.0)
-        # self.server_socket.setblocking(False)
+        self.server_socket.setblocking(False)
         # self.server_socket.bind(('', 12000))
         self.server_socket.bind(('', port))
-        self.address= ("127.0.0.1", 12003)
+        self.address= None  # ("127.0.0.1", 12003)
 
 
     def read(self):
         try:
             message, self.address = self.server_socket.recvfrom(1024)
+            if message is None:
+                return b""
         except socket.error as e:
             err = e.args[0]
             if err== errno.EAGAIN or err==errno.EWOULDBLOCK:

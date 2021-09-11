@@ -27,6 +27,8 @@ import logging
 
 import os  # for log file path
 
+from cfg.configuration import State
+
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
 
@@ -38,22 +40,26 @@ TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
 # safety
 SAFETY_TIMEOUT = cfg.safety["timeout"]
 
-class State(Enum):
-    INIT = 0
-    WAIT_FOR_SAFETY = 1
-    WAIT_FOR_WATER = 2
-    EXEC_TASK = 3
-    END_TASK = 4
-    WAIT_FOR_PICKUP = 5
-    EMERGENCY = 6
+# class State(Enum):
+#     INIT = 0
+#     WAIT_FOR_SAFETY = 1
+#     WAIT_FOR_WATER = 2
+#     EXEC_TASK = 3
+#     END_TASK = 4
+#     WAIT_FOR_PICKUP = 5
+#     EMERGENCY = 6
+#     STOP = 7
 
 # Current_state = State.INIT
 
 class App():
     def __init__(self):
-        # log = logger.Logger()
-        # logging.basicConfig(level=logging.DEBUG)
-        # self.log = logging.getLogger(__name__)
+
+        self.simulation = cfg.app["simulation"]
+        self.disable_safety = cfg.app["disable_safety"]
+        self.test_mode = cfg.app["test_mode"]
+        
+
         self.log = logging.getLogger()
         self.log.setLevel(logging.DEBUG)
         # self.log.info("init")
@@ -67,7 +73,10 @@ class App():
         s = l.log_name
         # file_handler = logging.FileHandler('log/logfile.log')
         print(s)
-        file_handler = logging.FileHandler(s)
+        # file_handler = logging.FileHandler(s)
+        full_path = os.path.join('log',s)
+        file_handler = logging.FileHandler(full_path)
+
 
 
 
@@ -77,7 +86,11 @@ class App():
         file_handler.setLevel(logging.NOTSET)
         print("log level", self.log.level)
 
-        formatter    = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+        if self.test_mode or self.disable_safety:
+            formatter    = logging.Formatter('%(asctime)s : TEST-MODE : %(levelname)s : %(message)s')
+        else:
+            formatter    = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+
         console_handler.setFormatter(formatter)
         file_handler.setFormatter(formatter)
 
@@ -87,7 +100,24 @@ class App():
         self.log.addHandler(console_handler)
         self.log.addHandler(file_handler)
 
-        self.log.debug("debug")
+        # self.log.debug("debug")
+
+
+        if self.simulation:
+            self.log.warning("Simulation mode")
+
+        if self.disable_safety:
+            self.log.warning("Safety is disabled")
+
+        if self.test_mode:
+            self.log.warning("Test mode")
+            self.test_command = None
+            self.test_value = None
+            self.current_state = State.STOP
+        else:
+            self.current_state = State.INIT
+
+        self.target_depth = cfg.task["target_depth"]
 
         self.lastTime = time.time()
 
@@ -98,7 +128,6 @@ class App():
         self.pid_controller = PID()
         # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
 
-        self.current_state = State.INIT
         self.is_safety_responding = False
         self.weightDropped = False
         self.drop_weight_command_sent = False
@@ -113,6 +142,9 @@ class App():
         self.waterSenseDuration =  WAIT_FOR_WATER_DURATION  #  5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
 
+        self.sleep_sent_to_nano = False
+        self.nano_is_sleeping = False
+
         # Task execusion timers
         self.time_off_duration = None
         self.time_on_duration = None
@@ -122,17 +154,7 @@ class App():
         # self.pid_sent
         self.pid_sent_time = None
 
-        self.simulation = cfg.app["simulation"]
-        if self.simulation:
-            self.log.warning("Simulation mode")
 
-        self.disable_safety = cfg.app["disable_safety"]
-        if self.disable_safety:
-            self.log.warning("Safety is disabled")
-
-        self.test_mode = cfg.app["test_mode"]
-        if self.test_mode:
-            self.log.warning("Test mode")
             
         self.simFactor = 1.0
 
@@ -240,15 +262,17 @@ class App():
 
     def get_cli_command(self):
         line = self.comm_cli.read()
-        if line is None:
+        if line is None or line == '' or line == b'':
             return
         line = line.decode('utf-8','ignore').strip().split(':')
-        if line != b'':
-            self.log.debug(f"CLI:{line}")
+
+        self.log.debug(f"CLI:{line}")
 
         header, value = line
-        if header == "stop":
-            print("stop")
+        # if header == "stop":
+        #     print("stop")
+        self.test_command = header
+        self.test_value = value
 
 
     #get line from main arduino; decode it, store the data and execute an appropriate callback
@@ -434,7 +458,26 @@ class App():
 
     def run_test_sequence(self):
         print("running test")
-        self.logSensors()
+        # self.logSensors()
+        if self.test_command is not None:
+            command = self.test_command
+            value = self.test_value
+            self.test_command = None
+            self.test_value = None
+
+            if command == "restart":
+                self.current_state = State.INIT
+                self.log.warning("restarting")
+
+            if command == "stop":
+                self.current_state = State.STOP
+                self.log.warning("stopping")
+
+            if command == "depth":
+                self.log.debug(f"setting setpoint to {value}")
+                self.target_depth = float(value)
+
+        self.run_mission_sequence()
         pass
     
     def run_mission_sequence(self):
@@ -447,6 +490,8 @@ class App():
 
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
+        # send wakeup interrupt to arduino nano.
+        # print("TODO: wakeup")
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_WATER
             else:
@@ -509,6 +554,14 @@ class App():
             self.log.info("waiting for pickup")
             # send iradium flag (I:1)
 
+            if not self.sleep_sent_to_nano:
+                self.send_sleep_to_nano()
+            
+            if self.nano_is_sleeping:
+                print("nano is sleeping")
+                
+
+
         # EMERGENCY
         elif self.current_state == State.EMERGENCY:
             self.log.warning("Emergency")
@@ -518,7 +571,16 @@ class App():
             if self.pressureController.senseAir():
                 self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
-            
+
+        # STOP - TEST MODE
+        elif self.current_state == State.STOP:
+            self.log.warning("Stopped")
+
+
+    def send_sleep_to_nano(self):
+        self.sleep_sent_to_nano = True
+        self.comm_safety.write("N:5")
+
     def sensorsReady(self):
         bypassSens = ["rpm"]
         for sensor in self.sensors:
@@ -644,15 +706,16 @@ class App():
             self.log.error("ERROR: Could not calculate depth - not enough working sensors")
             return
 
-        def getTargetDepth(target_depth_in_meters):
-            p0 = 10.35 # TODO: get pressure at sea level
-            m = 1 # TODO: get linear function of sensors
-            corrected = p0 + m*target_depth_in_meters # linear function
-            target_depth = corrected * 100 # in milibar
-            return target_depth
+        # def getTargetDepth(target_depth_in_meters):
+        #     p0 = 10.35 # TODO: get pressure at sea level
+        #     m = 1 # TODO: get linear function of sensors
+        #     corrected = p0 + m*target_depth_in_meters # linear function
+        #     target_depth = corrected * 100 # in milibar
+        #     return target_depth
 
-        target_depth_in_meters = TARGET_DEPTH_IN_METERS
-        target_depth = getTargetDepth(target_depth_in_meters)
+        # target_depth_in_meters = TARGET_DEPTH_IN_METERS
+        # target_depth = getTargetDepth(target_depth_in_meters)
+        target_depth = self.target_depth
     
 
         # PID
@@ -739,7 +802,7 @@ class App():
         try:
             value = int(float(serial_line[1]))
         except ValueError as e:
-            self.log.error(f"Error parsing value {value} from safety")
+            self.log.error(f"Error parsing value {serial_line[1]} from safety")
             return
 
         if serial_line[0].upper().startswith("N"):
@@ -764,7 +827,7 @@ class App():
             if value==3: # Saftey requests a ping
                 # print("ping!")
                 self.log.info("ping sent from safety")
-                # self.comm_safety.write("N:1") # sending ping to saftey
+                self.comm_safety.write("N:1") # sending ping to saftey
             if value==4:
                 # print("weight dropped due to over time acknowledge")
                 self.log.info("safety acknowledges weight was dropped due to over time")
@@ -772,55 +835,19 @@ class App():
                 self.weightDropped = True
                 self.comm.write("weight:1")
                 pass # weight dropped due to over time
+
+            if value==5:
+                self.log.info("safety went to sleep")
+                self.nano_is_sleeping = True
             
 
-    def end_mission(why):
-        log.write("mission was ended: {}".format(why))
-
-
-
-    #---------- Callbacks--------------#
-
-    #when a new temperature sample arrives
-    def t_callback():
-        pass
-
-    #when a new pressure sample arrives
-    # def p_callback():
-    #     if cfg.Current_state == cfg.State.INIT:
-    #         if sensPress._queues_are_full:
-    #             cfg.Current_state = cfg.State.WAIT_FOR_WATER
-
-    #     elif cfg.Current_state == cfg.State.WAIT_FOR_WATER:
-    #         if sensPress.get_delta_up_down() >= cfg.pressure["epsilon"]:
-    #             cfg.Current_state = cfg.State.EXEC_TASK
-
-    #     elif cfg.Current_state == cfg.State.EXEC_TASK:
-    #         cmd_to_send = task_ctrl.exec()
-    #         if cmd_to_send: #not None
-    #             comm.write(cmd_to_send)
-
-
-
-    #when a new IMU sample arrives
-    def imu_callback():
-        pass
-
-    #when a new IMU sample arrives
-    # def safety_callback():
-    #     if safety.is_emergency_state():
-    #         comm_safety.write("N:13") #report emergency to secondary arduino
-    #         comm.write("U:193")
 
 
 #-----------------------MAIN BODY--------------------------#
 
 if __name__ == "__main__":
     
-    # print("num of args",len(sys.argv))
-    # print("args",sys.argv)
 
-    # app = App()
 
 
     app = App()
@@ -835,19 +862,5 @@ if __name__ == "__main__":
             app.get_next_serial_line_safety()
         if app.test_mode:
             app.get_cli_command()
-        # time.sleep(0.01)
+        time.sleep(0.01)
 
-        # logSensors()
-        # get_next_serial_line_safety()
-
-
-        #comm.write("U:55.55")
-        #time.sleep(4)
-        #comm.write("U:0")
-        #time.sleep(4)
-        # comm.write(bytes('D:55.55'))
-        # time.sleep(1)
-        # comm.write(bytes('U:0'))
-        # time.sleep(1)
-        # comm.write(bytes('D:0'))
-        # time.sleep(1)

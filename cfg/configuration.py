@@ -1,21 +1,22 @@
 from enum import Enum
 
-# class State(Enum):
-#     INIT = 0
-#     WAIT_FOR_SAFETY = 1
-#     WAIT_FOR_WATER = 2
-#     EXEC_TASK = 3
-#     END_TASK = 4
-#     WAIT_FOR_PICKUP = 5
-#     EMERGENCY = 6
+class State(Enum):
+    INIT = 0
+    WAIT_FOR_SAFETY = 1
+    WAIT_FOR_WATER = 2
+    EXEC_TASK = 3
+    END_TASK = 4
+    WAIT_FOR_PICKUP = 5
+    EMERGENCY = 6
+    STOP = 7
 
 
 app = {
-    "simulation" : True,
+    "simulation" : True,  # app sends debug data to sim
     "simulation_udp_port" : 12000,
-    "disable_safety" : True,
+    "disable_safety" : False,
     "test_mode" : True,
-    "test_mode_udp_port" : 12001
+    "test_mode_udp_port" : 5000
 }
 
 # Current_state = State.INIT
@@ -32,7 +33,8 @@ serial_safety = {
     # /dev/ttyUSB0
     # "port": "/dev/ttyACM0",
     # "port": "COM4",
-    "port": "COM4",
+    "port": "/dev/ttyUSB0",
+    # "port": "COM4",
     "timeout" : 3,
     "baud_rate": 115200
 }
@@ -86,6 +88,7 @@ task = {
     "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
+    "target_depth" : 60000
     # "max_time_off_duration" : 100.0
 
 }
