@@ -1,21 +1,25 @@
 from enum import Enum
 
-# class State(Enum):
-#     INIT = 0
-#     WAIT_FOR_SAFETY = 1
-#     WAIT_FOR_WATER = 2
-#     EXEC_TASK = 3
-#     END_TASK = 4
-#     WAIT_FOR_PICKUP = 5
-#     EMERGENCY = 6
+class State(Enum):
+    INIT = 0
+    WAIT_FOR_SAFETY = 1
+    WAIT_FOR_WATER = 2
+    EXEC_TASK = 3
+    END_TASK = 4
+    WAIT_FOR_PICKUP = 5
+    EMERGENCY = 6
+    STOP = 7
 
 
 app = {
     "simulation" : True,
     "simulation_udp_port" : 12000,
+    # "host_ip" : "127.0.0.1",
+    "host_ip" : "192.168.1.75",
+
     "disable_safety" : True,
     "test_mode" : True,
-    "test_mode_udp_port" : 12001
+    "test_mode_udp_port" : 5000
 }
 
 # Current_state = State.INIT
@@ -98,4 +102,8 @@ safety = {
     # "min_alt": 5,
     # "max_interval_between_pings" : 5
     "timeout" : 30  # In seconds
+}
+
+simulation = {
+    "seafloor_depth" : 80  # meters
 }

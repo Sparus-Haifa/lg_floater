@@ -36,14 +36,14 @@ TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
 # safety
 SAFETY_TIMEOUT = cfg.safety["timeout"]
 
-class State(Enum):
-    INIT = 0
-    WAIT_FOR_SAFETY = 1
-    WAIT_FOR_WATER = 2
-    EXEC_TASK = 3
-    END_TASK = 4
-    WAIT_FOR_PICKUP = 5
-    EMERGENCY = 6
+# class State(Enum):
+#     INIT = 0
+#     WAIT_FOR_SAFETY = 1
+#     WAIT_FOR_WATER = 2
+#     EXEC_TASK = 3
+#     END_TASK = 4
+#     WAIT_FOR_PICKUP = 5
+#     EMERGENCY = 6
 
 # Current_state = State.INIT
 
@@ -230,6 +230,7 @@ class App():
         self.flags["FS"]=self.full_surface_flag
 
     def get_cli_command(self):
+        print("getting cli")
         line = self.comm_cli.read()
         if line is None:
             return
@@ -237,9 +238,11 @@ class App():
         if line != b'':
             self.log.debug(f"CLI:{line}")
 
-        header, value = line
+        header, value = line[0], line[1]
         if header == "stop":
-            print("stop")
+            print("main got stop command")
+        else:
+            print('bad command')
 
 
     #get line from main arduino; decode it, store the data and execute an appropriate callback
@@ -360,6 +363,9 @@ class App():
             self.comm_safety.write("N:2")
             self.drop_weight_command_sent = True
 
+    def sleep_nano(self):
+        self.comm_safety.write("N:5")
+
     def handle_PD(self):
         # TODO: decide which comes first from arduino
         # assuming PC comes first
@@ -438,6 +444,8 @@ class App():
 
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
+        # send wakeup interrupt to arduino nano.
+        # print("TODO: wakeup")
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_WATER
             else:
@@ -498,6 +506,17 @@ class App():
         # Wait for pickup - Iradium
         elif self.current_state == State.WAIT_FOR_PICKUP:
             self.log.info("waiting for pickup")
+            if not self.sent_sleep_to_nano:
+                if not self.waiting_for_nano_sleep:
+                    self.sent_sleep_to_nano = True
+                    self.waiting_for_nano_sleep = True
+                    self.sleep_nano()
+            if self.waiting_for_nano_sleep:
+                self.sleep_nano()
+
+            # let nano sleep (if pressure is)
+            # keep wake-up option in case
+
             # send iradium flag (I:1)
 
         # EMERGENCY
