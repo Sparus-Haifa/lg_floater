@@ -58,7 +58,11 @@ class App():
         self.simulation = cfg.app["simulation"]
         self.disable_safety = cfg.app["disable_safety"]
         self.test_mode = cfg.app["test_mode"]
+        self.disable_altimeter = cfg.app["disable_altimeter"]
         
+        if self.test_mode or self.disable_safety or self.disable_altimeter:
+            self.test_mode = True
+
 
         self.log = logging.getLogger()
         self.log.setLevel(logging.DEBUG)
@@ -81,15 +85,15 @@ class App():
 
 
         # console_handler.setLevel(logging.WARNING)
-        console_handler.setLevel(logging.INFO)
+        console_handler.setLevel(logging.WARNING)
         print("log level", self.log.level)
         file_handler.setLevel(logging.NOTSET)
         print("log level", self.log.level)
 
-        if self.test_mode or self.disable_safety:
-            formatter    = logging.Formatter('%(asctime)s : TEST-MODE : %(levelname)s : %(message)s')
+        if self.test_mode:
+            formatter    = logging.Formatter('%(asctime)s:TEST-MODE:%(levelname)s: %(message)s')
         else:
-            formatter    = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+            formatter    = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
         console_handler.setFormatter(formatter)
         file_handler.setFormatter(formatter)
@@ -281,9 +285,12 @@ class App():
         if serial_line == None:
             # print(f"Waiting for message from arduino. Received: {serial_line}")
             return
-        serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
-        if serial_line!=b"" and ("User message received" in serial_line) or ("U:" in serial_line):
+        # for c in ["V","D","T"]:
+        #     if str(serial_line).startswith(c):
+        #         self.log.debug("raw: {}".format(serial_line))
+        if serial_line!=b"":
             self.log.debug("raw: {}".format(serial_line))
+        serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
         header = serial_line[0]
         if len(serial_line)<2:
             return #no Value, break
@@ -396,6 +403,8 @@ class App():
     def handle_PD(self):
         # TODO: decide which comes first from arduino
         # assuming PC comes first
+        if cfg.app["disable_altimeter"]:
+            return
         value = self.altimeter.getLast()
         confidance = self.altimeter.getConfidance()
         if confidance > 50:
@@ -437,6 +446,9 @@ class App():
             # self.pumpFlag.add_sample(2)
             # leak
             self.current_state = State.EMERGENCY
+            self.log.critical("PUMP FAILIURE")
+            self.time_on_duration = None
+
             # self.comm_safety.write("N:2")
             # self.drop_weight()
         else:
@@ -466,8 +478,16 @@ class App():
             self.test_value = None
 
             if command == "restart":
-                self.current_state = State.INIT
                 self.log.warning("restarting")
+                self.current_state = State.INIT
+                
+                def reset():
+                    for sensor in self.sensors:
+                        self.sensors[sensor].reset()
+                    for flag in self.flags:
+                        self.flags[flag].reset()
+                
+                reset()
 
             if command == "stop":
                 self.current_state = State.STOP
@@ -476,6 +496,29 @@ class App():
             if command == "depth":
                 self.log.debug(f"setting setpoint to {value}")
                 self.target_depth = float(value)
+                self.pid_controller.reset_d()
+
+            if command == "water":
+                self.log.debug("water test")
+                if self.current_state == State.EXEC_TASK:
+                    self.current_state = State.STOP
+                else:
+                    self.current_state = State.WAIT_FOR_WATER
+                    self.test_command = "water"
+
+            if command == "exec_task":
+                self.log.debug("execute task")
+                self.current_state = State.EXEC_TASK
+
+            if command == "pickup":
+                self.log.debug("wait for pickup")
+                self.current_state = State.WAIT_FOR_PICKUP
+
+            if command == "sink_wait_climb":
+                self.log.debug("sink_wait_climb")
+                # TODO
+                    
+                
 
         self.run_mission_sequence()
         pass
@@ -508,6 +551,7 @@ class App():
                 self.log.info("Done waiting for water")
                 if self.pressureController.senseWater():
                     self.current_state = State.EXEC_TASK
+                    self.waterTestTimer = None
                 else:
                     self.log.info("water not detected")
                     self.waterTestTimer = time.time()
@@ -532,7 +576,8 @@ class App():
                     self.time_off_duration = None
                     self.time_off_timer = None
             else:
-                self.log.info("waiting for timeOn to finish")
+                self.log.info("waiting for pump to start")
+                # TODO: add watchdog incarse PF doesn't get recived
 
 
         # END TASK
@@ -554,7 +599,7 @@ class App():
             self.log.info("waiting for pickup")
             # send iradium flag (I:1)
 
-            if not self.sleep_sent_to_nano:
+            if not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
                 self.send_sleep_to_nano()
             
             if self.nano_is_sleeping:
@@ -624,6 +669,15 @@ class App():
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
+
+        # timeOn display
+        if self.time_on_duration is not None:
+            del res
+            res = {}
+            res["BV"]=self.bladderVolume.getLast()
+            res["rpm"]=self.rpm.getLast()
+
+
 
 
         headers = []
@@ -722,7 +776,7 @@ class App():
         error = target_depth - avg
         # print("Error",error, "target", target_depth, "avg", avg)
         scalar = self.pid_controller.pid(error)
-        direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar)
+        direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar, error)  # this is the line.
 
         if self.time_off_duration < MIN_TIME_OFF_DURATION:
             self.time_off_duration = MIN_TIME_OFF_DURATION
@@ -764,6 +818,10 @@ class App():
             self.time_off_timer = None
         else:
             self.log.info(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{self.time_on_duration}  timeOff:{self.time_off_duration}")
+                
+            if voltage == 0:
+                self.time_on_duration = self.time_off_duration = None
+                return            
             self.comm.write(f"V:{voltage}\n")
             self.comm.write(f"D:{direction}\n")
             self.comm.write(f"T:{self.time_on_duration}\n")
@@ -774,8 +832,10 @@ class App():
         # self.comm_safety.write("N:11")
         
         # send "I'm alive message"
-        if self.weightDropped:
-            return
+        if self.weightDropped or self.nano_is_sleeping:
+            # return
+            self.safteyTimer = time.time()
+
 
         # timer if no ping from safety inflate bladder
         if not self.safteyTimer:
@@ -795,7 +855,7 @@ class App():
             # print("Waiting for message from safety. Received: None")
             return
         
-        # print("raw: {}".format(serial_line))
+        self.log.debug("raw: {}".format(serial_line))
 
         header = serial_line[0]
         value = None

@@ -12,19 +12,20 @@ class State(Enum):
 
 
 app = {
-    "simulation" : True,  # app sends debug data to sim
+    "simulation" : False,  # app sends debug data to sim
     "simulation_udp_port" : 12000,
     "disable_safety" : False,
     "test_mode" : True,
-    "test_mode_udp_port" : 5000
+    "test_mode_udp_port" : 5000,
+    "disable_altimeter" : True
 }
 
 # Current_state = State.INIT
 
 serial = {
     # /dev/ttyUSB0
-    # "port": "/dev/ttyACM0",
-    "port": "COM4",
+    "port": "/dev/ttyACM0",
+    # "port": "COM4",
     "timeout" : 3,
     "baud_rate": 115200
 }
@@ -40,7 +41,7 @@ serial_safety = {
 }
 
 pressure = {
-    "epsilon": 0.05,
+    "epsilon": 0.5,
     "avg_samples": 5,
     "precision" : 2
 }
@@ -88,7 +89,7 @@ task = {
     "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    "target_depth" : 60000
+    "target_depth" : 6000  # millibar
     # "max_time_off_duration" : 100.0
 
 }
@@ -101,4 +102,8 @@ safety = {
     # "min_alt": 5,
     # "max_interval_between_pings" : 5
     "timeout" : 30  # In seconds
+}
+
+simulation = {
+    "seafloor_depth" : 40  # meters. should be set to 250 decibar
 }

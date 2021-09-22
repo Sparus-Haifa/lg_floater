@@ -28,8 +28,8 @@ class IMU(Sensor):
         # super().add_sample(float(sample))
         super().add_sample(sample)
 
-    def getLast(self):
-        if len(self.t)<1:
-            print(f"{self.getName()} buffer is empty")
-            return None
-        return self.t[0]
+    # def getLast(self):
+    #     if len(self.t)<1:
+    #         self.log.debug(f"{self.getName()} buffer is empty")
+    #         return None
+    #     return self.t[0]
