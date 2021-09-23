@@ -2,7 +2,8 @@ import serial
 
 
 class SerialComm:
-    def __init__(self, port, baud_rate, _timeout, log):
+    def __init__(self, name, port, baud_rate, _timeout, log):
+        self.name = name
         self.log = log
         self.port = port
         self.baud_rate = baud_rate
@@ -27,5 +28,5 @@ class SerialComm:
 
     def write(self, text):
         line = bytes(text, encoding='utf-8')
-        self.log.debug(f"rpi>arduino: {text}")
+        self.log.debug(f"rpi>{self.name}: {text}")
         self.ser.write(line)

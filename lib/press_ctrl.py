@@ -39,11 +39,11 @@ class Press_ctrl():
 
         self.log.debug("10.00 - margin  < avgTop/ < 10.00 + margin")
         self.log.debug(f"10.00 - {margin}  < {avgTop} < 10.00 + {margin}")
-        self.log.debug("top_in_range",top_in_range)
+        self.log.debug(f"top_in_range {top_in_range}")
 
         self.log.debug("10.50  < avgBottom")
         self.log.debug(f"10.50  < {avgBottom}")
-        self.log.debug("bottom_in_range",bottom_in_range)
+        self.log.debug(f"bottom_in_range {bottom_in_range}")
 
 
 

@@ -125,8 +125,7 @@ class App():
 
         self.lastTime = time.time()
 
-
-
+        self.iridium_command_was_sent = False
 
         self.lastP=0 # TODO: move to pid module
         self.pid_controller = PID()
@@ -214,7 +213,7 @@ class App():
 
         # Main arduino
         if not self.simulation:
-            self.comm = ser.SerialComm(cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], self.log)
+            self.comm = ser.SerialComm("MEGA", cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], self.log)
             if not self.comm.ser:
                 self.log.critical("-E- Failed to init serial port")
                 exit()
@@ -230,7 +229,7 @@ class App():
             # self.log.warning("")
             pass
         else:
-            self.comm_safety = ser.SerialComm(cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
+            self.comm_safety = ser.SerialComm("NANO", cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
             if not self.comm_safety.ser:
                 self.log.critical("-E- Failed to init safety serial port")
                 exit()
@@ -580,6 +579,7 @@ class App():
                 # TODO: add watchdog incarse PF doesn't get recived
 
 
+
         # END TASK
         elif self.current_state == State.END_TASK:
             self.log.info("Ending task")
@@ -604,6 +604,11 @@ class App():
             
             if self.nano_is_sleeping:
                 print("nano is sleeping")
+
+            if not self.iridium_command_was_sent:
+                self.log.info("Sending command to iridium")
+                self.iridium_command_was_sent = True
+                self.comm.write(f"I:1") 
                 
 
 
@@ -835,6 +840,7 @@ class App():
         if self.weightDropped or self.nano_is_sleeping:
             # return
             self.safteyTimer = time.time()
+            # self.safteyTimer = None
 
 
         # timer if no ping from safety inflate bladder

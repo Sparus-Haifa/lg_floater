@@ -72,6 +72,23 @@ let nano sleep (if pressure is) with new flag
 keep wake-up option in case
 
 
+19. mega slow network after Safety drop weight
+
+
+20. change units to ##.##  i.e. div by 100
+
+21. waiting for nano to wake up, or to sleep
+
+22. print pid scalar to log
+
+
+gpio syntax:
+echo "14" > /sys/class/gpio/export  
+echo "out" > /sys/class/gpio/gpio14/direction
+sudo echo "0" > /sys/class/gpio/gpio14/value
+
+
+
 
 Nice to Have:
 *. target buffer interval handle
