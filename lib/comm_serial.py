@@ -27,5 +27,5 @@ class SerialComm:
 
     def write(self, text):
         line = bytes(text, encoding='utf-8')
-
+        self.log.debug(f"rpi>arduino: {text}")
         self.ser.write(line)

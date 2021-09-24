@@ -14,6 +14,10 @@ class Flag:
         # self._queues_are_full = False
         self.log.info(f"{self.name} flag controller was initialized successfully")
 
+    def reset(self):
+        self.log.debug(f"clearing flag {self.name} data")
+        self.status = None
+
     def add_sample(self, sample_arr):
         # if len(sample_arr) != 2:
             # return

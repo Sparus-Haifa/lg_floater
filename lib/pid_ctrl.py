@@ -19,6 +19,9 @@ class PID:
         self.kp = 0.2
         self.kd = 7.0
 
+    def reset_d(self):
+        self.lastP = None
+
     def pid(self, error):
         # set timers
         nowTime = time.time()
@@ -36,11 +39,11 @@ class PID:
         scalar = self.p*self.kp-self.d*self.kd
         return scalar
 
-    def unpack(self, scalar):
+    def unpack(self, scalar, error):
         direction = self.getDirection(scalar)
         voltage = self.normal_pumpVoltage(scalar)
-        dc = self.interp_dutyCycle(scalar)
-        self.timeOn = self.interp_timeOn(scalar)
+        dc = self.interp_dutyCycle(error)
+        self.timeOn = self.interp_timeOn(error)
         self.timeOff = self.calc_timeOff(self.timeOn,dc)
         return direction, voltage, dc, self.timeOn, self.timeOff      
 
@@ -60,7 +63,7 @@ class PID:
 
     # absolute value and limit between 40% to 100%
     def normal_pumpVoltage(self, current_err):
-        voltage = abs(current_err)
+        voltage = abs(int(current_err))
         if voltage >= 100:
             voltage = 100
         if voltage <= 40:
@@ -90,7 +93,7 @@ class PID:
 
         timeOn = 0.5 + m * current_err
         # print("timeOn",timeOn)
-        return timeOn
+        return round(timeOn,1)
 
     def interp_dutyCycle(self, current_err):
         current_err = abs(current_err)

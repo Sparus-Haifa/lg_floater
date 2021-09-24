@@ -38,11 +38,11 @@ class Temp(Sensor):
         #             len(self.t4) == self.avg_samples:
         #         self._queues_are_full = True
 
-    def getLast(self):
-        if len(self.t)<1:
-            print(f"{self.getName()} buffer empty")
-            return None
-        return self.t[0]
+    # def getLast(self):
+    #     if len(self.t)<1:
+    #         print(f"{self.getName()} buffer empty")
+    #         return None
+    #     return self.t[0]
 
     # def getName(self):
     #     return self.name

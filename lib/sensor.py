@@ -8,6 +8,9 @@ class Sensor:
         self.log = log
 
 
+    def reset(self):
+        self.log.debug(f"clearing sensor {self.name} data")
+        self.t.clear()
 
     def getName(self):
         return self.name

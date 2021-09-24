@@ -14,6 +14,11 @@ class Altimeter(Sensor):
         self.log.info("Altimeter controller was initialized successfully")
         self.skipNext = False
 
+    def reset(self):
+        self.log.debug(f"clearing sensor {self.name} data")
+        self.distance.clear()
+        self.confidance.clear()
+
     def add_sample(self, sample_arr):
         if self.skipNext:
             self.skipNext = False

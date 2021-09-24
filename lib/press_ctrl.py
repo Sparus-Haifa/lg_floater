@@ -29,11 +29,25 @@ class Press_ctrl():
         bp1 = self.sensors["BP1"]
         bp2 = self.sensors["BP2"]
 
-        avgTop = ( tp1.getLast() + tp2.getLast() ) / 2
-        avgBottom = ( bp1.getLast() + bp2.getLast() ) / 2
-        delta = avgBottom - avgTop
-        print(f"{delta} > {self.epsilon}")
-        if  delta > self.epsilon:
+        avgTop = ( tp1.getLast() + tp2.getLast() ) / 2 /100
+        avgBottom = ( bp1.getLast() + bp2.getLast() ) / 2 / 100
+
+        margin = 0.05
+
+        top_in_range = 10.00 - margin  < avgTop < 10.00 + margin
+        bottom_in_range = 10.50  < avgTop
+
+        self.log.debug("10.00 - margin  < avgTop/ < 10.00 + margin")
+        self.log.debug(f"10.00 - {margin}  < {avgTop} < 10.00 + {margin}")
+        self.log.debug("top_in_range",top_in_range)
+
+        self.log.debug("10.50  < avgBottom")
+        self.log.debug(f"10.50  < {avgBottom}")
+        self.log.debug("bottom_in_range",bottom_in_range)
+
+
+
+        if  top_in_range and bottom_in_range:
             return True
 
         return False

@@ -63,6 +63,15 @@ delta + 1000+-50
 16. if pressure > 250 decibar:
     drop weight
 
+17. rpi nano sleep flag / test - 
+hardwired to gpio
+nano wait for flag
+
+18. on wait for pickup...
+let nano sleep (if pressure is) with new flag
+keep wake-up option in case
+
+
 
 Nice to Have:
 *. target buffer interval handle
