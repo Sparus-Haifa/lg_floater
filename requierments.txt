@@ -1,0 +1,8 @@
+pip3 install pyserial
+pip3 install numpy
+curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+add to .bashrc:
+export...
+arduino-cli core install arduino:avr
+
+pyduinocli
