@@ -14,7 +14,10 @@ class State(Enum):
 app = {
     "simulation" : False,  # app sends debug data to sim
     "simulation_udp_port" : 12000,
-    "disable_safety" : False,
+    # "host_ip" : "127.0.0.1",
+    "host_ip" : "192.168.1.75",
+
+    "disable_safety" : True,
     "test_mode" : True,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True
@@ -105,5 +108,5 @@ safety = {
 }
 
 simulation = {
-    "seafloor_depth" : 40  # meters. should be set to 250 decibar
+    "seafloor_depth" : 80  # meters. should be set to 250 decibar
 }

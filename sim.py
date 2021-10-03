@@ -1,9 +1,10 @@
-from main import State
+# from main import State
 import pygame as pg
 import time
 import socket
 import random
 import cfg.configuration as cfg
+from cfg.configuration import State
 
 from pygame.event import pump
 
@@ -15,7 +16,7 @@ class Comm():
         self.client_socket.settimeout(1.0)
         self.client_socket.setblocking(False)
         # self.addr = ("127.0.0.1", 12000)
-        self.addr = ("127.0.0.1", cfg.app["simulation_udp_port"])
+        self.addr = (cfg.app["host_ip"], cfg.app["simulation_udp_port"])
         # self.client_socket.connect(self.addr)
         self.pid = 0
         self.lastPID = 0
@@ -150,6 +151,8 @@ class YuriSim():
         self.currentBladderVolume = 0
         self.surfacePressure = 1035
 
+        self.weight_dropped = False
+
 
         
         # print(f"{len(self.sensorNames)}, {len(self.sensorValue)}")
@@ -208,6 +211,7 @@ class YuriSim():
         self.currentBladderVolume = MAX_BLADDER_VOLUME # start at max
         speed = 0
         SimFactor = 1.0
+        self.seafloor_depth = cfg.simulation["seafloor_depth"]
 
         # GUI
         button_colorPF = [0,255,0]
@@ -220,7 +224,7 @@ class YuriSim():
         done = False
         while not done:
 
-            print((self.comm.current_state))
+            # print((self.comm.current_state))
 
 
             # handle pump
@@ -335,9 +339,11 @@ class YuriSim():
                     # elif on_time_off or after_time_off: 
                             
                             if on_time_off:
-                                print("timeOff")
+                                # print("timeOff")
+                                pass
                             elif after_time_off:
-                                print("idle")
+                                # print("idle")
+                                pass
 
                             if self.pumpIsOn:
                                 print("turning off pump")
@@ -381,10 +387,13 @@ class YuriSim():
 
 
 
-            
-            button_PF = pg.Rect(450, 160, 50, 50)
-            button_HL = pg.Rect(500 + 10, 160, 50, 50)
-            button_EL = pg.Rect(550 + 10 + 10, 160, 50, 50)
+            btn_location = (450, 180)
+            btn_size = 50
+            btn_margin = 10
+
+            button_PF = pg.Rect(btn_location[0], btn_location[1], btn_size, btn_size)
+            button_HL = pg.Rect(btn_location[0] + btn_size + btn_margin, btn_location[1], btn_size, btn_size)
+            button_EL = pg.Rect(btn_location[0] + (btn_size + btn_margin)*2 , btn_location[1], btn_size, btn_size)
             mouse_pos = (0,0)
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -427,6 +436,7 @@ class YuriSim():
             bouyancyBladder = self.currentBladderVolume * GRAVITY * FW
             if self.comm.weight_dropped:
                 total_mass = MASS_FLOATER
+                self.weight_dropped = True
             else:
                 total_mass = MASS_FLOATER + MASS_WEIGHT
             acceleration = (total_mass*GRAVITY - BUOYANCY_FLOATER - bouyancyBladder + drag)/total_mass
@@ -443,7 +453,7 @@ class YuriSim():
             
             # seafloorInMeters = 20
             # seafloorDepth = (3000 - self.surfacePressure)/100
-            seafloorDepth = 40
+            seafloorDepth = self.seafloor_depth
             # seafloor = height - 70 - 60
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
@@ -603,22 +613,26 @@ class YuriSim():
             label_bladder = myfont.render(f"[state:{self.comm.current_state}]", 1, DARKBLUE)
             display.blit(label_bladder, (450, 140))
 
+            label_weight = myfont.render(f"[weight dropped:{self.weight_dropped}]", 1, DARKBLUE)
+            display.blit(label_weight, (450, 160))
+
 
             
             # DRAW BUTTONS
 
             pg.draw.rect(display, button_colorPF, button_PF)  # draw button
             label_btnPF = myfont.render(f"PF", 1, DARKBLUE)
-            display.blit(label_btnPF, (450 + 15, 160 + 15))
+            mid_center = 15
+            display.blit(label_btnPF, (btn_location[0] + mid_center, btn_location[1] + mid_center))
 
 
             pg.draw.rect(display, button_colorHL, button_HL)  # draw button
             label_btnH1 = myfont.render(f"HL", 1, DARKBLUE)
-            display.blit(label_btnH1, (510 + 15, 160 + 15))
+            display.blit(label_btnH1, (btn_location[0] + btn_size + btn_margin + mid_center, btn_location[1] + mid_center))
 
             pg.draw.rect(display, button_colorEL, button_EL)  # draw button
             label_btnH2 = myfont.render(f"EL", 1, DARKBLUE)
-            display.blit(label_btnH2, (570 + 15, 160 + 15))
+            display.blit(label_btnH2, (btn_location[0] + (btn_size + btn_margin)*2 + mid_center, btn_location[1] + mid_center))
 
             # DRAW LINES
 

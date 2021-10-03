@@ -264,6 +264,7 @@ class App():
         self.flags["FS"]=self.full_surface_flag
 
     def get_cli_command(self):
+        print("getting cli")
         line = self.comm_cli.read()
         if line is None or line == '' or line == b'':
             return
@@ -398,6 +399,9 @@ class App():
             self.log.info("dropping weight")
             self.comm_safety.write("N:2")
             self.drop_weight_command_sent = True
+
+    def sleep_nano(self):
+        self.comm_safety.write("N:5")
 
     def handle_PD(self):
         # TODO: decide which comes first from arduino
@@ -597,6 +601,17 @@ class App():
         # Wait for pickup - Iradium
         elif self.current_state == State.WAIT_FOR_PICKUP:
             self.log.info("waiting for pickup")
+            if not self.sent_sleep_to_nano:
+                if not self.waiting_for_nano_sleep:
+                    self.sent_sleep_to_nano = True
+                    self.waiting_for_nano_sleep = True
+                    self.sleep_nano()
+            if self.waiting_for_nano_sleep:
+                self.sleep_nano()
+
+            # let nano sleep (if pressure is)
+            # keep wake-up option in case
+
             # send iradium flag (I:1)
 
             if not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):

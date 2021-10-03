@@ -1,4 +1,5 @@
-import cfg
+# import cfg
+# import cfg.configuration as cfg
 import random
 import socket
 import errno
@@ -12,7 +13,9 @@ class UdpComm():
         self.server_socket.setblocking(False)
         # self.server_socket.bind(('', 12000))
         self.server_socket.bind(('', port))
-        self.address= None  # ("127.0.0.1", 12003)
+        # self.address= ("127.0.0.1", 12003)
+        self.address= ("127.0.0.1", port)
+
 
 
     def read(self):
