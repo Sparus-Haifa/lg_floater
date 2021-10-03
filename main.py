@@ -126,6 +126,8 @@ class App():
         self.lastTime = time.time()
 
         self.iridium_command_was_sent = False
+        self.sent_sleep_to_nano = False
+        self.waiting_for_nano_sleep = False
 
         self.lastP=0 # TODO: move to pid module
         self.pid_controller = PID()
@@ -264,7 +266,7 @@ class App():
         self.flags["FS"]=self.full_surface_flag
 
     def get_cli_command(self):
-        print("getting cli")
+        # print("getting cli")
         line = self.comm_cli.read()
         if line is None or line == '' or line == b'':
             return
@@ -289,7 +291,7 @@ class App():
         #     if str(serial_line).startswith(c):
         #         self.log.debug("raw: {}".format(serial_line))
         if serial_line!=b"":
-            self.log.debug("raw: {}".format(serial_line))
+            self.log.debug("mega>rpi: {}".format(serial_line))
         serial_line = serial_line.decode('utf-8', 'ignore').strip().split(":")
         header = serial_line[0]
         if len(serial_line)<2:
@@ -389,7 +391,8 @@ class App():
             self.log.debug("waiting for surface command")
         else:
             self.log.info("sending surface command")
-            self.comm_safety.write("S:1")
+            if not self.disable_safety:
+                self.comm_safety.write("S:1")
 
     # sending the command to drop the dropweight to saftey
     def drop_weight(self):
@@ -397,11 +400,13 @@ class App():
             self.log.debug("waiting for weight to drop")
         else:
             self.log.info("dropping weight")
-            self.comm_safety.write("N:2")
+            if not self.disable_safety:
+                self.comm_safety.write("N:2")
             self.drop_weight_command_sent = True
 
     def sleep_nano(self):
-        self.comm_safety.write("N:5")
+        if not self.disable_safety:
+            self.comm_safety.write("N:5")
 
     def handle_PD(self):
         # TODO: decide which comes first from arduino
@@ -640,6 +645,8 @@ class App():
         # STOP - TEST MODE
         elif self.current_state == State.STOP:
             self.log.warning("Stopped")
+        else:
+            self.log.error('unknown state')
 
 
     def send_sleep_to_nano(self):
@@ -876,7 +883,7 @@ class App():
             # print("Waiting for message from safety. Received: None")
             return
         
-        self.log.debug("raw: {}".format(serial_line))
+        self.log.debug("nano>rpi: {}".format(serial_line))
 
         header = serial_line[0]
         value = None

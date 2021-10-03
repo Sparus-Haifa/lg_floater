@@ -1,5 +1,7 @@
 import pyduinocli
 import json
+import sys
+from glob import glob
 
 class ArduinoBurner:
     def __init__(self) -> None:
@@ -12,31 +14,80 @@ class ArduinoBurner:
         return self.arduino_cli.version()
 
 
-    def burnNano(self, address: str):
-        # sketch_path = '/home/pi/lg_floater/nano'
-        sketch_path = '/home/pi/lg_floater/TestSketch'
-        fqbn = "arduino:avr:nano"
-        print('sketch_path', sketch_path)
-        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn)
-        # print(res)
-
-        res = res['__stdout']
-        # print(res)
-        dict_res = json.loads(res)
-        # print(d)
-        compiler_out = dict_res['compiler_out']
+    def burnMega(self, address: str):
+        # sketch_path = '/home/pi/lg_floater/TestSketch'
+        sketch_path = '/home/pi/lg_floater/000_FloatCode'
+        libraries_path = '/home/pi/lg_floater/000_FloatCode/libraries/*/'
+        fqbn = 'arduino:avr:mega'
+        libraries = glob(libraries_path)
+        # self.arduino_cli.lib.install(libraries=libraries_path)
+        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        print(res)
+        stdout = res['__stdout']
+        stdout_dict = json.loads(stdout)
+        compiler_out = stdout_dict['compiler_out']
         print(compiler_out)
-        compiler_err = dict_res['compiler_err']
+        compiler_err = stdout_dict['compiler_err']
         print(compiler_err)
-        success = dict_res['success']
+        success = stdout_dict['success']
+
+
+        stderr = res['__stderr']
+        # print(stderr)
 
         # test compilation
         if not success:
             print('compilation failure')
+            print(stderr)
             exit(1)
 
 
-        builder_result = dict_res['builder_result']
+        builder_result = stdout_dict['builder_result']
+        build_path = builder_result['build_path']
+        
+    
+        
+        # upload bin to arduino
+        try:
+            self.arduino_cli.upload(sketch_path, fqbn=fqbn, input_dir=build_path, port=address, verify=True)
+        except pyduinocli.ArduinoError as e:
+            print(e)
+            exit(1)
+        # print(res)
+
+
+    def burnNano(self, address: str):
+        # sketch_path = '/home/pi/lg_floater/nano'
+        # sketch_path = '/home/pi/lg_floater/TestSketch'
+        sketch_path = '/home/pi/lg_floater/000_NanoCode'
+        libraries_path = '/home/pi/lg_floater/000_NanoCode/libraries/*/'
+        libraries = glob(libraries_path)
+        fqbn = "arduino:avr:nano"
+        print('sketch_path', sketch_path)
+        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        # print(res)
+
+        stdout = res['__stdout']
+        # print(res)
+        stdout_dict = json.loads(stdout)
+        # print(d)
+        compiler_out = stdout_dict['compiler_out']
+        print(compiler_out)
+        compiler_err = stdout_dict['compiler_err']
+        print(compiler_err)
+        success = stdout_dict['success']
+
+        stderr = res['__stderr']
+
+
+        # test compilation
+        if not success:
+            print('compilation failure')
+            print(stderr)
+            exit(1)
+
+
+        builder_result = stdout_dict['builder_result']
         build_path = builder_result['build_path']
         
     
@@ -65,13 +116,20 @@ def main():
             continue
 
         serialNumber = properties['serialNumber']
-        # print(address, protocol_label, serialNumber)
+        print(address, protocol_label, serialNumber)
 
 
-        if serialNumber == 'AH06F1J3':
+        if serialNumber == 'AH06F1J3' or serialNumber == 'AK08KITO':
             print(f'Arduino NANO was found on adress {address}')
             burner.burnNano(address)
+        
+        elif serialNumber == '85731303533351B0E1B2':
+            print(f'Arduino MEGA was found on adress {address}')
+            burner.burnMega(address)
 
+        else:
+            print(f'skipping board {serialNumber}')
+            
 
 if __name__=='__main__':
     main()
