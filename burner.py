@@ -107,28 +107,36 @@ def main():
     burner = ArduinoBurner()
     board_list = burner.getList()
 
-    # print(board_list)
-    for board in board_list:
-        address = board['port']['address']
-        protocol_label = board['port']['protocol_label']
-        properties = board['port'].get('properties',None)  # ]['serialNumber']
-        if properties is None:
-            continue
+    print(board_list)
 
-        serialNumber = properties['serialNumber']
-        print(address, protocol_label, serialNumber)
+    # # print(board_list)
+    # for board in board_list:
+    #     address = board['port']['address']
+    #     protocol_label = board['port']['protocol_label']
+    #     properties = board['port'].get('properties',None)  # ]['serialNumber']
+    #     if properties is None:
+    #         continue
+
+    #     serialNumber = properties['serialNumber']
+    #     print(address, protocol_label, serialNumber)
 
 
-        if serialNumber == 'AH06F1J3' or serialNumber == 'AK08KITO':
-            print(f'Arduino NANO was found on adress {address}')
-            burner.burnNano(address)
+    #     if serialNumber == 'AH06F1J3' or serialNumber == 'AK08KITO':
+    #         print(f'Arduino NANO was found on adress {address}')
+    #         burner.burnNano(address)
         
-        elif serialNumber == '85731303533351B0E1B2':
-            print(f'Arduino MEGA was found on adress {address}')
-            burner.burnMega(address)
+    #     elif serialNumber == '85731303533351B0E1B2':
+    #         print(f'Arduino MEGA was found on adress {address}')
+    #         burner.burnMega(address)
 
-        else:
-            print(f'skipping board {serialNumber}')
+    #     else:
+    #         print(f'skipping board {serialNumber}')
+
+    mega_address = '/dev/ttyACM0'
+    burner.burnMega(mega_address)
+
+    nano_address = '/dev/ttyUSB0'
+    burner.burnNano(nano_address)
             
 
 if __name__=='__main__':
