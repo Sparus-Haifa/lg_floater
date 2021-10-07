@@ -1,4 +1,4 @@
-#include <LowPower.h> // https://github.com/rocketscream/Low-Power
+#include <LowPower.h>       // https://github.com/rocketscream/Low-Power
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= Pins allocation
 // On NANO pins 3, 5, 6, 9, 10, 11 are PWM pins 490 Hz (pins 5 and 6: 980 Hz)
@@ -12,12 +12,12 @@ float outMsg[3], inMsg[1];
 char OutgoingIdentifier[2];
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= FLAGS
-int DropWeightFlag = 0;
+int DropWeightFlag = 0, LoopFlag = 0;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= GENERAL
 unsigned long PreviousMillisIn = 0, PreviousMillisOut = 0;
-unsigned long HBwait = 8000; // Wait time (in milliseconds)
-unsigned long MotorTime = 8000; // Duration of DW motor actuation
+#define HBwait  15000      // Wait time (in milliseconds)
+#define MotorTime  10000   // Duration of DW motor actuation
 
 bool rpiIsAlive = false;
 int graceTime = 5000;

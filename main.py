@@ -84,8 +84,8 @@ class App():
 
 
 
-        # console_handler.setLevel(logging.WARNING)
         console_handler.setLevel(logging.WARNING)
+        # console_handler.setLevel(logging.DEBUG)
         print("log level", self.log.level)
         file_handler.setLevel(logging.NOTSET)
         print("log level", self.log.level)
@@ -525,6 +525,10 @@ class App():
             if command == "sink_wait_climb":
                 self.log.debug("sink_wait_climb")
                 # TODO
+
+            if command == 'loop_flag':
+                self.log.debug('loop_flag')
+                self.comm_safety.write('L')
                     
                 
 

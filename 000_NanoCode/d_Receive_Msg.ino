@@ -10,6 +10,11 @@ void ReceiveMsg()
         //SendMsg("NN", DropWeightFlag); // HERE FOR DEBUGGING ONLY
         break;
 
+      // Case "L" - Cyclic heartbeat!!!
+      case 'L': LoopFlag = Serial.parseInt();
+        //SendMsg("NN", DropWeightFlag); // HERE FOR DEBUGGING ONLY
+        break;
+
     }
   }
 }

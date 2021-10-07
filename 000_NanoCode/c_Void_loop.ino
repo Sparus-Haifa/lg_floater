@@ -5,6 +5,17 @@ void loop()
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= RECEIVE INCOMING DATA
   ReceiveMsg();
 
+  while (LoopFlag == 0)
+  {
+    delay(500);
+    Sleep();
+    delay(500);
+
+    ReceiveMsg();
+    PreviousMillisOut = millis();
+    PreviousMillisIn = millis();
+  }
+
   // send outgoing Heart Beat every 20 seconds
   if ((millis() - PreviousMillisOut) >= HBwait)
   {

@@ -105,6 +105,5 @@ void EngagePump()
   PumpVoltage = 0;
   PumpDirection = 0;
   PumpTime = 0;
-  PumpFlag = 0;
-  
+  PumpFlag = 0;  
 }

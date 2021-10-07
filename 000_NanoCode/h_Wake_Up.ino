@@ -1,7 +1,10 @@
 void WakeUp()
 {
-  detachInterrupt(1);    // Removes interupt from assigned pin
-  SendMsg("NN", 111);    // 111 - for NANO awake
+//  detachInterrupt(1);    // Removes interupt from assigned pin
+//  SendMsg("NN", 111);    // 111 - for NANO awake
+//  PreviousMillisOut = millis();
+//  PreviousMillisIn = millis();
+  
 //
 //  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
 //  delay(500);                       // wait for a second

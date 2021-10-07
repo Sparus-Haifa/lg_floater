@@ -44,49 +44,49 @@ void setup()
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= MUX SETUP
   // BOTTOM MUX
-  InitMUX(BottomMux);
+  //InitMUX(BottomMux);
 
   // TOP MUX
   InitMUX(TopMux);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM MUX SENSORS
-  myMux.begin(BottomMux);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
-
-  InitTemp(0);
-  SensorsBottom[0] = TempSensor.temperature();
-  SendMsg("BT1", SensorsBottom[0]);
-
-  InitTemp(1);
-  SensorsBottom[1] = TempSensor.temperature();
-  SendMsg("BT2", SensorsBottom[1]);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
-
-  InitPress(2);
-  SensorsBottom[2] = PresSensor.pressure();
-  SendMsg("BP1", SensorsBottom[2]);
-
-  InitPress(3);
-  SensorsBottom[3] = PresSensor.pressure();
-  SendMsg("BP2", SensorsBottom[3]);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-  InitPress(4);
-  SensorsBottom[4] = PresSensor.pressure();
-  SendMsg("HP", SensorsBottom[4]);
+//  myMux.begin(BottomMux);
+//
+//  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
+//
+//  InitTemp(0);
+//  SensorsBottom[0] = TempSensor.temperature();
+//  SendMsg("BT1", SensorsBottom[0]);
+//
+//  InitTemp(1);
+//  SensorsBottom[1] = TempSensor.temperature();
+//  SendMsg("BT2", SensorsBottom[1]);
+//
+//  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
+//
+//  InitPress(2);
+//  SensorsBottom[2] = PresSensor.pressure();
+//  SendMsg("BP1", SensorsBottom[2]);
+//
+//  InitPress(3);
+//  SensorsBottom[3] = PresSensor.pressure();
+//  SendMsg("BP2", SensorsBottom[3]);
+//
+//  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
+//  InitPress(4);
+//  SensorsBottom[4] = PresSensor.pressure();
+//  SendMsg("HP", SensorsBottom[4]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS
   myMux.begin(TopMux);
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= ACCUMULATOR SENSORS
-  //  InitTemp(0);
-  //  SensorsTop[0] = PresSensor.temperature();
-  //  SendMsg("AT", SensorsTop[0]);
-  //
-  //  InitPress(1);
-  //  SensorsTop[1] = PresSensor.pressure();
-  //  SendMsg("AP", SensorsTop[1]);
+//    InitTemp(0);
+//    SensorsTop[0] = PresSensor.temperature();
+//    SendMsg("AT", SensorsTop[0]);
+//  
+//    InitPress(1);
+//    SensorsTop[1] = PresSensor.pressure();
+//    SendMsg("AP", SensorsTop[1]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP TEMP
   InitTemp(2);
@@ -123,17 +123,17 @@ void setup()
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BR Ping
-
-  pingSerial.begin(115200);
-
-  while (!ping.initialize())
-  {
-    delay(500);
-    PingDistance = ping.distance();
-    PingConfidence = ping.confidence();
-    SendMsg("D", PingDistance);
-    SendMsg("C", PingConfidence);
-  }
+//
+//  pingSerial.begin(115200);
+//
+//  while (!ping.initialize())
+//  {
+//    delay(500);
+//    PingDistance = ping.distance();
+//    PingConfidence = ping.confidence();
+//    SendMsg("D", PingDistance);
+//    SendMsg("C", PingConfidence);
+//  }
   //
   //  //-=-=-=-=-=-=-=-=-=-=-=-=-= GPS/IRIDIUM BEACON
   //  // Wires: Black = GND, Orange = 5V, White = TX2, Green = RX2

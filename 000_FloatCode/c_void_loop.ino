@@ -6,6 +6,13 @@ void loop()
 
   SendMsg("LC", LoopCounter);
 
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= EMERGENCY LEAK SIMULATION
+  if (millis() >= 1000 * 60 * LeakNow)
+  {
+    // HullLeakFlag = 1;
+    VBEleakFlag = 1;
+  }
+
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= STOP PUMP
   // If the pump is active but the remaining pumping time is shorter than 1 sec
   // the sketch will hold here and will stop the pump when the clock runs out.
@@ -30,7 +37,8 @@ void loop()
       SendMsg("FS", 1);
       FullSurface();
       wdt_disable();
-      IridiumBeacon(5);
+      IridiumBeacon();
+      wdt_enable(WDTO_4S);
     }
   }
 
@@ -55,8 +63,9 @@ void loop()
 
   if (IridiumFlag == 1)
   {
-    SendMsg("I", 1);
-    IridiumBeacon(BeaconT);
+    wdt_disable();
+    SendMsg("IR", 1);
+    IridiumBeacon();
     IridiumFlag = 0;
     SendMsg("IR", 0);
   }
@@ -74,30 +83,30 @@ void loop()
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM MUX SENSORS
   // Read bottom sensors
-  myMux.begin(BottomMux);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
-  wdt_reset();
-  ReadTemp(0);
-  SendMsg("BT1", SensorsBottom[0]);
-
-  ReadTemp(1);
-  SendMsg("BT2", SensorsBottom[1]);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
-
-  ReadPress(2);
-  SensorsBottom[2] = PresSensor.pressure();
-  SendMsg("BP1", SensorsBottom[2]);
-
-  ReadPress(3);
-  SensorsBottom[3] = PresSensor.pressure();
-  SendMsg("BP2", SensorsBottom[3]);
-
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-  ReadPress(4);
-  SensorsBottom[4] = PresSensor.pressure();
-  SendMsg("HP", SensorsBottom[4]);
+  //  myMux.begin(BottomMux);
+  //
+  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
+  //  wdt_reset();
+  //  ReadTemp(0);
+  //  SendMsg("BT1", SensorsBottom[0]);
+  //
+  //  ReadTemp(1);
+  //  SendMsg("BT2", SensorsBottom[1]);
+  //
+  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
+  //
+  //  ReadPress(2);
+  //  SensorsBottom[2] = PresSensor.pressure();
+  //  SendMsg("BP1", SensorsBottom[2]);
+  //
+  //  ReadPress(3);
+  //  SensorsBottom[3] = PresSensor.pressure();
+  //  SendMsg("BP2", SensorsBottom[3]);
+  //
+  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
+  //  ReadPress(4);
+  //  SensorsBottom[4] = PresSensor.pressure();
+  //  SendMsg("HP", SensorsBottom[4]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS
   myMux.begin(TopMux);
@@ -122,12 +131,12 @@ void loop()
   SendMsg("TP2", SensorsTop[5]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER VOLUME
-  CalcBladderVol();
+  //CalcBladderVol();
   //SendMsg("GV", GasVol);
   //SendMsg("BV", BladdVol);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BNO080 IMU
-  //
+
   if (myIMU.dataAvailable() == true)
   {
     LinearAccelerometer();
@@ -137,9 +146,9 @@ void loop()
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BR Ping
-  AltPing();
-  SendMsg("PD", PingDistance);
-  SendMsg("PC", PingConfidence);
+  //  AltPing();
+  //  SendMsg("PD", PingDistance);
+  //  SendMsg("PC", PingConfidence);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= END OF VOID LOOP
   LoopCounter = LoopCounter + 1;

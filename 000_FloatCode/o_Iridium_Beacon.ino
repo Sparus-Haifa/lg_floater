@@ -1,22 +1,30 @@
-void IridiumBeacon(float BeaconT)
+void IridiumBeacon()
 {
+  SendMsg("IR", 2);
   unsigned long loopStartTime = millis();
 
   // Begin listening to the GPS
   //Serial.println(F("Beginning to listen for GPS traffic..."));
 
   // Look for GPS signal for up to 7 minutes
-
-  while (myI2CGPS.available())
-  {
-    tinygps.encode(myI2CGPS.read());
-  }
+SendMsg("IR", 3);
+//  while (myI2CGPS.available())
+//  {
+//    SendMsg("IR", 4);
+//    tinygps.encode(myI2CGPS.read());
+//    SendMsg("IR", 5);
+//  }
+  
   while ((!tinygps.location.isValid() || !tinygps.date.isValid()) &&
          (millis() - loopStartTime < 7UL * 60UL * 1000UL))
   {
-    while (myI2CGPS.available())
+    SendMsg("IR", 4);
+    // original ver - while (myI2CGPS.available())
+    if (myI2CGPS.available())
     {
+      SendMsg("IR", 5);
       tinygps.encode(myI2CGPS.read());
+      SendMsg("IR", 6);
     }
   }
 

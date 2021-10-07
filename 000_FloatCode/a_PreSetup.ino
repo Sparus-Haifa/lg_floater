@@ -1,3 +1,10 @@
+//-=-=-=-=-=-=-=-=-=-=-=-=-= SIMULATION PARAMETERS !!!
+#define LeakNow 2  // TIME UNTIL LEAK IN MINUTES
+
+
+//-=-=-=-=-=-=-=-=-=-=-=-=-= SIMULATION PARAMETERS !!!
+
+
 // Libraries
 #include <avr/wdt.h>
 #include <Wire.h>
@@ -39,9 +46,9 @@ MS5837 PresSensor;
 IridiumSBD modem(IridiumSerial);    // Declare IRIDIUM object
 TinyGPSPlus tinygps;                // Declare TINY GPS object
 static const int ledPin = LED_BUILTIN;
-// Time between transmissions (seconds) - ADD TO CONFIG FILE
-#define BEACON_INTERVAL 120
-byte BeaconT = 5;
+
+#define BEACON_INTERVAL 120         // Time between transmissions (seconds)
+#define BeaconT 5                   // Duration of beacon function (minutes)
 
 // IMU object
 BNO080 myIMU;
@@ -69,7 +76,7 @@ float X_acc, Y_acc, Z_acc;
 byte LinAccuracy;
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= VBE LEAK
-int LeakTH = 50;
+#define LeakTH 50             // VBE leak detection threshold
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= GENERAL
 unsigned long PreviousMillis = 0, LoopCounter = 1;
@@ -94,4 +101,5 @@ float T1 = (273.15 + 22.26);
 float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC
-int BladderUpperLimit = 500, BladderLowerLimit = 150;
+#define BladderUpperLimit 630
+#define BladderLowerLimit 20
