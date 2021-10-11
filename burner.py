@@ -2,6 +2,8 @@ import pyduinocli
 import json
 import sys
 from glob import glob
+import serial.tools.list_ports
+
 
 class ArduinoBurner:
     def __init__(self) -> None:
@@ -9,6 +11,15 @@ class ArduinoBurner:
 
     def getList(self):
         return self.arduino_cli.board.list()['result']
+
+    def getList_offline(self):
+        ports = serial.tools.list_ports.comports()
+        res = []
+        for port, desc, hwid in sorted(ports):
+                print("{}: {} [{}]".format(port, desc, hwid))
+                res.append((port, desc, hwid))
+        return res
+
 
     def getVersion(self):
         return self.arduino_cli.version()
@@ -106,7 +117,7 @@ class ArduinoBurner:
 def main():
 
     burner = ArduinoBurner()
-    board_list = burner.getList()
+    board_list = burner.getList_offline()
 
     print(board_list)
 
@@ -134,7 +145,8 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    # burner.burnMega(mega_address)
+    burner.burnMega(mega_address)
+    
 
     nano_address = '/dev/ttyUSB0'
     burner.burnNano(nano_address)
