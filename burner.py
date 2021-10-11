@@ -6,8 +6,9 @@ import serial.tools.list_ports
 
 
 class ArduinoBurner:
-    def __init__(self) -> None:
+    def __init__(self, log) -> None:
         self.arduino_cli = pyduinocli.Arduino("/home/pi/lg_floater/bin/arduino-cli")
+        self.log = log
 
     def getList(self):
         return self.arduino_cli.board.list()['result']
@@ -26,6 +27,7 @@ class ArduinoBurner:
 
 
     def burnMega(self, address: str):
+        self.log.info('compiling mega code')
         # sketch_path = '/home/pi/lg_floater/TestSketch'
         sketch_path = '/home/pi/lg_floater/000_FloatCode'
         libraries_path = '/home/pi/lg_floater/000_FloatCode/libraries/*/'
@@ -33,7 +35,8 @@ class ArduinoBurner:
         libraries = glob(libraries_path)
         # self.arduino_cli.lib.install(libraries=libraries_path)
         res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
-        print(res)
+        # print(res)
+        # self.log.debug(res)
         stdout = res['__stdout']
         stdout_dict = json.loads(stdout)
         compiler_out = stdout_dict['compiler_out']
@@ -48,9 +51,12 @@ class ArduinoBurner:
 
         # test compilation
         if not success:
-            print('compilation failure')
-            print(stderr)
+            self.log.critical('compilation failure')
+            self.log.critical(stderr)
             exit(1)
+        self.log.info('compilation successful')
+        self.log.info('uploading mega code')
+
 
 
         builder_result = stdout_dict['builder_result']
@@ -62,12 +68,14 @@ class ArduinoBurner:
         try:
             self.arduino_cli.upload(sketch_path, fqbn=fqbn, input_dir=build_path, port=address, verify=True)
         except pyduinocli.ArduinoError as e:
-            print(e)
+            self.log.critical(e)
             exit(1)
         # print(res)
+        self.log.info('upload successful')
 
 
     def burnNano(self, address: str):
+        self.log.info('compiling nano code')
         # sketch_path = '/home/pi/lg_floater/nano'
         # sketch_path = '/home/pi/lg_floater/TestSketch'
         sketch_path = '/home/pi/lg_floater/000_NanoCode'
@@ -93,9 +101,13 @@ class ArduinoBurner:
 
         # test compilation
         if not success:
-            print('compilation failure')
-            print(stderr)
+            self.log.critical('compilation failure')
+            self.log.critical(stderr)
             exit(1)
+        self.log.info('compilation successful')
+        self.log.info('uploading nano code')
+
+        
 
 
         builder_result = stdout_dict['builder_result']
@@ -107,10 +119,19 @@ class ArduinoBurner:
         try:
             self.arduino_cli.upload(sketch_path, fqbn=fqbn, input_dir=build_path, port=address, verify=True)
         except pyduinocli.ArduinoError as e:
-            print('upload failed')
-            print(e)
+            self.log.critical('upload failed')
+            self.log.critical(e)
             exit(1)
         # print(res)
+        self.log.info('upload successful')
+
+    def burn_boards(self):
+        mega_address = '/dev/ttyACM0'
+        self.burnMega(mega_address)
+        
+
+        nano_address = '/dev/ttyUSB0'
+        self.burnNano(nano_address)    
 
 
 

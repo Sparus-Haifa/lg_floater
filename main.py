@@ -31,6 +31,8 @@ from cfg.configuration import State
 
 from gpio_controller import GPIOController
 
+from burner import ArduinoBurner
+
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
 
@@ -42,17 +44,7 @@ TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
 # safety
 SAFETY_TIMEOUT = cfg.safety["timeout"]
 
-# class State(Enum):
-#     INIT = 0
-#     WAIT_FOR_SAFETY = 1
-#     WAIT_FOR_WATER = 2
-#     EXEC_TASK = 3
-#     END_TASK = 4
-#     WAIT_FOR_PICKUP = 5
-#     EMERGENCY = 6
-#     STOP = 7
 
-# Current_state = State.INIT
 
 class App():
     def __init__(self):
@@ -146,6 +138,7 @@ class App():
         self.drop_weight_command_sent = False
         self.surface_command_sent = False
         self.safteyTimer = None
+        self.safety_watchdog_is_enabled = False  # when we start timing safety
         # self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
         self.bladder_is_at_min_volume = False
@@ -171,6 +164,7 @@ class App():
         # setup GPIO
         RPI_TRIGGER_PIN = 14
         self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+        self.safety_trigger.high()
 
         self.simFactor = 1.0
 
@@ -280,6 +274,9 @@ class App():
         self.flags["BF"]=self.bladder_flag
         self.flags["FS"]=self.full_surface_flag
 
+    def clean(self):
+        self.safety_trigger.clean()
+
     def get_cli_command(self):
         # print("getting cli")
         line = self.comm_cli.read()
@@ -314,64 +311,65 @@ class App():
         value = serial_line[1]
 
 
+        def handle_mega_message(header, value):
+            if header=="TT1":
+                self.temperatureSensors["TT1"].add_sample(value)
+            elif header=="TT2":
+                self.temperatureSensors["TT2"].add_sample(value)
+            elif header=="BT1":
+                self.temperatureSensors["BT1"].add_sample(value)
+            elif header=="BT2":
+                self.temperatureSensors["BT2"].add_sample(value)
+            elif header=="AT":
+                self.temperatureSensors["AT"].add_sample(value)
+            elif header=="BP1":
+                self.pressureSensors["BP1"].add_sample(value)
+            elif header=="BP2":
+                self.pressureSensors["BP2"].add_sample(value)
+            elif header=="TP1":
+                self.pressureSensors["TP1"].add_sample(value)
+            elif header=="TP2":
+                self.pressureSensors["TP2"].add_sample(value)
+            elif header=="HP":
+                self.pressureSensors["HP"].add_sample(value)
+            elif header=="AP":
+                self.pressureSensors["AP"].add_sample(value)
+            elif header=="X":
+                self.IMUSensors["X"].add_sample(value)
+            elif header=="Y":
+                self.IMUSensors["Y"].add_sample(value)
+            elif header=="Z":
+                self.IMUSensors["Z"].add_sample(value)
+            elif header=="HL":
+                self.leak_h_flag.add_sample(value) # trigger
+                self.handle_HL()
+            elif header=="EL":
+                self.leak_e_flag.add_sample(value) # trigger
+                self.handle_EL()
+            elif header=="BF":
+                self.bladder_flag.add_sample(value)
+                self.handle_BF()
+            elif header=="PD":
+                self.altimeter.add_sample(value) # trigger
+                self.handle_PD()
+            elif header=="PC":
+                self.altimeter.add_confidance(value) 
+            elif header=="PU":
+                self.pumpFlag.add_sample(value)
+            elif header=="RPM":
+                self.rpm.add_sample(value) 
+            elif header=="PF":
+                lastValue = self.pumpFlag.getLast() # trigger
+                self.pumpFlag.add_sample(value)
+                self.handle_PF(lastValue)
+            elif header=="BV":
+                self.bladderVolume.add_sample(value) # trigger
+                self.handle_BV()
+            elif header=="SF":
+                self.full_surface_flag.add_sample(value)
+                self.handle_SF()
 
-
-        if header=="TT1":
-            self.temperatureSensors["TT1"].add_sample(value)
-        elif header=="TT2":
-            self.temperatureSensors["TT2"].add_sample(value)
-        elif header=="BT1":
-            self.temperatureSensors["BT1"].add_sample(value)
-        elif header=="BT2":
-            self.temperatureSensors["BT2"].add_sample(value)
-        elif header=="AT":
-            self.temperatureSensors["AT"].add_sample(value)
-        elif header=="BP1":
-            self.pressureSensors["BP1"].add_sample(value)
-        elif header=="BP2":
-            self.pressureSensors["BP2"].add_sample(value)
-        elif header=="TP1":
-            self.pressureSensors["TP1"].add_sample(value)
-        elif header=="TP2":
-            self.pressureSensors["TP2"].add_sample(value)
-        elif header=="HP":
-            self.pressureSensors["HP"].add_sample(value)
-        elif header=="AP":
-            self.pressureSensors["AP"].add_sample(value)
-        elif header=="X":
-            self.IMUSensors["X"].add_sample(value)
-        elif header=="Y":
-            self.IMUSensors["Y"].add_sample(value)
-        elif header=="Z":
-            self.IMUSensors["Z"].add_sample(value)
-        elif header=="HL":
-            self.leak_h_flag.add_sample(value) # trigger
-            self.handle_HL()
-        elif header=="EL":
-            self.leak_e_flag.add_sample(value) # trigger
-            self.handle_EL()
-        elif header=="BF":
-            self.bladder_flag.add_sample(value)
-            self.handle_BF()
-        elif header=="PD":
-            self.altimeter.add_sample(value) # trigger
-            self.handle_PD()
-        elif header=="PC":
-            self.altimeter.add_confidance(value) 
-        elif header=="PU":
-            self.pumpFlag.add_sample(value)
-        elif header=="RPM":
-            self.rpm.add_sample(value) 
-        elif header=="PF":
-            lastValue = self.pumpFlag.getLast() # trigger
-            self.pumpFlag.add_sample(value)
-            self.handle_PF(lastValue)
-        elif header=="BV":
-            self.bladderVolume.add_sample(value) # trigger
-            self.handle_BV()
-        elif header=="SF":
-            self.full_surface_flag.add_sample(value)
-            self.handle_SF()
+        handle_mega_message(header, value)
 
         # time.sleep(0.01)
 
@@ -549,15 +547,21 @@ class App():
         pass
     
     def run_mission_sequence(self):
+        self.log.info(self.current_state)
         self.logSensors()
 
         # INIT
         if self.current_state == State.INIT:
-            self.current_state = State.WAIT_FOR_SAFETY
+            self.current_state = State.UPLOAD_ARDUINO_CODE
 
+        # UPLOAD_ARDUINO_CODE
+        elif self.current_state == State.UPLOAD_ARDUINO_CODE:
+            burner = ArduinoBurner(self.log)
+            burner.burn_boards()
+            self.current_state = State.WAIT_FOR_SAFETY
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
-
+            self.safety_watchdog_is_enabled = True
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_SENSOR_BUFFER
             else:
@@ -911,6 +915,17 @@ class App():
     #get line from secondary arduino;
     def get_next_serial_line_safety(self):
         # self.comm_safety.write("N:11")
+        serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
+        serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
+        
+        if len(serial_line) < 2: # skip if no message
+            # print("Waiting for message from safety. Received: None")
+            return
+        
+        self.log.debug("nano>rpi: {}".format(serial_line))
+
+        if not self.safety_watchdog_is_enabled:
+            return
         
         # send "I'm alive message"
         if self.weightDropped or self.nano_is_sleeping:
@@ -930,14 +945,7 @@ class App():
             # TODO: move to emergency state only if you're in exec or...
             self.current_state = State.EMERGENCY # will make weight drop on reconnection
 
-        serial_line = self.comm_safety.read()  # e.g. data=['P1', '1.23']
-        serial_line = serial_line.strip().decode('utf-8', 'ignore').split(":")
-        
-        if len(serial_line) < 2: # skip if no message
-            # print("Waiting for message from safety. Received: None")
-            return
-        
-        self.log.debug("nano>rpi: {}".format(serial_line))
+
 
         header = serial_line[0]
         value = None
@@ -983,9 +991,11 @@ class App():
                 self.nano_is_sleeping = True
 
             if value==111:
-                self.log.info('safety woke up')
+                self.log.info('safety sleep was interrupted')
                 self.nano_is_sleeping = False
-                self.comm_safety.write('L:1')
+                if self.wake_up_sent_to_nano:
+                    self.comm_safety.write('L:1')
+                    self.log.info('waking safety up')
                 time.sleep(0.1)
                 self.safety_trigger.low()  # reset pin
             
@@ -1005,11 +1015,15 @@ if __name__ == "__main__":
  
 
     app.lastTime = time.time()
-    while True:
-        app.get_next_serial_line()
-        if not app.disable_safety:
-            app.get_next_serial_line_safety()
-        if app.test_mode:
-            app.get_cli_command()
-        time.sleep(0.01)
+    try:
+        while True:
+            app.get_next_serial_line()
+            if not app.disable_safety:
+                app.get_next_serial_line_safety()
+            if app.test_mode:
+                app.get_cli_command()
+            time.sleep(0.01)
+    except KeyboardInterrupt:
+        app.clean()
+        exit(0)
 
