@@ -2,7 +2,6 @@ from enum import Enum, auto
 
 class State(Enum):
     INIT = auto()
-    UPLOAD_ARDUINO_CODE = auto()
     WAIT_FOR_SENSOR_BUFFER = auto()
     WAIT_FOR_SAFETY = auto()
     WAIT_FOR_WATER = auto()

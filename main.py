@@ -545,6 +545,18 @@ class App():
 
         self.run_mission_sequence()
         pass
+
+    def sleep_safety(self):
+        # safety logic
+        safety_is_enabled = not self.disable_safety
+        sent_sleep_message_to_safety = not self.sent_sleep_to_nano
+        if safety_is_enabled and not sent_sleep_message_to_safety and (not self.weightDropped and not self.drop_weight_command_sent):
+            if not self.waiting_for_nano_sleep:
+                self.sent_sleep_to_nano = True
+                self.waiting_for_nano_sleep = True
+                self.send_sleep_to_nano()
+        if self.waiting_for_nano_sleep:
+            self.log.info('waiting_for_nano_sleep')
     
     def run_mission_sequence(self):
         self.log.info(self.current_state)
@@ -552,13 +564,8 @@ class App():
 
         # INIT
         if self.current_state == State.INIT:
-            self.current_state = State.UPLOAD_ARDUINO_CODE
-
-        # UPLOAD_ARDUINO_CODE
-        elif self.current_state == State.UPLOAD_ARDUINO_CODE:
-            burner = ArduinoBurner(self.log)
-            burner.burn_boards()
             self.current_state = State.WAIT_FOR_SAFETY
+
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
             self.safety_watchdog_is_enabled = True
@@ -649,16 +656,7 @@ class App():
         # Wait for pickup - Iradium
         elif self.current_state == State.WAIT_FOR_PICKUP:
             self.log.info("waiting for pickup")
-            # safety logic
-            safety_is_enabled = not self.disable_safety
-            sent_sleep_message_to_safety = not self.sent_sleep_to_nano
-            if safety_is_enabled and not sent_sleep_message_to_safety and (not self.weightDropped and not self.drop_weight_command_sent):
-                if not self.waiting_for_nano_sleep:
-                    self.sent_sleep_to_nano = True
-                    self.waiting_for_nano_sleep = True
-                    self.send_sleep_to_nano()
-            if self.waiting_for_nano_sleep:
-                self.log.info('waiting_for_nano_sleep')
+            self.sleep_safety()
 
             # let nano sleep (if pressure is)
             # keep wake-up option in case
@@ -989,6 +987,8 @@ class App():
             if value==5:
                 self.log.info("safety went to sleep")
                 self.nano_is_sleeping = True
+                self.safety_watchdog_is_enabled = False
+                self.safetyTimer = None
 
             if value==111:
                 self.log.info('safety sleep was interrupted')
@@ -997,7 +997,7 @@ class App():
                     self.comm_safety.write('L:1')
                     self.log.info('waking safety up')
                 time.sleep(0.1)
-                self.safety_trigger.low()  # reset pin
+                self.safety_trigger.high()  # reset pin
             
 
 
@@ -1010,7 +1010,8 @@ if __name__ == "__main__":
 
 
     app = App()
-
+    burner = ArduinoBurner(app.log)
+    burner.burn_boards()
 
  
 
