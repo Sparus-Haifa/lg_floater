@@ -96,6 +96,7 @@ class ArduinoBurner:
         try:
             self.arduino_cli.upload(sketch_path, fqbn=fqbn, input_dir=build_path, port=address, verify=True)
         except pyduinocli.ArduinoError as e:
+            print('upload failed')
             print(e)
             exit(1)
         # print(res)
@@ -133,7 +134,7 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    burner.burnMega(mega_address)
+    # burner.burnMega(mega_address)
 
     nano_address = '/dev/ttyUSB0'
     burner.burnNano(nano_address)

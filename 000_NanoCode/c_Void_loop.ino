@@ -7,9 +7,9 @@ void loop()
 
   while (LoopFlag == 0)
   {
-    delay(500);
+    // delay(500);
     Sleep();
-    delay(500);
+    delay(5000);
 
     ReceiveMsg();
     PreviousMillisOut = millis();

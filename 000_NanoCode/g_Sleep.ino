@@ -17,7 +17,7 @@ void Sleep()
 //  delay(500);
 //
 //  SendMsg("NN", 18);
-  delay(1000);
+  // delay(1000);
   
   LowPower.powerDown(SLEEP_FOREVER, ADC_OFF, BOD_OFF);
   

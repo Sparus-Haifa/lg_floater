@@ -29,6 +29,8 @@ import os  # for log file path
 
 from cfg.configuration import State
 
+from gpio_controller import GPIOController
+
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
 
@@ -74,7 +76,8 @@ class App():
         # file_handler = logging.FileHandler(os.path.join('log','logfile.log')
         from lib.logger import Logger
         l = Logger()
-        s = l.log_name
+        # s = l.log_name
+        s = 'log.log'
         # file_handler = logging.FileHandler('log/logfile.log')
         print(s)
         # file_handler = logging.FileHandler(s)
@@ -84,7 +87,7 @@ class App():
 
 
 
-        console_handler.setLevel(logging.WARNING)
+        console_handler.setLevel(logging.INFO)
         # console_handler.setLevel(logging.DEBUG)
         print("log level", self.log.level)
         file_handler.setLevel(logging.NOTSET)
@@ -123,11 +126,16 @@ class App():
 
         self.target_depth = cfg.task["target_depth"]
 
-        self.lastTime = time.time()
+        self.lastTime = time.time()  # global timer
+        self.mission_timer = None  # timer for main mission to stop and end mission
 
         self.iridium_command_was_sent = False
         self.sent_sleep_to_nano = False
         self.waiting_for_nano_sleep = False
+        self.wake_up_sent_to_nano = False
+        # self.waiting_for_nano_to_wake_up = False
+
+
 
         self.lastP=0 # TODO: move to pid module
         self.pid_controller = PID()
@@ -148,7 +156,7 @@ class App():
         self.waterTestTimer = None
 
         self.sleep_sent_to_nano = False
-        self.nano_is_sleeping = False
+        self.nano_is_sleeping = True
 
         # Task execusion timers
         self.time_off_duration = None
@@ -160,9 +168,55 @@ class App():
         self.pid_sent_time = None
 
 
-            
+        # setup GPIO
+        RPI_TRIGGER_PIN = 14
+        self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+
         self.simFactor = 1.0
 
+        
+
+        self.setupSensors()
+        self.addSensorsToDict()
+        self.addFlagsToDict()
+        self.setupComms()
+
+
+        self.profile = Profile("cfg/profile.txt", self.log)
+        # self.task_ctrl = Task(sensPress, log)
+
+    def setupComms(self):
+        # Main arduino
+        if not self.simulation:
+            self.comm = ser.SerialComm("MEGA", cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], self.log)
+            if not self.comm.ser:
+                self.log.critical("-E- Failed to init serial port")
+                exit()
+        else:
+        # Simulated via udp
+            self.comm = com.UdpComm(cfg.app["simulation_udp_port"])
+            if not self.comm.server_socket:
+                self.log.critical("-E- Failed to init udp port")
+                exit() 
+
+        # Secondary arduino (safety)
+        if self.disable_safety:
+            # self.log.warning("")
+            pass
+        else:
+            self.comm_safety = ser.SerialComm("NANO", cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
+            if not self.comm_safety.ser:
+                self.log.critical("-E- Failed to init safety serial port")
+                exit()
+
+        # Test mode
+        if self.test_mode:
+            self.comm_cli = com.UdpComm(cfg.app["test_mode_udp_port"])
+            if not self.comm_cli.server_socket:
+                self.log.critical("-E- Failed to init cli udp port")
+                exit()    
+
+    def setupSensors(self):
         self.sensors = {}
         self.flags = {}
 
@@ -203,46 +257,7 @@ class App():
         self.bladder_flag = Flag("Bladder", self.log)  # BF
         self.leak_h_flag = Flag("Hull leak", self.log)  # HL
         self.leak_e_flag = Flag("Engine leak", self.log)  # EL
-        self.full_surface_flag = Flag("Full surface initiated", self.log)
-
-
-        self.addSensorsToDict()
-        self.addFlagsToDict()
-
-
-        self.profile = Profile("cfg/profile.txt", self.log)
-        # self.task_ctrl = Task(sensPress, log)
-
-        # Main arduino
-        if not self.simulation:
-            self.comm = ser.SerialComm("MEGA", cfg.serial["port"], cfg.serial["baud_rate"], cfg.serial["timeout"], self.log)
-            if not self.comm.ser:
-                self.log.critical("-E- Failed to init serial port")
-                exit()
-        else:
-        # Simulated via udp
-            self.comm = com.UdpComm(cfg.app["simulation_udp_port"])
-            if not self.comm.server_socket:
-                self.log.critical("-E- Failed to init udp port")
-                exit() 
-
-        # Secondary arduino (safety)
-        if self.disable_safety:
-            # self.log.warning("")
-            pass
-        else:
-            self.comm_safety = ser.SerialComm("NANO", cfg.serial_safety["port"], cfg.serial_safety["baud_rate"], cfg.serial_safety["timeout"], self.log)
-            if not self.comm_safety.ser:
-                self.log.critical("-E- Failed to init safety serial port")
-                exit()
-
-        # Test mode
-        if self.test_mode:
-            self.comm_cli = com.UdpComm(cfg.app["test_mode_udp_port"])
-            if not self.comm_cli.server_socket:
-                self.log.critical("-E- Failed to init cli udp port")
-                exit()    
-
+        self.full_surface_flag = Flag("Full surface initiated", self.log)       
 
     def addSensorsToDict(self):
         for sensor in self.temperatureSensors:
@@ -404,9 +419,7 @@ class App():
                 self.comm_safety.write("N:2")
             self.drop_weight_command_sent = True
 
-    def sleep_nano(self):
-        if not self.disable_safety:
-            self.comm_safety.write("N:5")
+
 
     def handle_PD(self):
         # TODO: decide which comes first from arduino
@@ -540,17 +553,24 @@ class App():
 
         # INIT
         if self.current_state == State.INIT:
-            if self.sensorsReady():
-                self.current_state = State.WAIT_FOR_SAFETY
+            self.current_state = State.WAIT_FOR_SAFETY
 
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
-        # send wakeup interrupt to arduino nano.
-        # print("TODO: wakeup")
+
             if self.is_safety_responding:
-                self.current_state = State.WAIT_FOR_WATER
+                self.current_state = State.WAIT_FOR_SENSOR_BUFFER
             else:
                 self.log.info("waiting for safety to respond")
+                if not self.wake_up_sent_to_nano:
+                    self.wake_up_nano()
+
+        # WAIT_FOR_SENSOR_BUFFER
+        elif self.current_state == State.WAIT_FOR_SENSOR_BUFFER:
+            if self.sensorsReady():
+                self.current_state = State.WAIT_FOR_WATER
+
+
                 
         # WAIT FOR WATER
         elif self.current_state == State.WAIT_FOR_WATER:
@@ -573,7 +593,15 @@ class App():
 
         # EXECUTE TASK
         elif self.current_state == State.EXEC_TASK:
-            # print("Executing task")
+
+            # mission timer
+            if self.mission_timer is None:
+                self.log.info('Mission countdown started')
+                self.mission_timer = time.time()
+            elif time.time() - self.mission_timer > 60:
+                self.log.info('Timeout: ending mission')
+                self.current_state = State.END_TASK
+
             # Before starting a dutycycle.
             if self.time_off_duration is None: 
                 # before DC starts
@@ -588,8 +616,15 @@ class App():
                     self.time_off_duration = None
                     self.time_off_timer = None
             else:
-                self.log.info("waiting for pump to start")
                 # TODO: add watchdog incarse PF doesn't get recived
+                pump_flag = self.pumpFlag.getLast()
+                # print('PF', pump_flag)
+                if pump_flag == 0:
+                    self.log.info("waiting for pump to start")
+                else:
+                    self.log.info("pump is running...")
+                
+
 
 
 
@@ -610,24 +645,27 @@ class App():
         # Wait for pickup - Iradium
         elif self.current_state == State.WAIT_FOR_PICKUP:
             self.log.info("waiting for pickup")
-            if not self.sent_sleep_to_nano:
+            # safety logic
+            safety_is_enabled = not self.disable_safety
+            sent_sleep_message_to_safety = not self.sent_sleep_to_nano
+            if safety_is_enabled and not sent_sleep_message_to_safety and (not self.weightDropped and not self.drop_weight_command_sent):
                 if not self.waiting_for_nano_sleep:
                     self.sent_sleep_to_nano = True
                     self.waiting_for_nano_sleep = True
-                    self.sleep_nano()
+                    self.send_sleep_to_nano()
             if self.waiting_for_nano_sleep:
-                self.sleep_nano()
+                self.log.info('waiting_for_nano_sleep')
 
             # let nano sleep (if pressure is)
             # keep wake-up option in case
 
             # send iradium flag (I:1)
-
-            if not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
+            
+            if not self.disable_safety and not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
                 self.send_sleep_to_nano()
             
             if self.nano_is_sleeping:
-                print("nano is sleeping")
+                self.log.debug("nano is sleeping")
 
             if not self.iridium_command_was_sent:
                 self.log.info("Sending command to iridium")
@@ -653,9 +691,20 @@ class App():
             self.log.error('unknown state')
 
 
+    def wake_up_nano(self):
+        self.safety_trigger.low()
+        time.sleep(0.1)
+        # controller.clean()
+        self.wake_up_sent_to_nano = True
+
+
     def send_sleep_to_nano(self):
         self.sleep_sent_to_nano = True
         self.comm_safety.write("N:5")
+
+    # def sleep_nano(self):
+        # if not self.disable_safety:
+            # self.comm_safety.write("N:5")
 
     def sensorsReady(self):
         bypassSens = ["rpm"]
@@ -702,7 +751,8 @@ class App():
         res["State"]=self.current_state
 
         # timeOn display
-        if self.time_on_duration is not None:
+        pump_flag = self.pumpFlag.getLast()
+        if self.time_on_duration is not None and pump_flag == 1:
             del res
             res = {}
             res["BV"]=self.bladderVolume.getLast()
@@ -931,6 +981,13 @@ class App():
             if value==5:
                 self.log.info("safety went to sleep")
                 self.nano_is_sleeping = True
+
+            if value==111:
+                self.log.info('safety woke up')
+                self.nano_is_sleeping = False
+                self.comm_safety.write('L:1')
+                time.sleep(0.1)
+                self.safety_trigger.low()  # reset pin
             
 
 

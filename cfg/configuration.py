@@ -1,23 +1,24 @@
-from enum import Enum
+from enum import Enum, auto
 
 class State(Enum):
-    INIT = 0
-    WAIT_FOR_SAFETY = 1
-    WAIT_FOR_WATER = 2
-    EXEC_TASK = 3
-    END_TASK = 4
-    WAIT_FOR_PICKUP = 5
-    EMERGENCY = 6
-    STOP = 7
+    INIT = auto()
+    WAIT_FOR_SENSOR_BUFFER = auto()
+    WAIT_FOR_SAFETY = auto()
+    WAIT_FOR_WATER = auto()
+    EXEC_TASK = auto()
+    END_TASK = auto()
+    WAIT_FOR_PICKUP = auto()
+    EMERGENCY = auto()
+    STOP = auto()
 
 
 app = {
-    "simulation" : False,  # app sends debug data to sim
+    "simulation" : True,  # app sends debug data to sim
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",
 
-    "disable_safety" : True,
+    "disable_safety" : False,
     "test_mode" : True,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True
