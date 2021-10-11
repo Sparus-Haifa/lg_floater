@@ -4,7 +4,7 @@ void RunMotor()
   analogWrite(MotorPin, 255);
   delay(MotorTimeHigh);
   analogWrite(MotorPin, 0);
-  delay(30000);
+  delay(5000);
 
   digitalWrite(DirectionPin, LOW);
   analogWrite(MotorPin, 255);

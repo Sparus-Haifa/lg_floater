@@ -13,7 +13,7 @@ class State(Enum):
 
 
 app = {
-    "simulation" : True,  # app sends debug data to sim
+    "simulation" : False,  # app sends debug data to sim
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",
@@ -21,7 +21,8 @@ app = {
     "disable_safety" : False,
     "test_mode" : True,
     "test_mode_udp_port" : 5000,
-    "disable_altimeter" : True
+    "disable_altimeter" : True,
+    "skip_arduino_compile" : False
 }
 
 # Current_state = State.INIT

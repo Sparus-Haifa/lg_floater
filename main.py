@@ -53,6 +53,7 @@ class App():
         self.disable_safety = cfg.app["disable_safety"]
         self.test_mode = cfg.app["test_mode"]
         self.disable_altimeter = cfg.app["disable_altimeter"]
+        self.skip_arduino_compile = cfg.app['skip_arduino_compile']
         
         if self.test_mode or self.disable_safety or self.disable_altimeter:
             self.test_mode = True
@@ -66,8 +67,8 @@ class App():
         print("log level", self.log.level)
         console_handler = logging.StreamHandler(sys.stdout)
         # file_handler = logging.FileHandler(os.path.join('log','logfile.log')
-        from lib.logger import Logger
-        l = Logger()
+        # from lib.logger import Logger
+        # l = Logger()
         # s = l.log_name
         s = 'log.log'
         # file_handler = logging.FileHandler('log/logfile.log')
@@ -1010,8 +1011,9 @@ if __name__ == "__main__":
 
 
     app = App()
-    burner = ArduinoBurner(app.log)
-    burner.burn_boards()
+    if not app.skip_arduino_compile:
+        burner = ArduinoBurner(app.log)
+        burner.burn_boards()
 
  
 
@@ -1024,7 +1026,12 @@ if __name__ == "__main__":
             if app.test_mode:
                 app.get_cli_command()
             time.sleep(0.01)
-    except KeyboardInterrupt:
+    except KeyboardInterrupt as e:
+        app.log.critical(e)
         app.clean()
+        app.log.info('cleaning (resetting rpi gpio)')
+        if not app.disable_safety:
+            app.log.info('sending sleep to nano')
+            app.send_sleep_to_nano()
         exit(0)
 

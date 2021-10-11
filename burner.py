@@ -17,7 +17,7 @@ class ArduinoBurner:
         ports = serial.tools.list_ports.comports()
         res = []
         for port, desc, hwid in sorted(ports):
-                print("{}: {} [{}]".format(port, desc, hwid))
+                # print("{}: {} [{}]".format(port, desc, hwid))
                 res.append((port, desc, hwid))
         return res
 
@@ -126,11 +126,24 @@ class ArduinoBurner:
         self.log.info('upload successful')
 
     def burn_boards(self):
+
+        ports = self.getList_offline()
+        open_ports = []
+        for port, desc, hwid in sorted(ports):
+            open_ports.append(port)
+
+
         mega_address = '/dev/ttyACM0'
+        if mega_address not in open_ports:
+            self.log.critical('mega board not found')
+            exit(1)
         self.burnMega(mega_address)
         
 
         nano_address = '/dev/ttyUSB0'
+        if nano_address not in open_ports:
+            self.log.critical('nano board not found')
+            exit(1)
         self.burnNano(nano_address)    
 
 
