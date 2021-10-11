@@ -95,11 +95,11 @@ unsigned long PreviousMillis = 0, LoopCounter = 1;
 //-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER PARAMETERS
 // V1 = 0.7 L for accumulator full of oil, V1=1.4L for accumulator empty of oil
 //float V1 = 1430 - 724;
-float V1 = 1362;
-float P1 = 1044 * (0.98692 / 1000.0);
-float T1 = (273.15 + 22.26);
+float V1 = 1430;
+float P1 = 6134 * (0.98692 / 1000.0);
+float T1 = (273.15 + 23.55);
 float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC
-#define BladderUpperLimit 630
-#define BladderLowerLimit 20
+#define BladderUpperLimit 620
+#define BladderLowerLimit 30

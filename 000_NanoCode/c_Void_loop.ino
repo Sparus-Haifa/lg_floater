@@ -7,7 +7,6 @@ void loop()
 
   while (LoopFlag == 0)
   {
-    // delay(500);
     Sleep();
     delay(5000);
 

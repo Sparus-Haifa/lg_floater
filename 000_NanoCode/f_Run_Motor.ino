@@ -2,13 +2,13 @@ void RunMotor()
 {
   digitalWrite(DirectionPin, HIGH);
   analogWrite(MotorPin, 255);
-  delay(MotorTime);
+  delay(MotorTimeHigh);
   analogWrite(MotorPin, 0);
-  delay(500);
+  delay(30000);
 
   digitalWrite(DirectionPin, LOW);
   analogWrite(MotorPin, 255);
-  delay(MotorTime);
+  delay(MotorTimeLow);
   analogWrite(MotorPin, 0);
   
 //  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)

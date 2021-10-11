@@ -83,30 +83,30 @@ void loop()
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM MUX SENSORS
   // Read bottom sensors
-  //  myMux.begin(BottomMux);
-  //
-  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
-  //  wdt_reset();
-  //  ReadTemp(0);
-  //  SendMsg("BT1", SensorsBottom[0]);
-  //
-  //  ReadTemp(1);
-  //  SendMsg("BT2", SensorsBottom[1]);
-  //
-  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
-  //
-  //  ReadPress(2);
-  //  SensorsBottom[2] = PresSensor.pressure();
-  //  SendMsg("BP1", SensorsBottom[2]);
-  //
-  //  ReadPress(3);
-  //  SensorsBottom[3] = PresSensor.pressure();
-  //  SendMsg("BP2", SensorsBottom[3]);
-  //
-  //  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
-  //  ReadPress(4);
-  //  SensorsBottom[4] = PresSensor.pressure();
-  //  SendMsg("HP", SensorsBottom[4]);
+  myMux.begin(BottomMux);
+
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
+  wdt_reset();
+  ReadTemp(0);
+  SendMsg("BT1", SensorsBottom[0]);
+
+  ReadTemp(1);
+  SendMsg("BT2", SensorsBottom[1]);
+
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
+
+  ReadPress(2);
+  SensorsBottom[2] = PresSensor.pressure();
+  SendMsg("BP1", SensorsBottom[2]);
+
+  ReadPress(3);
+  SensorsBottom[3] = PresSensor.pressure();
+  SendMsg("BP2", SensorsBottom[3]);
+
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= HYDRAULIC PRESS
+  ReadPress(4);
+  SensorsBottom[4] = PresSensor.pressure();
+  SendMsg("HP", SensorsBottom[4]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TOP MUX SENSORS
   myMux.begin(TopMux);
@@ -131,9 +131,7 @@ void loop()
   SendMsg("TP2", SensorsTop[5]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER VOLUME
-  //CalcBladderVol();
-  //SendMsg("GV", GasVol);
-  //SendMsg("BV", BladdVol);
+  CalcBladderVol();
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BNO080 IMU
 
@@ -146,9 +144,9 @@ void loop()
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BR Ping
-  //  AltPing();
-  //  SendMsg("PD", PingDistance);
-  //  SendMsg("PC", PingConfidence);
+  AltPing();
+  SendMsg("PD", PingDistance);
+  SendMsg("PC", PingConfidence);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= END OF VOID LOOP
   LoopCounter = LoopCounter + 1;

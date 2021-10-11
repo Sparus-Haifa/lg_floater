@@ -13,8 +13,9 @@ void CalcBladderVol()
   SendMsg("AP", AccPress);
 
   GasVol = P1 * V1 * (AccTemp + 273.15) / (AccPress * 0.987 / 1000.0) / T1;
-  BladdVol = (GasVol - 642);
-  BladdVol = 1.0215 * BladdVol - 50.92;
+  BladdVol = GasVol - 1430 + 650;
+
+  //BladdVol = 1.0215 * BladdVol; // - 50.92;
 
   SendMsg("BV", BladdVol);
 
