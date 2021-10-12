@@ -11,18 +11,23 @@ class State(Enum):
     EMERGENCY = auto()
     STOP = auto()
 
+class MissionState(Enum):
+    EN_ROUTE = auto()
+    HOLD_ON_TARGET = auto()
+    SURFACE = auto()
+
 
 app = {
-    "simulation" : False,  # app sends debug data to sim
+    "simulation" : True,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",
 
-    "disable_safety" : False,
+    "disable_safety" : True,
     "test_mode" : True,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True,
-    "skip_arduino_compile" : False
+    "skip_arduino_compile" : True
 }
 
 # Current_state = State.INIT
@@ -76,6 +81,18 @@ rpm = {
     "precision" : 2
 }
 
+task_single = {
+
+}
+
+task_double = {
+    
+}
+
+task_emergency = {
+    
+}
+
 task = {
     # "type": 1, # 1- pressure, 2-density, 3-profiling
     # "duration": 300, # seconds
@@ -94,7 +111,7 @@ task = {
     "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    "target_depth" : 6000  # millibar
+    "target_depth" : 3000  # millibar
     # "max_time_off_duration" : 100.0
 
 }

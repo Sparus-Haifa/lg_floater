@@ -59,6 +59,6 @@ class Press_ctrl():
         avg = tp1.getLast() + tp2.getLast()
         avg/=2
 
-        if 1000 < avg and avg < 1200:
+        if 1000 < avg < 1200:
             return True
         return False

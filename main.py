@@ -27,7 +27,7 @@ import logging
 
 import os  # for log file path
 
-from cfg.configuration import State
+from cfg.configuration import State, MissionState
 
 from gpio_controller import GPIOController
 
@@ -83,7 +83,7 @@ class App():
         console_handler.setLevel(logging.INFO)
         # console_handler.setLevel(logging.DEBUG)
         print("log level", self.log.level)
-        file_handler.setLevel(logging.NOTSET)
+        file_handler.setLevel(logging.INFO)
         print("log level", self.log.level)
 
         if self.test_mode:
@@ -118,6 +118,7 @@ class App():
             self.current_state = State.INIT
 
         self.target_depth = cfg.task["target_depth"]
+        self.current_depth = None
 
         self.lastTime = time.time()  # global timer
         self.mission_timer = None  # timer for main mission to stop and end mission
@@ -569,6 +570,9 @@ class App():
 
         # WAIT FOR SAFETY
         elif self.current_state == State.WAIT_FOR_SAFETY:
+            if self.disable_safety:
+                self.log.warning('safety is disabled: skipping safety test')
+                self.current_state = State.WAIT_FOR_SENSOR_BUFFER
             self.safety_watchdog_is_enabled = True
             if self.is_safety_responding:
                 self.current_state = State.WAIT_FOR_SENSOR_BUFFER
@@ -607,17 +611,17 @@ class App():
         elif self.current_state == State.EXEC_TASK:
 
             # mission timer
-            if self.mission_timer is None:
-                self.log.info('Mission countdown started')
-                self.mission_timer = time.time()
-            elif time.time() - self.mission_timer > 60:
-                self.log.info('Timeout: ending mission')
-                self.current_state = State.END_TASK
+            # if self.mission_timer is None:
+            #     self.log.info('Mission countdown started')
+            #     self.mission_timer = time.time()
+            # elif time.time() - self.mission_timer > 60:
+            #     self.log.info('Timeout: ending mission')
+            #     self.current_state = State.END_TASK
 
             # Before starting a dutycycle.
             if self.time_off_duration is None: 
                 # before DC starts
-                self.log.info("starting a new dutycycle")
+                self.log.info("attemting to start a new dutycycle")
                 self.sendPID()
             # after
             elif self.time_on_duration is None:
@@ -840,6 +844,7 @@ class App():
             return avg
 
         avg = getAvgDepthSensorsRead()
+        self.current_depth = avg  # update current depth
         if not avg:
             self.log.error("ERROR: Could not calculate depth - not enough working sensors")
             return
@@ -1003,35 +1008,138 @@ class App():
 
 
 
+MARGIN = 1000
+
+class TaskManager:
+    def __init__(self) -> None:
+        self.app = App()
+        self.depth = None
+        self.last_depth = None
+        self.mission_timer = None
+        self.log = self.app.log
+        if not self.app.skip_arduino_compile:
+            burner = ArduinoBurner(self.app.log)
+            burner.burn_boards()
+
+    
+
+        self.app.lastTime = time.time()
+
+    def run_once(self):
+
+        self.app.get_next_serial_line()
+        if not self.app.disable_safety:
+            self.app.get_next_serial_line_safety()
+        if self.app.test_mode:
+
+            self.app.get_cli_command()
+
+        # update relevant data
+        self.last_depth = self.depth
+        self.depth = self.app.current_depth
+
+    def set_target_depth(self, target_depth):
+        self.app.target_depth = target_depth
+
 #-----------------------MAIN BODY--------------------------#
 
-if __name__ == "__main__":
+def mission_1(manager):
+    while True:
+        manager.run_once()
+        if manager.depth and manager.depth != manager.last_depth:  # new depth
+            manager.log.debug('new depth reached:' + str(round(manager.depth,2)))
+            # last_depth = depth
+
+            threshold_reached = manager.depth - MARGIN < manager.app.target_depth < manager.depth + MARGIN
+            timer_started = manager.mission_timer is not None
+            if threshold_reached and not timer_started:
+                manager.app.log.info('starting timer')
+                manager.mission_timer = time.time()
+
+            if manager.mission_timer and time.time() - manager.mission_timer > 60:
+                manager.log.info('time is up')
+                manager.app.current_state = State.END_TASK
+
+
+        time.sleep(0.01)
+
+def mission_2(manager):
+    mission_state = MissionState.EN_ROUTE
+    planned_depths = [0,3000,5000,0]
+    while True:
+        manager.run_once()
+        if manager.depth and manager.depth != manager.last_depth:  # new depth
+            manager.log.debug('new depth reached:' + str(round(manager.depth,2)))
+            # last_depth = depth
+
+            if mission_state == MissionState.EN_ROUTE:
+
+                threshold_reached = manager.depth - MARGIN < manager.app.target_depth < manager.depth + MARGIN
+                timer_started = manager.mission_timer is not None
+                if threshold_reached and not timer_started:
+                    manager.app.log.info('starting timer')
+                    manager.mission_timer = time.time()
+                    mission_state = MissionState.HOLD_ON_TARGET
+                    manager.log.info(mission_state)
+                    
+
+            elif mission_state == MissionState.HOLD_ON_TARGET:
+
+                if manager.mission_timer and time.time() - manager.mission_timer > 30:
+                    manager.log.info('hold position timer is up')
+                    manager.mission_timer = None
+                    if not planned_depths:
+                        manager.app.current_state = State.END_TASK
+                        mission_state = MissionState.HOLD_ON_TARGET
+                        continue
+
+                    next_target_depth = planned_depths.pop(0)
+                    manager.set_target_depth(next_target_depth)
+                    if next_target_depth == 0:
+                        mission_state = MissionState.SURFACE
+                        manager.log.info(mission_state)
+                        continue
+                    mission_state = MissionState.EN_ROUTE
+                    manager.log.info(mission_state)
+
+
+            elif mission_state == MissionState.SURFACE:
+                surface_reached = manager.app.pressureController.senseAir()
+                timer_started = manager.mission_timer is not None
+                if surface_reached and not timer_started:
+                    manager.app.log.info('starting timer')
+                    manager.mission_timer = time.time()
+                    mission_state = MissionState.HOLD_ON_TARGET
+                    manager.app.comm.write(f"I:1") 
+                    manager.log.info(mission_state)
+
+
+
+        time.sleep(0.01)     
+
+
+
+def main():
+    try:
+        manager = TaskManager()
+        try:
+            mission_2(manager)
+        except KeyboardInterrupt as e:
+            manager.app.log.critical('System shutdown')
+            manager.app.clean()
+            manager.app.log.info('cleaning (resetting rpi gpio)')
+            if not manager.app.disable_safety:
+                manager.app.log.info('sending sleep to nano')
+                manager.app.send_sleep_to_nano()
+            exit(0)
+    except Exception as e:
+        print("unknown error: emergency full surface")
+
+
     
 
 
+if __name__ == "__main__":
+    main()
 
-    app = App()
-    if not app.skip_arduino_compile:
-        burner = ArduinoBurner(app.log)
-        burner.burn_boards()
-
- 
-
-    app.lastTime = time.time()
-    try:
-        while True:
-            app.get_next_serial_line()
-            if not app.disable_safety:
-                app.get_next_serial_line_safety()
-            if app.test_mode:
-                app.get_cli_command()
-            time.sleep(0.01)
-    except KeyboardInterrupt as e:
-        app.log.critical(e)
-        app.clean()
-        app.log.info('cleaning (resetting rpi gpio)')
-        if not app.disable_safety:
-            app.log.info('sending sleep to nano')
-            app.send_sleep_to_nano()
-        exit(0)
 
