@@ -15,7 +15,7 @@ class MissionState(Enum):
     EN_ROUTE = auto()
     HOLD_ON_TARGET = auto()
     SURFACE = auto()
-
+    MISSION_ABORT = auto()
 
 app = {
     "simulation" : True,  # app sends debug data to sim, udp - not serial

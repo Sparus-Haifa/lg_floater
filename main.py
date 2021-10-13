@@ -559,6 +559,37 @@ class App():
                 self.send_sleep_to_nano()
         if self.waiting_for_nano_sleep:
             self.log.info('waiting_for_nano_sleep')
+
+    def handle_mission_state(self):
+        # mission timer
+        # if self.mission_timer is None:
+        #     self.log.info('Mission countdown started')
+        #     self.mission_timer = time.time()
+        # elif time.time() - self.mission_timer > 60:
+        #     self.log.info('Timeout: ending mission')
+        #     self.current_state = State.END_TASK
+
+        # Before starting a dutycycle.
+        if self.time_off_duration is None: 
+            # before DC starts
+            self.log.info("attemting to start a new dutycycle")
+            self.sendPID()
+        # after
+        elif self.time_on_duration is None:
+            elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
+            self.log.info(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
+            if elapsedSeconds > self.time_off_duration:
+                self.log.info("timeOff is over")
+                self.time_off_duration = None
+                self.time_off_timer = None
+        else:
+            # TODO: add watchdog incarse PF doesn't get recived
+            pump_flag = self.pumpFlag.getLast()
+            # print('PF', pump_flag)
+            if pump_flag == 0:
+                self.log.info("waiting for pump to start")
+            else:
+                self.log.info("pump is running...")
     
     def run_mission_sequence(self):
         self.log.info(self.current_state)
@@ -609,40 +640,8 @@ class App():
 
         # EXECUTE TASK
         elif self.current_state == State.EXEC_TASK:
-
-            # mission timer
-            # if self.mission_timer is None:
-            #     self.log.info('Mission countdown started')
-            #     self.mission_timer = time.time()
-            # elif time.time() - self.mission_timer > 60:
-            #     self.log.info('Timeout: ending mission')
-            #     self.current_state = State.END_TASK
-
-            # Before starting a dutycycle.
-            if self.time_off_duration is None: 
-                # before DC starts
-                self.log.info("attemting to start a new dutycycle")
-                self.sendPID()
-            # after
-            elif self.time_on_duration is None:
-                elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
-                self.log.info(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
-                if elapsedSeconds > self.time_off_duration:
-                    self.log.info("timeOff is over")
-                    self.time_off_duration = None
-                    self.time_off_timer = None
-            else:
-                # TODO: add watchdog incarse PF doesn't get recived
-                pump_flag = self.pumpFlag.getLast()
-                # print('PF', pump_flag)
-                if pump_flag == 0:
-                    self.log.info("waiting for pump to start")
-                else:
-                    self.log.info("pump is running...")
+            self.handle_mission_state()
                 
-
-
-
 
         # END TASK
         elif self.current_state == State.END_TASK:
@@ -690,6 +689,14 @@ class App():
             if self.pressureController.senseAir():
                 self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
+
+            pump_flag = self.pumpFlag.getLast()
+            voltage = 100
+            direction = 2
+            timeon = 5.0
+            # if pump_flag == 0:
+            self.target_depth = 0
+            self.handle_mission_state()
 
         # STOP - TEST MODE
         elif self.current_state == State.STOP:
@@ -1065,7 +1072,9 @@ def mission_1(manager):
 
 def mission_2(manager):
     mission_state = MissionState.EN_ROUTE
-    planned_depths = [0,3000,5000,0]
+    planned_depths = [0,3000,'E',0]
+    # planned_depths = ['E']
+
     while True:
         manager.run_once()
         if manager.depth and manager.depth != manager.last_depth:  # new depth
@@ -1085,7 +1094,7 @@ def mission_2(manager):
 
             elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                if manager.mission_timer and time.time() - manager.mission_timer > 30:
+                if manager.mission_timer and time.time() - manager.mission_timer > 3000:
                     manager.log.info('hold position timer is up')
                     manager.mission_timer = None
                     if not planned_depths:
@@ -1094,6 +1103,11 @@ def mission_2(manager):
                         continue
 
                     next_target_depth = planned_depths.pop(0)
+
+                    if next_target_depth == 'E':
+                        manager.app.current_state = State.EMERGENCY
+                        mission_state = MissionState.MISSION_ABORT
+
                     manager.set_target_depth(next_target_depth)
                     if next_target_depth == 0:
                         mission_state = MissionState.SURFACE
@@ -1112,6 +1126,9 @@ def mission_2(manager):
                     mission_state = MissionState.HOLD_ON_TARGET
                     manager.app.comm.write(f"I:1") 
                     manager.log.info(mission_state)
+
+            elif mission_state == MissionState.MISSION_ABORT:
+                continue
 
 
 
