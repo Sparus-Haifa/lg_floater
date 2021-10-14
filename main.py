@@ -80,10 +80,10 @@ class App():
 
 
 
-        console_handler.setLevel(logging.INFO)
-        # console_handler.setLevel(logging.DEBUG)
+        # console_handler.setLevel(logging.INFO)
+        console_handler.setLevel(logging.WARNING)
         print("log level", self.log.level)
-        file_handler.setLevel(logging.INFO)
+        file_handler.setLevel(logging.DEBUG)
         print("log level", self.log.level)
 
         if self.test_mode:
@@ -132,7 +132,7 @@ class App():
 
 
         self.lastP=0 # TODO: move to pid module
-        self.pid_controller = PID()
+        self.pid_controller = PID(self.log)
         # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
 
         self.is_safety_responding = False
@@ -837,7 +837,7 @@ class App():
             for sensor in self.pressureSensors:
                 value = float(self.pressureSensors[sensor].getLast())
                 # print(f"{sensor}:{value}")
-                if 10 > value or value > 65536:
+                if not (0.1 < value < 655.36):
                     self.log.error(f"error in {sensor } sensor value: {value} is out of bound!")
                     # print("")
                     continue
@@ -870,6 +870,8 @@ class App():
 
         # PID
         error = target_depth - avg
+        self.log.debug('error = target_depth - avg')
+        self.log.debug(f'{error} = {target_depth} - {avg}')
         # print("Error",error, "target", target_depth, "avg", avg)
         scalar = self.pid_controller.pid(error)
         direction, voltage, dc, self.time_on_duration, self.time_off_duration = self.pid_controller.unpack(scalar, error)  # this is the line.
@@ -1150,6 +1152,7 @@ def main():
                 manager.app.send_sleep_to_nano()
             exit(0)
     except Exception as e:
+        print(e)
         print("unknown error: emergency full surface")
 
 

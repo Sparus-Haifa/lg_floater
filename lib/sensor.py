@@ -38,6 +38,10 @@ class Sensor:
             self.log.error(f"SENSOR ERROR: [{self.name}] Overflow value: [{sample}]") # TODO: handle
             return
         # self.t.append(sample)
+        if self.name in ['BP1','BP2','TP1','TP2']:
+            value/=100
+
+
         self.t.append(value)
 
     def isBufferFull(self):

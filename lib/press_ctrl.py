@@ -29,8 +29,8 @@ class Press_ctrl():
         bp1 = self.sensors["BP1"]
         bp2 = self.sensors["BP2"]
 
-        avgTop = ( tp1.getLast() + tp2.getLast() ) / 2 /100
-        avgBottom = ( bp1.getLast() + bp2.getLast() ) / 2 / 100
+        avgTop = ( tp1.getLast() + tp2.getLast() ) / 2 
+        avgBottom = ( bp1.getLast() + bp2.getLast() ) / 2 
 
         margin = 0.05
 
@@ -59,6 +59,6 @@ class Press_ctrl():
         avg = tp1.getLast() + tp2.getLast()
         avg/=2
 
-        if 1000 < avg < 1200:
+        if 10.00 < avg < 12.00:
             return True
         return False

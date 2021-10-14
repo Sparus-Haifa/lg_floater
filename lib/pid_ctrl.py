@@ -8,16 +8,17 @@ sys.path.append(base_path + os.sep + "cfg")
 import configuration as cfg
 
 class PID:
-    def __init__(self):
-        last_cmd_was_sent_at = None
+    def __init__(self, log):
+        # last_cmd_was_sent_at = None
+        self.log = log
         self.doInterpolation = False
         # 
         self.lastP = None
         self.lastTime = time.time()
         self.p = None
         self.d = None
-        self.kp = 0.2
-        self.kd = 7.0
+        self.kp = 0.2 * 100
+        self.kd = 7.0 * 100
 
     def reset_d(self):
         self.lastP = None
@@ -37,6 +38,8 @@ class PID:
         self.lastP = self.p
 
         scalar = self.p*self.kp-self.d*self.kd
+        self.log.info('scalar = self.p*self.kp-self.d*self.kd')
+        self.log.info(f'{scalar} = {self.p}*{self.kp}-{self.d}*{self.kd}')
         return scalar
 
     def unpack(self, scalar, error):
@@ -80,10 +83,10 @@ class PID:
         
     def interp_timeOn(self, current_err):
         current_err = abs(current_err)
-        if current_err > 100:
-            current_err = 100
+        if current_err > 10.0:
+            current_err = 10.0
         x1 = 0 # no error - spot on target!
-        x2 = 100 # max error
+        x2 = 10.0 # max error
         y1 = 0.5 # min timeOn is 0.5 sec
         y2 = 5 # max timeOn is 5 secs
 
@@ -97,11 +100,11 @@ class PID:
 
     def interp_dutyCycle(self, current_err):
         current_err = abs(current_err)
-        if current_err > 100:
-            current_err = 100
+        if current_err > 10.0:
+            current_err = 10.0
 
         x1 = 0 # no error
-        x2 = 100 # max error
+        x2 = 10.0 # max error
         y1 = 0.05 # min utility 0% (min dc)
         y2 = 1 # max utility 100% (max dc)
 

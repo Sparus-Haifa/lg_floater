@@ -111,7 +111,7 @@ task = {
     "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    "target_depth" : 3000  # millibar
+    "target_depth" : 30.0  # millibar
     # "max_time_off_duration" : 100.0
 
 }
