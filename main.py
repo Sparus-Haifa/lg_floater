@@ -1048,6 +1048,7 @@ class TaskManager:
         self.depth = self.app.current_depth
 
     def set_target_depth(self, target_depth):
+        self.log.info(f'setting target depth to {target_depth} [mbar]')
         self.app.target_depth = target_depth
 
 #-----------------------MAIN BODY--------------------------#
@@ -1074,8 +1075,9 @@ def mission_1(manager):
 
 def mission_2(manager):
     mission_state = MissionState.EN_ROUTE
-    planned_depths = [0,3000,'E',0]
+    planned_depths = [30.0, 0, 40.0,'E',0]
     # planned_depths = ['E']
+    manager.set_target_depth(planned_depths[0])
 
     while True:
         manager.run_once()
