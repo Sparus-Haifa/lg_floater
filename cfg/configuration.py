@@ -23,7 +23,7 @@ app = {
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",
 
-    "disable_safety" : True,
+    "disable_safety" : False,
     "test_mode" : True,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True,

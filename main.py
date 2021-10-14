@@ -894,6 +894,7 @@ class App():
             self.comm.write(f"phase:{phase}\n") # sim debug
             self.comm.write(f"PID:{scalar}\n") # sim debug
             self.comm.write(f"O:{self.time_off_duration}\n") # sim debug
+            self.comm.write(f"dc:{dc}\n")
 
         
         # bv = self.sensors["BV"].getLast()
@@ -1075,7 +1076,7 @@ def mission_1(manager):
 
 def mission_2(manager):
     mission_state = MissionState.EN_ROUTE
-    planned_depths = [30.0, 0, 40.0,'E',0]
+    planned_depths = [20.0, 0, 40.0,'E',0]
     # planned_depths = ['E']
     manager.set_target_depth(planned_depths[0])
 
@@ -1149,10 +1150,18 @@ def main():
             manager.app.log.critical('System shutdown')
             manager.app.clean()
             manager.app.log.info('cleaning (resetting rpi gpio)')
+            manager.app.log.critical(e)
             if not manager.app.disable_safety:
                 manager.app.log.info('sending sleep to nano')
-                manager.app.send_sleep_to_nano()
-            exit(0)
+                # manager.app.send_sleep_to_nano()
+                manager.app.sleep_safety()
+                while manager.app.waiting_for_nano_sleep:
+                    manager.app.log.info('waiting for nano to respond/sleep')
+                    time.sleep(0.1)
+                manager.app.log.info('nano is sleeping')
+            exit(1)
+        except Exception as e:
+            manager.app.log.critical(e)
     except Exception as e:
         print(e)
         print("unknown error: emergency full surface")

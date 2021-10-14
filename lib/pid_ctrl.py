@@ -17,8 +17,8 @@ class PID:
         self.lastTime = time.time()
         self.p = None
         self.d = None
-        self.kp = 0.2 * 100
-        self.kd = 7.0 * 100
+        self.kp = 10
+        self.kd = 250
 
     def reset_d(self):
         self.lastP = None
@@ -83,10 +83,10 @@ class PID:
         
     def interp_timeOn(self, current_err):
         current_err = abs(current_err)
-        if current_err > 10.0:
-            current_err = 10.0
+        if current_err > 5.0:
+            current_err = 5.0
         x1 = 0 # no error - spot on target!
-        x2 = 10.0 # max error
+        x2 = 5.0 # max error
         y1 = 0.5 # min timeOn is 0.5 sec
         y2 = 5 # max timeOn is 5 secs
 
@@ -94,25 +94,25 @@ class PID:
 
         # print("m",m)
 
-        timeOn = 0.5 + m * current_err
-        # print("timeOn",timeOn)
+        timeOn = y1 + m * current_err
+        self.log.debug(f"timeOn: {timeOn}")
         return round(timeOn,1)
 
     def interp_dutyCycle(self, current_err):
         current_err = abs(current_err)
-        if current_err > 10.0:
-            current_err = 10.0
+        if current_err > 5.0:
+            current_err = 5.0
 
         x1 = 0 # no error
-        x2 = 10.0 # max error
+        x2 = 5.0 # max error
         y1 = 0.05 # min utility 0% (min dc)
         y2 = 1 # max utility 100% (max dc)
 
         m = (y2-y1)/(x2-x1)
         # print("m",m)
 
-        dc = 0.0 + m * current_err
-        # print("duty cycle", dc)
+        dc = y1 + m * current_err
+        self.log.debug(f"duty cycle: {dc}")
         return dc
 
     def calc_timeOff(self, timeOn, dc):
