@@ -23,7 +23,8 @@ from enum import Enum
 
 import sys # for args, and log out
 
-import logging
+# import logging
+from lib.logger import Logger
 
 import os  # for log file path
 
@@ -46,8 +47,8 @@ SAFETY_TIMEOUT = cfg.safety["timeout"]
 
 
 
-class App():
-    def __init__(self):
+class Pilot():
+    def __init__(self, log):
 
         self.simulation = cfg.app["simulation"]
         self.disable_safety = cfg.app["disable_safety"]
@@ -58,7 +59,8 @@ class App():
         if self.test_mode or self.disable_safety or self.disable_altimeter:
             self.test_mode = True
 
-
+        self.log = log        
+        """
         self.log = logging.getLogger()
         self.log.setLevel(logging.DEBUG)
         # self.log.info("init")
@@ -101,7 +103,7 @@ class App():
         self.log.addHandler(file_handler)
 
         # self.log.debug("debug")
-
+        """
 
         if self.simulation:
             self.log.warning("Simulation mode")
@@ -1080,13 +1082,13 @@ class App():
 
 MARGIN = 5.0
 
-class TaskManager:
-    def __init__(self) -> None:
-        self.app = App()
+class Captain:
+    def __init__(self, log) -> None:
+        self.app = Pilot(log)
         self.depth = None
         self.last_depth = None
         self.mission_timer = None
-        self.log = self.app.log
+        self.log = log
         if not self.app.skip_arduino_compile:
             burner = ArduinoBurner(self.app.log)
             burner.burn_boards()
@@ -1203,9 +1205,11 @@ def mission_2(manager):
 
 
 def main():
+        logger = Logger(cfg.app['simulation'])
+        log = logger.get_log()
     # while True:
         try:
-            manager = TaskManager()
+            manager = Captain(log)
             try:
                 mission_2(manager)
             except KeyboardInterrupt as e:
