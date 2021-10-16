@@ -83,7 +83,7 @@ class App():
         # console_handler.setLevel(logging.INFO)
         console_handler.setLevel(logging.WARNING)
         print("log level", self.log.level)
-        file_handler.setLevel(logging.DEBUG)
+        file_handler.setLevel(logging.INFO)
         print("log level", self.log.level)
 
         if self.test_mode:
@@ -495,8 +495,8 @@ class App():
         if self.test_command is not None:
             command = self.test_command
             value = self.test_value
-            self.test_command = None
-            self.test_value = None
+            # self.test_command = None
+            # self.test_value = None
 
             if command == "restart":
                 self.log.warning("restarting")
@@ -509,6 +509,7 @@ class App():
                         self.flags[flag].reset()
                 
                 reset()
+                self.test_command = None
 
             if command == "stop":
                 self.current_state = State.STOP
@@ -518,42 +519,78 @@ class App():
                 self.log.debug(f"setting setpoint to {value}")
                 self.target_depth = float(value)
                 self.pid_controller.reset_d()
+                self.test_command = None
+
 
             if command == "water":
                 self.log.debug("water test")
                 if self.current_state == State.EXEC_TASK:
                     self.current_state = State.STOP
+                    self.test_command = None
+
                 else:
                     self.current_state = State.WAIT_FOR_WATER
-                    self.test_command = "water"
+                    # self.test_command = "water"
 
             if command == "exec_task":
-                self.log.debug("execute task")
-                self.current_state = State.EXEC_TASK
+                self.log.debug('exec_task')
+                if self.current_state == State.STOP:
+                    self.log.debug('switching state to WAIT_FOR_SAFETY')
+                    self.current_state = State.EXEC_TASK
+                elif self.current_state == State.EXEC_TASK:
+                    self.log.debug('testing: EXEC_TASK')
+                elif self.current_state != State.EXEC_TASK:
+                    self.log.debug('switching state back to STOP')
+                    self.current_state = State.STOP
+                    self.test_command = None
 
             if command == "pickup":
-                self.log.debug("wait for pickup")
-                self.current_state = State.WAIT_FOR_PICKUP
+                pass
+                # self.log.debug("wait for pickup")
+                # self.current_state = State.WAIT_FOR_PICKUP
 
             if command == "sink_wait_climb":
                 self.log.debug("sink_wait_climb")
                 # TODO
 
-            if command == 'loop_flag':
-                self.log.debug('loop_flag')
-                self.comm_safety.write('L')
+            if command == 'wakeup_safety':
+                self.log.debug('wakeup_safety')
+                if self.current_state == State.STOP:
+                    self.log.debug('switching state to WAIT_FOR_SAFETY')
+                    self.current_state = State.WAIT_FOR_SAFETY
+                elif self.current_state == State.WAIT_FOR_SAFETY:
+                    self.log.debug('test command wait for safety')
+                elif self.current_state != State.WAIT_FOR_SAFETY:
+                    self.log.debug('switching state back to STOP')
+                    self.current_state = State.STOP
+                    self.test_command = None
+                # else:
+                #     self.current_state = State.WAIT_FOR_SAFETY
+
+            if command == 'sleep_safety':
+                self.log.debug('sleep_safety')
+                if self.current_state == State.STOP:
+                    self.log.debug('switching state to SLEEP_SAFETY')
+                    self.current_state = State.SLEEP_SAFETY
+
+                elif self.current_state != State.SLEEP_SAFETY:
+                    self.current_state = State.STOP
+                    self.test_command = None
+
+
                     
                 
-
         self.run_mission_sequence()
         pass
 
     def sleep_safety(self):
         # safety logic
         safety_is_enabled = not self.disable_safety
-        sent_sleep_message_to_safety = not self.sent_sleep_to_nano
-        if safety_is_enabled and not sent_sleep_message_to_safety and (not self.weightDropped and not self.drop_weight_command_sent):
+
+        if safety_is_enabled and not self.sent_sleep_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
+            self.log.debug('inside 1')
             if not self.waiting_for_nano_sleep:
+                self.log.debug('inside 2')
                 self.sent_sleep_to_nano = True
                 self.waiting_for_nano_sleep = True
                 self.send_sleep_to_nano()
@@ -606,9 +643,19 @@ class App():
                 self.current_state = State.WAIT_FOR_SENSOR_BUFFER
             self.safety_watchdog_is_enabled = True
             if self.is_safety_responding:
+                self.log.info('safety is awake and pinging')
+                # reset state vars
+                self.wake_up_sent_to_nano = False  # ressting nano state
+                self.nano_is_sleeping = False  # ressting nano state
+                self.wake_up_sent_to_nano = False  # ressting nano state
+                self.waiting_for_nano_sleep = False  # ressting nano state
+                self.sent_sleep_to_nano = False  # ressting nano state
                 self.current_state = State.WAIT_FOR_SENSOR_BUFFER
             else:
-                self.log.info("waiting for safety to respond")
+                if self.nano_is_sleeping:
+                    self.log.info("waiting for safety to respond")
+                else:
+                    self.log.info('waiting for safety to ping')
                 if not self.wake_up_sent_to_nano:
                     self.wake_up_nano()
 
@@ -657,9 +704,9 @@ class App():
                 self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
 
-        # Wait for pickup - Iradium
-        elif self.current_state == State.WAIT_FOR_PICKUP:
-            self.log.info("waiting for pickup")
+        # Wait for safety to sleep
+        elif self.current_state == State.SLEEP_SAFETY:
+            self.log.info("waiting for safety to sleep")
             self.sleep_safety()
 
             # let nano sleep (if pressure is)
@@ -667,16 +714,29 @@ class App():
 
             # send iradium flag (I:1)
             
-            if not self.disable_safety and not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
-                self.send_sleep_to_nano()
+            # if not self.disable_safety and not self.sleep_sent_to_nano and (not self.weightDropped and not self.drop_weight_command_sent):
+            #     self.send_sleep_to_nano()
             
             if self.nano_is_sleeping:
                 self.log.debug("nano is sleeping")
+                self.is_safety_responding = False  # resetting nano state
+                # self.wake_up_sent_to_nano = False  # ressting nano state
+                self.waiting_for_nano_sleep = False  # ressting nano state
+                self.sent_sleep_to_nano = False  # ressting nano state
+                self.current_state = State.WAIT_FOR_PICKUP
+
+        # Wait for pickup - Iradium
+        elif self.current_state == State.WAIT_FOR_PICKUP:
+            self.log.info("waiting for pickup")
+
 
             if not self.iridium_command_was_sent:
                 self.log.info("Sending command to iridium")
                 self.iridium_command_was_sent = True
                 self.comm.write(f"I:1") 
+
+            else:
+                self.log.debug('iridium_command_was_sent')
                 
 
 
@@ -713,7 +773,7 @@ class App():
 
 
     def send_sleep_to_nano(self):
-        self.sleep_sent_to_nano = True
+        # self.sleep_sent_to_nano = True
         self.comm_safety.write("N:5")
 
     # def sleep_nano(self):
@@ -1018,7 +1078,7 @@ class App():
 
 
 
-MARGIN = 1000
+MARGIN = 5.0
 
 class TaskManager:
     def __init__(self) -> None:
@@ -1054,29 +1114,30 @@ class TaskManager:
 
 #-----------------------MAIN BODY--------------------------#
 
-def mission_1(manager):
-    while True:
-        manager.run_once()
-        if manager.depth and manager.depth != manager.last_depth:  # new depth
-            manager.log.debug('new depth reached:' + str(round(manager.depth,2)))
-            # last_depth = depth
+# def mission_1(manager):
+#     while True:
+#         manager.run_once()
+#         if manager.depth and manager.depth != manager.last_depth:  # new depth
+#             manager.log.debug('new depth reached:' + str(round(manager.depth,2)))
+#             # last_depth = depth
 
-            threshold_reached = manager.depth - MARGIN < manager.app.target_depth < manager.depth + MARGIN
-            timer_started = manager.mission_timer is not None
-            if threshold_reached and not timer_started:
-                manager.app.log.info('starting timer')
-                manager.mission_timer = time.time()
+#             threshold_reached = manager.depth - MARGIN < manager.app.target_depth < manager.depth + MARGIN
+#             timer_started = manager.mission_timer is not None
+#             if threshold_reached and not timer_started:
+#                 manager.app.log.info('starting timer')
+#                 manager.mission_timer = time.time()
 
-            if manager.mission_timer and time.time() - manager.mission_timer > 60:
-                manager.log.info('time is up')
-                manager.app.current_state = State.END_TASK
+#             if manager.mission_timer and time.time() - manager.mission_timer > 60:
+#                 manager.log.info('time is up')
+#                 manager.app.current_state = State.END_TASK
 
 
-        time.sleep(0.01)
+#         time.sleep(0.01)
 
 def mission_2(manager):
     mission_state = MissionState.EN_ROUTE
-    planned_depths = [20.0, 0, 40.0,'E',0]
+    # planned_depths = [20.0, 0, 40.0,'E',0]
+    planned_depths = [20.0, 0, 40.0, 0]
     # planned_depths = ['E']
     manager.set_target_depth(planned_depths[0])
 
@@ -1099,7 +1160,7 @@ def mission_2(manager):
 
             elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                if manager.mission_timer and time.time() - manager.mission_timer > 3000:
+                if manager.mission_timer and time.time() - manager.mission_timer > 30:
                     manager.log.info('hold position timer is up')
                     manager.mission_timer = None
                     if not planned_depths:
@@ -1142,28 +1203,34 @@ def mission_2(manager):
 
 
 def main():
-    try:
-        manager = TaskManager()
+    # while True:
         try:
-            mission_2(manager)
-        except KeyboardInterrupt as e:
-            manager.app.log.critical('System shutdown')
-            manager.app.clean()
-            manager.app.log.info('cleaning (resetting rpi gpio)')
-            manager.app.log.critical(e)
-            if not manager.app.disable_safety:
-                manager.app.log.info('sending sleep to nano')
-                # manager.app.send_sleep_to_nano()
-                manager.app.sleep_safety()
-                while manager.app.waiting_for_nano_sleep:
-                    manager.app.log.info('waiting for nano to respond/sleep')
-                    time.sleep(0.1)
-                manager.app.log.info('nano is sleeping')
-            exit(1)
+            manager = TaskManager()
+            try:
+                mission_2(manager)
+            except KeyboardInterrupt as e:
+                manager.app.log.critical('System shutdown')
+                manager.app.clean()
+                manager.app.log.info('cleaning (resetting rpi gpio)')
+                manager.app.log.critical(e)
+                if not manager.app.disable_safety:
+                    manager.app.log.info('sending sleep to nano')
+                    # manager.app.send_sleep_to_nano()
+                    manager.app.sleep_safety()
+                    manager.app.current_state = State.SLEEP_SAFETY
+                    while not manager.app.nano_is_sleeping:
+                        manager.app.log.info('waiting for nano to respond/sleep')
+                        manager.run_once()
+                        time.sleep(0.1)
+                    manager.app.log.info('nano is sleeping')
+                exit(1)
+            except Exception as e:
+                manager.app.log.critical(e)
+
         except Exception as e:
-            manager.app.log.critical(e)
-    except Exception as e:
-        print(e)
+            print(e)
+            print("unknown error: emergency full surface")
+
         print("unknown error: emergency full surface")
 
 

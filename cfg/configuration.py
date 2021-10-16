@@ -7,6 +7,7 @@ class State(Enum):
     WAIT_FOR_WATER = auto()
     EXEC_TASK = auto()
     END_TASK = auto()
+    SLEEP_SAFETY = auto()
     WAIT_FOR_PICKUP = auto()
     EMERGENCY = auto()
     STOP = auto()
