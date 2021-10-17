@@ -62,3 +62,22 @@ class Press_ctrl():
         if 10.00 < avg < 12.00:
             return True
         return False
+
+    def getAvgDepthSensorsRead(self):
+            avg = 0
+            count = 0
+            for sensor in self.sensors:
+                value = float(self.sensors[sensor].getLast())
+                # print(f"{sensor}:{value}")
+                if not (0.1 < value < 655.36):
+                    self.log.error(f"error in {sensor } sensor value: {value} is out of bound!")
+                    # print("")
+                    continue
+                avg+=value
+                count+=1
+            
+            if count==0:
+                self.log.error("error /0. no valid pressure sensors data available") # no valid presure sensors data
+                return None
+            avg/=count
+            return avg      

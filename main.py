@@ -47,7 +47,7 @@ SAFETY_TIMEOUT = cfg.safety["timeout"]
 
 
 
-class Pilot():
+class Controller():
     def __init__(self, log):
 
         self.simulation = cfg.app["simulation"]
@@ -60,50 +60,7 @@ class Pilot():
             self.test_mode = True
 
         self.log = log        
-        """
-        self.log = logging.getLogger()
-        self.log.setLevel(logging.DEBUG)
-        # self.log.info("init")
-        # self.log.setLevel(logging.NOTSET)
-
-        print("log level", self.log.level)
-        console_handler = logging.StreamHandler(sys.stdout)
-        # file_handler = logging.FileHandler(os.path.join('log','logfile.log')
-        # from lib.logger import Logger
-        # l = Logger()
-        # s = l.log_name
-        s = 'log.log'
-        # file_handler = logging.FileHandler('log/logfile.log')
-        print(s)
-        # file_handler = logging.FileHandler(s)
-        full_path = os.path.join('log',s)
-        file_handler = logging.FileHandler(full_path)
-
-
-
-
-        # console_handler.setLevel(logging.INFO)
-        console_handler.setLevel(logging.WARNING)
-        print("log level", self.log.level)
-        file_handler.setLevel(logging.INFO)
-        print("log level", self.log.level)
-
-        if self.test_mode:
-            formatter    = logging.Formatter('%(asctime)s:TEST-MODE:%(levelname)s: %(message)s')
-        else:
-            formatter    = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
-
-        console_handler.setFormatter(formatter)
-        file_handler.setFormatter(formatter)
-
-
-        
-
-        self.log.addHandler(console_handler)
-        self.log.addHandler(file_handler)
-
-        # self.log.debug("debug")
-        """
+    
 
         if self.simulation:
             self.log.warning("Simulation mode")
@@ -119,32 +76,44 @@ class Pilot():
         else:
             self.current_state = State.INIT
 
+        self.current_mission_state = None
+
         self.target_depth = cfg.task["target_depth"]
         self.current_depth = None
 
         self.lastTime = time.time()  # global timer
         self.mission_timer = None  # timer for main mission to stop and end mission
 
+        # Iridium
         self.iridium_command_was_sent = False
+
+        # Nano
         self.sent_sleep_to_nano = False
         self.waiting_for_nano_sleep = False
         self.wake_up_sent_to_nano = False
-        # self.waiting_for_nano_to_wake_up = False
-
-
-
-        self.lastP=0 # TODO: move to pid module
-        self.pid_controller = PID(self.log)
-        # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
-
         self.is_safety_responding = False
         self.weightDropped = False
         self.drop_weight_command_sent = False
-        self.surface_command_sent = False
         self.safteyTimer = None
         self.safety_watchdog_is_enabled = False  # when we start timing safety
+        self.sleep_sent_to_nano = False
+        self.nano_is_sleeping = True
+        # safety = Safety(cfg.safety["min_alt"], cfg.safety["max_interval_between_pings"], log)
+
+
+        # PID
+        self.pid_controller = PID(self.log)
+        # self.lastP=0 # TODO: move to pid module
+        self.pid_sent_time = None
+        # self.pid_sent
+
+
+
+
+        self.surface_command_sent = False
         # self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
+        # Bladder status
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
 
@@ -152,8 +121,6 @@ class Pilot():
         self.waterSenseDuration =  WAIT_FOR_WATER_DURATION  #  5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
 
-        self.sleep_sent_to_nano = False
-        self.nano_is_sleeping = True
 
         # Task execusion timers
         self.time_off_duration = None
@@ -161,8 +128,6 @@ class Pilot():
         # self.dcTimer = None
         self.time_off_timer = None
         
-        # self.pid_sent
-        self.pid_sent_time = None
 
 
         # setup GPIO
@@ -825,6 +790,7 @@ class Pilot():
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
+        res['MissionState']=self.current_mission_state
 
         # timeOn display
         pump_flag = self.pumpFlag.getLast()
@@ -893,26 +859,7 @@ class Pilot():
         self.log.debug("calculating PID")
 
 
-        def getAvgDepthSensorsRead():
-            avg = 0
-            count = 0
-            for sensor in self.pressureSensors:
-                value = float(self.pressureSensors[sensor].getLast())
-                # print(f"{sensor}:{value}")
-                if not (0.1 < value < 655.36):
-                    self.log.error(f"error in {sensor } sensor value: {value} is out of bound!")
-                    # print("")
-                    continue
-                avg+=value
-                count+=1
-            
-            if count==0:
-                self.log.error("error /0. no valid pressure sensors data available") # no valid presure sensors data
-                return None
-            avg/=count
-            return avg
-
-        avg = getAvgDepthSensorsRead()
+        avg = self.pressureController.getAvgDepthSensorsRead()
         self.current_depth = avg  # update current depth
         if not avg:
             self.log.error("ERROR: Could not calculate depth - not enough working sensors")
@@ -1082,37 +1029,42 @@ class Pilot():
 
 MARGIN = 5.0
 
-class Captain:
-    def __init__(self, log) -> None:
-        self.app = Pilot(log)
+class Pilot:
+    def __init__(self, log, controller) -> None:
+        self.controller = controller
         self.depth = None
         self.last_depth = None
         self.mission_timer = None
         self.log = log
-        if not self.app.skip_arduino_compile:
-            burner = ArduinoBurner(self.app.log)
+        if not self.controller.skip_arduino_compile:
+            burner = ArduinoBurner(self.controller.log)
             burner.burn_boards()
 
     
 
-        self.app.lastTime = time.time()
+        self.controller.lastTime = time.time()
 
     def run_once(self):
 
-        self.app.get_next_serial_line()
-        if not self.app.disable_safety:
-            self.app.get_next_serial_line_safety()
-        if self.app.test_mode:
+        self.controller.get_next_serial_line()
+        if not self.controller.disable_safety:
+            self.controller.get_next_serial_line_safety()
+        if self.controller.test_mode:
 
-            self.app.get_cli_command()
+            self.controller.get_cli_command()
 
         # update relevant data
         self.last_depth = self.depth
-        self.depth = self.app.current_depth
+        self.depth = self.controller.current_depth
 
     def set_target_depth(self, target_depth):
         self.log.info(f'setting target depth to {target_depth} [mbar]')
-        self.app.target_depth = target_depth
+        self.controller.target_depth = target_depth
+
+    def set_mission_state(self, state):
+        self.log.info(f'setting state to {state}')
+        self.controller.current_mission_state = state
+
 
 #-----------------------MAIN BODY--------------------------#
 
@@ -1136,71 +1088,84 @@ class Captain:
 
 #         time.sleep(0.01)
 
-def mission_2(manager):
-    mission_state = MissionState.EN_ROUTE
-    # planned_depths = [20.0, 0, 40.0,'E',0]
-    planned_depths = [20.0, 0, 40.0, 0]
-    # planned_depths = ['E']
-    manager.set_target_depth(planned_depths[0])
+class Captain:
+    def __init__(self, log, pilot) -> None:
+        self.log = log
+        self.pilot = pilot
 
-    while True:
-        manager.run_once()
-        if manager.depth and manager.depth != manager.last_depth:  # new depth
-            manager.log.debug('new depth reached:' + str(round(manager.depth,2)))
-            # last_depth = depth
+    def mission_2(self):
+        mission_state = MissionState.EN_ROUTE
+        # planned_depths = [20.0, 0, 40.0,'E',0]
+        planned_depths = [50.0, 0, 70.0, 0]
+        # planned_depths = ['E']
+        self.pilot.set_target_depth(planned_depths.pop(0))  # set the first target depth
+        self.pilot.set_mission_state(mission_state)
 
-            if mission_state == MissionState.EN_ROUTE:
+        while True:
+            self.pilot.run_once()  # RUN ONCE
+            if self.pilot.depth and self.pilot.depth != self.pilot.last_depth:  # new depth
+                self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
+                # last_depth = depth
 
-                threshold_reached = manager.depth - MARGIN < manager.app.target_depth < manager.depth + MARGIN
-                timer_started = manager.mission_timer is not None
-                if threshold_reached and not timer_started:
-                    manager.app.log.info('starting timer')
-                    manager.mission_timer = time.time()
-                    mission_state = MissionState.HOLD_ON_TARGET
-                    manager.log.info(mission_state)
-                    
+                if mission_state == MissionState.EN_ROUTE:
 
-            elif mission_state == MissionState.HOLD_ON_TARGET:
-
-                if manager.mission_timer and time.time() - manager.mission_timer > 30:
-                    manager.log.info('hold position timer is up')
-                    manager.mission_timer = None
-                    if not planned_depths:
-                        manager.app.current_state = State.END_TASK
+                    threshold_reached = self.pilot.depth - MARGIN < self.pilot.controller.target_depth < self.pilot.depth + MARGIN
+                    timer_started = self.pilot.mission_timer is not None
+                    if threshold_reached and not timer_started:
+                        self.pilot.controller.log.info('starting timer')
+                        self.pilot.mission_timer = time.time()
                         mission_state = MissionState.HOLD_ON_TARGET
-                        continue
+                        self.pilot.set_mission_state(mission_state)
+                        self.log.info(mission_state)
+                        
 
-                    next_target_depth = planned_depths.pop(0)
+                elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if next_target_depth == 'E':
-                        manager.app.current_state = State.EMERGENCY
-                        mission_state = MissionState.MISSION_ABORT
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
+                        self.log.info('hold position timer is up')
+                        self.pilot.mission_timer = None
+                        if not planned_depths:
+                            self.pilot.controller.current_state = State.END_TASK
+                            mission_state = MissionState.HOLD_ON_TARGET
+                            self.pilot.set_mission_state(mission_state)
+                            continue
 
-                    manager.set_target_depth(next_target_depth)
-                    if next_target_depth == 0:
-                        mission_state = MissionState.SURFACE
-                        manager.log.info(mission_state)
-                        continue
-                    mission_state = MissionState.EN_ROUTE
-                    manager.log.info(mission_state)
+                        next_target_depth = planned_depths.pop(0)
 
-
-            elif mission_state == MissionState.SURFACE:
-                surface_reached = manager.app.pressureController.senseAir()
-                timer_started = manager.mission_timer is not None
-                if surface_reached and not timer_started:
-                    manager.app.log.info('starting timer')
-                    manager.mission_timer = time.time()
-                    mission_state = MissionState.HOLD_ON_TARGET
-                    manager.app.comm.write(f"I:1") 
-                    manager.log.info(mission_state)
-
-            elif mission_state == MissionState.MISSION_ABORT:
-                continue
+                        if next_target_depth == 'E':
+                            self.pilot.controller.current_state = State.EMERGENCY
+                            mission_state = MissionState.MISSION_ABORT
+                            self.pilot.set_mission_state(mission_state)
 
 
+                        self.pilot.set_target_depth(next_target_depth)
+                        if next_target_depth == 0:
+                            mission_state = MissionState.SURFACE
+                            self.pilot.set_mission_state(mission_state)
+                            self.log.info(mission_state)
+                            continue
+                        mission_state = MissionState.EN_ROUTE
+                        self.log.info(mission_state)
+                        self.pilot.set_mission_state(mission_state)
 
-        time.sleep(0.01)     
+
+                elif mission_state == MissionState.SURFACE:
+                    surface_reached = self.pilot.controller.pressureController.senseAir()
+                    timer_started = self.pilot.mission_timer is not None
+                    if surface_reached and not timer_started:
+                        self.log.info('starting timer')
+                        self.pilot.mission_timer = time.time()
+                        mission_state = MissionState.HOLD_ON_TARGET
+                        self.pilot.set_mission_state(mission_state)
+                        self.pilot.controller.comm.write(f"I:1") 
+                        self.log.info(mission_state)
+
+                elif mission_state == MissionState.MISSION_ABORT:
+                    continue
+
+
+
+            time.sleep(0.01)     
 
 
 
@@ -1209,33 +1174,37 @@ def main():
         log = logger.get_log()
     # while True:
         try:
-            manager = Captain(log)
+            controller = Controller(log)
+            pilot = Pilot(log, controller)
+            captain = Captain(log, pilot)
             try:
-                mission_2(manager)
+                captain.mission_2()
             except KeyboardInterrupt as e:
-                manager.app.log.critical('System shutdown')
-                manager.app.clean()
-                manager.app.log.info('cleaning (resetting rpi gpio)')
-                manager.app.log.critical(e)
-                if not manager.app.disable_safety:
-                    manager.app.log.info('sending sleep to nano')
+                log.info(e)
+                log.critical('System shutdown')
+                pilot.controller.clean()
+                log.info('cleaning (resetting rpi gpio)')
+                if not pilot.controller.disable_safety:
+                    log.info('sending sleep to nano')
                     # manager.app.send_sleep_to_nano()
-                    manager.app.sleep_safety()
-                    manager.app.current_state = State.SLEEP_SAFETY
-                    while not manager.app.nano_is_sleeping:
-                        manager.app.log.info('waiting for nano to respond/sleep')
-                        manager.run_once()
+                    pilot.controller.sleep_safety()
+                    pilot.controller.current_state = State.SLEEP_SAFETY
+                    while not pilot.controller.nano_is_sleeping:
+                        log.info('waiting for nano to respond/sleep')
+                        pilot.run_once()
                         time.sleep(0.1)
-                    manager.app.log.info('nano is sleeping')
+                    log.info('nano is sleeping')
                 exit(1)
             except Exception as e:
-                manager.app.log.critical(e)
+                log.exception(e)
 
         except Exception as e:
-            print(e)
+            log.exception(e)
             print("unknown error: emergency full surface")
+            log.critical("unknown error: emergency full surface")
 
         print("unknown error: emergency full surface")
+        log.critical("unknown error: emergency full surface")
 
 
     
