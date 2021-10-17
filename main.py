@@ -1094,12 +1094,14 @@ class Captain:
         self.pilot = pilot
 
     def mission_2(self):
-        mission_state = MissionState.EN_ROUTE
+        mission_state = MissionState.DESCENDING
         # planned_depths = [20.0, 0, 40.0,'E',0]
         planned_depths = [50.0, 0, 70.0, 0]
         # planned_depths = ['E']
         self.pilot.set_target_depth(planned_depths.pop(0))  # set the first target depth
         self.pilot.set_mission_state(mission_state)
+
+        self.pilot.controller.pid_controller.kd = 0
 
         while True:
             self.pilot.run_once()  # RUN ONCE
@@ -1107,12 +1109,23 @@ class Captain:
                 self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
                 # last_depth = depth
 
-                if mission_state == MissionState.EN_ROUTE:
+
+
+                if mission_state == MissionState.DESCENDING:
+                    min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume
+                    self.log.warning(f'min_bladder_reached {min_bladder_reached}')
+                    if min_bladder_reached:
+                        mission_state = MissionState.EN_ROUTE
+                        self.pilot.set_mission_state(mission_state)
+                        self.pilot.controller.pid_controller.kd = 250
+
+
+                elif mission_state == MissionState.EN_ROUTE:
 
                     threshold_reached = self.pilot.depth - MARGIN < self.pilot.controller.target_depth < self.pilot.depth + MARGIN
                     timer_started = self.pilot.mission_timer is not None
                     if threshold_reached and not timer_started:
-                        self.pilot.controller.log.info('starting timer')
+                        self.log.info('starting timer')
                         self.pilot.mission_timer = time.time()
                         mission_state = MissionState.HOLD_ON_TARGET
                         self.pilot.set_mission_state(mission_state)
@@ -1143,10 +1156,14 @@ class Captain:
                             mission_state = MissionState.SURFACE
                             self.pilot.set_mission_state(mission_state)
                             self.log.info(mission_state)
+                            self.pilot.controller.pid_controller.kd = 0
                             continue
+                        
                         mission_state = MissionState.EN_ROUTE
                         self.log.info(mission_state)
                         self.pilot.set_mission_state(mission_state)
+                        self.pilot.controller.pid_controller.kd = 250
+                        
 
 
                 elif mission_state == MissionState.SURFACE:
