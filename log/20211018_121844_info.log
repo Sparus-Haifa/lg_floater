@@ -1,0 +1,924 @@
+2021-10-18 12:18:44,736:WARNING: Safety is disabled
+2021-10-18 12:18:44,737:WARNING: Test mode
+2021-10-18 12:18:44,739:INFO: Pressure controller was initialized successfully
+2021-10-18 12:18:44,740:INFO: BP1 pressure sensor was initialized successfully
+2021-10-18 12:18:44,740:INFO: BP2 pressure sensor was initialized successfully
+2021-10-18 12:18:44,741:INFO: TP1 pressure sensor was initialized successfully
+2021-10-18 12:18:44,742:INFO: TP2 pressure sensor was initialized successfully
+2021-10-18 12:18:44,743:INFO: HP pressure sensor was initialized successfully
+2021-10-18 12:18:44,744:INFO: AP pressure sensor was initialized successfully
+2021-10-18 12:18:44,745:INFO: Temperature controller was initialized successfully
+2021-10-18 12:18:44,746:INFO: BT1 temperature sensor was initialized successfully
+2021-10-18 12:18:44,748:INFO: BT2 temperature sensor was initialized successfully
+2021-10-18 12:18:44,750:INFO: TT1 temperature sensor was initialized successfully
+2021-10-18 12:18:44,751:INFO: TT2 temperature sensor was initialized successfully
+2021-10-18 12:18:44,753:INFO: AT temperature sensor was initialized successfully
+2021-10-18 12:18:44,754:INFO: IMU controller was initialized successfully
+2021-10-18 12:18:44,755:INFO: X IMU sensor was initialized successfully
+2021-10-18 12:18:44,756:INFO: Y IMU sensor was initialized successfully
+2021-10-18 12:18:44,757:INFO: Z IMU sensor was initialized successfully
+2021-10-18 12:18:44,758:INFO: Bladder volume controller was initialized successfully
+2021-10-18 12:18:44,759:INFO: Altimeter controller was initialized successfully
+2021-10-18 12:18:44,760:INFO: rpm controller was initialized successfully
+2021-10-18 12:18:44,760:INFO: Pump flag controller was initialized successfully
+2021-10-18 12:18:44,761:INFO: Bladder flag controller was initialized successfully
+2021-10-18 12:18:44,762:INFO: Hull leak flag controller was initialized successfully
+2021-10-18 12:18:44,763:INFO: Engine leak flag controller was initialized successfully
+2021-10-18 12:18:44,763:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-18 12:18:44,775:INFO: SerialComm was initialized successfully
+2021-10-18 12:18:44,788:INFO: Profile file loaded successfully
+
+2021-10-18 12:18:44,789:INFO: Profile class was initialized successfully
+
+2021-10-18 12:18:44,790:INFO: setting target depth to 11.5 [mbar]
+2021-10-18 12:18:44,791:INFO: setting state to MissionState.DESCENDING
+2021-10-18 12:18:50,008:INFO: State.STOP
+2021-10-18 12:18:50,010:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL EL BF   SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:50,011:INFO: Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) 0  0  0  0  None None None 80.46 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:50,012:WARNING: Stopped
+2021-10-18 12:18:50,557:INFO: State.STOP
+2021-10-18 12:18:50,558:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:50,559:INFO: Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) 0.00 100.00 0  0  0  None None 80.49 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:50,560:WARNING: Stopped
+2021-10-18 12:18:51,109:INFO: State.STOP
+2021-10-18 12:18:51,110:INFO: BT1             BT2             TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP              PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:51,111:INFO: Buffering (4/5) Buffering (4/5) 26.24 26.31 29.04 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.89 12.07 10.95 11.10 1225.72 Buffering (4/5) 0.00 100.00 0  0  0  None None 80.44 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:51,112:WARNING: Stopped
+2021-10-18 12:18:51,676:INFO: State.STOP
+2021-10-18 12:18:51,678:INFO: BT1   BT2    TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:51,679:INFO: 25.80 -38.94 26.24 26.31 29.04 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.96 12.14 11.02 11.17 1232.92 10391.94 0.00 100.00 0  0  0  None None 80.51 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:51,680:WARNING: Stopped
+2021-10-18 12:18:52,229:INFO: State.STOP
+2021-10-18 12:18:52,230:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:52,231:INFO: 25.88 25.33 25.25 25.34 29.26 0.01 0.00 0.00 12.01 12.19 11.06 11.21 1237.42 10389.16 0.00 100.00 0  0  0  None None 80.54 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:52,232:WARNING: Stopped
+2021-10-18 12:18:52,777:INFO: State.STOP
+2021-10-18 12:18:52,778:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:52,780:INFO: 25.88 25.32 25.25 25.34 29.26 0.00 0.00 0.00 12.02 12.20 11.07 11.23 1238.78 10388.88 0.00 100.00 0  0  0  None None 80.58 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:52,781:WARNING: Stopped
+2021-10-18 12:18:53,339:INFO: State.STOP
+2021-10-18 12:18:53,341:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:53,343:INFO: 25.88 25.32 25.25 25.34 29.26 0.00 0.00 0.00 12.03 12.21 11.09 11.24 1239.94 10388.42 0.00 100.00 0  0  0  None None 80.68 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:53,344:WARNING: Stopped
+2021-10-18 12:18:53,892:INFO: State.STOP
+2021-10-18 12:18:53,894:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:53,895:INFO: 25.88 25.32 25.25 25.34 29.26 0.00 0.00 0.00 12.04 12.22 11.09 11.25 1240.84 10387.90 0.00 100.00 0  0  0  None None 80.66 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:53,897:WARNING: Stopped
+2021-10-18 12:18:54,444:INFO: State.STOP
+2021-10-18 12:18:54,445:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:54,447:INFO: 25.88 25.32 25.25 25.34 29.26 0.00 0.00 0.00 12.05 12.23 11.10 11.25 1241.52 10387.46 0.00 100.00 0  0  0  None None 80.69 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:54,448:WARNING: Stopped
+2021-10-18 12:18:55,001:INFO: State.STOP
+2021-10-18 12:18:55,004:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:55,005:INFO: 25.88 25.32 25.25 25.34 29.26 0.01 0.00 0.00 12.06 12.24 11.11 11.26 1242.00 10386.92 0.00 100.00 0  0  0  None None 80.77 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:55,006:WARNING: Stopped
+2021-10-18 12:18:55,558:INFO: State.STOP
+2021-10-18 12:18:55,559:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:55,561:INFO: 25.88 25.32 25.25 25.33 29.26 0.01 0.00 0.00 12.06 12.24 11.11 11.26 1242.48 10386.40 0.00 100.00 0  0  0  None None 80.79 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:55,562:WARNING: Stopped
+2021-10-18 12:18:56,120:INFO: State.STOP
+2021-10-18 12:18:56,122:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:56,123:INFO: 25.88 25.32 25.25 25.33 29.26 0.01 -0.00 0.00 12.06 12.24 11.11 11.26 1242.70 10386.00 0.00 100.00 0  0  0  None None 80.84 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:56,124:WARNING: Stopped
+2021-10-18 12:18:56,667:INFO: State.STOP
+2021-10-18 12:18:56,669:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:56,670:INFO: 25.88 25.32 25.25 25.33 29.26 0.00 0.00 -0.00 12.06 12.24 11.11 11.26 1242.74 10385.50 0.00 100.00 0  0  0  None None 80.87 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:56,671:WARNING: Stopped
+2021-10-18 12:18:57,221:INFO: State.STOP
+2021-10-18 12:18:57,223:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:57,224:INFO: 25.88 25.32 25.25 25.33 29.26 0.00 0.00 -0.00 12.06 12.24 11.11 11.26 1242.62 10385.06 0.00 100.00 0  0  0  None None 80.88 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:57,225:WARNING: Stopped
+2021-10-18 12:18:57,778:INFO: State.STOP
+2021-10-18 12:18:57,780:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:57,781:INFO: 25.88 25.32 25.25 25.33 29.26 0.01 0.00 -0.00 12.06 12.24 11.11 11.26 1242.58 10384.60 0.00 100.00 0  0  0  None None 80.96 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:57,782:WARNING: Stopped
+2021-10-18 12:18:58,329:INFO: State.STOP
+2021-10-18 12:18:58,331:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:58,332:INFO: 25.88 25.32 25.25 25.33 29.26 0.01 0.00 -0.00 12.06 12.24 11.10 11.26 1242.10 10384.12 0.00 100.00 0  0  0  None None 80.97 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:58,333:WARNING: Stopped
+2021-10-18 12:18:58,883:INFO: State.STOP
+2021-10-18 12:18:58,884:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:58,886:INFO: 25.88 25.32 25.25 25.33 29.26 0.01 -0.00 0.00 12.05 12.23 11.10 11.25 1241.72 10383.76 0.00 100.00 0  0  0  None None 80.97 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:58,887:WARNING: Stopped
+2021-10-18 12:18:59,443:INFO: State.STOP
+2021-10-18 12:18:59,444:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:59,445:INFO: 25.88 25.32 25.25 25.32 29.25 0.01 -0.00 0.00 12.05 12.23 11.09 11.25 1241.10 10383.36 0.00 100.00 0  0  0  None None 81.01 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:59,446:WARNING: Stopped
+2021-10-18 12:18:59,993:INFO: State.STOP
+2021-10-18 12:18:59,995:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:18:59,997:INFO: 25.88 25.32 25.25 25.32 29.25 -0.01 -0.01 0.00 12.04 12.22 11.09 11.24 1240.40 10382.92 0.00 100.00 0  0  0  None None 81.06 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:18:59,998:WARNING: Stopped
+2021-10-18 12:19:00,551:INFO: State.STOP
+2021-10-18 12:19:00,554:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:00,556:INFO: 25.88 25.32 25.25 25.32 29.25 -0.01 -0.01 0.00 12.03 12.21 11.08 11.23 1239.60 10382.52 0.00 100.00 0  0  0  None None 81.12 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:00,557:WARNING: Stopped
+2021-10-18 12:19:01,096:INFO: State.STOP
+2021-10-18 12:19:01,098:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:01,100:INFO: 25.88 25.32 25.25 25.32 29.26 -0.01 -0.01 0.00 12.02 12.20 11.07 11.22 1238.80 10382.14 0.00 100.00 0  0  0  None None 81.15 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:01,101:WARNING: Stopped
+2021-10-18 12:19:01,651:INFO: State.STOP
+2021-10-18 12:19:01,653:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:01,655:INFO: 25.88 25.32 25.25 25.32 29.26 -0.01 -0.01 0.00 12.01 12.19 11.06 11.21 1237.84 10381.56 0.00 100.00 0  0  0  None None 81.21 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:01,656:WARNING: Stopped
+2021-10-18 12:19:02,203:INFO: State.STOP
+2021-10-18 12:19:02,206:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:02,208:INFO: 25.88 25.32 25.25 25.32 29.26 -0.01 -0.01 0.00 12.00 12.18 11.05 11.20 1236.96 10381.00 0.00 100.00 0  0  0  None None 81.24 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:02,209:WARNING: Stopped
+2021-10-18 12:19:02,761:INFO: State.STOP
+2021-10-18 12:19:02,763:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:02,764:INFO: 25.88 25.31 25.25 25.32 29.25 -0.01 -0.02 0.00 11.99 12.17 11.04 11.19 1235.84 10380.50 0.00 100.00 0  0  0  None None 81.24 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:02,766:WARNING: Stopped
+2021-10-18 12:19:03,316:INFO: State.STOP
+2021-10-18 12:19:03,319:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:03,320:INFO: 25.88 25.31 25.25 25.32 29.25 -0.01 -0.02 0.00 11.98 12.16 11.03 11.18 1234.68 10380.10 0.00 100.00 0  0  0  None None 81.27 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:03,321:WARNING: Stopped
+2021-10-18 12:19:03,866:INFO: State.STOP
+2021-10-18 12:19:03,868:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:03,869:INFO: 25.88 25.31 25.25 25.32 29.25 -0.01 -0.01 -0.00 11.97 12.15 11.01 11.16 1233.34 10379.72 0.00 100.00 0  0  0  None None 81.28 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:03,870:WARNING: Stopped
+2021-10-18 12:19:04,424:INFO: State.STOP
+2021-10-18 12:19:04,427:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:04,428:INFO: 25.88 25.31 25.25 25.32 29.25 -0.01 -0.01 -0.00 11.95 12.13 11.00 11.15 1231.90 10379.46 0.00 100.00 0  0  0  None None 81.32 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:04,430:WARNING: Stopped
+2021-10-18 12:19:04,974:INFO: State.STOP
+2021-10-18 12:19:04,976:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:04,977:INFO: 25.88 25.31 25.25 25.32 29.25 -0.00 -0.01 -0.00 11.94 12.12 10.98 11.13 1230.38 10379.04 0.00 100.00 0  0  0  None None 81.41 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:04,978:WARNING: Stopped
+2021-10-18 12:19:05,533:INFO: State.STOP
+2021-10-18 12:19:05,535:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:05,537:INFO: 25.88 25.31 25.25 25.32 29.25 -0.00 -0.01 -0.00 11.93 12.10 10.97 11.12 1228.86 10378.68 0.00 100.00 0  0  0  None None 81.39 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:05,538:WARNING: Stopped
+2021-10-18 12:19:06,088:INFO: State.STOP
+2021-10-18 12:19:06,090:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:06,091:INFO: 25.88 25.31 25.25 25.32 29.25 0.01 -0.01 -0.00 11.91 12.09 10.95 11.10 1227.18 10378.22 0.00 100.00 0  0  0  None None 81.46 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:06,093:WARNING: Stopped
+2021-10-18 12:19:06,639:INFO: State.STOP
+2021-10-18 12:19:06,641:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:06,643:INFO: 25.88 25.31 25.26 25.32 29.25 0.00 -0.01 -0.00 11.89 12.07 10.93 11.08 1225.64 10377.76 0.00 100.00 0  0  0  None None 81.47 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:06,644:WARNING: Stopped
+2021-10-18 12:19:07,197:INFO: State.STOP
+2021-10-18 12:19:07,200:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:07,202:INFO: 25.88 25.31 25.26 25.33 29.25 0.00 -0.01 -0.00 11.88 12.05 10.92 11.07 1223.98 10377.28 0.00 100.00 0  0  0  None None 81.51 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:07,204:WARNING: Stopped
+2021-10-18 12:19:07,754:INFO: State.EXEC_TASK
+2021-10-18 12:19:07,756:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:07,758:INFO: 25.88 25.31 25.26 25.32 29.25 -0.00 -0.01 -0.00 11.86 12.04 10.90 11.05 1222.20 10376.88 0.00 100.00 0  0  0  None None 81.58 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:07,759:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:07,760:ERROR: error in HP sensor value: 1222.2 is out of bound!
+2021-10-18 12:19:07,761:ERROR: error in AP sensor value: 10376.88 is out of bound!
+2021-10-18 12:19:07,764:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:07,765:INFO: 2.2500000000000853 = 0.03750000000000142*60-0*0
+2021-10-18 12:19:07,768:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:104.84632604687594
+2021-10-18 12:19:07,769:WARNING: min_bladder_reached False
+2021-10-18 12:19:08,308:INFO: State.EXEC_TASK
+2021-10-18 12:19:08,310:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:08,312:INFO: 25.88 25.31 25.26 25.33 29.25 -0.00 -0.01 -0.00 11.84 12.02 10.88 11.03 1220.40 10376.48 0.00 100.00 0  0  0  None None 81.53 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:08,313:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:08,315:ERROR: error in HP sensor value: 1220.4 is out of bound!
+2021-10-18 12:19:08,317:ERROR: error in AP sensor value: 10376.48 is out of bound!
+2021-10-18 12:19:08,321:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:08,322:INFO: 3.449999999999953 = 0.05749999999999922*60--0.03591983964846273*0
+2021-10-18 12:19:08,325:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:73.6372280090456
+2021-10-18 12:19:08,327:WARNING: min_bladder_reached False
+2021-10-18 12:19:08,861:INFO: State.EXEC_TASK
+2021-10-18 12:19:08,863:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:08,864:INFO: 25.87 25.31 25.26 25.32 29.25 -0.00 -0.01 0.00 11.82 12.00 10.86 11.01 1218.58 10376.08 0.00 100.00 0  0  0  None None 81.60 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:08,865:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:08,867:ERROR: error in HP sensor value: 1218.58 is out of bound!
+2021-10-18 12:19:08,868:ERROR: error in AP sensor value: 10376.08 is out of bound!
+2021-10-18 12:19:08,871:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:08,873:INFO: 4.650000000000034 = 0.07750000000000057*60--0.036333273417521114*0
+2021-10-18 12:19:08,875:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:56.69351425548305
+2021-10-18 12:19:08,876:WARNING: min_bladder_reached False
+2021-10-18 12:19:09,419:INFO: State.EXEC_TASK
+2021-10-18 12:19:09,422:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:09,424:INFO: 25.87 25.31 25.26 25.32 29.25 -0.00 -0.01 0.00 11.80 11.98 10.84 11.00 1216.56 10375.60 0.00 100.00 0  0  0  None None 81.65 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:09,425:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:09,427:ERROR: error in HP sensor value: 1216.56 is out of bound!
+2021-10-18 12:19:09,428:ERROR: error in AP sensor value: 10375.6 is out of bound!
+2021-10-18 12:19:09,431:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:09,433:INFO: 5.699999999999932 = 0.09499999999999886*60--0.03125193248078924*0
+2021-10-18 12:19:09,436:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:47.162170535246695
+2021-10-18 12:19:09,437:WARNING: min_bladder_reached False
+2021-10-18 12:19:09,985:INFO: State.EXEC_TASK
+2021-10-18 12:19:09,987:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:09,989:INFO: 25.87 25.31 25.26 25.31 29.25 0.00 -0.01 0.00 11.78 11.96 10.82 10.98 1214.60 10375.14 0.00 100.00 0  0  0  None None 81.71 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:09,990:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:09,991:ERROR: error in HP sensor value: 1214.6 is out of bound!
+2021-10-18 12:19:09,992:ERROR: error in AP sensor value: 10375.14 is out of bound!
+2021-10-18 12:19:09,996:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:09,997:INFO: 6.899999999999906 = 0.11499999999999844*60--0.035441058794600494*0
+2021-10-18 12:19:09,999:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:39.536833887176705
+2021-10-18 12:19:10,000:WARNING: min_bladder_reached False
+2021-10-18 12:19:10,539:INFO: State.EXEC_TASK
+2021-10-18 12:19:10,542:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:10,544:INFO: 25.87 25.31 25.26 25.31 29.25 0.00 -0.01 0.00 11.76 11.94 10.80 10.96 1212.64 10374.76 0.00 100.00 0  0  0  None None 81.72 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:10,546:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:10,548:ERROR: error in HP sensor value: 1212.64 is out of bound!
+2021-10-18 12:19:10,549:ERROR: error in AP sensor value: 10374.76 is out of bound!
+2021-10-18 12:19:10,553:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:10,554:INFO: 8.099999999999987 = 0.1349999999999998*60--0.03586616408649911*0
+2021-10-18 12:19:10,557:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:34.01489317640567
+2021-10-18 12:19:10,559:WARNING: min_bladder_reached False
+2021-10-18 12:19:11,095:INFO: State.EXEC_TASK
+2021-10-18 12:19:11,097:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:11,098:INFO: 25.87 25.32 25.26 25.32 29.25 -0.00 -0.01 0.00 11.74 11.92 10.79 10.94 1210.70 10374.30 0.00 100.00 0  0  0  None None 81.72 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:11,099:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:11,100:ERROR: error in HP sensor value: 1210.7 is out of bound!
+2021-10-18 12:19:11,101:ERROR: error in AP sensor value: 10374.3 is out of bound!
+2021-10-18 12:19:11,104:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:11,105:INFO: 9.149999999999991 = 0.15249999999999986*60--0.03177984543112606*0
+2021-10-18 12:19:11,107:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:30.298133633101862
+2021-10-18 12:19:11,108:WARNING: min_bladder_reached False
+2021-10-18 12:19:11,658:INFO: State.EXEC_TASK
+2021-10-18 12:19:11,660:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:11,662:INFO: 25.87 25.32 25.26 25.32 29.25 -0.00 0.00 0.00 11.73 11.90 10.77 10.91 1208.70 10373.80 1.00 100.00 0  0  0  None None 81.83 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:11,663:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:11,665:ERROR: error in HP sensor value: 1208.7 is out of bound!
+2021-10-18 12:19:11,666:ERROR: error in AP sensor value: 10373.8 is out of bound!
+2021-10-18 12:19:11,669:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:11,670:INFO: 10.349999999999966 = 0.17249999999999943*60--0.03537106141755582*0
+2021-10-18 12:19:11,673:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:26.923180814742786
+2021-10-18 12:19:11,674:WARNING: min_bladder_reached False
+2021-10-18 12:19:12,163:INFO: State.EXEC_TASK
+2021-10-18 12:19:12,164:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:12,166:INFO: 25.87 25.32 25.26 25.32 29.25 -0.00 0.00 0.00 11.70 11.88 10.74 10.89 1206.78 10373.42 1.00 100.00 0  0  0  None None 81.81 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:12,167:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:12,168:ERROR: error in HP sensor value: 1206.78 is out of bound!
+2021-10-18 12:19:12,170:ERROR: error in AP sensor value: 10373.42 is out of bound!
+2021-10-18 12:19:12,172:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:12,173:INFO: 11.849999999999987 = 0.1974999999999998*60--0.049689210238126745*0
+2021-10-18 12:19:12,176:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:23.61934250672329
+2021-10-18 12:19:12,177:WARNING: min_bladder_reached False
+2021-10-18 12:19:12,688:INFO: State.EXEC_TASK
+2021-10-18 12:19:12,690:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:12,692:INFO: 25.87 25.32 25.26 25.32 29.25 0.01 -0.00 0.00 11.68 11.86 10.72 10.87 1204.72 10373.00 1.00 100.00 0  0  0  None None 81.86 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:12,694:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:12,697:ERROR: error in HP sensor value: 1204.72 is out of bound!
+2021-10-18 12:19:12,699:ERROR: error in AP sensor value: 10373.0 is out of bound!
+2021-10-18 12:19:12,703:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:12,705:INFO: 13.050000000000068 = 0.21750000000000114*60--0.03768665289236032*0
+2021-10-18 12:19:12,708:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:21.49905404067614
+2021-10-18 12:19:12,711:WARNING: min_bladder_reached False
+2021-10-18 12:19:13,192:INFO: State.EXEC_TASK
+2021-10-18 12:19:13,194:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:13,195:INFO: 25.87 25.32 25.26 25.32 29.25 0.01 -0.00 0.00 11.67 11.84 10.70 10.85 1202.72 10372.60 1.00 100.00 0  0  0  None None 81.88 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:13,195:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:13,197:ERROR: error in HP sensor value: 1202.72 is out of bound!
+2021-10-18 12:19:13,197:ERROR: error in AP sensor value: 10372.6 is out of bound!
+2021-10-18 12:19:13,199:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:13,200:INFO: 14.100000000000072 = 0.2350000000000012*60--0.035253836119367*0
+2021-10-18 12:19:13,202:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:19.927757236532898
+2021-10-18 12:19:13,204:WARNING: min_bladder_reached False
+2021-10-18 12:19:13,712:INFO: State.EXEC_TASK
+2021-10-18 12:19:13,713:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:13,715:INFO: 25.87 25.32 25.26 25.31 29.25 0.01 -0.01 0.00 11.65 11.82 10.68 10.83 1200.68 10372.04 1.00 100.00 0  0  0  None None 81.96 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:13,716:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:13,718:ERROR: error in HP sensor value: 1200.68 is out of bound!
+2021-10-18 12:19:13,719:ERROR: error in AP sensor value: 10372.04 is out of bound!
+2021-10-18 12:19:13,722:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:13,722:INFO: 15.300000000000047 = 0.2550000000000008*60--0.03830482825949787*0
+2021-10-18 12:19:13,726:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:18.386097943303877
+2021-10-18 12:19:13,728:WARNING: min_bladder_reached False
+2021-10-18 12:19:14,210:INFO: State.EXEC_TASK
+2021-10-18 12:19:14,212:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:14,213:INFO: 25.87 25.32 25.26 25.32 29.25 0.01 -0.01 0.00 11.62 11.80 10.66 10.81 1198.72 10371.68 1.00 100.00 0  0  0  None None 81.96 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:14,214:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:14,216:ERROR: error in HP sensor value: 1198.72 is out of bound!
+2021-10-18 12:19:14,217:ERROR: error in AP sensor value: 10371.68 is out of bound!
+2021-10-18 12:19:14,220:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:14,221:INFO: 16.64999999999999 = 0.27749999999999986*60--0.045182418603090524*0
+2021-10-18 12:19:14,223:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:16.908106955409142
+2021-10-18 12:19:14,224:WARNING: min_bladder_reached False
+2021-10-18 12:19:14,741:INFO: State.EXEC_TASK
+2021-10-18 12:19:14,744:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:14,747:INFO: 25.87 25.32 25.26 25.32 29.25 0.00 -0.01 -0.00 11.61 11.78 10.64 10.79 1196.74 10371.20 1.00 100.00 0  0  0  None None 82.01 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:14,748:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:14,750:ERROR: error in HP sensor value: 1196.74 is out of bound!
+2021-10-18 12:19:14,751:ERROR: error in AP sensor value: 10371.2 is out of bound!
+2021-10-18 12:19:14,754:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:14,754:INFO: 17.699999999999996 = 0.29499999999999993*60--0.03276652258090162*0
+2021-10-18 12:19:14,757:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:15.909313926584733
+2021-10-18 12:19:14,758:WARNING: min_bladder_reached False
+2021-10-18 12:19:15,301:INFO: State.EXEC_TASK
+2021-10-18 12:19:15,303:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:15,304:INFO: 25.87 25.32 25.26 25.32 29.25 0.00 -0.01 -0.00 11.59 11.76 10.62 10.77 1194.72 10370.76 1.00 100.00 0  0  0  None None 82.04 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:15,305:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:15,307:ERROR: error in HP sensor value: 1194.72 is out of bound!
+2021-10-18 12:19:15,308:ERROR: error in AP sensor value: 10370.76 is out of bound!
+2021-10-18 12:19:15,311:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:15,312:INFO: 18.900000000000077 = 0.3150000000000013*60--0.03590506478109071*0
+2021-10-18 12:19:15,314:INFO: sending PID - Voltage:0    direction:1    timeOn:0.5  timeOff:14.899541093675348
+2021-10-18 12:19:15,315:WARNING: min_bladder_reached False
+2021-10-18 12:19:15,854:INFO: State.EXEC_TASK
+2021-10-18 12:19:15,856:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:15,858:INFO: 25.87 25.32 25.26 25.32 29.25 -0.00 -0.01 -0.00 11.56 11.74 10.60 10.75 1192.74 10370.42 1.00 100.00 0  0  0  None None 82.02 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:15,859:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:15,860:ERROR: error in HP sensor value: 1192.74 is out of bound!
+2021-10-18 12:19:15,862:ERROR: error in AP sensor value: 10370.42 is out of bound!
+2021-10-18 12:19:15,865:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:15,866:INFO: 20.25000000000002 = 0.33750000000000036*60--0.040586215749998655*0
+2021-10-18 12:19:15,869:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:16.682972671299442
+2021-10-18 12:19:15,871:WARNING: min_bladder_reached False
+2021-10-18 12:19:16,361:INFO: State.EXEC_TASK
+2021-10-18 12:19:16,363:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:16,364:INFO: 25.87 25.32 25.26 25.33 29.25 -0.00 -0.01 -0.00 11.54 11.72 10.58 10.73 1190.68 10370.14 1.00 100.00 0  0  0  None None 82.07 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:16,365:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:16,366:ERROR: error in HP sensor value: 1190.68 is out of bound!
+2021-10-18 12:19:16,368:ERROR: error in AP sensor value: 10370.14 is out of bound!
+2021-10-18 12:19:16,370:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:16,371:INFO: 21.450000000000102 = 0.3575000000000017*60--0.039608832110483855*0
+2021-10-18 12:19:16,373:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:15.742428348665632
+2021-10-18 12:19:16,374:WARNING: min_bladder_reached False
+2021-10-18 12:19:16,881:INFO: State.EXEC_TASK
+2021-10-18 12:19:16,883:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:16,884:INFO: 25.87 25.32 25.26 25.33 29.25 0.00 -0.01 -0.00 11.52 11.70 10.56 10.71 1188.54 10369.76 1.00 100.00 0  0  0  None None 82.11 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:16,885:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:16,887:ERROR: error in HP sensor value: 1188.54 is out of bound!
+2021-10-18 12:19:16,888:ERROR: error in AP sensor value: 10369.76 is out of bound!
+2021-10-18 12:19:16,892:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:16,893:INFO: 22.64999999999997 = 0.3774999999999995*60--0.03834958775352107*0
+2021-10-18 12:19:16,896:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:14.898969964287808
+2021-10-18 12:19:16,897:WARNING: min_bladder_reached False
+2021-10-18 12:19:17,386:INFO: State.EXEC_TASK
+2021-10-18 12:19:17,388:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:17,389:INFO: 25.87 25.32 25.26 25.33 29.25 0.00 -0.01 -0.00 11.50 11.68 10.54 10.69 1186.36 10369.34 1.00 100.00 0  0  0  None None 82.16 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:17,390:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:17,391:ERROR: error in HP sensor value: 1186.36 is out of bound!
+2021-10-18 12:19:17,392:ERROR: error in AP sensor value: 10369.34 is out of bound!
+2021-10-18 12:19:17,395:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:17,396:INFO: 23.85000000000005 = 0.39750000000000085*60--0.03973329278823172*0
+2021-10-18 12:19:17,398:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:14.138303007227877
+2021-10-18 12:19:17,399:WARNING: min_bladder_reached False
+2021-10-18 12:19:17,911:INFO: State.EXEC_TASK
+2021-10-18 12:19:17,913:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:17,915:INFO: 25.87 25.32 25.26 25.33 29.25 0.00 -0.00 -0.00 11.48 11.66 10.52 10.67 1184.36 10368.98 1.00 100.00 0  0  0  None None 82.17 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:17,916:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:17,918:ERROR: error in HP sensor value: 1184.36 is out of bound!
+2021-10-18 12:19:17,919:ERROR: error in AP sensor value: 10368.98 is out of bound!
+2021-10-18 12:19:17,922:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:17,923:INFO: 25.050000000000026 = 0.4175000000000004*60--0.03792436563346606*0
+2021-10-18 12:19:17,926:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:13.44880790011296
+2021-10-18 12:19:17,927:WARNING: min_bladder_reached False
+2021-10-18 12:19:18,419:INFO: State.EXEC_TASK
+2021-10-18 12:19:18,420:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:18,422:INFO: 25.87 25.32 25.26 25.33 29.25 0.00 -0.00 -0.00 11.46 11.64 10.50 10.65 1182.20 10368.52 1.00 100.00 0  0  0  None None 82.21 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:18,422:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:18,424:ERROR: error in HP sensor value: 1182.2 is out of bound!
+2021-10-18 12:19:18,425:ERROR: error in AP sensor value: 10368.52 is out of bound!
+2021-10-18 12:19:18,427:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:18,428:INFO: 26.25 = 0.4375*60--0.03961360176198721*0
+2021-10-18 12:19:18,430:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:12.820942261987977
+2021-10-18 12:19:18,432:WARNING: min_bladder_reached False
+2021-10-18 12:19:18,949:INFO: State.EXEC_TASK
+2021-10-18 12:19:18,951:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:18,952:INFO: 25.87 25.32 25.26 25.33 29.25 -0.00 -0.00 -0.00 11.44 11.61 10.48 10.62 1180.18 10368.12 1.00 100.00 0  0  0  None None 82.24 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:18,953:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:18,955:ERROR: error in HP sensor value: 1180.18 is out of bound!
+2021-10-18 12:19:18,956:ERROR: error in AP sensor value: 10368.12 is out of bound!
+2021-10-18 12:19:18,959:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:18,960:INFO: 27.75000000000002 = 0.46250000000000036*60--0.046993970776664847*0
+2021-10-18 12:19:18,963:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:12.110854540158346
+2021-10-18 12:19:18,964:WARNING: min_bladder_reached False
+2021-10-18 12:19:19,445:INFO: State.EXEC_TASK
+2021-10-18 12:19:19,447:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:19,448:INFO: 25.88 25.32 25.26 25.33 29.24 -0.00 -0.00 -0.00 11.42 11.59 10.46 10.60 1178.12 10367.70 1.00 100.00 0  0  0  None None 82.27 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:19,449:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:19,450:ERROR: error in HP sensor value: 1178.12 is out of bound!
+2021-10-18 12:19:19,451:ERROR: error in AP sensor value: 10367.7 is out of bound!
+2021-10-18 12:19:19,453:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:19,454:INFO: 28.949999999999996 = 0.48249999999999993*60--0.04045931596493308*0
+2021-10-18 12:19:19,456:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:11.594688197066162
+2021-10-18 12:19:19,458:WARNING: min_bladder_reached False
+2021-10-18 12:19:19,970:INFO: State.EXEC_TASK
+2021-10-18 12:19:19,972:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:19,973:INFO: 25.88 25.33 25.26 25.33 29.25 0.00 -0.00 0.00 11.40 11.57 10.43 10.58 1176.04 10367.44 1.00 100.00 0  0  0  None None 82.29 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:19,974:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:19,976:ERROR: error in HP sensor value: 1176.04 is out of bound!
+2021-10-18 12:19:19,977:ERROR: error in AP sensor value: 10367.44 is out of bound!
+2021-10-18 12:19:19,980:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:19,981:INFO: 30.300000000000047 = 0.5050000000000008*60--0.042734366509445836*0
+2021-10-18 12:19:19,983:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:11.061920912739659
+2021-10-18 12:19:19,985:WARNING: min_bladder_reached False
+2021-10-18 12:19:20,472:INFO: State.EXEC_TASK
+2021-10-18 12:19:20,473:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:20,474:INFO: 25.88 25.33 25.26 25.33 29.25 0.00 -0.00 0.00 11.38 11.55 10.41 10.56 1173.96 10367.06 1.00 100.00 0  0  0  None None 82.32 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:20,475:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:20,476:ERROR: error in HP sensor value: 1173.96 is out of bound!
+2021-10-18 12:19:20,477:ERROR: error in AP sensor value: 10367.06 is out of bound!
+2021-10-18 12:19:20,479:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:20,480:INFO: 31.499999999999915 = 0.5249999999999986*60--0.04008691559085004*0
+2021-10-18 12:19:20,482:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233388
+2021-10-18 12:19:20,483:WARNING: min_bladder_reached False
+2021-10-18 12:19:20,997:INFO: State.EXEC_TASK
+2021-10-18 12:19:20,999:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:21,000:INFO: 25.88 25.33 25.26 25.33 29.24 0.00 0.00 0.00 11.36 11.53 10.39 10.54 1171.84 10366.78 1.00 100.00 0  0  0  None None 82.31 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:21,001:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:21,002:ERROR: error in HP sensor value: 1171.84 is out of bound!
+2021-10-18 12:19:21,003:ERROR: error in AP sensor value: 10366.78 is out of bound!
+2021-10-18 12:19:21,006:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:21,007:INFO: 32.699999999999996 = 0.5449999999999999*60--0.03796049100698682*0
+2021-10-18 12:19:21,009:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.221437267226376
+2021-10-18 12:19:21,010:WARNING: min_bladder_reached False
+2021-10-18 12:19:21,506:INFO: State.EXEC_TASK
+2021-10-18 12:19:21,508:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:21,509:INFO: 25.88 25.33 25.26 25.33 29.24 0.00 0.00 0.00 11.34 11.51 10.37 10.52 1169.86 10366.46 1.00 100.00 0  0  0  None None 82.35 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:21,510:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:21,511:ERROR: error in HP sensor value: 1169.86 is out of bound!
+2021-10-18 12:19:21,512:ERROR: error in AP sensor value: 10366.46 is out of bound!
+2021-10-18 12:19:21,515:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:21,516:INFO: 33.90000000000008 = 0.5650000000000013*60--0.03926254667589294*0
+2021-10-18 12:19:21,519:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.845046001723409
+2021-10-18 12:19:21,521:WARNING: min_bladder_reached False
+2021-10-18 12:19:22,036:INFO: State.EXEC_TASK
+2021-10-18 12:19:22,037:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:22,038:INFO: 25.88 25.33 25.26 25.34 29.24 -0.00 -0.00 0.00 11.32 11.49 10.35 10.50 1167.90 10366.10 1.00 100.00 0  0  0  None None 82.42 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:22,039:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:22,040:ERROR: error in HP sensor value: 1167.9 is out of bound!
+2021-10-18 12:19:22,041:ERROR: error in AP sensor value: 10366.1 is out of bound!
+2021-10-18 12:19:22,044:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:22,045:INFO: 35.099999999999945 = 0.5849999999999991*60--0.037826052451206106*0
+2021-10-18 12:19:22,047:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.493957925018732
+2021-10-18 12:19:22,048:WARNING: min_bladder_reached False
+2021-10-18 12:19:22,540:INFO: State.EXEC_TASK
+2021-10-18 12:19:22,542:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:22,544:INFO: 25.88 25.33 25.26 25.34 29.24 -0.00 -0.00 0.00 11.30 11.47 10.33 10.49 1166.04 10365.60 1.00 100.00 0  0  0  None None 82.47 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:22,545:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:22,546:ERROR: error in HP sensor value: 1166.04 is out of bound!
+2021-10-18 12:19:22,548:ERROR: error in AP sensor value: 10365.6 is out of bound!
+2021-10-18 12:19:22,550:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:22,551:INFO: 36.14999999999995 = 0.6024999999999991*60--0.03454088818636201*0
+2021-10-18 12:19:22,554:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.205563840349091
+2021-10-18 12:19:22,556:WARNING: min_bladder_reached False
+2021-10-18 12:19:23,061:INFO: State.EXEC_TASK
+2021-10-18 12:19:23,063:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:23,065:INFO: 25.88 25.33 25.27 25.34 29.24 -0.00 -0.00 0.00 11.28 11.45 10.31 10.47 1164.38 10365.28 1.00 100.00 0  0  0  None None 82.46 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:23,066:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:23,067:ERROR: error in HP sensor value: 1164.38 is out of bound!
+2021-10-18 12:19:23,069:ERROR: error in AP sensor value: 10365.28 is out of bound!
+2021-10-18 12:19:23,072:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:23,073:INFO: 37.35000000000003 = 0.6225000000000005*60--0.03838182111012133*0
+2021-10-18 12:19:23,075:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.895511392635433
+2021-10-18 12:19:23,076:WARNING: min_bladder_reached False
+2021-10-18 12:19:23,568:INFO: State.EXEC_TASK
+2021-10-18 12:19:23,570:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:23,572:INFO: 25.88 25.33 25.27 25.34 29.24 -0.00 -0.00 0.00 11.26 11.44 10.30 10.46 1163.22 10364.82 1.00 100.00 0  0  0  None None 82.50 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:23,573:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:23,575:ERROR: error in HP sensor value: 1163.22 is out of bound!
+2021-10-18 12:19:23,577:ERROR: error in AP sensor value: 10364.82 is out of bound!
+2021-10-18 12:19:23,580:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:23,582:INFO: 38.09999999999999 = 0.6349999999999998*60--0.02456526037522831*0
+2021-10-18 12:19:23,584:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.711492709877168
+2021-10-18 12:19:23,586:WARNING: min_bladder_reached False
+2021-10-18 12:19:24,101:INFO: State.EXEC_TASK
+2021-10-18 12:19:24,102:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:24,104:INFO: 25.88 25.33 25.27 25.35 29.24 -0.00 0.00 0.00 11.26 11.43 10.30 10.45 1162.38 10364.38 1.00 100.00 0  0  0  None None 82.53 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:24,105:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:24,106:ERROR: error in HP sensor value: 1162.38 is out of bound!
+2021-10-18 12:19:24,108:ERROR: error in AP sensor value: 10364.38 is out of bound!
+2021-10-18 12:19:24,110:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:24,111:INFO: 38.400000000000034 = 0.6400000000000006*60--0.009434472061007539*0
+2021-10-18 12:19:24,113:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.63986694591597
+2021-10-18 12:19:24,115:WARNING: min_bladder_reached False
+2021-10-18 12:19:24,610:INFO: State.EXEC_TASK
+2021-10-18 12:19:24,612:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:24,613:INFO: 25.88 25.33 25.28 25.35 29.24 -0.00 0.00 0.00 11.25 11.43 10.30 10.46 1162.30 10363.90 1.00 100.00 0  0  0  None None 82.62 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:24,614:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:24,616:ERROR: error in HP sensor value: 1162.3 is out of bound!
+2021-10-18 12:19:24,618:ERROR: error in AP sensor value: 10363.9 is out of bound!
+2021-10-18 12:19:24,622:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:24,623:INFO: 38.39999999999993 = 0.6399999999999988*60-3.4742253999355703e-15*0
+2021-10-18 12:19:24,625:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.639866945915996
+2021-10-18 12:19:24,626:WARNING: min_bladder_reached False
+2021-10-18 12:19:25,140:INFO: State.EXEC_TASK
+2021-10-18 12:19:25,141:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:25,142:INFO: 25.88 25.33 25.28 25.35 29.24 -0.00 -0.00 0.01 11.26 11.44 10.30 10.46 1162.84 10363.46 1.00 100.00 0  0  0  None None 82.66 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:25,143:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:25,144:ERROR: error in HP sensor value: 1162.84 is out of bound!
+2021-10-18 12:19:25,146:ERROR: error in AP sensor value: 10363.46 is out of bound!
+2021-10-18 12:19:25,149:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:25,150:INFO: 38.09999999999999 = 0.6349999999999998*60-0.00948499787428238*0
+2021-10-18 12:19:25,151:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.711492709877168
+2021-10-18 12:19:25,152:WARNING: min_bladder_reached False
+2021-10-18 12:19:25,706:INFO: State.EXEC_TASK
+2021-10-18 12:19:25,707:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:25,708:INFO: 25.88 25.33 25.28 25.35 29.24 0.00 -0.01 0.01 11.27 11.45 10.31 10.47 1163.80 10363.08 1.00 100.00 0  0  0  None None 82.62 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:25,708:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:25,710:ERROR: error in HP sensor value: 1163.8 is out of bound!
+2021-10-18 12:19:25,712:ERROR: error in AP sensor value: 10363.08 is out of bound!
+2021-10-18 12:19:25,714:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:25,715:INFO: 37.5 = 0.625*60-0.01767909747878224*0
+2021-10-18 12:19:25,717:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.858128078817735
+2021-10-18 12:19:25,718:WARNING: min_bladder_reached False
+2021-10-18 12:19:26,212:INFO: State.EXEC_TASK
+2021-10-18 12:19:26,214:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:26,215:INFO: 25.88 25.33 25.29 25.36 29.24 0.00 -0.01 0.01 11.28 11.46 10.33 10.48 1165.12 10362.58 1.00 100.00 0  0  0  None None 82.71 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:26,216:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:26,218:ERROR: error in HP sensor value: 1165.12 is out of bound!
+2021-10-18 12:19:26,220:ERROR: error in AP sensor value: 10362.58 is out of bound!
+2021-10-18 12:19:26,224:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:26,225:INFO: 36.75000000000004 = 0.6125000000000007*60-0.02453856335428123*0
+2021-10-18 12:19:26,227:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.048047275431639
+2021-10-18 12:19:26,228:WARNING: min_bladder_reached False
+2021-10-18 12:19:26,737:INFO: State.EXEC_TASK
+2021-10-18 12:19:26,739:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:26,740:INFO: 25.88 25.33 25.29 25.35 29.24 0.00 -0.00 0.01 11.29 11.47 10.34 10.49 1166.48 10362.06 1.00 100.00 0  0  0  None None 82.75 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:26,741:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:26,742:ERROR: error in HP sensor value: 1166.48 is out of bound!
+2021-10-18 12:19:26,744:ERROR: error in AP sensor value: 10362.06 is out of bound!
+2021-10-18 12:19:26,747:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:26,748:INFO: 36.150000000000055 = 0.6025000000000009*60-0.0191088991629866*0
+2021-10-18 12:19:26,750:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.205563840349063
+2021-10-18 12:19:26,751:WARNING: min_bladder_reached False
+2021-10-18 12:19:27,244:INFO: State.EXEC_TASK
+2021-10-18 12:19:27,251:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:27,253:INFO: 25.88 25.33 25.29 25.35 29.24 0.00 -0.00 0.01 11.30 11.48 10.35 10.51 1167.66 10361.84 1.00 100.00 0  0  0  None None 82.71 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:27,253:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:27,255:ERROR: error in HP sensor value: 1167.66 is out of bound!
+2021-10-18 12:19:27,257:ERROR: error in AP sensor value: 10361.84 is out of bound!
+2021-10-18 12:19:27,260:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:27,261:INFO: 35.39999999999999 = 0.5899999999999999*60-0.024354224344564405*0
+2021-10-18 12:19:27,263:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.409843012295426
+2021-10-18 12:19:27,264:WARNING: min_bladder_reached False
+2021-10-18 12:19:27,768:INFO: State.EXEC_TASK
+2021-10-18 12:19:27,770:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:27,771:INFO: 25.88 25.33 25.29 25.35 29.24 0.00 -0.00 0.01 11.31 11.49 10.36 10.52 1168.70 10361.58 1.00 100.00 0  0  0  None None 82.77 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:27,771:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:27,773:ERROR: error in HP sensor value: 1168.7 is out of bound!
+2021-10-18 12:19:27,774:ERROR: error in AP sensor value: 10361.58 is out of bound!
+2021-10-18 12:19:27,777:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:27,778:INFO: 34.80000000000011 = 0.5800000000000018*60-0.01936860343280226*0
+2021-10-18 12:19:27,780:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.579498490041024
+2021-10-18 12:19:27,781:WARNING: min_bladder_reached False
+2021-10-18 12:19:28,272:INFO: State.EXEC_TASK
+2021-10-18 12:19:28,274:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:28,276:INFO: 25.88 25.33 25.29 25.35 29.24 0.00 -0.00 0.01 11.32 11.50 10.37 10.53 1169.70 10361.22 1.00 100.00 0  0  0  None None 82.77 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:28,278:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:28,279:ERROR: error in HP sensor value: 1169.7 is out of bound!
+2021-10-18 12:19:28,281:ERROR: error in AP sensor value: 10361.22 is out of bound!
+2021-10-18 12:19:28,285:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:28,286:INFO: 34.20000000000002 = 0.5700000000000003*60-0.019687473450360586*0
+2021-10-18 12:19:28,288:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.755004055709916
+2021-10-18 12:19:28,290:WARNING: min_bladder_reached False
+2021-10-18 12:19:28,795:INFO: State.EXEC_TASK
+2021-10-18 12:19:28,797:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:28,798:INFO: 25.88 25.33 25.29 25.34 29.24 0.01 -0.01 0.01 11.33 11.51 10.38 10.54 1170.36 10361.00 1.00 100.00 0  0  0  None None 82.80 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:28,799:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:28,800:ERROR: error in HP sensor value: 1170.36 is out of bound!
+2021-10-18 12:19:28,802:ERROR: error in AP sensor value: 10361.0 is out of bound!
+2021-10-18 12:19:28,804:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:28,805:INFO: 33.60000000000003 = 0.5600000000000005*60-0.019243978433990967*0
+2021-10-18 12:19:28,807:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.936667603259334
+2021-10-18 12:19:28,809:WARNING: min_bladder_reached False
+2021-10-18 12:19:29,311:INFO: State.EXEC_TASK
+2021-10-18 12:19:29,314:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:29,316:INFO: 25.88 25.33 25.29 25.35 29.24 0.01 -0.01 0.01 11.34 11.52 10.38 10.54 1171.04 10360.68 1.00 100.00 0  0  0  None None 82.86 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:29,318:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:29,319:ERROR: error in HP sensor value: 1171.04 is out of bound!
+2021-10-18 12:19:29,320:ERROR: error in AP sensor value: 10360.68 is out of bound!
+2021-10-18 12:19:29,323:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:29,324:INFO: 33.29999999999998 = 0.5549999999999997*60-0.009636052858903526*0
+2021-10-18 12:19:29,326:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.029910797331897
+2021-10-18 12:19:29,327:WARNING: min_bladder_reached False
+2021-10-18 12:19:29,838:INFO: State.EXEC_TASK
+2021-10-18 12:19:29,840:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:29,841:INFO: 25.88 25.33 25.29 25.35 29.24 0.01 -0.01 0.00 11.35 11.53 10.39 10.55 1171.70 10360.24 1.00 100.00 0  0  0  None None 82.89 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:29,842:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:29,844:ERROR: error in HP sensor value: 1171.7 is out of bound!
+2021-10-18 12:19:29,845:ERROR: error in AP sensor value: 10360.24 is out of bound!
+2021-10-18 12:19:29,847:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:29,848:INFO: 32.7000000000001 = 0.5450000000000017*60-0.019085396179826394*0
+2021-10-18 12:19:29,851:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.22143726722634
+2021-10-18 12:19:29,852:WARNING: min_bladder_reached False
+2021-10-18 12:19:30,348:INFO: State.EXEC_TASK
+2021-10-18 12:19:30,351:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:30,353:INFO: 25.88 25.34 25.29 25.34 29.24 0.01 -0.01 0.00 11.35 11.53 10.40 10.56 1172.24 10359.88 1.00 100.00 0  0  0  None None 82.89 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:30,354:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:30,357:ERROR: error in HP sensor value: 1172.24 is out of bound!
+2021-10-18 12:19:30,358:ERROR: error in AP sensor value: 10359.88 is out of bound!
+2021-10-18 12:19:30,362:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:30,363:INFO: 32.39999999999995 = 0.5399999999999991*60-0.009718953969703683*0
+2021-10-18 12:19:30,366:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.319812179230533
+2021-10-18 12:19:30,367:WARNING: min_bladder_reached False
+2021-10-18 12:19:30,874:INFO: State.EXEC_TASK
+2021-10-18 12:19:30,876:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:30,877:INFO: 25.88 25.34 25.30 25.35 29.23 0.00 -0.01 0.00 11.36 11.53 10.40 10.56 1172.58 10359.44 1.00 100.00 0  0  0  None None 82.92 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:30,878:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:30,879:ERROR: error in HP sensor value: 1172.58 is out of bound!
+2021-10-18 12:19:30,880:ERROR: error in AP sensor value: 10359.44 is out of bound!
+2021-10-18 12:19:30,883:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:30,884:INFO: 32.24999999999998 = 0.5374999999999996*60-0.004799179095493727*0
+2021-10-18 12:19:30,886:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.369673423680789
+2021-10-18 12:19:30,887:WARNING: min_bladder_reached False
+2021-10-18 12:19:31,381:INFO: State.EXEC_TASK
+2021-10-18 12:19:31,384:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:31,386:INFO: 25.88 25.34 25.30 25.35 29.23 0.00 -0.01 0.00 11.36 11.54 10.40 10.56 1173.02 10359.04 1.00 100.00 0  0  0  None None 82.94 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:31,387:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:31,388:ERROR: error in HP sensor value: 1173.02 is out of bound!
+2021-10-18 12:19:31,389:ERROR: error in AP sensor value: 10359.04 is out of bound!
+2021-10-18 12:19:31,392:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:31,393:INFO: 32.10000000000001 = 0.5350000000000001*60-0.004907409487437715*0
+2021-10-18 12:19:31,396:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.41999210233899
+2021-10-18 12:19:31,397:WARNING: min_bladder_reached False
+2021-10-18 12:19:31,916:INFO: State.EXEC_TASK
+2021-10-18 12:19:31,917:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:31,918:INFO: 25.88 25.34 25.30 25.35 29.23 0.00 -0.00 0.00 11.37 11.54 10.41 10.57 1173.38 10358.78 1.00 100.00 0  0  0  None None 82.96 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:31,919:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:31,921:ERROR: error in HP sensor value: 1173.38 is out of bound!
+2021-10-18 12:19:31,922:ERROR: error in AP sensor value: 10358.78 is out of bound!
+2021-10-18 12:19:31,924:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:31,925:INFO: 31.650000000000098 = 0.5275000000000016*60-0.014094578046846678*0
+2021-10-18 12:19:31,927:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.573756570401615
+2021-10-18 12:19:31,929:WARNING: min_bladder_reached False
+2021-10-18 12:19:32,414:INFO: State.EXEC_TASK
+2021-10-18 12:19:32,417:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:32,419:INFO: 25.88 25.34 25.30 25.35 29.23 0.00 -0.00 0.00 11.37 11.55 10.41 10.57 1173.66 10358.52 1.00 100.00 0  0  0  None None 82.97 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:32,420:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:32,422:ERROR: error in HP sensor value: 1173.66 is out of bound!
+2021-10-18 12:19:32,423:ERROR: error in AP sensor value: 10358.52 is out of bound!
+2021-10-18 12:19:32,428:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:32,430:INFO: 31.50000000000002 = 0.5250000000000004*60-0.0049649378161185495*0
+2021-10-18 12:19:32,432:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233353
+2021-10-18 12:19:32,434:WARNING: min_bladder_reached False
+2021-10-18 12:19:32,944:INFO: State.EXEC_TASK
+2021-10-18 12:19:32,946:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:32,947:INFO: 25.88 25.34 25.30 25.35 29.23 -0.00 -0.00 0.01 11.37 11.55 10.41 10.57 1173.84 10358.16 1.00 100.00 0  0  0  None None 83.04 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:32,948:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:32,949:ERROR: error in HP sensor value: 1173.84 is out of bound!
+2021-10-18 12:19:32,951:ERROR: error in AP sensor value: 10358.16 is out of bound!
+2021-10-18 12:19:32,954:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:32,955:INFO: 31.50000000000002 = 0.5250000000000004*60-0.0*0
+2021-10-18 12:19:32,957:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233353
+2021-10-18 12:19:33,449:INFO: State.EXEC_TASK
+2021-10-18 12:19:33,452:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:33,453:INFO: 25.88 25.34 25.30 25.35 29.23 -0.00 -0.00 0.01 11.37 11.55 10.41 10.57 1173.94 10357.90 1.00 100.00 0  0  0  None None 83.03 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:33,454:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:33,456:ERROR: error in HP sensor value: 1173.94 is out of bound!
+2021-10-18 12:19:33,457:ERROR: error in AP sensor value: 10357.9 is out of bound!
+2021-10-18 12:19:33,460:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:33,461:INFO: 31.50000000000002 = 0.5250000000000004*60-0.0*0
+2021-10-18 12:19:33,463:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233353
+2021-10-18 12:19:33,978:INFO: State.EXEC_TASK
+2021-10-18 12:19:33,980:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:33,981:INFO: 25.88 25.34 25.30 25.35 29.23 -0.01 0.01 0.01 11.37 11.55 10.41 10.57 1173.96 10357.48 1.00 100.00 0  0  0  None None 83.11 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:33,982:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:33,984:ERROR: error in HP sensor value: 1173.96 is out of bound!
+2021-10-18 12:19:33,986:ERROR: error in AP sensor value: 10357.48 is out of bound!
+2021-10-18 12:19:33,989:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:33,990:INFO: 31.50000000000002 = 0.5250000000000004*60-0.0*0
+2021-10-18 12:19:33,992:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233353
+2021-10-18 12:19:34,489:INFO: State.EXEC_TASK
+2021-10-18 12:19:34,490:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:34,491:INFO: 25.88 25.34 25.30 25.35 29.23 -0.01 0.01 0.01 11.37 11.55 10.41 10.57 1173.90 10357.10 1.00 100.00 0  0  0  None None 83.12 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:34,492:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:34,493:ERROR: error in HP sensor value: 1173.9 is out of bound!
+2021-10-18 12:19:34,494:ERROR: error in AP sensor value: 10357.1 is out of bound!
+2021-10-18 12:19:34,496:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:34,497:INFO: 31.50000000000002 = 0.5250000000000004*60-0.0*0
+2021-10-18 12:19:34,499:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.625969409233353
+2021-10-18 12:19:35,010:INFO: State.EXEC_TASK
+2021-10-18 12:19:35,012:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:35,013:INFO: 25.88 25.34 25.31 25.35 29.23 -0.01 0.00 0.01 11.36 11.54 10.41 10.57 1173.74 10356.60 1.00 100.00 0  0  0  None None 83.18 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:35,014:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:35,016:ERROR: error in HP sensor value: 1173.74 is out of bound!
+2021-10-18 12:19:35,017:ERROR: error in AP sensor value: 10356.6 is out of bound!
+2021-10-18 12:19:35,021:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:35,022:INFO: 31.79999999999996 = 0.5299999999999994*60--0.009530217506788516*0
+2021-10-18 12:19:35,025:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.522027174819742
+2021-10-18 12:19:35,026:WARNING: min_bladder_reached False
+2021-10-18 12:19:35,518:INFO: State.EXEC_TASK
+2021-10-18 12:19:35,520:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:35,521:INFO: 25.88 25.34 25.31 25.35 29.23 -0.01 0.00 0.01 11.36 11.54 10.40 10.56 1173.56 10356.22 1.00 100.00 0  0  0  None None 83.20 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:35,522:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:35,523:ERROR: error in HP sensor value: 1173.56 is out of bound!
+2021-10-18 12:19:35,523:ERROR: error in AP sensor value: 10356.22 is out of bound!
+2021-10-18 12:19:35,526:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:35,526:INFO: 32.10000000000001 = 0.5350000000000001*60--0.009910439184465073*0
+2021-10-18 12:19:35,529:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.41999210233899
+2021-10-18 12:19:35,530:WARNING: min_bladder_reached False
+2021-10-18 12:19:36,047:INFO: State.EXEC_TASK
+2021-10-18 12:19:36,049:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:36,050:INFO: 25.88 25.34 25.31 25.36 29.23 -0.01 -0.00 0.01 11.36 11.54 10.40 10.56 1173.30 10355.74 1.00 100.00 0  0  0  None None 83.23 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:36,051:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:36,053:ERROR: error in HP sensor value: 1173.3 is out of bound!
+2021-10-18 12:19:36,054:ERROR: error in AP sensor value: 10355.74 is out of bound!
+2021-10-18 12:19:36,057:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:36,058:INFO: 32.10000000000001 = 0.5350000000000001*60-0.0*0
+2021-10-18 12:19:36,060:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.41999210233899
+2021-10-18 12:19:36,557:INFO: State.EXEC_TASK
+2021-10-18 12:19:36,559:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:36,560:INFO: 25.88 25.34 25.31 25.36 29.23 -0.01 -0.00 0.01 11.36 11.54 10.40 10.55 1172.90 10355.46 1.00 100.00 0  0  0  None None 83.23 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:36,560:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:36,561:ERROR: error in HP sensor value: 1172.9 is out of bound!
+2021-10-18 12:19:36,562:ERROR: error in AP sensor value: 10355.46 is out of bound!
+2021-10-18 12:19:36,565:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:36,566:INFO: 32.250000000000085 = 0.5375000000000014*60--0.004920584195490174*0
+2021-10-18 12:19:36,567:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.369673423680753
+2021-10-18 12:19:36,568:WARNING: min_bladder_reached False
+2021-10-18 12:19:37,084:INFO: State.EXEC_TASK
+2021-10-18 12:19:37,086:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:37,088:INFO: 25.89 25.34 25.31 25.36 29.23 -0.01 -0.00 0.01 11.35 11.53 10.39 10.55 1172.44 10355.18 1.00 100.00 0  0  0  None None 83.24 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:37,089:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:37,090:ERROR: error in HP sensor value: 1172.44 is out of bound!
+2021-10-18 12:19:37,092:ERROR: error in AP sensor value: 10355.18 is out of bound!
+2021-10-18 12:19:37,095:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:37,096:INFO: 32.7000000000001 = 0.5450000000000017*60--0.014160843457831921*0
+2021-10-18 12:19:37,099:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.22143726722634
+2021-10-18 12:19:37,100:WARNING: min_bladder_reached False
+2021-10-18 12:19:37,591:INFO: State.EXEC_TASK
+2021-10-18 12:19:37,593:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:37,594:INFO: 25.89 25.34 25.31 25.36 29.23 -0.01 -0.00 0.01 11.35 11.53 10.39 10.55 1171.96 10354.86 1.00 100.00 0  0  0  None None 83.31 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:37,594:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:37,596:ERROR: error in HP sensor value: 1171.96 is out of bound!
+2021-10-18 12:19:37,597:ERROR: error in AP sensor value: 10354.86 is out of bound!
+2021-10-18 12:19:37,599:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:37,600:INFO: 32.7000000000001 = 0.5450000000000017*60-0.0*0
+2021-10-18 12:19:37,601:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.22143726722634
+2021-10-18 12:19:38,109:INFO: State.EXEC_TASK
+2021-10-18 12:19:38,111:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:38,113:INFO: 25.89 25.34 25.31 25.36 29.23 -0.01 -0.01 0.00 11.34 11.52 10.38 10.54 1171.34 10354.52 1.00 100.00 0  0  0  None None 83.34 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:38,114:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:38,116:ERROR: error in HP sensor value: 1171.34 is out of bound!
+2021-10-18 12:19:38,117:ERROR: error in AP sensor value: 10354.52 is out of bound!
+2021-10-18 12:19:38,120:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:38,121:INFO: 33.29999999999998 = 0.5549999999999997*60--0.019184090342554198*0
+2021-10-18 12:19:38,124:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.029910797331897
+2021-10-18 12:19:38,126:WARNING: min_bladder_reached False
+2021-10-18 12:19:38,626:INFO: State.EXEC_TASK
+2021-10-18 12:19:38,627:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:38,628:INFO: 25.89 25.34 25.31 25.36 29.23 -0.01 -0.01 0.00 11.34 11.52 10.38 10.54 1170.74 10354.30 1.00 100.00 0  0  0  None None 83.32 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:38,629:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:38,630:ERROR: error in HP sensor value: 1170.74 is out of bound!
+2021-10-18 12:19:38,631:ERROR: error in AP sensor value: 10354.3 is out of bound!
+2021-10-18 12:19:38,633:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:38,634:INFO: 33.29999999999998 = 0.5549999999999997*60-0.0*0
+2021-10-18 12:19:38,636:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:10.029910797331897
+2021-10-18 12:19:39,150:INFO: State.EXEC_TASK
+2021-10-18 12:19:39,152:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:39,153:INFO: 25.89 25.34 25.31 25.36 29.23 -0.01 -0.01 0.00 11.33 11.51 10.37 10.53 1170.08 10353.90 1.00 100.00 0  0  0  None None 83.40 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:39,154:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:39,155:ERROR: error in HP sensor value: 1170.08 is out of bound!
+2021-10-18 12:19:39,156:ERROR: error in AP sensor value: 10353.9 is out of bound!
+2021-10-18 12:19:39,158:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:39,159:INFO: 33.89999999999997 = 0.5649999999999995*60--0.019050479202462806*0
+2021-10-18 12:19:39,161:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.845046001723441
+2021-10-18 12:19:39,163:WARNING: min_bladder_reached False
+2021-10-18 12:19:39,650:INFO: State.EXEC_TASK
+2021-10-18 12:19:39,652:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:39,653:INFO: 25.89 25.34 25.32 25.35 29.23 -0.01 -0.01 0.00 11.32 11.50 10.36 10.52 1169.38 10353.34 1.00 100.00 0  0  0  None None 83.47 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:39,654:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:39,655:ERROR: error in HP sensor value: 1169.38 is out of bound!
+2021-10-18 12:19:39,656:ERROR: error in AP sensor value: 10353.34 is out of bound!
+2021-10-18 12:19:39,659:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:39,660:INFO: 34.49999999999996 = 0.5749999999999993*60--0.019985638448170525*0
+2021-10-18 12:19:39,662:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.666501261924125
+2021-10-18 12:19:39,663:WARNING: min_bladder_reached False
+2021-10-18 12:19:40,180:INFO: State.EXEC_TASK
+2021-10-18 12:19:40,182:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:40,183:INFO: 25.89 25.34 25.32 25.35 29.23 -0.00 -0.01 0.00 11.32 11.50 10.35 10.51 1168.62 10353.04 1.00 100.00 0  0  0  None None 83.44 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:40,184:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:40,185:ERROR: error in HP sensor value: 1168.62 is out of bound!
+2021-10-18 12:19:40,187:ERROR: error in AP sensor value: 10353.04 is out of bound!
+2021-10-18 12:19:40,189:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:40,190:INFO: 34.800000000000004 = 0.5800000000000001*60--0.009425224332845528*0
+2021-10-18 12:19:40,192:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.579498490041056
+2021-10-18 12:19:40,193:WARNING: min_bladder_reached False
+2021-10-18 12:19:40,748:INFO: State.EXEC_TASK
+2021-10-18 12:19:40,750:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:40,751:INFO: 25.89 25.34 25.33 25.35 29.23 -0.00 -0.01 0.00 11.31 11.49 10.35 10.51 1167.96 10352.56 1.00 100.00 0  0  0  None None 83.54 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:40,752:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:40,753:ERROR: error in HP sensor value: 1167.96 is out of bound!
+2021-10-18 12:19:40,754:ERROR: error in AP sensor value: 10352.56 is out of bound!
+2021-10-18 12:19:40,757:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:40,758:INFO: 35.10000000000005 = 0.5850000000000009*60--0.008810685658614365*0
+2021-10-18 12:19:40,760:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.493957925018702
+2021-10-18 12:19:40,761:WARNING: min_bladder_reached False
+2021-10-18 12:19:41,258:INFO: State.EXEC_TASK
+2021-10-18 12:19:41,259:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:41,260:INFO: 25.89 25.34 25.33 25.35 29.23 -0.00 -0.01 0.00 11.30 11.48 10.34 10.50 1167.20 10352.04 1.00 100.00 0  0  0  None None 83.54 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:41,261:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:41,262:ERROR: error in HP sensor value: 1167.2 is out of bound!
+2021-10-18 12:19:41,263:ERROR: error in AP sensor value: 10352.04 is out of bound!
+2021-10-18 12:19:41,266:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:41,267:INFO: 35.69999999999993 = 0.5949999999999989*60--0.019640613132311035*0
+2021-10-18 12:19:41,269:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.327118405704802
+2021-10-18 12:19:41,270:WARNING: min_bladder_reached False
+2021-10-18 12:19:41,784:INFO: State.EXEC_TASK
+2021-10-18 12:19:41,786:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:41,787:INFO: 25.89 25.34 25.33 25.35 29.23 0.00 -0.00 0.00 11.29 11.48 10.33 10.49 1166.54 10351.62 1.00 100.00 0  0  0  None None 83.55 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:41,788:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:41,789:ERROR: error in HP sensor value: 1166.54 is out of bound!
+2021-10-18 12:19:41,790:ERROR: error in AP sensor value: 10351.62 is out of bound!
+2021-10-18 12:19:41,792:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:41,793:INFO: 36.14999999999995 = 0.6024999999999991*60--0.014242241359405555*0
+2021-10-18 12:19:41,795:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.205563840349091
+2021-10-18 12:19:41,797:WARNING: min_bladder_reached False
+2021-10-18 12:19:42,288:INFO: State.EXEC_TASK
+2021-10-18 12:19:42,290:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:42,291:INFO: 25.89 25.34 25.33 25.35 29.23 0.00 -0.00 0.00 11.29 11.47 10.33 10.49 1165.86 10351.28 1.00 100.00 0  0  0  None None 83.62 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:42,293:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:42,294:ERROR: error in HP sensor value: 1165.86 is out of bound!
+2021-10-18 12:19:42,296:ERROR: error in AP sensor value: 10351.28 is out of bound!
+2021-10-18 12:19:42,299:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:42,300:INFO: 36.300000000000026 = 0.6050000000000004*60--0.004938153928317125*0
+2021-10-18 12:19:42,302:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.16570447350645
+2021-10-18 12:19:42,303:WARNING: min_bladder_reached False
+2021-10-18 12:19:42,815:INFO: State.EXEC_TASK
+2021-10-18 12:19:42,816:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:42,817:INFO: 25.89 25.34 25.34 25.35 29.23 0.00 -0.01 0.00 11.28 11.46 10.32 10.48 1165.34 10350.88 1.00 100.00 0  0  0  None None 83.58 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:42,818:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:42,818:ERROR: error in HP sensor value: 1165.34 is out of bound!
+2021-10-18 12:19:42,819:ERROR: error in AP sensor value: 10350.88 is out of bound!
+2021-10-18 12:19:42,821:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:42,822:INFO: 36.899999999999906 = 0.6149999999999984*60--0.01915063894758185*0
+2021-10-18 12:19:42,823:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.009455704413165
+2021-10-18 12:19:42,824:WARNING: min_bladder_reached False
+2021-10-18 12:19:43,330:INFO: State.EXEC_TASK
+2021-10-18 12:19:43,332:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:43,333:INFO: 25.89 25.34 25.34 25.34 29.23 0.00 -0.01 0.00 11.28 11.46 10.32 10.48 1164.94 10350.58 1.00 100.00 0  0  0  None None 83.67 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:43,334:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:43,335:ERROR: error in HP sensor value: 1164.94 is out of bound!
+2021-10-18 12:19:43,336:ERROR: error in AP sensor value: 10350.58 is out of bound!
+2021-10-18 12:19:43,339:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:43,340:INFO: 36.899999999999906 = 0.6149999999999984*60-0.0*0
+2021-10-18 12:19:43,343:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:9.009455704413165
+2021-10-18 12:19:43,856:INFO: State.EXEC_TASK
+2021-10-18 12:19:43,858:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:43,859:INFO: 25.89 25.34 25.34 25.35 29.22 0.01 -0.00 -0.01 11.27 11.46 10.31 10.47 1164.64 10350.18 1.00 100.00 0  0  0  None None 83.68 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:43,860:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:43,860:ERROR: error in HP sensor value: 1164.64 is out of bound!
+2021-10-18 12:19:43,861:ERROR: error in AP sensor value: 10350.18 is out of bound!
+2021-10-18 12:19:43,863:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:43,864:INFO: 37.35000000000003 = 0.6225000000000005*60--0.014318047442991921*0
+2021-10-18 12:19:43,865:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.895511392635433
+2021-10-18 12:19:43,867:WARNING: min_bladder_reached False
+2021-10-18 12:19:44,370:INFO: State.EXEC_TASK
+2021-10-18 12:19:44,372:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:44,373:INFO: 25.89 25.34 25.34 25.34 29.22 0.01 -0.00 -0.01 11.27 11.45 10.31 10.47 1164.42 10349.94 1.00 100.00 0  0  0  None None 83.65 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:44,374:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:44,376:ERROR: error in HP sensor value: 1164.42 is out of bound!
+2021-10-18 12:19:44,377:ERROR: error in AP sensor value: 10349.94 is out of bound!
+2021-10-18 12:19:44,379:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:44,380:INFO: 37.5 = 0.625*60--0.004844826622297669*0
+2021-10-18 12:19:44,382:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.858128078817735
+2021-10-18 12:19:44,383:WARNING: min_bladder_reached False
+2021-10-18 12:19:44,897:INFO: State.EXEC_TASK
+2021-10-18 12:19:44,898:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:44,899:INFO: 25.89 25.34 25.34 25.35 29.22 0.00 0.00 -0.01 11.27 11.45 10.31 10.47 1164.34 10349.68 1.00 100.00 0  0  0  None None 83.70 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:44,900:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:44,900:ERROR: error in HP sensor value: 1164.34 is out of bound!
+2021-10-18 12:19:44,901:ERROR: error in AP sensor value: 10349.68 is out of bound!
+2021-10-18 12:19:44,903:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:44,904:INFO: 37.5 = 0.625*60-0.0*0
+2021-10-18 12:19:44,906:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.858128078817735
+2021-10-18 12:19:45,405:INFO: State.EXEC_TASK
+2021-10-18 12:19:45,407:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:45,408:INFO: 25.89 25.34 25.34 25.35 29.22 0.00 0.00 -0.01 11.27 11.45 10.31 10.47 1164.32 10349.28 1.00 100.00 0  0  0  None None 83.75 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:45,408:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:45,409:ERROR: error in HP sensor value: 1164.32 is out of bound!
+2021-10-18 12:19:45,410:ERROR: error in AP sensor value: 10349.28 is out of bound!
+2021-10-18 12:19:45,412:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:45,412:INFO: 37.5 = 0.625*60-0.0*0
+2021-10-18 12:19:45,414:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.858128078817735
+2021-10-18 12:19:45,925:INFO: State.EXEC_TASK
+2021-10-18 12:19:45,927:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState            Setpoint 
+2021-10-18 12:19:45,928:INFO: 25.89 25.34 25.34 25.36 29.22 0.00 0.01 -0.01 11.27 11.45 10.31 10.47 1164.34 10348.96 1.00 100.00 0  0  0  None None 83.77 Buffering (0/1) State.EXEC_TASK MissionState.DESCENDING 11.50    
+2021-10-18 12:19:45,929:INFO: attemting to start a new dutycycle
+2021-10-18 12:19:45,930:ERROR: error in HP sensor value: 1164.34 is out of bound!
+2021-10-18 12:19:45,931:ERROR: error in AP sensor value: 10348.96 is out of bound!
+2021-10-18 12:19:45,933:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 12:19:45,934:INFO: 37.5 = 0.625*60-0.0*0
+2021-10-18 12:19:45,936:INFO: sending PID - Voltage:0    direction:1    timeOn:0.6  timeOff:8.858128078817735
+2021-10-18 12:19:46,438:WARNING: stopping
+2021-10-18 12:19:46,438:INFO: State.STOP
+2021-10-18 12:19:46,440:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:46,441:INFO: 25.89 25.34 25.34 25.36 29.22 0.00 0.01 -0.01 11.27 11.45 10.32 10.48 1164.62 10348.68 1.00 100.00 0  0  0  None None 83.82 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:46,442:WARNING: Stopped
+2021-10-18 12:19:46,968:WARNING: stopping
+2021-10-18 12:19:46,970:INFO: State.STOP
+2021-10-18 12:19:46,972:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:46,974:INFO: 25.89 25.34 25.34 25.36 29.22 -0.01 0.00 -0.01 11.28 11.46 10.32 10.48 1165.02 10348.26 1.00 100.00 0  0  0  None None 83.85 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:46,974:WARNING: Stopped
+2021-10-18 12:19:47,473:WARNING: stopping
+2021-10-18 12:19:47,474:INFO: State.STOP
+2021-10-18 12:19:47,475:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:47,477:INFO: 25.89 25.34 25.35 25.36 29.22 -0.01 0.00 -0.01 11.28 11.46 10.32 10.48 1165.46 10347.92 1.00 100.00 0  0  0  None None 83.84 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:47,478:WARNING: Stopped
+2021-10-18 12:19:47,999:WARNING: stopping
+2021-10-18 12:19:48,000:INFO: State.STOP
+2021-10-18 12:19:48,002:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:48,004:INFO: 25.89 25.34 25.35 25.36 29.22 -0.01 0.01 -0.01 11.28 11.47 10.33 10.49 1165.88 10347.64 1.00 100.00 0  0  0  None None 83.87 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:48,005:WARNING: Stopped
+2021-10-18 12:19:48,510:WARNING: stopping
+2021-10-18 12:19:48,511:INFO: State.STOP
+2021-10-18 12:19:48,512:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:48,514:INFO: 25.89 25.34 25.35 25.36 29.22 -0.01 0.01 -0.01 11.29 11.47 10.33 10.49 1166.48 10347.30 1.00 100.00 0  0  0  None None 83.92 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:48,514:WARNING: Stopped
+2021-10-18 12:19:49,031:WARNING: stopping
+2021-10-18 12:19:49,032:INFO: State.STOP
+2021-10-18 12:19:49,033:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState            Setpoint 
+2021-10-18 12:19:49,033:INFO: 25.89 25.34 25.36 25.36 29.22 -0.01 0.01 0.00 11.29 11.48 10.34 10.50 1167.14 10347.00 1.00 100.00 0  0  0  None None 83.93 Buffering (0/1) State.STOP MissionState.DESCENDING 11.50    
+2021-10-18 12:19:49,033:WARNING: Stopped
+2021-10-18 12:19:49,520:INFO: 
+2021-10-18 12:19:49,521:CRITICAL: System shutdown
+2021-10-18 12:19:49,522:INFO: cleaning (resetting rpi gpio)

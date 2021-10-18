@@ -1,0 +1,1141 @@
+2021-10-18 11:49:09,978:WARNING: Safety is disabled
+2021-10-18 11:49:09,979:WARNING: Test mode
+2021-10-18 11:49:09,981:INFO: Pressure controller was initialized successfully
+2021-10-18 11:49:09,982:INFO: BP1 pressure sensor was initialized successfully
+2021-10-18 11:49:09,982:INFO: BP2 pressure sensor was initialized successfully
+2021-10-18 11:49:09,983:INFO: TP1 pressure sensor was initialized successfully
+2021-10-18 11:49:09,984:INFO: TP2 pressure sensor was initialized successfully
+2021-10-18 11:49:09,984:INFO: HP pressure sensor was initialized successfully
+2021-10-18 11:49:09,985:INFO: AP pressure sensor was initialized successfully
+2021-10-18 11:49:09,985:INFO: Temperature controller was initialized successfully
+2021-10-18 11:49:09,986:INFO: BT1 temperature sensor was initialized successfully
+2021-10-18 11:49:09,986:INFO: BT2 temperature sensor was initialized successfully
+2021-10-18 11:49:09,987:INFO: TT1 temperature sensor was initialized successfully
+2021-10-18 11:49:09,987:INFO: TT2 temperature sensor was initialized successfully
+2021-10-18 11:49:09,988:INFO: AT temperature sensor was initialized successfully
+2021-10-18 11:49:09,988:INFO: IMU controller was initialized successfully
+2021-10-18 11:49:09,988:INFO: X IMU sensor was initialized successfully
+2021-10-18 11:49:09,989:INFO: Y IMU sensor was initialized successfully
+2021-10-18 11:49:09,989:INFO: Z IMU sensor was initialized successfully
+2021-10-18 11:49:09,989:INFO: Bladder volume controller was initialized successfully
+2021-10-18 11:49:09,990:INFO: Altimeter controller was initialized successfully
+2021-10-18 11:49:09,990:INFO: rpm controller was initialized successfully
+2021-10-18 11:49:09,991:INFO: Pump flag controller was initialized successfully
+2021-10-18 11:49:09,991:INFO: Bladder flag controller was initialized successfully
+2021-10-18 11:49:09,991:INFO: Hull leak flag controller was initialized successfully
+2021-10-18 11:49:09,992:INFO: Engine leak flag controller was initialized successfully
+2021-10-18 11:49:09,992:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-18 11:49:09,995:INFO: SerialComm was initialized successfully
+2021-10-18 11:49:10,006:INFO: Profile file loaded successfully
+
+2021-10-18 11:49:10,007:INFO: Profile class was initialized successfully
+
+2021-10-18 11:49:10,007:INFO: setting target depth to 0 [mbar]
+2021-10-18 11:49:10,008:INFO: setting state to MissionState.ASCENDING
+2021-10-18 11:49:21,605:INFO: State.STOP
+2021-10-18 11:49:21,607:INFO: BT1   BT2    TT1             TT2             AT              X               Y               Z               BP1   BP2   TP1             TP2             HP      AP              PD   PC     HL EL BF   SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:21,609:INFO: 25.63 -68.36 Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (4/5) Buffering (4/5) 11.39 11.49 Buffering (3/5) Buffering (3/5) 1186.20 Buffering (3/5) 1.00 100.00 0  0  None None None 86.55 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:21,610:WARNING: Stopped
+2021-10-18 11:49:22,116:INFO: State.STOP
+2021-10-18 11:49:22,117:INFO: BT1   BT2    TT1             TT2             AT              X               Y    Z    BP1   BP2   TP1             TP2             HP      AP              PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:22,119:INFO: 25.63 -68.37 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) 0.00 0.00 11.39 11.49 Buffering (4/5) Buffering (4/5) 1185.74 Buffering (4/5) 1.00 100.00 0  0  0  None None 86.57 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:22,120:WARNING: Stopped
+2021-10-18 11:49:22,668:INFO: State.STOP
+2021-10-18 11:49:22,670:INFO: BT1   BT2    TT1   TT2   AT    X               Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:22,673:INFO: 25.63 -68.37 25.82 25.81 25.40 Buffering (4/5) 0.00 0.00 11.38 11.48 10.35 10.60 1185.12 10190.92 1.00 100.00 0  0  0  None None 86.69 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:22,674:WARNING: Stopped
+2021-10-18 11:49:23,223:INFO: State.STOP
+2021-10-18 11:49:23,225:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:23,226:INFO: 25.72 25.16 25.54 25.53 25.40 -0.00 0.00 0.00 11.38 11.48 10.34 10.59 1184.76 10186.62 1.00 100.00 0  0  0  None None 86.74 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:23,227:WARNING: Stopped
+2021-10-18 11:49:23,784:INFO: State.STOP
+2021-10-18 11:49:23,787:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:23,789:INFO: 25.80 25.15 25.27 25.25 25.40 -0.00 0.00 0.00 11.37 11.47 10.34 10.59 1184.50 10183.52 1.00 100.00 0  0  0  None None 86.74 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:23,790:WARNING: Stopped
+2021-10-18 11:49:24,336:INFO: State.STOP
+2021-10-18 11:49:24,338:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:24,339:INFO: 25.80 25.15 25.27 25.25 25.40 -0.00 0.00 0.00 11.37 11.47 10.34 10.59 1184.34 10182.90 1.00 100.00 0  0  0  None None 86.81 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:24,341:WARNING: Stopped
+2021-10-18 11:49:24,883:INFO: State.STOP
+2021-10-18 11:49:24,886:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:24,888:INFO: 25.80 25.15 25.27 25.25 25.40 -0.00 0.00 0.00 11.37 11.47 10.33 10.58 1184.14 10182.28 1.00 100.00 0  0  0  None None 86.83 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:24,890:WARNING: Stopped
+2021-10-18 11:49:25,435:INFO: State.STOP
+2021-10-18 11:49:25,437:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:25,439:INFO: 25.80 25.15 25.27 25.25 25.40 -0.00 0.00 0.00 11.37 11.47 10.33 10.58 1183.98 10181.78 1.00 100.00 0  0  0  None None 86.88 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:25,440:WARNING: Stopped
+2021-10-18 11:49:25,988:INFO: State.STOP
+2021-10-18 11:49:25,991:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:25,993:INFO: 25.80 25.15 25.26 25.25 25.40 -0.00 0.00 0.00 11.37 11.46 10.33 10.58 1183.80 10181.18 1.00 100.00 0  0  0  None None 86.99 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:25,994:WARNING: Stopped
+2021-10-18 11:49:26,544:INFO: State.EXEC_TASK
+2021-10-18 11:49:26,545:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:26,546:INFO: 25.80 25.15 25.26 25.26 25.40 -0.00 0.00 0.00 11.36 11.46 10.33 10.58 1183.64 10180.54 1.00 100.00 0  0  0  None None 87.04 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:26,547:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:26,548:ERROR: error in HP sensor value: 1183.64 is out of bound!
+2021-10-18 11:49:26,549:ERROR: error in AP sensor value: 10180.54 is out of bound!
+2021-10-18 11:49:26,552:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:26,553:INFO: -21.865 = -10.9325*2-0*0
+2021-10-18 11:49:26,554:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:27,107:INFO: State.EXEC_TASK
+2021-10-18 11:49:27,110:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:27,111:INFO: 25.80 25.15 25.26 25.26 25.40 -0.01 -0.00 0.00 11.36 11.46 10.32 10.57 1183.40 10179.96 1.00 100.00 0  0  0  None None 87.06 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:27,113:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:27,114:ERROR: error in HP sensor value: 1183.4 is out of bound!
+2021-10-18 11:49:27,116:ERROR: error in AP sensor value: 10179.96 is out of bound!
+2021-10-18 11:49:27,119:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:27,120:INFO: -21.855 = -10.9275*2--0.008824681396124082*0
+2021-10-18 11:49:27,121:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:27,663:INFO: State.EXEC_TASK
+2021-10-18 11:49:27,665:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:27,666:INFO: 25.80 25.15 25.26 25.26 25.40 -0.01 -0.00 0.00 11.36 11.46 10.32 10.57 1183.18 10179.22 1.00 100.00 0  0  0  None None 87.17 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:27,668:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:27,670:ERROR: error in HP sensor value: 1183.18 is out of bound!
+2021-10-18 11:49:27,671:ERROR: error in AP sensor value: 10179.22 is out of bound!
+2021-10-18 11:49:27,674:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:27,675:INFO: -21.855 = -10.9275*2-0.0*0
+2021-10-18 11:49:27,677:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:28,220:INFO: State.EXEC_TASK
+2021-10-18 11:49:28,222:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:28,224:INFO: 25.80 25.15 25.25 25.26 25.40 -0.01 -0.01 0.00 11.36 11.46 10.32 10.57 1183.06 10178.44 1.00 100.00 0  0  0  None None 87.24 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:28,226:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:28,229:ERROR: error in HP sensor value: 1183.06 is out of bound!
+2021-10-18 11:49:28,230:ERROR: error in AP sensor value: 10178.44 is out of bound!
+2021-10-18 11:49:28,234:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:28,235:INFO: -21.855 = -10.9275*2-0.0*0
+2021-10-18 11:49:28,237:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:28,779:INFO: State.EXEC_TASK
+2021-10-18 11:49:28,780:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:28,782:INFO: 25.80 25.15 25.25 25.26 25.40 -0.01 -0.01 0.00 11.36 11.45 10.32 10.57 1182.84 10177.98 1.00 100.00 0  0  0  None None 87.19 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:28,783:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:28,784:ERROR: error in HP sensor value: 1182.84 is out of bound!
+2021-10-18 11:49:28,786:ERROR: error in AP sensor value: 10177.98 is out of bound!
+2021-10-18 11:49:28,788:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:28,789:INFO: -21.849999999999998 = -10.924999999999999*2--0.004506151299450347*0
+2021-10-18 11:49:28,791:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:29,342:INFO: State.EXEC_TASK
+2021-10-18 11:49:29,344:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:29,346:INFO: 25.80 25.15 25.25 25.26 25.40 -0.01 -0.01 0.00 11.36 11.45 10.32 10.57 1182.78 10177.38 1.00 100.00 0  0  0  None None 87.29 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:29,348:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:29,350:ERROR: error in HP sensor value: 1182.78 is out of bound!
+2021-10-18 11:49:29,351:ERROR: error in AP sensor value: 10177.38 is out of bound!
+2021-10-18 11:49:29,355:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:29,356:INFO: -21.849999999999998 = -10.924999999999999*2-0.0*0
+2021-10-18 11:49:29,358:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:29,895:INFO: State.EXEC_TASK
+2021-10-18 11:49:29,897:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:29,898:INFO: 25.80 25.15 25.25 25.27 25.40 -0.01 -0.01 0.00 11.35 11.45 10.32 10.57 1182.74 10176.66 1.00 100.00 0  0  0  None None 87.34 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:29,899:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:29,901:ERROR: error in HP sensor value: 1182.74 is out of bound!
+2021-10-18 11:49:29,902:ERROR: error in AP sensor value: 10176.66 is out of bound!
+2021-10-18 11:49:29,905:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:29,906:INFO: -21.845 = -10.9225*2--0.0045442493734495154*0
+2021-10-18 11:49:29,908:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:30,459:INFO: State.EXEC_TASK
+2021-10-18 11:49:30,461:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:30,463:INFO: 25.80 25.15 25.25 25.27 25.40 -0.01 -0.01 0.00 11.35 11.45 10.32 10.57 1182.60 10176.18 1.00 100.00 0  0  0  None None 87.38 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:30,465:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:30,467:ERROR: error in HP sensor value: 1182.6 is out of bound!
+2021-10-18 11:49:30,469:ERROR: error in AP sensor value: 10176.18 is out of bound!
+2021-10-18 11:49:30,473:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:30,475:INFO: -21.845 = -10.9225*2-0.0*0
+2021-10-18 11:49:30,477:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:31,015:INFO: State.EXEC_TASK
+2021-10-18 11:49:31,016:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:31,017:INFO: 25.80 25.15 25.25 25.27 25.40 -0.01 -0.00 0.00 11.35 11.45 10.32 10.56 1182.60 10175.74 1.00 100.00 0  0  0  None None 87.40 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:31,018:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:31,020:ERROR: error in HP sensor value: 1182.6 is out of bound!
+2021-10-18 11:49:31,022:ERROR: error in AP sensor value: 10175.74 is out of bound!
+2021-10-18 11:49:31,025:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:31,027:INFO: -21.84 = -10.92*2--0.004536053932085644*0
+2021-10-18 11:49:31,028:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:31,516:INFO: State.EXEC_TASK
+2021-10-18 11:49:31,518:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:31,520:INFO: 25.80 25.16 25.25 25.27 25.40 -0.01 -0.00 0.00 11.35 11.45 10.32 10.57 1182.66 10175.06 1.00 100.00 0  0  0  None None 87.48 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:31,521:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:31,523:ERROR: error in HP sensor value: 1182.66 is out of bound!
+2021-10-18 11:49:31,524:ERROR: error in AP sensor value: 10175.06 is out of bound!
+2021-10-18 11:49:31,527:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:31,528:INFO: -21.845 = -10.9225*2-0.004975147416905599*0
+2021-10-18 11:49:31,531:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:32,038:INFO: State.EXEC_TASK
+2021-10-18 11:49:32,040:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:32,041:INFO: 25.80 25.16 25.25 25.27 25.40 -0.01 0.00 0.00 11.36 11.46 10.32 10.57 1182.62 10174.48 1.00 100.00 0  0  0  None None 87.51 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:32,041:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:32,043:ERROR: error in HP sensor value: 1182.62 is out of bound!
+2021-10-18 11:49:32,045:ERROR: error in AP sensor value: 10174.48 is out of bound!
+2021-10-18 11:49:32,047:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:32,048:INFO: -21.855 = -10.9275*2-0.009609872936170818*0
+2021-10-18 11:49:32,050:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:32,546:INFO: State.EXEC_TASK
+2021-10-18 11:49:32,549:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:32,551:INFO: 25.79 25.16 25.25 25.28 25.40 -0.01 0.00 0.00 11.35 11.45 10.32 10.55 1181.82 10174.00 1.00 100.00 0  0  0  None None 87.55 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:32,552:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:32,554:ERROR: error in HP sensor value: 1181.82 is out of bound!
+2021-10-18 11:49:32,556:ERROR: error in AP sensor value: 10174.0 is out of bound!
+2021-10-18 11:49:32,560:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:32,561:INFO: -21.835 = -10.9175*2--0.019510514167588058*0
+2021-10-18 11:49:32,564:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:33,071:INFO: State.EXEC_TASK
+2021-10-18 11:49:33,073:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:33,074:INFO: 25.79 25.16 25.25 25.27 25.40 -0.06 0.09 -0.02 11.33 11.42 10.29 10.52 1179.12 10173.44 1.00 100.00 0  0  0  None None 87.61 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:33,075:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:33,076:ERROR: error in HP sensor value: 1179.12 is out of bound!
+2021-10-18 11:49:33,078:ERROR: error in AP sensor value: 10173.44 is out of bound!
+2021-10-18 11:49:33,080:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:33,081:INFO: -21.78 = -10.89*2--0.052846067746740014*0
+2021-10-18 11:49:33,083:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:33,630:INFO: State.EXEC_TASK
+2021-10-18 11:49:33,632:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:33,634:INFO: 25.78 25.16 25.24 25.26 25.40 -0.06 0.09 -0.02 11.28 11.37 10.24 10.47 1174.12 10172.74 1.00 100.00 0  0  0  None None 87.73 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:33,635:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:33,637:ERROR: error in HP sensor value: 1174.12 is out of bound!
+2021-10-18 11:49:33,638:ERROR: error in AP sensor value: 10172.74 is out of bound!
+2021-10-18 11:49:33,642:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:33,643:INFO: -21.68 = -10.84*2--0.0890512672219135*0
+2021-10-18 11:49:33,645:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:34,193:INFO: State.EXEC_TASK
+2021-10-18 11:49:34,195:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:34,196:INFO: 25.78 25.15 25.22 25.25 25.40 -0.08 0.04 -0.06 11.22 11.31 10.18 10.41 1168.34 10172.16 1.00 100.00 0  0  0  None None 87.73 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:34,197:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:34,198:ERROR: error in HP sensor value: 1168.34 is out of bound!
+2021-10-18 11:49:34,200:ERROR: error in AP sensor value: 10172.16 is out of bound!
+2021-10-18 11:49:34,203:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:34,204:INFO: -21.560000000000002 = -10.780000000000001*2--0.10696694355738967*0
+2021-10-18 11:49:34,205:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:34,707:INFO: State.EXEC_TASK
+2021-10-18 11:49:34,710:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:34,712:INFO: 25.76 25.15 25.21 25.24 25.40 -0.08 0.04 -0.06 11.17 11.26 10.13 10.36 1163.16 10171.76 1.00 100.00 0  0  0  None None 87.71 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:34,713:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:34,715:ERROR: error in HP sensor value: 1163.16 is out of bound!
+2021-10-18 11:49:34,717:ERROR: error in AP sensor value: 10171.76 is out of bound!
+2021-10-18 11:49:34,722:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:34,723:INFO: -21.46 = -10.73*2--0.09632211233734041*0
+2021-10-18 11:49:34,725:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:35,232:INFO: State.EXEC_TASK
+2021-10-18 11:49:35,235:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:35,236:INFO: 25.75 25.15 25.20 25.24 25.40 -0.09 0.02 -0.04 11.13 11.22 10.09 10.34 1159.98 10171.22 1.00 100.00 0  0  0  None None 87.78 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:35,237:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:35,238:ERROR: error in HP sensor value: 1159.98 is out of bound!
+2021-10-18 11:49:35,239:ERROR: error in AP sensor value: 10171.22 is out of bound!
+2021-10-18 11:49:35,243:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:35,244:INFO: -21.39 = -10.695*2--0.06718177349956048*0
+2021-10-18 11:49:35,245:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:35,739:INFO: State.EXEC_TASK
+2021-10-18 11:49:35,742:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:35,743:INFO: 25.74 25.15 25.19 25.24 25.40 -0.09 0.02 -0.04 11.12 11.22 10.09 10.34 1159.84 10170.68 1.00 100.00 0  0  0  None None 87.84 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:35,744:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:35,746:ERROR: error in HP sensor value: 1159.84 is out of bound!
+2021-10-18 11:49:35,748:ERROR: error in AP sensor value: 10170.68 is out of bound!
+2021-10-18 11:49:35,752:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:35,753:INFO: -21.384999999999998 = -10.692499999999999*2--0.004909672782440408*0
+2021-10-18 11:49:35,755:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:36,259:INFO: State.EXEC_TASK
+2021-10-18 11:49:36,261:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:36,262:INFO: 25.72 25.15 25.19 25.24 25.40 -0.08 0.01 -0.04 11.14 11.25 10.12 10.38 1162.76 10170.36 1.00 100.00 0  0  0  None None 87.84 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:36,263:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:36,265:ERROR: error in HP sensor value: 1162.76 is out of bound!
+2021-10-18 11:49:36,266:ERROR: error in AP sensor value: 10170.36 is out of bound!
+2021-10-18 11:49:36,268:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:36,270:INFO: -21.445 = -10.7225*2-0.05807491591932352*0
+2021-10-18 11:49:36,271:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:36,768:INFO: State.EXEC_TASK
+2021-10-18 11:49:36,770:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:36,772:INFO: 25.71 25.15 25.19 25.24 25.40 -0.08 0.01 -0.04 11.18 11.29 10.16 10.43 1167.34 10169.86 1.00 100.00 0  0  0  None None 87.94 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:36,773:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:36,775:ERROR: error in HP sensor value: 1167.34 is out of bound!
+2021-10-18 11:49:36,776:ERROR: error in AP sensor value: 10169.86 is out of bound!
+2021-10-18 11:49:36,780:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:36,781:INFO: -21.529999999999998 = -10.764999999999999*2-0.0831166350845231*0
+2021-10-18 11:49:36,783:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:37,296:INFO: State.EXEC_TASK
+2021-10-18 11:49:37,298:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:37,299:INFO: 25.71 25.15 25.18 25.25 25.40 -0.08 -0.00 -0.04 11.23 11.33 10.21 10.47 1171.92 10169.14 1.00 100.00 0  0  0  None None 88.02 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:37,300:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:37,302:ERROR: error in HP sensor value: 1171.92 is out of bound!
+2021-10-18 11:49:37,303:ERROR: error in AP sensor value: 10169.14 is out of bound!
+2021-10-18 11:49:37,306:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:37,307:INFO: -21.62 = -10.81*2-0.08554240915432193*0
+2021-10-18 11:49:37,308:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:37,848:INFO: State.EXEC_TASK
+2021-10-18 11:49:37,850:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:37,851:INFO: 25.70 25.15 25.18 25.25 25.40 -0.03 -0.09 -0.01 11.27 11.38 10.25 10.51 1175.90 10168.58 1.00 100.00 0  0  0  None None 88.04 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:37,852:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:37,854:ERROR: error in HP sensor value: 1175.9 is out of bound!
+2021-10-18 11:49:37,855:ERROR: error in AP sensor value: 10168.58 is out of bound!
+2021-10-18 11:49:37,858:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:37,859:INFO: -21.705 = -10.8525*2-0.0769968710207428*0
+2021-10-18 11:49:37,860:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:38,361:INFO: State.EXEC_TASK
+2021-10-18 11:49:38,363:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:38,364:INFO: 25.70 25.15 25.19 25.25 25.40 -0.03 -0.09 -0.01 11.31 11.41 10.28 10.54 1179.34 10168.04 1.00 100.00 0  0  0  None None 88.05 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:38,365:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:38,366:ERROR: error in HP sensor value: 1179.34 is out of bound!
+2021-10-18 11:49:38,367:ERROR: error in AP sensor value: 10168.04 is out of bound!
+2021-10-18 11:49:38,370:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:38,371:INFO: -21.77 = -10.885*2-0.0634827600017523*0
+2021-10-18 11:49:38,373:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:38,879:INFO: State.EXEC_TASK
+2021-10-18 11:49:38,880:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:38,882:INFO: 25.70 25.14 25.19 25.25 25.40 -0.02 -0.03 0.03 11.34 11.45 10.31 10.57 1182.46 10167.30 1.00 100.00 0  0  0  None None 88.18 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:38,883:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:38,884:ERROR: error in HP sensor value: 1182.46 is out of bound!
+2021-10-18 11:49:38,885:ERROR: error in AP sensor value: 10167.3 is out of bound!
+2021-10-18 11:49:38,887:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:38,888:INFO: -21.835 = -10.9175*2-0.06281589073163663*0
+2021-10-18 11:49:38,890:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:39,386:INFO: State.EXEC_TASK
+2021-10-18 11:49:39,389:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:39,391:INFO: 25.70 25.14 25.19 25.26 25.40 -0.02 -0.03 0.03 11.37 11.47 10.34 10.60 1185.16 10166.68 1.00 100.00 0  0  0  None None 88.18 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:39,393:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:39,395:ERROR: error in HP sensor value: 1185.16 is out of bound!
+2021-10-18 11:49:39,397:ERROR: error in AP sensor value: 10166.68 is out of bound!
+2021-10-18 11:49:39,401:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:39,403:INFO: -21.89 = -10.945*2-0.053522234931358784*0
+2021-10-18 11:49:39,405:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:39,910:INFO: State.EXEC_TASK
+2021-10-18 11:49:39,912:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:39,914:INFO: 25.70 25.14 25.19 25.26 25.40 -0.01 -0.02 0.01 11.40 11.50 10.36 10.62 1187.58 10166.12 1.00 100.00 0  0  0  None None 88.23 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:39,915:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:39,917:ERROR: error in HP sensor value: 1187.58 is out of bound!
+2021-10-18 11:49:39,919:ERROR: error in AP sensor value: 10166.12 is out of bound!
+2021-10-18 11:49:39,922:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:39,923:INFO: -21.939999999999998 = -10.969999999999999*2-0.04798763990231735*0
+2021-10-18 11:49:39,925:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:40,422:INFO: State.EXEC_TASK
+2021-10-18 11:49:40,425:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:40,428:INFO: 25.70 25.14 25.18 25.26 25.40 -0.01 -0.02 0.01 11.42 11.52 10.39 10.64 1189.84 10165.64 1.00 100.00 0  0  0  None None 88.22 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:40,429:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:40,432:ERROR: error in HP sensor value: 1189.84 is out of bound!
+2021-10-18 11:49:40,434:ERROR: error in AP sensor value: 10165.64 is out of bound!
+2021-10-18 11:49:40,438:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:40,439:INFO: -21.985 = -10.9925*2-0.04358308102406632*0
+2021-10-18 11:49:40,441:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:40,943:INFO: State.EXEC_TASK
+2021-10-18 11:49:40,944:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:40,945:INFO: 25.70 25.14 25.18 25.26 25.40 -0.02 -0.01 0.00 11.44 11.54 10.40 10.66 1191.98 10165.06 1.00 100.00 0  0  0  None None 88.30 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:40,946:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:40,948:ERROR: error in HP sensor value: 1191.98 is out of bound!
+2021-10-18 11:49:40,949:ERROR: error in AP sensor value: 10165.06 is out of bound!
+2021-10-18 11:49:40,951:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:40,951:INFO: -22.019999999999996 = -11.009999999999998*2-0.03414876888176429*0
+2021-10-18 11:49:40,952:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:41,448:INFO: State.EXEC_TASK
+2021-10-18 11:49:41,450:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:41,451:INFO: 25.70 25.14 25.18 25.26 25.40 -0.02 -0.01 0.00 11.46 11.56 10.42 10.68 1193.78 10164.58 1.00 100.00 0  0  0  None None 88.36 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:41,453:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:41,454:ERROR: error in HP sensor value: 1193.78 is out of bound!
+2021-10-18 11:49:41,456:ERROR: error in AP sensor value: 10164.58 is out of bound!
+2021-10-18 11:49:41,459:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:41,460:INFO: -22.060000000000002 = -11.030000000000001*2-0.039371306274177294*0
+2021-10-18 11:49:41,462:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:41,970:INFO: State.EXEC_TASK
+2021-10-18 11:49:41,971:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:41,972:INFO: 25.70 25.14 25.18 25.26 25.40 -0.02 -0.00 0.00 11.48 11.57 10.44 10.70 1195.48 10164.06 1.00 100.00 0  0  0  None None 88.40 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:41,973:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:41,974:ERROR: error in HP sensor value: 1195.48 is out of bound!
+2021-10-18 11:49:41,976:ERROR: error in AP sensor value: 10164.06 is out of bound!
+2021-10-18 11:49:41,978:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:41,979:INFO: -22.095 = -11.0475*2-0.03368569456478311*0
+2021-10-18 11:49:41,981:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:42,527:INFO: State.EXEC_TASK
+2021-10-18 11:49:42,530:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:42,532:INFO: 25.69 25.13 25.18 25.27 25.40 -0.02 -0.00 0.00 11.49 11.59 10.45 10.71 1197.14 10163.56 1.00 100.00 0  0  0  None None 88.44 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:42,533:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:42,535:ERROR: error in HP sensor value: 1197.14 is out of bound!
+2021-10-18 11:49:42,536:ERROR: error in AP sensor value: 10163.56 is out of bound!
+2021-10-18 11:49:42,540:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:42,541:INFO: -22.12 = -11.06*2-0.022261417782878684*0
+2021-10-18 11:49:42,543:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:43,084:INFO: State.EXEC_TASK
+2021-10-18 11:49:43,086:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State           MissionState           Setpoint 
+2021-10-18 11:49:43,087:INFO: 25.69 25.13 25.18 25.27 25.40 -0.01 -0.00 0.00 11.51 11.60 10.46 10.73 1198.66 10162.94 1.00 100.00 0  0  0  None None 88.49 Buffering (0/1) State.EXEC_TASK MissionState.ASCENDING 0        
+2021-10-18 11:49:43,087:INFO: attemting to start a new dutycycle
+2021-10-18 11:49:43,088:ERROR: error in HP sensor value: 1198.66 is out of bound!
+2021-10-18 11:49:43,089:ERROR: error in AP sensor value: 10162.94 is out of bound!
+2021-10-18 11:49:43,092:INFO: scalar = self.p*self.kp-self.d*self.kd
+2021-10-18 11:49:43,092:INFO: -22.15 = -11.075*2-0.027170261106672765*0
+2021-10-18 11:49:43,095:INFO: sending PID - Voltage:0    direction:2    timeOn:2.0  timeOff:0.5
+2021-10-18 11:49:43,643:WARNING: stopping
+2021-10-18 11:49:43,644:INFO: State.STOP
+2021-10-18 11:49:43,646:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:43,648:INFO: 25.69 25.13 25.18 25.27 25.40 -0.01 -0.00 0.00 11.52 11.62 10.48 10.74 1200.04 10162.40 1.00 100.00 0  0  0  None None 88.53 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:43,650:WARNING: Stopped
+2021-10-18 11:49:44,200:WARNING: stopping
+2021-10-18 11:49:44,201:INFO: State.STOP
+2021-10-18 11:49:44,202:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:44,203:INFO: 25.69 25.13 25.18 25.28 25.40 -0.01 0.00 0.00 11.53 11.63 10.49 10.75 1201.34 10161.94 1.00 100.00 0  0  0  None None 88.56 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:44,203:WARNING: Stopped
+2021-10-18 11:49:44,706:WARNING: stopping
+2021-10-18 11:49:44,708:INFO: State.STOP
+2021-10-18 11:49:44,711:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:44,712:INFO: 25.69 25.13 25.18 25.28 25.40 -0.01 0.00 0.00 11.54 11.64 10.50 10.76 1202.48 10161.34 1.00 100.00 0  0  0  None None 88.66 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:44,713:WARNING: Stopped
+2021-10-18 11:49:45,219:WARNING: stopping
+2021-10-18 11:49:45,220:INFO: State.STOP
+2021-10-18 11:49:45,221:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:45,223:INFO: 25.68 25.13 25.18 25.27 25.40 0.00 -0.00 0.00 11.55 11.65 10.51 10.77 1203.38 10160.82 1.00 100.00 0  0  0  None None 88.67 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:45,224:WARNING: Stopped
+2021-10-18 11:49:45,781:WARNING: stopping
+2021-10-18 11:49:45,782:INFO: State.STOP
+2021-10-18 11:49:45,784:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:45,785:INFO: 25.68 25.13 25.18 25.27 25.40 0.00 -0.00 0.00 11.56 11.66 10.52 10.78 1204.16 10160.14 1.00 100.00 0  0  0  None None 88.78 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:45,786:WARNING: Stopped
+2021-10-18 11:49:46,334:WARNING: stopping
+2021-10-18 11:49:46,335:INFO: State.STOP
+2021-10-18 11:49:46,337:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:46,338:INFO: 25.68 25.13 25.17 25.27 25.40 0.01 0.00 0.00 11.57 11.67 10.53 10.79 1204.86 10159.44 1.00 100.00 0  0  0  None None 88.83 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:46,339:WARNING: Stopped
+2021-10-18 11:49:46,896:WARNING: stopping
+2021-10-18 11:49:46,898:INFO: State.STOP
+2021-10-18 11:49:46,900:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:46,902:INFO: 25.68 25.13 25.17 25.27 25.40 0.01 -0.00 0.00 11.58 11.68 10.54 10.79 1205.50 10158.92 1.00 100.00 0  0  0  None None 88.78 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:46,903:WARNING: Stopped
+2021-10-18 11:49:47,448:WARNING: stopping
+2021-10-18 11:49:47,449:INFO: State.STOP
+2021-10-18 11:49:47,450:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:47,451:INFO: 25.67 25.13 25.17 25.27 25.40 0.01 -0.00 0.00 11.58 11.68 10.54 10.80 1206.06 10158.38 1.00 100.00 0  0  0  None None 88.89 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:47,452:WARNING: Stopped
+2021-10-18 11:49:48,015:WARNING: stopping
+2021-10-18 11:49:48,016:INFO: State.STOP
+2021-10-18 11:49:48,019:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:48,022:INFO: 25.67 25.13 25.16 25.27 25.40 0.01 0.00 0.00 11.59 11.69 10.55 10.80 1206.66 10157.84 1.00 100.00 0  0  0  None None 88.90 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:48,022:WARNING: Stopped
+2021-10-18 11:49:48,566:WARNING: stopping
+2021-10-18 11:49:48,568:INFO: State.STOP
+2021-10-18 11:49:48,571:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:48,573:INFO: 25.67 25.13 25.16 25.27 25.40 0.01 0.00 0.00 11.59 11.69 10.55 10.81 1207.18 10157.42 1.00 100.00 0  0  0  None None 88.96 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:48,574:WARNING: Stopped
+2021-10-18 11:49:49,116:WARNING: stopping
+2021-10-18 11:49:49,118:INFO: State.STOP
+2021-10-18 11:49:49,120:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:49,122:INFO: 25.67 25.13 25.16 25.27 25.40 0.01 -0.00 0.00 11.59 11.69 10.56 10.81 1207.56 10157.04 1.00 100.00 0  0  0  None None 88.99 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:49,123:WARNING: Stopped
+2021-10-18 11:49:49,624:WARNING: stopping
+2021-10-18 11:49:49,627:INFO: State.STOP
+2021-10-18 11:49:49,630:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:49,632:INFO: 25.67 25.13 25.16 25.27 25.40 0.01 -0.00 0.00 11.60 11.70 10.56 10.81 1207.86 10156.42 1.00 100.00 0  0  0  None None 89.02 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:49,633:WARNING: Stopped
+2021-10-18 11:49:50,152:WARNING: stopping
+2021-10-18 11:49:50,154:INFO: State.STOP
+2021-10-18 11:49:50,156:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:50,158:INFO: 25.67 25.13 25.16 25.27 25.40 0.01 0.01 0.00 11.60 11.70 10.56 10.82 1208.08 10155.88 1.00 100.00 0  0  0  None None 89.12 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:50,159:WARNING: Stopped
+2021-10-18 11:49:50,708:WARNING: stopping
+2021-10-18 11:49:50,710:INFO: State.STOP
+2021-10-18 11:49:50,713:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:50,715:INFO: 25.68 25.13 25.16 25.27 25.40 0.01 0.01 0.00 11.60 11.70 10.56 10.82 1208.14 10155.32 1.00 100.00 0  0  0  None None 89.14 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:50,716:WARNING: Stopped
+2021-10-18 11:49:51,260:WARNING: stopping
+2021-10-18 11:49:51,262:INFO: State.STOP
+2021-10-18 11:49:51,264:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:51,266:INFO: 25.68 25.13 25.15 25.26 25.40 0.00 -0.00 0.00 11.60 11.70 10.56 10.82 1208.06 10154.82 1.00 100.00 0  0  0  None None 89.17 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:51,268:WARNING: Stopped
+2021-10-18 11:49:51,825:WARNING: stopping
+2021-10-18 11:49:51,826:INFO: State.STOP
+2021-10-18 11:49:51,829:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:51,831:INFO: 25.68 25.13 25.15 25.26 25.40 0.00 -0.00 0.00 11.60 11.70 10.56 10.81 1207.94 10154.32 1.00 100.00 0  0  0  None None 89.21 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:51,832:WARNING: Stopped
+2021-10-18 11:49:52,378:WARNING: stopping
+2021-10-18 11:49:52,379:INFO: State.STOP
+2021-10-18 11:49:52,381:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:52,382:INFO: 25.68 25.13 25.15 25.26 25.40 0.00 0.00 0.00 11.60 11.70 10.56 10.81 1207.70 10153.70 1.00 100.00 0  0  0  None None 89.31 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:52,383:WARNING: Stopped
+2021-10-18 11:49:52,940:WARNING: stopping
+2021-10-18 11:49:52,941:INFO: State.STOP
+2021-10-18 11:49:52,944:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:52,946:INFO: 25.68 25.13 25.16 25.25 25.40 0.00 0.00 0.00 11.60 11.69 10.56 10.81 1207.40 10153.22 1.00 100.00 0  0  0  None None 89.33 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:52,947:WARNING: Stopped
+2021-10-18 11:49:53,491:WARNING: stopping
+2021-10-18 11:49:53,493:INFO: State.STOP
+2021-10-18 11:49:53,495:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:53,497:INFO: 25.68 25.13 25.16 25.25 25.40 0.00 0.00 0.00 11.59 11.69 10.55 10.81 1207.08 10152.66 1.00 100.00 0  0  0  None None 89.38 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:53,498:WARNING: Stopped
+2021-10-18 11:49:54,046:WARNING: stopping
+2021-10-18 11:49:54,047:INFO: State.STOP
+2021-10-18 11:49:54,049:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:54,050:INFO: 25.67 25.13 25.16 25.24 25.40 -0.00 0.00 0.00 11.59 11.69 10.55 10.80 1206.82 10151.98 1.00 100.00 0  0  0  None None 89.46 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:54,051:WARNING: Stopped
+2021-10-18 11:49:54,606:WARNING: stopping
+2021-10-18 11:49:54,608:INFO: State.STOP
+2021-10-18 11:49:54,610:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:54,611:INFO: 25.67 25.13 25.16 25.24 25.40 -0.00 0.00 0.00 11.59 11.68 10.54 10.80 1206.44 10151.32 1.00 100.00 0  0  0  None None 89.49 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:54,612:WARNING: Stopped
+2021-10-18 11:49:55,158:WARNING: stopping
+2021-10-18 11:49:55,159:INFO: State.STOP
+2021-10-18 11:49:55,161:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:55,162:INFO: 25.67 25.13 25.15 25.23 25.40 -0.00 0.00 0.00 11.58 11.68 10.54 10.79 1205.94 10150.72 1.00 100.00 0  0  0  None None 89.57 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:55,163:WARNING: Stopped
+2021-10-18 11:49:55,720:WARNING: stopping
+2021-10-18 11:49:55,722:INFO: State.STOP
+2021-10-18 11:49:55,725:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:55,727:INFO: 25.67 25.14 25.15 25.23 25.40 -0.00 0.00 0.00 11.58 11.67 10.53 10.79 1205.36 10150.14 1.00 100.00 0  0  0  None None 89.57 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:55,728:WARNING: Stopped
+2021-10-18 11:49:56,270:WARNING: stopping
+2021-10-18 11:49:56,271:INFO: State.STOP
+2021-10-18 11:49:56,273:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:56,275:INFO: 25.67 25.14 25.16 25.23 25.40 0.00 0.01 0.00 11.57 11.67 10.52 10.78 1204.78 10149.56 1.00 100.00 0  0  0  None None 89.63 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:56,276:WARNING: Stopped
+2021-10-18 11:49:56,833:WARNING: stopping
+2021-10-18 11:49:56,834:INFO: State.STOP
+2021-10-18 11:49:56,836:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:56,838:INFO: 25.68 25.14 25.16 25.23 25.40 0.00 0.01 0.00 11.56 11.66 10.52 10.77 1203.98 10149.18 1.00 100.00 0  0  0  None None 89.63 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:56,838:WARNING: Stopped
+2021-10-18 11:49:57,393:WARNING: stopping
+2021-10-18 11:49:57,394:INFO: State.STOP
+2021-10-18 11:49:57,396:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:57,398:INFO: 25.68 25.14 25.16 25.23 25.40 0.00 0.00 0.00 11.55 11.65 10.51 10.77 1203.16 10148.60 1.00 100.00 0  0  0  None None 89.74 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:57,398:WARNING: Stopped
+2021-10-18 11:49:57,945:WARNING: stopping
+2021-10-18 11:49:57,946:INFO: State.STOP
+2021-10-18 11:49:57,948:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:57,949:INFO: 25.68 25.14 25.16 25.23 25.40 0.00 0.00 0.00 11.54 11.64 10.50 10.76 1202.40 10148.20 1.00 100.00 0  0  0  None None 89.74 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:57,950:WARNING: Stopped
+2021-10-18 11:49:58,501:WARNING: stopping
+2021-10-18 11:49:58,502:INFO: State.STOP
+2021-10-18 11:49:58,505:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:58,507:INFO: 25.68 25.14 25.16 25.23 25.40 0.00 0.00 0.00 11.53 11.63 10.49 10.75 1201.56 10147.66 1.00 100.00 0  0  0  None None 89.81 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:58,508:WARNING: Stopped
+2021-10-18 11:49:59,051:WARNING: stopping
+2021-10-18 11:49:59,052:INFO: State.STOP
+2021-10-18 11:49:59,054:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:59,055:INFO: 25.68 25.14 25.16 25.23 25.40 0.01 -0.00 0.00 11.53 11.62 10.48 10.73 1200.52 10147.16 1.00 100.00 0  0  0  None None 89.84 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:59,056:WARNING: Stopped
+2021-10-18 11:49:59,606:WARNING: stopping
+2021-10-18 11:49:59,608:INFO: State.STOP
+2021-10-18 11:49:59,610:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:49:59,612:INFO: 25.68 25.14 25.15 25.24 25.40 0.01 -0.00 0.00 11.52 11.62 10.47 10.72 1199.58 10146.66 1.00 100.00 0  0  0  None None 89.84 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:49:59,613:WARNING: Stopped
+2021-10-18 11:50:00,162:WARNING: stopping
+2021-10-18 11:50:00,163:INFO: State.STOP
+2021-10-18 11:50:00,165:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:00,166:INFO: 25.68 25.14 25.15 25.24 25.40 0.00 -0.01 0.00 11.51 11.60 10.46 10.71 1198.42 10146.20 1.00 100.00 0  0  0  None None 89.93 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:00,167:WARNING: Stopped
+2021-10-18 11:50:00,724:WARNING: stopping
+2021-10-18 11:50:00,725:INFO: State.STOP
+2021-10-18 11:50:00,728:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:00,730:INFO: 25.68 25.14 25.15 25.25 25.40 0.00 -0.01 0.00 11.50 11.59 10.45 10.70 1197.36 10145.64 1.00 100.00 0  0  0  None None 90.00 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:00,731:WARNING: Stopped
+2021-10-18 11:50:01,275:WARNING: stopping
+2021-10-18 11:50:01,276:INFO: State.STOP
+2021-10-18 11:50:01,278:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:01,279:INFO: 25.68 25.14 25.15 25.25 25.40 0.00 -0.01 0.00 11.49 11.58 10.44 10.69 1196.18 10145.08 1.00 100.00 0  0  0  None None 90.05 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:01,280:WARNING: Stopped
+2021-10-18 11:50:01,838:WARNING: stopping
+2021-10-18 11:50:01,841:INFO: State.STOP
+2021-10-18 11:50:01,843:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:01,845:INFO: 25.68 25.14 25.15 25.25 25.40 0.00 -0.01 0.00 11.47 11.57 10.43 10.68 1195.12 10144.56 1.00 100.00 0  0  0  None None 90.06 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:01,845:WARNING: Stopped
+2021-10-18 11:50:02,392:WARNING: stopping
+2021-10-18 11:50:02,394:INFO: State.STOP
+2021-10-18 11:50:02,397:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:02,398:INFO: 25.68 25.14 25.15 25.26 25.40 0.00 -0.01 0.00 11.46 11.56 10.41 10.67 1193.88 10143.90 1.00 100.00 0  0  0  None None 90.12 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:02,400:WARNING: Stopped
+2021-10-18 11:50:02,948:WARNING: stopping
+2021-10-18 11:50:02,949:INFO: State.STOP
+2021-10-18 11:50:02,950:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:02,952:INFO: 25.68 25.14 25.15 25.26 25.40 0.00 -0.00 -0.00 11.45 11.55 10.40 10.65 1192.74 10143.22 1.00 100.00 0  0  0  None None 90.23 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:02,953:WARNING: Stopped
+2021-10-18 11:50:03,508:WARNING: stopping
+2021-10-18 11:50:03,509:INFO: State.STOP
+2021-10-18 11:50:03,511:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:03,513:INFO: 25.68 25.14 25.15 25.27 25.40 0.00 -0.00 -0.00 11.44 11.53 10.39 10.64 1191.46 10142.62 1.00 100.00 0  0  0  None None 90.26 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:03,515:WARNING: Stopped
+2021-10-18 11:50:04,055:WARNING: stopping
+2021-10-18 11:50:04,057:INFO: State.STOP
+2021-10-18 11:50:04,059:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:04,061:INFO: 25.68 25.14 25.15 25.28 25.40 -0.00 -0.00 -0.00 11.42 11.52 10.37 10.63 1190.20 10142.24 1.00 100.00 0  0  0  None None 90.21 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:04,062:WARNING: Stopped
+2021-10-18 11:50:04,615:WARNING: stopping
+2021-10-18 11:50:04,618:INFO: State.STOP
+2021-10-18 11:50:04,621:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:04,624:INFO: 25.68 25.14 25.15 25.28 25.40 -0.00 -0.00 -0.00 11.41 11.51 10.36 10.62 1188.86 10141.64 1.00 100.00 0  0  0  None None 90.34 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:04,626:WARNING: Stopped
+2021-10-18 11:50:05,173:WARNING: stopping
+2021-10-18 11:50:05,174:INFO: State.STOP
+2021-10-18 11:50:05,175:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:05,177:INFO: 25.68 25.14 25.15 25.29 25.40 0.00 0.00 -0.00 11.39 11.49 10.35 10.60 1187.46 10141.22 1.00 100.00 0  0  0  None None 90.30 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:05,177:WARNING: Stopped
+2021-10-18 11:50:05,733:WARNING: stopping
+2021-10-18 11:50:05,735:INFO: State.STOP
+2021-10-18 11:50:05,737:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:05,740:INFO: 25.68 25.14 25.16 25.29 25.40 0.00 0.00 -0.00 11.38 11.48 10.33 10.59 1186.08 10140.82 1.00 100.00 0  0  0  None None 90.42 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:05,741:WARNING: Stopped
+2021-10-18 11:50:06,286:WARNING: stopping
+2021-10-18 11:50:06,287:INFO: State.STOP
+2021-10-18 11:50:06,289:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:06,290:INFO: 25.68 25.14 25.16 25.28 25.40 0.00 0.00 -0.00 11.37 11.46 10.32 10.57 1184.62 10140.32 1.00 100.00 0  0  0  None None 90.45 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:06,291:WARNING: Stopped
+2021-10-18 11:50:06,795:WARNING: stopping
+2021-10-18 11:50:06,798:INFO: State.STOP
+2021-10-18 11:50:06,801:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:06,804:INFO: 25.68 25.14 25.16 25.28 25.40 0.00 0.00 -0.00 11.35 11.45 10.30 10.56 1183.18 10139.76 1.00 100.00 0  0  0  None None 90.45 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:06,805:WARNING: Stopped
+2021-10-18 11:50:07,309:WARNING: stopping
+2021-10-18 11:50:07,311:INFO: State.STOP
+2021-10-18 11:50:07,313:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:07,315:INFO: 25.68 25.14 25.16 25.29 25.40 0.00 0.01 -0.00 11.34 11.43 10.29 10.54 1181.74 10139.24 1.00 100.00 0  0  0  None None 90.54 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:07,316:WARNING: Stopped
+2021-10-18 11:50:07,818:WARNING: stopping
+2021-10-18 11:50:07,818:INFO: State.STOP
+2021-10-18 11:50:07,819:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:07,821:INFO: 25.68 25.14 25.16 25.29 25.40 0.00 0.01 -0.00 11.32 11.42 10.27 10.53 1180.36 10138.58 1.00 100.00 0  0  0  None None 90.61 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:07,822:WARNING: Stopped
+2021-10-18 11:50:08,343:WARNING: stopping
+2021-10-18 11:50:08,343:INFO: State.STOP
+2021-10-18 11:50:08,345:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:08,347:INFO: 25.68 25.14 25.16 25.29 25.40 0.00 0.00 0.00 11.31 11.40 10.26 10.51 1178.84 10138.14 1.00 100.00 0  0  0  None None 90.59 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:08,348:WARNING: Stopped
+2021-10-18 11:50:08,848:WARNING: stopping
+2021-10-18 11:50:08,849:INFO: State.STOP
+2021-10-18 11:50:08,852:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:08,854:INFO: 25.68 25.14 25.16 25.30 25.40 0.00 0.00 0.00 11.29 11.39 10.25 10.50 1177.36 10137.76 1.00 100.00 0  0  0  None None 90.61 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:08,855:WARNING: Stopped
+2021-10-18 11:50:09,370:WARNING: stopping
+2021-10-18 11:50:09,371:INFO: State.STOP
+2021-10-18 11:50:09,373:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:09,375:INFO: 25.68 25.14 25.16 25.30 25.40 0.01 0.00 0.00 11.28 11.38 10.23 10.48 1175.88 10137.22 1.00 100.00 0  0  0  None None 90.68 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:09,376:WARNING: Stopped
+2021-10-18 11:50:09,928:WARNING: stopping
+2021-10-18 11:50:09,930:INFO: State.STOP
+2021-10-18 11:50:09,933:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:09,935:INFO: 25.68 25.14 25.16 25.30 25.40 0.00 0.00 0.00 11.26 11.36 10.22 10.47 1174.24 10136.86 1.00 100.00 0  0  0  None None 90.70 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:09,937:WARNING: Stopped
+2021-10-18 11:50:10,488:WARNING: stopping
+2021-10-18 11:50:10,489:INFO: State.STOP
+2021-10-18 11:50:10,492:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:10,493:INFO: 25.68 25.14 25.16 25.31 25.40 0.00 0.00 0.00 11.25 11.34 10.20 10.45 1172.62 10136.50 1.00 100.00 0  0  0  None None 90.76 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:10,494:WARNING: Stopped
+2021-10-18 11:50:11,052:WARNING: stopping
+2021-10-18 11:50:11,054:INFO: State.STOP
+2021-10-18 11:50:11,057:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:11,058:INFO: 25.68 25.14 25.16 25.31 25.40 0.00 0.00 0.00 11.23 11.33 10.19 10.44 1171.10 10135.94 1.00 100.00 0  0  0  None None 90.83 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:11,060:WARNING: Stopped
+2021-10-18 11:50:11,560:WARNING: stopping
+2021-10-18 11:50:11,563:INFO: State.STOP
+2021-10-18 11:50:11,565:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:11,566:INFO: 25.68 25.14 25.16 25.32 25.40 0.00 0.00 0.00 11.21 11.31 10.17 10.42 1169.62 10135.54 1.00 100.00 0  0  0  None None 90.78 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:11,567:WARNING: Stopped
+2021-10-18 11:50:12,076:WARNING: stopping
+2021-10-18 11:50:12,079:INFO: State.STOP
+2021-10-18 11:50:12,082:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:12,084:INFO: 25.68 25.15 25.16 25.32 25.40 0.01 0.00 0.00 11.20 11.30 10.16 10.41 1168.08 10135.12 1.00 100.00 0  0  0  None None 90.86 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:12,085:WARNING: Stopped
+2021-10-18 11:50:12,580:WARNING: stopping
+2021-10-18 11:50:12,582:INFO: State.STOP
+2021-10-18 11:50:12,584:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:12,586:INFO: 25.68 25.15 25.16 25.32 25.40 0.01 0.00 0.00 11.19 11.28 10.14 10.40 1166.74 10134.62 1.00 100.00 0  0  0  None None 90.91 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:12,587:WARNING: Stopped
+2021-10-18 11:50:13,110:WARNING: stopping
+2021-10-18 11:50:13,112:INFO: State.STOP
+2021-10-18 11:50:13,115:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:13,117:INFO: 25.68 25.14 25.16 25.31 25.40 0.00 0.01 -0.01 11.17 11.27 10.13 10.38 1165.64 10134.08 1.00 100.00 0  0  0  None None 90.97 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:13,118:WARNING: Stopped
+2021-10-18 11:50:13,610:WARNING: stopping
+2021-10-18 11:50:13,612:INFO: State.STOP
+2021-10-18 11:50:13,614:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:13,615:INFO: 25.68 25.14 25.16 25.31 25.40 0.00 0.01 -0.01 11.17 11.26 10.13 10.38 1164.98 10133.76 1.00 100.00 0  0  0  None None 90.96 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:13,616:WARNING: Stopped
+2021-10-18 11:50:14,136:WARNING: stopping
+2021-10-18 11:50:14,138:INFO: State.STOP
+2021-10-18 11:50:14,142:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:14,144:INFO: 25.68 25.14 25.16 25.30 25.40 0.00 0.01 0.00 11.16 11.26 10.12 10.38 1164.68 10133.20 1.00 100.00 0  0  0  None None 91.02 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:14,145:WARNING: Stopped
+2021-10-18 11:50:14,637:WARNING: stopping
+2021-10-18 11:50:14,637:INFO: State.STOP
+2021-10-18 11:50:14,639:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:14,641:INFO: 25.68 25.14 25.17 25.29 25.40 0.00 0.01 0.00 11.16 11.26 10.13 10.38 1164.88 10132.70 1.00 100.00 0  0  0  None None 91.08 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:14,642:WARNING: Stopped
+2021-10-18 11:50:15,170:WARNING: stopping
+2021-10-18 11:50:15,171:INFO: State.STOP
+2021-10-18 11:50:15,174:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:15,176:INFO: 25.68 25.14 25.17 25.28 25.40 0.01 0.01 -0.00 11.17 11.27 10.13 10.39 1165.48 10132.34 1.00 100.00 0  0  0  None None 91.07 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:15,177:WARNING: Stopped
+2021-10-18 11:50:15,670:WARNING: stopping
+2021-10-18 11:50:15,671:INFO: State.STOP
+2021-10-18 11:50:15,672:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:15,674:INFO: 25.68 25.14 25.17 25.27 25.40 0.01 0.01 -0.00 11.17 11.27 10.14 10.40 1166.20 10132.04 1.00 100.00 0  0  0  None None 91.10 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:15,675:WARNING: Stopped
+2021-10-18 11:50:16,196:WARNING: stopping
+2021-10-18 11:50:16,198:INFO: State.STOP
+2021-10-18 11:50:16,200:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:16,202:INFO: 25.68 25.14 25.18 25.26 25.40 0.01 0.01 -0.00 11.18 11.28 10.15 10.41 1167.02 10131.58 1.00 100.00 0  0  0  None None 91.16 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:16,204:WARNING: Stopped
+2021-10-18 11:50:16,696:WARNING: stopping
+2021-10-18 11:50:16,697:INFO: State.STOP
+2021-10-18 11:50:16,698:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:16,699:INFO: 25.68 25.14 25.18 25.26 25.40 0.01 0.01 -0.00 11.19 11.29 10.16 10.41 1167.98 10131.14 1.00 100.00 0  0  0  None None 91.24 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:16,700:WARNING: Stopped
+2021-10-18 11:50:17,223:WARNING: stopping
+2021-10-18 11:50:17,223:INFO: State.STOP
+2021-10-18 11:50:17,225:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:17,227:INFO: 25.68 25.14 25.18 25.26 25.40 0.01 0.01 -0.00 11.20 11.30 10.17 10.42 1168.90 10130.68 1.00 100.00 0  0  0  None None 91.27 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:17,228:WARNING: Stopped
+2021-10-18 11:50:17,730:WARNING: stopping
+2021-10-18 11:50:17,731:INFO: State.STOP
+2021-10-18 11:50:17,732:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:17,735:INFO: 25.68 25.14 25.17 25.26 25.40 0.01 0.01 -0.00 11.21 11.31 10.18 10.43 1169.76 10130.16 1.00 100.00 0  0  0  None None 91.29 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:17,736:WARNING: Stopped
+2021-10-18 11:50:18,252:WARNING: stopping
+2021-10-18 11:50:18,254:INFO: State.STOP
+2021-10-18 11:50:18,257:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:18,259:INFO: 25.68 25.14 25.17 25.25 25.40 0.01 0.01 0.00 11.22 11.32 10.18 10.44 1170.74 10129.58 1.00 100.00 0  0  0  None None 91.38 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:18,260:WARNING: Stopped
+2021-10-18 11:50:18,762:WARNING: stopping
+2021-10-18 11:50:18,762:INFO: State.STOP
+2021-10-18 11:50:18,764:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:18,766:INFO: 25.68 25.14 25.17 25.25 25.40 0.01 0.01 0.00 11.23 11.33 10.19 10.45 1171.50 10129.02 1.00 100.00 0  0  0  None None 91.40 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:18,767:WARNING: Stopped
+2021-10-18 11:50:19,285:WARNING: stopping
+2021-10-18 11:50:19,288:INFO: State.STOP
+2021-10-18 11:50:19,290:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:19,293:INFO: 25.68 25.14 25.17 25.25 25.40 0.01 0.00 -0.00 11.24 11.34 10.20 10.45 1172.12 10128.50 1.00 100.00 0  0  0  None None 91.46 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:19,294:WARNING: Stopped
+2021-10-18 11:50:19,788:WARNING: stopping
+2021-10-18 11:50:19,789:INFO: State.STOP
+2021-10-18 11:50:19,791:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:19,792:INFO: 25.68 25.14 25.17 25.25 25.40 0.01 0.00 -0.00 11.24 11.34 10.20 10.46 1172.80 10128.02 1.00 100.00 0  0  0  None None 91.50 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:19,793:WARNING: Stopped
+2021-10-18 11:50:20,318:WARNING: stopping
+2021-10-18 11:50:20,319:INFO: State.STOP
+2021-10-18 11:50:20,322:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:20,323:INFO: 25.68 25.14 25.17 25.25 25.40 0.00 0.01 0.00 11.25 11.34 10.21 10.46 1173.36 10127.52 1.00 100.00 0  0  0  None None 91.53 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:20,324:WARNING: Stopped
+2021-10-18 11:50:20,817:WARNING: stopping
+2021-10-18 11:50:20,817:INFO: State.STOP
+2021-10-18 11:50:20,818:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:20,820:INFO: 25.68 25.14 25.17 25.25 25.40 0.00 0.01 0.00 11.25 11.35 10.22 10.47 1173.70 10127.12 1.00 100.00 0  0  0  None None 91.52 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:20,820:WARNING: Stopped
+2021-10-18 11:50:21,341:WARNING: stopping
+2021-10-18 11:50:21,342:INFO: State.STOP
+2021-10-18 11:50:21,344:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:21,346:INFO: 25.68 25.14 25.18 25.25 25.40 0.00 0.00 0.00 11.26 11.35 10.22 10.47 1174.08 10126.76 1.00 100.00 0  0  0  None None 91.56 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:21,348:WARNING: Stopped
+2021-10-18 11:50:21,849:WARNING: stopping
+2021-10-18 11:50:21,850:INFO: State.STOP
+2021-10-18 11:50:21,852:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:21,853:INFO: 25.68 25.14 25.17 25.25 25.40 0.00 0.00 0.00 11.26 11.36 10.22 10.47 1174.40 10126.42 1.00 100.00 0  0  0  None None 91.61 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:21,854:WARNING: Stopped
+2021-10-18 11:50:22,377:WARNING: stopping
+2021-10-18 11:50:22,379:INFO: State.STOP
+2021-10-18 11:50:22,382:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:22,384:INFO: 25.68 25.14 25.17 25.25 25.40 0.00 0.00 0.00 11.26 11.36 10.22 10.47 1174.62 10126.04 1.00 100.00 0  0  0  None None 91.67 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:22,385:WARNING: Stopped
+2021-10-18 11:50:22,938:WARNING: stopping
+2021-10-18 11:50:22,940:INFO: State.STOP
+2021-10-18 11:50:22,942:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:22,944:INFO: 25.68 25.15 25.17 25.25 25.40 0.00 0.00 0.00 11.26 11.36 10.22 10.47 1174.76 10125.62 1.00 100.00 0  0  0  None None 91.71 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:22,945:WARNING: Stopped
+2021-10-18 11:50:23,498:WARNING: stopping
+2021-10-18 11:50:23,499:INFO: State.STOP
+2021-10-18 11:50:23,500:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:23,501:INFO: 25.68 25.15 25.17 25.26 25.40 0.00 0.00 0.00 11.26 11.36 10.22 10.48 1174.86 10125.16 1.00 100.00 0  0  0  None None 91.72 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:23,502:WARNING: Stopped
+2021-10-18 11:50:24,059:WARNING: stopping
+2021-10-18 11:50:24,060:INFO: State.STOP
+2021-10-18 11:50:24,061:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:24,062:INFO: 25.68 25.15 25.17 25.26 25.40 -0.00 0.00 0.00 11.27 11.36 10.22 10.48 1174.96 10124.62 1.00 100.00 0  0  0  None None 91.81 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:24,063:WARNING: Stopped
+2021-10-18 11:50:24,569:WARNING: stopping
+2021-10-18 11:50:24,570:INFO: State.STOP
+2021-10-18 11:50:24,571:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:24,572:INFO: 25.67 25.15 25.16 25.26 25.40 -0.00 0.00 0.00 11.26 11.36 10.22 10.48 1174.88 10124.16 1.00 100.00 0  0  0  None None 91.81 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:24,573:WARNING: Stopped
+2021-10-18 11:50:25,084:WARNING: stopping
+2021-10-18 11:50:25,085:INFO: State.STOP
+2021-10-18 11:50:25,086:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:25,087:INFO: 25.67 25.15 25.16 25.26 25.40 -0.00 0.01 0.00 11.26 11.36 10.22 10.47 1174.70 10123.74 1.00 100.00 0  0  0  None None 91.82 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:25,088:WARNING: Stopped
+2021-10-18 11:50:25,595:WARNING: stopping
+2021-10-18 11:50:25,595:INFO: State.STOP
+2021-10-18 11:50:25,597:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:25,599:INFO: 25.67 25.15 25.16 25.26 25.40 -0.00 0.01 0.00 11.26 11.36 10.22 10.47 1174.52 10123.28 1.00 100.00 0  0  0  None None 91.91 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:25,600:WARNING: Stopped
+2021-10-18 11:50:26,119:WARNING: stopping
+2021-10-18 11:50:26,120:INFO: State.STOP
+2021-10-18 11:50:26,121:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:26,122:INFO: 25.67 25.15 25.16 25.26 25.40 -0.01 0.00 0.00 11.26 11.36 10.22 10.47 1174.30 10122.90 1.00 100.00 0  0  0  None None 91.91 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:26,122:WARNING: Stopped
+2021-10-18 11:50:26,682:WARNING: stopping
+2021-10-18 11:50:26,684:INFO: State.STOP
+2021-10-18 11:50:26,686:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:26,688:INFO: 25.68 25.15 25.16 25.26 25.40 -0.01 0.00 0.00 11.25 11.35 10.22 10.47 1173.92 10122.48 1.00 100.00 0  0  0  None None 92.00 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:26,689:WARNING: Stopped
+2021-10-18 11:50:27,238:WARNING: stopping
+2021-10-18 11:50:27,240:INFO: State.STOP
+2021-10-18 11:50:27,242:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:27,247:INFO: 25.68 25.15 25.16 25.26 25.40 -0.01 0.00 0.00 11.25 11.35 10.21 10.46 1173.62 10121.98 1.00 100.00 0  0  0  None None 92.00 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:27,248:WARNING: Stopped
+2021-10-18 11:50:27,792:WARNING: stopping
+2021-10-18 11:50:27,793:INFO: State.STOP
+2021-10-18 11:50:27,794:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:27,795:INFO: 25.68 25.15 25.15 25.26 25.40 -0.01 0.00 0.00 11.25 11.35 10.21 10.46 1173.16 10121.54 1.00 100.00 0  0  0  None None 92.04 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:27,796:WARNING: Stopped
+2021-10-18 11:50:28,358:WARNING: stopping
+2021-10-18 11:50:28,359:INFO: State.STOP
+2021-10-18 11:50:28,360:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:28,361:INFO: 25.68 25.15 25.15 25.25 25.40 -0.01 0.00 0.00 11.24 11.34 10.20 10.45 1172.52 10121.08 1.00 100.00 0  0  0  None None 92.08 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:28,362:WARNING: Stopped
+2021-10-18 11:50:28,863:WARNING: stopping
+2021-10-18 11:50:28,864:INFO: State.STOP
+2021-10-18 11:50:28,865:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:28,867:INFO: 25.68 25.15 25.15 25.25 25.40 -0.01 0.00 0.00 11.23 11.33 10.20 10.45 1172.02 10120.68 1.00 100.00 0  0  0  None None 92.08 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:28,867:WARNING: Stopped
+2021-10-18 11:50:29,383:WARNING: stopping
+2021-10-18 11:50:29,384:INFO: State.STOP
+2021-10-18 11:50:29,385:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:29,387:INFO: 25.68 25.15 25.15 25.25 25.40 -0.00 -0.00 0.00 11.23 11.33 10.19 10.44 1171.46 10120.22 1.00 100.00 0  0  0  None None 92.17 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:29,389:WARNING: Stopped
+2021-10-18 11:50:29,891:WARNING: stopping
+2021-10-18 11:50:29,892:INFO: State.STOP
+2021-10-18 11:50:29,893:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:29,894:INFO: 25.68 25.15 25.15 25.25 25.40 -0.00 -0.00 0.00 11.22 11.32 10.18 10.43 1170.82 10119.84 1.00 100.00 0  0  0  None None 92.18 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:29,895:WARNING: Stopped
+2021-10-18 11:50:30,419:WARNING: stopping
+2021-10-18 11:50:30,421:INFO: State.STOP
+2021-10-18 11:50:30,423:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:30,425:INFO: 25.68 25.15 25.15 25.25 25.40 -0.00 -0.00 0.00 11.22 11.32 10.18 10.43 1170.18 10119.40 1.00 100.00 0  0  0  None None 92.20 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:30,427:WARNING: Stopped
+2021-10-18 11:50:30,974:WARNING: stopping
+2021-10-18 11:50:30,975:INFO: State.STOP
+2021-10-18 11:50:30,977:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:30,978:INFO: 25.68 25.15 25.15 25.25 25.40 0.00 -0.00 0.00 11.21 11.31 10.17 10.42 1169.62 10118.96 1.00 100.00 0  0  0  None None 92.27 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:30,980:WARNING: Stopped
+2021-10-18 11:50:31,481:WARNING: stopping
+2021-10-18 11:50:31,482:INFO: State.STOP
+2021-10-18 11:50:31,483:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:31,485:INFO: 25.68 25.15 25.15 25.25 25.40 0.00 -0.00 0.00 11.20 11.30 10.16 10.41 1168.96 10118.38 1.00 100.00 0  0  0  None None 92.33 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:31,486:WARNING: Stopped
+2021-10-18 11:50:32,002:WARNING: stopping
+2021-10-18 11:50:32,003:INFO: State.STOP
+2021-10-18 11:50:32,005:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:32,006:INFO: 25.68 25.15 25.15 25.25 25.40 0.00 -0.00 0.00 11.20 11.29 10.16 10.41 1168.36 10117.94 1.00 100.00 0  0  0  None None 92.36 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:32,007:WARNING: Stopped
+2021-10-18 11:50:32,515:WARNING: stopping
+2021-10-18 11:50:32,516:INFO: State.STOP
+2021-10-18 11:50:32,518:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:32,519:INFO: 25.69 25.15 25.15 25.25 25.40 0.00 -0.00 0.00 11.19 11.29 10.16 10.40 1167.72 10117.48 1.00 100.00 0  0  0  None None 92.38 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:32,520:WARNING: Stopped
+2021-10-18 11:50:33,037:WARNING: stopping
+2021-10-18 11:50:33,038:INFO: State.STOP
+2021-10-18 11:50:33,040:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:33,041:INFO: 25.69 25.15 25.15 25.25 25.40 0.00 0.00 0.00 11.19 11.29 10.15 10.40 1167.22 10117.04 1.00 100.00 0  0  0  None None 92.39 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:33,043:WARNING: Stopped
+2021-10-18 11:50:33,545:WARNING: stopping
+2021-10-18 11:50:33,546:INFO: State.STOP
+2021-10-18 11:50:33,547:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:33,549:INFO: 25.69 25.15 25.15 25.25 25.40 0.00 0.00 0.00 11.18 11.28 10.15 10.40 1166.98 10116.54 1.00 100.00 0  0  0  None None 92.49 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:33,549:WARNING: Stopped
+2021-10-18 11:50:34,068:WARNING: stopping
+2021-10-18 11:50:34,069:INFO: State.STOP
+2021-10-18 11:50:34,070:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:34,072:INFO: 25.69 25.15 25.15 25.25 25.40 -0.00 0.00 0.00 11.18 11.28 10.15 10.40 1166.70 10116.16 1.00 100.00 0  0  0  None None 92.50 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:34,073:WARNING: Stopped
+2021-10-18 11:50:34,577:WARNING: stopping
+2021-10-18 11:50:34,578:INFO: State.STOP
+2021-10-18 11:50:34,579:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:34,581:INFO: 25.69 25.15 25.16 25.25 25.40 -0.00 0.00 0.00 11.18 11.28 10.15 10.39 1166.56 10115.76 1.00 100.00 0  0  0  None None 92.56 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:34,581:WARNING: Stopped
+2021-10-18 11:50:35,103:WARNING: stopping
+2021-10-18 11:50:35,104:INFO: State.STOP
+2021-10-18 11:50:35,105:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:35,106:INFO: 25.69 25.15 25.16 25.25 25.40 -0.00 -0.00 0.00 11.18 11.28 10.14 10.39 1166.54 10115.36 1.00 100.00 0  0  0  None None 92.56 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:35,107:WARNING: Stopped
+2021-10-18 11:50:35,604:WARNING: stopping
+2021-10-18 11:50:35,605:INFO: State.STOP
+2021-10-18 11:50:35,606:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:35,608:INFO: 25.69 25.15 25.17 25.25 25.40 -0.00 -0.00 0.00 11.18 11.28 10.14 10.40 1166.76 10114.98 1.00 100.00 0  0  0  None None 92.56 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:35,608:WARNING: Stopped
+2021-10-18 11:50:36,127:WARNING: stopping
+2021-10-18 11:50:36,128:INFO: State.STOP
+2021-10-18 11:50:36,130:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:36,131:INFO: 25.69 25.15 25.17 25.25 25.40 -0.00 -0.01 0.00 11.18 11.28 10.15 10.40 1166.92 10114.66 1.00 100.00 0  0  0  None None 92.65 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:36,132:WARNING: Stopped
+2021-10-18 11:50:36,637:WARNING: stopping
+2021-10-18 11:50:36,638:INFO: State.STOP
+2021-10-18 11:50:36,639:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:36,640:INFO: 25.69 25.15 25.17 25.25 25.40 -0.00 -0.01 0.00 11.19 11.28 10.15 10.40 1167.30 10114.32 1.00 100.00 0  0  0  None None 92.64 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:36,641:WARNING: Stopped
+2021-10-18 11:50:37,162:WARNING: stopping
+2021-10-18 11:50:37,163:INFO: State.STOP
+2021-10-18 11:50:37,165:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:37,167:INFO: 25.69 25.15 25.17 25.24 25.40 -0.01 -0.01 0.00 11.19 11.29 10.15 10.41 1167.64 10113.94 1.00 100.00 0  0  0  None None 92.72 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:37,168:WARNING: Stopped
+2021-10-18 11:50:37,663:WARNING: stopping
+2021-10-18 11:50:37,664:INFO: State.STOP
+2021-10-18 11:50:37,666:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:37,668:INFO: 25.69 25.15 25.18 25.24 25.40 -0.01 -0.01 0.00 11.19 11.29 10.16 10.41 1168.14 10113.48 1.00 100.00 0  0  0  None None 92.75 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:37,669:WARNING: Stopped
+2021-10-18 11:50:38,193:WARNING: stopping
+2021-10-18 11:50:38,194:INFO: State.STOP
+2021-10-18 11:50:38,196:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:38,198:INFO: 25.69 25.15 25.18 25.24 25.40 -0.01 -0.00 0.00 11.20 11.29 10.16 10.41 1168.52 10112.98 1.00 100.00 0  0  0  None None 92.80 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:38,199:WARNING: Stopped
+2021-10-18 11:50:38,697:WARNING: stopping
+2021-10-18 11:50:38,698:INFO: State.STOP
+2021-10-18 11:50:38,699:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:38,700:INFO: 25.69 25.15 25.18 25.24 25.40 -0.01 -0.00 0.00 11.20 11.30 10.16 10.42 1169.00 10112.60 1.00 100.00 0  0  0  None None 92.81 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:38,701:WARNING: Stopped
+2021-10-18 11:50:39,226:WARNING: stopping
+2021-10-18 11:50:39,227:INFO: State.STOP
+2021-10-18 11:50:39,228:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:39,229:INFO: 25.69 25.15 25.18 25.24 25.40 -0.01 -0.00 0.00 11.20 11.30 10.17 10.42 1169.32 10112.12 1.00 100.00 0  0  0  None None 92.82 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:39,230:WARNING: Stopped
+2021-10-18 11:50:39,731:WARNING: stopping
+2021-10-18 11:50:39,732:INFO: State.STOP
+2021-10-18 11:50:39,734:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:39,736:INFO: 25.69 25.15 25.18 25.25 25.40 -0.01 -0.00 0.00 11.21 11.31 10.17 10.43 1169.74 10111.76 1.00 100.00 0  0  0  None None 92.87 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:39,737:WARNING: Stopped
+2021-10-18 11:50:40,254:WARNING: stopping
+2021-10-18 11:50:40,255:INFO: State.STOP
+2021-10-18 11:50:40,256:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:40,257:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.21 11.31 10.18 10.43 1170.00 10111.34 1.00 100.00 0  0  0  None None 92.94 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:40,258:WARNING: Stopped
+2021-10-18 11:50:40,758:WARNING: stopping
+2021-10-18 11:50:40,759:INFO: State.STOP
+2021-10-18 11:50:40,761:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:40,762:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.22 11.31 10.18 10.44 1170.34 10110.92 1.00 100.00 0  0  0  None None 92.98 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:40,763:WARNING: Stopped
+2021-10-18 11:50:41,282:WARNING: stopping
+2021-10-18 11:50:41,282:INFO: State.STOP
+2021-10-18 11:50:41,284:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:41,285:INFO: 25.69 25.15 25.19 25.26 25.40 0.00 0.01 0.00 11.22 11.32 10.18 10.44 1170.56 10110.46 1.00 100.00 0  0  0  None None 93.01 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:41,286:WARNING: Stopped
+2021-10-18 11:50:41,784:WARNING: stopping
+2021-10-18 11:50:41,785:INFO: State.STOP
+2021-10-18 11:50:41,786:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:41,788:INFO: 25.69 25.15 25.19 25.26 25.40 0.00 0.01 0.00 11.22 11.32 10.19 10.44 1170.86 10110.08 1.00 100.00 0  0  0  None None 93.01 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:41,789:WARNING: Stopped
+2021-10-18 11:50:42,310:WARNING: stopping
+2021-10-18 11:50:42,311:INFO: State.STOP
+2021-10-18 11:50:42,312:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:42,314:INFO: 25.69 25.15 25.19 25.26 25.40 0.00 0.01 0.00 11.22 11.32 10.19 10.44 1171.16 10109.58 1.00 100.00 0  0  0  None None 93.07 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:42,314:WARNING: Stopped
+2021-10-18 11:50:42,821:WARNING: stopping
+2021-10-18 11:50:42,822:INFO: State.STOP
+2021-10-18 11:50:42,823:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:42,824:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.23 11.32 10.19 10.44 1171.22 10109.22 1.00 100.00 0  0  0  None None 93.07 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:42,824:WARNING: Stopped
+2021-10-18 11:50:43,346:WARNING: stopping
+2021-10-18 11:50:43,348:INFO: State.STOP
+2021-10-18 11:50:43,350:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:43,352:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.22 11.32 10.19 10.44 1171.22 10108.86 1.00 100.00 0  0  0  None None 93.13 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:43,353:WARNING: Stopped
+2021-10-18 11:50:43,845:WARNING: stopping
+2021-10-18 11:50:43,846:INFO: State.STOP
+2021-10-18 11:50:43,848:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:43,849:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.22 11.32 10.18 10.44 1171.08 10108.48 1.00 100.00 0  0  0  None None 93.18 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:43,849:WARNING: Stopped
+2021-10-18 11:50:44,371:WARNING: stopping
+2021-10-18 11:50:44,372:INFO: State.STOP
+2021-10-18 11:50:44,373:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:44,374:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.22 11.32 10.18 10.43 1170.86 10108.04 1.00 100.00 0  0  0  None None 93.20 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:44,374:WARNING: Stopped
+2021-10-18 11:50:44,877:WARNING: stopping
+2021-10-18 11:50:44,878:INFO: State.STOP
+2021-10-18 11:50:44,880:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:44,881:INFO: 25.69 25.15 25.19 25.25 25.40 0.00 0.01 0.00 11.22 11.31 10.18 10.43 1170.40 10107.68 1.00 100.00 0  0  0  None None 93.25 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:44,882:WARNING: Stopped
+2021-10-18 11:50:45,399:WARNING: stopping
+2021-10-18 11:50:45,400:INFO: State.STOP
+2021-10-18 11:50:45,402:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:45,404:INFO: 25.69 25.15 25.18 25.25 25.40 0.00 0.00 0.00 11.22 11.31 10.18 10.43 1170.16 10107.18 1.00 100.00 0  0  0  None None 93.31 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:45,406:WARNING: Stopped
+2021-10-18 11:50:45,908:WARNING: stopping
+2021-10-18 11:50:45,909:INFO: State.STOP
+2021-10-18 11:50:45,911:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:45,913:INFO: 25.69 25.15 25.18 25.25 25.40 0.00 0.00 0.00 11.21 11.31 10.18 10.43 1169.88 10106.78 1.00 100.00 0  0  0  None None 93.31 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:45,914:WARNING: Stopped
+2021-10-18 11:50:46,430:WARNING: stopping
+2021-10-18 11:50:46,432:INFO: State.STOP
+2021-10-18 11:50:46,435:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:46,437:INFO: 25.69 25.15 25.17 25.25 25.40 0.00 -0.00 0.00 11.21 11.30 10.17 10.42 1169.66 10106.36 1.00 100.00 0  0  0  None None 93.36 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:46,438:WARNING: Stopped
+2021-10-18 11:50:46,939:WARNING: stopping
+2021-10-18 11:50:46,940:INFO: State.STOP
+2021-10-18 11:50:46,941:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:46,943:INFO: 25.69 25.15 25.17 25.26 25.40 0.00 -0.00 0.00 11.21 11.30 10.17 10.42 1169.30 10105.94 1.00 100.00 0  0  0  None None 93.38 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:46,944:WARNING: Stopped
+2021-10-18 11:50:47,460:WARNING: stopping
+2021-10-18 11:50:47,461:INFO: State.STOP
+2021-10-18 11:50:47,464:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:47,465:INFO: 25.69 25.15 25.16 25.26 25.40 0.00 -0.01 0.00 11.20 11.30 10.16 10.42 1169.06 10105.64 1.00 100.00 0  0  0  None None 93.38 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:47,466:WARNING: Stopped
+2021-10-18 11:50:48,026:WARNING: stopping
+2021-10-18 11:50:48,028:INFO: State.STOP
+2021-10-18 11:50:48,030:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:48,032:INFO: 25.69 25.15 25.16 25.27 25.40 0.01 -0.01 0.00 11.20 11.29 10.16 10.42 1168.80 10105.28 1.00 100.00 0  0  0  None None 93.46 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:48,033:WARNING: Stopped
+2021-10-18 11:50:48,529:WARNING: stopping
+2021-10-18 11:50:48,530:INFO: State.STOP
+2021-10-18 11:50:48,533:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:48,534:INFO: 25.69 25.16 25.16 25.28 25.40 0.01 -0.01 0.00 11.20 11.29 10.16 10.41 1168.54 10104.92 1.00 100.00 0  0  0  None None 93.46 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:48,536:WARNING: Stopped
+2021-10-18 11:50:49,057:WARNING: stopping
+2021-10-18 11:50:49,058:INFO: State.STOP
+2021-10-18 11:50:49,059:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:49,061:INFO: 25.70 25.16 25.16 25.28 25.40 0.01 -0.01 0.00 11.19 11.29 10.15 10.41 1168.28 10104.48 1.00 100.00 0  0  0  None None 93.55 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:49,062:WARNING: Stopped
+2021-10-18 11:50:49,560:WARNING: stopping
+2021-10-18 11:50:49,560:INFO: State.STOP
+2021-10-18 11:50:49,561:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:49,562:INFO: 25.70 25.16 25.16 25.29 25.40 0.01 -0.01 0.00 11.19 11.29 10.15 10.41 1168.16 10103.98 1.00 100.00 0  0  0  None None 93.60 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:49,563:WARNING: Stopped
+2021-10-18 11:50:50,089:WARNING: stopping
+2021-10-18 11:50:50,090:INFO: State.STOP
+2021-10-18 11:50:50,091:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:50,092:INFO: 25.70 25.16 25.16 25.30 25.40 0.01 -0.01 0.00 11.19 11.29 10.15 10.41 1168.12 10103.42 1.00 100.00 0  0  0  None None 93.62 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:50,093:WARNING: Stopped
+2021-10-18 11:50:50,605:WARNING: stopping
+2021-10-18 11:50:50,606:INFO: State.STOP
+2021-10-18 11:50:50,608:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:50,609:INFO: 25.70 25.16 25.16 25.30 25.40 0.01 -0.01 0.00 11.19 11.29 10.15 10.41 1168.16 10102.94 1.00 100.00 0  0  0  None None 93.65 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:50,609:WARNING: Stopped
+2021-10-18 11:50:51,124:WARNING: stopping
+2021-10-18 11:50:51,125:INFO: State.STOP
+2021-10-18 11:50:51,127:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:51,128:INFO: 25.70 25.16 25.16 25.30 25.40 0.00 -0.00 0.00 11.19 11.29 10.15 10.41 1168.08 10102.54 1.00 100.00 0  0  0  None None 93.64 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:51,131:WARNING: Stopped
+2021-10-18 11:50:51,630:WARNING: stopping
+2021-10-18 11:50:51,631:INFO: State.STOP
+2021-10-18 11:50:51,635:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:51,636:INFO: 25.70 25.16 25.16 25.31 25.40 0.00 -0.00 0.00 11.19 11.29 10.15 10.41 1168.16 10102.06 1.00 100.00 0  0  0  None None 93.76 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:51,637:WARNING: Stopped
+2021-10-18 11:50:52,160:WARNING: stopping
+2021-10-18 11:50:52,162:INFO: State.STOP
+2021-10-18 11:50:52,165:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:52,166:INFO: 25.70 25.16 25.16 25.31 25.40 0.00 0.00 0.00 11.20 11.29 10.16 10.41 1168.42 10101.62 1.00 100.00 0  0  0  None None 93.79 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:52,167:WARNING: Stopped
+2021-10-18 11:50:52,668:WARNING: stopping
+2021-10-18 11:50:52,670:INFO: State.STOP
+2021-10-18 11:50:52,673:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:52,675:INFO: 25.70 25.16 25.17 25.31 25.40 0.00 0.00 0.00 11.20 11.30 10.16 10.41 1168.60 10101.16 1.00 100.00 0  0  0  None None 93.82 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:52,676:WARNING: Stopped
+2021-10-18 11:50:53,193:WARNING: stopping
+2021-10-18 11:50:53,195:INFO: State.STOP
+2021-10-18 11:50:53,197:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:53,201:INFO: 25.70 25.16 25.17 25.30 25.40 -0.00 0.01 0.00 11.20 11.30 10.16 10.41 1168.84 10100.90 1.00 100.00 0  0  0  None None 93.78 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:53,203:WARNING: Stopped
+2021-10-18 11:50:53,698:WARNING: stopping
+2021-10-18 11:50:53,699:INFO: State.STOP
+2021-10-18 11:50:53,701:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:53,703:INFO: 25.70 25.16 25.18 25.30 25.40 -0.00 0.01 0.00 11.20 11.30 10.17 10.42 1169.18 10100.38 1.00 100.00 0  0  0  None None 93.86 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:53,704:WARNING: Stopped
+2021-10-18 11:50:54,222:WARNING: stopping
+2021-10-18 11:50:54,223:INFO: State.STOP
+2021-10-18 11:50:54,226:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:54,227:INFO: 25.69 25.16 25.18 25.30 25.40 0.00 0.01 0.00 11.20 11.30 10.17 10.42 1169.40 10100.06 1.00 100.00 0  0  0  None None 93.89 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:54,228:WARNING: Stopped
+2021-10-18 11:50:54,733:WARNING: stopping
+2021-10-18 11:50:54,734:INFO: State.STOP
+2021-10-18 11:50:54,737:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:54,739:INFO: 25.69 25.16 25.18 25.29 25.40 0.00 0.01 0.00 11.21 11.30 10.17 10.42 1169.58 10099.86 1.00 100.00 0  0  0  None None 93.88 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:54,740:WARNING: Stopped
+2021-10-18 11:50:55,258:WARNING: stopping
+2021-10-18 11:50:55,259:INFO: State.STOP
+2021-10-18 11:50:55,261:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:55,262:INFO: 25.69 25.16 25.18 25.29 25.40 0.01 0.02 0.00 11.21 11.30 10.17 10.42 1169.84 10099.56 1.00 100.00 0  0  0  None None 93.95 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:55,263:WARNING: Stopped
+2021-10-18 11:50:55,762:WARNING: stopping
+2021-10-18 11:50:55,764:INFO: State.STOP
+2021-10-18 11:50:55,766:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:55,768:INFO: 25.69 25.16 25.18 25.29 25.40 0.01 0.02 0.00 11.21 11.31 10.17 10.43 1169.96 10099.10 1.00 100.00 0  0  0  None None 93.98 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:55,769:WARNING: Stopped
+2021-10-18 11:50:56,293:WARNING: stopping
+2021-10-18 11:50:56,294:INFO: State.STOP
+2021-10-18 11:50:56,295:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:56,297:INFO: 25.69 25.16 25.18 25.30 25.40 0.01 0.02 0.00 11.21 11.31 10.17 10.43 1170.12 10098.76 1.00 100.00 0  0  0  None None 94.01 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:56,297:WARNING: Stopped
+2021-10-18 11:50:56,795:WARNING: stopping
+2021-10-18 11:50:56,796:INFO: State.STOP
+2021-10-18 11:50:56,798:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:56,800:INFO: 25.69 25.16 25.18 25.30 25.40 0.01 0.02 0.00 11.21 11.31 10.17 10.43 1170.34 10098.30 1.00 100.00 0  0  0  None None 94.09 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:56,800:WARNING: Stopped
+2021-10-18 11:50:57,325:WARNING: stopping
+2021-10-18 11:50:57,327:INFO: State.STOP
+2021-10-18 11:50:57,329:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:57,331:INFO: 25.69 25.16 25.18 25.30 25.40 0.01 0.01 0.00 11.21 11.31 10.17 10.43 1170.36 10097.76 1.00 100.00 0  0  0  None None 94.11 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:57,332:WARNING: Stopped
+2021-10-18 11:50:57,827:WARNING: stopping
+2021-10-18 11:50:57,828:INFO: State.STOP
+2021-10-18 11:50:57,829:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:57,831:INFO: 25.69 25.16 25.18 25.30 25.40 0.01 0.01 0.00 11.21 11.31 10.17 10.43 1170.30 10097.30 1.00 100.00 0  0  0  None None 94.15 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:57,832:WARNING: Stopped
+2021-10-18 11:50:58,356:WARNING: stopping
+2021-10-18 11:50:58,357:INFO: State.STOP
+2021-10-18 11:50:58,359:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:58,361:INFO: 25.69 25.16 25.18 25.31 25.40 0.01 0.00 0.00 11.21 11.31 10.17 10.43 1170.30 10096.86 1.00 100.00 0  0  0  None None 94.17 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:58,363:WARNING: Stopped
+2021-10-18 11:50:58,866:WARNING: stopping
+2021-10-18 11:50:58,867:INFO: State.STOP
+2021-10-18 11:50:58,869:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:58,872:INFO: 25.70 25.16 25.18 25.31 25.40 0.01 0.00 0.00 11.21 11.31 10.17 10.42 1170.20 10096.44 1.00 100.00 0  0  0  None None 94.19 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:58,874:WARNING: Stopped
+2021-10-18 11:50:59,389:WARNING: stopping
+2021-10-18 11:50:59,390:INFO: State.STOP
+2021-10-18 11:50:59,391:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:59,392:INFO: 25.70 25.16 25.18 25.31 25.40 0.00 0.00 0.00 11.21 11.31 10.17 10.42 1170.00 10096.06 1.00 100.00 0  0  0  None None 94.26 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:59,392:WARNING: Stopped
+2021-10-18 11:50:59,890:WARNING: stopping
+2021-10-18 11:50:59,892:INFO: State.STOP
+2021-10-18 11:50:59,894:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:50:59,896:INFO: 25.70 25.16 25.17 25.31 25.40 0.00 0.00 0.00 11.21 11.30 10.17 10.42 1169.90 10095.70 1.00 100.00 0  0  0  None None 94.24 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:50:59,897:WARNING: Stopped
+2021-10-18 11:51:00,424:WARNING: stopping
+2021-10-18 11:51:00,425:INFO: State.STOP
+2021-10-18 11:51:00,428:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:00,429:INFO: 25.71 25.16 25.17 25.31 25.40 -0.00 0.00 0.00 11.21 11.30 10.17 10.42 1169.74 10095.28 1.00 100.00 0  0  0  None None 94.33 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:00,430:WARNING: Stopped
+2021-10-18 11:51:00,930:WARNING: stopping
+2021-10-18 11:51:00,932:INFO: State.STOP
+2021-10-18 11:51:00,935:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:00,937:INFO: 25.71 25.16 25.17 25.31 25.40 -0.00 0.00 0.00 11.21 11.30 10.17 10.42 1169.50 10094.92 1.00 100.00 0  0  0  None None 94.33 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:00,939:WARNING: Stopped
+2021-10-18 11:51:01,459:WARNING: stopping
+2021-10-18 11:51:01,461:INFO: State.STOP
+2021-10-18 11:51:01,464:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:01,466:INFO: 25.71 25.16 25.17 25.31 25.40 0.00 -0.00 0.00 11.20 11.30 10.16 10.42 1169.36 10094.42 1.00 100.00 0  0  0  None None 94.41 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:01,467:WARNING: Stopped
+2021-10-18 11:51:01,969:WARNING: stopping
+2021-10-18 11:51:01,973:INFO: State.STOP
+2021-10-18 11:51:01,975:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:01,977:INFO: 25.71 25.16 25.17 25.31 25.40 0.00 -0.00 0.00 11.20 11.30 10.16 10.41 1169.30 10094.02 1.00 100.00 0  0  0  None None 94.43 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:01,978:WARNING: Stopped
+2021-10-18 11:51:02,491:WARNING: stopping
+2021-10-18 11:51:02,494:INFO: State.STOP
+2021-10-18 11:51:02,496:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:02,498:INFO: 25.71 25.16 25.17 25.31 25.40 0.01 0.00 0.00 11.20 11.30 10.16 10.41 1169.18 10093.58 1.00 100.00 0  0  0  None None 94.46 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:02,499:WARNING: Stopped
+2021-10-18 11:51:03,003:WARNING: stopping
+2021-10-18 11:51:03,006:INFO: State.STOP
+2021-10-18 11:51:03,008:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:03,010:INFO: 25.71 25.16 25.17 25.32 25.40 0.00 0.00 0.00 11.20 11.30 10.16 10.41 1169.10 10093.10 1.00 100.00 0  0  0  None None 94.54 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:03,011:WARNING: Stopped
+2021-10-18 11:51:03,524:WARNING: stopping
+2021-10-18 11:51:03,527:INFO: State.STOP
+2021-10-18 11:51:03,529:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:03,530:INFO: 25.71 25.16 25.17 25.32 25.40 0.00 0.00 0.00 11.20 11.30 10.16 10.41 1169.16 10092.64 1.00 100.00 0  0  0  None None 94.53 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:03,531:WARNING: Stopped
+2021-10-18 11:51:04,093:WARNING: stopping
+2021-10-18 11:51:04,094:INFO: State.STOP
+2021-10-18 11:51:04,096:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:04,097:INFO: 25.71 25.17 25.17 25.33 25.40 -0.00 -0.00 0.00 11.20 11.29 10.16 10.41 1169.02 10092.30 1.00 100.00 0  0  0  None None 94.55 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:04,098:WARNING: Stopped
+2021-10-18 11:51:04,602:WARNING: stopping
+2021-10-18 11:51:04,605:INFO: State.STOP
+2021-10-18 11:51:04,608:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:04,610:INFO: 25.71 25.17 25.17 25.34 25.40 -0.00 -0.00 0.00 11.20 11.29 10.16 10.41 1168.88 10091.92 1.00 100.00 0  0  0  None None 94.60 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:04,611:WARNING: Stopped
+2021-10-18 11:51:05,124:WARNING: stopping
+2021-10-18 11:51:05,128:INFO: State.STOP
+2021-10-18 11:51:05,130:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:05,131:INFO: 25.71 25.17 25.18 25.34 25.40 0.00 -0.00 0.00 11.20 11.29 10.16 10.41 1168.88 10091.50 1.00 100.00 0  0  0  None None 94.64 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:05,132:WARNING: Stopped
+2021-10-18 11:51:05,629:WARNING: stopping
+2021-10-18 11:51:05,631:INFO: State.STOP
+2021-10-18 11:51:05,634:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State      MissionState           Setpoint 
+2021-10-18 11:51:05,635:INFO: 25.71 25.17 25.18 25.34 25.40 0.00 -0.00 0.00 11.20 11.30 10.16 10.41 1168.98 10091.22 1.00 100.00 0  0  0  None None 94.66 Buffering (0/1) State.STOP MissionState.ASCENDING 0        
+2021-10-18 11:51:05,636:WARNING: Stopped
+2021-10-18 11:51:06,116:INFO: 
+2021-10-18 11:51:06,117:CRITICAL: System shutdown
+2021-10-18 11:51:06,118:INFO: cleaning (resetting rpi gpio)

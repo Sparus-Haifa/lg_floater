@@ -34,7 +34,9 @@ class Press_ctrl():
 
         margin = 0.05
 
-        top_in_range = 10.00 - margin  < avgTop < 10.00 + margin
+        # top_in_range = 10.00 - margin  < avgTop < 10.00 + margin
+        top_in_range = avgTop < 10.5
+
         bottom_in_range = 10.50  < avgBottom
 
         self.log.debug("10.00 - margin  < avgTop/ < 10.00 + margin")
@@ -47,7 +49,8 @@ class Press_ctrl():
 
 
 
-        if  top_in_range and bottom_in_range:
+        # if  top_in_range and bottom_in_range:
+        if bottom_in_range:
             return True
 
         return False

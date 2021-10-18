@@ -128,6 +128,7 @@ class Controller():
         # self.dcTimer = None
         self.time_off_timer = None
         
+        self.error = None
 
 
         # setup GPIO
@@ -791,6 +792,8 @@ class Controller():
         res["rpm"]=self.rpm.getLast()
         res["State"]=self.current_state
         res['MissionState']=self.current_mission_state
+        res['Setpoint']=self.target_depth
+        res['Error']=self.error
 
         # timeOn display
         pump_flag = self.pumpFlag.getLast()
@@ -879,6 +882,7 @@ class Controller():
 
         # PID
         error = target_depth - avg
+        self.error = error
         self.log.debug('error = target_depth - avg')
         self.log.debug(f'{error} = {target_depth} - {avg}')
         # print("Error",error, "target", target_depth, "avg", avg)
@@ -1094,17 +1098,22 @@ class Captain:
         self.pilot = pilot
 
     def mission_2(self):
-        mission_state = MissionState.DESCENDING
         # planned_depths = [20.0, 0, 40.0,'E',0]
-        planned_depths = [50.0, 0, 70.0, 0]
+        # planned_depths = [50.0, 0, 70.0, 0]
+        planned_depths = [11.5]
         # planned_depths = ['E']
 
-        kd = 4000
-        kp = 2
+        kd = 1000
+        kp = 60
         self.pilot.controller.pid_controller.kp = kp
+        next_depth = planned_depths.pop(0)
+        self.pilot.set_target_depth(next_depth)  # set the first target depth
+        mission_state = MissionState.DESCENDING
+        if next_depth == 0:
+            mission_state = MissionState.ASCENDING
 
-        self.pilot.set_target_depth(planned_depths.pop(0))  # set the first target depth
         self.pilot.set_mission_state(mission_state)
+
 
         self.pilot.controller.pid_controller.kd = 0
 
@@ -1120,6 +1129,14 @@ class Captain:
                     min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume
                     self.log.warning(f'min_bladder_reached {min_bladder_reached}')
                     if min_bladder_reached:
+                        mission_state = MissionState.EN_ROUTE
+                        self.pilot.set_mission_state(mission_state)
+                        self.pilot.controller.pid_controller.kd = kd
+
+                elif mission_state == MissionState.ASCENDING:
+                    max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume
+                    self.log.warning(f'max_bladder_reached {max_bladder_reached}')
+                    if max_bladder_reached:
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
                         self.pilot.controller.pid_controller.kd = kd
