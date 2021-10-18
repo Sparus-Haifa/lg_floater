@@ -123,7 +123,7 @@ class PID:
 
         x1 = 0 # no error
         x2 = max_error # max error
-        y1 = 0.001 # min utility 0% (min dc)
+        y1 = 0.02 # min utility 0% (min dc)
         if current_err == max_error:
             y2 = 0.2 # max utility 100% (max dc)
         else:
