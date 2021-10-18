@@ -82,13 +82,14 @@ class PID:
         return 1 if curr_err > 0 else 2
         
     def interp_timeOn(self, current_err):
+        max_error = 10.0
         current_err = abs(current_err)
-        if current_err > 5.0:
-            current_err = 5.0
+        if current_err > max_error:
+            current_err = max_error
         x1 = 0 # no error - spot on target!
-        x2 = 5.0 # max error
+        x2 = max_error # max error
         y1 = 0.5 # min timeOn is 0.5 sec
-        y2 = 5 # max timeOn is 5 secs
+        y2 = 2 # max timeOn is 5 secs
 
         m = (y2-y1)/(x2-x1)
 
@@ -99,14 +100,15 @@ class PID:
         return round(timeOn,1)
 
     def interp_dutyCycle(self, current_err):
+        max_error = 10.0
         current_err = abs(current_err)
-        if current_err > 5.0:
-            current_err = 5.0
+        if current_err > max_error:
+            current_err = max_error
 
         x1 = 0 # no error
-        x2 = 5.0 # max error
-        y1 = 0.05 # min utility 0% (min dc)
-        y2 = 1 # max utility 100% (max dc)
+        x2 = max_error # max error
+        y1 = 0.001 # min utility 0% (min dc)
+        y2 = 0.2 # max utility 100% (max dc)
 
         m = (y2-y1)/(x2-x1)
         # print("m",m)

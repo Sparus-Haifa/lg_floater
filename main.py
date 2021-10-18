@@ -1098,6 +1098,11 @@ class Captain:
         # planned_depths = [20.0, 0, 40.0,'E',0]
         planned_depths = [50.0, 0, 70.0, 0]
         # planned_depths = ['E']
+
+        kd = 4000
+        kp = 2
+        self.pilot.controller.pid_controller.kp = kp
+
         self.pilot.set_target_depth(planned_depths.pop(0))  # set the first target depth
         self.pilot.set_mission_state(mission_state)
 
@@ -1117,7 +1122,7 @@ class Captain:
                     if min_bladder_reached:
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
-                        self.pilot.controller.pid_controller.kd = 250
+                        self.pilot.controller.pid_controller.kd = kd
 
 
                 elif mission_state == MissionState.EN_ROUTE:
@@ -1162,7 +1167,7 @@ class Captain:
                         mission_state = MissionState.EN_ROUTE
                         self.log.info(mission_state)
                         self.pilot.set_mission_state(mission_state)
-                        self.pilot.controller.pid_controller.kd = 250
+                        self.pilot.controller.pid_controller.kd = kd
                         
 
 
