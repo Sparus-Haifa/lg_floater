@@ -88,9 +88,11 @@ void loop()
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM TEMP
   wdt_reset();
   ReadTemp(0);
+  SensorsBottom[0] = TempSensor.temperature();
   SendMsg("BT1", SensorsBottom[0]);
 
   ReadTemp(1);
+  SensorsBottom[1] = TempSensor.temperature();
   SendMsg("BT2", SensorsBottom[1]);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= BOTTOM PRESS
@@ -154,4 +156,5 @@ void loop()
   //  Serial.print((millis() - PreviousMillis));
   //  Serial.println("sec");
   //  Serial.println(" ");
+// delay(2500);
 }
