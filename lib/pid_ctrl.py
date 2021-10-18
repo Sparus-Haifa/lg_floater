@@ -17,10 +17,10 @@ class PID:
         self.lastTime = time.time()
         self.p = None
         self.d = None
+        self.i = None
         self.kp = 10
         self.kd = 250
         self.ki = 0.001
-        self.i = 0
 
     def reset_d(self):
         self.lastP = None

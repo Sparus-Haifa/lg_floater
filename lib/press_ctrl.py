@@ -13,6 +13,7 @@ class Press_ctrl():
         self.log = log
         self.log.info("Pressure controller was initialized successfully")
         self.sensors = {}
+        self.offset = 0
 
 
     def addSensor(self, header):
@@ -84,3 +85,21 @@ class Press_ctrl():
                 return None
             avg/=count
             return avg      
+
+    def get_bottom_sernsors_avg(self):
+        # TODO: todo
+        return self.getAvgDepthSensorsRead()
+
+
+    def calibrate(self):
+        offset = self.get_bottom_sernsors_avg()
+        if offset is None:
+            self.log.error('depth sensors calibration failed')
+            return False
+        self.offset = offset
+        self.log.info('depth sensors calibrated successfully')
+        return True # success
+
+
+    def get_depth(self):
+        return self.getAvgDepthSensorsRead() - self.offset

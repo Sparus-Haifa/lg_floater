@@ -117,6 +117,8 @@ class Controller():
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
 
+        self.depth_sensors_are_calibrated = None
+
         WAIT_FOR_WATER_DURATION = cfg.pickup["wait_for_water_duration"]
         self.waterSenseDuration =  WAIT_FOR_WATER_DURATION  #  5 # sould be 5 min = 60*5 [sec]
         self.waterTestTimer = None
@@ -630,7 +632,24 @@ class Controller():
         # WAIT_FOR_SENSOR_BUFFER
         elif self.current_state == State.WAIT_FOR_SENSOR_BUFFER:
             if self.sensorsReady():
+                self.current_state = State.INFLATE_BLADDER
+
+        # INFLATE_BLADDER  # TODO: add to exception/watchdog
+        elif self.current_state == State.INFLATE_BLADDER:
+            if self.bladder_is_at_max_volume:
                 self.current_state = State.WAIT_FOR_WATER
+                return
+            # self.pid_controller.p=
+            self.pid_controller.d=0
+            self.target_depth = -100
+            self.handle_mission_state()
+            
+
+        # ACQUIRE_CLOCK
+
+
+            
+
 
 
                 
@@ -644,7 +663,7 @@ class Controller():
             if  elapsedSeconds > limitSeconds:
                 self.log.info("Done waiting for water")
                 if self.pressureController.senseWater():
-                    self.current_state = State.EXEC_TASK
+                    self.current_state = State.CALIBRATE_DEPTH_SENSORS
                     self.waterTestTimer = None
                 else:
                     self.log.info("water not detected")
@@ -652,6 +671,16 @@ class Controller():
             else:
                 self.log.info("Waiting for water")
                 self.log.info(f"{round(elapsedSeconds)}/{limitSeconds} secs")
+
+
+
+        # CALIBRATE_DEPTH_SENSORS
+        elif self.current_state == State.CALIBRATE_DEPTH_SENSORS:
+            if self.depth_sensors_are_calibrated:
+                self.current_state = State.EXEC_TASK
+                return
+            self.depth_sensors_are_calibrated = self.pressureController.calibrate()
+
 
         # EXECUTE TASK
         elif self.current_state == State.EXEC_TASK:
@@ -794,6 +823,7 @@ class Controller():
         res['MissionState']=self.current_mission_state
         res['Setpoint']=self.target_depth
         res['Error']=self.error
+        res['Depth']=self.current_depth
 
         # timeOn display
         pump_flag = self.pumpFlag.getLast()
@@ -862,7 +892,8 @@ class Controller():
         self.log.debug("calculating PID")
 
 
-        avg = self.pressureController.getAvgDepthSensorsRead()
+        # avg = self.pressureController.getAvgDepthSensorsRead()
+        avg = self.pressureController.get_depth()
         self.current_depth = avg  # update current depth
         if not avg:
             self.log.error("ERROR: Could not calculate depth - not enough working sensors")
