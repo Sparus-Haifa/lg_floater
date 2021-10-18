@@ -50,8 +50,8 @@ class PID:
             
         self.lastP = self.p
         scalar = self.p*self.kp-self.d*self.kd+self.i*self.ki
-        self.log.info('scalar = self.p*self.kp-self.d*self.kd')
-        self.log.info(f'{scalar} = {self.p}*{self.kp}-{self.d}*{self.kd}')
+        self.log.info('scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki')
+        self.log.info(f'{scalar} = {self.p}*{self.kp} - {self.d}*{self.kd} + {self.i}*{self.ki}')
         return scalar
 
     def unpack(self, scalar, error):
