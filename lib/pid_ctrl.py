@@ -19,6 +19,8 @@ class PID:
         self.d = None
         self.kp = 10
         self.kd = 250
+        self.ki = 0.001
+        self.i = 0
 
     def reset_d(self):
         self.lastP = None
@@ -30,14 +32,24 @@ class PID:
         self.lastTime = nowTime
 
         # calc PID
+        # P
         self.p = error
+        # I
+        # D
         if self.lastP != None:
             self.d = (self.lastP - self.p) / deltaTime
+            self.i+= (self.p + self.lastP) * deltaTime / 2
         else:
             self.d = 0
-        self.lastP = self.p
+            self.i = 0
 
-        scalar = self.p*self.kp-self.d*self.kd
+        if self.i < -50:
+            self.i = -50
+        if 50 < self.i:
+            self.i = 50
+            
+        self.lastP = self.p
+        scalar = self.p*self.kp-self.d*self.kd+self.i*self.ki
         self.log.info('scalar = self.p*self.kp-self.d*self.kd')
         self.log.info(f'{scalar} = {self.p}*{self.kp}-{self.d}*{self.kd}')
         return scalar
