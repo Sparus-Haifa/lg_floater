@@ -18,11 +18,20 @@ class Logger:
         current_time = current_datetime.split(" ")[1].split(".")[0].replace(":", "")
 
         #e.g. 20210310_103412.log
-        s = log_name = caurrent_date + "_" + current_time + ".log"
-        full_path = os.path.join('log',s)
-        file_handler = logging.FileHandler(full_path)
+        # s = log_name = caurrent_date + "_" + current_time + ".log"
+        log_notset = caurrent_date + "_" + current_time + "_notset.log"
+        log_info = caurrent_date + "_" + current_time + "_info.log"
+
+        full_path_notset = os.path.join('log',log_notset)
+        full_path_info = os.path.join('log',log_info)
+
+        file_handler_notset = logging.FileHandler(full_path_notset)
+        file_handler_info = logging.FileHandler(full_path_info)
+
         console_handler.setLevel(logging.WARNING)
-        file_handler.setLevel(logging.INFO)
+        file_handler_notset.setLevel(logging.NOTSET)
+        file_handler_info.setLevel(logging.INFO)
+
         
 
         if test_mode:
@@ -31,11 +40,15 @@ class Logger:
             formatter    = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
         console_handler.setFormatter(formatter)
-        file_handler.setFormatter(formatter)
+        file_handler_notset.setFormatter(formatter)
+        file_handler_info.setFormatter(formatter)
+
 
 
         self.log.addHandler(console_handler)
-        self.log.addHandler(file_handler)
+        self.log.addHandler(file_handler_notset)
+        self.log.addHandler(file_handler_info)
+
 
     def get_log(self):
         return self.log

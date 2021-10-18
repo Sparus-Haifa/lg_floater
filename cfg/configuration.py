@@ -17,15 +17,17 @@ class MissionState(Enum):
     HOLD_ON_TARGET = auto()
     SURFACE = auto()
     MISSION_ABORT = auto()
+    ASCENDING = auto()
+    DESCENDING = auto()
 
 app = {
-    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation" : False,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",
 
-    "disable_safety" : False,
-    "test_mode" : True,
+    "disable_safety" : True,
+    "test_mode" : False,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True,
     "skip_arduino_compile" : True
