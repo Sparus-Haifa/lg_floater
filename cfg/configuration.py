@@ -16,6 +16,7 @@ class State(Enum):
     STOP = auto()
 
 class MissionState(Enum):
+    IDLE = auto()
     EN_ROUTE = auto()
     HOLD_ON_TARGET = auto()
     SURFACE = auto()

@@ -583,6 +583,7 @@ class Controller():
             self.sendPID()
         # after
         elif self.time_on_duration is None:
+            self.update_depth()
             elapsedSeconds = (time.time() - self.time_off_timer)*self.simFactor
             self.log.info(f"waiting for timeOff to finish {round(elapsedSeconds,2)} of {self.time_off_duration}")
             if elapsedSeconds > self.time_off_duration:
@@ -591,6 +592,7 @@ class Controller():
                 self.time_off_timer = None
         else:
             # TODO: add watchdog incarse PF doesn't get recived
+            self.update_depth()
             pump_flag = self.pumpFlag.getLast()
             # print('PF', pump_flag)
             if pump_flag == 0:
@@ -637,7 +639,7 @@ class Controller():
         # INFLATE_BLADDER  # TODO: add to exception/watchdog
         elif self.current_state == State.INFLATE_BLADDER:
             if self.bladder_is_at_max_volume:
-                self.current_state = State.WAIT_FOR_WATER
+                self.current_state = State.CALIBRATE_DEPTH_SENSORS
                 return
             # self.pid_controller.p=
             self.pid_controller.d=0
@@ -648,7 +650,13 @@ class Controller():
         # ACQUIRE_CLOCK
 
 
-            
+        # CALIBRATE_DEPTH_SENSORS
+        elif self.current_state == State.CALIBRATE_DEPTH_SENSORS:
+            if self.depth_sensors_are_calibrated:
+                self.current_state = State.WAIT_FOR_WATER
+                self.update_depth()
+                return
+            self.depth_sensors_are_calibrated = self.pressureController.calibrate()
 
 
 
@@ -663,7 +671,7 @@ class Controller():
             if  elapsedSeconds > limitSeconds:
                 self.log.info("Done waiting for water")
                 if self.pressureController.senseWater():
-                    self.current_state = State.CALIBRATE_DEPTH_SENSORS
+                    self.current_state = State.EXEC_TASK
                     self.waterTestTimer = None
                 else:
                     self.log.info("water not detected")
@@ -674,12 +682,7 @@ class Controller():
 
 
 
-        # CALIBRATE_DEPTH_SENSORS
-        elif self.current_state == State.CALIBRATE_DEPTH_SENSORS:
-            if self.depth_sensors_are_calibrated:
-                self.current_state = State.EXEC_TASK
-                return
-            self.depth_sensors_are_calibrated = self.pressureController.calibrate()
+
 
 
         # EXECUTE TASK
@@ -888,13 +891,20 @@ class Controller():
             self.log.warning("weight dropped!")
 
 
+    def update_depth(self):
+        avg = self.pressureController.get_depth()
+        self.current_depth = avg  # update current depth
+        self.error = self.target_depth - self.current_depth
+
     def sendPID(self):
         self.log.debug("calculating PID")
 
 
         # avg = self.pressureController.getAvgDepthSensorsRead()
+        # self.update_depth()
         avg = self.pressureController.get_depth()
         self.current_depth = avg  # update current depth
+        
         if not avg:
             self.log.error("ERROR: Could not calculate depth - not enough working sensors")
             return
@@ -1062,7 +1072,7 @@ class Controller():
 
 
 
-MARGIN = 5.0
+MARGIN = 3.0
 
 class Pilot:
     def __init__(self, log, controller) -> None:
@@ -1130,14 +1140,14 @@ class Captain:
 
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
-        # planned_depths = [50.0, 0, 70.0, 0]
-        planned_depths = [11.5]
+        planned_depths = [20, 0, 20, 0]  #, 5, 0]
+        # planned_depths = [11.5]
         # planned_depths = ['E']
 
         kd = 1000
         kp = 60
         # self.pilot.controller.pid_controller.kp = kp
-        mission_state = MissionState.DESCENDING
+        mission_state = MissionState.IDLE
         # if next_depth == 0:
         #     mission_state = MissionState.ASCENDING
 
@@ -1155,10 +1165,18 @@ class Captain:
                 continue
             if start_mission:
                 self.pilot.controller.pid_controller.kp = kp
-                self.pilot.controller.pid_controller.kd = kd
+                # self.pilot.controller.pid_controller.kd = kd
                 next_depth = planned_depths.pop(0)
                 self.pilot.set_target_depth(next_depth)  # set the first target depth
                 start_mission = False
+                if self.pilot.depth < next_depth:
+                    mission_state = MissionState.DESCENDING
+                else:
+                    mission_state = MissionState.ASCENDING
+                self.pilot.set_mission_state(mission_state)
+                self.pilot.controller.pid_controller.kd = 0
+
+
 
             if self.pilot.depth and self.pilot.depth != self.pilot.last_depth:  # new depth
                 self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
@@ -1169,7 +1187,7 @@ class Captain:
                 if mission_state == MissionState.DESCENDING:
                     min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume
                     self.log.warning(f'min_bladder_reached {min_bladder_reached}')
-                    if min_bladder_reached:
+                    if min_bladder_reached or self.pilot.depth > self.pilot.controller.target_depth:
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
                         self.pilot.controller.pid_controller.kd = kd
@@ -1177,7 +1195,7 @@ class Captain:
                 elif mission_state == MissionState.ASCENDING:
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume
                     self.log.warning(f'max_bladder_reached {max_bladder_reached}')
-                    if max_bladder_reached:
+                    if max_bladder_reached or self.pilot.depth < self.pilot.controller.target_depth:
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
                         self.pilot.controller.pid_controller.kd = kd
@@ -1197,7 +1215,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 3000:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         if not planned_depths:
@@ -1222,10 +1240,16 @@ class Captain:
                             self.pilot.controller.pid_controller.kd = 0
                             continue
                         
-                        mission_state = MissionState.EN_ROUTE
-                        self.log.info(mission_state)
+
+                        if self.pilot.depth < next_target_depth:
+                            mission_state = MissionState.DESCENDING
+                        else:
+                            mission_state = MissionState.ASCENDING
                         self.pilot.set_mission_state(mission_state)
-                        self.pilot.controller.pid_controller.kd = kd
+                        # mission_state = MissionState.EN_ROUTE
+                        # self.log.info(mission_state)
+                        # self.pilot.set_mission_state(mission_state)
+                        self.pilot.controller.pid_controller.kd = 0
                         
 
 
@@ -1241,6 +1265,8 @@ class Captain:
                         self.log.info(mission_state)
 
                 elif mission_state == MissionState.MISSION_ABORT:
+                    continue
+                elif mission_state == MissionState.IDLE:
                     continue
 
 
