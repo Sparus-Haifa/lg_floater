@@ -427,6 +427,7 @@ class Controller():
             #     self.dcTimer = time.time()
             # print("pump is off")
             # self.pumpFlag.add_sample(0)
+            self.sensors['rpm'].add_sample(0)
             pass
         elif value==1:
             self.log.info("pump turned on")
@@ -439,6 +440,8 @@ class Controller():
             self.current_state = State.EMERGENCY
             self.log.critical("PUMP FAILIURE")
             self.time_on_duration = None
+            
+            self.sensors['rpm'].add_sample(0)
 
             # self.comm_safety.write("N:2")
             # self.drop_weight()
