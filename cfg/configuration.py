@@ -2,8 +2,11 @@ from enum import Enum, auto
 
 class State(Enum):
     INIT = auto()
-    WAIT_FOR_SENSOR_BUFFER = auto()
+    WAIT_FOR_SENSOR_BUFFER = auto()  # TODO: add timeout/minimun sensors
     WAIT_FOR_SAFETY = auto()
+    INFLATE_BLADDER = auto()
+    # ACQUIRE_CLOCK = auto()
+    CALIBRATE_DEPTH_SENSORS = auto()
     WAIT_FOR_WATER = auto()
     EXEC_TASK = auto()
     END_TASK = auto()
@@ -21,7 +24,7 @@ class MissionState(Enum):
     DESCENDING = auto()
 
 app = {
-    "simulation" : False,  # app sends debug data to sim, udp - not serial
+    "simulation" : True,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",

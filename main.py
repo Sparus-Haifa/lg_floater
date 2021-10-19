@@ -819,8 +819,8 @@ class Controller():
         res["PF"]=self.pumpFlag.getLast()
         res["BV"]=self.bladderVolume.getLast()
         res["rpm"]=self.rpm.getLast()
-        res["State"]=self.current_state
-        res['MissionState']=self.current_mission_state
+        res["State"]=self.current_state.name
+        res['MissionState']=self.current_mission_state.name
         res['Setpoint']=self.target_depth
         res['Error']=self.error
         res['Depth']=self.current_depth
@@ -1136,20 +1136,30 @@ class Captain:
 
         kd = 1000
         kp = 60
-        self.pilot.controller.pid_controller.kp = kp
-        next_depth = planned_depths.pop(0)
-        self.pilot.set_target_depth(next_depth)  # set the first target depth
+        # self.pilot.controller.pid_controller.kp = kp
         mission_state = MissionState.DESCENDING
-        if next_depth == 0:
-            mission_state = MissionState.ASCENDING
+        # if next_depth == 0:
+        #     mission_state = MissionState.ASCENDING
 
         self.pilot.set_mission_state(mission_state)
 
 
         self.pilot.controller.pid_controller.kd = 0
 
+        start_mission = False
+
         while True:
             self.pilot.run_once()  # RUN ONCE
+            if self.pilot.controller.current_state != State.EXEC_TASK:
+                start_mission = True
+                continue
+            if start_mission:
+                self.pilot.controller.pid_controller.kp = kp
+                self.pilot.controller.pid_controller.kd = kd
+                next_depth = planned_depths.pop(0)
+                self.pilot.set_target_depth(next_depth)  # set the first target depth
+                start_mission = False
+
             if self.pilot.depth and self.pilot.depth != self.pilot.last_depth:  # new depth
                 self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
                 # last_depth = depth
@@ -1187,7 +1197,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 3000:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         if not planned_depths:
@@ -1235,7 +1245,7 @@ class Captain:
 
 
 
-            time.sleep(0.01)     
+            # time.sleep(0.01)     
 
 
 

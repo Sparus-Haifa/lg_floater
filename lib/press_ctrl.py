@@ -98,6 +98,8 @@ class Press_ctrl():
             return False
         self.offset = offset
         self.log.info('depth sensors calibrated successfully')
+        self.log.info(f'offset set on: {self.offset}')
+
         return True # success
 
 
