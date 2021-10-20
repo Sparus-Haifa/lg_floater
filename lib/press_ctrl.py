@@ -63,7 +63,8 @@ class Press_ctrl():
         avg = tp1.getLast() + tp2.getLast()
         avg/=2
 
-        if 10.00 < avg < 12.00:
+        # if 10.00 < avg < 12.00:
+        if avg < 10.5:
             return True
         return False
 

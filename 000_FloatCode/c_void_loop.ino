@@ -7,11 +7,12 @@ void loop()
   SendMsg("LC", LoopCounter);
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= EMERGENCY LEAK SIMULATION
-  if (millis() >= 1000 * 60 * LeakNow)
-  {
-    // HullLeakFlag = 1;
-    VBEleakFlag = 1;
-  }
+  // if (millis() >= 1000UL * 60UL * LeakNow)
+  // {
+  //   // HullLeakFlag = 1;
+  //   SendMsg("VB", 1);
+  //   VBEleakFlag = 1;
+  // }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= STOP PUMP
   // If the pump is active but the remaining pumping time is shorter than 1 sec
@@ -26,7 +27,7 @@ void loop()
   // This is an infinite loop which will keep transmiting the float's
   // location after emergency surfacing is completed.
 
-  Leaks();
+  //Leaks();
   SendMsg("HL", HullLeakFlag);
   SendMsg("EL", VBEleakFlag);
 

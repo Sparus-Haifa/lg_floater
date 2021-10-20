@@ -6,15 +6,18 @@
 
 void FullSurface()
 {
+  SendMsg("YK", 1);
   // CHECK IF THE BLADDER IS AT PHYSICAL LIMITS, IF YES EXIT THE FUNCTION
   CalcBladderVol();
   SendMsg("BV", BladdVol);
 
-  if (BF = 2)
+  if (BF == 2)
   {
+    SendMsg("YK", 2);
     return;
   }
 
+SendMsg("YK", 3);
   int BladderVolSetPoint = BladderUpperLimit, PumpDirectionBool = HIGH;
 
   // Reset timers

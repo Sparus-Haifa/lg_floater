@@ -116,6 +116,7 @@ class Controller():
         # Bladder status
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
+        bladder_is_at_max_volume_latch = False
 
         self.depth_sensors_are_calibrated = None
 
@@ -340,6 +341,8 @@ class Controller():
             elif header=="SF":
                 self.full_surface_flag.add_sample(value)
                 self.handle_SF()
+            else:
+                self.log.error(f'unknown header: {header}:{value}')
 
         handle_mega_message(header, value)
 
@@ -358,6 +361,7 @@ class Controller():
             self.bladder_is_at_min_volume = True
         elif value == 2:
             self.bladder_is_at_max_volume = True
+            self.bladder_is_at_max_volume_latch = True
 
 
     def handle_HL(self):
@@ -377,7 +381,7 @@ class Controller():
         else:
             self.log.info("sending surface command")
             if not self.disable_safety:
-                self.comm_safety.write("S:1")
+                self.comm.write("S:1")
 
     # sending the command to drop the dropweight to saftey
     def drop_weight(self):
@@ -637,7 +641,9 @@ class Controller():
         # WAIT_FOR_SENSOR_BUFFER
         elif self.current_state == State.WAIT_FOR_SENSOR_BUFFER:
             if self.sensorsReady():
-                self.current_state = State.INFLATE_BLADDER
+                # self.current_state = State.INFLATE_BLADDER
+                self.current_state = State.CALIBRATE_DEPTH_SENSORS
+
 
         # INFLATE_BLADDER  # TODO: add to exception/watchdog
         elif self.current_state == State.INFLATE_BLADDER:
@@ -764,6 +770,7 @@ class Controller():
         # STOP - TEST MODE
         elif self.current_state == State.STOP:
             self.log.warning("Stopped")
+        # elif self.current_state == State.
         else:
             self.log.error('unknown state')
 
@@ -1143,7 +1150,8 @@ class Captain:
 
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
-        planned_depths = [20, 0, 20, 0]  #, 5, 0]
+        # planned_depths = [1.5, 0, 1.5, 'E']  #, 5, 0]
+        planned_depths = [1.5, 0, 1.5, 0]  #, 5, 0]
         # planned_depths = [11.5]
         # planned_depths = ['E']
 
@@ -1218,7 +1226,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 60:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         if not planned_depths:
@@ -1241,6 +1249,9 @@ class Captain:
                             self.pilot.set_mission_state(mission_state)
                             self.log.info(mission_state)
                             self.pilot.controller.pid_controller.kd = 0
+                            self.pilot.controller.surface()
+                            self.pilot.controller.current_state = State.STOP
+                            self.pilot.controller.bladder_is_at_max_volume_latch = False
                             continue
                         
 
@@ -1259,7 +1270,9 @@ class Captain:
                 elif mission_state == MissionState.SURFACE:
                     surface_reached = self.pilot.controller.pressureController.senseAir()
                     timer_started = self.pilot.mission_timer is not None
-                    if surface_reached and not timer_started:
+                    max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
+                    if max_bladder_reached and surface_reached and not timer_started:
+                        self.pilot.controller.current_state = State.EXEC_TASK
                         self.log.info('starting timer')
                         self.pilot.mission_timer = time.time()
                         mission_state = MissionState.HOLD_ON_TARGET
