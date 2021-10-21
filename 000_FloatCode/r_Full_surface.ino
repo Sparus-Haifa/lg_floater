@@ -4,21 +4,31 @@
     bladder inflation.
 */
 
-void FullSurface()
+void FullSurface(int Direction)
 {
-  SendMsg("YK", 1);
+  int BladderVolSetPoint;
+
   // CHECK IF THE BLADDER IS AT PHYSICAL LIMITS, IF YES EXIT THE FUNCTION
   CalcBladderVol();
-  SendMsg("BV", BladdVol);
 
-  if (BF == 2)
+  if ((BF != 1) && (Direction == 1))
   {
-    SendMsg("YK", 2);
-    return;
+    SendMsg("FS", Direction);
+    BladderVolSetPoint = BladderLowerLimit;
+    PumpDirectionBool = LOW;
   }
 
-SendMsg("YK", 3);
-  int BladderVolSetPoint = BladderUpperLimit, PumpDirectionBool = HIGH;
+  else if ((BF != 2) && (Direction == 2))
+  {
+    SendMsg("FS", Direction);
+    BladderVolSetPoint = BladderUpperLimit;
+    PumpDirectionBool = HIGH;
+  }
+
+  else
+  {
+    return;
+  }
 
   // Reset timers
   PreviousMillis = millis();

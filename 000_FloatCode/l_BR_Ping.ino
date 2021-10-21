@@ -17,7 +17,7 @@ void AltPing()
 {
   if (ping.update())
   {
-    PingDistance = ping.distance() / 1000.0; // mm to meters
+    PingDistance = ping.distance()/1000.0; // mm to meters
     PingConfidence = ping.confidence();
   }
   else

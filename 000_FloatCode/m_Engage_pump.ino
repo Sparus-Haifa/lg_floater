@@ -10,7 +10,7 @@ void EngagePump()
   // CHECK IF THE BLADDER IS AT PHYSICAL LIMITS, IF YES EXIT THE FUNCTION
   CalcBladderVol();
 
-  if  ((BF == 1 && PumpDirection == 1) || (BF == 2 && PumpDirection == 2))
+  if  (((BF == 1) && (PumpDirection == 1)) || ((BF == 2) && (PumpDirection == 2)))
   {
     return;
   }

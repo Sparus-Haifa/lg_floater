@@ -5,16 +5,17 @@ void IridiumBeacon()
   // Begin listening to the GPS
   //Serial.println(F("Beginning to listen for GPS traffic..."));
 
-  // Look for GPS signal for up to 7 minutes
-//  while (myI2CGPS.available())
-//  {
-//    SendMsg("IR", 4);
-//    tinygps.encode(myI2CGPS.read());
-//    SendMsg("IR", 5);
-//  }
-  
+  // Look for GPS signal for up to 1 minutes
+  //SendMsg("IR", 3);
+  //  while (myI2CGPS.available())
+  //  {
+  //    SendMsg("IR", 4);
+  //    tinygps.encode(myI2CGPS.read());
+  //    SendMsg("IR", 5);
+  //  }
+
   while ((!tinygps.location.isValid() || !tinygps.date.isValid()) &&
-         (millis() - loopStartTime < 7UL * 60UL * 1000UL))
+         (millis() - loopStartTime < 1UL * 60UL * 1000UL))
   {
     // original ver - while (myI2CGPS.available())
     if (myI2CGPS.available())
@@ -34,6 +35,7 @@ void IridiumBeacon()
     SendMsg("GPE", 0);
     return;
   }
+  //SendMsg("GPE", 1);
 
   //Serial.println(F("A GPS fix was found!"));
 
@@ -69,10 +71,10 @@ void IridiumBeacon()
     SendMsg("IRE", err);
     return;
   }
-else
-{
-  return;
-}
+//  else
+//  {
+//    return;
+//  }
 
   // Sleep
   int elapsedSeconds = (int)((millis() - loopStartTime) / 1000);
@@ -89,7 +91,7 @@ else
   //Serial.println(F("Wake up!"));
 
   // EXIT FUNCTION AFTER PRESCRIBED TIME
-  if (BeaconT * 1000 < (millis() - loopStartTime))
+  if (BeaconT * 1000UL < (millis() - loopStartTime))
     return;
 }
 

@@ -123,7 +123,7 @@ void setup()
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-= BR Ping
-  //
+
   pingSerial.begin(115200);
 
   while (!ping.initialize())
@@ -134,7 +134,7 @@ void setup()
     SendMsg("D", PingDistance);
     SendMsg("C", PingConfidence);
   }
-  //
+
   //  //-=-=-=-=-=-=-=-=-=-=-=-=-= GPS/IRIDIUM BEACON
   //  // Wires: Black = GND, Orange = 5V, White = TX2, Green = RX2
   if (myI2CGPS.begin() == false)

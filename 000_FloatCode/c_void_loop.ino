@@ -6,14 +6,6 @@ void loop()
 
   SendMsg("LC", LoopCounter);
 
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= EMERGENCY LEAK SIMULATION
-  // if (millis() >= 1000UL * 60UL * LeakNow)
-  // {
-  //   // HullLeakFlag = 1;
-  //   SendMsg("VB", 1);
-  //   VBEleakFlag = 1;
-  // }
-
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= STOP PUMP
   // If the pump is active but the remaining pumping time is shorter than 1 sec
   // the sketch will hold here and will stop the pump when the clock runs out.
@@ -27,16 +19,23 @@ void loop()
   // This is an infinite loop which will keep transmiting the float's
   // location after emergency surfacing is completed.
 
-  //Leaks();
+  Leaks();
   SendMsg("HL", HullLeakFlag);
   SendMsg("EL", VBEleakFlag);
+
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= EMERGENCY LEAK SIMULATION
+  //  if (millis() >= 1000UL * 60UL * LeakNow)
+  //  {
+  //    // HullLeakFlag = 1;
+  //    VBEleakFlag = 1;
+  //  }
 
   if ((HullLeakFlag == 1) || (VBEleakFlag == 1))
   {
     while (1)
     {
       SendMsg("FS", 1);
-      FullSurface();
+      FullSurface(2);
       wdt_disable();
       IridiumBeacon();
       wdt_enable(WDTO_4S);
@@ -50,11 +49,11 @@ void loop()
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= END MISSION
   // If the surface/end-mission command is received the bladder is fully inflated.
+  // 1 - Submerge  |  2 - Surface
 
-  if (FullSurfaceFlag == 1)
+  if ((FullSurfaceFlag == 1) || (FullSurfaceFlag == 2))
   {
-    SendMsg("FS", 1);
-    FullSurface();
+    FullSurface(FullSurfaceFlag);
     FullSurfaceFlag = 0;
   }
 
@@ -70,6 +69,7 @@ void loop()
     IridiumFlag = 0;
     SendMsg("IR", 0);
   }
+
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= PUMP ACTUATION
   // If all three pump actuation parameters are non-zero then start pump
 
@@ -157,5 +157,4 @@ void loop()
   //  Serial.print((millis() - PreviousMillis));
   //  Serial.println("sec");
   //  Serial.println(" ");
-// delay(2500);
 }

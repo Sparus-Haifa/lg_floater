@@ -1,9 +1,9 @@
 //-=-=-=-=-=-=-=-=-=-=-=-=-= SIMULATION PARAMETERS !!!
-#define LeakNow 2  // TIME UNTIL LEAK IN MINUTES
+
+//#define LeakNow 2  // TIME UNTIL LEAK IN MINUTES
 
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= SIMULATION PARAMETERS !!!
-
 
 // Libraries
 #include <avr/wdt.h>
@@ -34,16 +34,16 @@ TinyGPSPlus gps; //Declare gps object
 // Define PING Altimeter object
 #define pingSerial Serial1
 static Ping1D ping { pingSerial };
-float PingDistance;
-byte PingConfidence;
+float  PingDistance;
+byte   PingConfidence;
 
 // Temperature and Pressure sensors objects
 TSYS01 TempSensor;
 MS5837 PresSensor;
 
 // IridiumSBD object
-#define IridiumSerial Serial2
-IridiumSBD modem(IridiumSerial);    // Declare IRIDIUM object
+#define     IridiumSerial Serial2
+IridiumSBD  modem(IridiumSerial);    // Declare IRIDIUM object
 TinyGPSPlus tinygps;                // Declare TINY GPS object
 static const int ledPin = LED_BUILTIN;
 
