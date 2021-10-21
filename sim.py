@@ -42,6 +42,7 @@ class Comm():
         self.current_state = State.INIT
         self.full_surface = False
         self.weight_dropped = False
+        self.dc = 0
 
 
     def sendMessage(self, message = b'test'):
@@ -106,6 +107,8 @@ class Comm():
                     self.current_state = State[value.split(".")[1]]
                 elif header=="weight":
                     self.weight_dropped = True
+                elif header=='dc':
+                    self.dc = float(value)
                 else:
                     print("Unknown header:", header)
 
@@ -124,10 +127,10 @@ class YuriSim():
             "X":0.01,
             "Y":-0.00,
             "Z":0.00,
-            "BP1":1031.60,
-            "BP2":1035.30,
-            "TP1":1022.40,
-            "TP2":1034.00,
+            "BP1":1051.60,
+            "BP2":1055.30,
+            "TP1":1002.40,
+            "TP2":1004.00,
             "HP":0,
             "PD":-26607.00,
             "PC":9.00,
@@ -149,7 +152,7 @@ class YuriSim():
         self.pumpTimer = 0.0 # time the pump is working in the currect duty cycle
         self.offTimer = 0
         self.currentBladderVolume = 0
-        self.surfacePressure = 1035
+        self.surfacePressure = 0  # 10.35
 
         self.weight_dropped = False
 
@@ -194,21 +197,21 @@ class YuriSim():
         first_loop_sync = True
 
         # Const params
-        MASS_FLOATER = 19.4 # kg
+        MASS_FLOATER = 19.3 # 19.4 # kg
         MASS_WEIGHT = 1.0 # kg
         GRAVITY  = 9.8 # m/sec^2
         VOLUME_FLOATER = 0.01965 # m^3
         MAX_BLADDER_VOLUME = 0.00065 # m^3
         FW = 1025 # kg / m^3
         BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW # Volume * g * fw
-        DRAG_COEFFECIENT = 0.82
+        DRAG_COEFFECIENT = 0.82 * 3
         FLOATAREA = 3.14 * 0.18 * 0.18 / 4
         BCONST = 0.5 * FW * DRAG_COEFFECIENT * FLOATAREA # drag_coefficient * Object_area * fluid_density (FW)
         FPS = 2
         
         # Variables
         acceleration = .000
-        self.currentBladderVolume = MAX_BLADDER_VOLUME # start at max
+        self.currentBladderVolume = MAX_BLADDER_VOLUME/2 # start at half full
         speed = 0
         SimFactor = 1.0
         self.seafloor_depth = cfg.simulation["seafloor_depth"]
@@ -268,7 +271,7 @@ class YuriSim():
                 self.sendMessage("PF",1, True)
                 self.sensors["PF"]=1           
 
-            if self.comm.current_state == State.EXEC_TASK:
+            if True:  # self.comm.current_state == State.EXEC_TASK:
                 # print("Executing")
                 if self.comm.timeOn <= 0.0:
                     print("idle - waiting for PID command")
@@ -358,22 +361,22 @@ class YuriSim():
                             
                             self.offTimer = elapsed - self.comm.timeOn
             
-            elif self.comm.current_state == State.END_TASK:
-                print("Surfacing")
-                self.comm.direction = 2.0
-                self.comm.timeOn = 5.0
-                self.comm.voltage = 100
-                self.pumpIsOn = True
-                bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
-                if bladderIsFull:
-                    self.pumpIsOn = False
+            # elif self.comm.current_state == State.END_TASK:
+            #     print("Surfacing")
+            #     self.comm.direction = 2.0
+            #     self.comm.timeOn = 5.0
+            #     self.comm.voltage = 100
+            #     self.pumpIsOn = True
+            #     bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+            #     if bladderIsFull:
+            #         self.pumpIsOn = False
                 
                 
 
 
             # Handle PID
             if self.pumpIsOn:
-                value = 0.01 * self.comm.voltage * 0.00001
+                value = 0.01 * self.comm.voltage * 0.00002
                 if self.comm.direction != 1.0:  # TODO: 1.0? fix to 1
                     value*=-1
                 self.currentBladderVolume -= value
@@ -387,7 +390,7 @@ class YuriSim():
 
 
 
-            btn_location = (450, 180)
+            btn_location = (400, 280)
             btn_size = 50
             btn_margin = 10
 
@@ -534,11 +537,11 @@ class YuriSim():
             # 1000 milibar = 10.0 decibar
             # 1 decibar ~= 1 meter.
             avgSens_str = "{:.2f}".format(avg/100)
-            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} decibar]", 1, DARKBLUE)
+            label_avgSens = myfont.render(f"[avg depth sensors:{avgSens_str} dbar]", 1, DARKBLUE)
             display.blit(label_avgSens, (20, 160))
 
-            targetSens_str = "{:.2f}".format(self.comm.targetDepth/100)
-            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} decibar]", 1, DARKBLUE)
+            targetSens_str = "{:.2f}".format(self.comm.targetDepth)
+            label_targetSens = myfont.render(f"[target sensor pressure:{targetSens_str} dbar]", 1, DARKBLUE)
             display.blit(label_targetSens, (20, 180))
 
 
@@ -569,9 +572,7 @@ class YuriSim():
 
 
 
-            error_str = "{:.2f}".format(self.comm.error / 100)
-            label_trip = myfont.render(f"[error :{error_str} decibar]", 1, DARKBLUE)
-            display.blit(label_trip, (20, 340))
+
 
             # phase_str = "{:.2f}".format(self.comm.trip*100)
             label_phase = myfont.render(f"[phase :{self.comm.phase} ]", 1, DARKBLUE)
@@ -581,40 +582,59 @@ class YuriSim():
             pump_str = "On" if self.pumpIsOn else "Off"
             color = GREEN if self.pumpIsOn else RED
             label_pump = myfont.render(f"[Pump :{pump_str} ]", 1, color)
-            display.blit(label_pump, (450, 20))
+            display.blit(label_pump, (400, 20))
 
+            
             d_str = "Down" if self.comm.direction == 1.0 else "Up"
-            label_voltage = myfont.render(f"[Direction :{d_str}]", 1, DARKBLUE)
-            display.blit(label_voltage, (450, 40))
+            sign = '-' if d_str == "Down" else ''
+            voltage_str = "{:.2f}".format(self.comm.voltage)
+            label_direction = myfont.render(f"[Direction :{d_str}]  [Voltage :{sign + voltage_str} %]", 1, DARKBLUE)
+            display.blit(label_direction, (400, 40))
+
+            # label_dc = myfont.render(f"[Voltage :{voltage_str} %]", 1, DARKBLUE)
+            # display.blit(label_dc, (450, 100))
+
+
+
+            dc_str = "{:.2f}".format(self.pumpTimer)
+            # label_dc = myfont.render(f"[duty cycle: {self.comm.dc * 100} %]", 1, DARKBLUE)
+            # display.blit(label_dc, (400, 100))
+
+            error_str = "{:.2f}".format(self.comm.error)
+            label_trip = myfont.render(f"[error :{error_str} dbar] [duty cycle: {self.comm.dc * 100} %]", 1, DARKBLUE)
+            display.blit(label_trip, (400, 60))
+
 
             timeOn_str = "{:.2f}".format(self.comm.timeOn)
             timeOff_str = "{:.2f}".format(self.comm.timeOff)
             label_dc = myfont.render(f"[timeOn :{timeOn_str} sec] [timeOff :{timeOff_str} sec]", 1, DARKBLUE)
-            display.blit(label_dc, (450, 60))
+            display.blit(label_dc, (400, 80))
 
 
             timerPump_str = "{:.2f}".format(self.pumpTimer)
             timerOff_str = "{:.2f}".format(self.offTimer)
             label_dc = myfont.render(f"[timer on: {timerPump_str} sec] [timer off: {timerOff_str} sec", 1, DARKBLUE)
-            display.blit(label_dc, (450, 80))
+            display.blit(label_dc, (400, 100))
 
-            voltage_str = "{:.2f}".format(self.comm.voltage)
-            label_dc = myfont.render(f"[Voltage :{voltage_str} %]", 1, DARKBLUE)
-            display.blit(label_dc, (450, 100))
+ 
+
+
 
 
             bladderSize_str = "{:.2f}".format(self.currentBladderVolume*1000000)
             bladderPercent_str = "{:.2f}".format(self.currentBladderVolume*100/MAX_BLADDER_VOLUME)
             label_bladder = myfont.render(f"[bladder size:{bladderPercent_str} %] [{bladderSize_str} cc]", 1, DARKBLUE)
-            display.blit(label_bladder, (450, 120))
+            display.blit(label_bladder, (400, 120))
 
             
             # state_str = "{:.2f}".format(self.comm.current_state)
             label_bladder = myfont.render(f"[state:{self.comm.current_state}]", 1, DARKBLUE)
-            display.blit(label_bladder, (450, 140))
+            display.blit(label_bladder, (400, 140))
 
             label_weight = myfont.render(f"[weight dropped:{self.weight_dropped}]", 1, DARKBLUE)
-            display.blit(label_weight, (450, 160))
+            display.blit(label_weight, (400, 160))
+
+
 
 
             
@@ -636,7 +656,7 @@ class YuriSim():
 
             # DRAW LINES
 
-            targetDepthLinePX = (self.comm.targetDepth - self.surfacePressure)* PIXELRATIO / 100
+            targetDepthLinePX = (self.comm.targetDepth - self.surfacePressure)* PIXELRATIO  # / 100
             pg.draw.line(display, (255, 0, 0), (0, targetDepthLinePX), (width, targetDepthLinePX))
             # display.blit(player_image, (x, y))
 

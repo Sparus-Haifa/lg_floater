@@ -44,12 +44,12 @@ class Comm():
                 print(header,value)
 menu = """
 1. set target depth in decibar
-2. water sense test
+2. water sense 
 3. execute task
-4. wait for pickup test
+4. wait for pickup 
 5. sink_wait_climb test
-
-7. wake up NANO
+6. wakeup safety
+7. sleep safety
 8. send PID
 9. restart
 0. stop
@@ -155,6 +155,14 @@ class CLI():
             if from_user == '5':
                 print("sink_wait_climb")
                 self.com.sendMessage("sink_wait_climb:0")
+
+            if from_user == '6':
+                print('sending wakeup safety')
+                self.com.sendMessage('wakeup_safety:0')
+
+            if from_user == '7':
+                print('sending sleep  safety')
+                self.com.sendMessage('sleep_safety:0')
 
             if from_user == '8':
                 print('send PID')
