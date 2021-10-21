@@ -20,7 +20,7 @@ class PID:
         self.i = None
         self.kp = 10
         self.kd = 250
-        self.ki = 0.001
+        self.ki = 0 # 0.001
 
     def reset_d(self):
         self.lastP = None
@@ -123,7 +123,7 @@ class PID:
 
         x1 = 0 # no error
         x2 = max_error # max error
-        y1 = 0.02 # min utility 0% (min dc)
+        y1 = 0.1 # min utility 0% (min dc)
         if current_err == max_error:
             y2 = 0.2 # max utility 100% (max dc)
         else:

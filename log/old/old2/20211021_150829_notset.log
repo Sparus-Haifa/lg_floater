@@ -1,0 +1,64 @@
+2021-10-21 15:08:29,595:WARNING: Safety is disabled
+2021-10-21 15:08:29,597:WARNING: Test mode
+2021-10-21 15:08:29,601:INFO: Pressure controller was initialized successfully
+2021-10-21 15:08:29,603:INFO: BP1 pressure sensor was initialized successfully
+2021-10-21 15:08:29,604:INFO: BP2 pressure sensor was initialized successfully
+2021-10-21 15:08:29,605:INFO: TP1 pressure sensor was initialized successfully
+2021-10-21 15:08:29,606:INFO: TP2 pressure sensor was initialized successfully
+2021-10-21 15:08:29,607:INFO: HP pressure sensor was initialized successfully
+2021-10-21 15:08:29,607:INFO: AP pressure sensor was initialized successfully
+2021-10-21 15:08:29,608:INFO: Temperature controller was initialized successfully
+2021-10-21 15:08:29,608:INFO: BT1 temperature sensor was initialized successfully
+2021-10-21 15:08:29,609:INFO: BT2 temperature sensor was initialized successfully
+2021-10-21 15:08:29,609:INFO: TT1 temperature sensor was initialized successfully
+2021-10-21 15:08:29,610:INFO: TT2 temperature sensor was initialized successfully
+2021-10-21 15:08:29,610:INFO: AT temperature sensor was initialized successfully
+2021-10-21 15:08:29,611:INFO: IMU controller was initialized successfully
+2021-10-21 15:08:29,611:INFO: X IMU sensor was initialized successfully
+2021-10-21 15:08:29,612:INFO: Y IMU sensor was initialized successfully
+2021-10-21 15:08:29,612:INFO: Z IMU sensor was initialized successfully
+2021-10-21 15:08:29,613:INFO: Bladder volume controller was initialized successfully
+2021-10-21 15:08:29,614:INFO: Altimeter controller was initialized successfully
+2021-10-21 15:08:29,614:INFO: rpm controller was initialized successfully
+2021-10-21 15:08:29,615:INFO: Pump flag controller was initialized successfully
+2021-10-21 15:08:29,616:INFO: Bladder flag controller was initialized successfully
+2021-10-21 15:08:29,616:INFO: Hull leak flag controller was initialized successfully
+2021-10-21 15:08:29,617:INFO: Engine leak flag controller was initialized successfully
+2021-10-21 15:08:29,617:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-21 15:08:29,618:DEBUG: attempting to init serial comm
+2021-10-21 15:08:29,618:DEBUG:  port:/dev/ttyACM0
+2021-10-21 15:08:29,619:DEBUG:  baud_rate:115200
+2021-10-21 15:08:29,621:INFO: SerialComm was initialized successfully
+2021-10-21 15:08:29,622:DEBUG: attempting to load profile: cfg/profile.txt
+2021-10-21 15:08:29,632:INFO: Profile file loaded successfully
+
+2021-10-21 15:08:29,633:INFO: Profile class was initialized successfully
+
+2021-10-21 15:08:29,634:INFO: setting state to MissionState.IDLE
+2021-10-21 15:08:29,636:DEBUG: mega>rpi: b'BP1:1115.20\r\n'
+2021-10-21 15:08:29,651:DEBUG: mega>rpi: b'BP2:1139.60\r\n'
+2021-10-21 15:08:29,652:DEBUG: mega>rpi: b'HP:1574.60\r\n'
+2021-10-21 15:08:29,655:DEBUG: mega>rpi: b'TT1:24.49\r\n'
+2021-10-21 15:08:29,657:DEBUG: mega>rpi: b'TT2:24.60\r\n'
+2021-10-21 15:08:29,658:DEBUG: mega>rpi: b'.51\r\n'
+2021-10-21 15:08:29,660:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:08:29,661:DEBUG: mega>rpi: b'LC:1082.00\r\n'
+2021-10-21 15:08:29,662:ERROR: unknown header: LC:1082.00
+2021-10-21 15:08:29,665:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:08:29,667:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:08:29,668:DEBUG: mega>rpi: b'BT1:25.12\r\n'
+2021-10-21 15:08:29,670:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:08:29,672:DEBUG: mega>rpi: b'BP1:1115.20\r\n'
+2021-10-21 15:08:29,674:DEBUG: mega>rpi: b'BP2:1139.60\r\n'
+2021-10-21 15:08:29,676:DEBUG: mega>rpi: b'HP:1574.60\r\n'
+2021-10-21 15:08:29,677:DEBUG: mega>rpi: b'TT1:24.49\r\n'
+2021-10-21 15:08:29,679:DEBUG: mega>rpi: b'TT2:24.60\r\n'
+2021-10-21 15:08:31,034:DEBUG: mega>rpi: b'SU:0.00\r\n'
+2021-10-21 15:08:31,034:ERROR: unknown header: SU:0.00
+2021-10-21 15:08:31,066:DEBUG: mega>rpi: b'BT1:24.73\r\n'
+2021-10-21 15:08:31,091:DEBUG: mega>rpi: b'BT2:24.61\r\n'
+2021-10-21 15:08:31,107:DEBUG: mega>rpi: b'PS:2.00\r\n'
+2021-10-21 15:08:31,108:ERROR: unknown header: PS:2.00
+2021-10-21 15:08:32,022:INFO: 
+2021-10-21 15:08:32,023:CRITICAL: System shutdown
+2021-10-21 15:08:32,025:INFO: cleaning (resetting rpi gpio)

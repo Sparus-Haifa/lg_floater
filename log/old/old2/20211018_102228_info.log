@@ -1,0 +1,913 @@
+2021-10-18 10:22:28,252:WARNING: Safety is disabled
+2021-10-18 10:22:28,253:WARNING: Test mode
+2021-10-18 10:22:28,255:INFO: Pressure controller was initialized successfully
+2021-10-18 10:22:28,256:INFO: BP1 pressure sensor was initialized successfully
+2021-10-18 10:22:28,257:INFO: BP2 pressure sensor was initialized successfully
+2021-10-18 10:22:28,257:INFO: TP1 pressure sensor was initialized successfully
+2021-10-18 10:22:28,258:INFO: TP2 pressure sensor was initialized successfully
+2021-10-18 10:22:28,259:INFO: HP pressure sensor was initialized successfully
+2021-10-18 10:22:28,259:INFO: AP pressure sensor was initialized successfully
+2021-10-18 10:22:28,260:INFO: Temperature controller was initialized successfully
+2021-10-18 10:22:28,260:INFO: BT1 temperature sensor was initialized successfully
+2021-10-18 10:22:28,261:INFO: BT2 temperature sensor was initialized successfully
+2021-10-18 10:22:28,261:INFO: TT1 temperature sensor was initialized successfully
+2021-10-18 10:22:28,261:INFO: TT2 temperature sensor was initialized successfully
+2021-10-18 10:22:28,262:INFO: AT temperature sensor was initialized successfully
+2021-10-18 10:22:28,262:INFO: IMU controller was initialized successfully
+2021-10-18 10:22:28,263:INFO: X IMU sensor was initialized successfully
+2021-10-18 10:22:28,263:INFO: Y IMU sensor was initialized successfully
+2021-10-18 10:22:28,263:INFO: Z IMU sensor was initialized successfully
+2021-10-18 10:22:28,264:INFO: Bladder volume controller was initialized successfully
+2021-10-18 10:22:28,264:INFO: Altimeter controller was initialized successfully
+2021-10-18 10:22:28,265:INFO: rpm controller was initialized successfully
+2021-10-18 10:22:28,265:INFO: Pump flag controller was initialized successfully
+2021-10-18 10:22:28,266:INFO: Bladder flag controller was initialized successfully
+2021-10-18 10:22:28,266:INFO: Hull leak flag controller was initialized successfully
+2021-10-18 10:22:28,267:INFO: Engine leak flag controller was initialized successfully
+2021-10-18 10:22:28,267:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-18 10:22:28,269:INFO: SerialComm was initialized successfully
+2021-10-18 10:22:28,280:INFO: Profile file loaded successfully
+
+2021-10-18 10:22:28,281:INFO: Profile class was initialized successfully
+
+2021-10-18 10:22:28,282:INFO: setting target depth to 50.0 [mbar]
+2021-10-18 10:22:28,282:INFO: setting state to MissionState.DESCENDING
+2021-10-18 10:22:38,821:INFO: State.STOP
+2021-10-18 10:22:38,824:INFO: BT1   BT2   TT1   TT2             AT              X               Y               Z               BP1   BP2   TP1             TP2             HP      AP              PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:38,826:INFO: 24.44 23.99 25.28 Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 11.20 10.16 Buffering (3/5) Buffering (3/5) 1647.96 Buffering (3/5) 1.00 9.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:38,827:WARNING: Stopped
+2021-10-18 10:22:39,367:INFO: State.STOP
+2021-10-18 10:22:39,368:INFO: BT1   BT2   TT1   TT2             AT              X               Y               Z               BP1   BP2   TP1             TP2             HP      AP              PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:39,369:INFO: 24.45 23.98 25.27 Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.20 10.16 Buffering (4/5) Buffering (4/5) 1647.94 Buffering (4/5) 0.00 66.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:39,370:WARNING: Stopped
+2021-10-18 10:22:39,901:INFO: State.STOP
+2021-10-18 10:22:39,904:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:39,906:INFO: 24.45 23.98 25.27 25.42 24.50 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.20 10.16 9.88 10.18 1647.92 6078.90 1.00 31.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:39,907:WARNING: Stopped
+2021-10-18 10:22:40,438:INFO: State.STOP
+2021-10-18 10:22:40,440:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:40,440:INFO: 24.54 23.98 25.13 25.34 24.60 0.00 0.00 0.00 11.20 10.16 9.88 10.18 1647.88 6077.06 1.00 0.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:40,441:WARNING: Stopped
+2021-10-18 10:22:40,980:INFO: State.STOP
+2021-10-18 10:22:40,982:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:40,983:INFO: 24.62 23.99 25.00 25.25 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.90 6075.04 1.00 0.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:40,984:WARNING: Stopped
+2021-10-18 10:22:41,526:INFO: State.STOP
+2021-10-18 10:22:41,527:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:41,529:INFO: 24.62 23.99 24.99 25.25 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.90 6075.22 1.00 2.00 0  0  2  None None 669.21 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:41,530:WARNING: Stopped
+2021-10-18 10:22:42,074:INFO: State.STOP
+2021-10-18 10:22:42,077:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:42,079:INFO: 24.63 23.99 24.99 25.24 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.90 6075.18 2.00 0.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:42,080:WARNING: Stopped
+2021-10-18 10:22:42,618:INFO: State.STOP
+2021-10-18 10:22:42,620:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:42,622:INFO: 24.63 23.99 24.98 25.24 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.90 6075.16 0.00 98.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:42,623:WARNING: Stopped
+2021-10-18 10:22:43,156:INFO: State.STOP
+2021-10-18 10:22:43,159:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:43,162:INFO: 24.64 23.99 24.97 25.23 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.94 6075.18 0.00 82.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:43,163:WARNING: Stopped
+2021-10-18 10:22:43,683:INFO: State.STOP
+2021-10-18 10:22:43,685:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:43,687:INFO: 24.64 23.99 24.97 25.23 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.90 6075.20 0.00 60.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:43,688:WARNING: Stopped
+2021-10-18 10:22:44,216:INFO: State.STOP
+2021-10-18 10:22:44,218:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:44,219:INFO: 24.64 23.99 24.96 25.21 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.88 6075.02 1.00 22.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:44,220:WARNING: Stopped
+2021-10-18 10:22:44,757:INFO: State.STOP
+2021-10-18 10:22:44,759:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:44,760:INFO: 24.65 23.99 24.96 25.20 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.82 6075.06 1.00 0.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:44,761:WARNING: Stopped
+2021-10-18 10:22:45,299:INFO: State.STOP
+2021-10-18 10:22:45,300:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:45,301:INFO: 24.65 23.99 24.95 25.18 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.19 1647.78 6075.10 1.00 0.00 0  0  2  None None 669.28 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:45,302:WARNING: Stopped
+2021-10-18 10:22:45,846:INFO: State.STOP
+2021-10-18 10:22:45,848:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:45,850:INFO: 24.65 23.99 24.95 25.17 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.19 1647.80 6075.12 1.00 2.00 0  0  2  None None 669.24 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:45,851:WARNING: Stopped
+2021-10-18 10:22:46,383:INFO: State.STOP
+2021-10-18 10:22:46,386:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:46,388:INFO: 24.65 23.99 24.94 25.16 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.19 1647.78 6075.10 2.00 0.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:46,389:WARNING: Stopped
+2021-10-18 10:22:46,939:INFO: State.STOP
+2021-10-18 10:22:46,942:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:46,944:INFO: 24.66 23.99 24.93 25.15 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.19 1647.76 6075.16 0.00 98.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:46,945:WARNING: Stopped
+2021-10-18 10:22:47,474:INFO: State.STOP
+2021-10-18 10:22:47,476:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:47,478:INFO: 24.66 23.99 24.92 25.14 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.86 6075.22 0.00 97.00 0  0  2  None None 669.23 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:47,479:WARNING: Stopped
+2021-10-18 10:22:48,013:INFO: State.STOP
+2021-10-18 10:22:48,015:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:48,016:INFO: 24.65 23.99 24.91 25.14 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.84 6075.16 0.00 84.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:48,018:WARNING: Stopped
+2021-10-18 10:22:48,543:INFO: State.STOP
+2021-10-18 10:22:48,545:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:48,547:INFO: 24.65 23.99 24.91 25.13 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.80 6075.22 0.00 63.00 0  0  2  None None 669.21 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:48,548:WARNING: Stopped
+2021-10-18 10:22:49,079:INFO: State.STOP
+2021-10-18 10:22:49,081:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:49,083:INFO: 24.64 24.00 24.90 25.13 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.96 6075.16 1.00 29.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:49,084:WARNING: Stopped
+2021-10-18 10:22:49,620:INFO: State.STOP
+2021-10-18 10:22:49,622:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:49,624:INFO: 24.63 24.00 24.90 25.12 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.88 6075.20 1.00 3.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:49,625:WARNING: Stopped
+2021-10-18 10:22:50,162:INFO: State.STOP
+2021-10-18 10:22:50,163:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:50,164:INFO: 24.63 24.00 24.90 25.11 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.82 6075.08 1.00 2.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:50,165:WARNING: Stopped
+2021-10-18 10:22:50,708:INFO: State.STOP
+2021-10-18 10:22:50,710:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:50,712:INFO: 24.62 24.01 24.89 25.10 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.78 6075.08 1.00 13.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:50,712:WARNING: Stopped
+2021-10-18 10:22:51,253:INFO: State.STOP
+2021-10-18 10:22:51,256:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:51,258:INFO: 24.62 24.01 24.89 25.09 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.80 6075.00 2.00 0.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:51,259:WARNING: Stopped
+2021-10-18 10:22:51,803:INFO: State.STOP
+2021-10-18 10:22:51,805:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:51,807:INFO: 24.61 24.01 24.88 25.08 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.58 6075.18 0.00 98.00 0  0  2  None None 669.17 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:51,808:WARNING: Stopped
+2021-10-18 10:22:52,337:INFO: State.STOP
+2021-10-18 10:22:52,339:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:52,342:INFO: 24.61 24.01 24.87 25.07 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.66 6075.26 0.00 84.00 0  0  2  None None 669.21 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:52,343:WARNING: Stopped
+2021-10-18 10:22:52,868:INFO: State.STOP
+2021-10-18 10:22:52,870:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:52,872:INFO: 24.61 24.01 24.86 25.07 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.66 6075.30 0.00 66.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:52,873:WARNING: Stopped
+2021-10-18 10:22:53,405:INFO: State.STOP
+2021-10-18 10:22:53,407:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:53,409:INFO: 24.61 24.02 24.86 25.07 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.68 6075.32 1.00 26.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:53,411:WARNING: Stopped
+2021-10-18 10:22:53,944:INFO: State.STOP
+2021-10-18 10:22:53,947:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:53,949:INFO: 24.61 24.02 24.85 25.07 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.68 6075.32 1.00 1.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:53,950:WARNING: Stopped
+2021-10-18 10:22:54,482:INFO: State.STOP
+2021-10-18 10:22:54,484:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:54,486:INFO: 24.61 24.03 24.84 25.07 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.68 6075.26 1.00 2.00 0  0  2  None None 669.28 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:54,487:WARNING: Stopped
+2021-10-18 10:22:55,024:INFO: State.STOP
+2021-10-18 10:22:55,026:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:55,027:INFO: 24.62 24.03 24.84 25.07 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.62 6075.22 2.00 10.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:55,028:WARNING: Stopped
+2021-10-18 10:22:55,578:INFO: State.STOP
+2021-10-18 10:22:55,580:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:55,582:INFO: 24.62 24.03 24.83 25.08 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.62 6075.22 2.00 7.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:55,584:WARNING: Stopped
+2021-10-18 10:22:56,112:INFO: State.STOP
+2021-10-18 10:22:56,115:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:56,116:INFO: 24.62 24.04 24.83 25.08 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.62 6075.24 0.00 90.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:56,117:WARNING: Stopped
+2021-10-18 10:22:56,652:INFO: State.STOP
+2021-10-18 10:22:56,655:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:56,658:INFO: 24.62 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.62 6075.16 0.00 66.00 0  0  2  None None 669.40 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:56,659:WARNING: Stopped
+2021-10-18 10:22:57,184:INFO: State.STOP
+2021-10-18 10:22:57,187:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:57,189:INFO: 24.61 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.62 6075.10 1.00 42.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:57,190:WARNING: Stopped
+2021-10-18 10:22:57,717:INFO: State.STOP
+2021-10-18 10:22:57,719:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:57,721:INFO: 24.61 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.56 6075.06 1.00 4.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:57,722:WARNING: Stopped
+2021-10-18 10:22:58,256:INFO: State.STOP
+2021-10-18 10:22:58,258:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:58,259:INFO: 24.60 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.62 6075.06 1.00 1.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:58,260:WARNING: Stopped
+2021-10-18 10:22:58,801:INFO: State.STOP
+2021-10-18 10:22:58,804:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:58,805:INFO: 24.60 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6075.02 2.00 12.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:58,807:WARNING: Stopped
+2021-10-18 10:22:59,359:INFO: State.STOP
+2021-10-18 10:22:59,361:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:59,363:INFO: 24.59 24.04 24.82 25.09 24.70 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.54 6075.10 2.00 3.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:59,365:WARNING: Stopped
+2021-10-18 10:22:59,900:INFO: State.STOP
+2021-10-18 10:22:59,902:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:22:59,904:INFO: 24.59 24.04 24.82 25.09 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6075.08 0.00 97.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:22:59,906:WARNING: Stopped
+2021-10-18 10:23:00,438:INFO: State.STOP
+2021-10-18 10:23:00,440:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:00,441:INFO: 24.58 24.05 24.82 25.09 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.78 6075.08 0.00 91.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:00,442:WARNING: Stopped
+2021-10-18 10:23:00,971:INFO: State.STOP
+2021-10-18 10:23:00,978:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:00,980:INFO: 24.58 24.05 24.82 25.10 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.70 6075.06 0.00 72.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:00,982:WARNING: Stopped
+2021-10-18 10:23:01,505:INFO: State.STOP
+2021-10-18 10:23:01,507:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:01,508:INFO: 24.57 24.05 24.82 25.10 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.84 6075.10 0.00 57.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:01,510:WARNING: Stopped
+2021-10-18 10:23:02,037:INFO: State.STOP
+2021-10-18 10:23:02,041:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:02,044:INFO: 24.57 24.05 24.82 25.11 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.82 6075.04 1.00 18.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:02,046:WARNING: Stopped
+2021-10-18 10:23:02,577:INFO: State.STOP
+2021-10-18 10:23:02,580:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:02,583:INFO: 24.57 24.05 24.82 25.11 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.72 6075.14 1.00 1.00 0  0  2  None None 669.22 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:02,585:WARNING: Stopped
+2021-10-18 10:23:03,124:INFO: State.STOP
+2021-10-18 10:23:03,127:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:03,130:INFO: 24.57 24.06 24.82 25.12 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.84 6075.10 1.00 2.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:03,131:WARNING: Stopped
+2021-10-18 10:23:03,667:INFO: State.STOP
+2021-10-18 10:23:03,669:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:03,671:INFO: 24.57 24.06 24.82 25.12 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.78 6075.16 2.00 5.00 0  0  2  None None 669.24 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:03,672:WARNING: Stopped
+2021-10-18 10:23:04,219:INFO: State.STOP
+2021-10-18 10:23:04,221:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:04,222:INFO: 24.57 24.06 24.83 25.13 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.82 6075.16 2.00 3.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:04,223:WARNING: Stopped
+2021-10-18 10:23:04,762:INFO: State.STOP
+2021-10-18 10:23:04,764:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:04,766:INFO: 24.58 24.06 24.83 25.13 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.82 6075.24 0.00 98.00 0  0  2  None None 669.24 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:04,768:WARNING: Stopped
+2021-10-18 10:23:05,290:INFO: State.STOP
+2021-10-18 10:23:05,294:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:05,296:INFO: 24.58 24.06 24.83 25.14 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.76 6075.14 0.00 75.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:05,297:WARNING: Stopped
+2021-10-18 10:23:05,824:INFO: State.STOP
+2021-10-18 10:23:05,826:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:05,828:INFO: 24.58 24.07 24.84 25.14 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.70 6075.14 0.00 57.00 0  0  2  None None 669.35 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:05,830:WARNING: Stopped
+2021-10-18 10:23:06,363:INFO: State.STOP
+2021-10-18 10:23:06,366:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:06,368:INFO: 24.58 24.07 24.84 25.15 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.76 6075.06 1.00 16.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:06,369:WARNING: Stopped
+2021-10-18 10:23:06,903:INFO: State.STOP
+2021-10-18 10:23:06,907:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:06,910:INFO: 24.58 24.07 24.84 25.15 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.70 6074.98 1.00 1.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:06,911:WARNING: Stopped
+2021-10-18 10:23:07,446:INFO: State.STOP
+2021-10-18 10:23:07,450:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:07,452:INFO: 24.58 24.07 24.85 25.16 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.78 6074.88 1.00 1.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:07,454:WARNING: Stopped
+2021-10-18 10:23:07,986:INFO: State.STOP
+2021-10-18 10:23:07,990:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:07,992:INFO: 24.58 24.07 24.85 25.16 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.82 6074.94 2.00 2.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:07,993:WARNING: Stopped
+2021-10-18 10:23:08,535:INFO: State.STOP
+2021-10-18 10:23:08,538:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:08,540:INFO: 24.58 24.07 24.86 25.17 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.84 6074.98 0.00 95.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:08,541:WARNING: Stopped
+2021-10-18 10:23:09,077:INFO: State.STOP
+2021-10-18 10:23:09,079:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:09,081:INFO: 24.58 24.07 24.86 25.17 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.88 6074.94 0.00 91.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:09,082:WARNING: Stopped
+2021-10-18 10:23:09,610:INFO: State.STOP
+2021-10-18 10:23:09,613:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:09,614:INFO: 24.58 24.07 24.87 25.18 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.86 6075.02 0.00 68.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:09,616:WARNING: Stopped
+2021-10-18 10:23:10,140:INFO: State.STOP
+2021-10-18 10:23:10,141:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:10,142:INFO: 24.59 24.07 24.88 25.19 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.82 6075.08 0.00 36.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:10,143:WARNING: Stopped
+2021-10-18 10:23:10,670:INFO: State.STOP
+2021-10-18 10:23:10,671:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:10,673:INFO: 24.59 24.07 24.88 25.19 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.82 6074.98 1.00 9.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:10,674:WARNING: Stopped
+2021-10-18 10:23:11,215:INFO: State.STOP
+2021-10-18 10:23:11,217:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:11,218:INFO: 24.59 24.07 24.89 25.19 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6075.02 1.00 0.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:11,220:WARNING: Stopped
+2021-10-18 10:23:11,751:INFO: State.STOP
+2021-10-18 10:23:11,753:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:11,755:INFO: 24.59 24.07 24.90 25.20 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.72 6075.02 1.00 0.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:11,756:WARNING: Stopped
+2021-10-18 10:23:12,298:INFO: State.STOP
+2021-10-18 10:23:12,299:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:12,301:INFO: 24.59 24.07 24.90 25.20 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.64 6074.98 2.00 0.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:12,302:WARNING: Stopped
+2021-10-18 10:23:12,845:INFO: State.STOP
+2021-10-18 10:23:12,847:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:12,850:INFO: 24.59 24.08 24.91 25.21 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.62 6075.00 0.00 99.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:12,851:WARNING: Stopped
+2021-10-18 10:23:13,380:INFO: State.STOP
+2021-10-18 10:23:13,383:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:13,385:INFO: 24.60 24.08 24.91 25.21 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6075.10 0.00 97.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:13,387:WARNING: Stopped
+2021-10-18 10:23:13,914:INFO: State.STOP
+2021-10-18 10:23:13,916:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:13,918:INFO: 24.60 24.08 24.92 25.22 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.76 6075.00 0.00 79.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:13,920:WARNING: Stopped
+2021-10-18 10:23:14,450:INFO: State.STOP
+2021-10-18 10:23:14,453:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:14,455:INFO: 24.60 24.08 24.93 25.23 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.72 6075.00 0.00 62.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:14,456:WARNING: Stopped
+2021-10-18 10:23:14,984:INFO: State.STOP
+2021-10-18 10:23:14,986:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:14,988:INFO: 24.60 24.08 24.93 25.24 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.74 6075.02 1.00 17.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:14,988:WARNING: Stopped
+2021-10-18 10:23:15,521:INFO: State.STOP
+2021-10-18 10:23:15,523:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:15,525:INFO: 24.60 24.08 24.94 25.24 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.80 6074.94 1.00 1.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:15,526:WARNING: Stopped
+2021-10-18 10:23:16,065:INFO: State.STOP
+2021-10-18 10:23:16,068:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:16,070:INFO: 24.60 24.08 24.94 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.80 6074.88 1.00 2.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:16,072:WARNING: Stopped
+2021-10-18 10:23:16,614:INFO: State.STOP
+2021-10-18 10:23:16,617:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:16,620:INFO: 24.60 24.08 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.72 6074.82 2.00 5.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:16,621:WARNING: Stopped
+2021-10-18 10:23:17,160:INFO: State.STOP
+2021-10-18 10:23:17,164:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:17,165:INFO: 24.60 24.08 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.72 6074.86 0.00 99.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:17,167:WARNING: Stopped
+2021-10-18 10:23:17,697:INFO: State.STOP
+2021-10-18 10:23:17,700:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:17,702:INFO: 24.60 24.09 24.95 25.26 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6074.76 0.00 87.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:17,703:WARNING: Stopped
+2021-10-18 10:23:18,242:INFO: State.STOP
+2021-10-18 10:23:18,246:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:18,249:INFO: 24.60 24.09 24.95 25.26 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.70 6074.64 0.00 74.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:18,250:WARNING: Stopped
+2021-10-18 10:23:18,767:INFO: State.STOP
+2021-10-18 10:23:18,769:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:18,771:INFO: 24.60 24.09 24.95 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.68 6074.60 0.00 55.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:18,772:WARNING: Stopped
+2021-10-18 10:23:19,312:INFO: State.STOP
+2021-10-18 10:23:19,315:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:19,316:INFO: 24.60 24.09 24.95 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.72 1.00 17.00 0  0  2  None None 669.26 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:19,318:WARNING: Stopped
+2021-10-18 10:23:19,849:INFO: State.STOP
+2021-10-18 10:23:19,852:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:19,854:INFO: 24.60 24.09 24.95 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.48 6074.76 1.00 1.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:19,856:WARNING: Stopped
+2021-10-18 10:23:20,379:INFO: State.STOP
+2021-10-18 10:23:20,380:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:20,380:INFO: 24.60 24.10 24.95 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.48 6074.70 1.00 4.00 0  0  2  None None 669.48 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:20,381:WARNING: Stopped
+2021-10-18 10:23:20,926:INFO: State.STOP
+2021-10-18 10:23:20,927:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:20,929:INFO: 24.60 24.10 24.95 25.26 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.88 2.00 13.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:20,930:WARNING: Stopped
+2021-10-18 10:23:21,475:INFO: State.STOP
+2021-10-18 10:23:21,478:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:21,479:INFO: 24.60 24.10 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.16 9.88 10.18 1647.46 6074.96 2.00 0.00 0  0  2  None None 669.33 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:21,481:WARNING: Stopped
+2021-10-18 10:23:22,020:INFO: State.STOP
+2021-10-18 10:23:22,022:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:22,023:INFO: 24.60 24.10 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.62 6074.88 0.00 95.00 0  0  2  None None 669.40 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:22,025:WARNING: Stopped
+2021-10-18 10:23:22,549:INFO: State.STOP
+2021-10-18 10:23:22,551:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:22,552:INFO: 24.60 24.10 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.72 6074.84 0.00 71.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:22,553:WARNING: Stopped
+2021-10-18 10:23:23,086:INFO: State.STOP
+2021-10-18 10:23:23,088:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:23,090:INFO: 24.59 24.10 24.95 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6074.96 1.00 39.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:23,091:WARNING: Stopped
+2021-10-18 10:23:23,612:INFO: State.STOP
+2021-10-18 10:23:23,616:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:23,618:INFO: 24.59 24.10 24.94 25.25 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.76 6074.86 1.00 6.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:23,620:WARNING: Stopped
+2021-10-18 10:23:24,158:INFO: State.STOP
+2021-10-18 10:23:24,161:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:24,162:INFO: 24.58 24.10 24.94 25.26 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.78 6074.84 1.00 0.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:24,164:WARNING: Stopped
+2021-10-18 10:23:24,699:INFO: State.STOP
+2021-10-18 10:23:24,700:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:24,701:INFO: 24.58 24.09 24.93 25.26 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.66 6074.80 1.00 1.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:24,701:WARNING: Stopped
+2021-10-18 10:23:25,250:INFO: State.STOP
+2021-10-18 10:23:25,251:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:25,252:INFO: 24.57 24.09 24.93 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.70 6074.80 2.00 0.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:25,253:WARNING: Stopped
+2021-10-18 10:23:25,793:INFO: State.STOP
+2021-10-18 10:23:25,795:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:25,796:INFO: 24.57 24.09 24.93 25.27 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.70 6074.84 0.00 94.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:25,797:WARNING: Stopped
+2021-10-18 10:23:26,331:INFO: State.STOP
+2021-10-18 10:23:26,334:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:26,336:INFO: 24.57 24.09 24.93 25.28 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.70 6074.84 0.00 84.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:26,337:WARNING: Stopped
+2021-10-18 10:23:26,869:INFO: State.STOP
+2021-10-18 10:23:26,872:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:26,874:INFO: 24.57 24.09 24.93 25.28 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6074.84 0.00 64.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:26,875:WARNING: Stopped
+2021-10-18 10:23:27,400:INFO: State.STOP
+2021-10-18 10:23:27,402:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:27,403:INFO: 24.57 24.09 24.93 25.29 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.74 6074.84 0.00 24.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:27,405:WARNING: Stopped
+2021-10-18 10:23:27,937:INFO: State.STOP
+2021-10-18 10:23:27,939:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:27,941:INFO: 24.57 24.10 24.93 25.29 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.70 6074.86 1.00 0.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:27,942:WARNING: Stopped
+2021-10-18 10:23:28,476:INFO: State.STOP
+2021-10-18 10:23:28,479:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:28,481:INFO: 24.56 24.10 24.93 25.30 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.64 6074.92 1.00 0.00 0  0  2  None None 669.22 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:28,483:WARNING: Stopped
+2021-10-18 10:23:29,021:INFO: State.STOP
+2021-10-18 10:23:29,024:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:29,026:INFO: 24.56 24.10 24.93 25.30 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.66 6074.86 1.00 2.00 0  0  2  None None 669.48 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:29,027:WARNING: Stopped
+2021-10-18 10:23:29,567:INFO: State.STOP
+2021-10-18 10:23:29,569:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:29,571:INFO: 24.56 24.10 24.93 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.78 2.00 0.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:29,573:WARNING: Stopped
+2021-10-18 10:23:30,114:INFO: State.STOP
+2021-10-18 10:23:30,115:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:30,117:INFO: 24.56 24.11 24.93 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.82 0.00 97.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:30,117:WARNING: Stopped
+2021-10-18 10:23:30,650:INFO: State.STOP
+2021-10-18 10:23:30,652:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:30,654:INFO: 24.55 24.11 24.94 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.44 6074.74 0.00 80.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:30,655:WARNING: Stopped
+2021-10-18 10:23:31,182:INFO: State.STOP
+2021-10-18 10:23:31,185:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:31,187:INFO: 24.55 24.11 24.94 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.42 6074.56 0.00 61.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:31,188:WARNING: Stopped
+2021-10-18 10:23:31,716:INFO: State.STOP
+2021-10-18 10:23:31,717:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:31,718:INFO: 24.55 24.12 24.95 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.40 6074.64 1.00 12.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:31,719:WARNING: Stopped
+2021-10-18 10:23:32,254:INFO: State.STOP
+2021-10-18 10:23:32,257:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:32,258:INFO: 24.55 24.12 24.95 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.42 6074.60 1.00 0.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:32,259:WARNING: Stopped
+2021-10-18 10:23:32,797:INFO: State.STOP
+2021-10-18 10:23:32,800:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:32,802:INFO: 24.55 24.12 24.95 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.58 1.00 0.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:32,803:WARNING: Stopped
+2021-10-18 10:23:33,349:INFO: State.STOP
+2021-10-18 10:23:33,352:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:33,355:INFO: 24.56 24.13 24.95 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.54 2.00 3.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:33,357:WARNING: Stopped
+2021-10-18 10:23:33,891:INFO: State.STOP
+2021-10-18 10:23:33,893:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:33,895:INFO: 24.56 24.13 24.96 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.66 6074.62 2.00 0.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:33,896:WARNING: Stopped
+2021-10-18 10:23:34,437:INFO: State.STOP
+2021-10-18 10:23:34,440:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:34,442:INFO: 24.56 24.13 24.96 25.30 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.56 0.00 86.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:34,444:WARNING: Stopped
+2021-10-18 10:23:34,969:INFO: State.STOP
+2021-10-18 10:23:34,971:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:34,973:INFO: 24.56 24.13 24.96 25.30 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.56 6074.58 0.00 69.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:34,975:WARNING: Stopped
+2021-10-18 10:23:35,495:INFO: State.STOP
+2021-10-18 10:23:35,496:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:35,497:INFO: 24.56 24.13 24.96 25.30 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.50 6074.58 1.00 28.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:35,499:WARNING: Stopped
+2021-10-18 10:23:36,038:INFO: State.STOP
+2021-10-18 10:23:36,039:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:36,040:INFO: 24.55 24.13 24.97 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.56 6074.60 1.00 0.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:36,041:WARNING: Stopped
+2021-10-18 10:23:36,578:INFO: State.STOP
+2021-10-18 10:23:36,581:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:36,582:INFO: 24.55 24.13 24.97 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.46 1.00 0.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:36,583:WARNING: Stopped
+2021-10-18 10:23:37,127:INFO: State.STOP
+2021-10-18 10:23:37,129:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:37,130:INFO: 24.55 24.13 24.98 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.54 6074.52 2.00 0.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:37,132:WARNING: Stopped
+2021-10-18 10:23:37,670:INFO: State.STOP
+2021-10-18 10:23:37,672:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:37,673:INFO: 24.54 24.13 24.98 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.44 6074.54 2.00 0.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:37,675:WARNING: Stopped
+2021-10-18 10:23:38,207:INFO: State.STOP
+2021-10-18 10:23:38,210:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:38,213:INFO: 24.54 24.13 24.99 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.42 6074.54 0.00 90.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:38,215:WARNING: Stopped
+2021-10-18 10:23:38,743:INFO: State.STOP
+2021-10-18 10:23:38,746:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:38,747:INFO: 24.54 24.13 25.00 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.36 6074.44 0.00 70.00 0  0  2  None None 669.55 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:38,749:WARNING: Stopped
+2021-10-18 10:23:39,274:INFO: State.STOP
+2021-10-18 10:23:39,277:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:39,278:INFO: 24.54 24.13 25.00 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.30 6074.52 1.00 37.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:39,280:WARNING: Stopped
+2021-10-18 10:23:39,806:INFO: State.STOP
+2021-10-18 10:23:39,809:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:39,811:INFO: 24.54 24.13 25.01 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.28 6074.42 1.00 2.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:39,813:WARNING: Stopped
+2021-10-18 10:23:40,352:INFO: State.STOP
+2021-10-18 10:23:40,354:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:40,356:INFO: 24.54 24.13 25.01 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.26 6074.46 1.00 0.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:40,357:WARNING: Stopped
+2021-10-18 10:23:40,899:INFO: State.STOP
+2021-10-18 10:23:40,901:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:40,902:INFO: 24.54 24.13 25.02 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.28 6074.44 2.00 2.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:40,904:WARNING: Stopped
+2021-10-18 10:23:41,447:INFO: State.STOP
+2021-10-18 10:23:41,450:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:41,452:INFO: 24.54 24.13 25.02 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.28 6074.48 2.00 0.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:41,454:WARNING: Stopped
+2021-10-18 10:23:41,987:INFO: State.STOP
+2021-10-18 10:23:41,988:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:41,990:INFO: 24.54 24.13 25.02 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.24 6074.46 0.00 90.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:41,991:WARNING: Stopped
+2021-10-18 10:23:42,522:INFO: State.STOP
+2021-10-18 10:23:42,525:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:42,527:INFO: 24.53 24.13 25.02 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.12 6074.52 0.00 66.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:42,528:WARNING: Stopped
+2021-10-18 10:23:43,057:INFO: State.STOP
+2021-10-18 10:23:43,059:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:43,060:INFO: 24.53 24.13 25.03 25.32 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.26 6074.48 1.00 46.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:43,061:WARNING: Stopped
+2021-10-18 10:23:43,599:INFO: State.STOP
+2021-10-18 10:23:43,602:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:43,604:INFO: 24.52 24.13 25.03 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.20 6074.40 1.00 6.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:43,605:WARNING: Stopped
+2021-10-18 10:23:44,143:INFO: State.STOP
+2021-10-18 10:23:44,146:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:44,148:INFO: 24.52 24.13 25.04 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.16 6074.46 1.00 1.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:44,149:WARNING: Stopped
+2021-10-18 10:23:44,676:INFO: State.STOP
+2021-10-18 10:23:44,678:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:44,680:INFO: 24.51 24.13 25.04 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.26 6074.48 1.00 4.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:44,681:WARNING: Stopped
+2021-10-18 10:23:45,223:INFO: State.STOP
+2021-10-18 10:23:45,224:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:45,226:INFO: 24.51 24.13 25.05 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.52 2.00 2.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:45,228:WARNING: Stopped
+2021-10-18 10:23:45,783:INFO: State.STOP
+2021-10-18 10:23:45,785:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:45,786:INFO: 24.50 24.13 25.05 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.42 0.00 98.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:45,787:WARNING: Stopped
+2021-10-18 10:23:46,316:INFO: State.STOP
+2021-10-18 10:23:46,317:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:46,318:INFO: 24.50 24.13 25.06 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.48 0.00 95.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:46,319:WARNING: Stopped
+2021-10-18 10:23:46,839:INFO: State.STOP
+2021-10-18 10:23:46,841:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:46,843:INFO: 24.49 24.13 25.06 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.54 6074.46 0.00 80.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:46,844:WARNING: Stopped
+2021-10-18 10:23:47,385:INFO: State.STOP
+2021-10-18 10:23:47,387:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:47,389:INFO: 24.49 24.13 25.06 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.44 0.00 59.00 0  0  2  None None 669.43 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:47,390:WARNING: Stopped
+2021-10-18 10:23:47,922:INFO: State.STOP
+2021-10-18 10:23:47,924:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:47,925:INFO: 24.48 24.13 25.07 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.32 1.00 20.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:47,926:WARNING: Stopped
+2021-10-18 10:23:48,455:INFO: State.STOP
+2021-10-18 10:23:48,457:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:48,459:INFO: 24.48 24.13 25.07 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.56 6074.38 1.00 1.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:48,460:WARNING: Stopped
+2021-10-18 10:23:48,999:INFO: State.STOP
+2021-10-18 10:23:49,001:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:49,003:INFO: 24.48 24.13 25.07 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.40 1.00 0.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:49,004:WARNING: Stopped
+2021-10-18 10:23:49,539:INFO: State.STOP
+2021-10-18 10:23:49,543:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:49,545:INFO: 24.48 24.13 25.07 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.44 1.00 5.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:49,546:WARNING: Stopped
+2021-10-18 10:23:50,090:INFO: State.STOP
+2021-10-18 10:23:50,091:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:50,093:INFO: 24.48 24.13 25.08 25.34 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.46 2.00 2.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:50,094:WARNING: Stopped
+2021-10-18 10:23:50,638:INFO: State.STOP
+2021-10-18 10:23:50,640:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:50,641:INFO: 24.47 24.13 25.08 25.34 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.44 0.00 99.00 0  0  2  None None 669.55 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:50,642:WARNING: Stopped
+2021-10-18 10:23:51,183:INFO: State.STOP
+2021-10-18 10:23:51,186:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:51,189:INFO: 24.47 24.13 25.08 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.62 6074.30 0.00 96.00 0  0  2  None None 669.62 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:51,191:WARNING: Stopped
+2021-10-18 10:23:51,713:INFO: State.STOP
+2021-10-18 10:23:51,715:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:51,718:INFO: 24.46 24.13 25.08 25.34 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.30 0.00 94.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:51,719:WARNING: Stopped
+2021-10-18 10:23:52,245:INFO: State.STOP
+2021-10-18 10:23:52,249:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:52,251:INFO: 24.46 24.13 25.08 25.34 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.50 6074.20 0.00 90.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:52,252:WARNING: Stopped
+2021-10-18 10:23:52,778:INFO: State.STOP
+2021-10-18 10:23:52,782:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:52,785:INFO: 24.45 24.13 25.08 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.16 0.00 66.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:52,786:WARNING: Stopped
+2021-10-18 10:23:53,318:INFO: State.STOP
+2021-10-18 10:23:53,321:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:53,323:INFO: 24.45 24.13 25.08 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.48 6074.24 1.00 37.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:53,324:WARNING: Stopped
+2021-10-18 10:23:53,857:INFO: State.STOP
+2021-10-18 10:23:53,859:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:53,861:INFO: 24.45 24.13 25.08 25.34 24.69 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.46 6074.44 1.00 7.00 0  0  2  None None 669.38 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:53,862:WARNING: Stopped
+2021-10-18 10:23:54,401:INFO: State.STOP
+2021-10-18 10:23:54,403:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:54,406:INFO: 24.45 24.13 25.07 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.48 6074.34 1.00 0.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:54,407:WARNING: Stopped
+2021-10-18 10:23:54,946:INFO: State.STOP
+2021-10-18 10:23:54,948:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:54,949:INFO: 24.44 24.13 25.07 25.33 24.69 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.52 6074.36 1.00 1.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:54,951:WARNING: Stopped
+2021-10-18 10:23:55,490:INFO: State.STOP
+2021-10-18 10:23:55,492:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:55,493:INFO: 24.44 24.13 25.08 25.34 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.58 6074.34 2.00 2.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:55,495:WARNING: Stopped
+2021-10-18 10:23:56,038:INFO: State.STOP
+2021-10-18 10:23:56,040:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:56,043:INFO: 24.44 24.13 25.08 25.34 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.56 6074.26 0.00 98.00 0  0  2  None None 669.51 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:56,044:WARNING: Stopped
+2021-10-18 10:23:56,581:INFO: State.STOP
+2021-10-18 10:23:56,583:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:56,585:INFO: 24.44 24.13 25.08 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.20 0.00 96.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:56,586:WARNING: Stopped
+2021-10-18 10:23:57,105:INFO: State.STOP
+2021-10-18 10:23:57,107:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:57,108:INFO: 24.44 24.13 25.08 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.50 6074.20 0.00 92.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:57,109:WARNING: Stopped
+2021-10-18 10:23:57,641:INFO: State.STOP
+2021-10-18 10:23:57,643:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:57,645:INFO: 24.44 24.13 25.08 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.26 0.00 86.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:57,647:WARNING: Stopped
+2021-10-18 10:23:58,177:INFO: State.STOP
+2021-10-18 10:23:58,178:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:58,180:INFO: 24.44 24.12 25.09 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.42 6074.32 0.00 66.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:58,181:WARNING: Stopped
+2021-10-18 10:23:58,708:INFO: State.STOP
+2021-10-18 10:23:58,709:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:58,711:INFO: 24.44 24.12 25.09 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.48 6074.42 0.00 44.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:58,713:WARNING: Stopped
+2021-10-18 10:23:59,245:INFO: State.STOP
+2021-10-18 10:23:59,247:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:59,248:INFO: 24.44 24.12 25.09 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.36 6074.50 1.00 0.00 0  0  2  None None 669.36 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:59,249:WARNING: Stopped
+2021-10-18 10:23:59,783:INFO: State.STOP
+2021-10-18 10:23:59,785:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:23:59,787:INFO: 24.44 24.12 25.10 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.36 6074.60 1.00 0.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:23:59,788:WARNING: Stopped
+2021-10-18 10:24:00,328:INFO: State.STOP
+2021-10-18 10:24:00,330:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:00,331:INFO: 24.44 24.12 25.10 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.34 6074.58 1.00 0.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:00,332:WARNING: Stopped
+2021-10-18 10:24:00,880:INFO: State.STOP
+2021-10-18 10:24:00,882:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:00,883:INFO: 24.44 24.12 25.10 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.36 6074.42 2.00 0.00 0  0  2  None None 669.60 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:00,884:WARNING: Stopped
+2021-10-18 10:24:01,423:INFO: State.STOP
+2021-10-18 10:24:01,425:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:01,427:INFO: 24.44 24.12 25.11 25.33 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.30 6074.44 2.00 0.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:01,428:WARNING: Stopped
+2021-10-18 10:24:01,973:INFO: State.STOP
+2021-10-18 10:24:01,975:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:01,977:INFO: 24.44 24.12 25.11 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.46 6074.40 0.00 91.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:01,978:WARNING: Stopped
+2021-10-18 10:24:02,500:INFO: State.STOP
+2021-10-18 10:24:02,502:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:02,503:INFO: 24.44 24.12 25.12 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.52 6074.46 0.00 69.00 0  0  2  None None 669.29 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:02,504:WARNING: Stopped
+2021-10-18 10:24:03,033:INFO: State.STOP
+2021-10-18 10:24:03,036:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:03,038:INFO: 24.44 24.12 25.12 25.33 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.54 0.00 44.00 0  0  2  None None 669.32 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:03,039:WARNING: Stopped
+2021-10-18 10:24:03,570:INFO: State.STOP
+2021-10-18 10:24:03,573:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:03,575:INFO: 24.44 24.13 25.12 25.32 24.68 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.64 6074.70 1.00 13.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:03,576:WARNING: Stopped
+2021-10-18 10:24:04,112:INFO: State.STOP
+2021-10-18 10:24:04,114:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:04,116:INFO: 24.44 24.13 25.12 25.32 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.72 6074.70 1.00 1.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:04,117:WARNING: Stopped
+2021-10-18 10:24:04,647:INFO: State.STOP
+2021-10-18 10:24:04,649:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:04,651:INFO: 24.44 24.13 25.12 25.32 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.60 6074.68 1.00 1.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:04,652:WARNING: Stopped
+2021-10-18 10:24:05,193:INFO: State.STOP
+2021-10-18 10:24:05,195:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:05,196:INFO: 24.44 24.13 25.12 25.32 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.50 6074.60 2.00 0.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:05,197:WARNING: Stopped
+2021-10-18 10:24:05,743:INFO: State.STOP
+2021-10-18 10:24:05,746:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:05,748:INFO: 24.44 24.13 25.12 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.44 6074.54 0.00 99.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:05,749:WARNING: Stopped
+2021-10-18 10:24:06,279:INFO: State.STOP
+2021-10-18 10:24:06,282:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:06,284:INFO: 24.44 24.13 25.12 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.30 6074.42 0.00 89.00 0  0  2  None None 669.55 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:06,286:WARNING: Stopped
+2021-10-18 10:24:06,819:INFO: State.STOP
+2021-10-18 10:24:06,821:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:06,823:INFO: 24.44 24.13 25.12 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.20 6074.30 0.00 70.00 0  0  2  None None 669.55 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:06,824:WARNING: Stopped
+2021-10-18 10:24:07,348:INFO: State.STOP
+2021-10-18 10:24:07,351:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:07,352:INFO: 24.44 24.13 25.12 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.16 6074.40 1.00 18.00 0  0  2  None None 669.31 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:07,354:WARNING: Stopped
+2021-10-18 10:24:07,891:INFO: State.STOP
+2021-10-18 10:24:07,894:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:07,896:INFO: 24.44 24.13 25.13 25.31 24.69 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.22 6074.44 1.00 0.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:07,898:WARNING: Stopped
+2021-10-18 10:24:08,429:INFO: State.STOP
+2021-10-18 10:24:08,432:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:08,434:INFO: 24.44 24.13 25.13 25.31 24.69 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.16 6074.40 1.00 0.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:08,436:WARNING: Stopped
+2021-10-18 10:24:08,966:INFO: State.STOP
+2021-10-18 10:24:08,969:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:08,971:INFO: 24.44 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.26 6074.52 1.00 0.00 0  0  2  None None 669.37 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:08,972:WARNING: Stopped
+2021-10-18 10:24:09,516:INFO: State.STOP
+2021-10-18 10:24:09,519:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:09,521:INFO: 24.44 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.20 6074.54 2.00 0.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:09,522:WARNING: Stopped
+2021-10-18 10:24:10,058:INFO: State.STOP
+2021-10-18 10:24:10,060:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:10,061:INFO: 24.44 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.22 6074.40 0.00 90.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:10,062:WARNING: Stopped
+2021-10-18 10:24:10,597:INFO: State.STOP
+2021-10-18 10:24:10,599:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:10,601:INFO: 24.45 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.28 6074.36 0.00 72.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:10,602:WARNING: Stopped
+2021-10-18 10:24:11,126:INFO: State.STOP
+2021-10-18 10:24:11,128:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:11,130:INFO: 24.45 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.38 6074.38 1.00 40.00 0  0  2  None None 669.45 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:11,131:WARNING: Stopped
+2021-10-18 10:24:11,665:INFO: State.STOP
+2021-10-18 10:24:11,667:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:11,669:INFO: 24.45 24.14 25.13 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.30 6074.30 1.00 0.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:11,671:WARNING: Stopped
+2021-10-18 10:24:12,208:INFO: State.STOP
+2021-10-18 10:24:12,210:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:12,212:INFO: 24.45 24.14 25.14 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.46 6074.28 1.00 0.00 0  0  2  None None 669.51 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:12,213:WARNING: Stopped
+2021-10-18 10:24:12,750:INFO: State.STOP
+2021-10-18 10:24:12,752:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:12,753:INFO: 24.44 24.15 25.14 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.50 6074.24 1.00 0.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:12,755:WARNING: Stopped
+2021-10-18 10:24:13,296:INFO: State.STOP
+2021-10-18 10:24:13,298:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:13,300:INFO: 24.44 24.15 25.14 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.46 6074.16 2.00 0.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:13,301:WARNING: Stopped
+2021-10-18 10:24:13,844:INFO: State.STOP
+2021-10-18 10:24:13,847:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:13,848:INFO: 24.44 24.15 25.15 25.30 24.68 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.44 6074.16 0.00 98.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:13,849:WARNING: Stopped
+2021-10-18 10:24:14,377:INFO: State.STOP
+2021-10-18 10:24:14,380:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:14,381:INFO: 24.44 24.15 25.15 25.30 24.68 0.00 0.00 0.00 10.09 10.15 9.88 10.18 1647.46 6074.18 0.00 96.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:14,382:WARNING: Stopped
+2021-10-18 10:24:14,912:INFO: State.STOP
+2021-10-18 10:24:14,914:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:14,915:INFO: 24.44 24.15 25.16 25.30 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.38 6074.24 0.00 73.00 0  0  2  None None 669.48 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:14,916:WARNING: Stopped
+2021-10-18 10:24:15,442:INFO: State.STOP
+2021-10-18 10:24:15,443:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:15,445:INFO: 24.44 24.15 25.16 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.88 10.18 1647.34 6074.24 0.00 49.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:15,445:WARNING: Stopped
+2021-10-18 10:24:15,976:INFO: State.STOP
+2021-10-18 10:24:15,978:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:15,979:INFO: 24.43 24.15 25.16 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.38 6074.26 1.00 9.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:15,980:WARNING: Stopped
+2021-10-18 10:24:16,516:INFO: State.STOP
+2021-10-18 10:24:16,517:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:16,519:INFO: 24.43 24.15 25.17 25.31 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.18 1647.32 6074.24 1.00 0.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:16,519:WARNING: Stopped
+2021-10-18 10:24:17,052:INFO: State.STOP
+2021-10-18 10:24:17,054:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:17,057:INFO: 24.43 24.15 25.17 25.31 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.30 6074.18 1.00 1.00 0  0  2  None None 669.51 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:17,059:WARNING: Stopped
+2021-10-18 10:24:17,604:INFO: State.STOP
+2021-10-18 10:24:17,607:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:17,609:INFO: 24.43 24.16 25.18 25.31 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.32 6074.16 2.00 0.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:17,610:WARNING: Stopped
+2021-10-18 10:24:18,147:INFO: State.STOP
+2021-10-18 10:24:18,150:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:18,152:INFO: 24.43 24.16 25.18 25.32 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.42 6074.18 0.00 99.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:18,153:WARNING: Stopped
+2021-10-18 10:24:18,688:INFO: State.STOP
+2021-10-18 10:24:18,693:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:18,694:INFO: 24.43 24.16 25.19 25.32 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.30 6074.12 0.00 92.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:18,695:WARNING: Stopped
+2021-10-18 10:24:19,225:INFO: State.STOP
+2021-10-18 10:24:19,228:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:19,229:INFO: 24.43 24.16 25.19 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.38 6074.20 0.00 82.00 0  0  2  None None 669.34 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:19,231:WARNING: Stopped
+2021-10-18 10:24:19,755:INFO: State.STOP
+2021-10-18 10:24:19,758:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:19,761:INFO: 24.43 24.16 25.19 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.32 6074.26 0.00 64.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:19,762:WARNING: Stopped
+2021-10-18 10:24:20,280:INFO: State.STOP
+2021-10-18 10:24:20,282:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:20,283:INFO: 24.44 24.16 25.19 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.38 6074.26 1.00 24.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:20,284:WARNING: Stopped
+2021-10-18 10:24:20,826:INFO: State.STOP
+2021-10-18 10:24:20,828:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:20,830:INFO: 24.44 24.16 25.19 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.18 6074.24 1.00 0.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:20,831:WARNING: Stopped
+2021-10-18 10:24:21,362:INFO: State.STOP
+2021-10-18 10:24:21,364:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:21,366:INFO: 24.44 24.17 25.19 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.22 6074.30 1.00 0.00 0  0  2  None None 669.50 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:21,368:WARNING: Stopped
+2021-10-18 10:24:21,913:INFO: State.STOP
+2021-10-18 10:24:21,917:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:21,920:INFO: 24.45 24.17 25.20 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.10 6074.22 1.00 0.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:21,921:WARNING: Stopped
+2021-10-18 10:24:22,456:INFO: State.STOP
+2021-10-18 10:24:22,458:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:22,460:INFO: 24.45 24.17 25.20 25.33 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.06 6074.18 2.00 1.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:22,461:WARNING: Stopped
+2021-10-18 10:24:22,996:INFO: State.STOP
+2021-10-18 10:24:22,998:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:23,000:INFO: 24.45 24.17 25.20 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.02 6074.18 0.00 95.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:23,002:WARNING: Stopped
+2021-10-18 10:24:23,529:INFO: State.STOP
+2021-10-18 10:24:23,530:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:23,532:INFO: 24.45 24.17 25.21 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.12 6074.16 0.00 72.00 0  0  2  None None 669.51 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:23,533:WARNING: Stopped
+2021-10-18 10:24:24,068:INFO: State.STOP
+2021-10-18 10:24:24,071:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:24,073:INFO: 24.45 24.17 25.21 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.02 6074.16 1.00 37.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:24,074:WARNING: Stopped
+2021-10-18 10:24:24,600:INFO: State.STOP
+2021-10-18 10:24:24,603:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:24,605:INFO: 24.45 24.18 25.21 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.04 6074.16 1.00 5.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:24,607:WARNING: Stopped
+2021-10-18 10:24:25,135:INFO: State.STOP
+2021-10-18 10:24:25,137:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:25,139:INFO: 24.45 24.18 25.22 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.20 6074.10 1.00 1.00 0  0  2  None None 669.56 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:25,140:WARNING: Stopped
+2021-10-18 10:24:25,686:INFO: State.STOP
+2021-10-18 10:24:25,688:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:25,690:INFO: 24.45 24.18 25.22 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.08 6074.08 1.00 4.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:25,691:WARNING: Stopped
+2021-10-18 10:24:26,239:INFO: State.STOP
+2021-10-18 10:24:26,242:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:26,243:INFO: 24.45 24.19 25.22 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.16 6074.06 2.00 0.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:26,245:WARNING: Stopped
+2021-10-18 10:24:26,774:INFO: State.STOP
+2021-10-18 10:24:26,776:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:26,778:INFO: 24.45 24.19 25.22 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.34 6074.10 0.00 99.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:26,779:WARNING: Stopped
+2021-10-18 10:24:27,310:INFO: State.STOP
+2021-10-18 10:24:27,312:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:27,314:INFO: 24.45 24.19 25.22 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.36 6073.96 0.00 93.00 0  0  2  None None 669.61 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:27,316:WARNING: Stopped
+2021-10-18 10:24:27,839:INFO: State.STOP
+2021-10-18 10:24:27,842:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:27,844:INFO: 24.45 24.19 25.23 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.32 6073.94 0.00 69.00 0  0  2  None None 669.58 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:27,846:WARNING: Stopped
+2021-10-18 10:24:28,375:INFO: State.STOP
+2021-10-18 10:24:28,378:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:28,379:INFO: 24.45 24.19 25.23 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.40 6073.94 1.00 28.00 0  0  2  None None 669.49 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:28,380:WARNING: Stopped
+2021-10-18 10:24:28,914:INFO: State.STOP
+2021-10-18 10:24:28,916:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:28,919:INFO: 24.46 24.19 25.24 25.34 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.40 6074.04 1.00 3.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:28,920:WARNING: Stopped
+2021-10-18 10:24:29,448:INFO: State.STOP
+2021-10-18 10:24:29,451:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:29,453:INFO: 24.46 24.19 25.24 25.35 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.32 6074.02 1.00 0.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:29,455:WARNING: Stopped
+2021-10-18 10:24:29,990:INFO: State.STOP
+2021-10-18 10:24:29,992:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:29,993:INFO: 24.46 24.19 25.25 25.35 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.34 6074.20 1.00 0.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:29,993:WARNING: Stopped
+2021-10-18 10:24:30,542:INFO: State.STOP
+2021-10-18 10:24:30,543:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:30,545:INFO: 24.46 24.19 25.25 25.35 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.18 1647.28 6074.26 2.00 1.00 0  0  2  None None 669.51 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:30,546:WARNING: Stopped
+2021-10-18 10:24:31,090:INFO: State.STOP
+2021-10-18 10:24:31,092:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:31,094:INFO: 24.47 24.19 25.25 25.35 24.68 0.00 0.00 0.00 10.09 10.14 9.87 10.18 1647.22 6074.28 0.00 98.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:31,096:WARNING: Stopped
+2021-10-18 10:24:31,618:INFO: State.STOP
+2021-10-18 10:24:31,620:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:31,621:INFO: 24.46 24.19 25.25 25.36 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.17 1647.12 6074.30 0.00 76.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:31,623:WARNING: Stopped
+2021-10-18 10:24:32,158:INFO: State.STOP
+2021-10-18 10:24:32,162:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:32,164:INFO: 24.46 24.19 25.25 25.36 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.17 1647.14 6074.30 0.00 52.00 0  0  2  None None 669.44 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:32,165:WARNING: Stopped
+2021-10-18 10:24:32,688:INFO: State.STOP
+2021-10-18 10:24:32,692:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:32,694:INFO: 24.46 24.19 25.26 25.36 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.20 6074.24 1.00 5.00 0  0  2  None None 669.46 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:32,696:WARNING: Stopped
+2021-10-18 10:24:33,231:INFO: State.STOP
+2021-10-18 10:24:33,234:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:33,236:INFO: 24.46 24.19 25.26 25.36 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.22 6074.22 1.00 0.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:33,238:WARNING: Stopped
+2021-10-18 10:24:33,771:INFO: State.STOP
+2021-10-18 10:24:33,774:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:33,777:INFO: 24.46 24.20 25.26 25.36 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.26 6074.14 1.00 0.00 0  0  2  None None 669.56 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:33,778:WARNING: Stopped
+2021-10-18 10:24:34,321:INFO: State.STOP
+2021-10-18 10:24:34,324:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC   HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:34,327:INFO: 24.46 24.20 25.26 25.37 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.24 6074.14 2.00 0.00 0  0  2  None None 669.39 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:34,328:WARNING: Stopped
+2021-10-18 10:24:34,869:INFO: State.STOP
+2021-10-18 10:24:34,872:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:34,875:INFO: 24.46 24.20 25.27 25.37 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.17 1647.14 6074.20 0.00 99.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:34,876:WARNING: Stopped
+2021-10-18 10:24:35,402:INFO: State.STOP
+2021-10-18 10:24:35,403:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:35,405:INFO: 24.46 24.20 25.27 25.37 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.14 6074.10 0.00 98.00 0  0  2  None None 669.58 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:35,406:WARNING: Stopped
+2021-10-18 10:24:35,941:INFO: State.STOP
+2021-10-18 10:24:35,943:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:35,946:INFO: 24.46 24.21 25.28 25.37 24.68 0.00 0.00 0.00 10.10 10.15 9.87 10.17 1647.16 6074.10 0.00 88.00 0  0  2  None None 669.53 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:35,948:WARNING: Stopped
+2021-10-18 10:24:36,479:INFO: State.STOP
+2021-10-18 10:24:36,481:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1  TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State      MissionState            
+2021-10-18 10:24:36,483:INFO: 24.46 24.21 25.28 25.37 24.68 0.00 0.00 0.00 10.09 10.15 9.87 10.17 1647.10 6074.22 0.00 65.00 0  0  2  None None 669.41 Buffering (0/1) State.STOP MissionState.DESCENDING 
+2021-10-18 10:24:36,484:WARNING: Stopped
+2021-10-18 10:24:36,889:INFO: 
+2021-10-18 10:24:36,891:CRITICAL: System shutdown
+2021-10-18 10:24:36,893:INFO: cleaning (resetting rpi gpio)

@@ -1,0 +1,608 @@
+2021-10-21 15:27:00,295:WARNING: Safety is disabled
+2021-10-21 15:27:00,297:WARNING: Test mode
+2021-10-21 15:27:00,299:INFO: Pressure controller was initialized successfully
+2021-10-21 15:27:00,300:INFO: BP1 pressure sensor was initialized successfully
+2021-10-21 15:27:00,301:INFO: BP2 pressure sensor was initialized successfully
+2021-10-21 15:27:00,301:INFO: TP1 pressure sensor was initialized successfully
+2021-10-21 15:27:00,302:INFO: TP2 pressure sensor was initialized successfully
+2021-10-21 15:27:00,302:INFO: HP pressure sensor was initialized successfully
+2021-10-21 15:27:00,303:INFO: AP pressure sensor was initialized successfully
+2021-10-21 15:27:00,303:INFO: Temperature controller was initialized successfully
+2021-10-21 15:27:00,303:INFO: BT1 temperature sensor was initialized successfully
+2021-10-21 15:27:00,304:INFO: BT2 temperature sensor was initialized successfully
+2021-10-21 15:27:00,304:INFO: TT1 temperature sensor was initialized successfully
+2021-10-21 15:27:00,304:INFO: TT2 temperature sensor was initialized successfully
+2021-10-21 15:27:00,305:INFO: AT temperature sensor was initialized successfully
+2021-10-21 15:27:00,305:INFO: IMU controller was initialized successfully
+2021-10-21 15:27:00,306:INFO: X IMU sensor was initialized successfully
+2021-10-21 15:27:00,306:INFO: Y IMU sensor was initialized successfully
+2021-10-21 15:27:00,306:INFO: Z IMU sensor was initialized successfully
+2021-10-21 15:27:00,307:INFO: Bladder volume controller was initialized successfully
+2021-10-21 15:27:00,307:INFO: Altimeter controller was initialized successfully
+2021-10-21 15:27:00,308:INFO: rpm controller was initialized successfully
+2021-10-21 15:27:00,308:INFO: Pump flag controller was initialized successfully
+2021-10-21 15:27:00,308:INFO: Bladder flag controller was initialized successfully
+2021-10-21 15:27:00,308:INFO: Hull leak flag controller was initialized successfully
+2021-10-21 15:27:00,309:INFO: Engine leak flag controller was initialized successfully
+2021-10-21 15:27:00,309:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-21 15:27:00,311:INFO: SerialComm was initialized successfully
+2021-10-21 15:27:00,323:INFO: Profile file loaded successfully
+
+2021-10-21 15:27:00,324:INFO: Profile class was initialized successfully
+
+2021-10-21 15:27:00,325:INFO: setting state to MissionState.IDLE
+2021-10-21 15:27:01,727:ERROR: unknown header: SU:0.00
+2021-10-21 15:27:03,464:ERROR: unknown header: Date: 10/21/2021 Time
+2021-10-21 15:27:05,163:ERROR: unknown header: SU:1.00
+2021-10-21 15:27:05,173:ERROR: unknown header: LC:1.00
+2021-10-21 15:27:05,667:INFO: State.STOP
+2021-10-21 15:27:05,668:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL EL BF   SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:05,669:INFO: Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (3/5) Buffering (2/5) 0  0  0  0  None None None 287.34 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:05,671:WARNING: Stopped
+2021-10-21 15:27:05,706:ERROR: unknown header: LC:2.00
+2021-10-21 15:27:06,204:INFO: State.STOP
+2021-10-21 15:27:06,206:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:06,207:INFO: Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (4/5) Buffering (3/5) 1.47 100.00 0  0  0  None None 287.26 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:06,208:WARNING: Stopped
+2021-10-21 15:27:06,271:ERROR: unknown header: LC:3.00
+2021-10-21 15:27:06,778:INFO: State.STOP
+2021-10-21 15:27:06,779:INFO: BT1             BT2             TT1   TT2   AT              X               Y               Z               BP1             BP2   TP1   TP2             HP      AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:06,780:INFO: Buffering (4/5) Buffering (4/5) 24.77 24.79 Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) 11.43 10.11 Buffering (4/5) 1168.44 Buffering (4/5) 1.47 100.00 0  0  0  None None 287.29 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:06,781:WARNING: Stopped
+2021-10-21 15:27:06,833:ERROR: unknown header: LC:4.00
+2021-10-21 15:27:07,332:INFO: State.STOP
+2021-10-21 15:27:07,334:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1    BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:07,335:INFO: 25.07 24.61 24.77 24.79 24.83 Buffering (4/5) Buffering (4/5) Buffering (4/5) -33.81 11.43 10.11 10.39 1168.58 8256.66 1.47 100.00 0  0  0  None None 287.30 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:07,336:WARNING: Stopped
+2021-10-21 15:27:07,343:ERROR: unknown header: LC:5.00
+2021-10-21 15:27:07,840:INFO: State.STOP
+2021-10-21 15:27:07,842:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:07,844:INFO: 25.15 24.60 24.50 24.53 24.86 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.18 11.43 10.11 10.39 1168.54 8254.02 1.47 100.00 0  0  0  None None 287.31 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:07,845:WARNING: Stopped
+2021-10-21 15:27:07,869:ERROR: unknown header: LC:6.00
+2021-10-21 15:27:08,367:INFO: State.STOP
+2021-10-21 15:27:08,368:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:08,370:INFO: 25.15 24.60 24.50 24.53 24.85 -0.02 0.01 0.00 11.19 11.43 10.11 10.39 1168.60 8253.88 1.47 100.00 0  0  0  None None 287.40 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:08,371:WARNING: Stopped
+2021-10-21 15:27:08,378:ERROR: unknown header: LC:7.00
+2021-10-21 15:27:08,874:INFO: State.STOP
+2021-10-21 15:27:08,875:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:08,877:INFO: 25.15 24.60 24.50 24.52 24.85 -0.02 0.01 0.00 11.19 11.43 10.11 10.39 1168.50 8253.58 1.47 100.00 0  0  0  None None 287.43 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:08,878:WARNING: Stopped
+2021-10-21 15:27:08,901:ERROR: unknown header: LC:8.00
+2021-10-21 15:27:09,399:INFO: State.STOP
+2021-10-21 15:27:09,400:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:09,402:INFO: 25.15 24.60 24.50 24.52 24.85 -0.03 0.02 0.00 11.19 11.43 10.12 10.39 1168.74 8253.16 1.47 100.00 0  0  0  None None 287.53 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:09,403:WARNING: Stopped
+2021-10-21 15:27:09,411:ERROR: unknown header: LC:9.00
+2021-10-21 15:27:09,909:INFO: State.STOP
+2021-10-21 15:27:09,911:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:09,912:INFO: 25.15 24.60 24.51 24.51 24.85 -0.03 0.02 0.00 11.19 11.43 10.12 10.39 1168.58 8252.74 1.47 100.00 0  0  0  None None 287.54 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:09,914:WARNING: Stopped
+2021-10-21 15:27:09,939:ERROR: unknown header: LC:10.00
+2021-10-21 15:27:10,436:INFO: State.STOP
+2021-10-21 15:27:10,437:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:10,439:INFO: 25.15 24.59 24.51 24.51 24.85 -0.03 0.01 0.00 11.19 11.43 10.12 10.39 1168.58 8252.38 1.47 100.00 0  0  0  None None 287.51 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:10,440:WARNING: Stopped
+2021-10-21 15:27:10,447:ERROR: unknown header: LC:11.00
+2021-10-21 15:27:10,943:INFO: State.STOP
+2021-10-21 15:27:10,945:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:10,946:INFO: 25.15 24.59 24.51 24.51 24.84 -0.03 0.01 0.00 11.19 11.43 10.12 10.39 1168.60 8252.12 1.47 100.00 0  0  0  None None 287.54 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:10,947:WARNING: Stopped
+2021-10-21 15:27:10,970:ERROR: unknown header: LC:12.00
+2021-10-21 15:27:11,470:INFO: State.STOP
+2021-10-21 15:27:11,471:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:11,473:INFO: 25.15 24.59 24.51 24.51 24.84 -0.02 0.01 0.00 11.19 11.43 10.12 10.39 1168.62 8251.76 1.47 100.00 0  0  0  None None 287.63 Buffering (0/1) STOP  IDLE         30.00    None  None  
+2021-10-21 15:27:11,474:WARNING: Stopped
+2021-10-21 15:27:11,481:ERROR: unknown header: LC:13.00
+2021-10-21 15:27:11,979:WARNING: restarting
+2021-10-21 15:27:11,989:INFO: State.INIT
+2021-10-21 15:27:11,990:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:27:11,992:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) 0  0  None None None None None 0  Buffering (0/1) INIT  IDLE         30.00    None  None  
+2021-10-21 15:27:12,005:ERROR: unknown header: LC:14.00
+2021-10-21 15:27:12,503:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:12,505:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:12,506:INFO: Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) 1.47 100.00 0  0  0  None None 287.75 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:12,507:WARNING: sensor BT1 is not ready
+2021-10-21 15:27:12,516:ERROR: unknown header: LC:15.00
+2021-10-21 15:27:13,013:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:13,014:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:13,016:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 1.47 100.00 0  0  0  None None 287.71 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:13,017:WARNING: sensor BT1 is not ready
+2021-10-21 15:27:13,042:ERROR: unknown header: LC:16.00
+2021-10-21 15:27:13,541:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:13,543:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:13,544:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.47 100.00 0  0  0  None None 287.80 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:13,546:WARNING: sensor BT1 is not ready
+2021-10-21 15:27:13,557:ERROR: unknown header: LC:17.00
+2021-10-21 15:27:14,051:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:14,052:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:14,054:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.47 100.00 0  0  0  None None 287.84 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:14,055:WARNING: sensor BT1 is not ready
+2021-10-21 15:27:14,078:ERROR: unknown header: LC:18.00
+2021-10-21 15:27:14,577:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:14,579:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:14,581:INFO: 25.15 24.59 24.52 24.52 24.83 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.19 11.43 10.12 10.38 1168.72 8249.52 1.47 100.00 0  0  0  None None 287.93 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:14,582:WARNING: sensor X is not ready
+2021-10-21 15:27:14,589:ERROR: unknown header: LC:19.00
+2021-10-21 15:27:15,084:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:15,086:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:15,087:INFO: 25.15 24.59 24.52 24.52 24.83 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.19 11.43 10.12 10.38 1168.78 8249.06 1.47 100.00 0  0  0  None None 288.01 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:15,088:WARNING: sensor X is not ready
+2021-10-21 15:27:15,110:ERROR: unknown header: LC:20.00
+2021-10-21 15:27:15,608:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:15,610:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:15,611:INFO: 25.15 24.59 24.52 24.52 24.83 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.19 11.43 10.12 10.38 1168.94 8248.72 1.47 100.00 0  0  0  None None 287.93 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:15,612:WARNING: sensor X is not ready
+2021-10-21 15:27:15,674:ERROR: unknown header: LC:21.00
+2021-10-21 15:27:16,173:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:27:16,175:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:27:16,177:INFO: 25.15 24.60 24.52 24.52 24.83 -0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1169.08 8248.38 1.47 100.00 0  0  0  None None 287.99 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:27:16,183:ERROR: unknown header: LC:22.00
+2021-10-21 15:27:16,682:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-21 15:27:16,683:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-21 15:27:16,685:INFO: 25.15 24.60 24.52 24.52 24.83 -0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1169.00 8247.96 1.47 100.00 0  0  0  None None 288.08 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         30.00    None  None  
+2021-10-21 15:27:16,686:ERROR: error in HP sensor value: 1169.0 is out of bound!
+2021-10-21 15:27:16,687:ERROR: error in AP sensor value: 8247.96 is out of bound!
+2021-10-21 15:27:16,689:INFO: depth sensors calibrated successfully
+2021-10-21 15:27:16,690:INFO: offset set on: 10.782499999999999
+2021-10-21 15:27:16,706:ERROR: unknown header: LC:23.00
+2021-10-21 15:27:17,205:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-21 15:27:17,207:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-21 15:27:17,208:INFO: 25.15 24.60 24.52 24.52 24.82 -0.00 -0.00 -0.01 11.19 11.43 10.12 10.38 1168.90 8247.74 1.47 100.00 0  0  0  None None 288.05 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         30.00    None  None  
+2021-10-21 15:27:17,209:ERROR: error in HP sensor value: 1168.9 is out of bound!
+2021-10-21 15:27:17,211:ERROR: error in AP sensor value: 8247.74 is out of bound!
+2021-10-21 15:27:17,219:ERROR: unknown header: LC:24.00
+2021-10-21 15:27:17,712:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:17,713:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:17,715:INFO: 25.14 24.60 24.52 24.53 24.82 -0.00 -0.00 -0.01 11.19 11.43 10.12 10.39 1168.78 8247.58 1.47 100.00 0  0  0  None None 288.08 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:17,716:INFO: Waiting for water
+2021-10-21 15:27:17,717:INFO: Waiting for water
+2021-10-21 15:27:17,718:INFO: 0/10 secs
+2021-10-21 15:27:17,736:ERROR: unknown header: LC:25.00
+2021-10-21 15:27:18,236:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:18,238:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:18,239:INFO: 25.14 24.60 24.52 24.53 24.82 0.00 0.00 -0.01 11.19 11.43 10.12 10.39 1168.68 8247.14 1.47 100.00 0  0  0  None None 288.16 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:18,240:INFO: Waiting for water
+2021-10-21 15:27:18,241:INFO: 1/10 secs
+2021-10-21 15:27:18,248:ERROR: unknown header: LC:26.00
+2021-10-21 15:27:18,746:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:18,747:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:18,749:INFO: 25.14 24.59 24.52 24.53 24.82 0.00 0.00 -0.01 11.19 11.43 10.11 10.39 1168.46 8246.74 1.47 100.00 0  0  0  None None 288.22 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:18,750:INFO: Waiting for water
+2021-10-21 15:27:18,751:INFO: 1/10 secs
+2021-10-21 15:27:18,768:ERROR: unknown header: LC:27.00
+2021-10-21 15:27:19,267:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:19,268:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:19,270:INFO: 25.14 24.60 24.52 24.53 24.82 -0.01 0.00 -0.01 11.19 11.43 10.11 10.39 1168.58 8246.40 1.47 100.00 0  0  0  None None 288.30 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:19,271:INFO: Waiting for water
+2021-10-21 15:27:19,272:INFO: 2/10 secs
+2021-10-21 15:27:19,278:ERROR: unknown header: LC:28.00
+2021-10-21 15:27:19,774:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:19,776:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:19,778:INFO: 25.14 24.60 24.52 24.53 24.82 -0.01 0.00 -0.01 11.19 11.43 10.12 10.39 1168.52 8245.94 1.47 100.00 0  0  0  None None 288.34 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:19,779:INFO: Waiting for water
+2021-10-21 15:27:19,780:INFO: 2/10 secs
+2021-10-21 15:27:19,800:ERROR: unknown header: LC:29.00
+2021-10-21 15:27:20,299:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:20,300:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:20,302:INFO: 25.14 24.60 24.52 24.53 24.82 0.00 0.00 -0.01 11.19 11.43 10.12 10.38 1168.58 8245.58 1.47 100.00 0  0  0  None None 288.29 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:20,303:INFO: Waiting for water
+2021-10-21 15:27:20,303:INFO: 3/10 secs
+2021-10-21 15:27:20,310:ERROR: unknown header: LC:30.00
+2021-10-21 15:27:20,804:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:20,806:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:20,807:INFO: 25.14 24.59 24.53 24.53 24.82 0.00 0.00 -0.01 11.19 11.43 10.12 10.38 1168.42 8245.20 1.47 100.00 0  0  0  None None 288.40 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:20,808:INFO: Waiting for water
+2021-10-21 15:27:20,809:INFO: 3/10 secs
+2021-10-21 15:27:20,831:ERROR: unknown header: LC:31.00
+2021-10-21 15:27:21,330:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:21,332:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:21,333:INFO: 25.14 24.59 24.53 24.54 24.82 0.01 0.01 -0.01 11.19 11.43 10.12 10.38 1168.48 8245.00 1.47 100.00 0  0  0  None None 288.32 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:21,334:INFO: Waiting for water
+2021-10-21 15:27:21,335:INFO: 4/10 secs
+2021-10-21 15:27:21,341:ERROR: unknown header: LC:32.00
+2021-10-21 15:27:21,840:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:21,842:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:21,844:INFO: 25.14 24.59 24.53 24.54 24.82 0.01 0.01 -0.01 11.19 11.43 10.12 10.39 1168.50 8244.74 1.47 100.00 0  0  0  None None 288.44 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:21,845:INFO: Waiting for water
+2021-10-21 15:27:21,845:INFO: 4/10 secs
+2021-10-21 15:27:21,867:ERROR: unknown header: LC:33.00
+2021-10-21 15:27:22,367:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:22,368:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:22,370:INFO: 25.14 24.59 24.53 24.53 24.82 0.00 0.00 0.00 11.19 11.43 10.12 10.39 1168.66 8244.52 1.47 100.00 0  0  0  None None 288.43 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:22,371:INFO: Waiting for water
+2021-10-21 15:27:22,371:INFO: 5/10 secs
+2021-10-21 15:27:22,380:ERROR: unknown header: LC:34.00
+2021-10-21 15:27:22,878:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:22,880:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:22,881:INFO: 25.14 24.60 24.53 24.53 24.81 0.00 0.00 0.00 11.19 11.43 10.12 10.39 1168.80 8244.24 1.47 100.00 0  0  0  None None 288.44 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:22,882:INFO: Waiting for water
+2021-10-21 15:27:22,883:INFO: 5/10 secs
+2021-10-21 15:27:22,909:ERROR: unknown header: LC:35.00
+2021-10-21 15:27:23,408:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:23,410:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:23,411:INFO: 25.14 24.60 24.53 24.53 24.81 0.00 0.01 0.00 11.19 11.43 10.12 10.39 1168.86 8244.14 1.47 100.00 0  0  0  None None 288.44 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:23,412:INFO: Waiting for water
+2021-10-21 15:27:23,413:INFO: 6/10 secs
+2021-10-21 15:27:23,420:ERROR: unknown header: LC:36.00
+2021-10-21 15:27:23,918:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:23,920:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:23,921:INFO: 25.14 24.60 24.53 24.53 24.81 0.00 0.01 0.00 11.19 11.43 10.11 10.39 1168.88 8243.84 1.47 100.00 0  0  0  None None 288.55 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:23,922:INFO: Waiting for water
+2021-10-21 15:27:23,923:INFO: 6/10 secs
+2021-10-21 15:27:23,948:ERROR: unknown header: LC:37.00
+2021-10-21 15:27:24,447:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:24,448:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:24,450:INFO: 25.13 24.60 24.53 24.53 24.81 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1168.82 8243.42 1.47 100.00 0  0  0  None None 288.68 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:24,451:INFO: Waiting for water
+2021-10-21 15:27:24,451:INFO: 7/10 secs
+2021-10-21 15:27:24,458:ERROR: unknown header: LC:38.00
+2021-10-21 15:27:24,960:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:24,962:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:24,963:INFO: 25.13 24.60 24.53 24.54 24.81 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1168.76 8243.00 1.47 100.00 0  0  0  None None 288.67 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:24,964:INFO: Waiting for water
+2021-10-21 15:27:24,965:INFO: 7/10 secs
+2021-10-21 15:27:24,986:ERROR: unknown header: LC:39.00
+2021-10-21 15:27:25,484:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:25,485:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:25,487:INFO: 25.13 24.59 24.53 24.54 24.81 -0.01 0.01 0.00 11.19 11.43 10.11 10.39 1168.70 8242.74 1.47 100.00 0  0  0  None None 288.61 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:25,488:INFO: Waiting for water
+2021-10-21 15:27:25,488:INFO: 8/10 secs
+2021-10-21 15:27:25,497:ERROR: unknown header: LC:40.00
+2021-10-21 15:27:25,996:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:25,997:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:25,998:INFO: 25.14 24.59 24.53 24.54 24.81 -0.01 0.01 0.00 11.19 11.43 10.11 10.38 1168.80 8242.20 1.47 100.00 0  0  0  None None 288.79 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:25,999:INFO: Waiting for water
+2021-10-21 15:27:26,000:INFO: 8/10 secs
+2021-10-21 15:27:26,026:ERROR: unknown header: LC:41.00
+2021-10-21 15:27:26,524:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:26,526:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:26,528:INFO: 25.14 24.59 24.54 24.54 24.81 -0.01 0.01 0.00 11.19 11.43 10.11 10.38 1168.86 8241.72 1.47 100.00 0  0  0  None None 288.80 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:26,530:INFO: Waiting for water
+2021-10-21 15:27:26,531:INFO: 9/10 secs
+2021-10-21 15:27:26,538:ERROR: unknown header: LC:42.00
+2021-10-21 15:27:27,036:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:27,038:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:27,040:INFO: 25.14 24.59 24.54 24.54 24.80 -0.01 0.01 0.00 11.19 11.43 10.12 10.38 1168.88 8241.50 1.47 100.00 0  0  0  None None 288.80 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:27,041:INFO: Waiting for water
+2021-10-21 15:27:27,041:INFO: 9/10 secs
+2021-10-21 15:27:27,063:ERROR: unknown header: LC:43.00
+2021-10-21 15:27:27,560:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:27,562:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:27,563:INFO: 25.14 24.59 24.54 24.54 24.80 -0.01 0.01 0.00 11.19 11.43 10.12 10.39 1168.84 8241.26 1.47 100.00 0  0  0  None None 288.82 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:27,564:INFO: Waiting for water
+2021-10-21 15:27:27,565:INFO: 10/10 secs
+2021-10-21 15:27:27,572:ERROR: unknown header: LC:44.00
+2021-10-21 15:27:28,068:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:27:28,070:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:27:28,071:INFO: 25.14 24.59 24.54 24.54 24.80 -0.01 0.01 0.00 11.19 11.43 10.12 10.38 1168.76 8240.68 1.47 100.00 0  0  0  None None 288.95 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:28,072:INFO: Done waiting for water
+2021-10-21 15:27:28,100:ERROR: unknown header: LC:45.00
+2021-10-21 15:27:28,600:INFO: State.WAIT_TASK
+2021-10-21 15:27:28,602:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:28,603:INFO: 25.14 24.60 24.54 24.54 24.80 -0.00 -0.00 0.00 11.19 11.43 10.11 10.38 1168.80 8240.36 1.47 100.00 0  0  0  None None 288.96 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:28,611:ERROR: unknown header: LC:46.00
+2021-10-21 15:27:29,108:INFO: State.WAIT_TASK
+2021-10-21 15:27:29,109:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:29,111:INFO: 25.14 24.60 24.54 24.54 24.80 -0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.66 8240.06 1.47 100.00 0  0  0  None None 288.99 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:29,138:ERROR: unknown header: LC:47.00
+2021-10-21 15:27:29,636:INFO: State.WAIT_TASK
+2021-10-21 15:27:29,638:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:29,640:INFO: 25.13 24.60 24.54 24.54 24.80 0.00 0.01 0.00 11.19 11.43 10.12 10.38 1168.76 8239.68 1.47 100.00 0  0  0  None None 289.01 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:29,651:ERROR: unknown header: LC:48.00
+2021-10-21 15:27:30,144:INFO: State.WAIT_TASK
+2021-10-21 15:27:30,146:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:30,147:INFO: 25.13 24.59 24.54 24.54 24.80 0.00 0.00 0.00 11.19 11.43 10.12 10.38 1168.82 8239.26 1.47 100.00 0  0  0  None None 289.09 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:30,174:ERROR: unknown header: LC:49.00
+2021-10-21 15:27:30,673:INFO: State.WAIT_TASK
+2021-10-21 15:27:30,675:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:30,677:INFO: 25.13 24.59 24.54 24.54 24.80 0.00 0.00 0.00 11.19 11.43 10.11 10.39 1168.74 8238.92 1.47 100.00 0  0  0  None None 289.14 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:30,688:ERROR: unknown header: LC:50.00
+2021-10-21 15:27:31,182:INFO: State.WAIT_TASK
+2021-10-21 15:27:31,184:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:31,185:INFO: 25.13 24.59 24.54 24.54 24.79 0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.64 8238.60 1.47 100.00 0  0  0  None None 289.14 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:31,210:ERROR: unknown header: LC:51.00
+2021-10-21 15:27:31,709:INFO: State.WAIT_TASK
+2021-10-21 15:27:31,711:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:31,712:INFO: 25.13 24.59 24.54 24.54 24.79 0.00 -0.00 0.00 11.19 11.43 10.11 10.39 1168.74 8238.30 1.47 100.00 0  0  0  None None 289.16 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:31,722:ERROR: unknown header: LC:52.00
+2021-10-21 15:27:32,217:INFO: State.WAIT_TASK
+2021-10-21 15:27:32,218:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:32,220:INFO: 25.13 24.59 24.53 24.54 24.79 0.00 -0.00 0.00 11.19 11.43 10.11 10.39 1168.52 8237.94 1.47 100.00 0  0  0  None None 289.25 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:32,247:ERROR: unknown header: LC:53.00
+2021-10-21 15:27:32,746:INFO: State.WAIT_TASK
+2021-10-21 15:27:32,748:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:32,749:INFO: 25.13 24.59 24.53 24.53 24.79 0.00 -0.00 0.00 11.19 11.43 10.11 10.39 1168.60 8237.66 1.47 100.00 0  0  0  None None 289.25 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:32,759:ERROR: unknown header: LC:54.00
+2021-10-21 15:27:33,257:INFO: State.WAIT_TASK
+2021-10-21 15:27:33,258:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:33,260:INFO: 25.14 24.59 24.52 24.53 24.79 0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.74 8237.36 1.47 100.00 0  0  0  None None 289.34 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:33,286:ERROR: unknown header: LC:55.00
+2021-10-21 15:27:33,784:INFO: State.WAIT_TASK
+2021-10-21 15:27:33,786:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:33,788:INFO: 25.13 24.60 24.51 24.53 24.79 0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.64 8237.00 1.47 100.00 0  0  0  None None 289.35 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:33,798:ERROR: unknown header: LC:56.00
+2021-10-21 15:27:34,295:INFO: State.WAIT_TASK
+2021-10-21 15:27:34,297:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:34,298:INFO: 25.13 24.59 24.50 24.53 24.79 0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1168.58 8236.68 1.47 100.00 0  0  0  None None 289.36 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:34,322:ERROR: unknown header: LC:57.00
+2021-10-21 15:27:34,821:INFO: State.WAIT_TASK
+2021-10-21 15:27:34,823:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:34,825:INFO: 25.13 24.60 24.50 24.52 24.79 0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1168.60 8236.24 1.47 100.00 0  0  0  None None 289.50 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:34,888:ERROR: unknown header: LC:58.00
+2021-10-21 15:27:35,387:INFO: State.WAIT_TASK
+2021-10-21 15:27:35,389:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:35,390:INFO: 25.13 24.60 24.49 24.52 24.78 -0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1168.46 8235.90 1.47 100.00 0  0  0  None None 289.44 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:35,397:ERROR: unknown header: LC:59.00
+2021-10-21 15:27:35,895:INFO: State.WAIT_TASK
+2021-10-21 15:27:35,896:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:35,898:INFO: 25.13 24.60 24.49 24.52 24.78 -0.00 -0.01 0.00 11.19 11.43 10.12 10.39 1168.32 8235.60 1.47 100.00 0  0  0  None None 289.50 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:35,923:ERROR: unknown header: LC:60.00
+2021-10-21 15:27:36,423:INFO: State.WAIT_TASK
+2021-10-21 15:27:36,425:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:36,426:INFO: 25.13 24.59 24.49 24.51 24.78 -0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.42 8235.24 1.47 100.00 0  0  0  None None 289.58 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:36,432:ERROR: unknown header: LC:61.00
+2021-10-21 15:27:36,934:INFO: State.WAIT_TASK
+2021-10-21 15:27:36,936:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:36,937:INFO: 25.13 24.59 24.48 24.51 24.78 -0.00 -0.00 0.00 11.19 11.43 10.11 10.39 1168.38 8234.82 1.47 100.00 0  0  0  None None 289.61 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:36,957:ERROR: unknown header: LC:62.00
+2021-10-21 15:27:37,456:INFO: State.WAIT_TASK
+2021-10-21 15:27:37,457:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:37,459:INFO: 25.14 24.59 24.48 24.51 24.78 -0.01 -0.01 0.00 11.19 11.43 10.12 10.39 1168.52 8234.68 1.47 100.00 0  0  0  None None 289.59 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:37,466:ERROR: unknown header: LC:63.00
+2021-10-21 15:27:37,966:INFO: State.WAIT_TASK
+2021-10-21 15:27:37,967:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:37,969:INFO: 25.13 24.59 24.48 24.50 24.78 -0.01 -0.01 0.00 11.18 11.43 10.12 10.39 1168.56 8234.22 1.47 100.00 0  0  0  None None 289.74 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:37,993:ERROR: unknown header: LC:64.00
+2021-10-21 15:27:38,492:INFO: State.WAIT_TASK
+2021-10-21 15:27:38,493:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:38,495:INFO: 25.13 24.60 24.48 24.50 24.78 -0.01 -0.00 0.00 11.18 11.43 10.12 10.39 1168.74 8233.94 1.47 100.00 0  0  0  None None 289.68 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:38,502:ERROR: unknown header: LC:65.00
+2021-10-21 15:27:39,002:INFO: State.WAIT_TASK
+2021-10-21 15:27:39,004:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:39,005:INFO: 25.13 24.60 24.48 24.50 24.78 -0.01 -0.00 0.00 11.18 11.43 10.12 10.39 1168.82 8233.60 1.47 100.00 0  0  0  None None 289.80 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:39,030:ERROR: unknown header: LC:66.00
+2021-10-21 15:27:39,530:INFO: State.WAIT_TASK
+2021-10-21 15:27:39,532:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:39,533:INFO: 25.13 24.61 24.48 24.50 24.78 -0.01 0.00 0.00 11.19 11.43 10.12 10.39 1168.92 8233.28 1.47 100.00 0  0  0  None None 289.78 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:39,542:ERROR: unknown header: LC:67.00
+2021-10-21 15:27:40,039:INFO: State.WAIT_TASK
+2021-10-21 15:27:40,041:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:40,042:INFO: 25.13 24.61 24.47 24.50 24.78 -0.01 0.00 0.00 11.19 11.43 10.12 10.39 1168.88 8232.86 1.47 100.00 0  0  0  None None 289.87 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:40,070:ERROR: unknown header: LC:68.00
+2021-10-21 15:27:40,568:INFO: State.WAIT_TASK
+2021-10-21 15:27:40,569:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:40,571:INFO: 25.13 24.60 24.47 24.51 24.78 -0.01 0.00 0.00 11.19 11.43 10.12 10.39 1168.76 8232.66 1.47 100.00 0  0  0  None None 289.83 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:40,578:ERROR: unknown header: LC:69.00
+2021-10-21 15:27:41,076:INFO: State.WAIT_TASK
+2021-10-21 15:27:41,077:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:41,078:INFO: 25.14 24.60 24.48 24.51 24.77 -0.01 0.00 0.00 11.19 11.43 10.12 10.39 1168.68 8232.24 1.47 100.00 0  0  0  None None 289.92 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:41,105:ERROR: unknown header: LC:70.00
+2021-10-21 15:27:41,604:INFO: State.WAIT_TASK
+2021-10-21 15:27:41,606:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:41,607:INFO: 25.14 24.60 24.48 24.52 24.77 -0.00 -0.00 0.00 11.19 11.43 10.11 10.39 1168.64 8232.00 1.47 100.00 0  0  0  None None 289.92 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:41,614:ERROR: unknown header: LC:71.00
+2021-10-21 15:27:42,115:INFO: State.WAIT_TASK
+2021-10-21 15:27:42,116:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:42,117:INFO: 25.14 24.60 24.48 24.52 24.77 -0.00 -0.00 0.00 11.19 11.43 10.12 10.39 1168.62 8231.58 1.47 100.00 0  0  0  None None 290.05 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:42,142:ERROR: unknown header: LC:72.00
+2021-10-21 15:27:42,640:INFO: State.WAIT_TASK
+2021-10-21 15:27:42,642:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:42,643:INFO: 25.14 24.60 24.48 24.53 24.77 0.01 -0.00 0.00 11.19 11.43 10.12 10.39 1168.48 8231.34 1.47 100.00 0  0  0  None None 289.99 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:42,653:ERROR: unknown header: LC:73.00
+2021-10-21 15:27:43,152:INFO: State.WAIT_TASK
+2021-10-21 15:27:43,153:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:43,155:INFO: 25.13 24.60 24.47 24.53 24.77 0.01 -0.00 0.00 11.19 11.43 10.12 10.39 1168.60 8230.90 1.47 100.00 0  0  0  None None 290.12 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:43,179:ERROR: unknown header: LC:74.00
+2021-10-21 15:27:43,677:INFO: State.WAIT_TASK
+2021-10-21 15:27:43,678:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:43,680:INFO: 25.13 24.60 24.47 24.53 24.77 0.01 -0.00 0.00 11.19 11.43 10.12 10.39 1168.68 8230.62 1.47 100.00 0  0  0  None None 290.11 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:43,690:ERROR: unknown header: LC:75.00
+2021-10-21 15:27:44,189:INFO: State.WAIT_TASK
+2021-10-21 15:27:44,190:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:44,191:INFO: 25.13 24.60 24.47 24.54 24.77 0.02 -0.01 -0.00 11.19 11.43 10.12 10.39 1168.74 8230.24 1.47 100.00 0  0  0  None None 290.17 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:44,218:ERROR: unknown header: LC:76.00
+2021-10-21 15:27:44,717:INFO: State.WAIT_TASK
+2021-10-21 15:27:44,719:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:44,720:INFO: 25.13 24.60 24.47 24.53 24.77 0.02 -0.01 -0.00 11.19 11.43 10.12 10.38 1168.84 8229.90 1.47 100.00 0  0  0  None None 290.28 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:44,730:ERROR: unknown header: LC:77.00
+2021-10-21 15:27:45,225:INFO: State.WAIT_TASK
+2021-10-21 15:27:45,227:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:45,228:INFO: 25.13 24.60 24.46 24.53 24.77 0.01 -0.02 -0.00 11.19 11.43 10.12 10.38 1168.92 8229.44 1.47 100.00 0  0  0  None None 290.29 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:45,253:ERROR: unknown header: LC:78.00
+2021-10-21 15:27:45,754:INFO: State.WAIT_TASK
+2021-10-21 15:27:45,755:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:45,756:INFO: 25.14 24.60 24.46 24.53 24.77 0.01 -0.02 -0.00 11.19 11.43 10.12 10.39 1168.90 8229.16 1.47 100.00 0  0  0  None None 290.30 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:45,766:ERROR: unknown header: LC:79.00
+2021-10-21 15:27:46,261:INFO: State.WAIT_TASK
+2021-10-21 15:27:46,262:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:46,263:INFO: 25.14 24.61 24.46 24.53 24.77 0.01 -0.02 -0.00 11.19 11.43 10.11 10.39 1168.84 8228.76 1.47 100.00 0  0  0  None None 290.34 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:46,291:ERROR: unknown header: LC:80.00
+2021-10-21 15:27:46,790:INFO: State.WAIT_TASK
+2021-10-21 15:27:46,791:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:46,792:INFO: 25.14 24.61 24.46 24.53 24.77 0.01 -0.02 -0.00 11.19 11.43 10.12 10.39 1168.78 8228.48 1.47 100.00 0  0  0  None None 290.32 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:46,803:ERROR: unknown header: LC:81.00
+2021-10-21 15:27:47,302:INFO: State.WAIT_TASK
+2021-10-21 15:27:47,303:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:47,304:INFO: 25.14 24.60 24.46 24.53 24.77 0.00 -0.02 -0.01 11.19 11.43 10.11 10.39 1168.68 8228.34 1.47 100.00 0  0  0  None None 290.34 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:47,329:ERROR: unknown header: LC:82.00
+2021-10-21 15:27:47,829:INFO: State.WAIT_TASK
+2021-10-21 15:27:47,830:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:47,831:INFO: 25.14 24.60 24.47 24.53 24.77 0.00 -0.02 -0.01 11.19 11.43 10.11 10.38 1168.60 8228.02 1.47 100.00 0  0  0  None None 290.47 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:47,842:ERROR: unknown header: LC:83.00
+2021-10-21 15:27:48,338:INFO: State.WAIT_TASK
+2021-10-21 15:27:48,339:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:48,340:INFO: 25.14 24.60 24.47 24.53 24.77 -0.01 -0.03 -0.01 11.19 11.43 10.11 10.38 1168.62 8227.84 1.47 100.00 0  0  0  None None 290.39 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:48,368:ERROR: unknown header: LC:84.00
+2021-10-21 15:27:48,867:INFO: State.WAIT_TASK
+2021-10-21 15:27:48,869:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:48,870:INFO: 25.14 24.60 24.47 24.52 24.77 -0.01 -0.03 -0.01 11.19 11.43 10.11 10.38 1168.62 8227.58 1.47 100.00 0  0  0  None None 290.51 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:48,930:ERROR: unknown header: LC:85.00
+2021-10-21 15:27:49,430:INFO: State.WAIT_TASK
+2021-10-21 15:27:49,431:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:49,432:INFO: 25.14 24.61 24.47 24.52 24.77 -0.02 -0.02 -0.00 11.19 11.43 10.11 10.38 1168.62 8227.26 1.47 100.00 0  0  0  None None 290.53 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:49,441:ERROR: unknown header: LC:86.00
+2021-10-21 15:27:49,939:INFO: State.WAIT_TASK
+2021-10-21 15:27:49,941:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:49,942:INFO: 25.14 24.61 24.48 24.51 24.77 -0.02 -0.02 -0.00 11.19 11.43 10.11 10.38 1168.58 8226.86 1.47 100.00 0  0  0  None None 290.60 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:49,970:ERROR: unknown header: LC:87.00
+2021-10-21 15:27:50,470:INFO: State.WAIT_TASK
+2021-10-21 15:27:50,471:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:50,472:INFO: 25.14 24.61 24.48 24.51 24.77 -0.01 -0.01 -0.00 11.19 11.43 10.11 10.38 1168.76 8226.66 1.47 100.00 0  0  0  None None 290.60 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:50,480:ERROR: unknown header: LC:88.00
+2021-10-21 15:27:50,980:INFO: State.WAIT_TASK
+2021-10-21 15:27:50,981:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:50,982:INFO: 25.14 24.61 24.48 24.51 24.77 -0.01 -0.01 -0.00 11.18 11.43 10.12 10.38 1168.72 8226.24 1.47 100.00 0  0  0  None None 290.66 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:51,009:ERROR: unknown header: LC:89.00
+2021-10-21 15:27:51,508:INFO: State.WAIT_TASK
+2021-10-21 15:27:51,510:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:51,511:INFO: 25.14 24.61 24.48 24.51 24.77 -0.01 -0.01 -0.00 11.19 11.43 10.12 10.38 1168.74 8225.82 1.47 100.00 0  0  0  None None 290.78 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:51,518:ERROR: unknown header: LC:90.00
+2021-10-21 15:27:52,016:INFO: State.WAIT_TASK
+2021-10-21 15:27:52,018:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:52,019:INFO: 25.14 24.60 24.48 24.51 24.77 -0.01 -0.01 -0.00 11.18 11.43 10.12 10.38 1168.72 8225.46 1.47 100.00 0  0  0  None None 290.74 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:52,045:ERROR: unknown header: LC:91.00
+2021-10-21 15:27:52,544:INFO: State.WAIT_TASK
+2021-10-21 15:27:52,546:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:52,547:INFO: 25.14 24.60 24.48 24.51 24.77 -0.00 0.00 -0.00 11.19 11.43 10.11 10.38 1168.86 8225.12 1.47 100.00 0  0  0  None None 290.79 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:52,553:ERROR: unknown header: LC:92.00
+2021-10-21 15:27:53,052:INFO: State.WAIT_TASK
+2021-10-21 15:27:53,054:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:53,056:INFO: 25.14 24.60 24.48 24.52 24.76 -0.00 0.00 -0.00 11.19 11.43 10.11 10.38 1168.72 8224.86 1.47 100.00 0  0  0  None None 290.74 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:53,079:ERROR: unknown header: LC:93.00
+2021-10-21 15:27:53,579:INFO: State.WAIT_TASK
+2021-10-21 15:27:53,581:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:53,582:INFO: 25.14 24.60 24.48 24.52 24.76 -0.00 0.01 0.00 11.19 11.43 10.11 10.38 1168.90 8224.50 1.47 100.00 0  0  0  None None 290.87 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:53,590:ERROR: unknown header: LC:94.00
+2021-10-21 15:27:54,088:INFO: State.WAIT_TASK
+2021-10-21 15:27:54,091:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:54,093:INFO: 25.14 24.60 24.48 24.53 24.76 -0.00 0.01 0.00 11.18 11.43 10.11 10.38 1168.94 8224.32 1.47 100.00 0  0  0  None None 290.87 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:54,118:ERROR: unknown header: LC:95.00
+2021-10-21 15:27:54,617:INFO: State.WAIT_TASK
+2021-10-21 15:27:54,620:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:54,621:INFO: 25.13 24.60 24.48 24.53 24.76 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1169.02 8224.04 1.47 100.00 0  0  0  None None 290.92 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:54,628:ERROR: unknown header: LC:96.00
+2021-10-21 15:27:55,129:INFO: State.WAIT_TASK
+2021-10-21 15:27:55,130:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:55,132:INFO: 25.13 24.60 24.48 24.54 24.76 0.00 0.01 0.00 11.19 11.43 10.11 10.39 1168.98 8223.76 1.47 100.00 0  0  0  None None 290.97 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:55,155:ERROR: unknown header: LC:97.00
+2021-10-21 15:27:55,655:INFO: State.WAIT_TASK
+2021-10-21 15:27:55,656:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:55,657:INFO: 25.13 24.60 24.48 24.54 24.76 0.00 0.01 0.00 11.19 11.43 10.12 10.39 1169.14 8223.30 1.47 100.00 0  0  0  None None 291.04 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:55,667:ERROR: unknown header: LC:98.00
+2021-10-21 15:27:56,165:INFO: State.WAIT_TASK
+2021-10-21 15:27:56,166:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:56,168:INFO: 25.13 24.60 24.48 24.54 24.76 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1169.06 8222.94 1.47 100.00 0  0  0  None None 291.10 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:56,194:ERROR: unknown header: LC:99.00
+2021-10-21 15:27:56,694:INFO: State.WAIT_TASK
+2021-10-21 15:27:56,695:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:56,696:INFO: 25.13 24.60 24.48 24.54 24.76 0.01 0.01 0.00 11.19 11.43 10.11 10.38 1169.06 8222.64 1.47 100.00 0  0  0  None None 291.03 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:56,706:ERROR: unknown header: LC:100.00
+2021-10-21 15:27:57,203:INFO: State.WAIT_TASK
+2021-10-21 15:27:57,204:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:57,206:INFO: 25.13 24.60 24.48 24.54 24.76 -0.00 -0.00 0.00 11.19 11.43 10.12 10.38 1169.00 8222.38 1.47 100.00 0  0  0  None None 291.06 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:57,233:ERROR: unknown header: LC:101.00
+2021-10-21 15:27:57,733:INFO: State.WAIT_TASK
+2021-10-21 15:27:57,734:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:57,736:INFO: 25.14 24.60 24.48 24.54 24.75 -0.00 -0.00 0.00 11.18 11.43 10.11 10.38 1168.94 8222.00 1.47 100.00 0  0  0  None None 291.19 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:57,746:ERROR: unknown header: LC:102.00
+2021-10-21 15:27:58,243:INFO: State.WAIT_TASK
+2021-10-21 15:27:58,244:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:58,245:INFO: 25.14 24.60 24.47 24.53 24.75 0.00 -0.01 0.00 11.18 11.43 10.11 10.38 1168.84 8221.78 1.47 100.00 0  0  0  None None 291.18 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:58,273:ERROR: unknown header: LC:103.00
+2021-10-21 15:27:58,772:INFO: State.WAIT_TASK
+2021-10-21 15:27:58,774:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:58,776:INFO: 25.14 24.60 24.47 24.53 24.75 0.00 -0.01 0.00 11.18 11.43 10.12 10.38 1168.82 8221.54 1.47 100.00 0  0  0  None None 291.26 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:58,788:ERROR: unknown header: LC:104.00
+2021-10-21 15:27:59,285:INFO: State.WAIT_TASK
+2021-10-21 15:27:59,286:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:59,287:INFO: 25.14 24.60 24.47 24.53 24.75 0.00 -0.01 0.00 11.19 11.43 10.12 10.38 1168.86 8221.12 1.47 100.00 0  0  0  None None 291.30 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:59,312:ERROR: unknown header: LC:105.00
+2021-10-21 15:27:59,810:INFO: State.WAIT_TASK
+2021-10-21 15:27:59,811:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:27:59,813:INFO: 25.14 24.60 24.47 24.53 24.75 0.00 -0.01 0.00 11.19 11.43 10.11 10.38 1168.96 8220.86 1.47 100.00 0  0  0  None None 291.23 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:27:59,822:ERROR: unknown header: LC:106.00
+2021-10-21 15:28:00,320:INFO: State.WAIT_TASK
+2021-10-21 15:28:00,322:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:00,323:INFO: 25.14 24.60 24.47 24.53 24.75 0.01 -0.00 0.00 11.19 11.43 10.12 10.38 1168.94 8220.68 1.47 100.00 0  0  0  None None 291.30 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:00,351:ERROR: unknown header: LC:107.00
+2021-10-21 15:28:00,850:INFO: State.WAIT_TASK
+2021-10-21 15:28:00,851:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:00,853:INFO: 25.14 24.60 24.47 24.53 24.75 0.01 -0.00 0.00 11.19 11.43 10.12 10.38 1168.94 8220.30 1.47 100.00 0  0  0  None None 291.40 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:00,862:ERROR: unknown header: LC:108.00
+2021-10-21 15:28:01,359:INFO: State.WAIT_TASK
+2021-10-21 15:28:01,361:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:01,362:INFO: 25.14 24.60 24.47 24.53 24.75 0.00 -0.01 0.00 11.19 11.43 10.12 10.38 1168.84 8219.98 1.47 100.00 0  0  0  None None 291.44 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:01,384:ERROR: unknown header: LC:109.00
+2021-10-21 15:28:01,883:INFO: State.WAIT_TASK
+2021-10-21 15:28:01,884:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:01,886:INFO: 25.14 24.61 24.46 24.53 24.75 0.00 -0.01 0.00 11.19 11.43 10.12 10.38 1168.80 8219.66 1.47 100.00 0  0  0  None None 291.51 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:01,949:ERROR: unknown header: LC:110.00
+2021-10-21 15:28:02,448:INFO: State.WAIT_TASK
+2021-10-21 15:28:02,449:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:02,451:INFO: 25.14 24.61 24.46 24.53 24.75 0.01 0.00 0.00 11.19 11.43 10.12 10.38 1168.78 8219.16 1.47 100.00 0  0  0  None None 291.55 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:02,459:ERROR: unknown header: LC:111.00
+2021-10-21 15:28:02,958:INFO: State.WAIT_TASK
+2021-10-21 15:28:02,960:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:02,961:INFO: 25.14 24.61 24.46 24.53 24.75 0.01 0.00 0.00 11.19 11.43 10.12 10.38 1168.86 8218.72 1.47 100.00 0  0  0  None None 291.59 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:02,988:ERROR: unknown header: LC:112.00
+2021-10-21 15:28:03,488:INFO: State.WAIT_TASK
+2021-10-21 15:28:03,489:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:03,491:INFO: 25.14 24.61 24.45 24.54 24.75 0.00 0.01 0.00 11.19 11.43 10.12 10.38 1168.84 8218.42 1.47 100.00 0  0  0  None None 291.59 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:03,497:ERROR: unknown header: LC:113.00
+2021-10-21 15:28:03,997:INFO: State.WAIT_TASK
+2021-10-21 15:28:03,999:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:04,000:INFO: 25.14 24.60 24.45 24.54 24.75 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1168.94 8218.14 1.47 100.00 0  0  0  None None 291.59 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:04,023:ERROR: unknown header: LC:114.00
+2021-10-21 15:28:04,521:INFO: State.WAIT_TASK
+2021-10-21 15:28:04,523:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:04,524:INFO: 25.14 24.60 24.45 24.54 24.75 0.00 0.01 0.00 11.19 11.43 10.11 10.38 1168.92 8217.82 1.47 100.00 0  0  0  None None 291.72 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:04,531:ERROR: unknown header: LC:115.00
+2021-10-21 15:28:05,028:INFO: State.WAIT_TASK
+2021-10-21 15:28:05,030:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:05,031:INFO: 25.14 24.60 24.44 24.54 24.75 0.00 0.01 0.00 11.18 11.43 10.11 10.38 1168.94 8217.58 1.47 100.00 0  0  0  None None 291.71 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:05,057:ERROR: unknown header: LC:116.00
+2021-10-21 15:28:05,556:INFO: State.WAIT_TASK
+2021-10-21 15:28:05,558:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:05,559:INFO: 25.14 24.60 24.44 24.54 24.75 -0.01 0.00 0.00 11.18 11.43 10.12 10.38 1168.92 8217.22 1.47 100.00 0  0  0  None None 291.80 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:05,568:ERROR: unknown header: LC:117.00
+2021-10-21 15:28:06,069:INFO: State.WAIT_TASK
+2021-10-21 15:28:06,070:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:06,072:INFO: 25.14 24.60 24.44 24.54 24.74 -0.01 0.00 0.00 11.18 11.43 10.12 10.38 1168.96 8217.04 1.47 100.00 0  0  0  None None 291.68 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:06,095:ERROR: unknown header: LC:118.00
+2021-10-21 15:28:06,593:INFO: State.WAIT_TASK
+2021-10-21 15:28:06,594:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:06,596:INFO: 25.14 24.60 24.44 24.54 24.74 -0.01 0.00 0.00 11.18 11.43 10.11 10.38 1168.94 8216.62 1.47 100.00 0  0  0  None None 291.86 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:06,603:ERROR: unknown header: LC:119.00
+2021-10-21 15:28:07,103:INFO: State.WAIT_TASK
+2021-10-21 15:28:07,104:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:07,106:INFO: 25.14 24.60 24.44 24.54 24.74 -0.01 0.00 0.00 11.18 11.43 10.11 10.38 1169.04 8216.38 1.47 100.00 0  0  0  None None 291.85 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:07,127:ERROR: unknown header: LC:120.00
+2021-10-21 15:28:07,628:INFO: State.WAIT_TASK
+2021-10-21 15:28:07,630:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:07,631:INFO: 25.14 24.60 24.44 24.55 24.74 -0.02 -0.00 0.00 11.19 11.43 10.11 10.38 1168.92 8216.06 1.47 100.00 0  0  0  None None 291.89 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:07,639:ERROR: unknown header: LC:121.00
+2021-10-21 15:28:08,137:INFO: State.WAIT_TASK
+2021-10-21 15:28:08,139:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:08,141:INFO: 25.14 24.60 24.44 24.54 24.74 -0.02 -0.00 0.00 11.19 11.43 10.11 10.38 1168.92 8215.80 1.47 100.00 0  0  0  None None 291.97 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:08,168:ERROR: unknown header: LC:122.00
+2021-10-21 15:28:08,666:INFO: State.WAIT_TASK
+2021-10-21 15:28:08,668:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:08,670:INFO: 25.14 24.60 24.44 24.54 24.74 -0.02 0.01 0.00 11.19 11.43 10.12 10.38 1168.86 8215.30 1.47 100.00 0  0  0  None None 292.01 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:08,680:ERROR: unknown header: LC:123.00
+2021-10-21 15:28:09,178:INFO: State.WAIT_TASK
+2021-10-21 15:28:09,180:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:09,181:INFO: 25.15 24.61 24.44 24.55 24.74 -0.02 0.01 0.00 11.19 11.43 10.12 10.38 1168.68 8215.04 1.47 100.00 0  0  0  None None 292.03 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:09,205:ERROR: unknown header: LC:124.00
+2021-10-21 15:28:09,702:INFO: State.WAIT_TASK
+2021-10-21 15:28:09,703:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:09,705:INFO: 25.15 24.61 24.44 24.54 24.74 -0.02 -0.00 0.00 11.19 11.43 10.12 10.38 1168.68 8214.64 1.47 100.00 0  0  0  None None 292.11 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:09,713:ERROR: unknown header: LC:125.00
+2021-10-21 15:28:10,211:INFO: State.WAIT_TASK
+2021-10-21 15:28:10,213:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-21 15:28:10,214:INFO: 25.15 24.60 24.44 24.54 24.74 -0.02 -0.00 0.00 11.19 11.43 10.12 10.38 1168.74 8214.32 1.47 100.00 0  0  0  None None 292.10 Buffering (0/1) WAIT_TASK IDLE         30.00    30.00 -0.00 
+2021-10-21 15:28:10,241:ERROR: unknown header: LC:126.00
+2021-10-21 15:28:10,561:INFO: 
+2021-10-21 15:28:10,562:CRITICAL: System shutdown
+2021-10-21 15:28:10,564:INFO: cleaning (resetting rpi gpio)

@@ -8,15 +8,18 @@ class State(Enum):
     # ACQUIRE_CLOCK = auto()
     CALIBRATE_DEPTH_SENSORS = auto()
     WAIT_FOR_WATER = auto()
+    WAIT_TASK = auto()
     EXEC_TASK = auto()
     END_TASK = auto()
     SLEEP_SAFETY = auto()
     WAIT_FOR_PICKUP = auto()
     EMERGENCY = auto()
     STOP = auto()
+    CONTROLLED = auto()
 
 class MissionState(Enum):
     IDLE = auto()
+    INIT_DEPTH = auto()
     EN_ROUTE = auto()
     HOLD_ON_TARGET = auto()
     SURFACE = auto()
@@ -25,7 +28,7 @@ class MissionState(Enum):
     DESCENDING = auto()
 
 app = {
-    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation" : False,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     # "host_ip" : "127.0.0.1",
     "host_ip" : "192.168.1.75",

@@ -34,7 +34,7 @@ void loop()
   {
     while (1)
     {
-      SendMsg("FS", 1);
+      SendMsg("FS", 2);
       FullSurface(2);
       wdt_disable();
       IridiumBeacon();
@@ -53,8 +53,10 @@ void loop()
 
   if ((FullSurfaceFlag == 1) || (FullSurfaceFlag == 2))
   {
-    FullSurface(FullSurfaceFlag);
+          SendMsg("FS", FullSurfaceFlag);
+FullSurface(FullSurfaceFlag);
     FullSurfaceFlag = 0;
+    SendMsg("FS", FullSurfaceFlag);
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= IRIDIUM BEACON

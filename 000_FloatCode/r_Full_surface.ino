@@ -27,6 +27,7 @@ void FullSurface(int Direction)
 
   else
   {
+    SendMsg("FS", 0);
     return;
   }
 

@@ -1,0 +1,2377 @@
+2021-10-21 15:13:01,914:WARNING: Safety is disabled
+2021-10-21 15:13:01,915:WARNING: Test mode
+2021-10-21 15:13:01,917:INFO: Pressure controller was initialized successfully
+2021-10-21 15:13:01,918:INFO: BP1 pressure sensor was initialized successfully
+2021-10-21 15:13:01,918:INFO: BP2 pressure sensor was initialized successfully
+2021-10-21 15:13:01,919:INFO: TP1 pressure sensor was initialized successfully
+2021-10-21 15:13:01,919:INFO: TP2 pressure sensor was initialized successfully
+2021-10-21 15:13:01,920:INFO: HP pressure sensor was initialized successfully
+2021-10-21 15:13:01,920:INFO: AP pressure sensor was initialized successfully
+2021-10-21 15:13:01,920:INFO: Temperature controller was initialized successfully
+2021-10-21 15:13:01,921:INFO: BT1 temperature sensor was initialized successfully
+2021-10-21 15:13:01,921:INFO: BT2 temperature sensor was initialized successfully
+2021-10-21 15:13:01,921:INFO: TT1 temperature sensor was initialized successfully
+2021-10-21 15:13:01,922:INFO: TT2 temperature sensor was initialized successfully
+2021-10-21 15:13:01,922:INFO: AT temperature sensor was initialized successfully
+2021-10-21 15:13:01,922:INFO: IMU controller was initialized successfully
+2021-10-21 15:13:01,923:INFO: X IMU sensor was initialized successfully
+2021-10-21 15:13:01,923:INFO: Y IMU sensor was initialized successfully
+2021-10-21 15:13:01,923:INFO: Z IMU sensor was initialized successfully
+2021-10-21 15:13:01,924:INFO: Bladder volume controller was initialized successfully
+2021-10-21 15:13:01,925:INFO: Altimeter controller was initialized successfully
+2021-10-21 15:13:01,925:INFO: rpm controller was initialized successfully
+2021-10-21 15:13:01,926:INFO: Pump flag controller was initialized successfully
+2021-10-21 15:13:01,926:INFO: Bladder flag controller was initialized successfully
+2021-10-21 15:13:01,927:INFO: Hull leak flag controller was initialized successfully
+2021-10-21 15:13:01,927:INFO: Engine leak flag controller was initialized successfully
+2021-10-21 15:13:01,927:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-21 15:13:01,928:DEBUG: attempting to init serial comm
+2021-10-21 15:13:01,928:DEBUG:  port:/dev/ttyACM0
+2021-10-21 15:13:01,928:DEBUG:  baud_rate:115200
+2021-10-21 15:13:01,930:INFO: SerialComm was initialized successfully
+2021-10-21 15:13:01,931:DEBUG: attempting to load profile: cfg/profile.txt
+2021-10-21 15:13:01,942:INFO: Profile file loaded successfully
+
+2021-10-21 15:13:01,943:INFO: Profile class was initialized successfully
+
+2021-10-21 15:13:01,943:INFO: setting state to MissionState.IDLE
+2021-10-21 15:13:01,945:DEBUG: mega>rpi: b'.00\r\n'
+2021-10-21 15:13:01,946:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:01,947:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:01,949:DEBUG: mega>rpi: b'BP1:1118.40\r\n'
+2021-10-21 15:13:01,950:DEBUG: mega>rpi: b'BP2:1141.60\r\n'
+2021-10-21 15:13:01,951:DEBUG: mega>rpi: b'HP:1173.20\r\n'
+2021-10-21 15:13:01,953:DEBUG: mega>rpi: b'TT1:24.57\r\n'
+2021-10-21 15:13:01,954:DEBUG: mega>rpi: b'TT2:24.70\r\n'
+2021-10-21 15:13:01,955:DEBUG: mega>rpi: b'1.49\r\n'
+2021-10-21 15:13:01,958:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:01,960:DEBUG: mega>rpi: b'LC:425.00\r\n'
+2021-10-21 15:13:01,961:ERROR: unknown header: LC:425.00
+2021-10-21 15:13:01,963:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:01,965:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:01,967:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:01,968:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:01,970:DEBUG: mega>rpi: b'BP1:1118.40\r\n'
+2021-10-21 15:13:01,973:DEBUG: mega>rpi: b'BP2:1141.60\r\n'
+2021-10-21 15:13:01,974:DEBUG: mega>rpi: b'HP:1173.20\r\n'
+2021-10-21 15:13:01,976:DEBUG: mega>rpi: b'TT1:24.57\r\n'
+2021-10-21 15:13:01,977:DEBUG: mega>rpi: b'TT2:24.70\r\n'
+2021-10-21 15:13:03,343:DEBUG: mega>rpi: b'SU:0.00\r\n'
+2021-10-21 15:13:03,344:ERROR: unknown header: SU:0.00
+2021-10-21 15:13:03,373:DEBUG: mega>rpi: b'BT1:24.74\r\n'
+2021-10-21 15:13:05,292:DEBUG: CLI:['restart', '0']
+2021-10-21 15:13:09,312:DEBUG: mega>rpi: b'SU:0.00\r\n'
+2021-10-21 15:13:09,313:ERROR: unknown header: SU:0.00
+2021-10-21 15:13:09,344:DEBUG: mega>rpi: b'BT1:24.74\r\n'
+2021-10-21 15:13:09,373:DEBUG: mega>rpi: b'BT2:24.50\r\n'
+2021-10-21 15:13:09,430:DEBUG: mega>rpi: b'BP1:1118.30\r\n'
+2021-10-21 15:13:09,488:DEBUG: mega>rpi: b'BP2:1142.50\r\n'
+2021-10-21 15:13:09,545:DEBUG: mega>rpi: b'HP:1172.70\r\n'
+2021-10-21 15:13:09,573:DEBUG: mega>rpi: b'AT:24.40\r\n'
+2021-10-21 15:13:09,634:DEBUG: mega>rpi: b'AP:7618.70\r\n'
+2021-10-21 15:13:09,660:DEBUG: mega>rpi: b'TT1:25.47\r\n'
+2021-10-21 15:13:09,688:DEBUG: mega>rpi: b'TT2:25.47\r\n'
+2021-10-21 15:13:09,749:DEBUG: mega>rpi: b'TP1:1011.40\r\n'
+2021-10-21 15:13:09,808:DEBUG: mega>rpi: b'TP2:1037.90\r\n'
+2021-10-21 15:13:09,808:DEBUG: mega>rpi: b'\r\n'
+2021-10-21 15:13:10,065:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-21 15:13:10,069:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:10,070:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:10,774:DEBUG: mega>rpi: b'Date: 10/21/2021 Time: 12:24:55\r\n'
+2021-10-21 15:13:10,775:ERROR: unknown header: Date: 10/21/2021 Time
+2021-10-21 15:13:12,474:DEBUG: mega>rpi: b'SU:1.00\r\n'
+2021-10-21 15:13:12,474:ERROR: unknown header: SU:1.00
+2021-10-21 15:13:12,476:DEBUG: mega>rpi: b'LC:1.00\r\n'
+2021-10-21 15:13:12,476:ERROR: unknown header: LC:1.00
+2021-10-21 15:13:12,555:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:12,556:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:12,571:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:12,585:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:12,641:DEBUG: mega>rpi: b'BP1:1118.00\r\n'
+2021-10-21 15:13:12,699:DEBUG: mega>rpi: b'BP2:1142.90\r\n'
+2021-10-21 15:13:12,757:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:12,773:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:12,785:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:12,843:DEBUG: mega>rpi: b'TP1:1012.70\r\n'
+2021-10-21 15:13:12,904:DEBUG: mega>rpi: b'TP2:1038.20\r\n'
+2021-10-21 15:13:12,916:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:12,974:DEBUG: mega>rpi: b'AP:7607.10\r\n'
+2021-10-21 15:13:12,975:DEBUG: mega>rpi: b'BV:376.55\r\n'
+2021-10-21 15:13:12,976:WARNING: restarting
+2021-10-21 15:13:12,977:DEBUG: clearing sensor BT1 data
+2021-10-21 15:13:12,978:DEBUG: clearing sensor BT2 data
+2021-10-21 15:13:12,978:DEBUG: clearing sensor TT1 data
+2021-10-21 15:13:12,979:DEBUG: clearing sensor TT2 data
+2021-10-21 15:13:12,980:DEBUG: clearing sensor AT data
+2021-10-21 15:13:12,980:DEBUG: clearing sensor BP1 data
+2021-10-21 15:13:12,981:DEBUG: clearing sensor BP2 data
+2021-10-21 15:13:12,982:DEBUG: clearing sensor TP1 data
+2021-10-21 15:13:12,982:DEBUG: clearing sensor TP2 data
+2021-10-21 15:13:12,983:DEBUG: clearing sensor HP data
+2021-10-21 15:13:12,984:DEBUG: clearing sensor AP data
+2021-10-21 15:13:12,984:DEBUG: clearing sensor X data
+2021-10-21 15:13:12,985:DEBUG: clearing sensor Y data
+2021-10-21 15:13:12,985:DEBUG: clearing sensor Z data
+2021-10-21 15:13:12,986:DEBUG: clearing sensor Altimeter data
+2021-10-21 15:13:12,986:DEBUG: clearing sensor Altimeter data
+2021-10-21 15:13:12,987:DEBUG: clearing sensor Bladder Volume data
+2021-10-21 15:13:12,987:DEBUG: clearing sensor RPM data
+2021-10-21 15:13:12,988:DEBUG: clearing flag Pump data
+2021-10-21 15:13:12,988:DEBUG: clearing flag Hull leak data
+2021-10-21 15:13:12,989:DEBUG: clearing flag Engine leak data
+2021-10-21 15:13:12,989:DEBUG: clearing flag Bladder data
+2021-10-21 15:13:12,990:DEBUG: clearing flag Full surface initiated data
+2021-10-21 15:13:12,990:INFO: State.INIT
+2021-10-21 15:13:12,992:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:12,993:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) 0  0  None None None None None 0  Buffering (0/1) INIT  IDLE         30.00    None  None  
+2021-10-21 15:13:12,995:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:12,997:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-21 15:13:12,998:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:12,999:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:13,007:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:13,010:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:13,012:DEBUG: mega>rpi: b'LC:2.00\r\n'
+2021-10-21 15:13:13,012:ERROR: unknown header: LC:2.00
+2021-10-21 15:13:13,088:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:13,090:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:13,105:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:13,116:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:13,174:DEBUG: mega>rpi: b'BP1:1117.90\r\n'
+2021-10-21 15:13:13,235:DEBUG: mega>rpi: b'BP2:1142.20\r\n'
+2021-10-21 15:13:13,293:DEBUG: mega>rpi: b'HP:1172.50\r\n'
+2021-10-21 15:13:13,305:DEBUG: mega>rpi: b'TT1:24.55\r\n'
+2021-10-21 15:13:13,320:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:13,379:DEBUG: mega>rpi: b'TP1:1012.00\r\n'
+2021-10-21 15:13:13,437:DEBUG: mega>rpi: b'TP2:1038.50\r\n'
+2021-10-21 15:13:13,448:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:13,509:DEBUG: mega>rpi: b'AP:7606.60\r\n'
+2021-10-21 15:13:13,511:DEBUG: mega>rpi: b'BV:376.63\r\n'
+2021-10-21 15:13:13,511:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:13,513:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:13,514:INFO: Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) 1.50 100.00 0  0  0  None None 376.63 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:13,515:WARNING: sensor BT1 is not ready
+2021-10-21 15:13:13,517:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:13,518:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-21 15:13:13,520:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:13,521:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:13,522:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:13,524:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:13,525:DEBUG: mega>rpi: b'LC:3.00\r\n'
+2021-10-21 15:13:13,526:ERROR: unknown header: LC:3.00
+2021-10-21 15:13:13,599:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:13,603:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:13,616:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:13,629:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:13,686:DEBUG: mega>rpi: b'BP1:1119.00\r\n'
+2021-10-21 15:13:13,747:DEBUG: mega>rpi: b'BP2:1142.60\r\n'
+2021-10-21 15:13:13,805:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:13,817:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:13,833:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:13,891:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:13,948:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:13,960:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:14,022:DEBUG: mega>rpi: b'AP:7606.10\r\n'
+2021-10-21 15:13:14,024:DEBUG: mega>rpi: b'BV:376.74\r\n'
+2021-10-21 15:13:14,024:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:14,026:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:14,027:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 1.50 100.00 0  0  0  None None 376.74 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:14,028:WARNING: sensor BT1 is not ready
+2021-10-21 15:13:14,030:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:14,031:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:14,032:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:14,034:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:14,046:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:14,048:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:14,049:DEBUG: mega>rpi: b'LC:4.00\r\n'
+2021-10-21 15:13:14,050:ERROR: unknown header: LC:4.00
+2021-10-21 15:13:14,124:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:14,128:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:14,141:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:14,153:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:14,214:DEBUG: mega>rpi: b'BP1:1117.70\r\n'
+2021-10-21 15:13:14,271:DEBUG: mega>rpi: b'BP2:1142.30\r\n'
+2021-10-21 15:13:14,329:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:14,342:DEBUG: mega>rpi: b'TT1:24.55\r\n'
+2021-10-21 15:13:14,365:DEBUG: mega>rpi: b'TT2:24.67\r\n'
+2021-10-21 15:13:14,415:DEBUG: mega>rpi: b'TP1:1012.10\r\n'
+2021-10-21 15:13:14,473:DEBUG: mega>rpi: b'TP2:1038.00\r\n'
+2021-10-21 15:13:14,488:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:14,546:DEBUG: mega>rpi: b'AP:7606.00\r\n'
+2021-10-21 15:13:14,547:DEBUG: mega>rpi: b'BV:376.72\r\n'
+2021-10-21 15:13:14,548:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:14,549:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:14,550:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.50 100.00 0  0  0  None None 376.72 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:14,551:WARNING: sensor BT1 is not ready
+2021-10-21 15:13:14,553:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:14,554:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:14,556:DEBUG: mega>rpi: b'Y:-0.02\r\n'
+2021-10-21 15:13:14,557:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:14,608:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:14,609:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:14,610:DEBUG: mega>rpi: b'LC:5.00\r\n'
+2021-10-21 15:13:14,611:ERROR: unknown header: LC:5.00
+2021-10-21 15:13:14,689:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:14,690:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:14,702:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:14,719:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:14,775:DEBUG: mega>rpi: b'BP1:1118.20\r\n'
+2021-10-21 15:13:14,833:DEBUG: mega>rpi: b'BP2:1142.40\r\n'
+2021-10-21 15:13:14,891:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:14,906:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:14,919:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:14,976:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:15,033:DEBUG: mega>rpi: b'TP2:1038.40\r\n'
+2021-10-21 15:13:15,049:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:15,107:DEBUG: mega>rpi: b'AP:7605.70\r\n'
+2021-10-21 15:13:15,109:DEBUG: mega>rpi: b'BV:376.76\r\n'
+2021-10-21 15:13:15,109:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:15,110:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:15,111:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.50 100.00 0  0  0  None None 376.76 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:15,112:WARNING: sensor BT1 is not ready
+2021-10-21 15:13:15,114:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:15,116:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:15,118:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:15,120:DEBUG: mega>rpi: b'LC:6.00\r\n'
+2021-10-21 15:13:15,120:ERROR: unknown header: LC:6.00
+2021-10-21 15:13:15,197:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:15,198:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:15,213:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:15,226:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:15,284:DEBUG: mega>rpi: b'BP1:1118.10\r\n'
+2021-10-21 15:13:15,341:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:15,402:DEBUG: mega>rpi: b'HP:1173.10\r\n'
+2021-10-21 15:13:15,415:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:15,426:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:15,488:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:15,546:DEBUG: mega>rpi: b'TP2:1038.50\r\n'
+2021-10-21 15:13:15,557:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:15,615:DEBUG: mega>rpi: b'AP:7605.90\r\n'
+2021-10-21 15:13:15,619:DEBUG: mega>rpi: b'BV:376.73\r\n'
+2021-10-21 15:13:15,620:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:15,621:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:15,622:INFO: 25.13 24.59 24.54 24.66 24.47 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.18 11.42 10.12 10.38 1172.76 7606.06 1.50 100.00 0  0  0  None None 376.73 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:15,622:WARNING: sensor X is not ready
+2021-10-21 15:13:15,624:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:15,625:DEBUG: mega>rpi: b'X:-0.03\r\n'
+2021-10-21 15:13:15,627:DEBUG: mega>rpi: b'Y:0.04\r\n'
+2021-10-21 15:13:15,628:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:15,643:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:15,645:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:15,647:DEBUG: mega>rpi: b'LC:7.00\r\n'
+2021-10-21 15:13:15,647:ERROR: unknown header: LC:7.00
+2021-10-21 15:13:15,725:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:15,727:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:15,742:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:15,755:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:15,811:DEBUG: mega>rpi: b'BP1:1117.90\r\n'
+2021-10-21 15:13:15,869:DEBUG: mega>rpi: b'BP2:1143.30\r\n'
+2021-10-21 15:13:15,927:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:15,943:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:15,955:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:16,013:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:16,074:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:16,086:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:16,143:DEBUG: mega>rpi: b'AP:7605.20\r\n'
+2021-10-21 15:13:16,147:DEBUG: mega>rpi: b'BV:376.84\r\n'
+2021-10-21 15:13:16,147:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-21 15:13:16,149:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-21 15:13:16,150:INFO: 25.13 24.60 24.54 24.66 24.47 -0.00 0.00 0.00 11.18 11.43 10.12 10.38 1172.82 7605.78 1.50 100.00 0  0  0  None None 376.84 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         30.00    None  None  
+2021-10-21 15:13:16,152:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:16,155:DEBUG: mega>rpi: b'PD:1.50\r\n'
+2021-10-21 15:13:16,160:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:16,162:DEBUG: mega>rpi: b'LC:8.00\r\n'
+2021-10-21 15:13:16,162:ERROR: unknown header: LC:8.00
+2021-10-21 15:13:16,238:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:16,242:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:16,254:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:16,266:DEBUG: mega>rpi: b'BT2:24.57\r\n'
+2021-10-21 15:13:16,324:DEBUG: mega>rpi: b'BP1:1118.70\r\n'
+2021-10-21 15:13:16,384:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:16,443:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:16,455:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:16,470:DEBUG: mega>rpi: b'TT2:24.65\r\n'
+2021-10-21 15:13:16,528:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:16,586:DEBUG: mega>rpi: b'TP2:1038.50\r\n'
+2021-10-21 15:13:16,598:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:16,659:DEBUG: mega>rpi: b'AP:7604.90\r\n'
+2021-10-21 15:13:16,660:DEBUG: mega>rpi: b'BV:376.89\r\n'
+2021-10-21 15:13:16,661:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-21 15:13:16,662:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-21 15:13:16,663:INFO: 25.13 24.59 24.54 24.66 24.47 -0.00 0.00 0.00 11.18 11.43 10.12 10.38 1172.82 7605.54 1.50 100.00 0  0  0  None None 376.89 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         30.00    None  None  
+2021-10-21 15:13:16,664:ERROR: error in HP sensor value: 1172.82 is out of bound!
+2021-10-21 15:13:16,665:ERROR: error in AP sensor value: 7605.54 is out of bound!
+2021-10-21 15:13:16,666:INFO: depth sensors calibrated successfully
+2021-10-21 15:13:16,667:INFO: offset set on: 10.7775
+2021-10-21 15:13:16,668:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:16,669:DEBUG: mega>rpi: b'X:-0.01\r\n'
+2021-10-21 15:13:16,671:DEBUG: mega>rpi: b'Y:0.02\r\n'
+2021-10-21 15:13:16,672:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:16,689:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:16,690:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:16,691:DEBUG: mega>rpi: b'LC:9.00\r\n'
+2021-10-21 15:13:16,692:ERROR: unknown header: LC:9.00
+2021-10-21 15:13:16,770:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:16,771:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:16,783:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:16,798:DEBUG: mega>rpi: b'BT2:24.57\r\n'
+2021-10-21 15:13:16,856:DEBUG: mega>rpi: b'BP1:1117.90\r\n'
+2021-10-21 15:13:16,914:DEBUG: mega>rpi: b'BP2:1143.00\r\n'
+2021-10-21 15:13:16,970:DEBUG: mega>rpi: b'HP:1172.50\r\n'
+2021-10-21 15:13:16,987:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:17,000:DEBUG: mega>rpi: b'TT2:24.65\r\n'
+2021-10-21 15:13:17,056:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:17,114:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:17,131:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:17,188:DEBUG: mega>rpi: b'AP:7604.50\r\n'
+2021-10-21 15:13:17,190:DEBUG: mega>rpi: b'BV:376.98\r\n'
+2021-10-21 15:13:17,190:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-21 15:13:17,192:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-21 15:13:17,193:INFO: 25.13 24.59 24.54 24.66 24.47 -0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.76 7605.24 1.49 100.00 0  0  0  None None 376.98 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         30.00    None  None  
+2021-10-21 15:13:17,194:ERROR: error in HP sensor value: 1172.76 is out of bound!
+2021-10-21 15:13:17,195:ERROR: error in AP sensor value: 7605.24 is out of bound!
+2021-10-21 15:13:17,196:DEBUG: new depth reached:0.0
+2021-10-21 15:13:17,197:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:17,199:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:17,200:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:17,201:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:17,202:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:17,204:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:17,205:DEBUG: mega>rpi: b'LC:10.00\r\n'
+2021-10-21 15:13:17,205:ERROR: unknown header: LC:10.00
+2021-10-21 15:13:17,278:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:17,282:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:17,295:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:17,306:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:17,368:DEBUG: mega>rpi: b'BP1:1116.80\r\n'
+2021-10-21 15:13:17,426:DEBUG: mega>rpi: b'BP2:1142.20\r\n'
+2021-10-21 15:13:17,482:DEBUG: mega>rpi: b'HP:1173.00\r\n'
+2021-10-21 15:13:17,495:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:17,512:DEBUG: mega>rpi: b'TT2:24.64\r\n'
+2021-10-21 15:13:17,568:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:17,626:DEBUG: mega>rpi: b'TP2:1038.30\r\n'
+2021-10-21 15:13:17,642:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:17,700:DEBUG: mega>rpi: b'AP:7604.10\r\n'
+2021-10-21 15:13:17,702:DEBUG: mega>rpi: b'BV:377.01\r\n'
+2021-10-21 15:13:17,702:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:17,704:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:17,705:INFO: 25.13 24.58 24.54 24.65 24.47 -0.00 0.01 0.00 11.18 11.43 10.12 10.38 1172.84 7604.92 1.49 100.00 0  0  0  None None 377.01 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:17,706:INFO: Waiting for water
+2021-10-21 15:13:17,706:INFO: Waiting for water
+2021-10-21 15:13:17,707:INFO: 0/10 secs
+2021-10-21 15:13:17,708:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:17,724:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:17,726:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:17,727:DEBUG: mega>rpi: b'LC:11.00\r\n'
+2021-10-21 15:13:17,728:ERROR: unknown header: LC:11.00
+2021-10-21 15:13:17,806:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:17,807:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:17,822:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:17,835:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:17,892:DEBUG: mega>rpi: b'BP1:1118.50\r\n'
+2021-10-21 15:13:17,950:DEBUG: mega>rpi: b'BP2:1142.60\r\n'
+2021-10-21 15:13:18,007:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:18,024:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:18,035:DEBUG: mega>rpi: b'TT2:24.64\r\n'
+2021-10-21 15:13:18,093:DEBUG: mega>rpi: b'TP1:1011.80\r\n'
+2021-10-21 15:13:18,154:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:18,166:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:18,224:DEBUG: mega>rpi: b'AP:7604.00\r\n'
+2021-10-21 15:13:18,226:DEBUG: mega>rpi: b'BV:377.02\r\n'
+2021-10-21 15:13:18,226:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:18,228:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:18,228:INFO: 25.13 24.58 24.54 24.65 24.47 -0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.74 7604.54 1.49 100.00 0  0  0  None None 377.02 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:18,229:INFO: Waiting for water
+2021-10-21 15:13:18,230:INFO: 1/10 secs
+2021-10-21 15:13:18,231:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:18,233:DEBUG: mega>rpi: b'X:-0.02\r\n'
+2021-10-21 15:13:18,234:DEBUG: mega>rpi: b'Y:0.01\r\n'
+2021-10-21 15:13:18,235:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:18,285:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:18,290:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:18,291:DEBUG: mega>rpi: b'LC:12.00\r\n'
+2021-10-21 15:13:18,292:ERROR: unknown header: LC:12.00
+2021-10-21 15:13:18,368:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:18,371:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:18,383:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:18,396:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:18,454:DEBUG: mega>rpi: b'BP1:1118.00\r\n'
+2021-10-21 15:13:18,514:DEBUG: mega>rpi: b'BP2:1143.30\r\n'
+2021-10-21 15:13:18,572:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:18,585:DEBUG: mega>rpi: b'TT1:24.53\r\n'
+2021-10-21 15:13:18,600:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:18,658:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:18,716:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:18,727:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:18,789:DEBUG: mega>rpi: b'AP:7603.70\r\n'
+2021-10-21 15:13:18,790:DEBUG: mega>rpi: b'BV:377.07\r\n'
+2021-10-21 15:13:18,791:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:18,792:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:18,793:INFO: 25.13 24.58 24.54 24.64 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7604.24 1.49 100.00 0  0  0  None None 377.07 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:18,794:INFO: Waiting for water
+2021-10-21 15:13:18,794:INFO: 1/10 secs
+2021-10-21 15:13:18,796:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:18,797:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:18,799:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:18,800:DEBUG: mega>rpi: b'LC:13.00\r\n'
+2021-10-21 15:13:18,800:ERROR: unknown header: LC:13.00
+2021-10-21 15:13:18,878:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:18,880:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:18,892:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:18,904:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:18,965:DEBUG: mega>rpi: b'BP1:1117.80\r\n'
+2021-10-21 15:13:19,023:DEBUG: mega>rpi: b'BP2:1143.10\r\n'
+2021-10-21 15:13:19,080:DEBUG: mega>rpi: b'HP:1173.70\r\n'
+2021-10-21 15:13:19,092:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:19,108:DEBUG: mega>rpi: b'TT2:24.64\r\n'
+2021-10-21 15:13:19,166:DEBUG: mega>rpi: b'TP1:1012.70\r\n'
+2021-10-21 15:13:19,224:DEBUG: mega>rpi: b'TP2:1038.40\r\n'
+2021-10-21 15:13:19,239:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:19,297:DEBUG: mega>rpi: b'AP:7603.70\r\n'
+2021-10-21 15:13:19,299:DEBUG: mega>rpi: b'BV:377.07\r\n'
+2021-10-21 15:13:19,299:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:19,301:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:19,302:INFO: 25.13 24.59 24.54 24.64 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1172.88 7604.00 1.49 100.00 0  0  0  None None 377.07 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:19,303:INFO: Waiting for water
+2021-10-21 15:13:19,303:INFO: 2/10 secs
+2021-10-21 15:13:19,305:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:19,306:DEBUG: mega>rpi: b'X:-0.03\r\n'
+2021-10-21 15:13:19,307:DEBUG: mega>rpi: b'Y:0.04\r\n'
+2021-10-21 15:13:19,308:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:19,322:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:19,323:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:19,325:DEBUG: mega>rpi: b'LC:14.00\r\n'
+2021-10-21 15:13:19,326:ERROR: unknown header: LC:14.00
+2021-10-21 15:13:19,403:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:19,405:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:19,420:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:19,433:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:19,489:DEBUG: mega>rpi: b'BP1:1118.70\r\n'
+2021-10-21 15:13:19,547:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:19,608:DEBUG: mega>rpi: b'HP:1172.90\r\n'
+2021-10-21 15:13:19,620:DEBUG: mega>rpi: b'TT1:24.53\r\n'
+2021-10-21 15:13:19,633:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:19,694:DEBUG: mega>rpi: b'TP1:1012.60\r\n'
+2021-10-21 15:13:19,751:DEBUG: mega>rpi: b'TP2:1038.50\r\n'
+2021-10-21 15:13:19,764:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:19,822:DEBUG: mega>rpi: b'AP:7603.80\r\n'
+2021-10-21 15:13:19,826:DEBUG: mega>rpi: b'BV:377.02\r\n'
+2021-10-21 15:13:19,826:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:19,827:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:19,829:INFO: 25.13 24.59 24.54 24.63 24.47 -0.02 0.02 0.00 11.18 11.43 10.12 10.38 1172.96 7603.86 1.49 100.00 0  0  0  None None 377.02 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:19,829:INFO: Waiting for water
+2021-10-21 15:13:19,830:INFO: 2/10 secs
+2021-10-21 15:13:19,831:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:19,833:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:19,834:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:19,836:DEBUG: mega>rpi: b'LC:15.00\r\n'
+2021-10-21 15:13:19,836:ERROR: unknown header: LC:15.00
+2021-10-21 15:13:19,912:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:19,913:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:19,928:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:19,940:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:19,998:DEBUG: mega>rpi: b'BP1:1118.20\r\n'
+2021-10-21 15:13:20,055:DEBUG: mega>rpi: b'BP2:1143.00\r\n'
+2021-10-21 15:13:20,116:DEBUG: mega>rpi: b'HP:1172.90\r\n'
+2021-10-21 15:13:20,128:DEBUG: mega>rpi: b'TT1:24.53\r\n'
+2021-10-21 15:13:20,141:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:20,202:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:20,259:DEBUG: mega>rpi: b'TP2:1038.10\r\n'
+2021-10-21 15:13:20,272:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:20,329:DEBUG: mega>rpi: b'AP:7603.10\r\n'
+2021-10-21 15:13:20,333:DEBUG: mega>rpi: b'BV:377.16\r\n'
+2021-10-21 15:13:20,333:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:20,335:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:20,336:INFO: 25.13 24.59 24.53 24.63 24.47 -0.02 0.02 0.00 11.18 11.43 10.12 10.38 1172.94 7603.66 1.49 100.00 0  0  0  None None 377.16 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:20,336:INFO: Waiting for water
+2021-10-21 15:13:20,337:INFO: 3/10 secs
+2021-10-21 15:13:20,338:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:20,340:DEBUG: mega>rpi: b'X:-0.01\r\n'
+2021-10-21 15:13:20,341:DEBUG: mega>rpi: b'Y:-0.03\r\n'
+2021-10-21 15:13:20,342:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:20,358:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:20,360:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:20,361:DEBUG: mega>rpi: b'LC:16.00\r\n'
+2021-10-21 15:13:20,361:ERROR: unknown header: LC:16.00
+2021-10-21 15:13:20,440:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:20,441:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:20,453:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:20,468:DEBUG: mega>rpi: b'BT2:24.57\r\n'
+2021-10-21 15:13:20,526:DEBUG: mega>rpi: b'BP1:1117.70\r\n'
+2021-10-21 15:13:20,584:DEBUG: mega>rpi: b'BP2:1142.70\r\n'
+2021-10-21 15:13:20,640:DEBUG: mega>rpi: b'HP:1172.90\r\n'
+2021-10-21 15:13:20,657:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:20,670:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:20,726:DEBUG: mega>rpi: b'TP1:1012.40\r\n'
+2021-10-21 15:13:20,784:DEBUG: mega>rpi: b'TP2:1038.00\r\n'
+2021-10-21 15:13:20,800:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:20,858:DEBUG: mega>rpi: b'AP:7603.50\r\n'
+2021-10-21 15:13:20,859:DEBUG: mega>rpi: b'BV:377.10\r\n'
+2021-10-21 15:13:20,860:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:20,861:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:20,862:INFO: 25.13 24.59 24.53 24.63 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1173.00 7603.56 1.49 100.00 0  0  0  None None 377.10 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:20,863:INFO: Waiting for water
+2021-10-21 15:13:20,864:INFO: 3/10 secs
+2021-10-21 15:13:20,870:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:20,872:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:20,873:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:20,874:DEBUG: mega>rpi: b'LC:17.00\r\n'
+2021-10-21 15:13:20,875:ERROR: unknown header: LC:17.00
+2021-10-21 15:13:20,948:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:20,949:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:20,964:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:20,977:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:21,034:DEBUG: mega>rpi: b'BP1:1117.60\r\n'
+2021-10-21 15:13:21,094:DEBUG: mega>rpi: b'BP2:1143.00\r\n'
+2021-10-21 15:13:21,153:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:21,165:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:21,178:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:21,239:DEBUG: mega>rpi: b'TP1:1012.10\r\n'
+2021-10-21 15:13:21,296:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:21,308:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:21,369:DEBUG: mega>rpi: b'AP:7602.90\r\n'
+2021-10-21 15:13:21,372:DEBUG: mega>rpi: b'BV:377.16\r\n'
+2021-10-21 15:13:21,372:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:21,374:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:21,375:INFO: 25.13 24.59 24.54 24.63 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1173.00 7603.40 1.49 100.00 0  0  0  None None 377.16 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:21,376:INFO: Waiting for water
+2021-10-21 15:13:21,377:INFO: 4/10 secs
+2021-10-21 15:13:21,379:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:21,380:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:21,382:DEBUG: mega>rpi: b'Y:0.01\r\n'
+2021-10-21 15:13:21,383:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:21,394:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:21,396:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:21,398:DEBUG: mega>rpi: b'LC:18.00\r\n'
+2021-10-21 15:13:21,399:ERROR: unknown header: LC:18.00
+2021-10-21 15:13:21,476:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:21,478:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:21,493:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:21,506:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:21,562:DEBUG: mega>rpi: b'BP1:1118.20\r\n'
+2021-10-21 15:13:21,620:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:21,681:DEBUG: mega>rpi: b'HP:1173.10\r\n'
+2021-10-21 15:13:21,693:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:21,706:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:21,767:DEBUG: mega>rpi: b'TP1:1011.70\r\n'
+2021-10-21 15:13:21,824:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:21,837:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:21,893:DEBUG: mega>rpi: b'AP:7602.40\r\n'
+2021-10-21 15:13:21,898:DEBUG: mega>rpi: b'BV:377.27\r\n'
+2021-10-21 15:13:21,899:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:21,900:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:21,901:INFO: 25.14 24.58 24.54 24.63 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1172.88 7603.14 1.49 100.00 0  0  0  None None 377.27 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:21,902:INFO: Waiting for water
+2021-10-21 15:13:21,903:INFO: 4/10 secs
+2021-10-21 15:13:21,904:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:21,906:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:21,908:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:21,909:DEBUG: mega>rpi: b'LC:19.00\r\n'
+2021-10-21 15:13:21,910:ERROR: unknown header: LC:19.00
+2021-10-21 15:13:21,988:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:21,989:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:22,001:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:22,017:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:22,074:DEBUG: mega>rpi: b'BP1:1118.50\r\n'
+2021-10-21 15:13:22,132:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:22,189:DEBUG: mega>rpi: b'HP:1172.30\r\n'
+2021-10-21 15:13:22,206:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:22,217:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:22,275:DEBUG: mega>rpi: b'TP1:1012.10\r\n'
+2021-10-21 15:13:22,333:DEBUG: mega>rpi: b'TP2:1038.70\r\n'
+2021-10-21 15:13:22,349:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:22,406:DEBUG: mega>rpi: b'AP:7601.90\r\n'
+2021-10-21 15:13:22,407:DEBUG: mega>rpi: b'BV:377.31\r\n'
+2021-10-21 15:13:22,408:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:22,409:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:22,410:INFO: 25.13 24.58 24.54 24.63 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1172.76 7602.76 1.49 100.00 0  0  0  None None 377.31 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:22,411:INFO: Waiting for water
+2021-10-21 15:13:22,411:INFO: 5/10 secs
+2021-10-21 15:13:22,413:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:22,414:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:22,415:DEBUG: mega>rpi: b'Y:0.01\r\n'
+2021-10-21 15:13:22,417:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:22,435:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:22,436:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:22,438:DEBUG: mega>rpi: b'LC:20.00\r\n'
+2021-10-21 15:13:22,438:ERROR: unknown header: LC:20.00
+2021-10-21 15:13:22,517:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:22,518:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:22,529:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:22,545:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:22,603:DEBUG: mega>rpi: b'BP1:1118.30\r\n'
+2021-10-21 15:13:22,660:DEBUG: mega>rpi: b'BP2:1142.40\r\n'
+2021-10-21 15:13:22,717:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:22,733:DEBUG: mega>rpi: b'TT1:24.53\r\n'
+2021-10-21 15:13:22,746:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:22,804:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:22,860:DEBUG: mega>rpi: b'TP2:1038.20\r\n'
+2021-10-21 15:13:22,877:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:22,934:DEBUG: mega>rpi: b'AP:7601.60\r\n'
+2021-10-21 15:13:22,936:DEBUG: mega>rpi: b'BV:377.39\r\n'
+2021-10-21 15:13:22,936:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:22,938:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:22,939:INFO: 25.13 24.59 24.54 24.63 24.47 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1172.74 7602.46 1.49 100.00 0  0  0  None None 377.39 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:22,940:INFO: Waiting for water
+2021-10-21 15:13:22,940:INFO: 5/10 secs
+2021-10-21 15:13:22,942:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:22,946:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:22,947:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:22,949:DEBUG: mega>rpi: b'LC:21.00\r\n'
+2021-10-21 15:13:22,949:ERROR: unknown header: LC:21.00
+2021-10-21 15:13:23,027:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:23,029:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:23,041:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:23,054:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:23,114:DEBUG: mega>rpi: b'BP1:1118.70\r\n'
+2021-10-21 15:13:23,172:DEBUG: mega>rpi: b'BP2:1143.00\r\n'
+2021-10-21 15:13:23,230:DEBUG: mega>rpi: b'HP:1172.40\r\n'
+2021-10-21 15:13:23,241:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:23,258:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:23,315:DEBUG: mega>rpi: b'TP1:1012.30\r\n'
+2021-10-21 15:13:23,373:DEBUG: mega>rpi: b'TP2:1038.10\r\n'
+2021-10-21 15:13:23,388:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:23,446:DEBUG: mega>rpi: b'AP:7602.10\r\n'
+2021-10-21 15:13:23,448:DEBUG: mega>rpi: b'BV:377.28\r\n'
+2021-10-21 15:13:23,448:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:23,450:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:23,451:INFO: 25.13 24.59 24.54 24.63 24.46 -0.01 0.01 0.00 11.18 11.43 10.12 10.38 1172.64 7602.18 1.49 100.00 0  0  0  None None 377.28 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:23,452:INFO: Waiting for water
+2021-10-21 15:13:23,452:INFO: 6/10 secs
+2021-10-21 15:13:23,454:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:23,455:DEBUG: mega>rpi: b'X:-0.02\r\n'
+2021-10-21 15:13:23,456:DEBUG: mega>rpi: b'Y:-0.01\r\n'
+2021-10-21 15:13:23,458:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:23,474:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:23,476:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:23,477:DEBUG: mega>rpi: b'LC:22.00\r\n'
+2021-10-21 15:13:23,478:ERROR: unknown header: LC:22.00
+2021-10-21 15:13:23,553:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:23,557:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:23,569:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:23,581:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:23,642:DEBUG: mega>rpi: b'BP1:1119.30\r\n'
+2021-10-21 15:13:23,701:DEBUG: mega>rpi: b'BP2:1142.20\r\n'
+2021-10-21 15:13:23,757:DEBUG: mega>rpi: b'HP:1172.90\r\n'
+2021-10-21 15:13:23,770:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:23,787:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:23,843:DEBUG: mega>rpi: b'TP1:1012.50\r\n'
+2021-10-21 15:13:23,901:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:23,917:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:23,974:DEBUG: mega>rpi: b'AP:7601.40\r\n'
+2021-10-21 15:13:23,976:DEBUG: mega>rpi: b'BV:377.42\r\n'
+2021-10-21 15:13:23,976:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:23,978:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:23,979:INFO: 25.14 24.59 24.54 24.62 24.47 -0.01 0.00 0.00 11.19 11.43 10.12 10.38 1172.70 7601.88 1.49 100.00 0  0  0  None None 377.42 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:23,980:INFO: Waiting for water
+2021-10-21 15:13:23,980:INFO: 6/10 secs
+2021-10-21 15:13:23,982:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:23,983:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:23,985:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:23,986:DEBUG: mega>rpi: b'LC:23.00\r\n'
+2021-10-21 15:13:23,987:ERROR: unknown header: LC:23.00
+2021-10-21 15:13:24,065:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:24,066:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:24,081:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:24,093:DEBUG: mega>rpi: b'BT2:24.57\r\n'
+2021-10-21 15:13:24,151:DEBUG: mega>rpi: b'BP1:1118.60\r\n'
+2021-10-21 15:13:24,209:DEBUG: mega>rpi: b'BP2:1142.80\r\n'
+2021-10-21 15:13:24,265:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:24,282:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:24,294:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:24,351:DEBUG: mega>rpi: b'TP1:1011.60\r\n'
+2021-10-21 15:13:24,412:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:24,425:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:24,483:DEBUG: mega>rpi: b'AP:7600.70\r\n'
+2021-10-21 15:13:24,485:DEBUG: mega>rpi: b'BV:377.53\r\n'
+2021-10-21 15:13:24,485:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:24,487:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:24,488:INFO: 25.14 24.59 24.54 24.62 24.47 -0.01 0.00 0.00 11.19 11.43 10.12 10.38 1172.64 7601.54 1.49 100.00 0  0  0  None None 377.53 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:24,489:INFO: Waiting for water
+2021-10-21 15:13:24,489:INFO: 7/10 secs
+2021-10-21 15:13:24,491:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:24,492:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-21 15:13:24,493:DEBUG: mega>rpi: b'Y:0.04\r\n'
+2021-10-21 15:13:24,494:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:24,511:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:24,515:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:24,517:DEBUG: mega>rpi: b'LC:24.00\r\n'
+2021-10-21 15:13:24,517:ERROR: unknown header: LC:24.00
+2021-10-21 15:13:24,593:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:24,597:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:24,610:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:24,621:DEBUG: mega>rpi: b'BT2:24.60\r\n'
+2021-10-21 15:13:24,679:DEBUG: mega>rpi: b'BP1:1119.00\r\n'
+2021-10-21 15:13:24,741:DEBUG: mega>rpi: b'BP2:1142.70\r\n'
+2021-10-21 15:13:24,797:DEBUG: mega>rpi: b'HP:1172.70\r\n'
+2021-10-21 15:13:24,810:DEBUG: mega>rpi: b'TT1:24.55\r\n'
+2021-10-21 15:13:24,827:DEBUG: mega>rpi: b'TT2:24.63\r\n'
+2021-10-21 15:13:24,884:DEBUG: mega>rpi: b'TP1:1011.90\r\n'
+2021-10-21 15:13:24,941:DEBUG: mega>rpi: b'TP2:1038.30\r\n'
+2021-10-21 15:13:24,954:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:25,015:DEBUG: mega>rpi: b'AP:7600.50\r\n'
+2021-10-21 15:13:25,017:DEBUG: mega>rpi: b'BV:377.56\r\n'
+2021-10-21 15:13:25,017:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:25,019:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:25,020:INFO: 25.14 24.59 24.54 24.63 24.47 -0.00 0.00 0.00 11.19 11.43 10.12 10.38 1172.72 7601.26 1.49 100.00 0  0  0  None None 377.56 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:25,020:INFO: Waiting for water
+2021-10-21 15:13:25,021:INFO: 7/10 secs
+2021-10-21 15:13:25,023:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:25,024:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:25,025:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:25,027:DEBUG: mega>rpi: b'LC:25.00\r\n'
+2021-10-21 15:13:25,027:ERROR: unknown header: LC:25.00
+2021-10-21 15:13:25,105:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:25,106:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:25,118:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:25,133:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:25,191:DEBUG: mega>rpi: b'BP1:1118.60\r\n'
+2021-10-21 15:13:25,249:DEBUG: mega>rpi: b'BP2:1142.40\r\n'
+2021-10-21 15:13:25,305:DEBUG: mega>rpi: b'HP:1173.50\r\n'
+2021-10-21 15:13:25,322:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:25,334:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:25,392:DEBUG: mega>rpi: b'TP1:1012.00\r\n'
+2021-10-21 15:13:25,449:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:25,465:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:25,523:DEBUG: mega>rpi: b'AP:7600.90\r\n'
+2021-10-21 15:13:25,524:DEBUG: mega>rpi: b'BV:377.50\r\n'
+2021-10-21 15:13:25,525:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:25,526:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:25,527:INFO: 25.14 24.59 24.54 24.62 24.47 -0.00 0.00 0.00 11.19 11.43 10.12 10.38 1172.86 7601.12 1.49 100.00 0  0  0  None None 377.50 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:25,528:INFO: Waiting for water
+2021-10-21 15:13:25,529:INFO: 8/10 secs
+2021-10-21 15:13:25,530:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:25,531:DEBUG: mega>rpi: b'X:0.02\r\n'
+2021-10-21 15:13:25,533:DEBUG: mega>rpi: b'Y:-0.02\r\n'
+2021-10-21 15:13:25,534:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:25,551:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:25,552:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:25,554:DEBUG: mega>rpi: b'LC:26.00\r\n'
+2021-10-21 15:13:25,554:ERROR: unknown header: LC:26.00
+2021-10-21 15:13:25,634:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:25,635:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:25,645:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:25,662:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:25,720:DEBUG: mega>rpi: b'BP1:1117.50\r\n'
+2021-10-21 15:13:25,778:DEBUG: mega>rpi: b'BP2:1142.70\r\n'
+2021-10-21 15:13:25,834:DEBUG: mega>rpi: b'HP:1172.50\r\n'
+2021-10-21 15:13:25,850:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:25,863:DEBUG: mega>rpi: b'TT2:24.61\r\n'
+2021-10-21 15:13:25,920:DEBUG: mega>rpi: b'TP1:1011.90\r\n'
+2021-10-21 15:13:25,977:DEBUG: mega>rpi: b'TP2:1038.00\r\n'
+2021-10-21 15:13:25,994:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:26,052:DEBUG: mega>rpi: b'AP:7601.00\r\n'
+2021-10-21 15:13:26,053:DEBUG: mega>rpi: b'BV:377.45\r\n'
+2021-10-21 15:13:26,054:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:26,055:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:26,056:INFO: 25.14 24.59 24.54 24.62 24.47 0.00 0.01 0.00 11.19 11.43 10.12 10.38 1172.88 7600.90 1.49 100.00 0  0  0  None None 377.45 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:26,057:INFO: Waiting for water
+2021-10-21 15:13:26,058:INFO: 8/10 secs
+2021-10-21 15:13:26,059:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:26,061:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:26,062:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:26,063:DEBUG: mega>rpi: b'LC:27.00\r\n'
+2021-10-21 15:13:26,064:ERROR: unknown header: LC:27.00
+2021-10-21 15:13:26,141:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:26,142:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:26,157:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:26,170:DEBUG: mega>rpi: b'BT2:24.56\r\n'
+2021-10-21 15:13:26,227:DEBUG: mega>rpi: b'BP1:1118.70\r\n'
+2021-10-21 15:13:26,285:DEBUG: mega>rpi: b'BP2:1142.70\r\n'
+2021-10-21 15:13:26,342:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:26,359:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:26,370:DEBUG: mega>rpi: b'TT2:24.61\r\n'
+2021-10-21 15:13:26,428:DEBUG: mega>rpi: b'TP1:1012.20\r\n'
+2021-10-21 15:13:26,489:DEBUG: mega>rpi: b'TP2:1038.60\r\n'
+2021-10-21 15:13:26,501:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:26,559:DEBUG: mega>rpi: b'AP:7600.30\r\n'
+2021-10-21 15:13:26,561:DEBUG: mega>rpi: b'BV:377.56\r\n'
+2021-10-21 15:13:26,561:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:26,563:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:26,564:INFO: 25.13 24.58 24.54 24.62 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.38 1172.82 7600.68 1.49 100.00 0  0  0  None None 377.56 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:26,565:INFO: Waiting for water
+2021-10-21 15:13:26,565:INFO: 9/10 secs
+2021-10-21 15:13:26,567:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:26,568:DEBUG: mega>rpi: b'X:0.01\r\n'
+2021-10-21 15:13:26,569:DEBUG: mega>rpi: b'Y:0.02\r\n'
+2021-10-21 15:13:26,570:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:26,584:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:26,587:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:26,588:DEBUG: mega>rpi: b'LC:28.00\r\n'
+2021-10-21 15:13:26,589:ERROR: unknown header: LC:28.00
+2021-10-21 15:13:26,665:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:26,666:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:26,682:DEBUG: mega>rpi: b'BT1:25.14\r\n'
+2021-10-21 15:13:26,695:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:26,751:DEBUG: mega>rpi: b'BP1:1118.40\r\n'
+2021-10-21 15:13:26,812:DEBUG: mega>rpi: b'BP2:1143.00\r\n'
+2021-10-21 15:13:26,871:DEBUG: mega>rpi: b'HP:1173.00\r\n'
+2021-10-21 15:13:26,882:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:26,895:DEBUG: mega>rpi: b'TT2:24.62\r\n'
+2021-10-21 15:13:26,957:DEBUG: mega>rpi: b'TP1:1011.90\r\n'
+2021-10-21 15:13:27,013:DEBUG: mega>rpi: b'TP2:1038.80\r\n'
+2021-10-21 15:13:27,026:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:27,084:DEBUG: mega>rpi: b'AP:7600.20\r\n'
+2021-10-21 15:13:27,088:DEBUG: mega>rpi: b'BV:377.60\r\n'
+2021-10-21 15:13:27,089:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:27,090:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:27,091:INFO: 25.13 24.58 24.54 24.62 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.38 1172.86 7600.58 1.49 100.00 0  0  0  None None 377.60 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:27,092:INFO: Waiting for water
+2021-10-21 15:13:27,092:INFO: 9/10 secs
+2021-10-21 15:13:27,094:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:27,095:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:27,097:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:27,098:DEBUG: mega>rpi: b'LC:29.00\r\n'
+2021-10-21 15:13:27,099:ERROR: unknown header: LC:29.00
+2021-10-21 15:13:27,174:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:27,175:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:27,190:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:27,202:DEBUG: mega>rpi: b'BT2:24.58\r\n'
+2021-10-21 15:13:27,260:DEBUG: mega>rpi: b'BP1:1118.80\r\n'
+2021-10-21 15:13:27,321:DEBUG: mega>rpi: b'BP2:1142.70\r\n'
+2021-10-21 15:13:27,378:DEBUG: mega>rpi: b'HP:1172.60\r\n'
+2021-10-21 15:13:27,390:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:27,407:DEBUG: mega>rpi: b'TT2:24.61\r\n'
+2021-10-21 15:13:27,464:DEBUG: mega>rpi: b'TP1:1012.10\r\n'
+2021-10-21 15:13:27,522:DEBUG: mega>rpi: b'TP2:1038.80\r\n'
+2021-10-21 15:13:27,535:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:27,594:DEBUG: mega>rpi: b'AP:7599.20\r\n'
+2021-10-21 15:13:27,596:DEBUG: mega>rpi: b'BV:377.72\r\n'
+2021-10-21 15:13:27,596:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:27,598:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:27,599:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.84 7600.32 1.49 100.00 0  0  0  None None 377.72 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:27,599:INFO: Waiting for water
+2021-10-21 15:13:27,600:INFO: 10/10 secs
+2021-10-21 15:13:27,602:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:27,603:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-21 15:13:27,604:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-21 15:13:27,606:DEBUG: mega>rpi: b'Z:0.01\r\n'
+2021-10-21 15:13:27,620:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:27,624:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:27,626:DEBUG: mega>rpi: b'LC:30.00\r\n'
+2021-10-21 15:13:27,626:ERROR: unknown header: LC:30.00
+2021-10-21 15:13:27,702:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:27,706:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:27,718:DEBUG: mega>rpi: b'BT1:25.13\r\n'
+2021-10-21 15:13:27,730:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:27,788:DEBUG: mega>rpi: b'BP1:1118.20\r\n'
+2021-10-21 15:13:27,848:DEBUG: mega>rpi: b'BP2:1142.30\r\n'
+2021-10-21 15:13:27,906:DEBUG: mega>rpi: b'HP:1172.80\r\n'
+2021-10-21 15:13:27,919:DEBUG: mega>rpi: b'TT1:24.54\r\n'
+2021-10-21 15:13:27,934:DEBUG: mega>rpi: b'TT2:24.61\r\n'
+2021-10-21 15:13:27,992:DEBUG: mega>rpi: b'TP1:1012.40\r\n'
+2021-10-21 15:13:28,050:DEBUG: mega>rpi: b'TP2:1038.40\r\n'
+2021-10-21 15:13:28,062:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:28,123:DEBUG: mega>rpi: b'AP:7599.60\r\n'
+2021-10-21 15:13:28,124:DEBUG: mega>rpi: b'BV:377.66\r\n'
+2021-10-21 15:13:28,125:INFO: State.WAIT_FOR_WATER
+2021-10-21 15:13:28,127:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-21 15:13:28,128:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7600.06 1.49 100.00 0  0  0  None None 377.66 Buffering (0/1) WAIT_FOR_WATER IDLE         30.00    30.00 0.00  
+2021-10-21 15:13:28,128:INFO: Done waiting for water
+2021-10-21 15:13:28,129:DEBUG: 10.00 - margin  < avgTop/ < 10.00 + margin
+2021-10-21 15:13:28,130:DEBUG: 10.00 - 0.05  < 10.254999999999999 < 10.00 + 0.05
+2021-10-21 15:13:28,130:DEBUG: top_in_range True
+2021-10-21 15:13:28,131:DEBUG: 10.50  < avgBottom
+2021-10-21 15:13:28,131:DEBUG: 10.50  < 11.305
+2021-10-21 15:13:28,131:DEBUG: bottom_in_range True
+2021-10-21 15:13:28,132:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:28,133:INFO: setting target depth to 1.5 [mbar]
+2021-10-21 15:13:28,133:INFO: sending dive command
+2021-10-21 15:13:28,134:DEBUG: rpi>MEGA: S:1
+2021-10-21 15:13:28,135:INFO: setting state to MissionState.DESCENDING
+2021-10-21 15:13:28,136:DEBUG: mega>rpi: b'PD:1.49\r\n'
+2021-10-21 15:13:28,137:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:28,139:DEBUG: mega>rpi: b'LC:31.00\r\n'
+2021-10-21 15:13:28,139:ERROR: unknown header: LC:31.00
+2021-10-21 15:13:28,214:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:28,215:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:29,213:DEBUG: mega>rpi: b'S:1.00\r\n'
+2021-10-21 15:13:29,213:ERROR: unknown header: S:1.00
+2021-10-21 15:13:29,217:DEBUG: mega>rpi: b'FS:1.00\r\n'
+2021-10-21 15:13:29,230:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:29,287:DEBUG: mega>rpi: b'AP:7598.80\r\n'
+2021-10-21 15:13:29,291:DEBUG: mega>rpi: b'BV:377.78\r\n'
+2021-10-21 15:13:29,292:INFO: State.STOP
+2021-10-21 15:13:29,294:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:29,296:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7599.62 1.49 100.00 0  0  0  1  None 377.78 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:29,297:WARNING: Stopped
+2021-10-21 15:13:29,298:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:29,300:DEBUG: mega>rpi: b'FS:1.00\r\n'
+2021-10-21 15:13:30,069:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:30,127:DEBUG: mega>rpi: b'AP:7625.40\r\n'
+2021-10-21 15:13:30,129:DEBUG: mega>rpi: b'BV:373.75\r\n'
+2021-10-21 15:13:30,130:INFO: State.STOP
+2021-10-21 15:13:30,132:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,135:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7604.64 1.49 100.00 0  0  0  1  None 373.75 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,136:WARNING: Stopped
+2021-10-21 15:13:30,138:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,192:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:30,249:DEBUG: mega>rpi: b'AP:7638.10\r\n'
+2021-10-21 15:13:30,251:DEBUG: mega>rpi: b'BV:371.83\r\n'
+2021-10-21 15:13:30,252:INFO: State.STOP
+2021-10-21 15:13:30,254:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,256:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7612.22 1.49 100.00 0  0  0  1  None 371.83 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,257:WARNING: Stopped
+2021-10-21 15:13:30,259:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,315:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:30,372:DEBUG: mega>rpi: b'AP:7654.60\r\n'
+2021-10-21 15:13:30,375:DEBUG: mega>rpi: b'BV:369.34\r\n'
+2021-10-21 15:13:30,376:INFO: State.STOP
+2021-10-21 15:13:30,378:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,379:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7623.30 1.49 100.00 0  0  0  1  None 369.34 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,380:WARNING: Stopped
+2021-10-21 15:13:30,382:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,438:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:30,495:DEBUG: mega>rpi: b'AP:7670.20\r\n'
+2021-10-21 15:13:30,496:DEBUG: mega>rpi: b'BV:367.04\r\n'
+2021-10-21 15:13:30,497:INFO: State.STOP
+2021-10-21 15:13:30,499:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,500:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7637.42 1.49 100.00 0  0  0  1  None 367.04 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,502:WARNING: Stopped
+2021-10-21 15:13:30,504:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,560:DEBUG: mega>rpi: b'AT:24.46\r\n'
+2021-10-21 15:13:30,618:DEBUG: mega>rpi: b'AP:7690.50\r\n'
+2021-10-21 15:13:30,620:DEBUG: mega>rpi: b'BV:363.98\r\n'
+2021-10-21 15:13:30,621:INFO: State.STOP
+2021-10-21 15:13:30,623:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,624:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7655.76 1.49 100.00 0  0  0  1  None 363.98 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,625:WARNING: Stopped
+2021-10-21 15:13:30,627:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,684:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:30,741:DEBUG: mega>rpi: b'AP:7714.50\r\n'
+2021-10-21 15:13:30,745:DEBUG: mega>rpi: b'BV:360.45\r\n'
+2021-10-21 15:13:30,746:INFO: State.STOP
+2021-10-21 15:13:30,748:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,750:INFO: 25.13 24.58 24.54 24.61 24.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7673.58 1.49 100.00 0  0  0  1  None 360.45 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,751:WARNING: Stopped
+2021-10-21 15:13:30,752:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,807:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:30,867:DEBUG: mega>rpi: b'AP:7737.90\r\n'
+2021-10-21 15:13:30,868:DEBUG: mega>rpi: b'BV:357.00\r\n'
+2021-10-21 15:13:30,869:INFO: State.STOP
+2021-10-21 15:13:30,871:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:30,872:INFO: 25.13 24.58 24.54 24.61 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7693.54 1.49 100.00 0  0  0  1  None 357.00 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:30,874:WARNING: Stopped
+2021-10-21 15:13:30,876:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:30,929:DEBUG: mega>rpi: b'AT:24.47\r\n'
+2021-10-21 15:13:30,990:DEBUG: mega>rpi: b'AP:7763.40\r\n'
+2021-10-21 15:13:30,992:DEBUG: mega>rpi: b'BV:353.27\r\n'
+2021-10-21 15:13:30,997:INFO: State.STOP
+2021-10-21 15:13:30,999:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,001:INFO: 25.13 24.58 24.54 24.61 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7715.30 1.49 100.00 0  0  0  1  None 353.27 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,001:WARNING: Stopped
+2021-10-21 15:13:31,003:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,056:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,114:DEBUG: mega>rpi: b'AP:7789.30\r\n'
+2021-10-21 15:13:31,116:DEBUG: mega>rpi: b'BV:349.53\r\n'
+2021-10-21 15:13:31,117:INFO: State.STOP
+2021-10-21 15:13:31,119:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,120:INFO: 25.13 24.58 24.54 24.61 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7739.12 1.49 100.00 0  0  0  1  None 349.53 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,121:WARNING: Stopped
+2021-10-21 15:13:31,124:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,179:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,237:DEBUG: mega>rpi: b'AP:7818.60\r\n'
+2021-10-21 15:13:31,239:DEBUG: mega>rpi: b'BV:345.30\r\n'
+2021-10-21 15:13:31,240:INFO: State.STOP
+2021-10-21 15:13:31,242:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,244:INFO: 25.13 24.58 24.54 24.61 24.47 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7764.74 1.49 100.00 0  0  0  1  None 345.30 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,245:WARNING: Stopped
+2021-10-21 15:13:31,248:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,302:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,359:DEBUG: mega>rpi: b'AP:7848.50\r\n'
+2021-10-21 15:13:31,361:DEBUG: mega>rpi: b'BV:341.04\r\n'
+2021-10-21 15:13:31,361:INFO: State.STOP
+2021-10-21 15:13:31,363:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,365:INFO: 25.13 24.58 24.54 24.61 24.48 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7791.54 1.49 100.00 0  0  0  1  None 341.04 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,366:WARNING: Stopped
+2021-10-21 15:13:31,369:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,425:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,482:DEBUG: mega>rpi: b'AP:7876.60\r\n'
+2021-10-21 15:13:31,483:DEBUG: mega>rpi: b'BV:337.05\r\n'
+2021-10-21 15:13:31,484:INFO: State.STOP
+2021-10-21 15:13:31,486:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,488:INFO: 25.13 24.58 24.54 24.61 24.48 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7819.28 1.49 100.00 0  0  0  1  None 337.05 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,489:WARNING: Stopped
+2021-10-21 15:13:31,491:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,547:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,605:DEBUG: mega>rpi: b'AP:7904.10\r\n'
+2021-10-21 15:13:31,608:DEBUG: mega>rpi: b'BV:333.16\r\n'
+2021-10-21 15:13:31,609:INFO: State.STOP
+2021-10-21 15:13:31,611:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,612:INFO: 25.13 24.58 24.54 24.61 24.48 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7847.42 1.49 100.00 0  0  0  1  None 333.16 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,613:WARNING: Stopped
+2021-10-21 15:13:31,615:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,671:DEBUG: mega>rpi: b'AT:24.48\r\n'
+2021-10-21 15:13:31,728:DEBUG: mega>rpi: b'AP:7932.40\r\n'
+2021-10-21 15:13:31,732:DEBUG: mega>rpi: b'BV:329.19\r\n'
+2021-10-21 15:13:31,733:INFO: State.STOP
+2021-10-21 15:13:31,735:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,737:INFO: 25.13 24.58 24.54 24.61 24.48 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7876.04 1.49 100.00 0  0  0  1  None 329.19 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,738:WARNING: Stopped
+2021-10-21 15:13:31,739:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,794:DEBUG: mega>rpi: b'AT:24.50\r\n'
+2021-10-21 15:13:31,851:DEBUG: mega>rpi: b'AP:7961.40\r\n'
+2021-10-21 15:13:31,854:DEBUG: mega>rpi: b'BV:325.21\r\n'
+2021-10-21 15:13:31,855:INFO: State.STOP
+2021-10-21 15:13:31,857:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,858:INFO: 25.13 24.58 24.54 24.61 24.48 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7904.60 1.49 100.00 0  0  0  1  None 325.21 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,859:WARNING: Stopped
+2021-10-21 15:13:31,861:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:31,916:DEBUG: mega>rpi: b'AT:24.50\r\n'
+2021-10-21 15:13:31,977:DEBUG: mega>rpi: b'AP:7990.10\r\n'
+2021-10-21 15:13:31,978:DEBUG: mega>rpi: b'BV:321.24\r\n'
+2021-10-21 15:13:31,979:INFO: State.STOP
+2021-10-21 15:13:31,981:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:31,982:INFO: 25.13 24.58 24.54 24.61 24.49 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7932.92 1.49 100.00 0  0  0  1  None 321.24 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:31,982:WARNING: Stopped
+2021-10-21 15:13:31,984:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,043:DEBUG: mega>rpi: b'AT:24.50\r\n'
+2021-10-21 15:13:32,101:DEBUG: mega>rpi: b'AP:8019.40\r\n'
+2021-10-21 15:13:32,102:DEBUG: mega>rpi: b'BV:317.22\r\n'
+2021-10-21 15:13:32,103:INFO: State.STOP
+2021-10-21 15:13:32,105:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,106:INFO: 25.13 24.58 24.54 24.61 24.49 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7961.48 1.49 100.00 0  0  0  1  None 317.22 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,107:WARNING: Stopped
+2021-10-21 15:13:32,108:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,166:DEBUG: mega>rpi: b'AT:24.52\r\n'
+2021-10-21 15:13:32,223:DEBUG: mega>rpi: b'AP:8046.70\r\n'
+2021-10-21 15:13:32,225:DEBUG: mega>rpi: b'BV:313.56\r\n'
+2021-10-21 15:13:32,225:INFO: State.STOP
+2021-10-21 15:13:32,227:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,228:INFO: 25.13 24.58 24.54 24.61 24.50 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 7990.00 1.49 100.00 0  0  0  1  None 313.56 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,229:WARNING: Stopped
+2021-10-21 15:13:32,230:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,290:DEBUG: mega>rpi: b'AT:24.52\r\n'
+2021-10-21 15:13:32,346:DEBUG: mega>rpi: b'AP:8076.90\r\n'
+2021-10-21 15:13:32,348:DEBUG: mega>rpi: b'BV:309.47\r\n'
+2021-10-21 15:13:32,348:INFO: State.STOP
+2021-10-21 15:13:32,350:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,351:INFO: 25.13 24.58 24.54 24.61 24.51 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8018.90 1.49 100.00 0  0  0  1  None 309.47 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,352:WARNING: Stopped
+2021-10-21 15:13:32,354:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,411:DEBUG: mega>rpi: b'AT:24.53\r\n'
+2021-10-21 15:13:32,469:DEBUG: mega>rpi: b'AP:8105.50\r\n'
+2021-10-21 15:13:32,471:DEBUG: mega>rpi: b'BV:305.65\r\n'
+2021-10-21 15:13:32,471:INFO: State.STOP
+2021-10-21 15:13:32,473:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,474:INFO: 25.13 24.58 24.54 24.61 24.51 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8047.72 1.49 100.00 0  0  0  1  None 305.65 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,475:WARNING: Stopped
+2021-10-21 15:13:32,477:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,535:DEBUG: mega>rpi: b'AT:24.53\r\n'
+2021-10-21 15:13:32,592:DEBUG: mega>rpi: b'AP:8135.50\r\n'
+2021-10-21 15:13:32,594:DEBUG: mega>rpi: b'BV:301.65\r\n'
+2021-10-21 15:13:32,595:INFO: State.STOP
+2021-10-21 15:13:32,596:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,597:INFO: 25.13 24.58 24.54 24.61 24.52 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8076.80 1.49 100.00 0  0  0  1  None 301.65 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,598:WARNING: Stopped
+2021-10-21 15:13:32,600:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,658:DEBUG: mega>rpi: b'AT:24.54\r\n'
+2021-10-21 15:13:32,716:DEBUG: mega>rpi: b'AP:8164.80\r\n'
+2021-10-21 15:13:32,719:DEBUG: mega>rpi: b'BV:297.83\r\n'
+2021-10-21 15:13:32,720:INFO: State.STOP
+2021-10-21 15:13:32,721:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,723:INFO: 25.13 24.58 24.54 24.61 24.53 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8105.88 1.49 100.00 0  0  0  1  None 297.83 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,723:WARNING: Stopped
+2021-10-21 15:13:32,725:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,781:DEBUG: mega>rpi: b'AT:24.54\r\n'
+2021-10-21 15:13:32,838:DEBUG: mega>rpi: b'AP:8193.50\r\n'
+2021-10-21 15:13:32,842:DEBUG: mega>rpi: b'BV:294.06\r\n'
+2021-10-21 15:13:32,842:INFO: State.STOP
+2021-10-21 15:13:32,844:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,845:INFO: 25.13 24.58 24.54 24.61 24.53 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8135.24 1.49 100.00 0  0  0  1  None 294.06 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,846:WARNING: Stopped
+2021-10-21 15:13:32,847:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:32,903:DEBUG: mega>rpi: b'AT:24.55\r\n'
+2021-10-21 15:13:32,964:DEBUG: mega>rpi: b'AP:8224.90\r\n'
+2021-10-21 15:13:32,966:DEBUG: mega>rpi: b'BV:289.99\r\n'
+2021-10-21 15:13:32,967:INFO: State.STOP
+2021-10-21 15:13:32,968:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:32,970:INFO: 25.13 24.58 24.54 24.61 24.54 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8164.84 1.49 100.00 0  0  0  1  None 289.99 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:32,970:WARNING: Stopped
+2021-10-21 15:13:32,972:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,026:DEBUG: mega>rpi: b'AT:24.57\r\n'
+2021-10-21 15:13:33,088:DEBUG: mega>rpi: b'AP:8253.60\r\n'
+2021-10-21 15:13:33,090:DEBUG: mega>rpi: b'BV:286.33\r\n'
+2021-10-21 15:13:33,090:INFO: State.STOP
+2021-10-21 15:13:33,092:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,093:INFO: 25.13 24.58 24.54 24.61 24.55 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8194.46 1.49 100.00 0  0  0  1  None 286.33 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,094:WARNING: Stopped
+2021-10-21 15:13:33,096:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,153:DEBUG: mega>rpi: b'AT:24.57\r\n'
+2021-10-21 15:13:33,211:DEBUG: mega>rpi: b'AP:8284.50\r\n'
+2021-10-21 15:13:33,213:DEBUG: mega>rpi: b'BV:282.35\r\n'
+2021-10-21 15:13:33,213:INFO: State.STOP
+2021-10-21 15:13:33,215:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,216:INFO: 25.13 24.58 24.54 24.61 24.55 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8224.26 1.49 100.00 0  0  0  1  None 282.35 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,217:WARNING: Stopped
+2021-10-21 15:13:33,219:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,277:DEBUG: mega>rpi: b'AT:24.59\r\n'
+2021-10-21 15:13:33,333:DEBUG: mega>rpi: b'AP:8313.20\r\n'
+2021-10-21 15:13:33,335:DEBUG: mega>rpi: b'BV:278.74\r\n'
+2021-10-21 15:13:33,335:INFO: State.STOP
+2021-10-21 15:13:33,337:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,338:INFO: 25.13 24.58 24.54 24.61 24.56 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8253.94 1.49 100.00 0  0  0  1  None 278.74 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,338:WARNING: Stopped
+2021-10-21 15:13:33,340:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,400:DEBUG: mega>rpi: b'AT:24.59\r\n'
+2021-10-21 15:13:33,456:DEBUG: mega>rpi: b'AP:8344.10\r\n'
+2021-10-21 15:13:33,458:DEBUG: mega>rpi: b'BV:274.82\r\n'
+2021-10-21 15:13:33,458:INFO: State.STOP
+2021-10-21 15:13:33,460:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,461:INFO: 25.13 24.58 24.54 24.61 24.57 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8284.06 1.49 100.00 0  0  0  1  None 274.82 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,461:WARNING: Stopped
+2021-10-21 15:13:33,463:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,521:DEBUG: mega>rpi: b'AT:24.60\r\n'
+2021-10-21 15:13:33,579:DEBUG: mega>rpi: b'AP:8372.90\r\n'
+2021-10-21 15:13:33,581:DEBUG: mega>rpi: b'BV:271.25\r\n'
+2021-10-21 15:13:33,582:INFO: State.STOP
+2021-10-21 15:13:33,583:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,584:INFO: 25.13 24.58 24.54 24.61 24.58 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8313.66 1.49 100.00 0  0  0  1  None 271.25 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,585:WARNING: Stopped
+2021-10-21 15:13:33,587:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,645:DEBUG: mega>rpi: b'AT:24.61\r\n'
+2021-10-21 15:13:33,702:DEBUG: mega>rpi: b'AP:8404.40\r\n'
+2021-10-21 15:13:33,706:DEBUG: mega>rpi: b'BV:267.34\r\n'
+2021-10-21 15:13:33,706:INFO: State.STOP
+2021-10-21 15:13:33,708:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,709:INFO: 25.13 24.58 24.54 24.61 24.59 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8343.82 1.49 100.00 0  0  0  1  None 267.34 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,710:WARNING: Stopped
+2021-10-21 15:13:33,711:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,768:DEBUG: mega>rpi: b'AT:24.63\r\n'
+2021-10-21 15:13:33,826:DEBUG: mega>rpi: b'AP:8434.80\r\n'
+2021-10-21 15:13:33,830:DEBUG: mega>rpi: b'BV:263.63\r\n'
+2021-10-21 15:13:33,830:INFO: State.STOP
+2021-10-21 15:13:33,832:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,833:INFO: 25.13 24.58 24.54 24.61 24.60 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8373.88 1.49 100.00 0  0  0  1  None 263.63 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,834:WARNING: Stopped
+2021-10-21 15:13:33,835:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:33,891:DEBUG: mega>rpi: b'AT:24.65\r\n'
+2021-10-21 15:13:33,951:DEBUG: mega>rpi: b'AP:8466.30\r\n'
+2021-10-21 15:13:33,953:DEBUG: mega>rpi: b'BV:259.81\r\n'
+2021-10-21 15:13:33,953:INFO: State.STOP
+2021-10-21 15:13:33,955:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:33,956:INFO: 25.13 24.58 24.54 24.61 24.62 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8404.50 1.49 100.00 0  0  0  1  None 259.81 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:33,957:WARNING: Stopped
+2021-10-21 15:13:33,959:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,013:DEBUG: mega>rpi: b'AT:24.65\r\n'
+2021-10-21 15:13:34,075:DEBUG: mega>rpi: b'AP:8496.00\r\n'
+2021-10-21 15:13:34,076:DEBUG: mega>rpi: b'BV:256.20\r\n'
+2021-10-21 15:13:34,077:INFO: State.STOP
+2021-10-21 15:13:34,078:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,080:INFO: 25.13 24.58 24.54 24.61 24.63 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8434.88 1.49 100.00 0  0  0  1  None 256.20 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,080:WARNING: Stopped
+2021-10-21 15:13:34,082:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,140:DEBUG: mega>rpi: b'AT:24.67\r\n'
+2021-10-21 15:13:34,198:DEBUG: mega>rpi: b'AP:8526.90\r\n'
+2021-10-21 15:13:34,200:DEBUG: mega>rpi: b'BV:252.50\r\n'
+2021-10-21 15:13:34,200:INFO: State.STOP
+2021-10-21 15:13:34,202:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,203:INFO: 25.13 24.58 24.54 24.61 24.64 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8465.68 1.49 100.00 0  0  0  1  None 252.50 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,204:WARNING: Stopped
+2021-10-21 15:13:34,206:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,263:DEBUG: mega>rpi: b'AT:24.69\r\n'
+2021-10-21 15:13:34,321:DEBUG: mega>rpi: b'AP:8557.80\r\n'
+2021-10-21 15:13:34,323:DEBUG: mega>rpi: b'BV:248.84\r\n'
+2021-10-21 15:13:34,323:INFO: State.STOP
+2021-10-21 15:13:34,325:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,326:INFO: 25.13 24.58 24.54 24.61 24.66 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8496.36 1.49 100.00 0  0  0  1  None 248.84 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,327:WARNING: Stopped
+2021-10-21 15:13:34,328:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,386:DEBUG: mega>rpi: b'AT:24.71\r\n'
+2021-10-21 15:13:34,444:DEBUG: mega>rpi: b'AP:8588.90\r\n'
+2021-10-21 15:13:34,446:DEBUG: mega>rpi: b'BV:245.17\r\n'
+2021-10-21 15:13:34,446:INFO: State.STOP
+2021-10-21 15:13:34,448:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,449:INFO: 25.13 24.58 24.54 24.61 24.67 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8527.18 1.49 100.00 0  0  0  1  None 245.17 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,449:WARNING: Stopped
+2021-10-21 15:13:34,451:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,509:DEBUG: mega>rpi: b'AT:24.71\r\n'
+2021-10-21 15:13:34,566:DEBUG: mega>rpi: b'AP:8619.00\r\n'
+2021-10-21 15:13:34,567:DEBUG: mega>rpi: b'BV:241.62\r\n'
+2021-10-21 15:13:34,568:INFO: State.STOP
+2021-10-21 15:13:34,569:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,570:INFO: 25.13 24.58 24.54 24.61 24.69 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8557.72 1.49 100.00 0  0  0  1  None 241.62 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,571:WARNING: Stopped
+2021-10-21 15:13:34,572:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,631:DEBUG: mega>rpi: b'AT:24.74\r\n'
+2021-10-21 15:13:34,689:DEBUG: mega>rpi: b'AP:8649.30\r\n'
+2021-10-21 15:13:34,691:DEBUG: mega>rpi: b'BV:238.13\r\n'
+2021-10-21 15:13:34,692:INFO: State.STOP
+2021-10-21 15:13:34,693:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,694:INFO: 25.13 24.58 24.54 24.61 24.70 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8588.38 1.49 100.00 0  0  0  1  None 238.13 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,695:WARNING: Stopped
+2021-10-21 15:13:34,697:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,755:DEBUG: mega>rpi: b'AT:24.75\r\n'
+2021-10-21 15:13:34,812:DEBUG: mega>rpi: b'AP:8681.10\r\n'
+2021-10-21 15:13:34,816:DEBUG: mega>rpi: b'BV:234.43\r\n'
+2021-10-21 15:13:34,817:INFO: State.STOP
+2021-10-21 15:13:34,818:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,819:INFO: 25.13 24.58 24.54 24.61 24.72 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8619.22 1.49 100.00 0  0  0  1  None 234.43 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,820:WARNING: Stopped
+2021-10-21 15:13:34,822:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:34,878:DEBUG: mega>rpi: b'AT:24.77\r\n'
+2021-10-21 15:13:34,936:DEBUG: mega>rpi: b'AP:8712.70\r\n'
+2021-10-21 15:13:34,940:DEBUG: mega>rpi: b'BV:230.83\r\n'
+2021-10-21 15:13:34,940:INFO: State.STOP
+2021-10-21 15:13:34,942:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:34,943:INFO: 25.13 24.58 24.54 24.61 24.74 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8650.20 1.49 100.00 0  0  0  1  None 230.83 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:34,944:WARNING: Stopped
+2021-10-21 15:13:34,945:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,001:DEBUG: mega>rpi: b'AT:24.79\r\n'
+2021-10-21 15:13:35,061:DEBUG: mega>rpi: b'AP:8742.90\r\n'
+2021-10-21 15:13:35,063:DEBUG: mega>rpi: b'BV:227.40\r\n'
+2021-10-21 15:13:35,064:INFO: State.STOP
+2021-10-21 15:13:35,065:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,066:INFO: 25.13 24.58 24.54 24.61 24.75 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8681.00 1.49 100.00 0  0  0  1  None 227.40 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,067:WARNING: Stopped
+2021-10-21 15:13:35,069:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,127:DEBUG: mega>rpi: b'AT:24.81\r\n'
+2021-10-21 15:13:35,185:DEBUG: mega>rpi: b'AP:8774.90\r\n'
+2021-10-21 15:13:35,186:DEBUG: mega>rpi: b'BV:223.78\r\n'
+2021-10-21 15:13:35,187:INFO: State.STOP
+2021-10-21 15:13:35,189:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,190:INFO: 25.13 24.58 24.54 24.61 24.77 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8712.18 1.49 100.00 0  0  0  1  None 223.78 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,191:WARNING: Stopped
+2021-10-21 15:13:35,192:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,250:DEBUG: mega>rpi: b'AT:24.82\r\n'
+2021-10-21 15:13:35,308:DEBUG: mega>rpi: b'AP:8805.80\r\n'
+2021-10-21 15:13:35,310:DEBUG: mega>rpi: b'BV:220.32\r\n'
+2021-10-21 15:13:35,311:INFO: State.STOP
+2021-10-21 15:13:35,312:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,313:INFO: 25.13 24.58 24.54 24.61 24.79 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8743.48 1.49 100.00 0  0  0  1  None 220.32 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,314:WARNING: Stopped
+2021-10-21 15:13:35,316:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,374:DEBUG: mega>rpi: b'AT:24.84\r\n'
+2021-10-21 15:13:35,430:DEBUG: mega>rpi: b'AP:8837.10\r\n'
+2021-10-21 15:13:35,432:DEBUG: mega>rpi: b'BV:216.83\r\n'
+2021-10-21 15:13:35,432:INFO: State.STOP
+2021-10-21 15:13:35,434:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,435:INFO: 25.13 24.58 24.54 24.61 24.81 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8774.68 1.49 100.00 0  0  0  1  None 216.83 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,436:WARNING: Stopped
+2021-10-21 15:13:35,437:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,497:DEBUG: mega>rpi: b'AT:24.87\r\n'
+2021-10-21 15:13:35,553:DEBUG: mega>rpi: b'AP:8868.30\r\n'
+2021-10-21 15:13:35,555:DEBUG: mega>rpi: b'BV:213.41\r\n'
+2021-10-21 15:13:35,555:INFO: State.STOP
+2021-10-21 15:13:35,557:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,558:INFO: 25.13 24.58 24.54 24.61 24.83 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8805.80 1.49 100.00 0  0  0  1  None 213.41 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,558:WARNING: Stopped
+2021-10-21 15:13:35,560:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,618:DEBUG: mega>rpi: b'AT:24.89\r\n'
+2021-10-21 15:13:35,676:DEBUG: mega>rpi: b'AP:8901.20\r\n'
+2021-10-21 15:13:35,678:DEBUG: mega>rpi: b'BV:209.82\r\n'
+2021-10-21 15:13:35,678:INFO: State.STOP
+2021-10-21 15:13:35,680:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,681:INFO: 25.13 24.58 24.54 24.61 24.85 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8837.46 1.49 100.00 0  0  0  1  None 209.82 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,682:WARNING: Stopped
+2021-10-21 15:13:35,684:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,742:DEBUG: mega>rpi: b'AT:24.92\r\n'
+2021-10-21 15:13:35,799:DEBUG: mega>rpi: b'AP:8933.90\r\n'
+2021-10-21 15:13:35,803:DEBUG: mega>rpi: b'BV:206.29\r\n'
+2021-10-21 15:13:35,804:INFO: State.STOP
+2021-10-21 15:13:35,805:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,806:INFO: 25.13 24.58 24.54 24.61 24.87 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8869.26 1.49 100.00 0  0  0  1  None 206.29 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,807:WARNING: Stopped
+2021-10-21 15:13:35,809:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,865:DEBUG: mega>rpi: b'AT:24.96\r\n'
+2021-10-21 15:13:35,923:DEBUG: mega>rpi: b'AP:8966.70\r\n'
+2021-10-21 15:13:35,927:DEBUG: mega>rpi: b'BV:202.82\r\n'
+2021-10-21 15:13:35,927:INFO: State.STOP
+2021-10-21 15:13:35,929:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:35,930:INFO: 25.13 24.58 24.54 24.61 24.90 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8901.44 1.49 100.00 0  0  0  1  None 202.82 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:35,931:WARNING: Stopped
+2021-10-21 15:13:35,933:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:35,988:DEBUG: mega>rpi: b'AT:25.00\r\n'
+2021-10-21 15:13:36,048:DEBUG: mega>rpi: b'AP:8997.80\r\n'
+2021-10-21 15:13:36,050:DEBUG: mega>rpi: b'BV:199.53\r\n'
+2021-10-21 15:13:36,051:INFO: State.STOP
+2021-10-21 15:13:36,052:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,053:INFO: 25.13 24.58 24.54 24.61 24.93 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8933.58 1.49 100.00 0  0  0  1  None 199.53 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,054:WARNING: Stopped
+2021-10-21 15:13:36,056:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,110:DEBUG: mega>rpi: b'AT:25.03\r\n'
+2021-10-21 15:13:36,172:DEBUG: mega>rpi: b'AP:9029.30\r\n'
+2021-10-21 15:13:36,173:DEBUG: mega>rpi: b'BV:196.23\r\n'
+2021-10-21 15:13:36,174:INFO: State.STOP
+2021-10-21 15:13:36,175:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,177:INFO: 25.13 24.58 24.54 24.61 24.96 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8965.78 1.49 100.00 0  0  0  1  None 196.23 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,177:WARNING: Stopped
+2021-10-21 15:13:36,180:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,237:DEBUG: mega>rpi: b'AT:25.06\r\n'
+2021-10-21 15:13:36,295:DEBUG: mega>rpi: b'AP:9061.70\r\n'
+2021-10-21 15:13:36,297:DEBUG: mega>rpi: b'BV:192.82\r\n'
+2021-10-21 15:13:36,297:INFO: State.STOP
+2021-10-21 15:13:36,299:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,300:INFO: 25.13 24.58 24.54 24.61 24.99 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 8997.88 1.49 100.00 0  0  0  1  None 192.82 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,301:WARNING: Stopped
+2021-10-21 15:13:36,303:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,360:DEBUG: mega>rpi: b'AT:25.10\r\n'
+2021-10-21 15:13:36,418:DEBUG: mega>rpi: b'AP:9094.20\r\n'
+2021-10-21 15:13:36,420:DEBUG: mega>rpi: b'BV:189.48\r\n'
+2021-10-21 15:13:36,420:INFO: State.STOP
+2021-10-21 15:13:36,422:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,423:INFO: 25.13 24.58 24.54 24.61 25.03 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9029.94 1.49 100.00 0  0  0  1  None 189.48 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,424:WARNING: Stopped
+2021-10-21 15:13:36,426:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,483:DEBUG: mega>rpi: b'AT:25.13\r\n'
+2021-10-21 15:13:36,541:DEBUG: mega>rpi: b'AP:9126.30\r\n'
+2021-10-21 15:13:36,543:DEBUG: mega>rpi: b'BV:186.18\r\n'
+2021-10-21 15:13:36,544:INFO: State.STOP
+2021-10-21 15:13:36,545:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,546:INFO: 25.13 24.58 24.54 24.61 25.06 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9061.86 1.49 100.00 0  0  0  1  None 186.18 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,547:WARNING: Stopped
+2021-10-21 15:13:36,549:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,606:DEBUG: mega>rpi: b'AT:25.17\r\n'
+2021-10-21 15:13:36,664:DEBUG: mega>rpi: b'AP:9158.70\r\n'
+2021-10-21 15:13:36,666:DEBUG: mega>rpi: b'BV:182.88\r\n'
+2021-10-21 15:13:36,667:INFO: State.STOP
+2021-10-21 15:13:36,668:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,669:INFO: 25.13 24.58 24.54 24.61 25.10 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9094.04 1.49 100.00 0  0  0  1  None 182.88 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,670:WARNING: Stopped
+2021-10-21 15:13:36,672:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,728:DEBUG: mega>rpi: b'AT:25.20\r\n'
+2021-10-21 15:13:36,786:DEBUG: mega>rpi: b'AP:9191.80\r\n'
+2021-10-21 15:13:36,794:DEBUG: mega>rpi: b'BV:179.52\r\n'
+2021-10-21 15:13:36,795:INFO: State.STOP
+2021-10-21 15:13:36,796:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,797:INFO: 25.13 24.58 24.54 24.61 25.13 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9126.54 1.49 100.00 0  0  0  1  None 179.52 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,798:WARNING: Stopped
+2021-10-21 15:13:36,800:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,852:DEBUG: mega>rpi: b'AT:25.23\r\n'
+2021-10-21 15:13:36,909:DEBUG: mega>rpi: b'AP:9224.30\r\n'
+2021-10-21 15:13:36,913:DEBUG: mega>rpi: b'BV:176.25\r\n'
+2021-10-21 15:13:36,914:INFO: State.STOP
+2021-10-21 15:13:36,915:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:36,916:INFO: 25.13 24.58 24.54 24.61 25.17 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9159.06 1.49 100.00 0  0  0  1  None 176.25 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:36,917:WARNING: Stopped
+2021-10-21 15:13:36,919:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:36,975:DEBUG: mega>rpi: b'AT:25.27\r\n'
+2021-10-21 15:13:37,036:DEBUG: mega>rpi: b'AP:9257.50\r\n'
+2021-10-21 15:13:37,038:DEBUG: mega>rpi: b'BV:172.93\r\n'
+2021-10-21 15:13:37,038:INFO: State.STOP
+2021-10-21 15:13:37,040:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,041:INFO: 25.13 24.58 24.54 24.61 25.20 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9191.72 1.49 100.00 0  0  0  1  None 172.93 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,041:WARNING: Stopped
+2021-10-21 15:13:37,043:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,098:DEBUG: mega>rpi: b'AT:25.31\r\n'
+2021-10-21 15:13:37,158:DEBUG: mega>rpi: b'AP:9288.50\r\n'
+2021-10-21 15:13:37,160:DEBUG: mega>rpi: b'BV:169.88\r\n'
+2021-10-21 15:13:37,160:INFO: State.STOP
+2021-10-21 15:13:37,162:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,163:INFO: 25.13 24.58 24.54 24.61 25.24 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9224.16 1.49 100.00 0  0  0  1  None 169.88 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,164:WARNING: Stopped
+2021-10-21 15:13:37,166:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,224:DEBUG: mega>rpi: b'AT:25.34\r\n'
+2021-10-21 15:13:37,282:DEBUG: mega>rpi: b'AP:9322.10\r\n'
+2021-10-21 15:13:37,283:DEBUG: mega>rpi: b'BV:166.54\r\n'
+2021-10-21 15:13:37,284:INFO: State.STOP
+2021-10-21 15:13:37,286:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,287:INFO: 25.13 24.58 24.54 24.61 25.27 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9256.84 1.49 100.00 0  0  0  1  None 166.54 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,288:WARNING: Stopped
+2021-10-21 15:13:37,290:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,347:DEBUG: mega>rpi: b'AT:25.38\r\n'
+2021-10-21 15:13:37,405:DEBUG: mega>rpi: b'AP:9356.40\r\n'
+2021-10-21 15:13:37,406:DEBUG: mega>rpi: b'BV:163.20\r\n'
+2021-10-21 15:13:37,407:INFO: State.STOP
+2021-10-21 15:13:37,409:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,410:INFO: 25.13 24.58 24.54 24.61 25.31 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9289.76 1.49 100.00 0  0  0  1  None 163.20 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,411:WARNING: Stopped
+2021-10-21 15:13:37,412:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,470:DEBUG: mega>rpi: b'AT:25.41\r\n'
+2021-10-21 15:13:37,528:DEBUG: mega>rpi: b'AP:9389.50\r\n'
+2021-10-21 15:13:37,529:DEBUG: mega>rpi: b'BV:159.99\r\n'
+2021-10-21 15:13:37,530:INFO: State.STOP
+2021-10-21 15:13:37,531:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,532:INFO: 25.13 24.58 24.54 24.61 25.34 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9322.80 1.49 100.00 0  0  0  1  None 159.99 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,533:WARNING: Stopped
+2021-10-21 15:13:37,535:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,593:DEBUG: mega>rpi: b'AT:25.45\r\n'
+2021-10-21 15:13:37,651:DEBUG: mega>rpi: b'AP:9423.10\r\n'
+2021-10-21 15:13:37,653:DEBUG: mega>rpi: b'BV:156.74\r\n'
+2021-10-21 15:13:37,653:INFO: State.STOP
+2021-10-21 15:13:37,655:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,656:INFO: 25.13 24.58 24.54 24.61 25.38 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9355.92 1.49 100.00 0  0  0  1  None 156.74 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,657:WARNING: Stopped
+2021-10-21 15:13:37,659:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,716:DEBUG: mega>rpi: b'AT:25.47\r\n'
+2021-10-21 15:13:37,773:DEBUG: mega>rpi: b'AP:9456.50\r\n'
+2021-10-21 15:13:37,774:DEBUG: mega>rpi: b'BV:153.51\r\n'
+2021-10-21 15:13:37,775:INFO: State.STOP
+2021-10-21 15:13:37,777:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,778:INFO: 25.13 24.58 24.54 24.61 25.41 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9389.52 1.49 100.00 0  0  0  1  None 153.51 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,778:WARNING: Stopped
+2021-10-21 15:13:37,780:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,838:DEBUG: mega>rpi: b'AT:25.49\r\n'
+2021-10-21 15:13:37,896:DEBUG: mega>rpi: b'AP:9490.40\r\n'
+2021-10-21 15:13:37,900:DEBUG: mega>rpi: b'BV:150.23\r\n'
+2021-10-21 15:13:37,901:INFO: State.STOP
+2021-10-21 15:13:37,902:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:37,903:INFO: 25.13 24.58 24.54 24.61 25.44 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9423.18 1.49 100.00 0  0  0  1  None 150.23 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:37,904:WARNING: Stopped
+2021-10-21 15:13:37,906:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:37,962:DEBUG: mega>rpi: b'AT:25.52\r\n'
+2021-10-21 15:13:38,023:DEBUG: mega>rpi: b'AP:9523.80\r\n'
+2021-10-21 15:13:38,024:DEBUG: mega>rpi: b'BV:147.05\r\n'
+2021-10-21 15:13:38,025:INFO: State.STOP
+2021-10-21 15:13:38,026:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,027:INFO: 25.13 24.58 24.54 24.61 25.47 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9456.66 1.49 100.00 0  0  0  1  None 147.05 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,028:WARNING: Stopped
+2021-10-21 15:13:38,030:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,085:DEBUG: mega>rpi: b'AT:25.52\r\n'
+2021-10-21 15:13:38,147:DEBUG: mega>rpi: b'AP:9559.40\r\n'
+2021-10-21 15:13:38,148:DEBUG: mega>rpi: b'BV:143.62\r\n'
+2021-10-21 15:13:38,149:INFO: State.STOP
+2021-10-21 15:13:38,150:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,151:INFO: 25.13 24.58 24.54 24.61 25.49 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9490.64 1.49 100.00 0  0  0  1  None 143.62 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,152:WARNING: Stopped
+2021-10-21 15:13:38,154:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,212:DEBUG: mega>rpi: b'AT:25.54\r\n'
+2021-10-21 15:13:38,269:DEBUG: mega>rpi: b'AP:9593.10\r\n'
+2021-10-21 15:13:38,270:DEBUG: mega>rpi: b'BV:140.43\r\n'
+2021-10-21 15:13:38,271:INFO: State.STOP
+2021-10-21 15:13:38,272:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,273:INFO: 25.13 24.58 24.54 24.61 25.51 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9524.64 1.49 100.00 0  0  0  1  None 140.43 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,274:WARNING: Stopped
+2021-10-21 15:13:38,276:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,334:DEBUG: mega>rpi: b'AT:25.57\r\n'
+2021-10-21 15:13:38,392:DEBUG: mega>rpi: b'AP:9627.00\r\n'
+2021-10-21 15:13:38,393:DEBUG: mega>rpi: b'BV:137.27\r\n'
+2021-10-21 15:13:38,394:INFO: State.STOP
+2021-10-21 15:13:38,396:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,397:INFO: 25.13 24.58 24.54 24.61 25.53 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9558.74 1.49 100.00 0  0  0  1  None 137.27 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,398:WARNING: Stopped
+2021-10-21 15:13:38,399:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,457:DEBUG: mega>rpi: b'AT:25.58\r\n'
+2021-10-21 15:13:38,515:DEBUG: mega>rpi: b'AP:9663.90\r\n'
+2021-10-21 15:13:38,516:DEBUG: mega>rpi: b'BV:133.81\r\n'
+2021-10-21 15:13:38,517:INFO: State.STOP
+2021-10-21 15:13:38,519:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,520:INFO: 25.13 24.58 24.54 24.61 25.55 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9593.44 1.49 100.00 0  0  0  1  None 133.81 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,521:WARNING: Stopped
+2021-10-21 15:13:38,523:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,580:DEBUG: mega>rpi: b'AT:25.62\r\n'
+2021-10-21 15:13:38,638:DEBUG: mega>rpi: b'AP:9695.50\r\n'
+2021-10-21 15:13:38,640:DEBUG: mega>rpi: b'BV:130.94\r\n'
+2021-10-21 15:13:38,640:INFO: State.STOP
+2021-10-21 15:13:38,642:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,643:INFO: 25.13 24.58 24.54 24.61 25.57 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9627.78 1.49 100.00 0  0  0  1  None 130.94 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,644:WARNING: Stopped
+2021-10-21 15:13:38,646:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,703:DEBUG: mega>rpi: b'AT:25.64\r\n'
+2021-10-21 15:13:38,761:DEBUG: mega>rpi: b'AP:9729.00\r\n'
+2021-10-21 15:13:38,763:DEBUG: mega>rpi: b'BV:127.88\r\n'
+2021-10-21 15:13:38,763:INFO: State.STOP
+2021-10-21 15:13:38,765:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,766:INFO: 25.13 24.58 24.54 24.61 25.59 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9661.70 1.49 100.00 0  0  0  1  None 127.88 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,767:WARNING: Stopped
+2021-10-21 15:13:38,769:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,827:DEBUG: mega>rpi: b'AT:25.68\r\n'
+2021-10-21 15:13:38,883:DEBUG: mega>rpi: b'AP:9764.20\r\n'
+2021-10-21 15:13:38,887:DEBUG: mega>rpi: b'BV:124.71\r\n'
+2021-10-21 15:13:38,888:INFO: State.STOP
+2021-10-21 15:13:38,889:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:38,890:INFO: 25.13 24.58 24.54 24.61 25.62 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9695.92 1.49 100.00 0  0  0  1  None 124.71 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:38,891:WARNING: Stopped
+2021-10-21 15:13:38,893:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:38,949:DEBUG: mega>rpi: b'AT:25.71\r\n'
+2021-10-21 15:13:39,006:DEBUG: mega>rpi: b'AP:9798.70\r\n'
+2021-10-21 15:13:39,010:DEBUG: mega>rpi: b'BV:121.63\r\n'
+2021-10-21 15:13:39,011:INFO: State.STOP
+2021-10-21 15:13:39,012:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,013:INFO: 25.13 24.58 24.54 24.61 25.65 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9730.26 1.49 100.00 0  0  0  1  None 121.63 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,014:WARNING: Stopped
+2021-10-21 15:13:39,016:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,072:DEBUG: mega>rpi: b'AT:25.74\r\n'
+2021-10-21 15:13:39,133:DEBUG: mega>rpi: b'AP:9835.20\r\n'
+2021-10-21 15:13:39,135:DEBUG: mega>rpi: b'BV:118.36\r\n'
+2021-10-21 15:13:39,135:INFO: State.STOP
+2021-10-21 15:13:39,137:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,138:INFO: 25.13 24.58 24.54 24.61 25.68 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9764.52 1.49 100.00 0  0  0  1  None 118.36 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,138:WARNING: Stopped
+2021-10-21 15:13:39,140:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,198:DEBUG: mega>rpi: b'AT:25.78\r\n'
+2021-10-21 15:13:39,256:DEBUG: mega>rpi: b'AP:9869.70\r\n'
+2021-10-21 15:13:39,257:DEBUG: mega>rpi: b'BV:115.35\r\n'
+2021-10-21 15:13:39,258:INFO: State.STOP
+2021-10-21 15:13:39,259:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,260:INFO: 25.13 24.58 24.54 24.61 25.71 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9799.36 1.49 100.00 0  0  0  1  None 115.35 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,261:WARNING: Stopped
+2021-10-21 15:13:39,262:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,321:DEBUG: mega>rpi: b'AT:25.82\r\n'
+2021-10-21 15:13:39,379:DEBUG: mega>rpi: b'AP:9906.30\r\n'
+2021-10-21 15:13:39,381:DEBUG: mega>rpi: b'BV:112.17\r\n'
+2021-10-21 15:13:39,381:INFO: State.STOP
+2021-10-21 15:13:39,383:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,384:INFO: 25.13 24.58 24.54 24.61 25.75 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9834.82 1.49 100.00 0  0  0  1  None 112.17 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,385:WARNING: Stopped
+2021-10-21 15:13:39,386:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,444:DEBUG: mega>rpi: b'AT:25.87\r\n'
+2021-10-21 15:13:39,502:DEBUG: mega>rpi: b'AP:9940.90\r\n'
+2021-10-21 15:13:39,504:DEBUG: mega>rpi: b'BV:109.21\r\n'
+2021-10-21 15:13:39,504:INFO: State.STOP
+2021-10-21 15:13:39,506:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,507:INFO: 25.13 24.58 24.54 24.61 25.78 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9870.16 1.49 100.00 0  0  0  1  None 109.21 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,508:WARNING: Stopped
+2021-10-21 15:13:39,510:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,567:DEBUG: mega>rpi: b'AT:25.93\r\n'
+2021-10-21 15:13:39,625:DEBUG: mega>rpi: b'AP:9975.60\r\n'
+2021-10-21 15:13:39,627:DEBUG: mega>rpi: b'BV:106.30\r\n'
+2021-10-21 15:13:39,627:INFO: State.STOP
+2021-10-21 15:13:39,629:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,630:INFO: 25.13 24.58 24.54 24.61 25.83 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9905.54 1.49 100.00 0  0  0  1  None 106.30 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,631:WARNING: Stopped
+2021-10-21 15:13:39,632:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,690:DEBUG: mega>rpi: b'AT:25.98\r\n'
+2021-10-21 15:13:39,748:DEBUG: mega>rpi: b'AP:10010.80\r\n'
+2021-10-21 15:13:39,750:DEBUG: mega>rpi: b'BV:103.33\r\n'
+2021-10-21 15:13:39,750:INFO: State.STOP
+2021-10-21 15:13:39,752:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,753:INFO: 25.13 24.58 24.54 24.61 25.88 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9940.66 1.49 100.00 0  0  0  1  None 103.33 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,754:WARNING: Stopped
+2021-10-21 15:13:39,756:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,814:DEBUG: mega>rpi: b'AT:26.03\r\n'
+2021-10-21 15:13:39,870:DEBUG: mega>rpi: b'AP:10048.40\r\n'
+2021-10-21 15:13:39,874:DEBUG: mega>rpi: b'BV:100.15\r\n'
+2021-10-21 15:13:39,874:INFO: State.STOP
+2021-10-21 15:13:39,876:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:39,877:INFO: 25.13 24.58 24.54 24.61 25.93 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 9976.40 1.49 100.00 0  0  0  1  None 100.15 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:39,878:WARNING: Stopped
+2021-10-21 15:13:39,880:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:39,936:DEBUG: mega>rpi: b'AT:26.08\r\n'
+2021-10-21 15:13:39,993:DEBUG: mega>rpi: b'AP:10084.50\r\n'
+2021-10-21 15:13:39,997:DEBUG: mega>rpi: b'BV:97.15\r\n'
+2021-10-21 15:13:39,998:INFO: State.STOP
+2021-10-21 15:13:40,000:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,001:INFO: 25.13 24.58 24.54 24.61 25.98 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10012.04 1.49 100.00 0  0  0  1  None 97.15 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,001:WARNING: Stopped
+2021-10-21 15:13:40,003:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,059:DEBUG: mega>rpi: b'AT:26.14\r\n'
+2021-10-21 15:13:40,120:DEBUG: mega>rpi: b'AP:10121.40\r\n'
+2021-10-21 15:13:40,122:DEBUG: mega>rpi: b'BV:94.12\r\n'
+2021-10-21 15:13:40,122:INFO: State.STOP
+2021-10-21 15:13:40,124:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,125:INFO: 25.13 24.58 24.54 24.61 26.03 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10048.14 1.49 100.00 0  0  0  1  None 94.12 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,126:WARNING: Stopped
+2021-10-21 15:13:40,128:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,182:DEBUG: mega>rpi: b'AT:26.18\r\n'
+2021-10-21 15:13:40,244:DEBUG: mega>rpi: b'AP:10160.10\r\n'
+2021-10-21 15:13:40,245:DEBUG: mega>rpi: b'BV:90.92\r\n'
+2021-10-21 15:13:40,246:INFO: State.STOP
+2021-10-21 15:13:40,247:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,248:INFO: 25.13 24.58 24.54 24.61 26.08 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10085.04 1.49 100.00 0  0  0  1  None 90.92 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,249:WARNING: Stopped
+2021-10-21 15:13:40,251:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,308:DEBUG: mega>rpi: b'AT:26.23\r\n'
+2021-10-21 15:13:40,366:DEBUG: mega>rpi: b'AP:10195.60\r\n'
+2021-10-21 15:13:40,367:DEBUG: mega>rpi: b'BV:88.03\r\n'
+2021-10-21 15:13:40,368:INFO: State.STOP
+2021-10-21 15:13:40,369:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,370:INFO: 25.13 24.58 24.54 24.61 26.13 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10122.00 1.49 100.00 0  0  0  1  None 88.03 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,371:WARNING: Stopped
+2021-10-21 15:13:40,373:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,431:DEBUG: mega>rpi: b'AT:26.27\r\n'
+2021-10-21 15:13:40,489:DEBUG: mega>rpi: b'AP:10233.20\r\n'
+2021-10-21 15:13:40,490:DEBUG: mega>rpi: b'BV:84.97\r\n'
+2021-10-21 15:13:40,491:INFO: State.STOP
+2021-10-21 15:13:40,492:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,493:INFO: 25.13 24.58 24.54 24.61 26.18 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10158.96 1.49 100.00 0  0  0  1  None 84.97 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,494:WARNING: Stopped
+2021-10-21 15:13:40,496:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,554:DEBUG: mega>rpi: b'AT:26.32\r\n'
+2021-10-21 15:13:40,612:DEBUG: mega>rpi: b'AP:10270.40\r\n'
+2021-10-21 15:13:40,613:DEBUG: mega>rpi: b'BV:81.98\r\n'
+2021-10-21 15:13:40,614:INFO: State.STOP
+2021-10-21 15:13:40,615:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,617:INFO: 25.13 24.58 24.54 24.61 26.23 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10196.14 1.49 100.00 0  0  0  1  None 81.98 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,617:WARNING: Stopped
+2021-10-21 15:13:40,619:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,677:DEBUG: mega>rpi: b'AT:26.37\r\n'
+2021-10-21 15:13:40,735:DEBUG: mega>rpi: b'AP:10310.50\r\n'
+2021-10-21 15:13:40,736:DEBUG: mega>rpi: b'BV:78.78\r\n'
+2021-10-21 15:13:40,737:INFO: State.STOP
+2021-10-21 15:13:40,738:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,739:INFO: 25.13 24.58 24.54 24.61 26.27 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10233.96 1.49 100.00 0  0  0  1  None 78.78 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,740:WARNING: Stopped
+2021-10-21 15:13:40,742:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,800:DEBUG: mega>rpi: b'AT:26.40\r\n'
+2021-10-21 15:13:40,858:DEBUG: mega>rpi: b'AP:10345.70\r\n'
+2021-10-21 15:13:40,861:DEBUG: mega>rpi: b'BV:75.93\r\n'
+2021-10-21 15:13:40,862:INFO: State.STOP
+2021-10-21 15:13:40,863:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,865:INFO: 25.13 24.58 24.54 24.61 26.32 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10271.08 1.49 100.00 0  0  0  1  None 75.93 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,866:WARNING: Stopped
+2021-10-21 15:13:40,867:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:40,924:DEBUG: mega>rpi: b'AT:26.43\r\n'
+2021-10-21 15:13:40,980:DEBUG: mega>rpi: b'AP:10384.90\r\n'
+2021-10-21 15:13:40,984:DEBUG: mega>rpi: b'BV:72.79\r\n'
+2021-10-21 15:13:40,985:INFO: State.STOP
+2021-10-21 15:13:40,986:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:40,987:INFO: 25.13 24.58 24.54 24.61 26.36 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10308.94 1.49 100.00 0  0  0  1  None 72.79 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:40,988:WARNING: Stopped
+2021-10-21 15:13:40,990:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,046:DEBUG: mega>rpi: b'AT:26.46\r\n'
+2021-10-21 15:13:41,107:DEBUG: mega>rpi: b'AP:10423.70\r\n'
+2021-10-21 15:13:41,108:DEBUG: mega>rpi: b'BV:69.69\r\n'
+2021-10-21 15:13:41,109:INFO: State.STOP
+2021-10-21 15:13:41,111:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,112:INFO: 25.13 24.58 24.54 24.61 26.40 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10347.04 1.49 100.00 0  0  0  1  None 69.69 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,113:WARNING: Stopped
+2021-10-21 15:13:41,114:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,169:DEBUG: mega>rpi: b'AT:26.48\r\n'
+2021-10-21 15:13:41,230:DEBUG: mega>rpi: b'AP:10464.60\r\n'
+2021-10-21 15:13:41,232:DEBUG: mega>rpi: b'BV:66.42\r\n'
+2021-10-21 15:13:41,232:INFO: State.STOP
+2021-10-21 15:13:41,234:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,235:INFO: 25.13 24.58 24.54 24.61 26.43 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10385.88 1.49 100.00 0  0  0  1  None 66.42 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,236:WARNING: Stopped
+2021-10-21 15:13:41,237:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,296:DEBUG: mega>rpi: b'AT:26.52\r\n'
+2021-10-21 15:13:41,354:DEBUG: mega>rpi: b'AP:10502.80\r\n'
+2021-10-21 15:13:41,355:DEBUG: mega>rpi: b'BV:63.46\r\n'
+2021-10-21 15:13:41,356:INFO: State.STOP
+2021-10-21 15:13:41,357:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,358:INFO: 25.13 24.58 24.54 24.61 26.46 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10424.34 1.49 100.00 0  0  0  1  None 63.46 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,359:WARNING: Stopped
+2021-10-21 15:13:41,361:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,418:DEBUG: mega>rpi: b'AT:26.54\r\n'
+2021-10-21 15:13:41,476:DEBUG: mega>rpi: b'AP:10539.50\r\n'
+2021-10-21 15:13:41,477:DEBUG: mega>rpi: b'BV:60.59\r\n'
+2021-10-21 15:13:41,478:INFO: State.STOP
+2021-10-21 15:13:41,479:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,480:INFO: 25.13 24.58 24.54 24.61 26.49 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10463.10 1.49 100.00 0  0  0  1  None 60.59 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,481:WARNING: Stopped
+2021-10-21 15:13:41,483:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,541:DEBUG: mega>rpi: b'AT:26.58\r\n'
+2021-10-21 15:13:41,599:DEBUG: mega>rpi: b'AP:10580.50\r\n'
+2021-10-21 15:13:41,600:DEBUG: mega>rpi: b'BV:57.43\r\n'
+2021-10-21 15:13:41,601:INFO: State.STOP
+2021-10-21 15:13:41,602:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,603:INFO: 25.13 24.58 24.54 24.61 26.52 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10502.22 1.49 100.00 0  0  0  1  None 57.43 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,604:WARNING: Stopped
+2021-10-21 15:13:41,606:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,664:DEBUG: mega>rpi: b'AT:26.61\r\n'
+2021-10-21 15:13:41,722:DEBUG: mega>rpi: b'AP:10619.90\r\n'
+2021-10-21 15:13:41,724:DEBUG: mega>rpi: b'BV:54.42\r\n'
+2021-10-21 15:13:41,724:INFO: State.STOP
+2021-10-21 15:13:41,726:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,727:INFO: 25.13 24.58 24.54 24.61 26.55 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10541.46 1.49 100.00 0  0  0  1  None 54.42 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,728:WARNING: Stopped
+2021-10-21 15:13:41,729:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,788:DEBUG: mega>rpi: b'AT:26.63\r\n'
+2021-10-21 15:13:41,845:DEBUG: mega>rpi: b'AP:10659.00\r\n'
+2021-10-21 15:13:41,847:DEBUG: mega>rpi: b'BV:51.40\r\n'
+2021-10-21 15:13:41,848:INFO: State.STOP
+2021-10-21 15:13:41,849:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,850:INFO: 25.13 24.58 24.54 24.61 26.58 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10580.34 1.49 100.00 0  0  0  1  None 51.40 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,851:WARNING: Stopped
+2021-10-21 15:13:41,853:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:41,911:DEBUG: mega>rpi: b'AT:26.67\r\n'
+2021-10-21 15:13:41,967:DEBUG: mega>rpi: b'AP:10699.50\r\n'
+2021-10-21 15:13:41,971:DEBUG: mega>rpi: b'BV:48.37\r\n'
+2021-10-21 15:13:41,971:INFO: State.STOP
+2021-10-21 15:13:41,973:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:41,974:INFO: 25.13 24.58 24.54 24.61 26.61 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10619.68 1.49 100.00 0  0  0  1  None 48.37 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:41,975:WARNING: Stopped
+2021-10-21 15:13:41,977:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:42,033:DEBUG: mega>rpi: b'AT:26.70\r\n'
+2021-10-21 15:13:42,090:DEBUG: mega>rpi: b'AP:10739.40\r\n'
+2021-10-21 15:13:42,095:DEBUG: mega>rpi: b'BV:45.37\r\n'
+2021-10-21 15:13:42,095:INFO: State.STOP
+2021-10-21 15:13:42,097:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:42,098:INFO: 25.13 24.58 24.54 24.61 26.64 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10659.66 1.49 100.00 0  0  0  1  None 45.37 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:42,099:WARNING: Stopped
+2021-10-21 15:13:42,100:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:42,156:DEBUG: mega>rpi: b'AT:26.74\r\n'
+2021-10-21 15:13:42,217:DEBUG: mega>rpi: b'AP:10780.60\r\n'
+2021-10-21 15:13:42,219:DEBUG: mega>rpi: b'BV:42.33\r\n'
+2021-10-21 15:13:42,219:INFO: State.STOP
+2021-10-21 15:13:42,221:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:42,222:INFO: 25.13 24.58 24.54 24.61 26.67 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10699.68 1.49 100.00 0  0  0  1  None 42.33 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:42,223:WARNING: Stopped
+2021-10-21 15:13:42,225:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:42,282:DEBUG: mega>rpi: b'AT:26.78\r\n'
+2021-10-21 15:13:42,340:DEBUG: mega>rpi: b'AP:10821.30\r\n'
+2021-10-21 15:13:42,341:DEBUG: mega>rpi: b'BV:39.35\r\n'
+2021-10-21 15:13:42,342:INFO: State.STOP
+2021-10-21 15:13:42,344:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:42,345:INFO: 25.13 24.58 24.54 24.61 26.70 0.00 0.01 0.00 11.18 11.43 10.12 10.39 1172.70 10739.96 1.49 100.00 0  0  0  1  None 39.35 Buffering (0/1) STOP  DESCENDING   1.50     30.00 0.00  
+2021-10-21 15:13:42,346:WARNING: Stopped
+2021-10-21 15:13:42,347:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-21 15:13:42,541:DEBUG: mega>rpi: b'FS:0.00\r\n'
+2021-10-21 15:13:42,542:INFO: setting target depth to 0 [mbar]
+2021-10-21 15:13:42,543:INFO: sending surface command
+2021-10-21 15:13:42,543:DEBUG: rpi>MEGA: S:2
+2021-10-21 15:13:42,544:INFO: setting state to MissionState.ASCENDING
+2021-10-21 15:13:42,557:DEBUG: mega>rpi: b'BT1:25.08\r\n'
+2021-10-21 15:13:42,570:DEBUG: mega>rpi: b'BT2:24.59\r\n'
+2021-10-21 15:13:42,628:DEBUG: mega>rpi: b'BP1:1125.80\r\n'
+2021-10-21 15:13:42,684:DEBUG: mega>rpi: b'BP2:1150.10\r\n'
+2021-10-21 15:13:42,742:DEBUG: mega>rpi: b'HP:1135.50\r\n'
+2021-10-21 15:13:42,758:DEBUG: mega>rpi: b'TT1:24.49\r\n'
+2021-10-21 15:13:42,771:DEBUG: mega>rpi: b'TT2:24.66\r\n'
+2021-10-21 15:13:42,827:DEBUG: mega>rpi: b'TP1:1019.70\r\n'
+2021-10-21 15:13:42,889:DEBUG: mega>rpi: b'TP2:1045.80\r\n'
+2021-10-21 15:13:42,902:DEBUG: mega>rpi: b'AT:26.99\r\n'
+2021-10-21 15:13:42,959:DEBUG: mega>rpi: b'AP:10786.20\r\n'
+2021-10-21 15:13:42,960:DEBUG: mega>rpi: b'BV:42.58\r\n'
+2021-10-21 15:13:42,961:INFO: State.CONTROLLED
+2021-10-21 15:13:42,962:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:42,963:INFO: 25.12 24.58 24.53 24.62 26.78 0.00 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10765.40 1.49 100.00 0  0  1  0  None 42.58 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:42,964:INFO: mega in control
+2021-10-21 15:13:42,965:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:42,967:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-21 15:13:42,968:DEBUG: mega>rpi: b'Y:-0.01\r\n'
+2021-10-21 15:13:42,969:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-21 15:13:43,011:DEBUG: mega>rpi: b'PD:1.42\r\n'
+2021-10-21 15:13:43,013:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-21 15:13:43,014:DEBUG: mega>rpi: b'LC:32.00\r\n'
+2021-10-21 15:13:43,015:ERROR: unknown header: LC:32.00
+2021-10-21 15:13:43,089:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-21 15:13:43,093:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-21 15:13:44,094:DEBUG: mega>rpi: b'S:2.00\r\n'
+2021-10-21 15:13:44,094:ERROR: unknown header: S:2.00
+2021-10-21 15:13:44,096:DEBUG: mega>rpi: b'FS:2.00\r\n'
+2021-10-21 15:13:44,105:DEBUG: mega>rpi: b'AT:27.27\r\n'
+2021-10-21 15:13:44,167:DEBUG: mega>rpi: b'AP:10689.40\r\n'
+2021-10-21 15:13:44,168:DEBUG: mega>rpi: b'BV:50.80\r\n'
+2021-10-21 15:13:44,169:INFO: State.CONTROLLED
+2021-10-21 15:13:44,170:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:44,171:INFO: 25.12 24.58 24.53 24.62 26.90 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10763.38 1.42 100.00 0  0  0  2  None 50.80 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:44,172:INFO: mega in control
+2021-10-21 15:13:44,174:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:44,175:DEBUG: mega>rpi: b'FS:2.00\r\n'
+2021-10-21 15:13:44,941:DEBUG: mega>rpi: b'AT:27.44\r\n'
+2021-10-21 15:13:44,999:DEBUG: mega>rpi: b'AP:10518.30\r\n'
+2021-10-21 15:13:45,000:DEBUG: mega>rpi: b'BV:64.81\r\n'
+2021-10-21 15:13:45,001:INFO: State.CONTROLLED
+2021-10-21 15:13:45,003:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,004:INFO: 25.12 24.58 24.53 24.62 27.04 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10719.16 1.42 100.00 0  0  0  2  None 64.81 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,005:INFO: mega in control
+2021-10-21 15:13:45,006:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,064:DEBUG: mega>rpi: b'AT:27.47\r\n'
+2021-10-21 15:13:45,121:DEBUG: mega>rpi: b'AP:10473.30\r\n'
+2021-10-21 15:13:45,123:DEBUG: mega>rpi: b'BV:68.52\r\n'
+2021-10-21 15:13:45,123:INFO: State.CONTROLLED
+2021-10-21 15:13:45,125:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,126:INFO: 25.12 24.58 24.53 24.62 27.19 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10657.70 1.42 100.00 0  0  0  2  None 68.52 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,127:INFO: mega in control
+2021-10-21 15:13:45,128:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,187:DEBUG: mega>rpi: b'AT:27.51\r\n'
+2021-10-21 15:13:45,244:DEBUG: mega>rpi: b'AP:10425.90\r\n'
+2021-10-21 15:13:45,245:DEBUG: mega>rpi: b'BV:72.49\r\n'
+2021-10-21 15:13:45,246:INFO: State.CONTROLLED
+2021-10-21 15:13:45,247:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,248:INFO: 25.12 24.58 24.53 24.62 27.34 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10578.62 1.42 100.00 0  0  0  2  None 72.49 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,249:INFO: mega in control
+2021-10-21 15:13:45,251:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,309:DEBUG: mega>rpi: b'AT:27.55\r\n'
+2021-10-21 15:13:45,367:DEBUG: mega>rpi: b'AP:10374.70\r\n'
+2021-10-21 15:13:45,368:DEBUG: mega>rpi: b'BV:76.80\r\n'
+2021-10-21 15:13:45,369:INFO: State.CONTROLLED
+2021-10-21 15:13:45,370:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,371:INFO: 25.12 24.58 24.53 24.62 27.45 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10496.32 1.42 100.00 0  0  0  2  None 76.80 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,372:INFO: mega in control
+2021-10-21 15:13:45,373:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,432:DEBUG: mega>rpi: b'AT:27.57\r\n'
+2021-10-21 15:13:45,490:DEBUG: mega>rpi: b'AP:10323.60\r\n'
+2021-10-21 15:13:45,494:DEBUG: mega>rpi: b'BV:81.11\r\n'
+2021-10-21 15:13:45,494:INFO: State.CONTROLLED
+2021-10-21 15:13:45,496:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,497:INFO: 25.12 24.58 24.53 24.62 27.51 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10423.16 1.42 100.00 0  0  0  2  None 81.11 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,498:INFO: mega in control
+2021-10-21 15:13:45,499:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,556:DEBUG: mega>rpi: b'AT:27.60\r\n'
+2021-10-21 15:13:45,613:DEBUG: mega>rpi: b'AP:10267.70\r\n'
+2021-10-21 15:13:45,617:DEBUG: mega>rpi: b'BV:85.87\r\n'
+2021-10-21 15:13:45,618:INFO: State.CONTROLLED
+2021-10-21 15:13:45,619:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,621:INFO: 25.12 24.58 24.53 24.62 27.54 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10373.04 1.42 100.00 0  0  0  2  None 85.87 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,621:INFO: mega in control
+2021-10-21 15:13:45,623:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,679:DEBUG: mega>rpi: b'AT:27.63\r\n'
+2021-10-21 15:13:45,739:DEBUG: mega>rpi: b'AP:10212.70\r\n'
+2021-10-21 15:13:45,740:DEBUG: mega>rpi: b'BV:90.63\r\n'
+2021-10-21 15:13:45,741:INFO: State.CONTROLLED
+2021-10-21 15:13:45,742:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,743:INFO: 25.12 24.58 24.53 24.62 27.57 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10320.92 1.42 100.00 0  0  0  2  None 90.63 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,744:INFO: mega in control
+2021-10-21 15:13:45,746:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,801:DEBUG: mega>rpi: b'AT:27.65\r\n'
+2021-10-21 15:13:45,862:DEBUG: mega>rpi: b'AP:10157.50\r\n'
+2021-10-21 15:13:45,864:DEBUG: mega>rpi: b'BV:95.41\r\n'
+2021-10-21 15:13:45,865:INFO: State.CONTROLLED
+2021-10-21 15:13:45,866:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV    rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,868:INFO: 25.12 24.58 24.53 24.62 27.60 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10267.24 1.42 100.00 0  0  0  2  None 95.41 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,868:INFO: mega in control
+2021-10-21 15:13:45,870:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:45,928:DEBUG: mega>rpi: b'AT:27.67\r\n'
+2021-10-21 15:13:45,986:DEBUG: mega>rpi: b'AP:10103.30\r\n'
+2021-10-21 15:13:45,987:DEBUG: mega>rpi: b'BV:100.19\r\n'
+2021-10-21 15:13:45,988:INFO: State.CONTROLLED
+2021-10-21 15:13:45,989:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:45,991:INFO: 25.12 24.58 24.53 24.62 27.62 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10212.96 1.42 100.00 0  0  0  2  None 100.19 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:45,991:INFO: mega in control
+2021-10-21 15:13:45,993:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,051:DEBUG: mega>rpi: b'AT:27.69\r\n'
+2021-10-21 15:13:46,109:DEBUG: mega>rpi: b'AP:10049.10\r\n'
+2021-10-21 15:13:46,110:DEBUG: mega>rpi: b'BV:104.98\r\n'
+2021-10-21 15:13:46,114:INFO: State.CONTROLLED
+2021-10-21 15:13:46,115:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,117:INFO: 25.12 24.58 24.53 24.62 27.65 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10158.06 1.42 100.00 0  0  0  2  None 104.98 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,117:INFO: mega in control
+2021-10-21 15:13:46,119:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,174:DEBUG: mega>rpi: b'AT:27.70\r\n'
+2021-10-21 15:13:46,232:DEBUG: mega>rpi: b'AP:9998.30\r\n'
+2021-10-21 15:13:46,233:DEBUG: mega>rpi: b'BV:109.50\r\n'
+2021-10-21 15:13:46,234:INFO: State.CONTROLLED
+2021-10-21 15:13:46,235:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,236:INFO: 25.12 24.58 24.53 24.62 27.67 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10104.18 1.42 100.00 0  0  0  2  None 109.50 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,237:INFO: mega in control
+2021-10-21 15:13:46,239:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,297:DEBUG: mega>rpi: b'AT:27.71\r\n'
+2021-10-21 15:13:46,354:DEBUG: mega>rpi: b'AP:9948.30\r\n'
+2021-10-21 15:13:46,355:DEBUG: mega>rpi: b'BV:114.00\r\n'
+2021-10-21 15:13:46,356:INFO: State.CONTROLLED
+2021-10-21 15:13:46,357:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,358:INFO: 25.12 24.58 24.53 24.62 27.68 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 10051.30 1.42 100.00 0  0  0  2  None 114.00 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,359:INFO: mega in control
+2021-10-21 15:13:46,361:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,419:DEBUG: mega>rpi: b'AT:27.71\r\n'
+2021-10-21 15:13:46,477:DEBUG: mega>rpi: b'AP:9897.20\r\n'
+2021-10-21 15:13:46,480:DEBUG: mega>rpi: b'BV:118.64\r\n'
+2021-10-21 15:13:46,481:INFO: State.CONTROLLED
+2021-10-21 15:13:46,483:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,484:INFO: 25.12 24.58 24.53 24.62 27.70 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9999.24 1.42 100.00 0  0  0  2  None 118.64 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,485:INFO: mega in control
+2021-10-21 15:13:46,486:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,542:DEBUG: mega>rpi: b'AT:27.73\r\n'
+2021-10-21 15:13:46,600:DEBUG: mega>rpi: b'AP:9847.20\r\n'
+2021-10-21 15:13:46,604:DEBUG: mega>rpi: b'BV:123.25\r\n'
+2021-10-21 15:13:46,605:INFO: State.CONTROLLED
+2021-10-21 15:13:46,606:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,608:INFO: 25.12 24.58 24.53 24.62 27.71 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9948.02 1.42 100.00 0  0  0  2  None 123.25 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,609:INFO: mega in control
+2021-10-21 15:13:46,610:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,666:DEBUG: mega>rpi: b'AT:27.73\r\n'
+2021-10-21 15:13:46,727:DEBUG: mega>rpi: b'AP:9796.90\r\n'
+2021-10-21 15:13:46,728:DEBUG: mega>rpi: b'BV:127.89\r\n'
+2021-10-21 15:13:46,729:INFO: State.CONTROLLED
+2021-10-21 15:13:46,731:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,732:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9897.58 1.42 100.00 0  0  0  2  None 127.89 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,732:INFO: mega in control
+2021-10-21 15:13:46,734:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,789:DEBUG: mega>rpi: b'AT:27.74\r\n'
+2021-10-21 15:13:46,849:DEBUG: mega>rpi: b'AP:9748.90\r\n'
+2021-10-21 15:13:46,851:DEBUG: mega>rpi: b'BV:132.39\r\n'
+2021-10-21 15:13:46,852:INFO: State.CONTROLLED
+2021-10-21 15:13:46,853:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,854:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9847.70 1.42 100.00 0  0  0  2  None 132.39 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,855:INFO: mega in control
+2021-10-21 15:13:46,857:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:46,914:DEBUG: mega>rpi: b'AT:27.74\r\n'
+2021-10-21 15:13:46,973:DEBUG: mega>rpi: b'AP:9700.90\r\n'
+2021-10-21 15:13:46,974:DEBUG: mega>rpi: b'BV:136.90\r\n'
+2021-10-21 15:13:46,975:INFO: State.CONTROLLED
+2021-10-21 15:13:46,976:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:46,977:INFO: 25.12 24.58 24.53 24.62 27.73 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9798.22 1.42 100.00 0  0  0  2  None 136.90 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:46,978:INFO: mega in control
+2021-10-21 15:13:46,979:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,038:DEBUG: mega>rpi: b'AT:27.74\r\n'
+2021-10-21 15:13:47,096:DEBUG: mega>rpi: b'AP:9654.70\r\n'
+2021-10-21 15:13:47,097:DEBUG: mega>rpi: b'BV:141.29\r\n'
+2021-10-21 15:13:47,098:INFO: State.CONTROLLED
+2021-10-21 15:13:47,099:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,100:INFO: 25.12 24.58 24.53 24.62 27.74 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9749.72 1.42 100.00 0  0  0  2  None 141.29 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,101:INFO: mega in control
+2021-10-21 15:13:47,102:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,161:DEBUG: mega>rpi: b'AT:27.74\r\n'
+2021-10-21 15:13:47,219:DEBUG: mega>rpi: b'AP:9607.70\r\n'
+2021-10-21 15:13:47,220:DEBUG: mega>rpi: b'BV:145.80\r\n'
+2021-10-21 15:13:47,221:INFO: State.CONTROLLED
+2021-10-21 15:13:47,222:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,223:INFO: 25.12 24.58 24.53 24.62 27.74 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9701.82 1.42 100.00 0  0  0  2  None 145.80 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,224:INFO: mega in control
+2021-10-21 15:13:47,226:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,284:DEBUG: mega>rpi: b'AT:27.73\r\n'
+2021-10-21 15:13:47,342:DEBUG: mega>rpi: b'AP:9561.40\r\n'
+2021-10-21 15:13:47,343:DEBUG: mega>rpi: b'BV:150.25\r\n'
+2021-10-21 15:13:47,344:INFO: State.CONTROLLED
+2021-10-21 15:13:47,345:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,347:INFO: 25.12 24.58 24.53 24.62 27.74 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9654.72 1.42 100.00 0  0  0  2  None 150.25 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,347:INFO: mega in control
+2021-10-21 15:13:47,349:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,407:DEBUG: mega>rpi: b'AT:27.73\r\n'
+2021-10-21 15:13:47,464:DEBUG: mega>rpi: b'AP:9516.60\r\n'
+2021-10-21 15:13:47,465:DEBUG: mega>rpi: b'BV:154.63\r\n'
+2021-10-21 15:13:47,466:INFO: State.CONTROLLED
+2021-10-21 15:13:47,468:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,469:INFO: 25.12 24.58 24.53 24.62 27.74 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9608.26 1.42 100.00 0  0  0  2  None 154.63 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,469:INFO: mega in control
+2021-10-21 15:13:47,471:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,529:DEBUG: mega>rpi: b'AT:27.72\r\n'
+2021-10-21 15:13:47,587:DEBUG: mega>rpi: b'AP:9471.10\r\n'
+2021-10-21 15:13:47,591:DEBUG: mega>rpi: b'BV:159.10\r\n'
+2021-10-21 15:13:47,591:INFO: State.CONTROLLED
+2021-10-21 15:13:47,593:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,594:INFO: 25.12 24.58 24.53 24.62 27.73 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9562.30 1.42 100.00 0  0  0  2  None 159.10 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,595:INFO: mega in control
+2021-10-21 15:13:47,596:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,652:DEBUG: mega>rpi: b'AT:27.72\r\n'
+2021-10-21 15:13:47,710:DEBUG: mega>rpi: b'AP:9426.90\r\n'
+2021-10-21 15:13:47,714:DEBUG: mega>rpi: b'BV:163.50\r\n'
+2021-10-21 15:13:47,715:INFO: State.CONTROLLED
+2021-10-21 15:13:47,716:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,718:INFO: 25.12 24.58 24.53 24.62 27.73 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9516.74 1.42 100.00 0  0  0  2  None 163.50 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,718:INFO: mega in control
+2021-10-21 15:13:47,720:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,776:DEBUG: mega>rpi: b'AT:27.72\r\n'
+2021-10-21 15:13:47,837:DEBUG: mega>rpi: b'AP:9382.70\r\n'
+2021-10-21 15:13:47,838:DEBUG: mega>rpi: b'BV:167.94\r\n'
+2021-10-21 15:13:47,839:INFO: State.CONTROLLED
+2021-10-21 15:13:47,841:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,842:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9471.74 1.42 100.00 0  0  0  2  None 167.94 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,843:INFO: mega in control
+2021-10-21 15:13:47,844:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:47,902:DEBUG: mega>rpi: b'AT:27.72\r\n'
+2021-10-21 15:13:47,960:DEBUG: mega>rpi: b'AP:9339.60\r\n'
+2021-10-21 15:13:47,961:DEBUG: mega>rpi: b'BV:172.32\r\n'
+2021-10-21 15:13:47,962:INFO: State.CONTROLLED
+2021-10-21 15:13:47,964:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:47,965:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9427.38 1.42 100.00 0  0  0  2  None 172.32 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:47,965:INFO: mega in control
+2021-10-21 15:13:47,967:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,025:DEBUG: mega>rpi: b'AT:27.72\r\n'
+2021-10-21 15:13:48,083:DEBUG: mega>rpi: b'AP:9297.10\r\n'
+2021-10-21 15:13:48,084:DEBUG: mega>rpi: b'BV:176.67\r\n'
+2021-10-21 15:13:48,085:INFO: State.CONTROLLED
+2021-10-21 15:13:48,087:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,088:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9383.48 1.42 100.00 0  0  0  2  None 176.67 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,088:INFO: mega in control
+2021-10-21 15:13:48,090:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,148:DEBUG: mega>rpi: b'AT:27.71\r\n'
+2021-10-21 15:13:48,206:DEBUG: mega>rpi: b'AP:9254.50\r\n'
+2021-10-21 15:13:48,207:DEBUG: mega>rpi: b'BV:181.05\r\n'
+2021-10-21 15:13:48,208:INFO: State.CONTROLLED
+2021-10-21 15:13:48,209:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,211:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9340.16 1.42 100.00 0  0  0  2  None 181.05 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,211:INFO: mega in control
+2021-10-21 15:13:48,213:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,271:DEBUG: mega>rpi: b'AT:27.71\r\n'
+2021-10-21 15:13:48,329:DEBUG: mega>rpi: b'AP:9212.80\r\n'
+2021-10-21 15:13:48,330:DEBUG: mega>rpi: b'BV:185.37\r\n'
+2021-10-21 15:13:48,331:INFO: State.CONTROLLED
+2021-10-21 15:13:48,333:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,334:INFO: 25.12 24.58 24.53 24.62 27.72 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9297.34 1.42 100.00 0  0  0  2  None 185.37 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,334:INFO: mega in control
+2021-10-21 15:13:48,336:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,394:DEBUG: mega>rpi: b'AT:27.71\r\n'
+2021-10-21 15:13:48,451:DEBUG: mega>rpi: b'AP:9172.10\r\n'
+2021-10-21 15:13:48,452:DEBUG: mega>rpi: b'BV:189.66\r\n'
+2021-10-21 15:13:48,453:INFO: State.CONTROLLED
+2021-10-21 15:13:48,454:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,455:INFO: 25.12 24.58 24.53 24.62 27.71 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9255.22 1.42 100.00 0  0  0  2  None 189.66 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,456:INFO: mega in control
+2021-10-21 15:13:48,458:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,516:DEBUG: mega>rpi: b'AT:27.70\r\n'
+2021-10-21 15:13:48,574:DEBUG: mega>rpi: b'AP:9131.40\r\n'
+2021-10-21 15:13:48,577:DEBUG: mega>rpi: b'BV:193.95\r\n'
+2021-10-21 15:13:48,578:INFO: State.CONTROLLED
+2021-10-21 15:13:48,579:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,581:INFO: 25.12 24.58 24.53 24.62 27.71 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9213.58 1.42 100.00 0  0  0  2  None 193.95 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,581:INFO: mega in control
+2021-10-21 15:13:48,583:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,639:DEBUG: mega>rpi: b'AT:27.69\r\n'
+2021-10-21 15:13:48,697:DEBUG: mega>rpi: b'AP:9091.10\r\n'
+2021-10-21 15:13:48,701:DEBUG: mega>rpi: b'BV:198.24\r\n'
+2021-10-21 15:13:48,702:INFO: State.CONTROLLED
+2021-10-21 15:13:48,703:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,704:INFO: 25.12 24.58 24.53 24.62 27.70 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9172.38 1.42 100.00 0  0  0  2  None 198.24 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,705:INFO: mega in control
+2021-10-21 15:13:48,707:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,763:DEBUG: mega>rpi: b'AT:27.69\r\n'
+2021-10-21 15:13:48,824:DEBUG: mega>rpi: b'AP:9051.10\r\n'
+2021-10-21 15:13:48,825:DEBUG: mega>rpi: b'BV:202.56\r\n'
+2021-10-21 15:13:48,826:INFO: State.CONTROLLED
+2021-10-21 15:13:48,827:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,829:INFO: 25.12 24.58 24.53 24.62 27.70 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9131.70 1.42 100.00 0  0  0  2  None 202.56 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,829:INFO: mega in control
+2021-10-21 15:13:48,831:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:48,885:DEBUG: mega>rpi: b'AT:27.68\r\n'
+2021-10-21 15:13:48,946:DEBUG: mega>rpi: b'AP:9011.50\r\n'
+2021-10-21 15:13:48,948:DEBUG: mega>rpi: b'BV:206.85\r\n'
+2021-10-21 15:13:48,948:INFO: State.CONTROLLED
+2021-10-21 15:13:48,950:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:48,951:INFO: 25.12 24.58 24.53 24.62 27.69 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9091.44 1.42 100.00 0  0  0  2  None 206.85 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:48,952:INFO: mega in control
+2021-10-21 15:13:48,953:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,012:DEBUG: mega>rpi: b'AT:27.67\r\n'
+2021-10-21 15:13:49,070:DEBUG: mega>rpi: b'AP:8972.00\r\n'
+2021-10-21 15:13:49,071:DEBUG: mega>rpi: b'BV:211.17\r\n'
+2021-10-21 15:13:49,072:INFO: State.CONTROLLED
+2021-10-21 15:13:49,073:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,075:INFO: 25.12 24.58 24.53 24.62 27.69 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9051.42 1.42 100.00 0  0  0  2  None 211.17 Buffering (0/1) CONTROLLED ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,075:INFO: mega in control
+2021-10-21 15:13:49,077:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,084:DEBUG: CLI:['stop', '0']
+2021-10-21 15:13:49,135:DEBUG: mega>rpi: b'AT:27.66\r\n'
+2021-10-21 15:13:49,193:DEBUG: mega>rpi: b'AP:8934.50\r\n'
+2021-10-21 15:13:49,194:DEBUG: mega>rpi: b'BV:215.27\r\n'
+2021-10-21 15:13:49,195:WARNING: stopping
+2021-10-21 15:13:49,196:INFO: State.STOP
+2021-10-21 15:13:49,197:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,198:INFO: 25.12 24.58 24.53 24.62 27.68 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 9012.04 1.42 100.00 0  0  0  2  None 215.27 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,199:WARNING: Stopped
+2021-10-21 15:13:49,201:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,258:DEBUG: mega>rpi: b'AT:27.66\r\n'
+2021-10-21 15:13:49,316:DEBUG: mega>rpi: b'AP:8896.50\r\n'
+2021-10-21 15:13:49,317:DEBUG: mega>rpi: b'BV:219.52\r\n'
+2021-10-21 15:13:49,318:WARNING: stopping
+2021-10-21 15:13:49,319:INFO: State.STOP
+2021-10-21 15:13:49,320:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,321:INFO: 25.12 24.58 24.53 24.62 27.67 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8973.12 1.42 100.00 0  0  0  2  None 219.52 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,322:WARNING: Stopped
+2021-10-21 15:13:49,324:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,381:DEBUG: mega>rpi: b'AT:27.65\r\n'
+2021-10-21 15:13:49,439:DEBUG: mega>rpi: b'AP:8858.80\r\n'
+2021-10-21 15:13:49,440:DEBUG: mega>rpi: b'BV:223.75\r\n'
+2021-10-21 15:13:49,441:WARNING: stopping
+2021-10-21 15:13:49,442:INFO: State.STOP
+2021-10-21 15:13:49,443:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,444:INFO: 25.12 24.58 24.53 24.62 27.66 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8934.66 1.42 100.00 0  0  0  2  None 223.75 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,445:WARNING: Stopped
+2021-10-21 15:13:49,447:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,504:DEBUG: mega>rpi: b'AT:27.63\r\n'
+2021-10-21 15:13:49,561:DEBUG: mega>rpi: b'AP:8821.70\r\n'
+2021-10-21 15:13:49,562:DEBUG: mega>rpi: b'BV:227.91\r\n'
+2021-10-21 15:13:49,563:WARNING: stopping
+2021-10-21 15:13:49,564:INFO: State.STOP
+2021-10-21 15:13:49,566:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,567:INFO: 25.12 24.58 24.53 24.62 27.65 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8896.70 1.42 100.00 0  0  0  2  None 227.91 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,568:WARNING: Stopped
+2021-10-21 15:13:49,570:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,626:DEBUG: mega>rpi: b'AT:27.61\r\n'
+2021-10-21 15:13:49,684:DEBUG: mega>rpi: b'AP:8785.00\r\n'
+2021-10-21 15:13:49,688:DEBUG: mega>rpi: b'BV:232.07\r\n'
+2021-10-21 15:13:49,689:WARNING: stopping
+2021-10-21 15:13:49,689:INFO: State.STOP
+2021-10-21 15:13:49,691:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,692:INFO: 25.12 24.58 24.53 24.62 27.64 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8859.30 1.42 100.00 0  0  0  2  None 232.07 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,693:WARNING: Stopped
+2021-10-21 15:13:49,694:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,750:DEBUG: mega>rpi: b'AT:27.60\r\n'
+2021-10-21 15:13:49,807:DEBUG: mega>rpi: b'AP:8748.60\r\n'
+2021-10-21 15:13:49,811:DEBUG: mega>rpi: b'BV:236.25\r\n'
+2021-10-21 15:13:49,812:WARNING: stopping
+2021-10-21 15:13:49,813:INFO: State.STOP
+2021-10-21 15:13:49,815:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,816:INFO: 25.12 24.58 24.53 24.62 27.63 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8822.12 1.42 100.00 0  0  0  2  None 236.25 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,817:WARNING: Stopped
+2021-10-21 15:13:49,819:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,873:DEBUG: mega>rpi: b'AT:27.60\r\n'
+2021-10-21 15:13:49,934:DEBUG: mega>rpi: b'AP:8711.80\r\n'
+2021-10-21 15:13:49,936:DEBUG: mega>rpi: b'BV:240.52\r\n'
+2021-10-21 15:13:49,937:WARNING: stopping
+2021-10-21 15:13:49,938:INFO: State.STOP
+2021-10-21 15:13:49,940:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:49,941:INFO: 25.12 24.58 24.53 24.62 27.62 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8785.18 1.42 100.00 0  0  0  2  None 240.52 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:49,942:WARNING: Stopped
+2021-10-21 15:13:49,945:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:49,998:DEBUG: mega>rpi: b'AT:27.58\r\n'
+2021-10-21 15:13:50,057:DEBUG: mega>rpi: b'AP:8677.40\r\n'
+2021-10-21 15:13:50,059:DEBUG: mega>rpi: b'BV:244.50\r\n'
+2021-10-21 15:13:50,060:WARNING: stopping
+2021-10-21 15:13:50,061:INFO: State.STOP
+2021-10-21 15:13:50,063:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,064:INFO: 25.12 24.58 24.53 24.62 27.60 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8748.90 1.42 100.00 0  0  0  2  None 244.50 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,065:WARNING: Stopped
+2021-10-21 15:13:50,068:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,122:DEBUG: mega>rpi: b'AT:27.56\r\n'
+2021-10-21 15:13:50,180:DEBUG: mega>rpi: b'AP:8641.10\r\n'
+2021-10-21 15:13:50,181:DEBUG: mega>rpi: b'BV:248.75\r\n'
+2021-10-21 15:13:50,182:WARNING: stopping
+2021-10-21 15:13:50,183:INFO: State.STOP
+2021-10-21 15:13:50,185:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,186:INFO: 25.12 24.58 24.53 24.62 27.59 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8712.78 1.42 100.00 0  0  0  2  None 248.75 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,187:WARNING: Stopped
+2021-10-21 15:13:50,189:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,245:DEBUG: mega>rpi: b'AT:27.55\r\n'
+2021-10-21 15:13:50,303:DEBUG: mega>rpi: b'AP:8606.40\r\n'
+2021-10-21 15:13:50,304:DEBUG: mega>rpi: b'BV:252.87\r\n'
+2021-10-21 15:13:50,305:WARNING: stopping
+2021-10-21 15:13:50,306:INFO: State.STOP
+2021-10-21 15:13:50,307:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,309:INFO: 25.12 24.58 24.53 24.62 27.58 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8677.06 1.42 100.00 0  0  0  2  None 252.87 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,310:WARNING: Stopped
+2021-10-21 15:13:50,311:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,368:DEBUG: mega>rpi: b'AT:27.54\r\n'
+2021-10-21 15:13:50,426:DEBUG: mega>rpi: b'AP:8572.10\r\n'
+2021-10-21 15:13:50,427:DEBUG: mega>rpi: b'BV:256.94\r\n'
+2021-10-21 15:13:50,428:WARNING: stopping
+2021-10-21 15:13:50,429:INFO: State.STOP
+2021-10-21 15:13:50,431:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,432:INFO: 25.12 24.58 24.53 24.62 27.57 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8641.76 1.42 100.00 0  0  0  2  None 256.94 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,434:WARNING: Stopped
+2021-10-21 15:13:50,436:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,491:DEBUG: mega>rpi: b'AT:27.52\r\n'
+2021-10-21 15:13:50,548:DEBUG: mega>rpi: b'AP:8537.20\r\n'
+2021-10-21 15:13:50,549:DEBUG: mega>rpi: b'BV:261.12\r\n'
+2021-10-21 15:13:50,550:WARNING: stopping
+2021-10-21 15:13:50,551:INFO: State.STOP
+2021-10-21 15:13:50,553:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,554:INFO: 25.12 24.58 24.53 24.62 27.55 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8606.84 1.42 100.00 0  0  0  2  None 261.12 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,555:WARNING: Stopped
+2021-10-21 15:13:50,557:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,613:DEBUG: mega>rpi: b'AT:27.50\r\n'
+2021-10-21 15:13:50,671:DEBUG: mega>rpi: b'AP:8503.90\r\n'
+2021-10-21 15:13:50,675:DEBUG: mega>rpi: b'BV:265.14\r\n'
+2021-10-21 15:13:50,675:WARNING: stopping
+2021-10-21 15:13:50,676:INFO: State.STOP
+2021-10-21 15:13:50,678:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,679:INFO: 25.12 24.58 24.53 24.62 27.53 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8572.14 1.42 100.00 0  0  0  2  None 265.14 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,681:WARNING: Stopped
+2021-10-21 15:13:50,682:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,737:DEBUG: mega>rpi: b'AT:27.49\r\n'
+2021-10-21 15:13:50,794:DEBUG: mega>rpi: b'AP:8470.90\r\n'
+2021-10-21 15:13:50,798:DEBUG: mega>rpi: b'BV:269.15\r\n'
+2021-10-21 15:13:50,799:WARNING: stopping
+2021-10-21 15:13:50,800:INFO: State.STOP
+2021-10-21 15:13:50,801:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,803:INFO: 25.12 24.58 24.53 24.62 27.52 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8538.10 1.42 100.00 0  0  0  2  None 269.15 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,804:WARNING: Stopped
+2021-10-21 15:13:50,805:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,860:DEBUG: mega>rpi: b'AT:27.48\r\n'
+2021-10-21 15:13:50,921:DEBUG: mega>rpi: b'AP:8437.40\r\n'
+2021-10-21 15:13:50,923:DEBUG: mega>rpi: b'BV:273.29\r\n'
+2021-10-21 15:13:50,924:WARNING: stopping
+2021-10-21 15:13:50,925:INFO: State.STOP
+2021-10-21 15:13:50,927:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:50,928:INFO: 25.12 24.58 24.53 24.62 27.51 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8504.30 1.42 100.00 0  0  0  2  None 273.29 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:50,929:WARNING: Stopped
+2021-10-21 15:13:50,931:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:50,986:DEBUG: mega>rpi: b'AT:27.45\r\n'
+2021-10-21 15:13:51,044:DEBUG: mega>rpi: b'AP:8404.80\r\n'
+2021-10-21 15:13:51,046:DEBUG: mega>rpi: b'BV:277.28\r\n'
+2021-10-21 15:13:51,047:WARNING: stopping
+2021-10-21 15:13:51,048:INFO: State.STOP
+2021-10-21 15:13:51,050:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,051:INFO: 25.12 24.58 24.53 24.62 27.49 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8470.84 1.42 100.00 0  0  0  2  None 277.28 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,052:WARNING: Stopped
+2021-10-21 15:13:51,054:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,109:DEBUG: mega>rpi: b'AT:27.44\r\n'
+2021-10-21 15:13:51,167:DEBUG: mega>rpi: b'AP:8371.10\r\n'
+2021-10-21 15:13:51,169:DEBUG: mega>rpi: b'BV:281.48\r\n'
+2021-10-21 15:13:51,169:WARNING: stopping
+2021-10-21 15:13:51,170:INFO: State.STOP
+2021-10-21 15:13:51,172:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,174:INFO: 25.12 24.58 24.53 24.62 27.47 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8437.62 1.42 100.00 0  0  0  2  None 281.48 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,174:WARNING: Stopped
+2021-10-21 15:13:51,177:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,232:DEBUG: mega>rpi: b'AT:27.41\r\n'
+2021-10-21 15:13:51,290:DEBUG: mega>rpi: b'AP:8340.40\r\n'
+2021-10-21 15:13:51,292:DEBUG: mega>rpi: b'BV:285.30\r\n'
+2021-10-21 15:13:51,293:WARNING: stopping
+2021-10-21 15:13:51,294:INFO: State.STOP
+2021-10-21 15:13:51,295:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,297:INFO: 25.12 24.58 24.53 24.62 27.45 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8404.92 1.42 100.00 0  0  0  2  None 285.30 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,298:WARNING: Stopped
+2021-10-21 15:13:51,299:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,355:DEBUG: mega>rpi: b'AT:27.38\r\n'
+2021-10-21 15:13:51,413:DEBUG: mega>rpi: b'AP:8308.00\r\n'
+2021-10-21 15:13:51,415:DEBUG: mega>rpi: b'BV:289.36\r\n'
+2021-10-21 15:13:51,416:WARNING: stopping
+2021-10-21 15:13:51,417:INFO: State.STOP
+2021-10-21 15:13:51,418:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,420:INFO: 25.12 24.58 24.53 24.62 27.43 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8372.34 1.42 100.00 0  0  0  2  None 289.36 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,421:WARNING: Stopped
+2021-10-21 15:13:51,423:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,478:DEBUG: mega>rpi: b'AT:27.37\r\n'
+2021-10-21 15:13:51,536:DEBUG: mega>rpi: b'AP:8276.80\r\n'
+2021-10-21 15:13:51,539:DEBUG: mega>rpi: b'BV:293.33\r\n'
+2021-10-21 15:13:51,540:WARNING: stopping
+2021-10-21 15:13:51,540:INFO: State.STOP
+2021-10-21 15:13:51,542:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,543:INFO: 25.12 24.58 24.53 24.62 27.41 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8340.22 1.42 100.00 0  0  0  2  None 293.33 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,545:WARNING: Stopped
+2021-10-21 15:13:51,547:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,600:DEBUG: mega>rpi: b'AT:27.34\r\n'
+2021-10-21 15:13:51,658:DEBUG: mega>rpi: b'AP:8245.20\r\n'
+2021-10-21 15:13:51,674:DEBUG: mega>rpi: b'BV:297.35\r\n'
+2021-10-21 15:13:51,675:WARNING: stopping
+2021-10-21 15:13:51,675:INFO: State.STOP
+2021-10-21 15:13:51,677:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,678:INFO: 25.12 24.58 24.53 24.62 27.39 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8308.30 1.42 100.00 0  0  0  2  None 297.35 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,679:WARNING: Stopped
+2021-10-21 15:13:51,680:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,723:DEBUG: mega>rpi: b'AT:27.32\r\n'
+2021-10-21 15:13:51,781:DEBUG: mega>rpi: b'AP:8214.30\r\n'
+2021-10-21 15:13:51,785:DEBUG: mega>rpi: b'BV:301.35\r\n'
+2021-10-21 15:13:51,786:WARNING: stopping
+2021-10-21 15:13:51,787:INFO: State.STOP
+2021-10-21 15:13:51,788:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,790:INFO: 25.12 24.58 24.53 24.62 27.36 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8276.94 1.42 100.00 0  0  0  2  None 301.35 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,790:WARNING: Stopped
+2021-10-21 15:13:51,792:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,847:DEBUG: mega>rpi: b'AT:27.30\r\n'
+2021-10-21 15:13:51,908:DEBUG: mega>rpi: b'AP:8184.00\r\n'
+2021-10-21 15:13:51,910:DEBUG: mega>rpi: b'BV:305.26\r\n'
+2021-10-21 15:13:51,910:WARNING: stopping
+2021-10-21 15:13:51,911:INFO: State.STOP
+2021-10-21 15:13:51,913:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:51,914:INFO: 25.12 24.58 24.53 24.62 27.34 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8245.66 1.42 100.00 0  0  0  2  None 305.26 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:51,915:WARNING: Stopped
+2021-10-21 15:13:51,917:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:51,970:DEBUG: mega>rpi: b'AT:27.27\r\n'
+2021-10-21 15:13:52,030:DEBUG: mega>rpi: b'AP:8154.10\r\n'
+2021-10-21 15:13:52,032:DEBUG: mega>rpi: b'BV:309.15\r\n'
+2021-10-21 15:13:52,033:WARNING: stopping
+2021-10-21 15:13:52,034:INFO: State.STOP
+2021-10-21 15:13:52,036:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,037:INFO: 25.12 24.58 24.53 24.62 27.32 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8214.88 1.42 100.00 0  0  0  2  None 309.15 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,037:WARNING: Stopped
+2021-10-21 15:13:52,039:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,096:DEBUG: mega>rpi: b'AT:27.25\r\n'
+2021-10-21 15:13:52,154:DEBUG: mega>rpi: b'AP:8124.80\r\n'
+2021-10-21 15:13:52,156:DEBUG: mega>rpi: b'BV:312.98\r\n'
+2021-10-21 15:13:52,156:WARNING: stopping
+2021-10-21 15:13:52,157:INFO: State.STOP
+2021-10-21 15:13:52,159:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,160:INFO: 25.12 24.58 24.53 24.62 27.30 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8184.48 1.42 100.00 0  0  0  2  None 312.98 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,161:WARNING: Stopped
+2021-10-21 15:13:52,163:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,219:DEBUG: mega>rpi: b'AT:27.22\r\n'
+2021-10-21 15:13:52,277:DEBUG: mega>rpi: b'AP:8093.90\r\n'
+2021-10-21 15:13:52,279:DEBUG: mega>rpi: b'BV:317.06\r\n'
+2021-10-21 15:13:52,280:WARNING: stopping
+2021-10-21 15:13:52,281:INFO: State.STOP
+2021-10-21 15:13:52,282:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,284:INFO: 25.12 24.58 24.53 24.62 27.27 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8154.22 1.42 100.00 0  0  0  2  None 317.06 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,285:WARNING: Stopped
+2021-10-21 15:13:52,287:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,342:DEBUG: mega>rpi: b'AT:27.21\r\n'
+2021-10-21 15:13:52,400:DEBUG: mega>rpi: b'AP:8064.90\r\n'
+2021-10-21 15:13:52,401:DEBUG: mega>rpi: b'BV:320.94\r\n'
+2021-10-21 15:13:52,402:WARNING: stopping
+2021-10-21 15:13:52,403:INFO: State.STOP
+2021-10-21 15:13:52,404:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,405:INFO: 25.12 24.58 24.53 24.62 27.25 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8124.34 1.42 100.00 0  0  0  2  None 320.94 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,406:WARNING: Stopped
+2021-10-21 15:13:52,407:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,465:DEBUG: mega>rpi: b'AT:27.18\r\n'
+2021-10-21 15:13:52,523:DEBUG: mega>rpi: b'AP:8037.90\r\n'
+2021-10-21 15:13:52,524:DEBUG: mega>rpi: b'BV:324.55\r\n'
+2021-10-21 15:13:52,525:WARNING: stopping
+2021-10-21 15:13:52,526:INFO: State.STOP
+2021-10-21 15:13:52,527:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,528:INFO: 25.12 24.58 24.53 24.62 27.23 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8095.12 1.42 100.00 0  0  0  2  None 324.55 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,529:WARNING: Stopped
+2021-10-21 15:13:52,531:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,588:DEBUG: mega>rpi: b'AT:27.16\r\n'
+2021-10-21 15:13:52,645:DEBUG: mega>rpi: b'AP:8008.90\r\n'
+2021-10-21 15:13:52,646:DEBUG: mega>rpi: b'BV:328.48\r\n'
+2021-10-21 15:13:52,647:WARNING: stopping
+2021-10-21 15:13:52,648:INFO: State.STOP
+2021-10-21 15:13:52,649:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,650:INFO: 25.12 24.58 24.53 24.62 27.20 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8066.08 1.42 100.00 0  0  0  2  None 328.48 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,651:WARNING: Stopped
+2021-10-21 15:13:52,653:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,711:DEBUG: mega>rpi: b'AT:27.14\r\n'
+2021-10-21 15:13:52,768:DEBUG: mega>rpi: b'AP:7980.40\r\n'
+2021-10-21 15:13:52,772:DEBUG: mega>rpi: b'BV:332.35\r\n'
+2021-10-21 15:13:52,773:WARNING: stopping
+2021-10-21 15:13:52,774:INFO: State.STOP
+2021-10-21 15:13:52,775:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,776:INFO: 25.12 24.58 24.53 24.62 27.18 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8037.20 1.42 100.00 0  0  0  2  None 332.35 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,777:WARNING: Stopped
+2021-10-21 15:13:52,778:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,834:DEBUG: mega>rpi: b'AT:27.11\r\n'
+2021-10-21 15:13:52,892:DEBUG: mega>rpi: b'AP:7952.50\r\n'
+2021-10-21 15:13:52,896:DEBUG: mega>rpi: b'BV:336.16\r\n'
+2021-10-21 15:13:52,897:WARNING: stopping
+2021-10-21 15:13:52,898:INFO: State.STOP
+2021-10-21 15:13:52,899:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:52,900:INFO: 25.12 24.58 24.53 24.62 27.16 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 8008.92 1.42 100.00 0  0  0  2  None 336.16 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:52,900:WARNING: Stopped
+2021-10-21 15:13:52,902:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:52,957:DEBUG: mega>rpi: b'AT:27.09\r\n'
+2021-10-21 15:13:53,017:DEBUG: mega>rpi: b'AP:7925.00\r\n'
+2021-10-21 15:13:53,018:DEBUG: mega>rpi: b'BV:339.93\r\n'
+2021-10-21 15:13:53,019:WARNING: stopping
+2021-10-21 15:13:53,020:INFO: State.STOP
+2021-10-21 15:13:53,021:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,022:INFO: 25.12 24.58 24.53 24.62 27.14 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7980.94 1.42 100.00 0  0  0  2  None 339.93 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,023:WARNING: Stopped
+2021-10-21 15:13:53,025:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,082:DEBUG: mega>rpi: b'AT:27.07\r\n'
+2021-10-21 15:13:53,141:DEBUG: mega>rpi: b'AP:7897.40\r\n'
+2021-10-21 15:13:53,142:DEBUG: mega>rpi: b'BV:343.79\r\n'
+2021-10-21 15:13:53,143:WARNING: stopping
+2021-10-21 15:13:53,144:INFO: State.STOP
+2021-10-21 15:13:53,145:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,146:INFO: 25.12 24.58 24.53 24.62 27.11 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7952.84 1.42 100.00 0  0  0  2  None 343.79 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,147:WARNING: Stopped
+2021-10-21 15:13:53,149:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,206:DEBUG: mega>rpi: b'AT:27.04\r\n'
+2021-10-21 15:13:53,264:DEBUG: mega>rpi: b'AP:7870.10\r\n'
+2021-10-21 15:13:53,266:DEBUG: mega>rpi: b'BV:347.56\r\n'
+2021-10-21 15:13:53,266:WARNING: stopping
+2021-10-21 15:13:53,267:INFO: State.STOP
+2021-10-21 15:13:53,269:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,270:INFO: 25.12 24.58 24.53 24.62 27.09 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7925.08 1.42 100.00 0  0  0  2  None 347.56 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,271:WARNING: Stopped
+2021-10-21 15:13:53,273:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,330:DEBUG: mega>rpi: b'AT:27.01\r\n'
+2021-10-21 15:13:53,387:DEBUG: mega>rpi: b'AP:7843.10\r\n'
+2021-10-21 15:13:53,389:DEBUG: mega>rpi: b'BV:351.34\r\n'
+2021-10-21 15:13:53,389:WARNING: stopping
+2021-10-21 15:13:53,390:INFO: State.STOP
+2021-10-21 15:13:53,392:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,393:INFO: 25.12 24.58 24.53 24.62 27.06 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7897.62 1.42 100.00 0  0  0  2  None 351.34 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,394:WARNING: Stopped
+2021-10-21 15:13:53,396:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,453:DEBUG: mega>rpi: b'AT:26.99\r\n'
+2021-10-21 15:13:53,510:DEBUG: mega>rpi: b'AP:7816.10\r\n'
+2021-10-21 15:13:53,512:DEBUG: mega>rpi: b'BV:355.15\r\n'
+2021-10-21 15:13:53,512:WARNING: stopping
+2021-10-21 15:13:53,513:INFO: State.STOP
+2021-10-21 15:13:53,515:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,516:INFO: 25.12 24.58 24.53 24.62 27.04 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7870.34 1.42 100.00 0  0  0  2  None 355.15 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,517:WARNING: Stopped
+2021-10-21 15:13:53,519:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,575:DEBUG: mega>rpi: b'AT:26.96\r\n'
+2021-10-21 15:13:53,632:DEBUG: mega>rpi: b'AP:7789.40\r\n'
+2021-10-21 15:13:53,633:DEBUG: mega>rpi: b'BV:358.95\r\n'
+2021-10-21 15:13:53,634:WARNING: stopping
+2021-10-21 15:13:53,635:INFO: State.STOP
+2021-10-21 15:13:53,637:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,638:INFO: 25.12 24.58 24.53 24.62 27.01 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7843.22 1.42 100.00 0  0  0  2  None 358.95 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,639:WARNING: Stopped
+2021-10-21 15:13:53,641:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,697:DEBUG: mega>rpi: b'AT:26.93\r\n'
+2021-10-21 15:13:53,755:DEBUG: mega>rpi: b'AP:7763.80\r\n'
+2021-10-21 15:13:53,759:DEBUG: mega>rpi: b'BV:362.57\r\n'
+2021-10-21 15:13:53,759:WARNING: stopping
+2021-10-21 15:13:53,760:INFO: State.STOP
+2021-10-21 15:13:53,761:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,763:INFO: 25.12 24.58 24.53 24.62 26.99 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7816.50 1.42 100.00 0  0  0  2  None 362.57 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,764:WARNING: Stopped
+2021-10-21 15:13:53,766:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,821:DEBUG: mega>rpi: b'AT:26.91\r\n'
+2021-10-21 15:13:53,879:DEBUG: mega>rpi: b'AP:7738.20\r\n'
+2021-10-21 15:13:53,882:DEBUG: mega>rpi: b'BV:366.29\r\n'
+2021-10-21 15:13:53,883:WARNING: stopping
+2021-10-21 15:13:53,884:INFO: State.STOP
+2021-10-21 15:13:53,886:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:53,887:INFO: 25.12 24.58 24.53 24.62 26.96 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7790.12 1.42 100.00 0  0  0  2  None 366.29 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:53,888:WARNING: Stopped
+2021-10-21 15:13:53,889:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:53,944:DEBUG: mega>rpi: b'AT:26.88\r\n'
+2021-10-21 15:13:54,005:DEBUG: mega>rpi: b'AP:7712.90\r\n'
+2021-10-21 15:13:54,007:DEBUG: mega>rpi: b'BV:369.92\r\n'
+2021-10-21 15:13:54,008:WARNING: stopping
+2021-10-21 15:13:54,008:INFO: State.STOP
+2021-10-21 15:13:54,010:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-21 15:13:54,011:INFO: 25.12 24.58 24.53 24.62 26.93 0.01 0.01 0.00 11.20 11.44 10.14 10.40 1165.30 7764.08 1.42 100.00 0  0  0  2  None 369.92 Buffering (0/1) STOP  ASCENDING    0        30.00 0.00  
+2021-10-21 15:13:54,011:WARNING: Stopped
+2021-10-21 15:13:54,013:DEBUG: mega>rpi: b'BF:0.00\r\n'
+2021-10-21 15:13:54,043:INFO: 
+2021-10-21 15:13:54,044:CRITICAL: System shutdown
+2021-10-21 15:13:54,045:INFO: cleaning (resetting rpi gpio)

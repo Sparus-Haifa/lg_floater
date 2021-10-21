@@ -1,0 +1,42 @@
+2021-10-18 10:12:37,351:WARNING: Safety is disabled
+2021-10-18 10:12:37,353:WARNING: Test mode
+2021-10-18 10:12:37,359:INFO: Pressure controller was initialized successfully
+2021-10-18 10:12:37,360:INFO: BP1 pressure sensor was initialized successfully
+2021-10-18 10:12:37,361:INFO: BP2 pressure sensor was initialized successfully
+2021-10-18 10:12:37,362:INFO: TP1 pressure sensor was initialized successfully
+2021-10-18 10:12:37,362:INFO: TP2 pressure sensor was initialized successfully
+2021-10-18 10:12:37,362:INFO: HP pressure sensor was initialized successfully
+2021-10-18 10:12:37,363:INFO: AP pressure sensor was initialized successfully
+2021-10-18 10:12:37,363:INFO: Temperature controller was initialized successfully
+2021-10-18 10:12:37,364:INFO: BT1 temperature sensor was initialized successfully
+2021-10-18 10:12:37,364:INFO: BT2 temperature sensor was initialized successfully
+2021-10-18 10:12:37,365:INFO: TT1 temperature sensor was initialized successfully
+2021-10-18 10:12:37,365:INFO: TT2 temperature sensor was initialized successfully
+2021-10-18 10:12:37,365:INFO: AT temperature sensor was initialized successfully
+2021-10-18 10:12:37,366:INFO: IMU controller was initialized successfully
+2021-10-18 10:12:37,366:INFO: X IMU sensor was initialized successfully
+2021-10-18 10:12:37,366:INFO: Y IMU sensor was initialized successfully
+2021-10-18 10:12:37,366:INFO: Z IMU sensor was initialized successfully
+2021-10-18 10:12:37,367:INFO: Bladder volume controller was initialized successfully
+2021-10-18 10:12:37,367:INFO: Altimeter controller was initialized successfully
+2021-10-18 10:12:37,367:INFO: rpm controller was initialized successfully
+2021-10-18 10:12:37,368:INFO: Pump flag controller was initialized successfully
+2021-10-18 10:12:37,368:INFO: Bladder flag controller was initialized successfully
+2021-10-18 10:12:37,368:INFO: Hull leak flag controller was initialized successfully
+2021-10-18 10:12:37,368:INFO: Engine leak flag controller was initialized successfully
+2021-10-18 10:12:37,369:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-18 10:12:37,371:INFO: SerialComm was initialized successfully
+2021-10-18 10:12:37,384:INFO: Profile file loaded successfully
+
+2021-10-18 10:12:37,384:INFO: Profile class was initialized successfully
+
+2021-10-18 10:12:37,385:ERROR: DESCENDING
+Traceback (most recent call last):
+  File "main.py", line 1198, in main
+    captain.mission_2()
+  File "main.py", line 1097, in mission_2
+    mission_state = MissionState.DESCENDING
+  File "/usr/lib/python3.7/enum.py", line 349, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: DESCENDING
+2021-10-18 10:12:37,398:CRITICAL: unknown error: emergency full surface

@@ -1,0 +1,526 @@
+2021-10-07 15:59:05,773:TEST-MODE:WARNING: Test mode
+2021-10-07 15:59:05,774:TEST-MODE:INFO: Pressure controller was initialized successfully
+2021-10-07 15:59:05,775:TEST-MODE:INFO: BP1 pressure sensor was initialized successfully
+2021-10-07 15:59:05,776:TEST-MODE:INFO: BP2 pressure sensor was initialized successfully
+2021-10-07 15:59:05,777:TEST-MODE:INFO: TP1 pressure sensor was initialized successfully
+2021-10-07 15:59:05,777:TEST-MODE:INFO: TP2 pressure sensor was initialized successfully
+2021-10-07 15:59:05,778:TEST-MODE:INFO: HP pressure sensor was initialized successfully
+2021-10-07 15:59:05,778:TEST-MODE:INFO: AP pressure sensor was initialized successfully
+2021-10-07 15:59:05,778:TEST-MODE:INFO: Temperature controller was initialized successfully
+2021-10-07 15:59:05,779:TEST-MODE:INFO: BT1 temperature sensor was initialized successfully
+2021-10-07 15:59:05,779:TEST-MODE:INFO: BT2 temperature sensor was initialized successfully
+2021-10-07 15:59:05,779:TEST-MODE:INFO: TT1 temperature sensor was initialized successfully
+2021-10-07 15:59:05,779:TEST-MODE:INFO: TT2 temperature sensor was initialized successfully
+2021-10-07 15:59:05,780:TEST-MODE:INFO: AT temperature sensor was initialized successfully
+2021-10-07 15:59:05,780:TEST-MODE:INFO: IMU controller was initialized successfully
+2021-10-07 15:59:05,781:TEST-MODE:INFO: X IMU sensor was initialized successfully
+2021-10-07 15:59:05,781:TEST-MODE:INFO: Y IMU sensor was initialized successfully
+2021-10-07 15:59:05,782:TEST-MODE:INFO: Z IMU sensor was initialized successfully
+2021-10-07 15:59:05,782:TEST-MODE:INFO: Bladder volume controller was initialized successfully
+2021-10-07 15:59:05,782:TEST-MODE:INFO: Altimeter controller was initialized successfully
+2021-10-07 15:59:05,783:TEST-MODE:INFO: rpm controller was initialized successfully
+2021-10-07 15:59:05,783:TEST-MODE:INFO: Pump flag controller was initialized successfully
+2021-10-07 15:59:05,784:TEST-MODE:INFO: Bladder flag controller was initialized successfully
+2021-10-07 15:59:05,784:TEST-MODE:INFO: Hull leak flag controller was initialized successfully
+2021-10-07 15:59:05,784:TEST-MODE:INFO: Engine leak flag controller was initialized successfully
+2021-10-07 15:59:05,785:TEST-MODE:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-07 15:59:05,785:TEST-MODE:DEBUG: attempting to load profile: cfg/profile.txt
+2021-10-07 15:59:05,795:TEST-MODE:INFO: Profile file loaded successfully
+
+2021-10-07 15:59:05,796:TEST-MODE:INFO: Profile class was initialized successfully
+
+2021-10-07 15:59:05,797:TEST-MODE:DEBUG: attempting to init serial comm
+2021-10-07 15:59:05,797:TEST-MODE:DEBUG:  port:/dev/ttyACM0
+2021-10-07 15:59:05,798:TEST-MODE:DEBUG:  baud_rate:115200
+2021-10-07 15:59:05,799:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-07 15:59:05,800:TEST-MODE:DEBUG: attempting to init serial comm
+2021-10-07 15:59:05,800:TEST-MODE:DEBUG:  port:/dev/ttyUSB0
+2021-10-07 15:59:05,801:TEST-MODE:DEBUG:  baud_rate:115200
+2021-10-07 15:59:05,805:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-07 15:59:05,807:TEST-MODE:DEBUG: mega>rpi: b'2:26.01\r\n'
+2021-10-07 15:59:05,819:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.30\r\n'
+2021-10-07 15:59:05,831:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:05,843:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:05,854:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.60\r\n'
+2021-10-07 15:59:05,866:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.88\r\n'
+2021-10-07 15:59:05,868:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV      rpm             State      
+2021-10-07 15:59:05,869:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (1/5) Buffering (0/5) Buffering (1/5) 0  0  None None None None None -467.88 Buffering (0/1) State.STOP 
+2021-10-07 15:59:05,870:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:05,882:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:05,893:TEST-MODE:DEBUG: mega>rpi: b'PD:30.00\r\n'
+2021-10-07 15:59:05,906:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:07,210:TEST-MODE:DEBUG: mega>rpi: b'LC\xfeSU:0.00\r\n'
+2021-10-07 15:59:07,243:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:07,276:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:07,340:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.60\r\n'
+2021-10-07 15:59:07,394:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.70\r\n'
+2021-10-07 15:59:07,448:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.60\r\n'
+2021-10-07 15:59:07,481:TEST-MODE:DEBUG: mega>rpi: b'AT:23.61\r\n'
+2021-10-07 15:59:07,534:TEST-MODE:DEBUG: mega>rpi: b'AP:6135.80\r\n'
+2021-10-07 15:59:07,567:TEST-MODE:DEBUG: mega>rpi: b'TT1:24.89\r\n'
+2021-10-07 15:59:07,590:TEST-MODE:DEBUG: mega>rpi: b'TT2:24.89\r\n'
+2021-10-07 15:59:07,654:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.90\r\n'
+2021-10-07 15:59:07,707:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.90\r\n'
+2021-10-07 15:59:07,719:TEST-MODE:DEBUG: mega>rpi: b'\r\n'
+2021-10-07 15:59:07,817:TEST-MODE:DEBUG: nano>rpi: ['NN', '222.00']
+2021-10-07 15:59:07,973:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-07 15:59:07,986:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:07,999:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:08,095:TEST-MODE:DEBUG: nano>rpi: ['NN', '111.00']
+2021-10-07 15:59:08,534:TEST-MODE:DEBUG: mega>rpi: b'Date: 10/7/2021 Time: 12:59:11\r\n'
+2021-10-07 15:59:09,105:TEST-MODE:DEBUG: nano>rpi: ['NN', '222.00']
+2021-10-07 15:59:10,120:TEST-MODE:DEBUG: nano>rpi: ['NN', '111.00']
+2021-10-07 15:59:10,236:TEST-MODE:DEBUG: mega>rpi: b'SU:1.00\r\n'
+2021-10-07 15:59:10,248:TEST-MODE:DEBUG: mega>rpi: b'LC:1.00\r\n'
+2021-10-07 15:59:10,312:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:10,325:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:10,337:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:10,350:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:10,405:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.50\r\n'
+2021-10-07 15:59:10,459:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.50\r\n'
+2021-10-07 15:59:10,516:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.60\r\n'
+2021-10-07 15:59:10,529:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:10,541:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:10,606:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.90\r\n'
+2021-10-07 15:59:10,661:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.90\r\n'
+2021-10-07 15:59:10,674:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:10,739:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.70\r\n'
+2021-10-07 15:59:10,751:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.92\r\n'
+2021-10-07 15:59:10,753:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:10,755:TEST-MODE:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (3/5) 30.00 0.00 0  0  1  None None -467.92 Buffering (0/1) State.STOP 
+2021-10-07 15:59:10,756:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:10,770:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:10,783:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-07 15:59:10,795:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:10,807:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:10,820:TEST-MODE:DEBUG: mega>rpi: b'PD:32.00\r\n'
+2021-10-07 15:59:10,832:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:10,844:TEST-MODE:DEBUG: mega>rpi: b'LC:2.00\r\n'
+2021-10-07 15:59:10,888:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:10,900:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:10,913:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:10,926:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:10,981:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.70\r\n'
+2021-10-07 15:59:11,036:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.60\r\n'
+2021-10-07 15:59:11,091:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.00\r\n'
+2021-10-07 15:59:11,103:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:11,118:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.00\r\n'
+2021-10-07 15:59:11,140:TEST-MODE:DEBUG: nano>rpi: ['NN', '222.00']
+2021-10-07 15:59:11,183:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.30\r\n'
+2021-10-07 15:59:11,236:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.70\r\n'
+2021-10-07 15:59:11,248:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:11,311:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.80\r\n'
+2021-10-07 15:59:11,323:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.88\r\n'
+2021-10-07 15:59:11,324:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:11,325:TEST-MODE:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (4/5) 32.00 0.00 0  0  1  None None -467.88 Buffering (0/1) State.STOP 
+2021-10-07 15:59:11,325:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:11,337:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:11,349:TEST-MODE:DEBUG: mega>rpi: b'X:-0.04\r\n'
+2021-10-07 15:59:11,360:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.01\r\n'
+2021-10-07 15:59:11,372:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:11,393:TEST-MODE:DEBUG: mega>rpi: b'PD:34.00\r\n'
+2021-10-07 15:59:11,405:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:11,416:TEST-MODE:DEBUG: mega>rpi: b'LC:3.00\r\n'
+2021-10-07 15:59:11,438:TEST-MODE:DEBUG: nano>rpi: ['NN', '111.00']
+2021-10-07 15:59:11,470:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:11,483:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:11,494:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:11,506:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:11,559:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.00\r\n'
+2021-10-07 15:59:11,622:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.90\r\n'
+2021-10-07 15:59:11,685:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.40\r\n'
+2021-10-07 15:59:11,697:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:11,709:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:11,761:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.00\r\n'
+2021-10-07 15:59:11,825:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:11,838:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:11,892:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.60\r\n'
+2021-10-07 15:59:11,904:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.91\r\n'
+2021-10-07 15:59:11,906:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT    X               Y               Z               BP1             BP2             TP1     TP2     HP              AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:11,907:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 24.27 Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) 1035.08 1040.82 Buffering (4/5) 6128.10 34.00 0.00 0  0  1  None None -467.91 Buffering (0/1) State.STOP 
+2021-10-07 15:59:11,908:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:11,921:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:11,933:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-07 15:59:11,947:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.01\r\n'
+2021-10-07 15:59:11,959:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:11,971:TEST-MODE:DEBUG: mega>rpi: b'PD:38.00\r\n'
+2021-10-07 15:59:11,984:TEST-MODE:DEBUG: mega>rpi: b'PC:8.00\r\n'
+2021-10-07 15:59:11,996:TEST-MODE:DEBUG: mega>rpi: b'LC:4.00\r\n'
+2021-10-07 15:59:12,008:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:12,020:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:12,032:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:12,044:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:12,078:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.60\r\n'
+2021-10-07 15:59:12,142:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.70\r\n'
+2021-10-07 15:59:12,198:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.30\r\n'
+2021-10-07 15:59:12,211:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.86\r\n'
+2021-10-07 15:59:12,224:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:12,279:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.40\r\n'
+2021-10-07 15:59:12,344:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.60\r\n'
+2021-10-07 15:59:12,356:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:12,411:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.10\r\n'
+2021-10-07 15:59:12,423:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:12,426:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:12,427:TEST-MODE:INFO: 25.32 24.80 25.67 25.78 24.27 Buffering (4/5) Buffering (4/5) Buffering (4/5) 1024.48 1034.68 1035.10 1040.78 1605.38 6128.20 38.00 8.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:12,428:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:12,450:TEST-MODE:DEBUG: nano>rpi: ['NN', '222.00']
+2021-10-07 15:59:12,463:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:12,475:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-07 15:59:12,487:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.02\r\n'
+2021-10-07 15:59:12,500:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:12,512:TEST-MODE:DEBUG: mega>rpi: b'PD:34.00\r\n'
+2021-10-07 15:59:12,525:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:12,537:TEST-MODE:DEBUG: mega>rpi: b'LC:5.00\r\n'
+2021-10-07 15:59:12,549:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:12,561:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:12,573:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:12,585:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:12,621:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.70\r\n'
+2021-10-07 15:59:12,685:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.70\r\n'
+2021-10-07 15:59:12,729:TEST-MODE:DEBUG: nano>rpi: ['NN', '111.00']
+2021-10-07 15:59:12,742:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.40\r\n'
+2021-10-07 15:59:12,755:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:12,767:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:12,832:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.30\r\n'
+2021-10-07 15:59:12,885:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:12,897:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:12,953:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.00\r\n'
+2021-10-07 15:59:12,966:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.89\r\n'
+2021-10-07 15:59:12,969:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:12,971:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.01 0.00 1024.50 1034.68 1035.18 1040.76 1605.34 6126.24 34.00 0.00 0  0  1  None None -467.89 Buffering (0/1) State.STOP 
+2021-10-07 15:59:12,971:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:12,984:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:13,028:TEST-MODE:DEBUG: mega>rpi: b'PD:37.00\r\n'
+2021-10-07 15:59:13,040:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:13,052:TEST-MODE:DEBUG: mega>rpi: b'LC:6.00\r\n'
+2021-10-07 15:59:13,107:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:13,119:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:13,132:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:13,145:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:13,189:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.60\r\n'
+2021-10-07 15:59:13,253:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.90\r\n'
+2021-10-07 15:59:13,305:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.30\r\n'
+2021-10-07 15:59:13,317:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:13,329:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:13,392:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.80\r\n'
+2021-10-07 15:59:13,448:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.90\r\n'
+2021-10-07 15:59:13,470:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:13,522:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.10\r\n'
+2021-10-07 15:59:13,534:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:13,536:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:13,537:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.01 0.00 1024.52 1034.76 1035.16 1040.76 1605.28 6126.12 37.00 0.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:13,538:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:13,550:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:13,562:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-07 15:59:13,573:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:13,585:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:13,596:TEST-MODE:DEBUG: mega>rpi: b'PD:35.00\r\n'
+2021-10-07 15:59:13,608:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:13,619:TEST-MODE:DEBUG: mega>rpi: b'LC:7.00\r\n'
+2021-10-07 15:59:13,631:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:13,643:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:13,654:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:13,666:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:13,719:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.10\r\n'
+2021-10-07 15:59:13,744:TEST-MODE:DEBUG: nano>rpi: ['NN', '222.00']
+2021-10-07 15:59:13,776:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.00\r\n'
+2021-10-07 15:59:13,829:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.20\r\n'
+2021-10-07 15:59:13,851:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.86\r\n'
+2021-10-07 15:59:13,862:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:13,915:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.60\r\n'
+2021-10-07 15:59:13,937:TEST-MODE:DEBUG: CLI:['loop_flag', '0']
+2021-10-07 15:59:13,973:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.60\r\n'
+2021-10-07 15:59:13,985:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:14,018:TEST-MODE:DEBUG: nano>rpi: ['NN', '111.00']
+2021-10-07 15:59:14,051:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.10\r\n'
+2021-10-07 15:59:14,063:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:14,064:TEST-MODE:DEBUG: loop_flag
+2021-10-07 15:59:14,065:TEST-MODE:DEBUG: rpi>NANO: L:1
+2021-10-07 15:59:14,066:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:14,067:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.01 0.00 1024.40 1034.84 1035.22 1040.74 1605.32 6126.18 35.00 0.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:14,068:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:14,080:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:14,134:TEST-MODE:DEBUG: mega>rpi: b'PD:38.00\r\n'
+2021-10-07 15:59:14,146:TEST-MODE:DEBUG: mega>rpi: b'PC:32.00\r\n'
+2021-10-07 15:59:14,158:TEST-MODE:DEBUG: mega>rpi: b'LC:8.00\r\n'
+2021-10-07 15:59:14,212:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:14,224:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:14,237:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:14,250:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:14,296:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.30\r\n'
+2021-10-07 15:59:14,360:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.60\r\n'
+2021-10-07 15:59:14,413:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.00\r\n'
+2021-10-07 15:59:14,426:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:14,449:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:14,503:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.30\r\n'
+2021-10-07 15:59:14,557:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.60\r\n'
+2021-10-07 15:59:14,579:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:14,634:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.50\r\n'
+2021-10-07 15:59:14,646:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.91\r\n'
+2021-10-07 15:59:14,648:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC    HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:14,649:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.01 0.00 1024.46 1034.78 1035.28 1040.70 1605.24 6126.16 38.00 32.00 0  0  1  None None -467.91 Buffering (0/1) State.STOP 
+2021-10-07 15:59:14,650:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:14,662:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:14,674:TEST-MODE:DEBUG: mega>rpi: b'X:-0.04\r\n'
+2021-10-07 15:59:14,686:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:14,698:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:14,710:TEST-MODE:DEBUG: mega>rpi: b'PD:36.00\r\n'
+2021-10-07 15:59:14,722:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:14,734:TEST-MODE:DEBUG: mega>rpi: b'LC:9.00\r\n'
+2021-10-07 15:59:14,746:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:14,758:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:14,770:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:14,782:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:14,826:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.80\r\n'
+2021-10-07 15:59:14,879:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.30\r\n'
+2021-10-07 15:59:14,933:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.30\r\n'
+2021-10-07 15:59:14,956:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:14,968:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:15,022:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.20\r\n'
+2021-10-07 15:59:15,078:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.50\r\n'
+2021-10-07 15:59:15,101:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:15,156:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.70\r\n'
+2021-10-07 15:59:15,168:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.88\r\n'
+2021-10-07 15:59:15,170:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:15,171:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.02 -0.01 0.00 1024.50 1034.70 1035.24 1040.68 1605.24 6126.08 36.00 0.00 0  0  1  None None -467.88 Buffering (0/1) State.STOP 
+2021-10-07 15:59:15,173:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:15,186:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:15,198:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-07 15:59:15,210:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:15,223:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:15,235:TEST-MODE:DEBUG: mega>rpi: b'PD:31.00\r\n'
+2021-10-07 15:59:15,247:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:15,260:TEST-MODE:DEBUG: mega>rpi: b'LC:10.00\r\n'
+2021-10-07 15:59:15,272:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:15,284:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:15,296:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:15,308:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:15,362:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.40\r\n'
+2021-10-07 15:59:15,418:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.00\r\n'
+2021-10-07 15:59:15,483:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.20\r\n'
+2021-10-07 15:59:15,496:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:15,509:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.02\r\n'
+2021-10-07 15:59:15,564:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.60\r\n'
+2021-10-07 15:59:15,629:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.70\r\n'
+2021-10-07 15:59:15,642:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:15,697:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.90\r\n'
+2021-10-07 15:59:15,710:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.88\r\n'
+2021-10-07 15:59:15,713:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:15,714:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.01 0.00 1024.44 1034.76 1035.10 1040.66 1605.20 6126.06 31.00 0.00 0  0  1  None None -467.88 Buffering (0/1) State.STOP 
+2021-10-07 15:59:15,715:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:15,728:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:15,761:TEST-MODE:DEBUG: mega>rpi: b'PD:38.00\r\n'
+2021-10-07 15:59:15,773:TEST-MODE:DEBUG: mega>rpi: b'PC:21.00\r\n'
+2021-10-07 15:59:15,785:TEST-MODE:DEBUG: mega>rpi: b'LC:11.00\r\n'
+2021-10-07 15:59:15,839:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:15,851:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:15,864:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:15,876:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:15,931:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.40\r\n'
+2021-10-07 15:59:15,984:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.80\r\n'
+2021-10-07 15:59:16,051:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.10\r\n'
+2021-10-07 15:59:16,064:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:16,076:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:16,131:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.10\r\n'
+2021-10-07 15:59:16,185:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:16,200:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:16,264:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.30\r\n'
+2021-10-07 15:59:16,276:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:16,277:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC    HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:16,278:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 -0.01 0.00 1024.40 1034.74 1035.16 1040.64 1605.16 6126.10 38.00 21.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:16,279:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:16,291:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:16,303:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-07 15:59:16,315:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:16,327:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:16,338:TEST-MODE:DEBUG: mega>rpi: b'PD:33.00\r\n'
+2021-10-07 15:59:16,350:TEST-MODE:DEBUG: mega>rpi: b'PC:6.00\r\n'
+2021-10-07 15:59:16,362:TEST-MODE:DEBUG: mega>rpi: b'LC:12.00\r\n'
+2021-10-07 15:59:16,374:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:16,385:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:16,397:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:16,409:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:16,452:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.50\r\n'
+2021-10-07 15:59:16,516:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.90\r\n'
+2021-10-07 15:59:16,569:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.60\r\n'
+2021-10-07 15:59:16,581:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:16,603:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.02\r\n'
+2021-10-07 15:59:16,657:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.70\r\n'
+2021-10-07 15:59:16,710:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.70\r\n'
+2021-10-07 15:59:16,725:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:16,788:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.20\r\n'
+2021-10-07 15:59:16,800:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:16,801:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:16,802:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 -0.00 0.00 1024.48 1034.72 1034.98 1040.66 1605.24 6126.12 33.00 6.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:16,803:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:16,815:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:16,867:TEST-MODE:DEBUG: mega>rpi: b'PD:38.00\r\n'
+2021-10-07 15:59:16,879:TEST-MODE:DEBUG: mega>rpi: b'PC:32.00\r\n'
+2021-10-07 15:59:16,891:TEST-MODE:DEBUG: mega>rpi: b'LC:13.00\r\n'
+2021-10-07 15:59:16,954:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:16,965:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:16,977:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:16,988:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:17,042:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.20\r\n'
+2021-10-07 15:59:17,094:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.10\r\n'
+2021-10-07 15:59:17,148:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.30\r\n'
+2021-10-07 15:59:17,171:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:17,182:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:17,236:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.30\r\n'
+2021-10-07 15:59:17,298:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.70\r\n'
+2021-10-07 15:59:17,310:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:17,373:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.30\r\n'
+2021-10-07 15:59:17,385:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.91\r\n'
+2021-10-07 15:59:17,386:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC    HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:17,387:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.43 -0.01 -0.00 0.00 1024.46 1034.82 1034.78 1040.68 1605.30 6126.08 38.00 32.00 0  0  1  None None -467.91 Buffering (0/1) State.STOP 
+2021-10-07 15:59:17,388:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:17,400:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:17,411:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-07 15:59:17,423:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-07 15:59:17,434:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:17,446:TEST-MODE:DEBUG: mega>rpi: b'PD:40.00\r\n'
+2021-10-07 15:59:17,457:TEST-MODE:DEBUG: mega>rpi: b'PC:21.00\r\n'
+2021-10-07 15:59:17,469:TEST-MODE:DEBUG: mega>rpi: b'LC:14.00\r\n'
+2021-10-07 15:59:17,480:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:17,492:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:17,503:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:17,515:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:17,558:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.60\r\n'
+2021-10-07 15:59:17,611:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.70\r\n'
+2021-10-07 15:59:17,676:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.60\r\n'
+2021-10-07 15:59:17,688:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:17,700:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:17,755:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.10\r\n'
+2021-10-07 15:59:17,819:TEST-MODE:DEBUG: mega>rpi: b'TP2:1041.00\r\n'
+2021-10-07 15:59:17,831:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:17,895:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.00\r\n'
+2021-10-07 15:59:17,907:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.89\r\n'
+2021-10-07 15:59:17,909:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC    HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:17,911:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 0.00 0.00 1024.42 1034.90 1034.76 1040.78 1605.36 6126.14 40.00 21.00 0  0  1  None None -467.89 Buffering (0/1) State.STOP 
+2021-10-07 15:59:17,911:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:17,924:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:17,937:TEST-MODE:DEBUG: mega>rpi: b'PD:37.00\r\n'
+2021-10-07 15:59:17,949:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:17,962:TEST-MODE:DEBUG: mega>rpi: b'LC:15.00\r\n'
+2021-10-07 15:59:18,005:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:18,017:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:18,029:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:18,042:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:18,096:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.40\r\n'
+2021-10-07 15:59:18,150:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.10\r\n'
+2021-10-07 15:59:18,214:TEST-MODE:DEBUG: mega>rpi: b'HP:1604.80\r\n'
+2021-10-07 15:59:18,227:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.87\r\n'
+2021-10-07 15:59:18,240:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:18,295:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.00\r\n'
+2021-10-07 15:59:18,359:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:18,377:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:18,431:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.20\r\n'
+2021-10-07 15:59:18,443:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:18,445:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:18,446:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 0.00 0.00 1024.42 1034.92 1034.84 1040.80 1605.28 6126.20 37.00 0.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:18,447:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:18,459:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:18,471:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-07 15:59:18,483:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-07 15:59:18,495:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:18,508:TEST-MODE:DEBUG: mega>rpi: b'PD:35.00\r\n'
+2021-10-07 15:59:18,520:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:18,532:TEST-MODE:DEBUG: mega>rpi: b'LC:16.00\r\n'
+2021-10-07 15:59:18,575:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:18,587:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:18,599:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:18,612:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:18,666:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.60\r\n'
+2021-10-07 15:59:18,720:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.80\r\n'
+2021-10-07 15:59:18,774:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.10\r\n'
+2021-10-07 15:59:18,797:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.88\r\n'
+2021-10-07 15:59:18,810:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:18,864:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.90\r\n'
+2021-10-07 15:59:18,918:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.90\r\n'
+2021-10-07 15:59:18,940:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:18,995:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.10\r\n'
+2021-10-07 15:59:19,008:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.89\r\n'
+2021-10-07 15:59:19,010:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:19,011:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 0.00 0.00 1024.46 1034.92 1034.80 1040.82 1605.28 6126.16 35.00 0.00 0  0  1  None None -467.89 Buffering (0/1) State.STOP 
+2021-10-07 15:59:19,012:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:19,025:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:19,038:TEST-MODE:DEBUG: mega>rpi: b'PD:30.00\r\n'
+2021-10-07 15:59:19,050:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:19,063:TEST-MODE:DEBUG: mega>rpi: b'LC:17.00\r\n'
+2021-10-07 15:59:19,100:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:19,112:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:19,125:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:19,137:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:19,192:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.30\r\n'
+2021-10-07 15:59:19,247:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.70\r\n'
+2021-10-07 15:59:19,301:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.40\r\n'
+2021-10-07 15:59:19,317:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.88\r\n'
+2021-10-07 15:59:19,340:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:19,396:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.10\r\n'
+2021-10-07 15:59:19,450:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.80\r\n'
+2021-10-07 15:59:19,463:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:19,528:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.80\r\n'
+2021-10-07 15:59:19,541:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.89\r\n'
+2021-10-07 15:59:19,543:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:19,544:TEST-MODE:INFO: 25.32 24.80 25.87 26.01 24.44 -0.01 0.00 0.00 1024.42 1034.88 1034.88 1040.84 1605.24 6126.08 30.00 0.00 0  0  1  None None -467.89 Buffering (0/1) State.STOP 
+2021-10-07 15:59:19,545:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:19,558:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:19,571:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-07 15:59:19,583:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-07 15:59:19,595:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:19,609:TEST-MODE:DEBUG: mega>rpi: b'PD:32.00\r\n'
+2021-10-07 15:59:19,621:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:19,633:TEST-MODE:DEBUG: mega>rpi: b'LC:18.00\r\n'
+2021-10-07 15:59:19,675:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:19,688:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:19,700:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:19,712:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:19,757:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.40\r\n'
+2021-10-07 15:59:19,821:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.10\r\n'
+2021-10-07 15:59:19,875:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.10\r\n'
+2021-10-07 15:59:19,888:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.88\r\n'
+2021-10-07 15:59:19,901:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:19,966:TEST-MODE:DEBUG: mega>rpi: b'TP1:1035.30\r\n'
+2021-10-07 15:59:20,020:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.60\r\n'
+2021-10-07 15:59:20,033:TEST-MODE:DEBUG: mega>rpi: b'AT:24.43\r\n'
+2021-10-07 15:59:20,098:TEST-MODE:DEBUG: mega>rpi: b'AP:6125.90\r\n'
+2021-10-07 15:59:20,111:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.89\r\n'
+2021-10-07 15:59:20,114:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:20,115:TEST-MODE:INFO: 25.32 24.80 25.88 26.01 24.44 0.00 0.00 0.00 1024.46 1034.88 1035.08 1040.82 1605.20 6126.00 32.00 0.00 0  0  1  None None -467.89 Buffering (0/1) State.STOP 
+2021-10-07 15:59:20,116:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:20,129:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:20,141:TEST-MODE:DEBUG: mega>rpi: b'X:-0.03\r\n'
+2021-10-07 15:59:20,153:TEST-MODE:DEBUG: mega>rpi: b'Y:0.04\r\n'
+2021-10-07 15:59:20,166:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-07 15:59:20,184:TEST-MODE:DEBUG: mega>rpi: b'PD:31.00\r\n'
+2021-10-07 15:59:20,197:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:20,210:TEST-MODE:DEBUG: mega>rpi: b'LC:19.00\r\n'
+2021-10-07 15:59:20,222:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:20,235:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:20,248:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:20,261:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:20,285:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.10\r\n'
+2021-10-07 15:59:20,339:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.90\r\n'
+2021-10-07 15:59:20,394:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.20\r\n'
+2021-10-07 15:59:20,407:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.88\r\n'
+2021-10-07 15:59:20,430:TEST-MODE:DEBUG: mega>rpi: b'TT2:26.01\r\n'
+2021-10-07 15:59:20,484:TEST-MODE:DEBUG: mega>rpi: b'TP1:1034.60\r\n'
+2021-10-07 15:59:20,538:TEST-MODE:DEBUG: mega>rpi: b'TP2:1040.70\r\n'
+2021-10-07 15:59:20,550:TEST-MODE:DEBUG: mega>rpi: b'AT:24.44\r\n'
+2021-10-07 15:59:20,614:TEST-MODE:DEBUG: mega>rpi: b'AP:6126.30\r\n'
+2021-10-07 15:59:20,626:TEST-MODE:DEBUG: mega>rpi: b'BV:-467.90\r\n'
+2021-10-07 15:59:20,627:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1     BP2     TP1     TP2     HP      AP      PD    PC   HL EL BF SF   PF   BV      rpm             State      
+2021-10-07 15:59:20,628:TEST-MODE:INFO: 25.32 24.80 25.88 26.01 24.44 -0.01 0.01 0.00 1024.36 1034.92 1034.98 1040.76 1605.12 6126.06 31.00 0.00 0  0  1  None None -467.90 Buffering (0/1) State.STOP 
+2021-10-07 15:59:20,629:TEST-MODE:WARNING: Stopped
+2021-10-07 15:59:20,641:TEST-MODE:DEBUG: mega>rpi: b'BF:1.00\r\n'
+2021-10-07 15:59:20,653:TEST-MODE:DEBUG: mega>rpi: b'PD:34.00\r\n'
+2021-10-07 15:59:20,664:TEST-MODE:DEBUG: mega>rpi: b'PC:0.00\r\n'
+2021-10-07 15:59:20,676:TEST-MODE:DEBUG: mega>rpi: b'LC:20.00\r\n'
+2021-10-07 15:59:20,739:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-07 15:59:20,751:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-07 15:59:20,763:TEST-MODE:DEBUG: mega>rpi: b'BT1:25.32\r\n'
+2021-10-07 15:59:20,775:TEST-MODE:DEBUG: mega>rpi: b'BT2:24.80\r\n'
+2021-10-07 15:59:20,818:TEST-MODE:DEBUG: mega>rpi: b'BP1:1024.50\r\n'
+2021-10-07 15:59:20,880:TEST-MODE:DEBUG: mega>rpi: b'BP2:1034.80\r\n'
+2021-10-07 15:59:20,933:TEST-MODE:DEBUG: mega>rpi: b'HP:1605.10\r\n'
+2021-10-07 15:59:20,955:TEST-MODE:DEBUG: mega>rpi: b'TT1:25.88\r\n'
