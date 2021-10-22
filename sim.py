@@ -30,6 +30,9 @@ class Comm():
         # down (D:2)
         self.pumpOnTimeStamp = None # Time of received command to turn on pump
 
+        self.full_surface = False
+        self.fresh_full_surface = False
+
         # for debug
         self.p = 0
         self.kp = 0
@@ -40,7 +43,6 @@ class Comm():
         self.phase = 1
         self.error = 0
         self.current_state = State.INIT
-        self.full_surface = False
         self.weight_dropped = False
         self.dc = 0
 
@@ -80,7 +82,12 @@ class Comm():
                     print("timeOn (PID) command recieved")
 
                 elif header=="S":
-                    self.full_surface = True
+                    self.fresh_full_surface = True
+                    if int(value) == 1:
+                        self.direction = 1
+                    else:
+                        self.direction = 2
+                    
 
 
                 # for debug only
@@ -273,9 +280,48 @@ class YuriSim():
 
             if True:  # self.comm.current_state == State.EXEC_TASK:
                 # print("Executing")
-                if self.comm.timeOn <= 0.0:
-                    print("idle - waiting for PID command")
-                else:
+
+                if self.comm.fresh_full_surface or self.comm.full_surface:
+                    if self.comm.fresh_full_surface:
+                        self.comm.fresh_full_surface = False
+                        self.comm.full_surface = True
+                        self.comm.voltage = 100
+                        print('recieved surface command')
+                        print(f'direction {self.comm.direction}')
+                        turnOnPump()
+                    if self.pumpIsOn:
+                        print("Pump is running")
+                    else:
+                        print("pump is not running")
+                    bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+                    bladderIsEmpty = self.currentBladderVolume == 0
+
+                    print(f'self.currentBladderVolume: {self.currentBladderVolume}')
+                    print(f'bladderIsEmpty: {bladderIsEmpty}')
+                    
+                    
+                    if bladderIsEmpty:
+                        self.flags["BF"]=1
+                    elif bladderIsFull:
+                        self.flags["BF"]=2
+                    else:
+                        self.flags["BF"]=0
+                    limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
+
+                    if limitPump: # turn off pump
+
+                        print("pump limit reached")
+                        if bladderIsEmpty:
+                            print("bladder is empty")
+                        if bladderIsFull:
+                            print(bladderIsFull)
+                            
+
+                        if self.pumpIsOn:
+                            turnOffPump()
+                            self.comm.full_surface = False
+
+                elif self.comm.timeOn > 0.0:
 
                     # if recived a fresh PID command (TimeOn)
                     if self.comm.freshPID: 
@@ -360,6 +406,9 @@ class YuriSim():
 
                             
                             self.offTimer = elapsed - self.comm.timeOn
+                else:
+                    print("idle - waiting for PID command")
+
             
             # elif self.comm.current_state == State.END_TASK:
             #     print("Surfacing")

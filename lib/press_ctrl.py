@@ -23,6 +23,12 @@ class Press_ctrl():
     def getSensors(self):
         return self.sensors
 
+    def isBufferFull(self):
+        for sensor in self.sensors:
+            if not self.sensors[sensor].isBufferFull():
+                return False
+        return True
+
     def senseWater(self):
         # TODO: handle failed sensors
         tp1 = self.sensors["TP1"]

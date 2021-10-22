@@ -7,7 +7,9 @@ from time import sleep
 
 
 class UdpComm():
-    def __init__(self, port) -> None:
+    def __init__(self, name, port, log) -> None:
+        self.log = log
+        self.name = name
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.server_socket.settimeout(1.0)
         self.server_socket.setblocking(False)
@@ -33,6 +35,7 @@ class UdpComm():
 
     def write(self, message = b"noting\n"):
         line = bytes(message, encoding='utf-8')
+        self.log.debug(f"rpi>{self.name}: {message}")
         self.server_socket.sendto(line, self.address)
 
 

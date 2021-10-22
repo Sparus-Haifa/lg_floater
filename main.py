@@ -30,9 +30,9 @@ import os  # for log file path
 
 from cfg.configuration import State, MissionState
 
-from gpio_controller import GPIOController
+# from gpio_controller import GPIOController
 
-from burner import ArduinoBurner
+# from burner import ArduinoBurner
 
 # logging.basicConfig(filename='log\\example.log', level=0, format='%(asctime)s : %(levelname)s : %(message)s')
 # logging.basicConfig(level=0)
@@ -118,7 +118,8 @@ class Controller():
         # Bladder status
         self.bladder_is_at_min_volume = False
         self.bladder_is_at_max_volume = False
-        bladder_is_at_max_volume_latch = False
+        self.bladder_is_at_max_volume_latch = False
+        self.bladder_is_at_min_volume_latch = False
 
         self.depth_sensors_are_calibrated = None
 
@@ -137,9 +138,11 @@ class Controller():
 
 
         # setup GPIO
-        RPI_TRIGGER_PIN = 14
-        self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
-        self.safety_trigger.high()
+        if not self.disable_safety:
+            from gpio_controller import GPIOController
+            RPI_TRIGGER_PIN = 14
+            self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+            self.safety_trigger.high()
 
         self.simFactor = 1.0
 
@@ -163,7 +166,7 @@ class Controller():
                 exit()
         else:
         # Simulated via udp
-            self.comm = com.UdpComm(cfg.app["simulation_udp_port"])
+            self.comm = com.UdpComm("SIMULATION", cfg.app["simulation_udp_port"], self.log)
             if not self.comm.server_socket:
                 self.log.critical("-E- Failed to init udp port")
                 exit() 
@@ -180,7 +183,7 @@ class Controller():
 
         # Test mode
         if self.test_mode:
-            self.comm_cli = com.UdpComm(cfg.app["test_mode_udp_port"])
+            self.comm_cli = com.UdpComm("CLI", cfg.app["test_mode_udp_port"], self.log)
             if not self.comm_cli.server_socket:
                 self.log.critical("-E- Failed to init cli udp port")
                 exit()    
@@ -371,6 +374,7 @@ class Controller():
             self.bladder_is_at_min_volume = False
         elif value == 1:  # Bladder at min.
             self.bladder_is_at_min_volume = True
+            self.bladder_is_at_min_volume_latch = True
         elif value == 2:
             self.bladder_is_at_max_volume = True
             self.bladder_is_at_max_volume_latch = True
@@ -392,14 +396,14 @@ class Controller():
             self.log.debug("waiting for surface command")
         else:
             self.log.info("sending surface command")
-            self.comm.write("S:2")
+            self.comm.write("S:2\n")
 
     def dive(self):
         if self.dive_command_sent:
             self.log.debug("waiting for dive command")
         else:
             self.log.info("sending dive command")
-            self.comm.write("S:1")
+            self.comm.write("S:1\n")
 
 
     # sending the command to drop the dropweight to saftey
@@ -628,6 +632,7 @@ class Controller():
     
     def run_mission_sequence(self):
         self.log.info(self.current_state)
+        self.update_depth()
         self.logSensors()
 
         # INIT
@@ -642,6 +647,7 @@ class Controller():
             if self.disable_safety:
                 self.log.warning('safety is disabled: skipping safety test')
                 self.current_state = State.WAIT_FOR_SENSOR_BUFFER
+                return
             self.safety_watchdog_is_enabled = True
             if self.is_safety_responding:
                 self.log.info('safety is awake and pinging')
@@ -685,7 +691,7 @@ class Controller():
         elif self.current_state == State.CALIBRATE_DEPTH_SENSORS:
             if self.depth_sensors_are_calibrated:
                 self.current_state = State.WAIT_FOR_WATER
-                self.update_depth()
+                # self.update_depth()
                 return
             self.depth_sensors_are_calibrated = self.pressureController.calibrate()
 
@@ -867,7 +873,7 @@ class Controller():
 
         # timeOn display
         pump_flag = self.pumpFlag.getLast()
-        if self.time_on_duration is not None and pump_flag == 1:
+        if self.time_on_duration is not None or pump_flag == 1:
             del res
             res = {}
             res["BV"]=self.bladderVolume.getLast()
@@ -929,6 +935,8 @@ class Controller():
 
 
     def update_depth(self):
+        if not self.pressureController.isBufferFull():
+            return
         avg = self.pressureController.get_depth()
         self.current_depth = avg  # update current depth
         self.error = self.target_depth - self.current_depth
@@ -1119,6 +1127,7 @@ class Pilot:
         self.mission_timer = None
         self.log = log
         if not self.controller.skip_arduino_compile:
+            from burner import ArduinoBurner
             burner = ArduinoBurner(self.controller.log)
             burner.burn_boards()
 
@@ -1178,7 +1187,7 @@ class Captain:
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
         # planned_depths = [1.5, 0, 1.5, 'E']  #, 5, 0]
-        planned_depths = [1, 0, 1, 0]  #, 5, 0]
+        planned_depths = [10, 0, 10, 0]  #, 5, 0]
         # planned_depths = [11.5]
         # planned_depths = ['E']
 
@@ -1221,7 +1230,7 @@ class Captain:
                 self.pilot.controller.pid_controller.kd = 0
 
 
-
+            # print(f'self.pilot.depth: {self.pilot.depth}')
             if self.pilot.depth and self.pilot.depth != self.pilot.last_depth:  # new depth
                 self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
                 # last_depth = depth
@@ -1229,7 +1238,9 @@ class Captain:
 
 
                 if mission_state == MissionState.DESCENDING:
-                    min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume
+                    min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume_latch
+                    self.pilot.controller.bladder_is_at_min_volume_latch = True
+                    print(f'min_bladder_reached: {min_bladder_reached}')
                     self.log.warning(f'min_bladder_reached {min_bladder_reached}')
                     if min_bladder_reached or self.pilot.depth > self.pilot.controller.target_depth:
                         self.pilot.controller.current_state = State.EXEC_TASK
@@ -1238,9 +1249,10 @@ class Captain:
                         self.pilot.controller.pid_controller.kd = kd
 
                 elif mission_state == MissionState.ASCENDING:
-                    max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume
+                    max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
                     self.log.warning(f'max_bladder_reached {max_bladder_reached}')
                     if max_bladder_reached or self.pilot.depth < self.pilot.controller.target_depth:
+                        self.pilot.controller.bladder_is_at_max_volume_latch = False
                         self.pilot.controller.current_state = State.EXEC_TASK
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
@@ -1261,7 +1273,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 120:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         mission_state = MissionState.INIT_DEPTH
