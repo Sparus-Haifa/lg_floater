@@ -1203,7 +1203,7 @@ class Captain:
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
         # planned_depths = [1.5, 0, 1.5, 'E']  #, 5, 0]
-        planned_depths = [10, 0]  #, 5, 0]
+        planned_depths = [5, 0, 5, 0]  #, 5, 0]
         # planned_depths = [11.5]
         # planned_depths = ['E']
 
@@ -1308,10 +1308,10 @@ class Captain:
                     timer_started = self.pilot.mission_timer is not None
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
                     if max_bladder_reached and surface_reached and not timer_started:
-                        self.pilot.controller.current_state = State.EXEC_TASK
-                        self.log.info('starting timer')
-                        self.pilot.mission_timer = time.time()
-                        mission_state = MissionState.HOLD_ON_TARGET
+                        # self.pilot.controller.current_state = State.EXEC_TASK
+                        # self.log.info('starting timer')
+                        # self.pilot.mission_timer = time.time()
+                        mission_state = MissionState.WAIT_TRANSMITION 
                         self.pilot.set_mission_state(mission_state)
                         self.pilot.controller.comm.write(f"I:1") 
                         self.log.info(mission_state)
@@ -1320,6 +1320,16 @@ class Captain:
                     continue
                 elif mission_state == MissionState.IDLE:
                     continue
+                elif mission_state == MissionState.WAIT_TRANSMITION:
+                    if not self.pilot.controller.iridium_command_was_sent:
+                        mission_state = MissionState.DESCENDING
+                        self.pilot.set_mission_state(mission_state)
+                        self.log.info(mission_state)
+
+                        self.pilot.controller.current_state = State.STOP
+
+
+
 
 
 
