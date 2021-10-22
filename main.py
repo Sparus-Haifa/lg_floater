@@ -1228,6 +1228,9 @@ class Captain:
             if mission_state == MissionState.INIT_DEPTH:
                 # self.pilot.controller.pid_controller.kp = kp
                 # self.pilot.controller.pid_controller.kd = kd
+                if not self.pilot.depth:
+                    self.log.warning('waiting for depth estimation')
+                    continue
 
                 if not planned_depths:
                     mission_state = MissionState.IDLE
@@ -1242,13 +1245,18 @@ class Captain:
                     # next_depth = -100
                     mission_state = MissionState.SURFACE
                     self.pilot.controller.surface()
+                elif abs(next_depth - self.pilot.depth) < 10:
+                    mission_state = MissionState.EN_ROUTE
+                    self.log.info('close proximity mission')
+                    self.pilot.controller.current_state = State.EXEC_TASK
                 elif self.pilot.depth < next_depth:
                     mission_state = MissionState.DESCENDING
+                    self.pilot.controller.current_state = State.CONTROLLED
                     self.pilot.controller.dive()
                 else:
                     mission_state = MissionState.ASCENDING
+                    self.pilot.controller.current_state = State.CONTROLLED
                     self.pilot.controller.surface()
-                self.pilot.controller.current_state = State.CONTROLLED
                 self.pilot.set_mission_state(mission_state)
                 # self.pilot.controller.pid_controller.kd = 0
 
