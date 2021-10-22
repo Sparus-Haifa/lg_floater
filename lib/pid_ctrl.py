@@ -18,8 +18,8 @@ class PID:
         self.p = None
         self.d = None
         self.i = None
-        self.kp = 10
-        self.kd = 250
+        self.kp = 1000  # 10
+        self.kd = 60  # 250
         self.ki = 0 # 0.001
 
     def reset_d(self):

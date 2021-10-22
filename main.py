@@ -86,6 +86,7 @@ class Controller():
 
         # Iridium
         self.iridium_command_was_sent = False
+        self.iridium_cycle_timer = None
 
         # Nano
         self.sent_sleep_to_nano = False
@@ -229,7 +230,8 @@ class Controller():
         self.bladder_flag = Flag("Bladder", self.log)  # BF
         self.leak_h_flag = Flag("Hull leak", self.log)  # HL
         self.leak_e_flag = Flag("Engine leak", self.log)  # EL
-        self.full_surface_flag = Flag("Full surface initiated", self.log)       
+        self.full_surface_flag = Flag("Full surface initiated", self.log)   
+        self.iridium_flag = Flag("Iridium", self.log)  # I    
 
     def addSensorsToDict(self):
         for sensor in self.temperatureSensors:
@@ -251,6 +253,7 @@ class Controller():
         self.flags["EL"]=self.leak_e_flag
         self.flags["BF"]=self.bladder_flag
         self.flags["FS"]=self.full_surface_flag
+        self.flags["I"]=self.iridium_flag
 
     def clean(self):
         self.safety_trigger.clean()
@@ -346,12 +349,23 @@ class Controller():
             elif header=="FS":
                 self.full_surface_flag.add_sample(value)
                 self.handle_FS()
+            elif header=="I" or header=="IR":
+                self.iridium_flag.add_sample(value)
+                self.handle_I()
             else:
                 self.log.error(f'unknown header: {header}:{value}')
 
         handle_mega_message(header, value)
 
         # time.sleep(0.01)
+    def handle_I(self):
+        value = self.iridium_flag.getLast()
+        if value == 1:
+            self.log.info("iridium transmition started")
+        elif value == 0:
+            self.log.info("iridium transmition is over")
+            self.iridium_command_was_sent = False
+            self.iridium_cycle_timer = time.time()
 
     def handle_FS(self):
         value = self.full_surface_flag.getLast()
@@ -546,8 +560,8 @@ class Controller():
 
             if command == "pickup":
                 pass
-                # self.log.debug("wait for pickup")
-                # self.current_state = State.WAIT_FOR_PICKUP
+                self.log.debug("wait for pickup")
+                self.current_state = State.WAIT_FOR_PICKUP
 
             if command == "sink_wait_climb":
                 self.log.debug("sink_wait_climb")
@@ -770,13 +784,15 @@ class Controller():
             self.log.info("waiting for pickup")
 
 
-            if not self.iridium_command_was_sent:
+            if not self.iridium_command_was_sent and (self.iridium_cycle_timer is None or time.time() - self.iridium_cycle_timer > 20):
                 self.log.info("Sending command to iridium")
                 self.iridium_command_was_sent = True
                 self.comm.write(f"I:1") 
+                # self.iridium_cycle_timer = time.time()
 
             else:
                 self.log.debug('iridium_command_was_sent')
+
                 
 
 
@@ -829,7 +845,7 @@ class Controller():
             if sensor not in bypassSens and not self.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 self.log.warning(f"sensor {sensor} is not ready")
                 return False
-        bypassFlag = ["PF", "FS"]
+        bypassFlag = ["PF", "FS", "I"]
         for flag in self.flags:
             if flag not in bypassFlag and not self.flags[flag].isBufferFull():
                 self.log.warning(f"flag {flag} is not ready")
@@ -1149,7 +1165,7 @@ class Pilot:
         self.depth = self.controller.current_depth
 
     def set_target_depth(self, target_depth):
-        self.log.info(f'setting target depth to {target_depth} [mbar]')
+        self.log.info(f'setting target depth to {target_depth} [dbar]')
         self.controller.target_depth = target_depth
 
     def set_mission_state(self, state):
@@ -1187,12 +1203,12 @@ class Captain:
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
         # planned_depths = [1.5, 0, 1.5, 'E']  #, 5, 0]
-        planned_depths = [10, 0, 10, 0]  #, 5, 0]
+        planned_depths = [10, 0]  #, 5, 0]
         # planned_depths = [11.5]
         # planned_depths = ['E']
 
-        kd = 1000
-        kp = 60
+        # kd = 1000
+        # kp = 60
         # self.pilot.controller.pid_controller.kp = kp
         mission_state = MissionState.IDLE
         # if next_depth == 0:
@@ -1201,7 +1217,7 @@ class Captain:
         self.pilot.set_mission_state(mission_state)
 
 
-        self.pilot.controller.pid_controller.kd = 0
+        # self.pilot.controller.pid_controller.kd = 0
 
         start_mission = False
 
@@ -1210,13 +1226,20 @@ class Captain:
             if self.pilot.controller.current_state == State.WAIT_TASK:
                 mission_state = MissionState.INIT_DEPTH
             if mission_state == MissionState.INIT_DEPTH:
-                self.pilot.controller.pid_controller.kp = kp
+                # self.pilot.controller.pid_controller.kp = kp
                 # self.pilot.controller.pid_controller.kd = kd
+
+                if not planned_depths:
+                    mission_state = MissionState.IDLE
+                    self.pilot.set_mission_state(mission_state)
+                    self.pilot.controller.current_state = State.WAIT_FOR_PICKUP
+                    continue
+
                 next_depth = planned_depths.pop(0)
                 self.pilot.set_target_depth(next_depth)  # set the first target depth
                 # start_mission = False
                 if next_depth == 0:
-                    next_depth = -100
+                    # next_depth = -100
                     mission_state = MissionState.SURFACE
                     self.pilot.controller.surface()
                 elif self.pilot.depth < next_depth:
@@ -1227,7 +1250,7 @@ class Captain:
                     self.pilot.controller.surface()
                 self.pilot.controller.current_state = State.CONTROLLED
                 self.pilot.set_mission_state(mission_state)
-                self.pilot.controller.pid_controller.kd = 0
+                # self.pilot.controller.pid_controller.kd = 0
 
 
             # print(f'self.pilot.depth: {self.pilot.depth}')
@@ -1246,7 +1269,7 @@ class Captain:
                         self.pilot.controller.current_state = State.EXEC_TASK
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
-                        self.pilot.controller.pid_controller.kd = kd
+                        # self.pilot.controller.pid_controller.kd = kd
 
                 elif mission_state == MissionState.ASCENDING:
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
@@ -1256,7 +1279,7 @@ class Captain:
                         self.pilot.controller.current_state = State.EXEC_TASK
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
-                        self.pilot.controller.pid_controller.kd = kd
+                        # self.pilot.controller.pid_controller.kd = kd
 
 
                 elif mission_state == MissionState.EN_ROUTE:
@@ -1273,7 +1296,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 30:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 10:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         mission_state = MissionState.INIT_DEPTH

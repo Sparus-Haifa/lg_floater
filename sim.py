@@ -33,6 +33,8 @@ class Comm():
         self.full_surface = False
         self.fresh_full_surface = False
 
+        self.iridium = None
+
         # for debug
         self.p = 0
         self.kp = 0
@@ -87,6 +89,12 @@ class Comm():
                         self.direction = 1
                     else:
                         self.direction = 2
+
+                elif header=="I":
+                    message = "I:1.00"
+                    self.sendMessage(bytes(f"{message}",'utf-8'))
+                    self.iridium = time.time()
+                    print("starting iridium")
                     
 
 
@@ -523,7 +531,12 @@ class YuriSim():
             # self.depth=y
             y = self.depth * PIXELRATIO
 
-            # Draw everything.
+            # Iridium
+            if self.comm.iridium and time.time() - self.comm.iridium > 10:
+                self.sendMessage("IR", 0.00, True)
+                print("Iridium is over")
+                self.comm.iridium = None
+            ## Draw everything.
             display.fill(LIGHTBLUE)
             
             # render text
