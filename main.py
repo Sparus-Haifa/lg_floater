@@ -1245,6 +1245,7 @@ class Captain:
                     # next_depth = -100
                     mission_state = MissionState.SURFACE
                     self.pilot.controller.surface()
+                    self.pilot.controller.current_state = State.CONTROLLED
                 elif abs(next_depth - self.pilot.depth) < 10:
                     mission_state = MissionState.EN_ROUTE
                     self.log.info('close proximity mission')
@@ -1316,12 +1317,13 @@ class Captain:
                     timer_started = self.pilot.mission_timer is not None
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
                     if max_bladder_reached and surface_reached and not timer_started:
-                        # self.pilot.controller.current_state = State.EXEC_TASK
+                        self.pilot.controller.current_state = State.STOP
                         # self.log.info('starting timer')
                         # self.pilot.mission_timer = time.time()
                         mission_state = MissionState.WAIT_TRANSMITION 
                         self.pilot.set_mission_state(mission_state)
                         self.pilot.controller.comm.write(f"I:1") 
+                        self.pilot.controller.iridium_command_was_sent = True
                         self.log.info(mission_state)
 
                 elif mission_state == MissionState.MISSION_ABORT:
@@ -1330,11 +1332,11 @@ class Captain:
                     continue
                 elif mission_state == MissionState.WAIT_TRANSMITION:
                     if not self.pilot.controller.iridium_command_was_sent:
-                        mission_state = MissionState.DESCENDING
+                        mission_state = MissionState.INIT_DEPTH
                         self.pilot.set_mission_state(mission_state)
                         self.log.info(mission_state)
 
-                        self.pilot.controller.current_state = State.STOP
+                        self.pilot.controller.current_state = State.CONTROLLED
 
 
 
