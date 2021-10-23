@@ -407,12 +407,12 @@ class Controller():
 
     def handle_HL(self):
         value = self.leak_h_flag.getLast()
-        if value == 1:
+        if value == 1 and self.current_state != State.WAIT_FOR_PICKUP:
             self.current_state = State.EMERGENCY
 
     def handle_EL(self):
         value = self.leak_e_flag.getLast()
-        if value==1:
+        if value==1 and self.current_state != State.WAIT_FOR_PICKUP:
             self.current_state = State.EMERGENCY
 
     # Start emergency ascending with bladder first
@@ -490,7 +490,8 @@ class Controller():
             # print("pump not working")
             # self.pumpFlag.add_sample(2)
             # leak
-            self.current_state = State.EMERGENCY
+            if self.current_state != State.WAIT_FOR_PICKUP:
+                self.current_state = State.EMERGENCY
             self.log.critical("PUMP FAILIURE")
             # self.time_on_duration = None
             
@@ -817,6 +818,7 @@ class Controller():
             if self.pressureController.senseAir():
                 self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
+                # print('moving for wait for pickup')
 
             if not self.surface_command_sent:
                 # self.surface_command_sent = True
@@ -1107,7 +1109,8 @@ class Controller():
             self.log.critical("safety not responding!")
             self.is_safety_responding = False
             # TODO: move to emergency state only if you're in exec or...
-            self.current_state = State.EMERGENCY # will make weight drop on reconnection
+            if self.current_state != State.WAIT_FOR_PICKUP:
+                self.current_state = State.EMERGENCY # will make weight drop on reconnection
 
 
 
@@ -1134,7 +1137,8 @@ class Controller():
             if value==2:
                 # print("safety weight dropped on command acknowledge")
                 self.log.info("safety acknowledges weight was dropped on command ")
-                self.current_state = State.EMERGENCY                
+                if self.current_state != State.WAIT_FOR_PICKUP:
+                    self.current_state = State.EMERGENCY                
                 self.weightDropped = True
                 self.comm.write("weight:1")
                 pass # drop weight acknowledge
@@ -1145,7 +1149,8 @@ class Controller():
             if value==4:
                 # print("weight dropped due to over time acknowledge")
                 self.log.info("safety acknowledges weight was dropped due to over time")
-                self.current_state = State.EMERGENCY
+                if self.current_state != State.WAIT_FOR_PICKUP:
+                    self.current_state = State.EMERGENCY
                 self.weightDropped = True
                 self.comm.write("weight:1")
                 pass # weight dropped due to over time
