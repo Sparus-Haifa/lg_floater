@@ -204,9 +204,12 @@ class Controller():
         self.pressureController.addSensor("BP2")
         self.pressureController.addSensor("TP1")
         self.pressureController.addSensor("TP2")
-        self.pressureController.addSensor("HP")
-        self.pressureController.addSensor("AP")
+        # self.pressureController.addSensor("HP")
+        # self.pressureController.addSensor("AP")
         self.pressureSensors = self.pressureController.getSensors()
+        self.pressureSensors["HP"] = Press("HP",cfg.pressure["avg_samples"],cfg.pressure["precision"],self.log)
+        self.pressureSensors["AP"] = Press("AP",cfg.pressure["avg_samples"],cfg.pressure["precision"],self.log)
+
 
         # Temperature
         self.temperatureController = Temp_ctrl(cfg.temperature["avg_samples"], cfg.temperature["precision"], self.log)

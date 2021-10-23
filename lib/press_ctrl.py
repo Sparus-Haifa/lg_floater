@@ -21,7 +21,7 @@ class Press_ctrl():
         self.sensors[header]=sensor
 
     def getSensors(self):
-        return self.sensors
+        return self.sensors.copy()
 
     def isBufferFull(self):
         for sensor in self.sensors:
