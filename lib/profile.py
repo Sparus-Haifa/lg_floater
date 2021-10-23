@@ -9,7 +9,7 @@ class Profile:
         self.log = log
         self.table = []
         self.__loadfile()
-        self.log.info("Profile class was initialized successfully\n")
+        self.log.info("Profile class was initialized successfully")
 
     def __loadfile(self):
         #fields: pressure, temp, salinity
@@ -21,7 +21,7 @@ class Profile:
             fields.append(self.__getdensity(fields))
             # self.log.info(str(fields) + "\n")
             self.table.append(fields)
-        self.log.info("Profile file loaded successfully\n")
+        self.log.info("Profile file loaded successfully")
         
 
 

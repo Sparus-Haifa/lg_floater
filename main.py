@@ -1381,6 +1381,21 @@ def main():
         log = logger.get_log()
         log.info('init')
         csv_log = logger.get_csv_log()
+
+
+        settings = [cfg.app, cfg.serial, cfg.serial_safety, cfg.task, cfg.pressure, cfg.temperature, cfg.imu, cfg.bladder, cfg.altimeter, cfg.rpm, cfg.pickup, cfg.safety]
+        names =     ["app", "serial", "serial_safety", "task", "pressure", "temperature", "imu", "bladder", "altimeter", "rpm", "pickup", "safety"]
+
+        if cfg.app["simulation"]:
+            settings.append(cfg.simulation)
+            names.append("simulation")
+
+        log.info('loading settings:')
+        for setting, name in zip(settings, names):
+            for value in setting:
+                line = f"[{name}]: {value} = {setting[value]}"
+                log.info(line)
+
     # while True:
         try:
             controller = Controller(log, csv_log)
@@ -1389,8 +1404,8 @@ def main():
             try:
                 captain.mission_2()
             except KeyboardInterrupt as e:
-                log.info(e)
-                log.critical('System shutdown')
+                # log.critical(e)
+                log.critical('user initiated safe system shutdown')
                 if cfg.app['disable_safety']:
                     log.info('skipping nano safe shutdown: disabled')
                     exit(0)
