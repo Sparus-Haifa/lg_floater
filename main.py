@@ -762,10 +762,16 @@ class Controller():
             self.log.info("Ending task")
             full_surface = self.full_surface_flag.getLast()
 
-            if full_surface is not None:
+            # if full_surface is not None:
+            #     self.surface()
+            # else:
+            #     self.log.info("Surfacing")
+
+    
+            if not self.surface_command_sent:
+                # self.surface_command_sent = True
+                self.log.warning('sedning surface command')
                 self.surface()
-            else:
-                self.log.info("Surfacing")
 
             if self.pressureController.senseAir():
                 self.log.info("we've reached the surface!")
@@ -1277,11 +1283,10 @@ class Captain:
                 if not planned_depths:
                     mission_state = MissionState.IDLE
                     self.pilot.set_mission_state(mission_state)
-                    self.pilot.controller.current_state = State.WAIT_FOR_PICKUP
+                    self.pilot.controller.current_state = State.END_TASK
                     continue
 
                 next_depth = planned_depths.pop(0)
-                self.pilot.set_target_depth(next_depth)  # set the first target depth
                 # start_mission = False
                 print(f'abs(next_depth - self.pilot.depth) < cfg.task["min_ascend_descend_distance"]')
                 print(f'abs({next_depth} - {self.pilot.depth}) < {cfg.task["min_ascend_descend_distance"]}')
@@ -1308,6 +1313,8 @@ class Captain:
                     mission_state = MissionState.ASCENDING
                     self.pilot.controller.current_state = State.CONTROLLED
                     self.pilot.controller.surface()
+                    
+                self.pilot.set_target_depth(next_depth)  # set the first target depth
                 self.pilot.set_mission_state(mission_state)
                 # self.pilot.controller.pid_controller.kd = 0
 
