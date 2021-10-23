@@ -56,8 +56,8 @@ class Controller():
         self.disable_altimeter = cfg.app["disable_altimeter"]
         self.skip_arduino_compile = cfg.app['skip_arduino_compile']
         
-        if self.test_mode or self.disable_safety or self.disable_altimeter:
-            self.test_mode = True
+        # if self.test_mode or self.disable_safety or self.disable_altimeter:
+        #     self.test_mode = True
 
         self.log = log 
         self.csv_log = csv_log      
@@ -70,6 +70,9 @@ class Controller():
 
         if self.disable_safety:
             self.log.warning("Safety is disabled")
+
+        if self.disable_altimeter:
+            self.log.warning("Altimeter is disabled")
 
         if self.test_mode:
             self.log.warning("Test mode")
@@ -919,7 +922,7 @@ class Controller():
             # print()
             if csv:
                 if self.add_headers_to_csv:
-                    self.csv_log.critical(",".join(headers))
+                    self.csv_log.info(",".join(headers))
                     self.add_headers_to_csv = False
             else:
                 self.log.info("".join(headers))
@@ -947,7 +950,7 @@ class Controller():
                 values.append(full_line)
             # print()
             if csv:
-                self.csv_log.critical(",".join(values))
+                self.csv_log.info(",".join(values))
             else:
                 self.log.info("".join(values))
             # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -1374,8 +1377,9 @@ class Captain:
 
 
 def main():
-        logger = Logger(cfg.app['simulation'])
+        logger = Logger(cfg.app['test_mode'])
         log = logger.get_log()
+        log.info('init')
         csv_log = logger.get_csv_log()
     # while True:
         try:
@@ -1387,8 +1391,11 @@ def main():
             except KeyboardInterrupt as e:
                 log.info(e)
                 log.critical('System shutdown')
-                pilot.controller.clean()
+                if cfg.app['disable_safety']:
+                    log.info('skipping nano safe shutdown: disabled')
+                    exit(0)
                 log.info('cleaning (resetting rpi gpio)')
+                pilot.controller.clean()
                 if not pilot.controller.disable_safety:
                     log.info('sending sleep to nano')
                     # manager.app.send_sleep_to_nano()
@@ -1399,7 +1406,7 @@ def main():
                         pilot.run_once()
                         time.sleep(0.1)
                     log.info('nano is sleeping')
-                exit(1)
+                exit(0)
             except Exception as e:
                 log.exception(e)
 
