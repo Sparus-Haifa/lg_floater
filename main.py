@@ -48,7 +48,7 @@ SAFETY_TIMEOUT = cfg.safety["timeout"]
 
 
 class Controller():
-    def __init__(self, log):
+    def __init__(self, log, csv_log):
 
         self.simulation = cfg.app["simulation"]
         self.disable_safety = cfg.app["disable_safety"]
@@ -59,7 +59,10 @@ class Controller():
         if self.test_mode or self.disable_safety or self.disable_altimeter:
             self.test_mode = True
 
-        self.log = log        
+        self.log = log 
+        self.csv_log = csv_log      
+        self.add_headers_to_csv = True
+ 
     
 
         if self.simulation:
@@ -78,7 +81,7 @@ class Controller():
 
         self.current_mission_state = None
 
-        self.target_depth = cfg.task["target_depth"]
+        self.target_depth = None  # cfg.task["target_depth"]
         self.current_depth = None
 
         self.lastTime = time.time()  # global timer
@@ -136,6 +139,8 @@ class Controller():
         self.time_off_timer = None
         
         self.error = None
+
+        
 
 
         # setup GPIO
@@ -887,65 +892,82 @@ class Controller():
         res['Error']=self.error
         res['Depth']=self.current_depth
 
-        # timeOn display
+        
+
+
+        def fancy_log(csv):
+            headers = []
+            for key in res:
+                value = res[key]
+
+                #shorten floats
+                check_float = isinstance(value, float)
+                if check_float:
+                    value = "{:.2f}".format(value)
+
+                end = len(str(value)) + 1 - len(key)
+                if len(key)>len(str(value)):
+                    end=1
+
+                line = f"{key}"
+                full_line = line + " "*end
+                # print(line ,end=" "*end)
+                headers.append(full_line)
+            # print()
+            if csv:
+                if self.add_headers_to_csv:
+                    self.csv_log.critical(",".join(headers))
+                    self.add_headers_to_csv = False
+            else:
+                self.log.info("".join(headers))
+
+            values = []
+            for key in res:
+                end = 1
+                # res = len(str(res[key])) + 3 - len(key)
+                # if len(str(res[key])) > res:
+                #     end = res
+                value = res[key]
+
+                #shorten floats
+                check_float = isinstance(value, float)
+                if check_float:
+                    value = "{:.2f}".format(value)
+
+                if len(key)>len(str(value)):
+                    end=len(key) + 1 - len(str(value))
+                
+
+                line = f"{value}"
+                full_line = line + " "*end
+                # print(line, end=" "*end)
+                values.append(full_line)
+            # print()
+            if csv:
+                self.csv_log.critical(",".join(values))
+            else:
+                self.log.info("".join(values))
+            # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
+            # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0
+
+            # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
+            # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
+
+        # pump on mode (only bv and rpm)
         pump_flag = self.pumpFlag.getLast()
         if self.time_on_duration is not None or pump_flag == 1:
+            fancy_log(csv=True)
             del res
             res = {}
             res["BV"]=self.bladderVolume.getLast()
             res["rpm"]=self.rpm.getLast()
+            fancy_log(csv=False)
+        else:
+            fancy_log(csv=True)
+            fancy_log(csv=False)
 
 
-
-
-        headers = []
-        for key in res:
-            value = res[key]
-
-            #shorten floats
-            check_float = isinstance(value, float)
-            if check_float:
-                value = "{:.2f}".format(value)
-
-            end = len(str(value)) + 1 - len(key)
-            if len(key)>len(str(value)):
-                end=1
-
-            line = f"{key}"
-            full_line = line + " "*end
-            # print(line ,end=" "*end)
-            headers.append(full_line)
-        # print()
-        self.log.info("".join(headers))
-
-        values = []
-        for key in res:
-            end = 1
-            # res = len(str(res[key])) + 3 - len(key)
-            # if len(str(res[key])) > res:
-            #     end = res
-            value = res[key]
-
-            #shorten floats
-            check_float = isinstance(value, float)
-            if check_float:
-                value = "{:.2f}".format(value)
-
-            if len(key)>len(str(value)):
-                end=len(key) + 1 - len(str(value))
-            
-
-            line = f"{value}"
-            full_line = line + " "*end
-            # print(line, end=" "*end)
-            values.append(full_line)
-        # print()
-        self.log.info("".join(values))
-        # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
-        # 23.66 23.14 23.29 23.34 0  0  0.01 -0.00 0.00 1031.60 1035.30 1022.40 1034.00 0 -26607.00 9.00 0.00 0.00 None 0
-
-        # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
-        # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
+        
         if self.weightDropped:
             self.log.warning("weight dropped!")
 
@@ -955,7 +977,8 @@ class Controller():
             return
         avg = self.pressureController.get_depth()
         self.current_depth = avg  # update current depth
-        self.error = self.target_depth - self.current_depth
+        if self.target_depth is not None and self.current_depth is not None:
+            self.error = self.target_depth - self.current_depth
 
     def sendPID(self):
         self.log.debug("calculating PID")
@@ -1350,9 +1373,10 @@ class Captain:
 def main():
         logger = Logger(cfg.app['simulation'])
         log = logger.get_log()
+        csv_log = logger.get_csv_log()
     # while True:
         try:
-            controller = Controller(log)
+            controller = Controller(log, csv_log)
             pilot = Pilot(log, controller)
             captain = Captain(log, pilot)
             try:

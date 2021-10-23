@@ -4,9 +4,14 @@ import os
 import datetime
 class Logger:
     def __init__(self, test_mode: bool) -> None:
-        self.log = logging.getLogger()
+        self.log = logging.getLogger("dev")
+        self.csv_log = logging.getLogger("csv")
+
         self.log.setLevel(logging.NOTSET)
+        self.csv_log.setLevel(logging.NOTSET)
+
         console_handler = logging.StreamHandler(sys.stdout)
+        
         # s = 'log.log'
         #e.g. 2021-03-10 10:34:12.678331
         current_datetime = str(datetime.datetime.now())
@@ -21,16 +26,24 @@ class Logger:
         # s = log_name = caurrent_date + "_" + current_time + ".log"
         log_notset = caurrent_date + "_" + current_time + "_notset.log"
         log_info = caurrent_date + "_" + current_time + "_info.log"
+        log_csv = caurrent_date + "_" + current_time + ".csv"
+
 
         full_path_notset = os.path.join('log',log_notset)
         full_path_info = os.path.join('log',log_info)
+        full_path_csv = os.path.join('log',log_csv)
+
 
         file_handler_notset = logging.FileHandler(full_path_notset)
         file_handler_info = logging.FileHandler(full_path_info)
+        file_handler_csv = logging.FileHandler(full_path_csv)
+
 
         console_handler.setLevel(logging.WARNING)
         file_handler_notset.setLevel(logging.NOTSET)
         file_handler_info.setLevel(logging.INFO)
+        file_handler_csv.setLevel(logging.INFO)
+
 
         
 
@@ -39,16 +52,26 @@ class Logger:
         else:
             formatter    = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
 
+        csv_formatter    = logging.Formatter('%(asctime)s,%(message)s')
+        
         console_handler.setFormatter(formatter)
         file_handler_notset.setFormatter(formatter)
         file_handler_info.setFormatter(formatter)
+        file_handler_csv.setFormatter(csv_formatter)
+
 
 
 
         self.log.addHandler(console_handler)
         self.log.addHandler(file_handler_notset)
         self.log.addHandler(file_handler_info)
+        self.csv_log.addHandler(file_handler_csv)
 
 
     def get_log(self):
         return self.log
+
+    def get_csv_log(self):
+        return self.csv_log
+
+    
