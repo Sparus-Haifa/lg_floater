@@ -120,10 +120,18 @@ task = {
     # "setpoint_start": 25, # will be used for type 3
     # "setpoint_end": 50 # will be used for type 3cd
     
-    "target_depth_in_meters" : 50,
+    # "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    "target_depth" : 30.0  # millibar
+    # "planned_mission" : [5, 0, 5, 0],
+    "planned_mission" : [5, "E"],
+    "hold_on_taget_duration" : 10,  # seconds
+    "hold_on_target_distance" : 0.4,  # meters
+    "min_ascend_descend_distance" : 10,  # meters
+    "kp" : 1000,
+    "kd" : 60,
+    "ki" : 0,  # 0.001
+    # "target_depth" : 30.0  # millibar
     # "max_time_off_duration" : 100.0
 
 }
