@@ -422,6 +422,7 @@ class Controller():
         else:
             self.log.info("sending surface command")
             self.comm.write("S:2\n")
+            self.surface_command_sent = True
 
     def dive(self):
         if self.dive_command_sent:
@@ -927,7 +928,7 @@ class Controller():
             # print()
             if csv:
                 if self.add_headers_to_csv:
-                    self.csv_log.debug(",".join(headers))
+                    self.csv_log.critical(",".join(headers))
                     self.add_headers_to_csv = False
             else:
                 self.log.info("".join(headers))
@@ -955,7 +956,7 @@ class Controller():
                 values.append(full_line)
             # print()
             if csv:
-                self.csv_log.debug(",".join(values))
+                self.csv_log.critical(",".join(values))
             else:
                 self.log.info("".join(values))
             # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -1257,6 +1258,8 @@ class Captain:
 
         while True:
             self.pilot.run_once()  # RUN ONCE
+            if self.pilot.controller.current_state == State.EMERGENCY:
+                mission_state = MissionState.MISSION_ABORT
             if self.pilot.controller.current_state == State.WAIT_TASK:
                 mission_state = MissionState.INIT_DEPTH
             if mission_state == MissionState.INIT_DEPTH:

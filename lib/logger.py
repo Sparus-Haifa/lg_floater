@@ -4,11 +4,11 @@ import os
 import datetime
 class Logger:
     def __init__(self, test_mode: bool) -> None:
-        self.log = logging.getLogger()
+        self.log = logging.getLogger("normal")
         self.csv_log = logging.getLogger("csv")
         
 
-        self.log.setLevel(logging.NOTSET)
+        self.log.setLevel(logging.DEBUG)
         self.csv_log.setLevel(logging.NOTSET)
 
         console_handler = logging.StreamHandler(sys.stdout)
