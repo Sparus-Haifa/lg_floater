@@ -40,7 +40,7 @@ from cfg.configuration import State, MissionState
 # task
 MIN_TIME_OFF_DURATION = cfg.task["min_time_off_duration_limit"]
 # MAX_TIME_OFF_DURATION = cfg.task["max_time_off_duration"]
-TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
+# TARGET_DEPTH_IN_METERS = cfg.task["target_depth_in_meters"]
 
 # safety
 SAFETY_TIMEOUT = cfg.safety["timeout"]
@@ -491,7 +491,7 @@ class Controller():
             # leak
             self.current_state = State.EMERGENCY
             self.log.critical("PUMP FAILIURE")
-            self.time_on_duration = None
+            # self.time_on_duration = None
             
             self.sensors['rpm'].add_sample(0)
 
@@ -817,13 +817,18 @@ class Controller():
                 self.log.info("we've reached the surface!")
                 self.current_state = State.WAIT_FOR_PICKUP
 
-            pump_flag = self.pumpFlag.getLast()
-            voltage = 100
-            direction = 2
-            timeon = 5.0
+            if not self.surface_command_sent:
+                # self.surface_command_sent = True
+                self.log.warning('sedning surface command')
+                self.surface()
+
+            # pump_flag = self.pumpFlag.getLast()
+            # voltage = 100
+            # direction = 2
+            # timeon = 5.0
             # if pump_flag == 0:
-            self.target_depth = 0
-            self.handle_mission_state()
+            # self.target_depth = 0
+            # self.handle_mission_state()
 
         # STOP - TEST MODE
         elif self.current_state == State.STOP:
@@ -922,7 +927,7 @@ class Controller():
             # print()
             if csv:
                 if self.add_headers_to_csv:
-                    self.csv_log.info(",".join(headers))
+                    self.csv_log.debug(",".join(headers))
                     self.add_headers_to_csv = False
             else:
                 self.log.info("".join(headers))
@@ -950,7 +955,7 @@ class Controller():
                 values.append(full_line)
             # print()
             if csv:
-                self.csv_log.info(",".join(values))
+                self.csv_log.debug(",".join(values))
             else:
                 self.log.info("".join(values))
             # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -983,7 +988,7 @@ class Controller():
             return
         avg = self.pressureController.get_depth()
         self.current_depth = avg  # update current depth
-        if self.target_depth is not None and self.current_depth is not None:
+        if self.target_depth is not None and self.current_depth is not None and (type(self.target_depth)==float or type(self.target_depth)==int):
             self.error = self.target_depth - self.current_depth
 
     def sendPID(self):
@@ -1162,7 +1167,7 @@ class Controller():
 
 
 
-MARGIN = 0.4
+MARGIN = cfg.task["hold_on_target_distance"]  # 0.4
 
 class Pilot:
     def __init__(self, log, controller) -> None:
@@ -1232,7 +1237,7 @@ class Captain:
     def mission_2(self):
         # planned_depths = [20.0, 0, 40.0,'E',0]
         # planned_depths = [1.5, 0, 1.5, 'E']  #, 5, 0]
-        planned_depths = [5, 0, 5, 0]  #, 5, 0]
+        planned_depths =  cfg.task["planned_mission"]  #[5, 0, 5, 0]  #, 5, 0]
         # planned_depths = [11.5]
         # planned_depths = ['E']
 
@@ -1248,7 +1253,7 @@ class Captain:
 
         # self.pilot.controller.pid_controller.kd = 0
 
-        start_mission = False
+        # start_mission = False
 
         while True:
             self.pilot.run_once()  # RUN ONCE
@@ -1258,7 +1263,7 @@ class Captain:
                 # self.pilot.controller.pid_controller.kp = kp
                 # self.pilot.controller.pid_controller.kd = kd
                 if not self.pilot.depth:
-                    self.log.warning('waiting for depth estimation')
+                    # self.log.warning('waiting for depth estimation')
                     continue
 
                 if not planned_depths:
@@ -1270,12 +1275,20 @@ class Captain:
                 next_depth = planned_depths.pop(0)
                 self.pilot.set_target_depth(next_depth)  # set the first target depth
                 # start_mission = False
-                if next_depth == 0:
+                print(f'abs(next_depth - self.pilot.depth) < cfg.task["min_ascend_descend_distance"]')
+                print(f'abs({next_depth} - {self.pilot.depth}) < {cfg.task["min_ascend_descend_distance"]}')
+                if next_depth == 'E':
+                    # mission_state = MissionState.
+                    # self.pilot.controller.surface()
+                    next_depth = 0
+                    self.pilot.controller.current_State = State.EMERGENCY
+
+                elif next_depth == 0:
                     # next_depth = -100
                     mission_state = MissionState.SURFACE
                     self.pilot.controller.surface()
                     self.pilot.controller.current_state = State.CONTROLLED
-                elif abs(next_depth - self.pilot.depth) < 10:
+                elif abs(next_depth - self.pilot.depth) < cfg.task["min_ascend_descend_distance"]:
                     mission_state = MissionState.EN_ROUTE
                     self.log.info('close proximity mission')
                     self.pilot.controller.current_state = State.EXEC_TASK
@@ -1334,7 +1347,7 @@ class Captain:
 
                 elif mission_state == MissionState.HOLD_ON_TARGET:
 
-                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > 10:
+                    if self.pilot.mission_timer and time.time() - self.pilot.mission_timer > cfg.task['hold_on_taget_duration']:
                         self.log.info('hold position timer is up')
                         self.pilot.mission_timer = None
                         mission_state = MissionState.INIT_DEPTH

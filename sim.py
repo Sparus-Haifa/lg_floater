@@ -84,6 +84,7 @@ class Comm():
                     print("timeOn (PID) command recieved")
 
                 elif header=="S":
+                    print('full surface')
                     self.fresh_full_surface = True
                     if int(value) == 1:
                         self.direction = 1

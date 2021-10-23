@@ -9,7 +9,7 @@ class Logger:
         
 
         self.log.setLevel(logging.NOTSET)
-        self.csv_log.setLevel(logging.INFO)
+        self.csv_log.setLevel(logging.NOTSET)
 
         console_handler = logging.StreamHandler(sys.stdout)
         
@@ -43,7 +43,7 @@ class Logger:
         console_handler.setLevel(logging.WARNING)
         file_handler_notset.setLevel(logging.NOTSET)
         file_handler_info.setLevel(logging.INFO)
-        file_handler_csv.setLevel(logging.INFO)
+        file_handler_csv.setLevel(logging.NOTSET)
 
 
         
