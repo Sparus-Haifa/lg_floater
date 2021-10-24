@@ -47,7 +47,7 @@ IridiumSBD  modem(IridiumSerial);    // Declare IRIDIUM object
 TinyGPSPlus tinygps;                // Declare TINY GPS object
 static const int ledPin = LED_BUILTIN;
 
-#define BEACON_INTERVAL 10         // Time between transmissions (seconds)
+#define BEACON_INTERVAL 60         // Time between transmissions (seconds)
 #define BeaconT 5                   // Duration of beacon function (minutes)
 
 // IMU object
@@ -102,4 +102,4 @@ float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC
 #define BladderUpperLimit 620
-#define BladderLowerLimit 40
+#define BladderLowerLimit 30
