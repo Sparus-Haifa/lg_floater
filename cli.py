@@ -47,11 +47,12 @@ menu = """
 2. water sense 
 3. execute task
 4. wait for pickup 
-5. sink_wait_climb test
+5. surface
 6. wakeup safety
 7. sleep safety
 8. send PID
 9. restart
+10. dive
 0. stop
 """
 
@@ -153,8 +154,8 @@ class CLI():
                 self.com.sendMessage("pickup:0")
 
             if from_user == '5':
-                print("sink_wait_climb")
-                self.com.sendMessage("sink_wait_climb:0")
+                print("surface")
+                self.com.sendMessage("surface:0")
 
             if from_user == '6':
                 print('sending wakeup safety')
@@ -171,6 +172,10 @@ class CLI():
             if from_user == '9':
                 print("restarting")
                 self.com.sendMessage("restart:0")
+
+            if from_user == '10':
+                print('dive')
+                self.com.sendMessage("dive:0")
             
             if from_user == '0':
                 print("stopping")

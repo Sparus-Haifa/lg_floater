@@ -1,0 +1,1047 @@
+2021-10-24 10:51:11,331:TEST-MODE:INFO: init
+2021-10-24 10:51:11,333:TEST-MODE:INFO: loading settings:
+2021-10-24 10:51:11,334:TEST-MODE:INFO: [app]: simulation = False
+2021-10-24 10:51:11,334:TEST-MODE:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 10:51:11,335:TEST-MODE:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 10:51:11,336:TEST-MODE:INFO: [app]: disable_safety = True
+2021-10-24 10:51:11,336:TEST-MODE:INFO: [app]: test_mode = True
+2021-10-24 10:51:11,337:TEST-MODE:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 10:51:11,337:TEST-MODE:INFO: [app]: disable_altimeter = True
+2021-10-24 10:51:11,338:TEST-MODE:INFO: [app]: skip_arduino_compile = False
+2021-10-24 10:51:11,339:TEST-MODE:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 10:51:11,339:TEST-MODE:INFO: [serial]: timeout = 3
+2021-10-24 10:51:11,340:TEST-MODE:INFO: [serial]: baud_rate = 115200
+2021-10-24 10:51:11,341:TEST-MODE:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 10:51:11,341:TEST-MODE:INFO: [serial_safety]: timeout = 3
+2021-10-24 10:51:11,342:TEST-MODE:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 10:51:11,343:TEST-MODE:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 10:51:11,343:TEST-MODE:INFO: [task]: planned_mission = [5, 'E']
+2021-10-24 10:51:11,344:TEST-MODE:INFO: [task]: hold_on_taget_duration = 10
+2021-10-24 10:51:11,344:TEST-MODE:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 10:51:11,345:TEST-MODE:INFO: [task]: min_ascend_descend_distance = 10
+2021-10-24 10:51:11,345:TEST-MODE:INFO: [task]: kp = 1000
+2021-10-24 10:51:11,346:TEST-MODE:INFO: [task]: kd = 60
+2021-10-24 10:51:11,347:TEST-MODE:INFO: [task]: ki = 0
+2021-10-24 10:51:11,347:TEST-MODE:INFO: [pressure]: epsilon = 0.5
+2021-10-24 10:51:11,348:TEST-MODE:INFO: [pressure]: avg_samples = 5
+2021-10-24 10:51:11,349:TEST-MODE:INFO: [pressure]: precision = 2
+2021-10-24 10:51:11,349:TEST-MODE:INFO: [temperature]: avg_samples = 5
+2021-10-24 10:51:11,350:TEST-MODE:INFO: [temperature]: precision = 2
+2021-10-24 10:51:11,351:TEST-MODE:INFO: [imu]: avg_samples = 5
+2021-10-24 10:51:11,351:TEST-MODE:INFO: [imu]: precision = 2
+2021-10-24 10:51:11,352:TEST-MODE:INFO: [bladder]: avg_samples = 1
+2021-10-24 10:51:11,352:TEST-MODE:INFO: [bladder]: precision = 2
+2021-10-24 10:51:11,353:TEST-MODE:INFO: [altimeter]: avg_samples = 1
+2021-10-24 10:51:11,354:TEST-MODE:INFO: [altimeter]: precision = 2
+2021-10-24 10:51:11,355:TEST-MODE:INFO: [rpm]: avg_samples = 1
+2021-10-24 10:51:11,355:TEST-MODE:INFO: [rpm]: precision = 2
+2021-10-24 10:51:11,356:TEST-MODE:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 10:51:11,356:TEST-MODE:INFO: [safety]: timeout = 30
+2021-10-24 10:51:11,357:TEST-MODE:WARNING: Safety is disabled
+2021-10-24 10:51:11,358:TEST-MODE:WARNING: Altimeter is disabled
+2021-10-24 10:51:11,359:TEST-MODE:WARNING: Test mode
+2021-10-24 10:51:11,360:TEST-MODE:INFO: Pressure controller was initialized successfully
+2021-10-24 10:51:11,361:TEST-MODE:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 10:51:11,363:TEST-MODE:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 10:51:11,364:TEST-MODE:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 10:51:11,365:TEST-MODE:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 10:51:11,366:TEST-MODE:INFO: HP pressure sensor was initialized successfully
+2021-10-24 10:51:11,367:TEST-MODE:INFO: AP pressure sensor was initialized successfully
+2021-10-24 10:51:11,368:TEST-MODE:INFO: Temperature controller was initialized successfully
+2021-10-24 10:51:11,368:TEST-MODE:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 10:51:11,369:TEST-MODE:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 10:51:11,370:TEST-MODE:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 10:51:11,371:TEST-MODE:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 10:51:11,371:TEST-MODE:INFO: AT temperature sensor was initialized successfully
+2021-10-24 10:51:11,374:TEST-MODE:INFO: IMU controller was initialized successfully
+2021-10-24 10:51:11,375:TEST-MODE:INFO: X IMU sensor was initialized successfully
+2021-10-24 10:51:11,376:TEST-MODE:INFO: Y IMU sensor was initialized successfully
+2021-10-24 10:51:11,377:TEST-MODE:INFO: Z IMU sensor was initialized successfully
+2021-10-24 10:51:11,378:TEST-MODE:INFO: Bladder volume controller was initialized successfully
+2021-10-24 10:51:11,379:TEST-MODE:INFO: Altimeter controller was initialized successfully
+2021-10-24 10:51:11,380:TEST-MODE:INFO: rpm controller was initialized successfully
+2021-10-24 10:51:11,381:TEST-MODE:INFO: Pump flag controller was initialized successfully
+2021-10-24 10:51:11,382:TEST-MODE:INFO: Bladder flag controller was initialized successfully
+2021-10-24 10:51:11,383:TEST-MODE:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 10:51:11,384:TEST-MODE:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 10:51:11,384:TEST-MODE:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 10:51:11,385:TEST-MODE:INFO: Iridium flag controller was initialized successfully
+2021-10-24 10:51:11,386:TEST-MODE:DEBUG: attempting to init serial comm
+2021-10-24 10:51:11,387:TEST-MODE:DEBUG:  port:/dev/ttyACM0
+2021-10-24 10:51:11,387:TEST-MODE:DEBUG:  baud_rate:115200
+2021-10-24 10:51:11,390:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-24 10:51:11,391:TEST-MODE:DEBUG: attempting to load profile: cfg/profile.txt
+2021-10-24 10:51:11,410:TEST-MODE:INFO: Profile file loaded successfully
+2021-10-24 10:51:11,411:TEST-MODE:INFO: Profile class was initialized successfully
+2021-10-24 10:51:11,536:TEST-MODE:INFO: compiling mega code
+2021-10-24 10:51:35,313:TEST-MODE:INFO: compilation successful
+2021-10-24 10:51:35,316:TEST-MODE:INFO: uploading mega code
+2021-10-24 10:51:51,019:TEST-MODE:INFO: upload successful
+2021-10-24 10:51:51,020:TEST-MODE:CRITICAL: nano board not found
+2021-10-24 10:51:51,022:TEST-MODE:INFO: setting state to MissionState.IDLE
+2021-10-24 10:51:51,531:TEST-MODE:DEBUG: mega>rpi: b'SU:0.00\r\n'
+2021-10-24 10:51:51,532:TEST-MODE:ERROR: unknown header: SU:0.00
+2021-10-24 10:51:51,564:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.27\r\n'
+2021-10-24 10:51:51,589:TEST-MODE:DEBUG: mega>rpi: b'BT2:ovf\r\n'
+2021-10-24 10:51:51,590:TEST-MODE:ERROR: SENSOR ERROR: [BT2] Overflow value: [ovf]
+2021-10-24 10:51:51,649:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.40\r\n'
+2021-10-24 10:51:51,708:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.40\r\n'
+2021-10-24 10:51:51,766:TEST-MODE:DEBUG: mega>rpi: b'HP:1622.00\r\n'
+2021-10-24 10:51:51,793:TEST-MODE:DEBUG: mega>rpi: b'AT:22.54\r\n'
+2021-10-24 10:51:51,851:TEST-MODE:DEBUG: mega>rpi: b'AP:6104.70\r\n'
+2021-10-24 10:51:51,880:TEST-MODE:DEBUG: mega>rpi: b'TT1:24.59\r\n'
+2021-10-24 10:51:51,909:TEST-MODE:DEBUG: mega>rpi: b'TT2:24.59\r\n'
+2021-10-24 10:51:51,966:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.10\r\n'
+2021-10-24 10:51:52,024:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.90\r\n'
+2021-10-24 10:51:52,025:TEST-MODE:DEBUG: mega>rpi: b'\r\n'
+2021-10-24 10:51:52,290:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:52,291:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-24 10:51:52,292:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-24 10:51:52,783:TEST-MODE:DEBUG: mega>rpi: b'Date: 10/24/2021 Time: 08:22:49\r\n'
+2021-10-24 10:51:52,783:TEST-MODE:ERROR: unknown header: Date: 10/24/2021 Time
+2021-10-24 10:51:54,481:TEST-MODE:DEBUG: mega>rpi: b'SU:1.00\r\n'
+2021-10-24 10:51:54,481:TEST-MODE:ERROR: unknown header: SU:1.00
+2021-10-24 10:51:54,483:TEST-MODE:DEBUG: mega>rpi: b'LC:1.00\r\n'
+2021-10-24 10:51:54,483:TEST-MODE:ERROR: unknown header: LC:1.00
+2021-10-24 10:51:54,562:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:54,563:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:54,579:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.63\r\n'
+2021-10-24 10:51:54,592:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.54\r\n'
+2021-10-24 10:51:54,648:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.20\r\n'
+2021-10-24 10:51:54,706:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.70\r\n'
+2021-10-24 10:51:54,767:TEST-MODE:DEBUG: mega>rpi: b'HP:1622.60\r\n'
+2021-10-24 10:51:54,779:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:54,792:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:51:54,853:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.50\r\n'
+2021-10-24 10:51:54,910:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:51:54,923:TEST-MODE:DEBUG: mega>rpi: b'AT:23.96\r\n'
+2021-10-24 10:51:54,981:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.60\r\n'
+2021-10-24 10:51:54,985:TEST-MODE:DEBUG: mega>rpi: b'BV:661.13\r\n'
+2021-10-24 10:51:54,985:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:54,989:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL EL BF   SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:54,990:TEST-MODE:INFO: Buffering (2/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 0  0  0  0  None None None 661.13 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 10:51:54,991:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:54,993:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:54,994:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:54,996:TEST-MODE:DEBUG: mega>rpi: b'Y:0.00\r\n'
+2021-10-24 10:51:54,997:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-24 10:51:55,022:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:55,023:TEST-MODE:DEBUG: mega>rpi: b'PC:96.00\r\n'
+2021-10-24 10:51:55,024:TEST-MODE:DEBUG: mega>rpi: b'LC:2.00\r\n'
+2021-10-24 10:51:55,025:TEST-MODE:ERROR: unknown header: LC:2.00
+2021-10-24 10:51:55,103:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:55,104:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:55,116:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.63\r\n'
+2021-10-24 10:51:55,131:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.54\r\n'
+2021-10-24 10:51:55,189:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.50\r\n'
+2021-10-24 10:51:55,247:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.60\r\n'
+2021-10-24 10:51:55,304:TEST-MODE:DEBUG: mega>rpi: b'HP:1622.70\r\n'
+2021-10-24 10:51:55,320:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:55,333:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.08\r\n'
+2021-10-24 10:51:55,390:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.40\r\n'
+2021-10-24 10:51:55,447:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.80\r\n'
+2021-10-24 10:51:55,464:TEST-MODE:DEBUG: mega>rpi: b'AT:23.96\r\n'
+2021-10-24 10:51:55,522:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.80\r\n'
+2021-10-24 10:51:55,523:TEST-MODE:DEBUG: mega>rpi: b'BV:661.08\r\n'
+2021-10-24 10:51:55,524:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:55,526:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:55,527:TEST-MODE:INFO: Buffering (3/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.36 96.00 0  0  2  None None 661.08 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 10:51:55,528:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:55,529:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:55,531:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:55,532:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:55,534:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:51:55,566:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:55,567:TEST-MODE:DEBUG: mega>rpi: b'PC:96.00\r\n'
+2021-10-24 10:51:55,569:TEST-MODE:DEBUG: mega>rpi: b'LC:3.00\r\n'
+2021-10-24 10:51:55,569:TEST-MODE:ERROR: unknown header: LC:3.00
+2021-10-24 10:51:55,649:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:55,650:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:55,660:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:51:55,677:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.54\r\n'
+2021-10-24 10:51:55,735:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.90\r\n'
+2021-10-24 10:51:55,791:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.30\r\n'
+2021-10-24 10:51:55,849:TEST-MODE:DEBUG: mega>rpi: b'HP:1622.60\r\n'
+2021-10-24 10:51:55,865:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:55,878:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:51:55,935:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.50\r\n'
+2021-10-24 10:51:55,992:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.50\r\n'
+2021-10-24 10:51:56,009:TEST-MODE:DEBUG: mega>rpi: b'AT:23.97\r\n'
+2021-10-24 10:51:56,067:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.60\r\n'
+2021-10-24 10:51:56,068:TEST-MODE:DEBUG: mega>rpi: b'BV:661.17\r\n'
+2021-10-24 10:51:56,069:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:56,071:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:56,072:TEST-MODE:INFO: Buffering (4/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.36 96.00 0  0  2  None None 661.17 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 10:51:56,073:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:56,074:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:56,076:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:56,077:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:56,079:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-24 10:51:56,107:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:56,111:TEST-MODE:DEBUG: mega>rpi: b'PC:96.00\r\n'
+2021-10-24 10:51:56,112:TEST-MODE:DEBUG: mega>rpi: b'LC:4.00\r\n'
+2021-10-24 10:51:56,113:TEST-MODE:ERROR: unknown header: LC:4.00
+2021-10-24 10:51:56,189:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:56,190:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:56,206:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:51:56,217:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:56,275:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.70\r\n'
+2021-10-24 10:51:56,336:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.80\r\n'
+2021-10-24 10:51:56,393:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.20\r\n'
+2021-10-24 10:51:56,406:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:56,419:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:51:56,479:TEST-MODE:DEBUG: mega>rpi: b'TP1:1016.70\r\n'
+2021-10-24 10:51:56,537:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.20\r\n'
+2021-10-24 10:51:56,550:TEST-MODE:DEBUG: mega>rpi: b'AT:23.97\r\n'
+2021-10-24 10:51:56,606:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.40\r\n'
+2021-10-24 10:51:56,610:TEST-MODE:DEBUG: mega>rpi: b'BV:661.22\r\n'
+2021-10-24 10:51:56,611:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:56,614:TEST-MODE:INFO: BT1   BT2             TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:56,615:TEST-MODE:INFO: 31.55 Buffering (4/5) 26.33 26.59 23.68 Buffering (4/5) Buffering (4/5) Buffering (4/5) 10.20 10.37 10.17 10.30 1622.62 6096.62 1.36 96.00 0  0  2  None None 661.22 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:56,615:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:56,616:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:51:56,618:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:56,619:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:56,621:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:56,622:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.01\r\n'
+2021-10-24 10:51:56,652:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:56,653:TEST-MODE:DEBUG: mega>rpi: b'PC:95.00\r\n'
+2021-10-24 10:51:56,655:TEST-MODE:DEBUG: mega>rpi: b'LC:5.00\r\n'
+2021-10-24 10:51:56,655:TEST-MODE:ERROR: unknown header: LC:5.00
+2021-10-24 10:51:56,733:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:56,735:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:56,750:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.60\r\n'
+2021-10-24 10:51:56,762:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:56,820:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.20\r\n'
+2021-10-24 10:51:56,877:TEST-MODE:DEBUG: mega>rpi: b'BP2:1035.70\r\n'
+2021-10-24 10:51:56,934:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.00\r\n'
+2021-10-24 10:51:56,950:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:56,963:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.07\r\n'
+2021-10-24 10:51:57,021:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:51:57,083:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.40\r\n'
+2021-10-24 10:51:57,094:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:57,152:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.80\r\n'
+2021-10-24 10:51:57,153:TEST-MODE:DEBUG: mega>rpi: b'BV:661.17\r\n'
+2021-10-24 10:51:57,154:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:57,157:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:57,158:TEST-MODE:INFO: 31.62 26.54 26.76 27.08 23.97 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1622.82 6094.64 1.36 95.00 0  0  2  None None 661.17 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:57,158:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:57,160:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:57,196:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:57,200:TEST-MODE:DEBUG: mega>rpi: b'PC:96.00\r\n'
+2021-10-24 10:51:57,201:TEST-MODE:DEBUG: mega>rpi: b'LC:6.00\r\n'
+2021-10-24 10:51:57,201:TEST-MODE:ERROR: unknown header: LC:6.00
+2021-10-24 10:51:57,278:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:57,279:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:57,294:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.59\r\n'
+2021-10-24 10:51:57,307:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:57,365:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.50\r\n'
+2021-10-24 10:51:57,425:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.00\r\n'
+2021-10-24 10:51:57,483:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.30\r\n'
+2021-10-24 10:51:57,495:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:51:57,507:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.06\r\n'
+2021-10-24 10:51:57,569:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:51:57,627:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:51:57,638:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:57,696:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.50\r\n'
+2021-10-24 10:51:57,700:TEST-MODE:DEBUG: mega>rpi: b'BV:661.24\r\n'
+2021-10-24 10:51:57,701:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:57,704:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:57,705:TEST-MODE:INFO: 31.61 26.53 26.76 27.08 23.97 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1622.96 6094.62 1.36 96.00 0  0  2  None None 661.24 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:57,706:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:57,708:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:57,710:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:57,711:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:57,713:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:51:57,741:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:57,742:TEST-MODE:DEBUG: mega>rpi: b'PC:97.00\r\n'
+2021-10-24 10:51:57,744:TEST-MODE:DEBUG: mega>rpi: b'LC:7.00\r\n'
+2021-10-24 10:51:57,745:TEST-MODE:ERROR: unknown header: LC:7.00
+2021-10-24 10:51:57,822:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:57,824:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:57,839:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:51:57,852:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:57,909:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.30\r\n'
+2021-10-24 10:51:57,966:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.90\r\n'
+2021-10-24 10:51:58,024:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.20\r\n'
+2021-10-24 10:51:58,041:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.74\r\n'
+2021-10-24 10:51:58,052:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:51:58,110:TEST-MODE:DEBUG: mega>rpi: b'TP1:1018.20\r\n'
+2021-10-24 10:51:58,171:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.50\r\n'
+2021-10-24 10:51:58,183:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:58,241:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.20\r\n'
+2021-10-24 10:51:58,244:TEST-MODE:DEBUG: mega>rpi: b'BV:661.31\r\n'
+2021-10-24 10:51:58,245:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:58,248:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:58,249:TEST-MODE:INFO: 31.60 26.53 26.76 27.07 23.98 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1623.06 6094.50 1.36 97.00 0  0  2  None None 661.31 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:58,249:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:58,251:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:58,286:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:58,287:TEST-MODE:DEBUG: mega>rpi: b'PC:97.00\r\n'
+2021-10-24 10:51:58,289:TEST-MODE:DEBUG: mega>rpi: b'LC:8.00\r\n'
+2021-10-24 10:51:58,289:TEST-MODE:ERROR: unknown header: LC:8.00
+2021-10-24 10:51:58,368:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:58,369:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:58,380:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:51:58,392:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:58,454:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.60\r\n'
+2021-10-24 10:51:58,511:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.20\r\n'
+2021-10-24 10:51:58,569:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.30\r\n'
+2021-10-24 10:51:58,581:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.74\r\n'
+2021-10-24 10:51:58,598:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:51:58,654:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.80\r\n'
+2021-10-24 10:51:58,712:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.10\r\n'
+2021-10-24 10:51:58,728:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:58,785:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.40\r\n'
+2021-10-24 10:51:58,787:TEST-MODE:DEBUG: mega>rpi: b'BV:661.26\r\n'
+2021-10-24 10:51:58,787:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:58,790:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:58,791:TEST-MODE:INFO: 31.59 26.53 26.75 27.06 23.98 0.00 0.00 -0.00 10.20 10.37 10.18 10.30 1623.20 6094.46 1.36 97.00 0  0  2  None None 661.26 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:58,792:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:58,793:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:51:58,794:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:58,796:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:58,797:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:58,798:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:51:58,831:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:58,832:TEST-MODE:DEBUG: mega>rpi: b'PC:97.00\r\n'
+2021-10-24 10:51:58,835:TEST-MODE:DEBUG: mega>rpi: b'LC:9.00\r\n'
+2021-10-24 10:51:58,835:TEST-MODE:ERROR: unknown header: LC:9.00
+2021-10-24 10:51:58,912:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:58,914:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:58,929:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:51:58,942:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:58,998:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.30\r\n'
+2021-10-24 10:51:59,056:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.00\r\n'
+2021-10-24 10:51:59,117:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.30\r\n'
+2021-10-24 10:51:59,129:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.73\r\n'
+2021-10-24 10:51:59,142:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.06\r\n'
+2021-10-24 10:51:59,203:TEST-MODE:DEBUG: mega>rpi: b'TP1:1016.70\r\n'
+2021-10-24 10:51:59,260:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.50\r\n'
+2021-10-24 10:51:59,273:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:59,331:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.30\r\n'
+2021-10-24 10:51:59,335:TEST-MODE:DEBUG: mega>rpi: b'BV:661.29\r\n'
+2021-10-24 10:51:59,335:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:59,338:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:59,339:TEST-MODE:INFO: 31.59 26.53 26.75 27.06 23.98 0.00 0.00 -0.00 10.20 10.37 10.18 10.30 1623.22 6094.44 1.36 97.00 0  0  2  None None 661.29 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:59,340:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:59,341:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:59,375:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:59,376:TEST-MODE:DEBUG: mega>rpi: b'PC:97.00\r\n'
+2021-10-24 10:51:59,377:TEST-MODE:DEBUG: mega>rpi: b'LC:10.00\r\n'
+2021-10-24 10:51:59,378:TEST-MODE:ERROR: unknown header: LC:10.00
+2021-10-24 10:51:59,453:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:51:59,457:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:51:59,470:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:51:59,481:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:51:59,542:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.60\r\n'
+2021-10-24 10:51:59,601:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.60\r\n'
+2021-10-24 10:51:59,658:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.60\r\n'
+2021-10-24 10:51:59,670:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.72\r\n'
+2021-10-24 10:51:59,687:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:51:59,744:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:51:59,801:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.10\r\n'
+2021-10-24 10:51:59,817:TEST-MODE:DEBUG: mega>rpi: b'AT:23.98\r\n'
+2021-10-24 10:51:59,875:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.70\r\n'
+2021-10-24 10:51:59,876:TEST-MODE:DEBUG: mega>rpi: b'BV:661.19\r\n'
+2021-10-24 10:51:59,877:TEST-MODE:INFO: State.STOP
+2021-10-24 10:51:59,879:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:51:59,880:TEST-MODE:INFO: 31.58 26.53 26.74 27.05 23.98 0.00 0.00 -0.00 10.20 10.37 10.18 10.30 1623.34 6094.42 1.36 97.00 0  0  2  None None 661.19 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:51:59,881:TEST-MODE:WARNING: Stopped
+2021-10-24 10:51:59,883:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:51:59,884:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:51:59,885:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:51:59,887:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:51:59,916:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:51:59,920:TEST-MODE:DEBUG: mega>rpi: b'PC:99.00\r\n'
+2021-10-24 10:51:59,922:TEST-MODE:DEBUG: mega>rpi: b'LC:11.00\r\n'
+2021-10-24 10:51:59,922:TEST-MODE:ERROR: unknown header: LC:11.00
+2021-10-24 10:51:59,998:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:00,002:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:00,014:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:00,027:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:00,084:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.80\r\n'
+2021-10-24 10:52:00,144:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.30\r\n'
+2021-10-24 10:52:00,203:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.40\r\n'
+2021-10-24 10:52:00,215:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.71\r\n'
+2021-10-24 10:52:00,230:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:00,289:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.10\r\n'
+2021-10-24 10:52:00,346:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.20\r\n'
+2021-10-24 10:52:00,358:TEST-MODE:DEBUG: mega>rpi: b'AT:23.99\r\n'
+2021-10-24 10:52:00,419:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.20\r\n'
+2021-10-24 10:52:00,420:TEST-MODE:DEBUG: mega>rpi: b'BV:661.35\r\n'
+2021-10-24 10:52:00,421:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:00,424:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:00,425:TEST-MODE:INFO: 31.58 26.53 26.73 27.05 23.98 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1623.36 6094.36 1.36 99.00 0  0  2  None None 661.35 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:00,426:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:00,427:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:00,428:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:00,430:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:00,431:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:00,433:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:00,465:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:00,466:TEST-MODE:DEBUG: mega>rpi: b'PC:99.00\r\n'
+2021-10-24 10:52:00,468:TEST-MODE:DEBUG: mega>rpi: b'LC:12.00\r\n'
+2021-10-24 10:52:00,468:TEST-MODE:ERROR: unknown header: LC:12.00
+2021-10-24 10:52:00,546:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:00,548:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:00,559:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:00,571:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:00,632:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.00\r\n'
+2021-10-24 10:52:00,691:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.00\r\n'
+2021-10-24 10:52:00,747:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.80\r\n'
+2021-10-24 10:52:00,763:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.71\r\n'
+2021-10-24 10:52:00,777:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:00,833:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:52:00,891:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.20\r\n'
+2021-10-24 10:52:00,907:TEST-MODE:DEBUG: mega>rpi: b'AT:23.99\r\n'
+2021-10-24 10:52:00,965:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.60\r\n'
+2021-10-24 10:52:00,967:TEST-MODE:DEBUG: mega>rpi: b'BV:661.25\r\n'
+2021-10-24 10:52:00,967:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:00,970:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:00,971:TEST-MODE:INFO: 31.57 26.53 26.72 27.05 23.98 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1623.48 6094.44 1.36 99.00 0  0  2  None None 661.25 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:00,972:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:00,973:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:01,009:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:01,011:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:01,013:TEST-MODE:DEBUG: mega>rpi: b'LC:13.00\r\n'
+2021-10-24 10:52:01,014:TEST-MODE:ERROR: unknown header: LC:13.00
+2021-10-24 10:52:01,091:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:01,092:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:01,107:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:01,120:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:01,178:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.60\r\n'
+2021-10-24 10:52:01,235:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.10\r\n'
+2021-10-24 10:52:01,296:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.70\r\n'
+2021-10-24 10:52:01,309:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:01,321:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.04\r\n'
+2021-10-24 10:52:01,382:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:52:01,440:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.90\r\n'
+2021-10-24 10:52:01,452:TEST-MODE:DEBUG: mega>rpi: b'AT:23.99\r\n'
+2021-10-24 10:52:01,510:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.30\r\n'
+2021-10-24 10:52:01,513:TEST-MODE:DEBUG: mega>rpi: b'BV:661.33\r\n'
+2021-10-24 10:52:01,514:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:01,516:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:01,518:TEST-MODE:INFO: 31.57 26.53 26.71 27.05 23.99 0.00 0.00 -0.00 10.20 10.37 10.17 10.30 1623.56 6094.42 1.36 100.00 0  0  2  None None 661.33 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:01,518:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:01,520:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:01,521:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:01,523:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:01,524:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-24 10:52:01,554:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:01,555:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:01,557:TEST-MODE:DEBUG: mega>rpi: b'LC:14.00\r\n'
+2021-10-24 10:52:01,557:TEST-MODE:ERROR: unknown header: LC:14.00
+2021-10-24 10:52:01,637:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:01,638:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:01,652:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:01,665:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:01,723:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.10\r\n'
+2021-10-24 10:52:01,780:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.70\r\n'
+2021-10-24 10:52:01,837:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.30\r\n'
+2021-10-24 10:52:01,854:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:01,865:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.04\r\n'
+2021-10-24 10:52:01,923:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.80\r\n'
+2021-10-24 10:52:01,984:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.50\r\n'
+2021-10-24 10:52:01,997:TEST-MODE:DEBUG: mega>rpi: b'AT:23.99\r\n'
+2021-10-24 10:52:02,054:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.40\r\n'
+2021-10-24 10:52:02,056:TEST-MODE:DEBUG: mega>rpi: b'BV:661.30\r\n'
+2021-10-24 10:52:02,057:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:02,059:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:02,061:TEST-MODE:INFO: 31.57 26.53 26.71 27.05 23.99 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1623.76 6094.44 1.36 100.00 0  0  2  None None 661.30 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:02,061:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:02,063:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:02,096:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:02,100:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:02,101:TEST-MODE:DEBUG: mega>rpi: b'LC:15.00\r\n'
+2021-10-24 10:52:02,102:TEST-MODE:ERROR: unknown header: LC:15.00
+2021-10-24 10:52:02,177:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:02,181:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:02,193:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.56\r\n'
+2021-10-24 10:52:02,206:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:02,267:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.20\r\n'
+2021-10-24 10:52:02,324:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.50\r\n'
+2021-10-24 10:52:02,382:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.70\r\n'
+2021-10-24 10:52:02,394:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:02,410:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.03\r\n'
+2021-10-24 10:52:02,468:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:52:02,526:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.90\r\n'
+2021-10-24 10:52:02,537:TEST-MODE:DEBUG: mega>rpi: b'AT:24.00\r\n'
+2021-10-24 10:52:02,598:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.20\r\n'
+2021-10-24 10:52:02,600:TEST-MODE:DEBUG: mega>rpi: b'BV:661.39\r\n'
+2021-10-24 10:52:02,600:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:02,603:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:02,604:TEST-MODE:INFO: 31.57 26.53 26.70 27.04 23.99 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1623.78 6094.34 1.36 100.00 0  0  2  None None 661.39 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:02,605:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:02,606:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:02,608:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:02,609:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:02,611:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:02,644:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:02,645:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:02,647:TEST-MODE:DEBUG: mega>rpi: b'LC:16.00\r\n'
+2021-10-24 10:52:02,647:TEST-MODE:ERROR: unknown header: LC:16.00
+2021-10-24 10:52:02,722:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:02,726:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:02,738:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.54\r\n'
+2021-10-24 10:52:02,751:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:02,812:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.20\r\n'
+2021-10-24 10:52:02,869:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.30\r\n'
+2021-10-24 10:52:02,927:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.70\r\n'
+2021-10-24 10:52:02,938:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:02,955:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.03\r\n'
+2021-10-24 10:52:03,013:TEST-MODE:DEBUG: mega>rpi: b'TP1:1018.10\r\n'
+2021-10-24 10:52:03,069:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.40\r\n'
+2021-10-24 10:52:03,085:TEST-MODE:DEBUG: mega>rpi: b'AT:24.00\r\n'
+2021-10-24 10:52:03,144:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.00\r\n'
+2021-10-24 10:52:03,146:TEST-MODE:DEBUG: mega>rpi: b'BV:661.44\r\n'
+2021-10-24 10:52:03,147:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:03,150:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:03,151:TEST-MODE:INFO: 31.56 26.53 26.70 27.04 23.99 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1623.84 6094.30 1.36 100.00 0  0  2  None None 661.44 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:03,152:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:03,153:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:03,154:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:03,188:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:03,189:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:03,191:TEST-MODE:DEBUG: mega>rpi: b'LC:17.00\r\n'
+2021-10-24 10:52:03,191:TEST-MODE:ERROR: unknown header: LC:17.00
+2021-10-24 10:52:03,269:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:03,271:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:03,283:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.55\r\n'
+2021-10-24 10:52:03,296:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:03,356:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.50\r\n'
+2021-10-24 10:52:03,414:TEST-MODE:DEBUG: mega>rpi: b'BP2:1038.00\r\n'
+2021-10-24 10:52:03,472:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.90\r\n'
+2021-10-24 10:52:03,483:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.69\r\n'
+2021-10-24 10:52:03,500:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.02\r\n'
+2021-10-24 10:52:03,557:TEST-MODE:DEBUG: mega>rpi: b'TP1:1016.90\r\n'
+2021-10-24 10:52:03,615:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.00\r\n'
+2021-10-24 10:52:03,630:TEST-MODE:DEBUG: mega>rpi: b'AT:24.00\r\n'
+2021-10-24 10:52:03,688:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.10\r\n'
+2021-10-24 10:52:03,690:TEST-MODE:DEBUG: mega>rpi: b'BV:661.42\r\n'
+2021-10-24 10:52:03,690:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:03,693:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:03,694:TEST-MODE:INFO: 31.56 26.53 26.70 27.03 24.00 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1623.86 6094.20 1.36 100.00 0  0  2  None None 661.42 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:03,695:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:03,696:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:03,698:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:03,700:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:03,701:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:03,729:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:03,733:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:03,734:TEST-MODE:DEBUG: mega>rpi: b'LC:18.00\r\n'
+2021-10-24 10:52:03,735:TEST-MODE:ERROR: unknown header: LC:18.00
+2021-10-24 10:52:03,811:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:03,814:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:03,828:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.56\r\n'
+2021-10-24 10:52:03,840:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.53\r\n'
+2021-10-24 10:52:03,897:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.30\r\n'
+2021-10-24 10:52:03,958:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.30\r\n'
+2021-10-24 10:52:04,016:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.10\r\n'
+2021-10-24 10:52:04,028:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:04,044:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.02\r\n'
+2021-10-24 10:52:04,102:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.20\r\n'
+2021-10-24 10:52:04,159:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.70\r\n'
+2021-10-24 10:52:04,171:TEST-MODE:DEBUG: mega>rpi: b'AT:24.00\r\n'
+2021-10-24 10:52:04,233:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.60\r\n'
+2021-10-24 10:52:04,234:TEST-MODE:DEBUG: mega>rpi: b'BV:661.30\r\n'
+2021-10-24 10:52:04,235:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:04,237:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:04,238:TEST-MODE:INFO: 31.56 26.53 26.70 27.03 24.00 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1623.94 6094.26 1.36 100.00 0  0  2  None None 661.30 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:04,239:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:04,241:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:04,278:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:04,280:TEST-MODE:DEBUG: mega>rpi: b'PC:99.00\r\n'
+2021-10-24 10:52:04,281:TEST-MODE:DEBUG: mega>rpi: b'LC:19.00\r\n'
+2021-10-24 10:52:04,282:TEST-MODE:ERROR: unknown header: LC:19.00
+2021-10-24 10:52:04,360:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:04,361:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:04,373:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:04,388:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.55\r\n'
+2021-10-24 10:52:04,446:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.90\r\n'
+2021-10-24 10:52:04,504:TEST-MODE:DEBUG: mega>rpi: b'BP2:1038.30\r\n'
+2021-10-24 10:52:04,560:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.00\r\n'
+2021-10-24 10:52:04,577:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.69\r\n'
+2021-10-24 10:52:04,590:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.03\r\n'
+2021-10-24 10:52:04,646:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.10\r\n'
+2021-10-24 10:52:04,704:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:52:04,720:TEST-MODE:DEBUG: mega>rpi: b'AT:24.00\r\n'
+2021-10-24 10:52:04,778:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.70\r\n'
+2021-10-24 10:52:04,780:TEST-MODE:DEBUG: mega>rpi: b'BV:661.27\r\n'
+2021-10-24 10:52:04,780:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:04,783:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:04,784:TEST-MODE:INFO: 31.56 26.53 26.70 27.03 24.00 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1623.88 6094.32 1.36 99.00 0  0  2  None None 661.27 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:04,785:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:04,786:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:04,787:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:04,788:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:04,790:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:04,791:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:04,823:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:04,824:TEST-MODE:DEBUG: mega>rpi: b'PC:99.00\r\n'
+2021-10-24 10:52:04,826:TEST-MODE:DEBUG: mega>rpi: b'LC:20.00\r\n'
+2021-10-24 10:52:04,826:TEST-MODE:ERROR: unknown header: LC:20.00
+2021-10-24 10:52:04,904:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:04,905:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:04,917:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:04,933:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.54\r\n'
+2021-10-24 10:52:04,990:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.10\r\n'
+2021-10-24 10:52:05,048:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.30\r\n'
+2021-10-24 10:52:05,106:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.70\r\n'
+2021-10-24 10:52:05,121:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.69\r\n'
+2021-10-24 10:52:05,134:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.03\r\n'
+2021-10-24 10:52:05,192:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.50\r\n'
+2021-10-24 10:52:05,248:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.20\r\n'
+2021-10-24 10:52:05,265:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:05,323:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.70\r\n'
+2021-10-24 10:52:05,324:TEST-MODE:DEBUG: mega>rpi: b'BV:661.31\r\n'
+2021-10-24 10:52:05,325:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:05,327:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:05,328:TEST-MODE:INFO: 31.56 26.54 26.69 27.03 24.00 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1623.88 6094.42 1.36 99.00 0  0  2  None None 661.31 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:05,329:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:05,330:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:05,368:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:05,369:TEST-MODE:DEBUG: mega>rpi: b'PC:99.00\r\n'
+2021-10-24 10:52:05,370:TEST-MODE:DEBUG: mega>rpi: b'LC:21.00\r\n'
+2021-10-24 10:52:05,371:TEST-MODE:ERROR: unknown header: LC:21.00
+2021-10-24 10:52:05,449:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:05,450:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:05,462:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:52:05,479:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.56\r\n'
+2021-10-24 10:52:05,535:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.60\r\n'
+2021-10-24 10:52:05,593:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.30\r\n'
+2021-10-24 10:52:05,651:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.60\r\n'
+2021-10-24 10:52:05,667:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:05,678:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.04\r\n'
+2021-10-24 10:52:05,736:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.40\r\n'
+2021-10-24 10:52:05,794:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.10\r\n'
+2021-10-24 10:52:05,810:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:05,867:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.80\r\n'
+2021-10-24 10:52:05,869:TEST-MODE:DEBUG: mega>rpi: b'BV:661.29\r\n'
+2021-10-24 10:52:05,870:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:05,872:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC    HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:05,873:TEST-MODE:INFO: 31.57 26.54 26.69 27.03 24.00 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1624.06 6094.58 1.36 99.00 0  0  2  None None 661.29 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:05,874:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:05,876:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:05,878:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:05,879:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:05,881:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:05,913:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:05,915:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:05,916:TEST-MODE:DEBUG: mega>rpi: b'LC:22.00\r\n'
+2021-10-24 10:52:05,917:TEST-MODE:ERROR: unknown header: LC:22.00
+2021-10-24 10:52:05,994:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:05,996:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:06,006:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:06,019:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.56\r\n'
+2021-10-24 10:52:06,081:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.30\r\n'
+2021-10-24 10:52:06,137:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.40\r\n'
+2021-10-24 10:52:06,195:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.80\r\n'
+2021-10-24 10:52:06,211:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.70\r\n'
+2021-10-24 10:52:06,223:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.04\r\n'
+2021-10-24 10:52:06,281:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:52:06,339:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.70\r\n'
+2021-10-24 10:52:06,354:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:06,412:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.90\r\n'
+2021-10-24 10:52:06,414:TEST-MODE:DEBUG: mega>rpi: b'BV:661.50\r\n'
+2021-10-24 10:52:06,414:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:06,417:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:06,418:TEST-MODE:INFO: 31.57 26.55 26.70 27.03 24.01 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1624.24 6094.54 1.36 100.00 0  0  2  None None 661.50 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:06,419:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:06,421:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:06,423:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:06,424:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:06,426:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:06,458:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:06,459:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:06,460:TEST-MODE:DEBUG: mega>rpi: b'LC:23.00\r\n'
+2021-10-24 10:52:06,461:TEST-MODE:ERROR: unknown header: LC:23.00
+2021-10-24 10:52:06,539:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:06,540:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:06,554:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:06,568:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.57\r\n'
+2021-10-24 10:52:06,625:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.30\r\n'
+2021-10-24 10:52:06,682:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.50\r\n'
+2021-10-24 10:52:06,740:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.60\r\n'
+2021-10-24 10:52:06,756:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.71\r\n'
+2021-10-24 10:52:06,769:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:06,825:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.50\r\n'
+2021-10-24 10:52:06,886:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.00\r\n'
+2021-10-24 10:52:06,900:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:06,956:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.30\r\n'
+2021-10-24 10:52:06,958:TEST-MODE:DEBUG: mega>rpi: b'BV:661.45\r\n'
+2021-10-24 10:52:06,958:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:06,961:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:06,962:TEST-MODE:INFO: 31.57 26.56 26.70 27.04 24.01 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1624.34 6094.48 1.36 100.00 0  0  2  None None 661.45 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:06,963:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:06,964:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:07,002:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:07,005:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:07,007:TEST-MODE:DEBUG: mega>rpi: b'LC:24.00\r\n'
+2021-10-24 10:52:07,007:TEST-MODE:ERROR: unknown header: LC:24.00
+2021-10-24 10:52:07,084:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:07,085:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:07,100:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:07,113:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.58\r\n'
+2021-10-24 10:52:07,169:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.90\r\n'
+2021-10-24 10:52:07,230:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.90\r\n'
+2021-10-24 10:52:07,289:TEST-MODE:DEBUG: mega>rpi: b'HP:1623.70\r\n'
+2021-10-24 10:52:07,301:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.72\r\n'
+2021-10-24 10:52:07,313:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:07,375:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.80\r\n'
+2021-10-24 10:52:07,432:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.00\r\n'
+2021-10-24 10:52:07,444:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:07,505:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.90\r\n'
+2021-10-24 10:52:07,507:TEST-MODE:DEBUG: mega>rpi: b'BV:661.27\r\n'
+2021-10-24 10:52:07,507:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:07,510:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:07,511:TEST-MODE:INFO: 31.57 26.56 26.70 27.04 24.01 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1624.28 6094.52 1.36 100.00 0  0  2  None None 661.27 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:07,512:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:07,512:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:07,514:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:07,515:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:07,517:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:07,518:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:07,546:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:07,548:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:07,549:TEST-MODE:DEBUG: mega>rpi: b'LC:25.00\r\n'
+2021-10-24 10:52:07,550:TEST-MODE:ERROR: unknown header: LC:25.00
+2021-10-24 10:52:07,628:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:07,629:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:07,644:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.59\r\n'
+2021-10-24 10:52:07,658:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.59\r\n'
+2021-10-24 10:52:07,714:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.00\r\n'
+2021-10-24 10:52:07,772:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.70\r\n'
+2021-10-24 10:52:07,830:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.80\r\n'
+2021-10-24 10:52:07,846:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.72\r\n'
+2021-10-24 10:52:07,858:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:07,915:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.50\r\n'
+2021-10-24 10:52:07,976:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:52:07,988:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:08,046:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.00\r\n'
+2021-10-24 10:52:08,048:TEST-MODE:DEBUG: mega>rpi: b'BV:661.48\r\n'
+2021-10-24 10:52:08,048:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:08,051:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:08,052:TEST-MODE:INFO: 31.58 26.57 26.71 27.05 24.01 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1624.50 6094.38 1.36 100.00 0  0  2  None None 661.48 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:08,053:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:08,054:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:08,092:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:08,093:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:08,095:TEST-MODE:DEBUG: mega>rpi: b'LC:26.00\r\n'
+2021-10-24 10:52:08,095:TEST-MODE:ERROR: unknown header: LC:26.00
+2021-10-24 10:52:08,173:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:08,174:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:08,186:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.60\r\n'
+2021-10-24 10:52:08,201:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.59\r\n'
+2021-10-24 10:52:08,259:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.80\r\n'
+2021-10-24 10:52:08,317:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.30\r\n'
+2021-10-24 10:52:08,374:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.00\r\n'
+2021-10-24 10:52:08,390:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.72\r\n'
+2021-10-24 10:52:08,403:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:08,460:TEST-MODE:DEBUG: mega>rpi: b'TP1:1016.90\r\n'
+2021-10-24 10:52:08,517:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.60\r\n'
+2021-10-24 10:52:08,534:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:08,592:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.50\r\n'
+2021-10-24 10:52:08,593:TEST-MODE:DEBUG: mega>rpi: b'BV:661.36\r\n'
+2021-10-24 10:52:08,594:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:08,596:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:08,598:TEST-MODE:INFO: 31.58 26.58 26.71 27.05 24.01 0.00 0.00 0.00 10.20 10.37 10.17 10.30 1624.58 6094.32 1.36 100.00 0  0  2  None None 661.36 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:08,599:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:08,600:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:08,601:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:08,603:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:08,604:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:08,606:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:08,636:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:08,637:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:08,639:TEST-MODE:DEBUG: mega>rpi: b'LC:27.00\r\n'
+2021-10-24 10:52:08,639:TEST-MODE:ERROR: unknown header: LC:27.00
+2021-10-24 10:52:08,717:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:08,719:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:08,730:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.61\r\n'
+2021-10-24 10:52:08,747:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.60\r\n'
+2021-10-24 10:52:08,804:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.70\r\n'
+2021-10-24 10:52:08,861:TEST-MODE:DEBUG: mega>rpi: b'BP2:1038.10\r\n'
+2021-10-24 10:52:08,919:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.90\r\n'
+2021-10-24 10:52:08,935:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.72\r\n'
+2021-10-24 10:52:08,947:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:09,005:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:52:09,063:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.00\r\n'
+2021-10-24 10:52:09,078:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:09,136:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.20\r\n'
+2021-10-24 10:52:09,137:TEST-MODE:DEBUG: mega>rpi: b'BV:661.47\r\n'
+2021-10-24 10:52:09,138:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:09,140:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:09,141:TEST-MODE:INFO: 31.59 26.59 26.72 27.05 24.01 0.00 0.00 0.00 10.20 10.38 10.17 10.30 1624.60 6094.38 1.36 100.00 0  0  2  None None 661.47 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:09,142:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:09,143:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:09,144:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:09,177:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:09,178:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:09,181:TEST-MODE:DEBUG: mega>rpi: b'LC:28.00\r\n'
+2021-10-24 10:52:09,181:TEST-MODE:ERROR: unknown header: LC:28.00
+2021-10-24 10:52:09,259:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:09,260:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:09,275:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:52:09,287:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.60\r\n'
+2021-10-24 10:52:09,345:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.00\r\n'
+2021-10-24 10:52:09,403:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.60\r\n'
+2021-10-24 10:52:09,462:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.80\r\n'
+2021-10-24 10:52:09,476:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.73\r\n'
+2021-10-24 10:52:09,488:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:09,545:TEST-MODE:DEBUG: mega>rpi: b'TP1:1018.00\r\n'
+2021-10-24 10:52:09,606:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.80\r\n'
+2021-10-24 10:52:09,619:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:09,676:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.30\r\n'
+2021-10-24 10:52:09,680:TEST-MODE:DEBUG: mega>rpi: b'BV:661.45\r\n'
+2021-10-24 10:52:09,680:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:09,683:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:09,684:TEST-MODE:INFO: 31.60 26.59 26.72 27.05 24.01 0.00 0.00 0.00 10.20 10.38 10.18 10.30 1624.64 6094.38 1.36 100.00 0  0  2  None None 661.45 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:09,685:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:09,685:TEST-MODE:DEBUG: new depth reached:10.27
+2021-10-24 10:52:09,687:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:09,688:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:09,690:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:09,691:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:09,722:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:09,723:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:09,725:TEST-MODE:DEBUG: mega>rpi: b'LC:29.00\r\n'
+2021-10-24 10:52:09,725:TEST-MODE:ERROR: unknown header: LC:29.00
+2021-10-24 10:52:09,803:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:09,804:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:09,816:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:52:09,833:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.60\r\n'
+2021-10-24 10:52:09,889:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.90\r\n'
+2021-10-24 10:52:09,947:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.20\r\n'
+2021-10-24 10:52:10,005:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.70\r\n'
+2021-10-24 10:52:10,021:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.75\r\n'
+2021-10-24 10:52:10,033:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.05\r\n'
+2021-10-24 10:52:10,090:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:52:10,147:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.20\r\n'
+2021-10-24 10:52:10,163:TEST-MODE:DEBUG: mega>rpi: b'AT:24.01\r\n'
+2021-10-24 10:52:10,221:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.60\r\n'
+2021-10-24 10:52:10,222:TEST-MODE:DEBUG: mega>rpi: b'BV:661.38\r\n'
+2021-10-24 10:52:10,223:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:10,226:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:10,227:TEST-MODE:INFO: 31.60 26.60 26.73 27.05 24.01 0.00 0.00 0.00 10.20 10.38 10.18 10.30 1624.84 6094.32 1.36 100.00 0  0  2  None None 661.38 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:10,227:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:10,229:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:10,266:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:10,268:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:10,269:TEST-MODE:DEBUG: mega>rpi: b'LC:30.00\r\n'
+2021-10-24 10:52:10,270:TEST-MODE:ERROR: unknown header: LC:30.00
+2021-10-24 10:52:10,348:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:10,349:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:10,364:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.57\r\n'
+2021-10-24 10:52:10,377:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.60\r\n'
+2021-10-24 10:52:10,434:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.10\r\n'
+2021-10-24 10:52:10,492:TEST-MODE:DEBUG: mega>rpi: b'BP2:1036.50\r\n'
+2021-10-24 10:52:10,549:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.60\r\n'
+2021-10-24 10:52:10,566:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:10,577:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.08\r\n'
+2021-10-24 10:52:10,635:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.70\r\n'
+2021-10-24 10:52:10,696:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.80\r\n'
+2021-10-24 10:52:10,708:TEST-MODE:DEBUG: mega>rpi: b'AT:24.02\r\n'
+2021-10-24 10:52:10,766:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.80\r\n'
+2021-10-24 10:52:10,767:TEST-MODE:DEBUG: mega>rpi: b'BV:661.61\r\n'
+2021-10-24 10:52:10,768:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:10,771:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:10,772:TEST-MODE:INFO: 31.60 26.60 26.74 27.06 24.01 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1624.80 6094.28 1.36 100.00 0  0  2  None None 661.61 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:10,772:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:10,773:TEST-MODE:DEBUG: new depth reached:10.26
+2021-10-24 10:52:10,775:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:10,776:TEST-MODE:DEBUG: mega>rpi: b'X:0.00\r\n'
+2021-10-24 10:52:10,778:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:10,779:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:10,810:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:10,812:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:10,813:TEST-MODE:DEBUG: mega>rpi: b'LC:31.00\r\n'
+2021-10-24 10:52:10,814:TEST-MODE:ERROR: unknown header: LC:31.00
+2021-10-24 10:52:10,893:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:10,894:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:10,905:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.58\r\n'
+2021-10-24 10:52:10,921:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.61\r\n'
+2021-10-24 10:52:10,979:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.10\r\n'
+2021-10-24 10:52:11,036:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.50\r\n'
+2021-10-24 10:52:11,094:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.90\r\n'
+2021-10-24 10:52:11,110:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:11,122:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:52:11,180:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.90\r\n'
+2021-10-24 10:52:11,237:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.90\r\n'
+2021-10-24 10:52:11,254:TEST-MODE:DEBUG: mega>rpi: b'AT:24.02\r\n'
+2021-10-24 10:52:11,310:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.70\r\n'
+2021-10-24 10:52:11,312:TEST-MODE:DEBUG: mega>rpi: b'BV:661.63\r\n'
+2021-10-24 10:52:11,312:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:11,315:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:11,316:TEST-MODE:INFO: 31.59 26.60 26.74 27.06 24.01 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1624.78 6094.12 1.36 100.00 0  0  2  None None 661.63 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:11,317:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:11,318:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:11,355:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:11,357:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:11,359:TEST-MODE:DEBUG: mega>rpi: b'LC:32.00\r\n'
+2021-10-24 10:52:11,359:TEST-MODE:ERROR: unknown header: LC:32.00
+2021-10-24 10:52:11,437:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:11,439:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:11,454:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.60\r\n'
+2021-10-24 10:52:11,467:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.61\r\n'
+2021-10-24 10:52:11,523:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.40\r\n'
+2021-10-24 10:52:11,581:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.60\r\n'
+2021-10-24 10:52:11,639:TEST-MODE:DEBUG: mega>rpi: b'HP:1624.90\r\n'
+2021-10-24 10:52:11,654:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:11,667:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:52:11,725:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:52:11,786:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:52:11,798:TEST-MODE:DEBUG: mega>rpi: b'AT:24.02\r\n'
+2021-10-24 10:52:11,856:TEST-MODE:DEBUG: mega>rpi: b'AP:6094.20\r\n'
+2021-10-24 10:52:11,859:TEST-MODE:DEBUG: mega>rpi: b'BV:661.52\r\n'
+2021-10-24 10:52:11,859:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:11,862:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:11,863:TEST-MODE:INFO: 31.59 26.60 26.75 27.07 24.02 0.00 0.00 0.00 10.20 10.37 10.18 10.30 1624.78 6094.12 1.36 100.00 0  0  2  None None 661.52 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:11,864:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:11,865:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:11,867:TEST-MODE:DEBUG: mega>rpi: b'X:0.12\r\n'
+2021-10-24 10:52:11,869:TEST-MODE:DEBUG: mega>rpi: b'Y:0.01\r\n'
+2021-10-24 10:52:11,870:TEST-MODE:DEBUG: mega>rpi: b'Z:0.05\r\n'
+2021-10-24 10:52:11,896:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:11,897:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:11,899:TEST-MODE:DEBUG: mega>rpi: b'LC:33.00\r\n'
+2021-10-24 10:52:11,899:TEST-MODE:ERROR: unknown header: LC:33.00
+2021-10-24 10:52:11,978:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:11,979:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:11,991:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.61\r\n'
+2021-10-24 10:52:12,007:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.63\r\n'
+2021-10-24 10:52:12,064:TEST-MODE:DEBUG: mega>rpi: b'BP1:1019.90\r\n'
+2021-10-24 10:52:12,122:TEST-MODE:DEBUG: mega>rpi: b'BP2:1038.60\r\n'
+2021-10-24 10:52:12,179:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.30\r\n'
+2021-10-24 10:52:12,196:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:12,207:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.08\r\n'
+2021-10-24 10:52:12,265:TEST-MODE:DEBUG: mega>rpi: b'TP1:1018.20\r\n'
+2021-10-24 10:52:12,323:TEST-MODE:DEBUG: mega>rpi: b'TP2:1029.70\r\n'
+2021-10-24 10:52:12,338:TEST-MODE:DEBUG: mega>rpi: b'AT:24.02\r\n'
+2021-10-24 10:52:12,396:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.70\r\n'
+2021-10-24 10:52:12,397:TEST-MODE:DEBUG: mega>rpi: b'BV:661.63\r\n'
+2021-10-24 10:52:12,398:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:12,400:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:12,402:TEST-MODE:INFO: 31.59 26.61 26.76 27.08 24.02 0.02 0.00 0.01 10.20 10.37 10.18 10.30 1624.88 6094.00 1.36 100.00 0  0  2  None None 661.63 Buffering (0/1) STOP  IDLE         None     None  10.26 
+2021-10-24 10:52:12,402:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:12,404:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:12,441:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:12,442:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:12,446:TEST-MODE:DEBUG: mega>rpi: b'LC:34.00\r\n'
+2021-10-24 10:52:12,447:TEST-MODE:ERROR: unknown header: LC:34.00
+2021-10-24 10:52:12,519:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:12,523:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:12,536:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:52:12,547:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.63\r\n'
+2021-10-24 10:52:12,608:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.30\r\n'
+2021-10-24 10:52:12,667:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.50\r\n'
+2021-10-24 10:52:12,723:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.30\r\n'
+2021-10-24 10:52:12,736:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:12,752:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.10\r\n'
+2021-10-24 10:52:12,810:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:52:12,867:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.40\r\n'
+2021-10-24 10:52:12,883:TEST-MODE:DEBUG: mega>rpi: b'AT:24.02\r\n'
+2021-10-24 10:52:12,941:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.50\r\n'
+2021-10-24 10:52:12,943:TEST-MODE:DEBUG: mega>rpi: b'BV:661.68\r\n'
+2021-10-24 10:52:12,943:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:12,946:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:12,947:TEST-MODE:INFO: 31.60 26.62 26.76 27.09 24.02 0.02 0.00 0.01 10.20 10.38 10.18 10.30 1625.00 6093.78 1.36 100.00 0  0  2  None None 661.68 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:12,948:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:12,949:TEST-MODE:DEBUG: new depth reached:10.27
+2021-10-24 10:52:12,950:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:12,951:TEST-MODE:DEBUG: mega>rpi: b'X:0.04\r\n'
+2021-10-24 10:52:12,953:TEST-MODE:DEBUG: mega>rpi: b'Y:0.01\r\n'
+2021-10-24 10:52:12,954:TEST-MODE:DEBUG: mega>rpi: b'Z:0.06\r\n'
+2021-10-24 10:52:12,985:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:12,987:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:12,988:TEST-MODE:DEBUG: mega>rpi: b'LC:35.00\r\n'
+2021-10-24 10:52:12,989:TEST-MODE:ERROR: unknown header: LC:35.00
+2021-10-24 10:52:13,068:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:13,069:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:13,080:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:52:13,096:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.63\r\n'
+2021-10-24 10:52:13,154:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.60\r\n'
+2021-10-24 10:52:13,211:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.70\r\n'
+2021-10-24 10:52:13,269:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.20\r\n'
+2021-10-24 10:52:13,285:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:13,297:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.09\r\n'
+2021-10-24 10:52:13,355:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.60\r\n'
+2021-10-24 10:52:13,412:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.40\r\n'
+2021-10-24 10:52:13,427:TEST-MODE:DEBUG: mega>rpi: b'AT:24.03\r\n'
+2021-10-24 10:52:13,485:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.60\r\n'
+2021-10-24 10:52:13,487:TEST-MODE:DEBUG: mega>rpi: b'BV:661.70\r\n'
+2021-10-24 10:52:13,487:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:13,490:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:13,491:TEST-MODE:INFO: 31.61 26.62 26.76 27.09 24.02 0.03 0.00 0.02 10.20 10.38 10.18 10.30 1625.12 6093.74 1.36 100.00 0  0  2  None None 661.70 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:13,492:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:13,493:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:13,495:TEST-MODE:DEBUG: mega>rpi: b'X:0.04\r\n'
+2021-10-24 10:52:13,497:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:13,498:TEST-MODE:DEBUG: mega>rpi: b'Z:-0.00\r\n'
+2021-10-24 10:52:13,530:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:13,531:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:13,532:TEST-MODE:DEBUG: mega>rpi: b'LC:36.00\r\n'
+2021-10-24 10:52:13,533:TEST-MODE:ERROR: unknown header: LC:36.00
+2021-10-24 10:52:13,612:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:13,614:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:13,625:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:52:13,637:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.64\r\n'
+2021-10-24 10:52:13,699:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.50\r\n'
+2021-10-24 10:52:13,756:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.50\r\n'
+2021-10-24 10:52:13,813:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.60\r\n'
+2021-10-24 10:52:13,826:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:13,841:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.10\r\n'
+2021-10-24 10:52:13,899:TEST-MODE:DEBUG: mega>rpi: b'TP1:1018.00\r\n'
+2021-10-24 10:52:13,957:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.10\r\n'
+2021-10-24 10:52:13,972:TEST-MODE:DEBUG: mega>rpi: b'AT:24.03\r\n'
+2021-10-24 10:52:14,030:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.70\r\n'
+2021-10-24 10:52:14,032:TEST-MODE:DEBUG: mega>rpi: b'BV:661.68\r\n'
+2021-10-24 10:52:14,033:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:14,036:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:14,037:TEST-MODE:INFO: 31.61 26.63 26.76 27.09 24.02 0.04 0.00 0.02 10.20 10.38 10.18 10.30 1625.26 6093.74 1.36 100.00 0  0  2  None None 661.68 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:14,038:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:14,040:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:14,075:TEST-MODE:DEBUG: mega>rpi: b'PD:1.36\r\n'
+2021-10-24 10:52:14,076:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:14,078:TEST-MODE:DEBUG: mega>rpi: b'LC:37.00\r\n'
+2021-10-24 10:52:14,079:TEST-MODE:ERROR: unknown header: LC:37.00
+2021-10-24 10:52:14,157:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:14,158:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:14,169:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.61\r\n'
+2021-10-24 10:52:14,186:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.64\r\n'
+2021-10-24 10:52:14,244:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.10\r\n'
+2021-10-24 10:52:14,300:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.80\r\n'
+2021-10-24 10:52:14,358:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.60\r\n'
+2021-10-24 10:52:14,374:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:14,386:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.10\r\n'
+2021-10-24 10:52:14,444:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.30\r\n'
+2021-10-24 10:52:14,502:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:52:14,518:TEST-MODE:DEBUG: mega>rpi: b'AT:24.03\r\n'
+2021-10-24 10:52:14,575:TEST-MODE:DEBUG: mega>rpi: b'AP:6093.90\r\n'
+2021-10-24 10:52:14,576:TEST-MODE:DEBUG: mega>rpi: b'BV:661.63\r\n'
+2021-10-24 10:52:14,577:TEST-MODE:INFO: State.STOP
+2021-10-24 10:52:14,579:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 10:52:14,580:TEST-MODE:INFO: 31.62 26.63 26.76 27.09 24.03 0.04 0.00 0.02 10.20 10.38 10.18 10.30 1625.40 6093.68 1.36 100.00 0  0  2  None None 661.63 Buffering (0/1) STOP  IDLE         None     None  10.27 
+2021-10-24 10:52:14,581:TEST-MODE:WARNING: Stopped
+2021-10-24 10:52:14,583:TEST-MODE:DEBUG: mega>rpi: b'BF:2.00\r\n'
+2021-10-24 10:52:14,584:TEST-MODE:DEBUG: mega>rpi: b'X:-0.00\r\n'
+2021-10-24 10:52:14,586:TEST-MODE:DEBUG: mega>rpi: b'Y:-0.00\r\n'
+2021-10-24 10:52:14,587:TEST-MODE:DEBUG: mega>rpi: b'Z:0.00\r\n'
+2021-10-24 10:52:14,620:TEST-MODE:DEBUG: mega>rpi: b'PD:1.35\r\n'
+2021-10-24 10:52:14,622:TEST-MODE:DEBUG: mega>rpi: b'PC:100.00\r\n'
+2021-10-24 10:52:14,623:TEST-MODE:DEBUG: mega>rpi: b'LC:38.00\r\n'
+2021-10-24 10:52:14,624:TEST-MODE:ERROR: unknown header: LC:38.00
+2021-10-24 10:52:14,702:TEST-MODE:DEBUG: mega>rpi: b'HL:0.00\r\n'
+2021-10-24 10:52:14,703:TEST-MODE:DEBUG: mega>rpi: b'EL:0.00\r\n'
+2021-10-24 10:52:14,714:TEST-MODE:DEBUG: mega>rpi: b'BT1:31.62\r\n'
+2021-10-24 10:52:14,729:TEST-MODE:DEBUG: mega>rpi: b'BT2:26.64\r\n'
+2021-10-24 10:52:14,788:TEST-MODE:DEBUG: mega>rpi: b'BP1:1020.50\r\n'
+2021-10-24 10:52:14,846:TEST-MODE:DEBUG: mega>rpi: b'BP2:1037.80\r\n'
+2021-10-24 10:52:14,902:TEST-MODE:DEBUG: mega>rpi: b'HP:1625.80\r\n'
+2021-10-24 10:52:14,918:TEST-MODE:DEBUG: mega>rpi: b'TT1:26.76\r\n'
+2021-10-24 10:52:14,932:TEST-MODE:DEBUG: mega>rpi: b'TT2:27.11\r\n'
+2021-10-24 10:52:14,989:TEST-MODE:DEBUG: mega>rpi: b'TP1:1017.90\r\n'
+2021-10-24 10:52:15,046:TEST-MODE:DEBUG: mega>rpi: b'TP2:1030.30\r\n'
+2021-10-24 10:52:15,062:TEST-MODE:DEBUG: mega>rpi: b'AT:24.04\r\n'
+2021-10-24 10:52:15,093:TEST-MODE:CRITICAL: user initiated safe system shutdown
+2021-10-24 10:52:15,094:TEST-MODE:INFO: skipping nano safe shutdown: disabled

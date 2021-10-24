@@ -118,7 +118,9 @@ class Controller():
 
 
         self.surface_command_sent = False
+        self.surface_command_init = False
         self.dive_command_sent = False
+        self.dive_command_init = False
 
         # self.idle = True  # dutycycle is off: init state, bladder already at max or min state etc.
 
@@ -127,6 +129,7 @@ class Controller():
         self.bladder_is_at_max_volume = False
         self.bladder_is_at_max_volume_latch = False
         self.bladder_is_at_min_volume_latch = False
+        
 
         self.depth_sensors_are_calibrated = None
 
@@ -363,6 +366,8 @@ class Controller():
             elif header=="I" or header=="IR":
                 self.iridium_flag.add_sample(value)
                 self.handle_I()
+            elif header=="LC":
+                pass
             else:
                 self.log.error(f'unknown header: {header}:{value}')
 
@@ -383,13 +388,13 @@ class Controller():
         if value == 0: # dive or surface done
             self.surface_command_sent = False
             self.dive_command_sent = False
-            self.current_state = State.EXEC_TASK
+            # self.current_state = State.EXEC_TASK
         elif value == 1: # init full dive
             pass
-            self.current_state = State.CONTROLLED
+            # self.current_state = State.CONTROLLED
         elif value == 2: # init full surface
             pass
-            self.current_state == State.CONTROLLED
+            # self.current_state == State.CONTROLLED
         pass
 
     def handle_BF(self):
@@ -417,19 +422,35 @@ class Controller():
 
     # Start emergency ascending with bladder first
     def surface(self):
-        if self.surface_command_sent:
+        self.surface_command_init = True
+        if self.surface_command_sent: # or self.full_surface_flag.getLast() == 0:
             self.log.debug("waiting for surface command")
         else:
             self.log.info("sending surface command")
-            self.comm.write("S:2\n")
-            self.surface_command_sent = True
+            if self.time_off_duration is None:
+                self.comm.write("S:2\n")
+                self.surface_command_sent = True
+                self.surface_command_init = False
+                return
+            self.log.info('waiting for pid to end')
+            self.handle_mission_state()
+            
 
     def dive(self):
-        if self.dive_command_sent:
+        self.dive_command_init = True
+        if self.dive_command_sent: # or self.full_surface_flag.getLast() == 0:
             self.log.debug("waiting for dive command")
         else:
             self.log.info("sending dive command")
-            self.comm.write("S:1\n")
+            if self.time_off_duration is None:
+                self.comm.write("S:1\n")
+                self.dive_command_sent = True
+                self.dive_command_init = False
+
+                return
+            self.log.info('waiting for pid to end')
+            self.handle_mission_state()
+            
 
 
     # sending the command to drop the dropweight to saftey
@@ -576,8 +597,10 @@ class Controller():
                 self.log.debug("wait for pickup")
                 self.current_state = State.WAIT_FOR_PICKUP
 
-            if command == "sink_wait_climb":
-                self.log.debug("sink_wait_climb")
+            if command == "surface":
+                self.log.debug("surface")
+                self.surface()
+                self.test_command = None
                 # TODO
 
             if command == 'wakeup_safety':
@@ -603,6 +626,11 @@ class Controller():
                 elif self.current_state != State.SLEEP_SAFETY:
                     self.current_state = State.STOP
                     self.test_command = None
+
+            if command == "dive":
+                self.log.debug("dive")
+                self.dive()
+                self.test_command = None
 
 
                     
@@ -845,6 +873,10 @@ class Controller():
         # elif self.current_state == State.
         elif self.current_state == State.CONTROLLED:
             self.log.info('mega in control')
+            if self.dive_command_init:
+                self.dive()
+            if self.surface_command_init:
+                self.surface()
         else:
             self.log.error('unknown state')
 
@@ -981,6 +1013,8 @@ class Controller():
             res = {}
             res["BV"]=self.bladderVolume.getLast()
             res["rpm"]=self.rpm.getLast()
+            res["AP"]=self.pressureSensors["AP"].getLast()
+            res["AT"]=self.temperatureSensors["AT"].getLast()
             fancy_log(csv=False)
         else:
             fancy_log(csv=True)
@@ -1002,6 +1036,9 @@ class Controller():
 
     def sendPID(self):
         self.log.debug("calculating PID")
+
+        if self.surface_command_sent or self.dive_command_sent:
+            self.log.warning("ignore PID - full dive/surface initiated")
 
 
         # avg = self.pressureController.getAvgDepthSensorsRead()
@@ -1284,6 +1321,9 @@ class Captain:
                     mission_state = MissionState.IDLE
                     self.pilot.set_mission_state(mission_state)
                     self.pilot.controller.current_state = State.END_TASK
+                    self.pilot.controller.bladder_is_at_min_volume_latch = False
+                    self.pilot.controller.bladder_is_at_max_volume_latch = False
+
                     continue
 
                 next_depth = planned_depths.pop(0)
@@ -1307,10 +1347,12 @@ class Captain:
                     self.pilot.controller.current_state = State.EXEC_TASK
                 elif self.pilot.depth < next_depth:
                     mission_state = MissionState.DESCENDING
+                    self.pilot.controller.bladder_is_at_min_volume_latch = False
                     self.pilot.controller.current_state = State.CONTROLLED
                     self.pilot.controller.dive()
                 else:
                     mission_state = MissionState.ASCENDING
+                    self.pilot.controller.bladder_is_at_max_volume_latch = False
                     self.pilot.controller.current_state = State.CONTROLLED
                     self.pilot.controller.surface()
                     
@@ -1320,18 +1362,19 @@ class Captain:
 
 
             # print(f'self.pilot.depth: {self.pilot.depth}')
-            if self.pilot.depth and self.pilot.depth != self.pilot.last_depth:  # new depth
-                self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
+            if self.pilot.depth: # and self.pilot.depth != self.pilot.last_depth:  # new depth
+                # self.log.debug('new depth reached:' + str(round(self.pilot.depth,2)))
                 # last_depth = depth
 
 
 
                 if mission_state == MissionState.DESCENDING:
                     min_bladder_reached = self.pilot.controller.bladder_is_at_min_volume_latch
-                    self.pilot.controller.bladder_is_at_min_volume_latch = True
-                    print(f'min_bladder_reached: {min_bladder_reached}')
-                    self.log.warning(f'min_bladder_reached {min_bladder_reached}')
+                    # self.pilot.controller.bladder_is_at_min_volume_latch = True
+                    # print(f'min_bladder_reached: {min_bladder_reached}')
+                    # self.log.warning(f'min_bladder_reached {min_bladder_reached}')
                     if min_bladder_reached or self.pilot.depth > self.pilot.controller.target_depth:
+                        self.pilot.controller.bladder_is_at_min_volume_latch = False
                         self.pilot.controller.current_state = State.EXEC_TASK
                         mission_state = MissionState.EN_ROUTE
                         self.pilot.set_mission_state(mission_state)
@@ -1339,7 +1382,7 @@ class Captain:
 
                 elif mission_state == MissionState.ASCENDING:
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
-                    self.log.warning(f'max_bladder_reached {max_bladder_reached}')
+                    # self.log.warning(f'max_bladder_reached {max_bladder_reached}')
                     if max_bladder_reached or self.pilot.depth < self.pilot.controller.target_depth:
                         self.pilot.controller.bladder_is_at_max_volume_latch = False
                         self.pilot.controller.current_state = State.EXEC_TASK
@@ -1374,6 +1417,8 @@ class Captain:
                     timer_started = self.pilot.mission_timer is not None
                     max_bladder_reached = self.pilot.controller.bladder_is_at_max_volume_latch
                     if max_bladder_reached and surface_reached and not timer_started:
+                        self.log.info('max_bladder_reached')
+                        self.pilot.controller.bladder_is_at_max_volume_latch = False
                         self.pilot.controller.current_state = State.STOP
                         # self.log.info('starting timer')
                         # self.pilot.mission_timer = time.time()
@@ -1400,7 +1445,7 @@ class Captain:
 
 
 
-            # time.sleep(0.01)     
+            time.sleep(0.01)     
 
 
 

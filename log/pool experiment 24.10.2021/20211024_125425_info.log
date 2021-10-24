@@ -1,0 +1,94 @@
+2021-10-24 12:54:25,021:TEST-MODE:INFO: init
+2021-10-24 12:54:25,022:TEST-MODE:INFO: loading settings:
+2021-10-24 12:54:25,022:TEST-MODE:INFO: [app]: simulation = False
+2021-10-24 12:54:25,023:TEST-MODE:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 12:54:25,023:TEST-MODE:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 12:54:25,023:TEST-MODE:INFO: [app]: disable_safety = True
+2021-10-24 12:54:25,024:TEST-MODE:INFO: [app]: test_mode = True
+2021-10-24 12:54:25,024:TEST-MODE:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 12:54:25,024:TEST-MODE:INFO: [app]: disable_altimeter = True
+2021-10-24 12:54:25,025:TEST-MODE:INFO: [app]: skip_arduino_compile = True
+2021-10-24 12:54:25,025:TEST-MODE:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 12:54:25,025:TEST-MODE:INFO: [serial]: timeout = 3
+2021-10-24 12:54:25,026:TEST-MODE:INFO: [serial]: baud_rate = 115200
+2021-10-24 12:54:25,026:TEST-MODE:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 12:54:25,026:TEST-MODE:INFO: [serial_safety]: timeout = 3
+2021-10-24 12:54:25,027:TEST-MODE:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 12:54:25,027:TEST-MODE:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 12:54:25,027:TEST-MODE:INFO: [task]: planned_mission = [1, 0, 1, 0]
+2021-10-24 12:54:25,028:TEST-MODE:INFO: [task]: hold_on_taget_duration = 60
+2021-10-24 12:54:25,028:TEST-MODE:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 12:54:25,028:TEST-MODE:INFO: [task]: min_ascend_descend_distance = 10
+2021-10-24 12:54:25,029:TEST-MODE:INFO: [task]: kp = 40
+2021-10-24 12:54:25,029:TEST-MODE:INFO: [task]: kd = 1000
+2021-10-24 12:54:25,030:TEST-MODE:INFO: [task]: ki = 0.001
+2021-10-24 12:54:25,030:TEST-MODE:INFO: [pressure]: epsilon = 0.5
+2021-10-24 12:54:25,030:TEST-MODE:INFO: [pressure]: avg_samples = 5
+2021-10-24 12:54:25,031:TEST-MODE:INFO: [pressure]: precision = 2
+2021-10-24 12:54:25,031:TEST-MODE:INFO: [temperature]: avg_samples = 5
+2021-10-24 12:54:25,032:TEST-MODE:INFO: [temperature]: precision = 2
+2021-10-24 12:54:25,032:TEST-MODE:INFO: [imu]: avg_samples = 5
+2021-10-24 12:54:25,032:TEST-MODE:INFO: [imu]: precision = 2
+2021-10-24 12:54:25,033:TEST-MODE:INFO: [bladder]: avg_samples = 1
+2021-10-24 12:54:25,033:TEST-MODE:INFO: [bladder]: precision = 2
+2021-10-24 12:54:25,033:TEST-MODE:INFO: [altimeter]: avg_samples = 1
+2021-10-24 12:54:25,034:TEST-MODE:INFO: [altimeter]: precision = 2
+2021-10-24 12:54:25,034:TEST-MODE:INFO: [rpm]: avg_samples = 1
+2021-10-24 12:54:25,034:TEST-MODE:INFO: [rpm]: precision = 2
+2021-10-24 12:54:25,035:TEST-MODE:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 12:54:25,035:TEST-MODE:INFO: [safety]: timeout = 30
+2021-10-24 12:54:25,035:TEST-MODE:WARNING: Safety is disabled
+2021-10-24 12:54:25,036:TEST-MODE:WARNING: Altimeter is disabled
+2021-10-24 12:54:25,037:TEST-MODE:WARNING: Test mode
+2021-10-24 12:54:25,038:TEST-MODE:INFO: Pressure controller was initialized successfully
+2021-10-24 12:54:25,039:TEST-MODE:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 12:54:25,040:TEST-MODE:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 12:54:25,040:TEST-MODE:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 12:54:25,042:TEST-MODE:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 12:54:25,042:TEST-MODE:INFO: HP pressure sensor was initialized successfully
+2021-10-24 12:54:25,043:TEST-MODE:INFO: AP pressure sensor was initialized successfully
+2021-10-24 12:54:25,044:TEST-MODE:INFO: Temperature controller was initialized successfully
+2021-10-24 12:54:25,044:TEST-MODE:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 12:54:25,045:TEST-MODE:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 12:54:25,047:TEST-MODE:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 12:54:25,047:TEST-MODE:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 12:54:25,048:TEST-MODE:INFO: AT temperature sensor was initialized successfully
+2021-10-24 12:54:25,048:TEST-MODE:INFO: IMU controller was initialized successfully
+2021-10-24 12:54:25,049:TEST-MODE:INFO: X IMU sensor was initialized successfully
+2021-10-24 12:54:25,049:TEST-MODE:INFO: Y IMU sensor was initialized successfully
+2021-10-24 12:54:25,049:TEST-MODE:INFO: Z IMU sensor was initialized successfully
+2021-10-24 12:54:25,050:TEST-MODE:INFO: Bladder volume controller was initialized successfully
+2021-10-24 12:54:25,050:TEST-MODE:INFO: Altimeter controller was initialized successfully
+2021-10-24 12:54:25,051:TEST-MODE:INFO: rpm controller was initialized successfully
+2021-10-24 12:54:25,051:TEST-MODE:INFO: Pump flag controller was initialized successfully
+2021-10-24 12:54:25,052:TEST-MODE:INFO: Bladder flag controller was initialized successfully
+2021-10-24 12:54:25,052:TEST-MODE:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 12:54:25,052:TEST-MODE:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 12:54:25,053:TEST-MODE:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 12:54:25,053:TEST-MODE:INFO: Iridium flag controller was initialized successfully
+2021-10-24 12:54:25,055:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-24 12:54:25,070:TEST-MODE:INFO: Profile file loaded successfully
+2021-10-24 12:54:25,071:TEST-MODE:INFO: Profile class was initialized successfully
+2021-10-24 12:54:25,072:TEST-MODE:INFO: setting state to MissionState.IDLE
+2021-10-24 12:54:26,470:TEST-MODE:ERROR: unknown header: SU:0.00
+2021-10-24 12:54:26,550:TEST-MODE:ERROR: unknown header: PS:2.00
+2021-10-24 12:54:28,806:TEST-MODE:ERROR: unknown header: Date: 10/24/2021 Time
+2021-10-24 12:54:30,512:TEST-MODE:ERROR: unknown header: SU:1.00
+2021-10-24 12:54:31,023:TEST-MODE:INFO: State.STOP
+2021-10-24 12:54:31,026:TEST-MODE:INFO: BT1             BT2             TT1   TT2   AT    X               Y               Z               BP1             BP2   TP1   TP2   HP      AP              PD PC HL EL BF   SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:54:31,027:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) 24.57 24.63 25.28 Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (4/5) 11.42 10.22 10.37 1559.36 Buffering (2/5) 0  0  0  0  None None None 626.00 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:54:31,028:TEST-MODE:WARNING: Stopped
+2021-10-24 12:54:31,534:TEST-MODE:INFO: State.STOP
+2021-10-24 12:54:31,538:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:54:31,539:TEST-MODE:INFO: 24.64 24.19 24.57 24.63 25.28 Buffering (2/5) Buffering (2/5) Buffering (2/5) 11.17 11.42 10.22 10.37 1559.88 Buffering (3/5) 1.51 100.00 0  0  2  None None 626.09 Buffering (0/1) STOP  IDLE         None     None  10.79 
+2021-10-24 12:54:31,541:TEST-MODE:WARNING: Stopped
+2021-10-24 12:54:32,043:TEST-MODE:INFO: State.STOP
+2021-10-24 12:54:32,045:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:54:32,046:TEST-MODE:INFO: 24.64 24.19 24.57 24.63 25.28 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.18 11.43 10.22 10.37 1560.44 Buffering (4/5) 1.50 100.00 0  0  2  None None 626.24 Buffering (0/1) STOP  IDLE         None     None  10.80 
+2021-10-24 12:54:32,047:TEST-MODE:WARNING: Stopped
+2021-10-24 12:54:32,607:TEST-MODE:INFO: State.STOP
+2021-10-24 12:54:32,610:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:54:32,612:TEST-MODE:INFO: 24.64 24.18 24.57 24.64 25.28 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.18 11.43 10.22 10.38 1561.04 6278.78 1.50 100.00 0  0  2  None None 626.18 Buffering (0/1) STOP  IDLE         None     None  10.80 
+2021-10-24 12:54:32,613:TEST-MODE:WARNING: Stopped
+2021-10-24 12:54:32,867:TEST-MODE:CRITICAL: user initiated safe system shutdown
+2021-10-24 12:54:32,868:TEST-MODE:INFO: skipping nano safe shutdown: disabled

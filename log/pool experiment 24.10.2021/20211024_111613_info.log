@@ -1,0 +1,967 @@
+2021-10-24 11:16:13,006:INFO: init
+2021-10-24 11:16:13,007:INFO: loading settings:
+2021-10-24 11:16:13,008:INFO: [app]: simulation = False
+2021-10-24 11:16:13,008:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 11:16:13,009:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 11:16:13,010:INFO: [app]: disable_safety = True
+2021-10-24 11:16:13,010:INFO: [app]: test_mode = False
+2021-10-24 11:16:13,011:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 11:16:13,012:INFO: [app]: disable_altimeter = True
+2021-10-24 11:16:13,013:INFO: [app]: skip_arduino_compile = False
+2021-10-24 11:16:13,013:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 11:16:13,014:INFO: [serial]: timeout = 3
+2021-10-24 11:16:13,015:INFO: [serial]: baud_rate = 115200
+2021-10-24 11:16:13,015:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 11:16:13,016:INFO: [serial_safety]: timeout = 3
+2021-10-24 11:16:13,017:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 11:16:13,017:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 11:16:13,018:INFO: [task]: planned_mission = [1, 0, 1, 0]
+2021-10-24 11:16:13,018:INFO: [task]: hold_on_taget_duration = 60
+2021-10-24 11:16:13,019:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 11:16:13,019:INFO: [task]: min_ascend_descend_distance = 5
+2021-10-24 11:16:13,020:INFO: [task]: kp = 1000
+2021-10-24 11:16:13,021:INFO: [task]: kd = 60
+2021-10-24 11:16:13,021:INFO: [task]: ki = 0.001
+2021-10-24 11:16:13,022:INFO: [pressure]: epsilon = 0.5
+2021-10-24 11:16:13,022:INFO: [pressure]: avg_samples = 5
+2021-10-24 11:16:13,023:INFO: [pressure]: precision = 2
+2021-10-24 11:16:13,023:INFO: [temperature]: avg_samples = 5
+2021-10-24 11:16:13,024:INFO: [temperature]: precision = 2
+2021-10-24 11:16:13,024:INFO: [imu]: avg_samples = 5
+2021-10-24 11:16:13,025:INFO: [imu]: precision = 2
+2021-10-24 11:16:13,025:INFO: [bladder]: avg_samples = 1
+2021-10-24 11:16:13,026:INFO: [bladder]: precision = 2
+2021-10-24 11:16:13,026:INFO: [altimeter]: avg_samples = 1
+2021-10-24 11:16:13,026:INFO: [altimeter]: precision = 2
+2021-10-24 11:16:13,027:INFO: [rpm]: avg_samples = 1
+2021-10-24 11:16:13,027:INFO: [rpm]: precision = 2
+2021-10-24 11:16:13,028:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 11:16:13,028:INFO: [safety]: timeout = 30
+2021-10-24 11:16:13,029:WARNING: Safety is disabled
+2021-10-24 11:16:13,029:WARNING: Altimeter is disabled
+2021-10-24 11:16:13,030:INFO: Pressure controller was initialized successfully
+2021-10-24 11:16:13,031:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 11:16:13,032:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 11:16:13,032:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 11:16:13,033:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 11:16:13,033:INFO: HP pressure sensor was initialized successfully
+2021-10-24 11:16:13,034:INFO: AP pressure sensor was initialized successfully
+2021-10-24 11:16:13,035:INFO: Temperature controller was initialized successfully
+2021-10-24 11:16:13,035:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 11:16:13,036:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 11:16:13,036:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 11:16:13,037:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 11:16:13,037:INFO: AT temperature sensor was initialized successfully
+2021-10-24 11:16:13,038:INFO: IMU controller was initialized successfully
+2021-10-24 11:16:13,038:INFO: X IMU sensor was initialized successfully
+2021-10-24 11:16:13,039:INFO: Y IMU sensor was initialized successfully
+2021-10-24 11:16:13,039:INFO: Z IMU sensor was initialized successfully
+2021-10-24 11:16:13,040:INFO: Bladder volume controller was initialized successfully
+2021-10-24 11:16:13,041:INFO: Altimeter controller was initialized successfully
+2021-10-24 11:16:13,041:INFO: rpm controller was initialized successfully
+2021-10-24 11:16:13,042:INFO: Pump flag controller was initialized successfully
+2021-10-24 11:16:13,042:INFO: Bladder flag controller was initialized successfully
+2021-10-24 11:16:13,043:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 11:16:13,044:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 11:16:13,044:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 11:16:13,045:INFO: Iridium flag controller was initialized successfully
+2021-10-24 11:16:13,047:INFO: SerialComm was initialized successfully
+2021-10-24 11:16:13,064:INFO: Profile file loaded successfully
+2021-10-24 11:16:13,065:INFO: Profile class was initialized successfully
+2021-10-24 11:16:13,145:INFO: compiling mega code
+2021-10-24 11:16:27,250:INFO: compilation successful
+2021-10-24 11:16:27,251:INFO: uploading mega code
+2021-10-24 11:16:42,643:INFO: upload successful
+2021-10-24 11:16:42,645:CRITICAL: nano board not found
+2021-10-24 11:16:42,647:INFO: setting state to MissionState.IDLE
+2021-10-24 11:16:43,156:ERROR: unknown header: SU:0.00
+2021-10-24 11:16:49,123:ERROR: unknown header: SU:0.00
+2021-10-24 11:16:51,108:ERROR: unknown header: Date: 10/24/2021 Time
+2021-10-24 11:16:52,809:ERROR: unknown header: SU:1.00
+2021-10-24 11:16:53,311:INFO: State.INIT
+2021-10-24 11:16:53,315:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL EL BF   SF   PF   BV    rpm             State MissionState Setpoint Error Depth 
+2021-10-24 11:16:53,317:INFO: Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 0  0  0  0  None None None 75.91 Buffering (0/1) INIT  IDLE         None     None  None  
+2021-10-24 11:16:53,841:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 11:16:53,843:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV    rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 11:16:53,845:INFO: Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.42 100.00 0  0  0  None None 75.88 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  None  
+2021-10-24 11:16:53,846:WARNING: sensor BT1 is not ready
+2021-10-24 11:16:54,372:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 11:16:54,374:INFO: BT1   BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV    rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 11:16:54,375:INFO: 24.36 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.42 100.00 0  0  0  None None 75.97 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  None  
+2021-10-24 11:16:54,376:WARNING: sensor BT2 is not ready
+2021-10-24 11:16:54,885:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 11:16:54,886:ERROR: error in BP1 sensor value: -50.2 is out of bound!
+2021-10-24 11:16:54,888:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1    BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 11:16:54,889:INFO: 24.43 24.02 24.49 24.45 24.71 Buffering (4/5) Buffering (4/5) Buffering (4/5) -50.20 11.55 10.37 10.54 1172.12 10298.62 1.42 100.00 0  0  0  None None 76.05 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.82 
+2021-10-24 11:16:54,890:WARNING: sensor X is not ready
+2021-10-24 11:16:55,407:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 11:16:55,409:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 11:16:55,411:INFO: 24.51 24.01 24.14 24.09 24.95 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.33 11.55 10.37 10.54 1172.16 10295.14 1.42 100.00 0  0  0  None None 76.10 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.95 
+2021-10-24 11:16:55,412:WARNING: sensor X is not ready
+2021-10-24 11:16:55,919:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 11:16:55,921:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 11:16:55,923:INFO: 24.50 24.00 24.13 24.09 24.95 -0.01 -0.01 0.00 11.33 11.55 10.37 10.54 1172.18 10294.56 1.42 100.00 0  0  0  None None 76.13 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.95 
+2021-10-24 11:16:56,449:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 11:16:56,452:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 11:16:56,453:INFO: 24.50 24.00 24.13 24.10 24.95 -0.01 -0.01 0.00 11.33 11.55 10.37 10.54 1172.26 10293.66 1.42 100.00 0  0  0  None None 76.25 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  10.95 
+2021-10-24 11:16:56,454:INFO: depth sensors calibrated successfully
+2021-10-24 11:16:56,455:INFO: offset set on: 10.9475
+2021-10-24 11:16:56,961:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 11:16:56,964:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 11:16:56,965:INFO: 24.50 24.00 24.13 24.09 24.95 -0.01 -0.01 0.00 11.33 11.55 10.37 10.54 1172.40 10292.96 1.42 100.00 0  0  0  None None 76.26 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  0.00  
+2021-10-24 11:16:57,491:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:16:57,493:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:16:57,495:INFO: 24.49 24.00 24.13 24.09 24.95 -0.01 -0.01 0.00 11.33 11.55 10.37 10.54 1172.40 10292.22 1.42 100.00 0  0  0  None None 76.33 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:16:57,495:INFO: Waiting for water
+2021-10-24 11:16:57,496:INFO: Waiting for water
+2021-10-24 11:16:57,497:INFO: 0/10 secs
+2021-10-24 11:16:58,004:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:16:58,007:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:16:58,008:INFO: 24.49 24.00 24.13 24.09 24.95 -0.00 -0.01 0.00 11.32 11.55 10.37 10.54 1172.40 10291.58 1.42 100.00 0  0  0  None None 76.34 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:16:58,009:INFO: Waiting for water
+2021-10-24 11:16:58,010:INFO: 1/10 secs
+2021-10-24 11:16:58,532:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:16:58,535:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:16:58,536:INFO: 24.49 24.00 24.13 24.09 24.94 0.00 -0.01 0.00 11.32 11.55 10.37 10.54 1172.36 10290.88 1.42 100.00 0  0  0  None None 76.39 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:16:58,537:INFO: Waiting for water
+2021-10-24 11:16:58,538:INFO: 1/10 secs
+2021-10-24 11:16:59,043:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:16:59,046:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:16:59,047:INFO: 24.49 24.00 24.12 24.09 24.94 0.00 -0.01 0.00 11.32 11.55 10.37 10.54 1172.42 10290.20 1.42 100.00 0  0  0  None None 76.51 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:16:59,048:INFO: Waiting for water
+2021-10-24 11:16:59,049:INFO: 2/10 secs
+2021-10-24 11:16:59,576:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:16:59,579:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:16:59,580:INFO: 24.49 24.00 24.12 24.09 24.94 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.48 10289.46 1.42 100.00 0  0  0  None None 76.54 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:16:59,581:INFO: Waiting for water
+2021-10-24 11:16:59,581:INFO: 2/10 secs
+2021-10-24 11:17:00,090:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:00,093:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:00,094:INFO: 24.48 24.00 24.12 24.09 24.94 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.50 10288.94 1.42 100.00 0  0  0  None None 76.52 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:00,095:INFO: Waiting for water
+2021-10-24 11:17:00,095:INFO: 3/10 secs
+2021-10-24 11:17:00,620:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:00,623:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:00,624:INFO: 24.48 24.00 24.12 24.09 24.94 0.02 0.00 0.00 11.33 11.55 10.37 10.54 1172.56 10288.26 1.42 100.00 0  0  0  None None 76.59 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:17:00,625:INFO: Waiting for water
+2021-10-24 11:17:00,626:INFO: 3/10 secs
+2021-10-24 11:17:01,134:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:01,137:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:01,138:INFO: 24.48 24.01 24.12 24.09 24.94 0.02 0.00 0.00 11.33 11.55 10.37 10.54 1172.60 10287.58 1.41 100.00 0  0  0  None None 76.65 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:17:01,138:INFO: Waiting for water
+2021-10-24 11:17:01,139:INFO: 4/10 secs
+2021-10-24 11:17:01,667:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:01,669:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:01,671:INFO: 24.48 24.01 24.11 24.09 24.94 0.01 0.00 0.00 11.33 11.55 10.37 10.54 1172.64 10286.90 1.41 100.00 0  0  0  None None 76.74 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:17:01,672:INFO: Waiting for water
+2021-10-24 11:17:01,673:INFO: 4/10 secs
+2021-10-24 11:17:02,183:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:02,186:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:02,187:INFO: 24.48 24.01 24.11 24.09 24.94 0.01 0.00 0.00 11.33 11.55 10.37 10.54 1172.70 10286.38 1.41 100.00 0  0  0  None None 76.71 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:17:02,188:INFO: Waiting for water
+2021-10-24 11:17:02,189:INFO: 5/10 secs
+2021-10-24 11:17:02,715:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:02,718:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:02,718:INFO: 24.49 24.02 24.10 24.08 24.93 0.01 0.00 0.00 11.33 11.55 10.37 10.54 1172.78 10285.68 1.41 100.00 0  0  0  None None 76.79 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 11:17:02,719:INFO: Waiting for water
+2021-10-24 11:17:02,719:INFO: 5/10 secs
+2021-10-24 11:17:03,231:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:03,233:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:03,234:INFO: 24.49 24.02 24.10 24.08 24.93 0.01 0.00 0.00 11.32 11.55 10.37 10.54 1172.90 10284.92 1.41 100.00 0  0  0  None None 76.89 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:03,235:INFO: Waiting for water
+2021-10-24 11:17:03,235:INFO: 6/10 secs
+2021-10-24 11:17:03,762:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:03,765:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:03,765:INFO: 24.49 24.01 24.10 24.08 24.93 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.92 10284.14 1.41 100.00 0  0  0  None None 76.95 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:03,766:INFO: Waiting for water
+2021-10-24 11:17:03,766:INFO: 6/10 secs
+2021-10-24 11:17:04,278:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:04,280:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:04,281:INFO: 24.49 24.01 24.10 24.09 24.93 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.90 10283.66 1.41 100.00 0  0  0  None None 76.92 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:04,282:INFO: Waiting for water
+2021-10-24 11:17:04,283:INFO: 7/10 secs
+2021-10-24 11:17:04,810:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:04,812:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:04,813:INFO: 24.49 24.00 24.09 24.08 24.93 -0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1172.94 10282.90 1.41 100.00 0  0  0  None None 77.00 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:04,814:INFO: Waiting for water
+2021-10-24 11:17:04,814:INFO: 7/10 secs
+2021-10-24 11:17:05,324:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:05,326:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:05,327:INFO: 24.49 24.00 24.09 24.09 24.92 -0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1172.88 10282.16 1.41 100.00 0  0  0  None None 77.07 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:05,328:INFO: Waiting for water
+2021-10-24 11:17:05,328:INFO: 8/10 secs
+2021-10-24 11:17:05,852:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:05,854:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:05,855:INFO: 24.50 23.99 24.09 24.08 24.92 0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1172.66 10281.62 1.41 100.00 0  0  0  None None 77.09 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:05,856:INFO: Waiting for water
+2021-10-24 11:17:05,856:INFO: 8/10 secs
+2021-10-24 11:17:06,366:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:06,369:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:06,370:INFO: 24.50 23.99 24.09 24.08 24.92 0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1172.68 10281.06 1.41 100.00 0  0  0  None None 77.16 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:06,370:INFO: Waiting for water
+2021-10-24 11:17:06,371:INFO: 9/10 secs
+2021-10-24 11:17:06,896:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:06,899:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:06,899:INFO: 24.50 23.99 24.08 24.08 24.92 0.00 -0.01 0.00 11.32 11.55 10.37 10.54 1172.66 10280.34 1.41 100.00 0  0  0  None None 77.22 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:06,900:INFO: Waiting for water
+2021-10-24 11:17:06,900:INFO: 9/10 secs
+2021-10-24 11:17:07,408:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:07,411:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:07,411:INFO: 24.50 23.99 24.08 24.08 24.92 0.00 -0.01 0.00 11.32 11.55 10.37 10.54 1172.62 10279.82 1.41 100.00 0  0  0  None None 77.22 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:07,412:INFO: Waiting for water
+2021-10-24 11:17:07,413:INFO: 10/10 secs
+2021-10-24 11:17:07,936:INFO: State.WAIT_FOR_WATER
+2021-10-24 11:17:07,939:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 11:17:07,939:INFO: 24.50 24.00 24.08 24.08 24.92 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.56 10279.14 1.41 100.00 0  0  0  None None 77.35 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  -0.00 
+2021-10-24 11:17:07,940:INFO: Done waiting for water
+2021-10-24 11:17:07,943:INFO: close proximity mission
+2021-10-24 11:17:07,943:INFO: setting target depth to 1 [dbar]
+2021-10-24 11:17:07,945:INFO: setting state to MissionState.EN_ROUTE
+2021-10-24 11:17:08,449:INFO: State.EXEC_TASK
+2021-10-24 11:17:08,451:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF   BV    rpm             State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:08,452:INFO: 24.49 23.99 24.08 24.09 24.92 0.01 -0.00 0.00 11.32 11.55 10.37 10.54 1172.78 10278.46 1.41 100.00 0  0  0  None None 77.37 Buffering (0/1) EXEC_TASK EN_ROUTE     1        1.00  -0.00 
+2021-10-24 11:17:08,453:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:08,454:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:08,455:INFO: 1002.4999999999995 = 1.0024999999999995*1000 - 0*60 + 0*0.001
+2021-10-24 11:17:08,456:INFO: sending PID - Voltage:100    direction:1    timeOn:1.4  timeOff:3.5919771795328947
+2021-10-24 11:17:08,556:ERROR: unknown header: V:100.00
+2021-10-24 11:17:08,558:ERROR: unknown header: D:1.00
+2021-10-24 11:17:08,561:ERROR: unknown header: T:1.40
+2021-10-24 11:17:08,630:INFO: State.EXEC_TASK
+2021-10-24 11:17:08,632:INFO: BV    rpm             
+2021-10-24 11:17:08,632:INFO: 77.36 Buffering (0/1) 
+2021-10-24 11:17:08,633:INFO: pump is running...
+2021-10-24 11:17:09,394:INFO: pump turned on
+2021-10-24 11:17:09,731:INFO: State.EXEC_TASK
+2021-10-24 11:17:09,733:INFO: BV    rpm     
+2021-10-24 11:17:09,734:INFO: 73.67 2540.00 
+2021-10-24 11:17:09,734:INFO: pump is running...
+2021-10-24 11:17:09,814:INFO: State.EXEC_TASK
+2021-10-24 11:17:09,816:INFO: BV    rpm     
+2021-10-24 11:17:09,816:INFO: 72.25 2780.00 
+2021-10-24 11:17:09,817:INFO: pump is running...
+2021-10-24 11:17:09,899:INFO: State.EXEC_TASK
+2021-10-24 11:17:09,901:INFO: BV    rpm     
+2021-10-24 11:17:09,902:INFO: 70.72 3114.00 
+2021-10-24 11:17:09,902:INFO: pump is running...
+2021-10-24 11:17:09,981:INFO: State.EXEC_TASK
+2021-10-24 11:17:09,983:INFO: BV    rpm     
+2021-10-24 11:17:09,983:INFO: 69.07 3316.00 
+2021-10-24 11:17:09,984:INFO: pump is running...
+2021-10-24 11:17:10,063:INFO: State.EXEC_TASK
+2021-10-24 11:17:10,066:INFO: BV    rpm     
+2021-10-24 11:17:10,066:INFO: 67.30 3506.00 
+2021-10-24 11:17:10,067:INFO: pump is running...
+2021-10-24 11:17:10,141:INFO: State.EXEC_TASK
+2021-10-24 11:17:10,143:INFO: BV    rpm     
+2021-10-24 11:17:10,143:INFO: 65.40 3886.00 
+2021-10-24 11:17:10,144:INFO: pump is running...
+2021-10-24 11:17:10,223:INFO: State.EXEC_TASK
+2021-10-24 11:17:10,225:INFO: BV    rpm     
+2021-10-24 11:17:10,226:INFO: 63.40 4111.00 
+2021-10-24 11:17:10,226:INFO: pump is running...
+2021-10-24 11:17:10,305:INFO: State.EXEC_TASK
+2021-10-24 11:17:10,307:INFO: BV    rpm     
+2021-10-24 11:17:10,308:INFO: 61.21 4418.00 
+2021-10-24 11:17:10,308:INFO: pump is running...
+2021-10-24 11:17:10,382:INFO: State.EXEC_TASK
+2021-10-24 11:17:10,384:INFO: BV    rpm     
+2021-10-24 11:17:10,385:INFO: 59.04 4708.00 
+2021-10-24 11:17:10,386:INFO: pump is running...
+2021-10-24 11:17:10,389:INFO: Pump turned off. Starting timeOff timer.
+2021-10-24 11:17:11,005:INFO: State.EXEC_TASK
+2021-10-24 11:17:11,007:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:11,008:INFO: 24.49 23.99 24.08 24.09 24.92 0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1167.22 10473.14 1.41 100.00 0  0  1  None 0  57.69 0.00 EXEC_TASK EN_ROUTE     1        1.00  -0.00 
+2021-10-24 11:17:11,009:INFO: waiting for timeOff to finish 0.62 of 3.5919771795328947
+2021-10-24 11:17:11,515:INFO: State.EXEC_TASK
+2021-10-24 11:17:11,518:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:11,519:INFO: 24.49 24.00 24.07 24.10 24.93 0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1162.40 10491.96 1.41 100.00 0  0  1  None 0  57.89 0.00 EXEC_TASK EN_ROUTE     1        1.00  -0.00 
+2021-10-24 11:17:11,520:INFO: waiting for timeOff to finish 1.13 of 3.5919771795328947
+2021-10-24 11:17:12,070:INFO: State.EXEC_TASK
+2021-10-24 11:17:12,072:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:12,073:INFO: 24.49 23.99 24.07 24.10 24.93 -0.00 -0.00 0.00 11.32 11.55 10.37 10.54 1157.94 10505.16 1.41 100.00 0  0  1  None 0  58.18 0.00 EXEC_TASK EN_ROUTE     1        1.00  -0.00 
+2021-10-24 11:17:12,074:INFO: waiting for timeOff to finish 1.68 of 3.5919771795328947
+2021-10-24 11:17:12,627:INFO: State.EXEC_TASK
+2021-10-24 11:17:12,629:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:12,630:INFO: 24.49 23.99 24.07 24.10 24.94 -0.01 0.00 0.00 11.32 11.55 10.37 10.54 1153.72 10512.32 1.40 100.00 0  0  1  None 0  58.44 0.00 EXEC_TASK EN_ROUTE     1        1.00  -0.00 
+2021-10-24 11:17:12,630:INFO: waiting for timeOff to finish 2.24 of 3.5919771795328947
+2021-10-24 11:17:13,192:INFO: State.EXEC_TASK
+2021-10-24 11:17:13,194:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:13,195:INFO: 24.49 23.99 24.07 24.11 24.94 -0.01 0.00 0.00 11.33 11.56 10.38 10.54 1149.62 10513.48 1.39 100.00 0  0  1  None 0  58.68 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:13,196:INFO: waiting for timeOff to finish 2.81 of 3.5919771795328947
+2021-10-24 11:17:13,700:INFO: State.EXEC_TASK
+2021-10-24 11:17:13,703:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:13,703:INFO: 24.49 23.99 24.07 24.12 24.95 -0.01 0.00 0.00 11.33 11.56 10.38 10.55 1151.40 10510.82 1.39 100.00 0  0  1  None 0  58.82 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:13,704:INFO: waiting for timeOff to finish 3.31 of 3.5919771795328947
+2021-10-24 11:17:14,224:INFO: State.EXEC_TASK
+2021-10-24 11:17:14,226:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:14,227:INFO: 24.49 23.98 24.07 24.13 24.95 -0.01 0.00 0.00 11.33 11.56 10.38 10.55 1152.70 10508.12 1.39 100.00 0  0  1  None 0  59.06 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:14,227:INFO: waiting for timeOff to finish 3.84 of 3.5919771795328947
+2021-10-24 11:17:14,228:INFO: timeOff is over
+2021-10-24 11:17:14,789:INFO: State.EXEC_TASK
+2021-10-24 11:17:14,791:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:14,792:INFO: 24.49 23.99 24.07 24.13 24.96 -0.01 0.00 0.00 11.34 11.57 10.39 10.55 1153.72 10505.62 1.39 100.00 0  0  1  None 0  59.27 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:14,793:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:14,795:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:14,795:INFO: 984.8406892970861 = 0.9850000000000012*1000 - 0.0027601871142991074*60 + 6.300523942708971*0.001
+2021-10-24 11:17:14,796:INFO: Bladder is at min volume
+2021-10-24 11:17:15,346:INFO: State.EXEC_TASK
+2021-10-24 11:17:15,348:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:15,349:INFO: 24.49 23.98 24.07 24.14 24.97 -0.01 0.00 0.00 11.34 11.57 10.39 10.56 1154.68 10503.22 1.39 100.00 0  0  1  None 0  59.50 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:15,350:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:15,352:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:15,352:INFO: 982.2375345218957 = 0.9824999999999999*1000 - 0.004488565368425377*60 + 6.848444001376631*0.001
+2021-10-24 11:17:15,353:INFO: Bladder is at min volume
+2021-10-24 11:17:15,912:INFO: State.EXEC_TASK
+2021-10-24 11:17:15,914:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:15,915:INFO: 24.49 23.98 24.07 24.15 24.98 -0.01 0.00 0.00 11.35 11.57 10.39 10.56 1155.50 10500.92 1.38 100.00 0  0  1  None 0  59.72 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:15,915:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:15,917:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:15,918:INFO: 979.7421896823881 = 0.9799999999999986*1000 - 0.004420228975295879*60 + 7.403420907258989*0.001
+2021-10-24 11:17:15,919:INFO: Bladder is at min volume
+2021-10-24 11:17:16,420:INFO: State.EXEC_TASK
+2021-10-24 11:17:16,422:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:16,423:INFO: 24.49 23.98 24.07 24.16 24.99 -0.01 0.00 0.00 11.35 11.57 10.39 10.56 1156.18 10498.48 1.38 100.00 0  0  1  None 0  59.91 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:16,424:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:16,426:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:16,426:INFO: 980.0079018439959 = 0.9799999999999986*1000 - 0.0*60 + 7.901843997240068*0.001
+2021-10-24 11:17:16,428:INFO: Bladder is at min volume
+2021-10-24 11:17:16,942:INFO: State.EXEC_TASK
+2021-10-24 11:17:16,944:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:16,945:INFO: 24.49 23.98 24.07 24.17 24.99 -0.00 0.00 0.00 11.35 11.57 10.39 10.56 1156.56 10496.08 1.38 100.00 0  0  1  None 0  60.11 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:16,946:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:16,947:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:16,948:INFO: 980.0084131423805 = 0.9799999999999986*1000 - 0.0*60 + 8.41314238190651*0.001
+2021-10-24 11:17:16,949:INFO: Bladder is at min volume
+2021-10-24 11:17:17,451:INFO: State.EXEC_TASK
+2021-10-24 11:17:17,454:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:17,455:INFO: 24.49 23.97 24.07 24.18 25.00 -0.00 0.00 0.00 11.35 11.57 10.39 10.56 1156.94 10493.80 1.38 100.00 0  0  0  None 0  60.28 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:17,455:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:17,457:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:17,457:INFO: 980.0089124535749 = 0.9799999999999986*1000 - 0.0*60 + 8.91245357632637*0.001
+2021-10-24 11:17:17,459:INFO: sending PID - Voltage:100    direction:1    timeOn:1.4  timeOff:3.6651230101302503
+2021-10-24 11:17:17,558:ERROR: unknown header: V:100.00
+2021-10-24 11:17:17,560:ERROR: unknown header: D:1.00
+2021-10-24 11:17:17,563:ERROR: unknown header: T:1.40
+2021-10-24 11:17:17,632:INFO: State.EXEC_TASK
+2021-10-24 11:17:17,634:INFO: BV    rpm  
+2021-10-24 11:17:17,634:INFO: 60.40 0.00 
+2021-10-24 11:17:17,635:INFO: waiting for pump to start
+2021-10-24 11:17:18,396:INFO: pump turned on
+2021-10-24 11:17:18,732:INFO: State.EXEC_TASK
+2021-10-24 11:17:18,735:INFO: BV    rpm     
+2021-10-24 11:17:18,735:INFO: 56.63 2406.00 
+2021-10-24 11:17:18,736:INFO: pump is running...
+2021-10-24 11:17:18,739:INFO: Pump turned off. Starting timeOff timer.
+2021-10-24 11:17:19,352:INFO: State.EXEC_TASK
+2021-10-24 11:17:19,355:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:19,356:INFO: 24.50 23.97 24.07 24.19 25.01 -0.00 0.00 0.00 11.35 11.57 10.39 10.56 1155.38 10509.04 1.38 100.00 0  0  1  None 0  56.24 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:19,357:INFO: waiting for timeOff to finish 0.62 of 3.6651230101302503
+2021-10-24 11:17:19,880:INFO: State.EXEC_TASK
+2021-10-24 11:17:19,882:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:19,883:INFO: 24.51 23.97 24.07 24.19 25.02 -0.00 0.00 0.00 11.35 11.57 10.39 10.56 1153.92 10518.48 1.38 100.00 0  0  1  None 0  56.42 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:19,885:INFO: waiting for timeOff to finish 1.15 of 3.6651230101302503
+2021-10-24 11:17:20,401:INFO: State.EXEC_TASK
+2021-10-24 11:17:20,403:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:20,404:INFO: 24.51 23.97 24.07 24.20 25.03 0.00 0.00 0.00 11.35 11.57 10.39 10.56 1152.46 10527.70 1.38 100.00 0  0  1  None 0  56.68 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:20,406:INFO: waiting for timeOff to finish 1.67 of 3.6651230101302503
+2021-10-24 11:17:20,962:INFO: State.EXEC_TASK
+2021-10-24 11:17:20,964:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:20,965:INFO: 24.51 23.97 24.07 24.20 25.03 0.00 0.00 0.00 11.34 11.57 10.39 10.56 1151.24 10536.70 1.38 100.00 0  0  1  None 0  56.91 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:20,966:INFO: waiting for timeOff to finish 2.23 of 3.6651230101302503
+2021-10-24 11:17:21,469:INFO: State.EXEC_TASK
+2021-10-24 11:17:21,472:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:21,473:INFO: 24.51 23.97 24.07 24.21 25.04 0.00 0.00 0.00 11.34 11.57 10.39 10.55 1149.98 10535.66 1.38 100.00 0  0  1  None 0  57.11 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:21,474:INFO: waiting for timeOff to finish 2.73 of 3.6651230101302503
+2021-10-24 11:17:21,994:INFO: State.EXEC_TASK
+2021-10-24 11:17:21,996:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:21,997:INFO: 24.50 23.97 24.07 24.21 25.05 0.00 0.00 0.00 11.34 11.57 10.39 10.55 1150.58 10533.22 1.38 100.00 0  0  1  None 0  57.28 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:21,998:INFO: waiting for timeOff to finish 3.26 of 3.6651230101302503
+2021-10-24 11:17:22,501:INFO: State.EXEC_TASK
+2021-10-24 11:17:22,504:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:22,504:INFO: 24.51 23.97 24.07 24.22 25.05 0.00 0.00 0.00 11.34 11.56 10.39 10.55 1151.00 10530.86 1.38 100.00 0  0  1  None 0  57.46 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:22,506:INFO: waiting for timeOff to finish 3.77 of 3.6651230101302503
+2021-10-24 11:17:22,506:INFO: timeOff is over
+2021-10-24 11:17:23,025:INFO: State.EXEC_TASK
+2021-10-24 11:17:23,027:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:23,028:INFO: 24.51 23.98 24.06 24.22 25.06 0.00 0.00 0.00 11.34 11.56 10.39 10.55 1151.38 10528.58 1.38 100.00 0  0  1  None 0  57.66 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:23,029:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:23,031:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:23,032:INFO: 987.59512245352 = 0.9874999999999989*1000 - -0.001345436407748895*60 + 14.396269056200975*0.001
+2021-10-24 11:17:23,034:INFO: Bladder is at min volume
+2021-10-24 11:17:23,582:INFO: State.EXEC_TASK
+2021-10-24 11:17:23,584:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:23,585:INFO: 24.51 23.98 24.06 24.23 25.06 0.00 0.00 0.00 11.34 11.56 10.38 10.55 1151.68 10526.46 1.39 100.00 0  0  1  None 0  57.82 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:23,586:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:23,588:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:23,588:INFO: 990.2845295709362 = 0.9900000000000002*1000 - -0.00449305244899903*60 + 14.946423996090882*0.001
+2021-10-24 11:17:23,590:INFO: Bladder is at min volume
+2021-10-24 11:17:24,143:INFO: State.EXEC_TASK
+2021-10-24 11:17:24,146:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:24,147:INFO: 24.51 23.98 24.06 24.23 25.06 -0.01 0.00 -0.00 11.34 11.56 10.38 10.55 1151.96 10524.44 1.39 100.00 0  0  1  None 0  57.99 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:24,148:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:24,151:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:24,152:INFO: 990.0155037625678 = 0.9900000000000002*1000 - 0.0*60 + 15.503762567639344*0.001
+2021-10-24 11:17:24,153:INFO: Bladder is at min volume
+2021-10-24 11:17:24,705:INFO: State.EXEC_TASK
+2021-10-24 11:17:24,708:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:24,709:INFO: 24.51 23.98 24.05 24.23 25.07 -0.01 -0.00 0.00 11.34 11.56 10.38 10.55 1152.36 10522.42 1.39 100.00 0  0  1  None 0  58.13 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:24,710:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:24,712:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:24,713:INFO: 990.0160596042093 = 0.9900000000000002*1000 - 0.0*60 + 16.05960420906543*0.001
+2021-10-24 11:17:24,715:INFO: Bladder is at min volume
+2021-10-24 11:17:25,215:INFO: State.EXEC_TASK
+2021-10-24 11:17:25,218:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:25,219:INFO: 24.51 23.98 24.05 24.23 25.07 -0.01 -0.00 0.00 11.34 11.56 10.38 10.55 1152.78 10520.26 1.39 100.00 0  0  1  None 0  58.36 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:25,220:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:25,222:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:25,223:INFO: 990.0165642858681 = 0.9900000000000002*1000 - 0.0*60 + 16.56428586781024*0.001
+2021-10-24 11:17:25,225:INFO: Bladder is at min volume
+2021-10-24 11:17:25,739:INFO: State.EXEC_TASK
+2021-10-24 11:17:25,742:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:25,743:INFO: 24.51 23.97 24.04 24.23 25.07 -0.01 -0.00 0.00 11.34 11.56 10.38 10.55 1153.16 10518.38 1.39 100.00 0  0  1  None 0  58.45 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:25,744:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:25,746:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:25,747:INFO: 990.0170831454047 = 0.9900000000000002*1000 - 0.0*60 + 17.083145404458037*0.001
+2021-10-24 11:17:25,748:INFO: Bladder is at min volume
+2021-10-24 11:17:26,246:INFO: State.EXEC_TASK
+2021-10-24 11:17:26,248:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:26,249:INFO: 24.51 23.98 24.04 24.23 25.08 -0.01 -0.00 0.00 11.34 11.56 10.38 10.55 1153.54 10516.42 1.39 100.00 0  0  1  None 0  58.63 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:26,250:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:26,252:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:26,253:INFO: 990.0175840540536 = 0.9900000000000002*1000 - 0.0*60 + 17.58405405342578*0.001
+2021-10-24 11:17:26,255:INFO: Bladder is at min volume
+2021-10-24 11:17:26,772:INFO: State.EXEC_TASK
+2021-10-24 11:17:26,774:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:26,775:INFO: 24.51 23.97 24.04 24.23 25.08 -0.01 -0.00 0.00 11.34 11.56 10.39 10.55 1153.88 10514.48 1.39 100.00 0  0  1  None 0  58.79 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:26,776:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:26,778:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:26,778:INFO: 987.2328279877742 = 0.9874999999999989*1000 - 0.004754599293643067*60 + 18.103945393860332*0.001
+2021-10-24 11:17:26,780:INFO: Bladder is at min volume
+2021-10-24 11:17:27,331:INFO: State.EXEC_TASK
+2021-10-24 11:17:27,334:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:27,335:INFO: 24.51 23.97 24.04 24.23 25.08 -0.01 -0.00 0.00 11.34 11.56 10.39 10.55 1154.16 10512.70 1.39 100.00 0  0  1  None 0  58.87 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:27,336:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:27,338:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:27,339:INFO: 987.5186572697704 = 0.9874999999999989*1000 - 0.0*60 + 18.657269771397104*0.001
+2021-10-24 11:17:27,340:INFO: Bladder is at min volume
+2021-10-24 11:17:27,895:INFO: State.EXEC_TASK
+2021-10-24 11:17:27,898:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:27,899:INFO: 24.51 23.97 24.04 24.22 25.08 -0.01 -0.00 0.00 11.34 11.57 10.39 10.55 1154.44 10511.04 1.39 100.00 0  0  1  None 0  59.03 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:27,900:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:27,902:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:27,903:INFO: 984.7530968418521 = 0.9850000000000012*1000 - 0.004435272346586214*60 + 19.213182646036138*0.001
+2021-10-24 11:17:27,904:INFO: Bladder is at min volume
+2021-10-24 11:17:28,403:INFO: State.EXEC_TASK
+2021-10-24 11:17:28,406:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:28,407:INFO: 24.51 23.98 24.03 24.23 25.08 -0.01 -0.00 0.00 11.34 11.57 10.39 10.55 1154.78 10509.20 1.39 100.00 0  0  1  None 0  59.21 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:28,408:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:28,410:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:28,411:INFO: 985.0197138715984 = 0.9850000000000012*1000 - 0.0*60 + 19.71387159705161*0.001
+2021-10-24 11:17:28,412:INFO: Bladder is at min volume
+2021-10-24 11:17:28,928:INFO: State.EXEC_TASK
+2021-10-24 11:17:28,930:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:28,931:INFO: 24.51 23.97 24.03 24.22 25.08 0.00 -0.00 0.00 11.34 11.57 10.39 10.55 1155.06 10507.52 1.39 100.00 0  0  1  None 0  59.30 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:28,932:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:28,934:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:28,935:INFO: 985.0202303048468 = 0.9850000000000012*1000 - 0.0*60 + 20.23030484557151*0.001
+2021-10-24 11:17:28,937:INFO: Bladder is at min volume
+2021-10-24 11:17:29,433:INFO: State.EXEC_TASK
+2021-10-24 11:17:29,435:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:29,436:INFO: 24.51 23.98 24.03 24.22 25.08 0.00 -0.00 0.00 11.34 11.57 10.39 10.56 1155.34 10505.96 1.39 100.00 0  0  1  None 0  59.43 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:29,437:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:29,439:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:29,440:INFO: 982.223723166285 = 0.9824999999999999*1000 - 0.004950066255743556*60 + 20.72714162975549*0.001
+2021-10-24 11:17:29,441:INFO: Bladder is at min volume
+2021-10-24 11:17:29,960:INFO: State.EXEC_TASK
+2021-10-24 11:17:29,963:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:29,964:INFO: 24.51 23.98 24.03 24.21 25.09 -0.00 -0.00 0.00 11.34 11.57 10.39 10.56 1155.64 10504.20 1.39 100.00 0  0  1  None 0  59.59 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:29,965:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:29,967:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:29,968:INFO: 982.5212454864253 = 0.9824999999999999*1000 - 0.0*60 + 21.24548642545938*0.001
+2021-10-24 11:17:29,969:INFO: Bladder is at min volume
+2021-10-24 11:17:30,468:INFO: State.EXEC_TASK
+2021-10-24 11:17:30,471:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:30,471:INFO: 24.51 23.98 24.04 24.21 25.09 -0.00 -0.00 0.00 11.34 11.57 10.39 10.56 1155.88 10502.66 1.39 100.00 0  0  1  None 0  59.67 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:30,472:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:30,474:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:30,475:INFO: 982.5217440226551 = 0.9824999999999999*1000 - 0.0*60 + 21.74402265518903*0.001
+2021-10-24 11:17:30,477:INFO: Bladder is at min volume
+2021-10-24 11:17:30,993:INFO: State.EXEC_TASK
+2021-10-24 11:17:30,995:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:30,996:INFO: 24.52 23.98 24.04 24.20 25.09 0.00 -0.00 0.00 11.34 11.57 10.39 10.56 1156.18 10501.24 1.39 100.00 0  0  1  None 0  59.78 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:30,997:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:30,999:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:31,000:INFO: 982.5222594182904 = 0.9824999999999999*1000 - 0.0*60 + 22.25941829055547*0.001
+2021-10-24 11:17:31,001:INFO: Bladder is at min volume
+2021-10-24 11:17:31,504:INFO: State.EXEC_TASK
+2021-10-24 11:17:31,507:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:31,508:INFO: 24.52 23.98 24.05 24.19 25.09 0.00 -0.00 0.00 11.34 11.57 10.39 10.56 1156.42 10499.70 1.39 100.00 0  0  1  None 0  59.94 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:31,508:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:31,510:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:31,511:INFO: 982.5227618947764 = 0.9824999999999999*1000 - 0.0*60 + 22.761894776523107*0.001
+2021-10-24 11:17:31,513:INFO: Bladder is at min volume
+2021-10-24 11:17:32,028:INFO: State.EXEC_TASK
+2021-10-24 11:17:32,031:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:32,032:INFO: 24.52 23.98 24.05 24.19 25.09 0.01 -0.00 0.00 11.34 11.57 10.39 10.56 1156.64 10498.20 1.39 100.00 0  0  1  None 0  60.03 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:32,032:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:32,035:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:32,035:INFO: 982.5232770643642 = 0.9824999999999999*1000 - 0.0*60 + 23.277064364254468*0.001
+2021-10-24 11:17:32,037:INFO: Bladder is at min volume
+2021-10-24 11:17:32,535:INFO: State.EXEC_TASK
+2021-10-24 11:17:32,538:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:32,539:INFO: 24.53 23.98 24.06 24.18 25.09 0.01 -0.00 0.00 11.34 11.57 10.39 10.56 1156.76 10496.78 1.39 100.00 0  0  0  None 0  60.16 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:32,540:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:32,542:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:32,542:INFO: 982.5237750494124 = 0.9824999999999999*1000 - 0.0*60 + 23.775049412548537*0.001
+2021-10-24 11:17:32,544:INFO: sending PID - Voltage:100    direction:1    timeOn:1.4  timeOff:3.6568900126422252
+2021-10-24 11:17:32,642:ERROR: unknown header: V:100.00
+2021-10-24 11:17:32,644:ERROR: unknown header: D:1.00
+2021-10-24 11:17:32,647:ERROR: unknown header: T:1.40
+2021-10-24 11:17:32,715:INFO: State.EXEC_TASK
+2021-10-24 11:17:32,717:INFO: BV    rpm  
+2021-10-24 11:17:32,718:INFO: 60.21 0.00 
+2021-10-24 11:17:32,719:INFO: waiting for pump to start
+2021-10-24 11:17:33,481:INFO: pump turned on
+2021-10-24 11:17:33,819:INFO: State.EXEC_TASK
+2021-10-24 11:17:33,821:INFO: BV    rpm     
+2021-10-24 11:17:33,821:INFO: 56.12 2450.00 
+2021-10-24 11:17:33,822:INFO: pump is running...
+2021-10-24 11:17:33,826:INFO: Pump turned off. Starting timeOff timer.
+2021-10-24 11:17:34,437:INFO: State.EXEC_TASK
+2021-10-24 11:17:34,440:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:34,440:INFO: 24.53 23.98 24.06 24.17 25.09 0.00 -0.00 -0.00 11.34 11.57 10.38 10.56 1154.86 10515.18 1.39 100.00 0  0  1  None 0  55.75 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:34,443:INFO: waiting for timeOff to finish 0.62 of 3.6568900126422252
+2021-10-24 11:17:34,954:INFO: State.EXEC_TASK
+2021-10-24 11:17:34,956:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:34,957:INFO: 24.53 23.98 24.06 24.16 25.09 0.01 -0.01 -0.00 11.34 11.57 10.39 10.55 1153.04 10525.62 1.39 100.00 0  0  1  None 0  55.88 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:34,958:INFO: waiting for timeOff to finish 1.13 of 3.6568900126422252
+2021-10-24 11:17:35,502:INFO: State.EXEC_TASK
+2021-10-24 11:17:35,504:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:35,505:INFO: 24.53 23.98 24.06 24.15 25.09 0.01 -0.01 -0.00 11.34 11.57 10.39 10.55 1151.42 10536.02 1.39 100.00 0  0  1  None 0  56.02 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:35,506:INFO: waiting for timeOff to finish 1.68 of 3.6568900126422252
+2021-10-24 11:17:36,064:INFO: State.EXEC_TASK
+2021-10-24 11:17:36,066:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:36,067:INFO: 24.53 23.98 24.06 24.14 25.09 0.00 -0.01 -0.00 11.34 11.57 10.39 10.55 1149.90 10546.10 1.39 100.00 0  0  1  None 0  56.19 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:36,068:INFO: waiting for timeOff to finish 2.24 of 3.6568900126422252
+2021-10-24 11:17:36,574:INFO: State.EXEC_TASK
+2021-10-24 11:17:36,576:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:36,577:INFO: 24.53 23.99 24.06 24.13 25.09 0.00 -0.01 -0.00 11.34 11.57 10.39 10.55 1148.54 10545.68 1.39 100.00 0  0  1  None 0  56.31 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:36,578:INFO: waiting for timeOff to finish 2.75 of 3.6568900126422252
+2021-10-24 11:17:37,100:INFO: State.EXEC_TASK
+2021-10-24 11:17:37,102:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:37,103:INFO: 24.53 23.98 24.06 24.12 25.09 0.00 -0.01 -0.00 11.34 11.57 10.39 10.55 1149.40 10543.90 1.39 100.00 0  0  1  None 0  56.43 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:37,104:INFO: waiting for timeOff to finish 3.28 of 3.6568900126422252
+2021-10-24 11:17:37,608:INFO: State.EXEC_TASK
+2021-10-24 11:17:37,610:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:37,611:INFO: 24.53 23.98 24.06 24.12 25.09 0.00 -0.01 0.00 11.34 11.57 10.39 10.56 1150.06 10542.22 1.39 100.00 0  0  1  None 0  56.57 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:37,612:INFO: waiting for timeOff to finish 3.79 of 3.6568900126422252
+2021-10-24 11:17:37,613:INFO: timeOff is over
+2021-10-24 11:17:38,136:INFO: State.EXEC_TASK
+2021-10-24 11:17:38,138:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:38,139:INFO: 24.53 23.99 24.06 24.12 25.10 0.00 -0.01 0.00 11.34 11.57 10.39 10.56 1150.70 10540.66 1.38 100.00 0  0  1  None 0  56.66 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:38,140:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:38,142:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:38,143:INFO: 982.5292775672372 = 0.9824999999999999*1000 - 0.0*60 + 29.277567237317555*0.001
+2021-10-24 11:17:38,144:INFO: Bladder is at min volume
+2021-10-24 11:17:38,697:INFO: State.EXEC_TASK
+2021-10-24 11:17:38,701:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:38,702:INFO: 24.53 23.98 24.06 24.11 25.10 -0.00 -0.01 0.00 11.34 11.57 10.39 10.56 1151.26 10539.06 1.38 100.00 0  0  1  None 0  56.83 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:38,703:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:38,705:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:38,707:INFO: 982.5298308114453 = 0.9824999999999999*1000 - 0.0*60 + 29.830811445415012*0.001
+2021-10-24 11:17:38,709:INFO: Bladder is at min volume
+2021-10-24 11:17:39,204:INFO: State.EXEC_TASK
+2021-10-24 11:17:39,207:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:39,207:INFO: 24.53 23.99 24.06 24.11 25.09 -0.00 -0.01 0.00 11.34 11.57 10.39 10.56 1151.76 10537.48 1.38 100.00 0  0  1  None 0  56.92 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:39,208:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:39,210:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:39,210:INFO: 982.5303266796102 = 0.9824999999999999*1000 - 0.0*60 + 30.326679610311977*0.001
+2021-10-24 11:17:39,212:INFO: Bladder is at min volume
+2021-10-24 11:17:39,733:INFO: State.EXEC_TASK
+2021-10-24 11:17:39,735:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:39,736:INFO: 24.53 23.99 24.07 24.10 25.09 -0.00 -0.01 0.00 11.35 11.57 10.39 10.56 1152.18 10536.00 1.38 100.00 0  0  1  None 0  57.02 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:39,736:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:39,740:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:39,741:INFO: 979.7480496208314 = 0.9799999999999986*1000 - 0.004713292138657101*60 + 30.847149152159684*0.001
+2021-10-24 11:17:39,743:INFO: Bladder is at min volume
+2021-10-24 11:17:40,241:INFO: State.EXEC_TASK
+2021-10-24 11:17:40,244:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:40,245:INFO: 24.53 24.00 24.07 24.10 25.09 -0.00 -0.01 0.00 11.35 11.57 10.39 10.56 1152.60 10534.54 1.38 100.00 0  0  1  None 0  57.12 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:40,246:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:40,248:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:40,248:INFO: 980.0313442752484 = 0.9799999999999986*1000 - 0.0*60 + 31.344275249838823*0.001
+2021-10-24 11:17:40,250:INFO: Bladder is at min volume
+2021-10-24 11:17:40,759:INFO: State.EXEC_TASK
+2021-10-24 11:17:40,761:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:40,762:INFO: 24.52 23.99 24.07 24.10 25.09 0.00 -0.01 0.00 11.35 11.58 10.39 10.56 1152.96 10533.06 1.38 100.00 0  0  1  None 0  57.23 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:40,763:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:40,765:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:40,766:INFO: 977.2421031769752 = 0.9774999999999991*1000 - 0.004829129815653405*60 + 31.8509659153223*0.001
+2021-10-24 11:17:40,768:INFO: Bladder is at min volume
+2021-10-24 11:17:41,268:INFO: State.EXEC_TASK
+2021-10-24 11:17:41,270:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:41,271:INFO: 24.52 24.00 24.07 24.10 25.09 0.00 -0.01 0.00 11.35 11.58 10.39 10.57 1153.32 10531.72 1.37 100.00 0  0  1  None 0  57.36 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:41,272:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:41,274:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:41,275:INFO: 974.7373594250822 = 0.9749999999999996*1000 - 0.004916465989991445*60 + 32.347384482026094*0.001
+2021-10-24 11:17:41,276:INFO: Bladder is at min volume
+2021-10-24 11:17:41,793:INFO: State.EXEC_TASK
+2021-10-24 11:17:41,796:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:41,797:INFO: 24.52 23.99 24.07 24.09 25.09 0.00 -0.01 0.00 11.35 11.58 10.39 10.57 1153.78 10530.38 1.37 100.00 0  0  1  None 0  57.45 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:41,798:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:41,800:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:41,800:INFO: 975.0328599906554 = 0.9749999999999996*1000 - 0.0*60 + 32.85999065577983*0.001
+2021-10-24 11:17:41,802:INFO: Bladder is at min volume
+2021-10-24 11:17:42,301:INFO: State.EXEC_TASK
+2021-10-24 11:17:42,304:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:42,305:INFO: 24.52 24.00 24.07 24.09 25.09 0.00 -0.01 0.00 11.35 11.58 10.40 10.57 1154.06 10529.08 1.37 100.00 0  0  1  None 0  57.51 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:42,305:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:42,307:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:42,308:INFO: 972.2379385983884 = 0.9725000000000001*1000 - 0.004923597040889852*60 + 33.354420841634266*0.001
+2021-10-24 11:17:42,310:INFO: Bladder is at min volume
+2021-10-24 11:17:42,825:INFO: State.EXEC_TASK
+2021-10-24 11:17:42,828:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:42,829:INFO: 24.52 23.99 24.07 24.09 25.09 0.00 -0.00 0.00 11.35 11.58 10.40 10.57 1154.44 10527.72 1.37 100.00 0  0  1  None 0  57.66 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:42,829:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:42,832:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:42,832:INFO: 972.5338643108026 = 0.9725000000000001*1000 - 0.0*60 + 33.86431080251931*0.001
+2021-10-24 11:17:42,834:INFO: Bladder is at min volume
+2021-10-24 11:17:43,334:INFO: State.EXEC_TASK
+2021-10-24 11:17:43,336:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:43,337:INFO: 24.51 24.00 24.08 24.09 25.09 0.00 -0.00 0.00 11.35 11.58 10.40 10.57 1154.70 10526.24 1.37 100.00 0  0  1  None 0  57.79 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:43,338:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:43,340:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:43,341:INFO: 972.5343585217868 = 0.9725000000000001*1000 - 0.0*60 + 34.35852178663014*0.001
+2021-10-24 11:17:43,342:INFO: Bladder is at min volume
+2021-10-24 11:17:43,856:INFO: State.EXEC_TASK
+2021-10-24 11:17:43,859:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:43,860:INFO: 24.51 24.00 24.08 24.08 25.08 -0.01 -0.00 0.00 11.35 11.58 10.40 10.57 1155.08 10524.90 1.37 100.00 0  0  1  None 0  57.87 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:43,861:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:43,863:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:43,863:INFO: 972.534866923425 = 0.9725000000000001*1000 - 0.0*60 + 34.86692342489957*0.001
+2021-10-24 11:17:43,865:INFO: Bladder is at min volume
+2021-10-24 11:17:44,369:INFO: State.EXEC_TASK
+2021-10-24 11:17:44,371:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:44,372:INFO: 24.51 24.01 24.09 24.08 25.08 -0.01 -0.00 0.00 11.35 11.58 10.40 10.57 1155.28 10523.60 1.37 100.00 0  0  1  None 0  57.94 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:44,373:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:44,375:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:44,376:INFO: 972.5353655240218 = 0.9725000000000001*1000 - 0.0*60 + 35.36552402168511*0.001
+2021-10-24 11:17:44,377:INFO: Bladder is at min volume
+2021-10-24 11:17:44,894:INFO: State.EXEC_TASK
+2021-10-24 11:17:44,896:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:44,897:INFO: 24.51 24.00 24.09 24.07 25.08 -0.01 -0.00 0.00 11.36 11.58 10.40 10.57 1155.68 10522.34 1.37 100.00 0  0  1  None 0  57.99 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:44,898:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:44,900:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:44,901:INFO: 969.7501864110601 = 0.9700000000000006*1000 - 0.004761484403805421*60 + 35.87547528773545*0.001
+2021-10-24 11:17:44,903:INFO: Bladder is at min volume
+2021-10-24 11:17:45,401:INFO: State.EXEC_TASK
+2021-10-24 11:17:45,404:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:45,405:INFO: 24.51 23.98 24.10 24.07 25.08 -0.01 -0.00 0.00 11.36 11.58 10.40 10.57 1155.94 10521.10 1.37 100.00 0  0  1  None 0  58.11 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:45,406:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:45,408:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:45,409:INFO: 970.0363678309355 = 0.9700000000000006*1000 - 0.0*60 + 36.36783093482254*0.001
+2021-10-24 11:17:45,410:INFO: Bladder is at min volume
+2021-10-24 11:17:45,926:INFO: State.EXEC_TASK
+2021-10-24 11:17:45,929:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:45,930:INFO: 24.51 23.98 24.10 24.07 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1156.34 10519.98 1.37 100.00 0  0  1  None 0  58.21 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:45,930:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:45,933:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:45,933:INFO: 970.0368768284856 = 0.9700000000000006*1000 - 0.0*60 + 36.876828484833226*0.001
+2021-10-24 11:17:45,935:INFO: Bladder is at min volume
+2021-10-24 11:17:46,435:INFO: State.EXEC_TASK
+2021-10-24 11:17:46,437:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:46,438:INFO: 24.51 23.99 24.10 24.07 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1156.52 10518.70 1.37 100.00 0  0  1  None 0  58.38 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:46,439:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:46,441:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:46,442:INFO: 970.0373700566993 = 0.9700000000000006*1000 - 0.0*60 + 37.3700566986203*0.001
+2021-10-24 11:17:46,443:INFO: Bladder is at min volume
+2021-10-24 11:17:46,959:INFO: State.EXEC_TASK
+2021-10-24 11:17:46,961:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:46,962:INFO: 24.51 23.98 24.10 24.07 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1156.76 10517.44 1.37 100.00 0  0  1  None 0  58.42 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:46,963:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:46,965:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:46,966:INFO: 970.0378784682213 = 0.9700000000000006*1000 - 0.0*60 + 37.87846822053192*0.001
+2021-10-24 11:17:46,968:INFO: Bladder is at min volume
+2021-10-24 11:17:47,466:INFO: State.EXEC_TASK
+2021-10-24 11:17:47,468:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:47,469:INFO: 24.52 23.99 24.10 24.08 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1156.80 10516.16 1.37 100.00 0  0  1  None 0  58.50 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:47,470:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:47,473:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:47,473:INFO: 970.0383706969033 = 0.9700000000000006*1000 - 0.0*60 + 38.37069690257309*0.001
+2021-10-24 11:17:47,475:INFO: Bladder is at min volume
+2021-10-24 11:17:47,994:INFO: State.EXEC_TASK
+2021-10-24 11:17:47,996:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:47,997:INFO: 24.52 23.99 24.10 24.08 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1157.00 10514.92 1.37 100.00 0  0  1  None 0  58.60 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:47,998:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:48,000:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:48,001:INFO: 970.0388823017464 = 0.9700000000000006*1000 - 0.0*60 + 38.88230174571274*0.001
+2021-10-24 11:17:48,003:INFO: Bladder is at min volume
+2021-10-24 11:17:48,501:INFO: State.EXEC_TASK
+2021-10-24 11:17:48,504:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:48,505:INFO: 24.52 23.99 24.10 24.08 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1157.14 10513.68 1.37 100.00 0  0  1  None 0  58.68 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:48,506:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:48,508:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:48,508:INFO: 970.039374511002 = 0.9700000000000006*1000 - 0.0*60 + 39.37451100140808*0.001
+2021-10-24 11:17:48,510:INFO: Bladder is at min volume
+2021-10-24 11:17:49,026:INFO: State.EXEC_TASK
+2021-10-24 11:17:49,028:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:49,029:INFO: 24.53 23.99 24.10 24.08 25.07 -0.01 0.00 -0.00 11.36 11.58 10.40 10.57 1157.26 10512.58 1.37 100.00 0  0  1  None 0  58.80 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:49,030:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:49,032:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:49,033:INFO: 970.0398833126698 = 0.9700000000000006*1000 - 0.0*60 + 39.88331266909836*0.001
+2021-10-24 11:17:49,035:INFO: Bladder is at min volume
+2021-10-24 11:17:49,532:INFO: State.EXEC_TASK
+2021-10-24 11:17:49,534:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:49,535:INFO: 24.53 23.99 24.09 24.08 25.07 -0.01 0.00 -0.00 11.35 11.58 10.40 10.57 1157.46 10511.38 1.37 100.00 0  0  1  None 0  58.90 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:49,536:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:49,538:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:49,539:INFO: 972.8367270942432 = 0.9725000000000001*1000 - -0.004939202982995447*60 + 40.37491526335476*0.001
+2021-10-24 11:17:49,541:INFO: Bladder is at min volume
+2021-10-24 11:17:50,058:INFO: State.EXEC_TASK
+2021-10-24 11:17:50,061:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:50,062:INFO: 24.53 23.98 24.09 24.08 25.07 -0.01 0.00 -0.00 11.35 11.58 10.40 10.57 1157.56 10510.10 1.37 100.00 0  0  1  None 0  58.99 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:50,063:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:50,065:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:50,066:INFO: 972.5408870526634 = 0.9725000000000001*1000 - 0.0*60 + 40.88705266326664*0.001
+2021-10-24 11:17:50,067:INFO: Bladder is at min volume
+2021-10-24 11:17:50,566:INFO: State.EXEC_TASK
+2021-10-24 11:17:50,569:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:50,570:INFO: 24.53 23.99 24.09 24.08 25.06 -0.01 0.00 -0.00 11.35 11.58 10.40 10.57 1157.66 10508.90 1.37 100.00 0  0  1  None 0  59.06 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:50,571:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:50,573:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:50,574:INFO: 972.5413812049864 = 0.9725000000000001*1000 - 0.0*60 + 41.38120498627422*0.001
+2021-10-24 11:17:50,575:INFO: Bladder is at min volume
+2021-10-24 11:17:51,088:INFO: State.EXEC_TASK
+2021-10-24 11:17:51,091:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:51,092:INFO: 24.54 23.99 24.09 24.08 25.06 -0.01 0.00 -0.00 11.35 11.58 10.40 10.57 1157.60 10507.82 1.37 100.00 0  0  1  None 0  59.12 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:51,093:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:51,095:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:51,095:INFO: 972.5418885270749 = 0.9725000000000001*1000 - 0.0*60 + 41.888527074754215*0.001
+2021-10-24 11:17:51,097:INFO: Bladder is at min volume
+2021-10-24 11:17:51,595:INFO: State.EXEC_TASK
+2021-10-24 11:17:51,598:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:51,598:INFO: 24.54 23.99 24.09 24.08 25.06 -0.01 0.00 -0.00 11.35 11.57 10.40 10.57 1157.64 10506.72 1.37 100.00 0  0  1  None 0  59.21 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:17:51,599:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:51,601:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:51,601:INFO: 975.3387554553805 = 0.9749999999999996*1000 - -0.004939568279575748*60 + 42.381358606219266*0.001
+2021-10-24 11:17:51,603:INFO: Bladder is at min volume
+2021-10-24 11:17:52,119:INFO: State.EXEC_TASK
+2021-10-24 11:17:52,122:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:52,122:INFO: 24.54 23.98 24.09 24.08 25.06 -0.01 0.01 0.00 11.35 11.57 10.40 10.56 1157.54 10505.66 1.37 100.00 0  0  1  None 0  59.28 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:52,123:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:52,125:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:52,126:INFO: 977.8290116278561 = 0.9774999999999991*1000 - -0.004768641033534471*60 + 42.89316584497688*0.001
+2021-10-24 11:17:52,127:INFO: Bladder is at min volume
+2021-10-24 11:17:52,684:INFO: State.EXEC_TASK
+2021-10-24 11:17:52,686:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:52,687:INFO: 24.54 23.98 24.08 24.08 25.06 -0.00 0.00 0.00 11.35 11.57 10.39 10.56 1157.42 10504.56 1.38 100.00 0  0  1  None 0  59.40 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:17:52,688:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:52,690:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:52,690:INFO: 980.3090588014281 = 0.9799999999999986*1000 - -0.00442688174221918*60 + 43.445896896421885*0.001
+2021-10-24 11:17:52,692:INFO: Bladder is at min volume
+2021-10-24 11:17:53,191:INFO: State.EXEC_TASK
+2021-10-24 11:17:53,193:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:53,194:INFO: 24.54 23.98 24.08 24.08 25.06 -0.00 0.00 0.00 11.34 11.57 10.39 10.55 1157.28 10503.42 1.38 100.00 0  0  1  None 0  59.47 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:53,195:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:53,196:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:53,197:INFO: 985.636082932838 = 0.9850000000000012*1000 - -0.009868987742076549*60 + 43.94366831213233*0.001
+2021-10-24 11:17:53,198:INFO: Bladder is at min volume
+2021-10-24 11:17:53,712:INFO: State.EXEC_TASK
+2021-10-24 11:17:53,714:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:53,715:INFO: 24.54 23.98 24.07 24.08 25.06 0.00 0.00 0.00 11.34 11.57 10.39 10.55 1157.14 10502.18 1.38 100.00 0  0  1  None 0  59.56 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:53,716:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:53,718:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:53,718:INFO: 985.0444572033731 = 0.9850000000000012*1000 - 0.0*60 + 44.45720337182281*0.001
+2021-10-24 11:17:53,720:INFO: Bladder is at min volume
+2021-10-24 11:17:54,224:INFO: State.EXEC_TASK
+2021-10-24 11:17:54,227:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:54,227:INFO: 24.54 23.99 24.07 24.09 25.05 0.00 0.00 0.00 11.34 11.56 10.38 10.55 1157.08 10501.08 1.39 100.00 0  0  1  None 0  59.60 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:54,228:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:54,230:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:54,231:INFO: 990.6304202576496 = 0.9900000000000002*1000 - -0.009757617322538149*60 + 44.96321829706428*0.001
+2021-10-24 11:17:54,232:INFO: Bladder is at min volume
+2021-10-24 11:17:54,748:INFO: State.EXEC_TASK
+2021-10-24 11:17:54,751:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:54,752:INFO: 24.54 23.99 24.07 24.08 25.05 0.01 0.00 0.00 11.34 11.56 10.38 10.55 1157.12 10499.92 1.39 100.00 0  0  1  None 0  59.71 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:54,752:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:54,754:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:54,755:INFO: 990.0454821290534 = 0.9900000000000002*1000 - 0.0*60 + 45.48212905317543*0.001
+2021-10-24 11:17:54,757:INFO: Bladder is at min volume
+2021-10-24 11:17:55,260:INFO: State.EXEC_TASK
+2021-10-24 11:17:55,263:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:55,264:INFO: 24.54 23.99 24.06 24.09 25.05 0.01 0.00 0.00 11.34 11.56 10.38 10.55 1157.28 10499.02 1.40 100.00 0  0  1  None 0  59.74 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:55,264:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:55,266:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:55,267:INFO: 990.0459890792387 = 0.9900000000000002*1000 - 0.0*60 + 45.989079238474346*0.001
+2021-10-24 11:17:55,269:INFO: Bladder is at min volume
+2021-10-24 11:17:55,789:INFO: State.EXEC_TASK
+2021-10-24 11:17:55,791:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:55,792:INFO: 24.54 24.00 24.06 24.09 25.05 0.01 0.00 0.00 11.33 11.56 10.38 10.55 1157.26 10498.06 1.40 100.00 0  0  1  None 0  59.85 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:55,793:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:55,795:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:55,795:INFO: 992.8303681547335 = 0.9924999999999979*1000 - -0.004730921016711309*60 + 46.512893732786154*0.001
+2021-10-24 11:17:55,797:INFO: Bladder is at min volume
+2021-10-24 11:17:56,301:INFO: State.EXEC_TASK
+2021-10-24 11:17:56,303:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:56,304:INFO: 24.54 24.00 24.06 24.10 25.05 0.01 0.00 0.00 11.33 11.56 10.38 10.55 1157.38 10497.02 1.40 100.00 0  0  1  None 0  59.96 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:56,305:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:56,307:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:56,308:INFO: 992.5470211645571 = 0.9924999999999979*1000 - 0.0*60 + 47.02116455912587*0.001
+2021-10-24 11:17:56,309:INFO: Bladder is at min volume
+2021-10-24 11:17:56,832:INFO: State.EXEC_TASK
+2021-10-24 11:17:56,834:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:56,835:INFO: 24.54 24.00 24.06 24.09 25.05 0.01 0.00 0.00 11.33 11.56 10.38 10.55 1157.52 10495.80 1.40 100.00 0  0  1  None 0  60.07 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:56,836:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:56,838:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:56,838:INFO: 992.5475477631209 = 0.9924999999999979*1000 - 0.0*60 + 47.547763122916194*0.001
+2021-10-24 11:17:56,840:INFO: Bladder is at min volume
+2021-10-24 11:17:57,345:INFO: State.EXEC_TASK
+2021-10-24 11:17:57,347:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:57,348:INFO: 24.53 23.99 24.06 24.10 25.04 0.01 0.00 0.00 11.33 11.56 10.38 10.55 1157.64 10494.74 1.40 100.00 0  0  0  None 0  60.12 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:57,349:INFO: attemting to start a new dutycycle
+2021-10-24 11:17:57,351:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:17:57,351:INFO: 992.5480568993047 = 0.9924999999999979*1000 - 0.0*60 + 48.05689930677411*0.001
+2021-10-24 11:17:57,353:INFO: sending PID - Voltage:100    direction:1    timeOn:1.4  timeOff:3.624223936838334
+2021-10-24 11:17:57,457:ERROR: unknown header: V:100.00
+2021-10-24 11:17:57,459:ERROR: unknown header: D:1.00
+2021-10-24 11:17:57,462:ERROR: unknown header: T:1.40
+2021-10-24 11:17:57,529:INFO: State.EXEC_TASK
+2021-10-24 11:17:57,532:INFO: BV    rpm  
+2021-10-24 11:17:57,532:INFO: 60.11 0.00 
+2021-10-24 11:17:57,533:INFO: waiting for pump to start
+2021-10-24 11:17:58,302:INFO: pump turned on
+2021-10-24 11:17:58,639:INFO: State.EXEC_TASK
+2021-10-24 11:17:58,641:INFO: BV    rpm     
+2021-10-24 11:17:58,642:INFO: 56.03 2358.00 
+2021-10-24 11:17:58,642:INFO: pump is running...
+2021-10-24 11:17:58,646:INFO: Pump turned off. Starting timeOff timer.
+2021-10-24 11:17:59,258:INFO: State.EXEC_TASK
+2021-10-24 11:17:59,260:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:59,261:INFO: 24.53 24.00 24.06 24.10 25.03 -0.00 -0.01 0.00 11.33 11.56 10.38 10.55 1155.68 10514.30 1.40 100.00 0  0  1  None 0  55.50 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:59,262:INFO: waiting for timeOff to finish 0.62 of 3.624223936838334
+2021-10-24 11:17:59,775:INFO: State.EXEC_TASK
+2021-10-24 11:17:59,777:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:17:59,778:INFO: 24.53 24.00 24.06 24.10 25.03 -0.00 -0.01 0.00 11.34 11.56 10.38 10.55 1154.02 10525.30 1.40 100.00 0  0  1  None 0  55.66 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:17:59,779:INFO: waiting for timeOff to finish 1.13 of 3.624223936838334
+2021-10-24 11:18:00,325:INFO: State.EXEC_TASK
+2021-10-24 11:18:00,328:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:00,328:INFO: 24.52 23.99 24.06 24.10 25.03 -0.00 -0.01 0.00 11.34 11.57 10.38 10.55 1152.48 10536.10 1.40 100.00 0  0  1  None 0  55.79 0.00 EXEC_TASK EN_ROUTE     1        0.99  0.01  
+2021-10-24 11:18:00,329:INFO: waiting for timeOff to finish 1.68 of 3.624223936838334
+2021-10-24 11:18:00,839:INFO: State.EXEC_TASK
+2021-10-24 11:18:00,842:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:00,842:INFO: 24.52 23.99 24.06 24.10 25.03 -0.00 -0.01 0.00 11.34 11.57 10.39 10.56 1150.96 10546.68 1.40 100.00 0  0  1  None 0  55.89 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:18:00,843:INFO: waiting for timeOff to finish 2.2 of 3.624223936838334
+2021-10-24 11:18:01,369:INFO: State.EXEC_TASK
+2021-10-24 11:18:01,371:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:01,372:INFO: 24.52 23.99 24.06 24.11 25.03 -0.00 -0.01 0.00 11.35 11.57 10.39 10.56 1149.72 10546.86 1.39 100.00 0  0  1  None 0  55.95 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:18:01,373:INFO: waiting for timeOff to finish 2.73 of 3.624223936838334
+2021-10-24 11:18:01,883:INFO: State.EXEC_TASK
+2021-10-24 11:18:01,885:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:01,886:INFO: 24.52 23.99 24.07 24.10 25.03 -0.00 -0.01 -0.00 11.35 11.57 10.39 10.56 1150.62 10545.36 1.39 100.00 0  0  1  None 0  56.10 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:18:01,887:INFO: waiting for timeOff to finish 3.24 of 3.624223936838334
+2021-10-24 11:18:02,410:INFO: State.EXEC_TASK
+2021-10-24 11:18:02,412:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:02,413:INFO: 24.52 23.99 24.07 24.11 25.03 -0.00 -0.01 -0.00 11.35 11.57 10.39 10.56 1151.54 10544.12 1.39 100.00 0  0  1  None 0  56.15 0.00 EXEC_TASK EN_ROUTE     1        0.98  0.02  
+2021-10-24 11:18:02,414:INFO: waiting for timeOff to finish 3.77 of 3.624223936838334
+2021-10-24 11:18:02,414:INFO: timeOff is over
+2021-10-24 11:18:02,922:INFO: State.EXEC_TASK
+2021-10-24 11:18:02,924:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:02,925:INFO: 24.51 23.99 24.07 24.11 25.03 0.00 0.00 -0.00 11.35 11.58 10.39 10.57 1152.34 10542.94 1.38 100.00 0  0  1  None 0  56.26 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:18:02,926:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:02,927:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:02,928:INFO: 974.8617186180358 = 0.9749999999999996*1000 - 0.0031380230327318253*60 + 50*0.001
+2021-10-24 11:18:02,929:INFO: Bladder is at min volume
+2021-10-24 11:18:03,450:INFO: State.EXEC_TASK
+2021-10-24 11:18:03,452:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:03,453:INFO: 24.52 23.98 24.07 24.11 25.03 0.00 0.00 -0.00 11.36 11.58 10.40 10.57 1153.14 10541.76 1.38 100.00 0  0  1  None 0  56.36 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:18:03,454:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:03,456:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:03,456:INFO: 969.4821649679941 = 0.9700000000000006*1000 - 0.009463917200109131*60 + 50*0.001
+2021-10-24 11:18:03,458:INFO: Bladder is at min volume
+2021-10-24 11:18:04,014:INFO: State.EXEC_TASK
+2021-10-24 11:18:04,016:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:04,017:INFO: 24.51 23.98 24.07 24.11 25.03 -0.00 0.00 -0.00 11.36 11.58 10.40 10.58 1153.68 10540.64 1.38 100.00 0  0  1  None 0  56.38 0.00 EXEC_TASK EN_ROUTE     1        0.97  0.03  
+2021-10-24 11:18:04,018:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:04,020:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:04,020:INFO: 967.2840658848305 = 0.9675000000000011*1000 - 0.0044322352528422424*60 + 50*0.001
+2021-10-24 11:18:04,022:INFO: Bladder is at min volume
+2021-10-24 11:18:04,528:INFO: State.EXEC_TASK
+2021-10-24 11:18:04,531:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:04,532:INFO: 24.51 23.97 24.07 24.11 25.03 -0.00 0.00 -0.00 11.36 11.59 10.41 10.58 1154.34 10539.54 1.37 100.00 0  0  1  None 0  56.51 0.00 EXEC_TASK EN_ROUTE     1        0.96  0.04  
+2021-10-24 11:18:04,532:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:04,534:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:04,535:INFO: 961.9671517824638 = 0.9625000000000004*1000 - 0.009714136958941999*60 + 50*0.001
+2021-10-24 11:18:04,537:INFO: Bladder is at min volume
+2021-10-24 11:18:05,057:INFO: State.EXEC_TASK
+2021-10-24 11:18:05,059:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:05,060:INFO: 24.51 23.96 24.06 24.11 25.02 -0.01 0.00 -0.00 11.36 11.59 10.41 10.58 1154.84 10538.36 1.37 100.00 0  0  1  None 0  56.60 0.00 EXEC_TASK EN_ROUTE     1        0.96  0.04  
+2021-10-24 11:18:05,061:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:05,063:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:05,064:INFO: 962.5500000000003 = 0.9625000000000004*1000 - 0.0*60 + 50*0.001
+2021-10-24 11:18:05,065:INFO: Bladder is at min volume
+2021-10-24 11:18:05,569:INFO: State.EXEC_TASK
+2021-10-24 11:18:05,571:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:05,572:INFO: 24.51 23.96 24.07 24.11 25.02 -0.01 0.00 -0.00 11.37 11.59 10.41 10.58 1155.36 10537.24 1.37 100.00 0  0  1  None 0  56.68 0.00 EXEC_TASK EN_ROUTE     1        0.96  0.04  
+2021-10-24 11:18:05,573:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:05,575:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:05,575:INFO: 959.7568515171455 = 0.9599999999999991*1000 - 0.004885808047558911*60 + 50*0.001
+2021-10-24 11:18:05,577:INFO: Bladder is at min volume
+2021-10-24 11:18:06,094:INFO: State.EXEC_TASK
+2021-10-24 11:18:06,096:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:06,097:INFO: 24.51 23.96 24.06 24.12 25.02 -0.01 0.00 -0.00 11.37 11.59 10.42 10.59 1155.86 10536.12 1.37 100.00 0  0  1  None 0  56.78 0.00 EXEC_TASK EN_ROUTE     1        0.96  0.04  
+2021-10-24 11:18:06,097:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:06,099:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:06,100:INFO: 954.4781235385418 = 0.9550000000000001*1000 - 0.009531274357638137*60 + 50*0.001
+2021-10-24 11:18:06,101:INFO: Bladder is at min volume
+2021-10-24 11:18:06,606:INFO: State.EXEC_TASK
+2021-10-24 11:18:06,609:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:06,609:INFO: 24.50 23.97 24.06 24.12 25.02 -0.01 0.00 -0.00 11.37 11.60 10.42 10.59 1156.38 10534.98 1.37 100.00 0  0  1  None 0  56.81 0.00 EXEC_TASK EN_ROUTE     1        0.95  0.05  
+2021-10-24 11:18:06,610:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:06,612:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:06,613:INFO: 952.2574502024808 = 0.9524999999999988*1000 - 0.004875829958631855*60 + 50*0.001
+2021-10-24 11:18:06,614:INFO: Bladder is at min volume
+2021-10-24 11:18:07,132:INFO: State.EXEC_TASK
+2021-10-24 11:18:07,135:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:07,135:INFO: 24.50 23.97 24.06 24.12 25.02 -0.00 0.00 0.00 11.38 11.60 10.42 10.59 1156.78 10533.80 1.37 100.00 0  0  1  None 0  56.96 0.00 EXEC_TASK EN_ROUTE     1        0.95  0.05  
+2021-10-24 11:18:07,136:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:07,138:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:07,138:INFO: 949.7646791495519 = 0.9500000000000011*1000 - 0.004755347507485315*60 + 50*0.001
+2021-10-24 11:18:07,140:INFO: Bladder is at min volume
+2021-10-24 11:18:07,641:INFO: State.EXEC_TASK
+2021-10-24 11:18:07,644:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:07,644:INFO: 24.50 23.97 24.06 24.12 25.01 -0.00 0.00 0.00 11.38 11.60 10.42 10.59 1157.12 10532.68 1.37 100.00 0  0  1  None 0  57.02 0.00 EXEC_TASK EN_ROUTE     1        0.95  0.05  
+2021-10-24 11:18:07,645:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:07,647:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:07,648:INFO: 950.050000000001 = 0.9500000000000011*1000 - 0.0*60 + 50*0.001
+2021-10-24 11:18:07,649:INFO: Bladder is at min volume
+2021-10-24 11:18:08,171:INFO: State.EXEC_TASK
+2021-10-24 11:18:08,173:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:08,174:INFO: 24.49 23.97 24.06 24.12 25.01 -0.01 0.00 0.00 11.38 11.61 10.42 10.60 1157.54 10531.54 1.36 100.00 0  0  1  None 0  57.11 0.00 EXEC_TASK EN_ROUTE     1        0.94  0.06  
+2021-10-24 11:18:08,175:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:08,177:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:08,178:INFO: 944.4836932164659 = 0.9449999999999985*1000 - 0.009438446392209787*60 + 50*0.001
+2021-10-24 11:18:08,179:INFO: Bladder is at min volume
+2021-10-24 11:18:08,682:INFO: State.EXEC_TASK
+2021-10-24 11:18:08,684:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:08,685:INFO: 24.49 23.97 24.06 24.11 25.01 0.01 0.00 0.00 11.38 11.61 10.43 10.60 1157.90 10530.26 1.36 100.00 0  0  1  None 0  57.27 0.00 EXEC_TASK EN_ROUTE     1        0.94  0.06  
+2021-10-24 11:18:08,685:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:08,687:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:08,688:INFO: 942.2558720348561 = 0.942499999999999*1000 - 0.004902132752380957*60 + 50*0.001
+2021-10-24 11:18:08,689:INFO: Bladder is at min volume
+2021-10-24 11:18:09,210:INFO: State.EXEC_TASK
+2021-10-24 11:18:09,212:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:09,213:INFO: 24.49 23.97 24.06 24.11 25.01 0.01 0.00 0.00 11.38 11.61 10.43 10.60 1158.36 10528.94 1.36 100.00 0  0  1  None 0  57.33 0.00 EXEC_TASK EN_ROUTE     1        0.94  0.06  
+2021-10-24 11:18:09,214:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:09,216:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:09,217:INFO: 942.5499999999989 = 0.942499999999999*1000 - 0.0*60 + 50*0.001
+2021-10-24 11:18:09,218:INFO: Bladder is at min volume
+2021-10-24 11:18:09,718:INFO: State.EXEC_TASK
+2021-10-24 11:18:09,720:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP       PD   PC     HL EL BF SF   PF BV    rpm  State     MissionState Setpoint Error Depth 
+2021-10-24 11:18:09,721:INFO: 24.49 23.97 24.06 24.10 25.01 0.01 0.00 0.00 11.39 11.61 10.43 10.60 1158.84 10527.90 1.36 100.00 0  0  1  None 0  57.37 0.00 EXEC_TASK EN_ROUTE     1        0.94  0.06  
+2021-10-24 11:18:09,722:INFO: attemting to start a new dutycycle
+2021-10-24 11:18:09,724:INFO: scalar = self.p*self.kp - self.d*self.kd + self.i*self.ki
+2021-10-24 11:18:09,725:INFO: 939.7544769136676 = 0.9399999999999995*1000 - 0.004925384772198283*60 + 50*0.001
+2021-10-24 11:18:09,726:INFO: Bladder is at min volume
+2021-10-24 11:18:10,197:CRITICAL: user initiated safe system shutdown
+2021-10-24 11:18:10,198:INFO: skipping nano safe shutdown: disabled

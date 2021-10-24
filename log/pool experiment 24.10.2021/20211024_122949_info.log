@@ -1,0 +1,347 @@
+2021-10-24 12:29:49,853:TEST-MODE:INFO: init
+2021-10-24 12:29:49,854:TEST-MODE:INFO: loading settings:
+2021-10-24 12:29:49,855:TEST-MODE:INFO: [app]: simulation = False
+2021-10-24 12:29:49,856:TEST-MODE:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 12:29:49,856:TEST-MODE:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 12:29:49,857:TEST-MODE:INFO: [app]: disable_safety = True
+2021-10-24 12:29:49,857:TEST-MODE:INFO: [app]: test_mode = True
+2021-10-24 12:29:49,858:TEST-MODE:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 12:29:49,859:TEST-MODE:INFO: [app]: disable_altimeter = True
+2021-10-24 12:29:49,860:TEST-MODE:INFO: [app]: skip_arduino_compile = True
+2021-10-24 12:29:49,860:TEST-MODE:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 12:29:49,861:TEST-MODE:INFO: [serial]: timeout = 3
+2021-10-24 12:29:49,862:TEST-MODE:INFO: [serial]: baud_rate = 115200
+2021-10-24 12:29:49,863:TEST-MODE:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 12:29:49,864:TEST-MODE:INFO: [serial_safety]: timeout = 3
+2021-10-24 12:29:49,865:TEST-MODE:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 12:29:49,866:TEST-MODE:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 12:29:49,866:TEST-MODE:INFO: [task]: planned_mission = [1, 0, 1, 0]
+2021-10-24 12:29:49,867:TEST-MODE:INFO: [task]: hold_on_taget_duration = 60
+2021-10-24 12:29:49,868:TEST-MODE:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 12:29:49,869:TEST-MODE:INFO: [task]: min_ascend_descend_distance = 0.2
+2021-10-24 12:29:49,869:TEST-MODE:INFO: [task]: kp = 40
+2021-10-24 12:29:49,870:TEST-MODE:INFO: [task]: kd = 1000
+2021-10-24 12:29:49,870:TEST-MODE:INFO: [task]: ki = 0.001
+2021-10-24 12:29:49,871:TEST-MODE:INFO: [pressure]: epsilon = 0.5
+2021-10-24 12:29:49,871:TEST-MODE:INFO: [pressure]: avg_samples = 5
+2021-10-24 12:29:49,872:TEST-MODE:INFO: [pressure]: precision = 2
+2021-10-24 12:29:49,873:TEST-MODE:INFO: [temperature]: avg_samples = 5
+2021-10-24 12:29:49,873:TEST-MODE:INFO: [temperature]: precision = 2
+2021-10-24 12:29:49,874:TEST-MODE:INFO: [imu]: avg_samples = 5
+2021-10-24 12:29:49,875:TEST-MODE:INFO: [imu]: precision = 2
+2021-10-24 12:29:49,875:TEST-MODE:INFO: [bladder]: avg_samples = 1
+2021-10-24 12:29:49,876:TEST-MODE:INFO: [bladder]: precision = 2
+2021-10-24 12:29:49,876:TEST-MODE:INFO: [altimeter]: avg_samples = 1
+2021-10-24 12:29:49,877:TEST-MODE:INFO: [altimeter]: precision = 2
+2021-10-24 12:29:49,878:TEST-MODE:INFO: [rpm]: avg_samples = 1
+2021-10-24 12:29:49,879:TEST-MODE:INFO: [rpm]: precision = 2
+2021-10-24 12:29:49,880:TEST-MODE:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 12:29:49,881:TEST-MODE:INFO: [safety]: timeout = 30
+2021-10-24 12:29:49,882:TEST-MODE:WARNING: Safety is disabled
+2021-10-24 12:29:49,882:TEST-MODE:WARNING: Altimeter is disabled
+2021-10-24 12:29:49,883:TEST-MODE:WARNING: Test mode
+2021-10-24 12:29:49,885:TEST-MODE:INFO: Pressure controller was initialized successfully
+2021-10-24 12:29:49,886:TEST-MODE:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 12:29:49,887:TEST-MODE:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 12:29:49,888:TEST-MODE:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 12:29:49,889:TEST-MODE:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 12:29:49,890:TEST-MODE:INFO: HP pressure sensor was initialized successfully
+2021-10-24 12:29:49,891:TEST-MODE:INFO: AP pressure sensor was initialized successfully
+2021-10-24 12:29:49,892:TEST-MODE:INFO: Temperature controller was initialized successfully
+2021-10-24 12:29:49,892:TEST-MODE:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 12:29:49,893:TEST-MODE:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 12:29:49,894:TEST-MODE:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 12:29:49,895:TEST-MODE:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 12:29:49,895:TEST-MODE:INFO: AT temperature sensor was initialized successfully
+2021-10-24 12:29:49,896:TEST-MODE:INFO: IMU controller was initialized successfully
+2021-10-24 12:29:49,897:TEST-MODE:INFO: X IMU sensor was initialized successfully
+2021-10-24 12:29:49,898:TEST-MODE:INFO: Y IMU sensor was initialized successfully
+2021-10-24 12:29:49,898:TEST-MODE:INFO: Z IMU sensor was initialized successfully
+2021-10-24 12:29:49,899:TEST-MODE:INFO: Bladder volume controller was initialized successfully
+2021-10-24 12:29:49,900:TEST-MODE:INFO: Altimeter controller was initialized successfully
+2021-10-24 12:29:49,900:TEST-MODE:INFO: rpm controller was initialized successfully
+2021-10-24 12:29:49,901:TEST-MODE:INFO: Pump flag controller was initialized successfully
+2021-10-24 12:29:49,902:TEST-MODE:INFO: Bladder flag controller was initialized successfully
+2021-10-24 12:29:49,902:TEST-MODE:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 12:29:49,903:TEST-MODE:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 12:29:49,903:TEST-MODE:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 12:29:49,904:TEST-MODE:INFO: Iridium flag controller was initialized successfully
+2021-10-24 12:29:49,908:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-24 12:29:49,925:TEST-MODE:INFO: Profile file loaded successfully
+2021-10-24 12:29:49,926:TEST-MODE:INFO: Profile class was initialized successfully
+2021-10-24 12:29:49,927:TEST-MODE:INFO: setting state to MissionState.IDLE
+2021-10-24 12:29:49,930:TEST-MODE:ERROR: unknown header: 1P1:1013.10
+2021-10-24 12:29:51,327:TEST-MODE:ERROR: unknown header: SU:0.00
+2021-10-24 12:29:51,397:TEST-MODE:ERROR: unknown header: PS:2.00
+2021-10-24 12:29:53,867:TEST-MODE:ERROR: unknown header: Date: 10/24/2021 Time
+2021-10-24 12:29:55,567:TEST-MODE:ERROR: unknown header: SU:1.00
+2021-10-24 12:29:56,077:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:56,082:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL EL BF   SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:56,084:TEST-MODE:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (3/5) Buffering (2/5) 0  0  0  0  None None None 652.63 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:29:56,084:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:56,583:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:56,585:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:56,587:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (4/5) Buffering (3/5) 1.53 100.00 0  0  2  None None 652.58 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:29:56,588:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:57,137:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:57,139:TEST-MODE:INFO: BT1   BT2    TT1   TT2   AT              X               Y               Z               BP1   BP2   TP1   TP2             HP      AP              PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:57,141:TEST-MODE:INFO: 24.62 -83.75 24.65 24.71 Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.16 11.39 10.23 Buffering (4/5) 1703.68 Buffering (4/5) 1.52 100.00 0  0  2  None None 652.69 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:29:57,142:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:57,700:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:57,702:TEST-MODE:INFO: BT1   BT2    TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:57,703:TEST-MODE:INFO: 24.62 -83.75 24.64 24.72 26.06 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.18 11.41 10.26 10.36 1706.34 6178.68 1.51 100.00 0  0  2  None None 652.70 Buffering (0/1) STOP  IDLE         None     None  10.80 
+2021-10-24 12:29:57,704:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:58,248:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:58,251:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:58,252:TEST-MODE:INFO: 24.69 24.16 24.12 24.22 26.18 -0.01 0.00 0.01 11.17 11.41 10.25 10.36 1706.00 6176.22 1.50 100.00 0  0  2  None None 652.91 Buffering (0/1) STOP  IDLE         None     None  10.80 
+2021-10-24 12:29:58,252:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:58,756:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:58,759:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:58,760:TEST-MODE:INFO: 24.69 24.17 24.12 24.23 26.18 -0.00 0.00 0.01 11.17 11.41 10.25 10.36 1706.18 6176.14 1.50 100.00 0  0  2  None None 652.68 Buffering (0/1) STOP  IDLE         None     None  10.80 
+2021-10-24 12:29:58,761:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:59,281:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:59,284:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:59,285:TEST-MODE:INFO: 24.69 24.17 24.12 24.23 26.18 -0.00 0.00 0.01 11.17 11.40 10.24 10.36 1705.92 6176.00 1.50 100.00 0  0  2  None None 652.74 Buffering (0/1) STOP  IDLE         None     None  10.79 
+2021-10-24 12:29:59,286:TEST-MODE:WARNING: Stopped
+2021-10-24 12:29:59,845:TEST-MODE:INFO: State.STOP
+2021-10-24 12:29:59,848:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:29:59,849:TEST-MODE:INFO: 24.70 24.17 24.12 24.24 26.18 -0.00 -0.01 0.01 11.16 11.40 10.24 10.35 1705.68 6175.80 1.51 100.00 0  0  2  None None 652.88 Buffering (0/1) STOP  IDLE         None     None  10.79 
+2021-10-24 12:29:59,849:TEST-MODE:WARNING: Stopped
+2021-10-24 12:30:00,353:TEST-MODE:WARNING: restarting
+2021-10-24 12:30:00,363:TEST-MODE:INFO: State.INIT
+2021-10-24 12:30:00,365:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:30:00,366:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) 0  0  None None None None None 0  Buffering (0/1) INIT  IDLE         None     None  10.79 
+2021-10-24 12:30:00,877:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:00,880:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:00,881:TEST-MODE:INFO: Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) 1.52 100.00 0  0  2  None None 652.93 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:00,881:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:30:01,386:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:01,388:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:01,389:TEST-MODE:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 1.51 100.00 0  0  2  None None 653.00 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:01,390:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:30:01,910:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:01,913:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:01,914:TEST-MODE:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.51 100.00 0  0  2  None None 652.95 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:01,914:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:30:02,417:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:02,420:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:02,421:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.50 100.00 0  0  2  None None 652.89 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:02,421:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:30:02,943:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:02,945:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:02,946:TEST-MODE:INFO: 24.69 24.17 24.12 24.24 26.18 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.17 11.40 10.25 10.36 1707.26 6175.04 1.50 100.00 0  0  2  None None 653.02 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:02,947:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:30:03,450:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:03,453:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:03,454:TEST-MODE:INFO: 24.69 24.17 24.12 24.25 26.18 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.17 11.40 10.25 10.36 1707.26 6175.00 1.50 100.00 0  0  2  None None 652.93 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:03,454:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:30:03,974:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:03,977:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:03,978:TEST-MODE:INFO: 24.69 24.17 24.13 24.25 26.17 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.17 11.40 10.25 10.35 1706.88 6175.00 1.50 100.00 0  0  2  None None 652.96 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:03,978:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:30:04,478:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:04,480:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:04,482:TEST-MODE:INFO: 24.69 24.17 24.13 24.27 26.17 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.16 11.39 10.24 10.35 1706.52 6174.90 1.51 100.00 0  0  2  None None 653.03 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:04,482:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:30:05,004:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:30:05,007:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:30:05,008:TEST-MODE:INFO: 24.69 24.16 24.13 24.27 26.17 -0.01 0.02 -0.00 11.16 11.39 10.24 10.35 1706.44 6174.70 1.51 100.00 0  0  2  None None 653.16 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.79 
+2021-10-24 12:30:05,510:TEST-MODE:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 12:30:05,513:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 12:30:05,514:TEST-MODE:INFO: 24.69 24.16 24.13 24.28 26.17 -0.01 0.02 -0.00 11.16 11.39 10.24 10.35 1706.66 6174.50 1.51 100.00 0  0  2  None None 653.21 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  10.79 
+2021-10-24 12:30:05,515:TEST-MODE:INFO: depth sensors calibrated successfully
+2021-10-24 12:30:05,515:TEST-MODE:INFO: offset set on: 10.785
+2021-10-24 12:30:06,034:TEST-MODE:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 12:30:06,037:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 12:30:06,038:TEST-MODE:INFO: 24.69 24.16 24.13 24.28 26.17 0.00 0.01 0.00 11.16 11.39 10.24 10.35 1707.04 6174.42 1.51 100.00 0  0  2  None None 653.03 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  0.00  
+2021-10-24 12:30:06,559:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:06,562:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:06,563:TEST-MODE:INFO: 24.69 24.16 24.13 24.29 26.17 0.00 0.01 0.00 11.17 11.40 10.24 10.35 1707.64 6174.24 1.50 100.00 0  0  2  None None 653.17 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:06,564:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:06,564:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:06,565:TEST-MODE:INFO: 0/10 secs
+2021-10-24 12:30:07,066:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:07,069:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:07,070:TEST-MODE:INFO: 24.69 24.16 24.14 24.29 26.17 -0.01 0.02 -0.01 11.17 11.40 10.25 10.36 1708.02 6174.16 1.50 100.00 0  0  2  None None 653.12 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:07,071:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:07,071:TEST-MODE:INFO: 1/10 secs
+2021-10-24 12:30:07,573:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:07,576:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:07,577:TEST-MODE:INFO: 24.69 24.16 24.14 24.29 26.17 -0.01 0.02 -0.01 11.17 11.40 10.25 10.36 1708.10 6174.10 1.50 100.00 0  0  2  None None 653.19 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:07,578:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:07,578:TEST-MODE:INFO: 1/10 secs
+2021-10-24 12:30:08,094:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:08,097:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:08,098:TEST-MODE:INFO: 24.69 24.16 24.14 24.28 26.17 -0.00 0.00 -0.00 11.17 11.40 10.24 10.35 1708.02 6174.02 1.50 100.00 0  0  2  None None 653.30 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:08,099:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:08,099:TEST-MODE:INFO: 2/10 secs
+2021-10-24 12:30:08,601:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:08,604:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:08,604:TEST-MODE:INFO: 24.69 24.17 24.14 24.28 26.17 -0.00 0.00 -0.00 11.17 11.40 10.24 10.35 1707.86 6173.86 1.51 100.00 0  0  2  None None 653.21 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:08,605:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:08,606:TEST-MODE:INFO: 2/10 secs
+2021-10-24 12:30:09,126:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:09,129:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:09,130:TEST-MODE:INFO: 24.69 24.17 24.14 24.27 26.17 0.00 -0.00 0.00 11.16 11.39 10.24 10.35 1707.66 6173.60 1.51 100.00 0  0  2  None None 653.47 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:09,131:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:09,131:TEST-MODE:INFO: 3/10 secs
+2021-10-24 12:30:09,650:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:09,654:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:09,655:TEST-MODE:INFO: 24.69 24.17 24.14 24.27 26.17 0.00 -0.00 0.00 11.16 11.39 10.24 10.35 1707.68 6173.44 1.51 100.00 0  0  2  None None 653.30 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:09,656:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:09,656:TEST-MODE:INFO: 3/10 secs
+2021-10-24 12:30:10,169:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:10,173:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:10,175:TEST-MODE:INFO: 24.69 24.17 24.14 24.27 26.17 0.01 -0.01 -0.00 11.16 11.39 10.24 10.35 1707.86 6173.34 1.51 100.00 0  0  2  None None 653.30 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:10,176:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:10,177:TEST-MODE:INFO: 4/10 secs
+2021-10-24 12:30:10,684:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:10,688:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:10,690:TEST-MODE:INFO: 24.69 24.16 24.14 24.27 26.17 0.01 -0.01 -0.00 11.16 11.40 10.24 10.35 1708.16 6173.30 1.51 100.00 0  0  2  None None 653.31 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:10,691:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:10,692:TEST-MODE:INFO: 4/10 secs
+2021-10-24 12:30:11,187:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:11,190:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:11,191:TEST-MODE:INFO: 24.69 24.16 24.14 24.27 26.17 0.01 -0.01 -0.00 11.16 11.40 10.24 10.35 1708.44 6173.16 1.50 100.00 0  0  2  None None 653.34 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:11,192:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:11,192:TEST-MODE:INFO: 5/10 secs
+2021-10-24 12:30:11,695:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:11,698:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:11,699:TEST-MODE:INFO: 24.69 24.16 24.14 24.28 26.16 0.01 -0.01 -0.00 11.17 11.40 10.24 10.36 1708.68 6173.24 1.50 100.00 0  0  2  None None 653.34 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:11,700:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:11,700:TEST-MODE:INFO: 5/10 secs
+2021-10-24 12:30:12,217:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:12,220:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:12,221:TEST-MODE:INFO: 24.69 24.15 24.14 24.28 26.16 0.02 -0.01 0.00 11.17 11.40 10.24 10.35 1708.82 6173.22 1.50 100.00 0  0  2  None None 653.29 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:12,222:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:12,222:TEST-MODE:INFO: 6/10 secs
+2021-10-24 12:30:12,723:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:12,726:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:12,727:TEST-MODE:INFO: 24.69 24.15 24.13 24.28 26.16 0.02 -0.01 0.00 11.17 11.40 10.24 10.35 1708.80 6173.06 1.51 100.00 0  0  2  None None 653.45 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:12,728:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:12,728:TEST-MODE:INFO: 6/10 secs
+2021-10-24 12:30:13,247:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:13,250:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:13,251:TEST-MODE:INFO: 24.69 24.16 24.13 24.28 26.16 0.02 -0.00 -0.00 11.16 11.40 10.24 10.35 1708.74 6172.82 1.51 100.00 0  0  2  None None 653.59 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:13,251:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:13,252:TEST-MODE:INFO: 7/10 secs
+2021-10-24 12:30:13,757:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:13,760:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:13,761:TEST-MODE:INFO: 24.69 24.16 24.13 24.27 26.16 0.02 -0.01 0.01 11.16 11.40 10.24 10.35 1708.64 6172.66 1.51 100.00 0  0  2  None None 653.52 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:13,761:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:13,762:TEST-MODE:INFO: 7/10 secs
+2021-10-24 12:30:14,283:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:14,285:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:14,286:TEST-MODE:INFO: 24.69 24.16 24.13 24.27 26.16 0.02 -0.01 0.01 11.16 11.40 10.24 10.35 1708.52 6172.52 1.51 100.00 0  0  2  None None 653.50 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:14,287:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:14,287:TEST-MODE:INFO: 8/10 secs
+2021-10-24 12:30:14,844:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:14,847:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:14,848:TEST-MODE:INFO: 24.69 24.16 24.13 24.27 26.16 0.02 -0.01 0.01 11.16 11.40 10.24 10.35 1708.56 6172.22 1.51 100.00 0  0  2  None None 653.64 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:14,849:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:14,849:TEST-MODE:INFO: 8/10 secs
+2021-10-24 12:30:15,348:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:15,351:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:15,352:TEST-MODE:INFO: 24.70 24.16 24.13 24.26 26.16 0.02 -0.01 0.01 11.16 11.40 10.24 10.35 1708.82 6172.08 1.51 100.00 0  0  2  None None 653.62 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:30:15,353:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:15,353:TEST-MODE:INFO: 9/10 secs
+2021-10-24 12:30:15,874:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:15,877:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:15,878:TEST-MODE:INFO: 24.69 24.16 24.13 24.26 26.16 0.02 -0.02 0.01 11.17 11.40 10.24 10.35 1709.14 6172.10 1.51 100.00 0  0  2  None None 653.57 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:15,879:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:15,880:TEST-MODE:INFO: 9/10 secs
+2021-10-24 12:30:16,381:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:16,384:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:16,385:TEST-MODE:INFO: 24.69 24.17 24.13 24.25 26.16 0.02 -0.02 0.01 11.17 11.40 10.25 10.35 1709.36 6172.04 1.50 100.00 0  0  2  None None 653.59 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:16,385:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:30:16,386:TEST-MODE:INFO: 10/10 secs
+2021-10-24 12:30:16,905:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:30:16,908:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:30:16,909:TEST-MODE:INFO: 24.69 24.17 24.13 24.24 26.16 0.01 -0.01 0.01 11.17 11.40 10.24 10.36 1709.66 6171.82 1.50 100.00 0  0  2  None None 653.75 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.01  
+2021-10-24 12:30:16,910:TEST-MODE:INFO: Done waiting for water
+2021-10-24 12:30:16,913:TEST-MODE:INFO: sending dive command
+2021-10-24 12:30:16,919:TEST-MODE:INFO: setting target depth to 1 [dbar]
+2021-10-24 12:30:16,922:TEST-MODE:INFO: setting state to MissionState.DESCENDING
+2021-10-24 12:30:17,013:TEST-MODE:ERROR: unknown header: S:1.00
+2021-10-24 12:30:17,081:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:17,083:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:17,084:TEST-MODE:INFO: 24.69 24.17 24.13 24.24 26.16 0.01 -0.01 0.01 11.17 11.40 10.24 10.36 1709.66 6171.72 1.50 100.00 0  0  2  1  None 653.75 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:17,085:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:18,414:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:18,419:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:18,420:TEST-MODE:INFO: 24.69 24.17 24.13 24.24 26.16 0.01 -0.01 0.01 11.17 11.40 10.24 10.35 1702.14 6174.98 1.50 100.00 0  0  2  0  None 649.84 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:18,422:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:18,924:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:18,930:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:18,932:TEST-MODE:INFO: 24.69 24.16 24.13 24.23 26.16 0.01 -0.01 0.02 11.17 11.40 10.24 10.35 1695.10 6178.20 1.51 100.00 0  0  2  0  None 649.84 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:18,934:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:19,445:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:19,450:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:19,452:TEST-MODE:INFO: 24.69 24.16 24.13 24.23 26.16 0.00 0.00 0.01 11.17 11.40 10.24 10.35 1688.30 6181.30 1.51 100.00 0  0  2  0  None 650.00 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:19,454:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:20,009:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:20,013:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:20,014:TEST-MODE:INFO: 24.69 24.16 24.13 24.22 26.16 -0.00 -0.00 0.01 11.17 11.40 10.24 10.35 1682.28 6184.54 1.50 100.00 0  0  2  0  None 650.00 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:20,015:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:20,516:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:20,521:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:20,523:TEST-MODE:INFO: 24.69 24.16 24.13 24.22 26.16 -0.00 -0.00 0.01 11.17 11.40 10.25 10.35 1676.18 6187.86 1.50 100.00 0  0  2  0  None 649.91 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:20,524:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:21,045:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:21,049:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:21,050:TEST-MODE:INFO: 24.69 24.16 24.13 24.22 26.16 -0.01 0.00 0.01 11.17 11.40 10.25 10.35 1678.02 6187.66 1.50 100.00 0  0  2  0  None 650.07 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:21,051:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:21,549:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:21,554:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:21,556:TEST-MODE:INFO: 24.69 24.17 24.13 24.22 26.16 -0.01 0.00 0.01 11.17 11.40 10.25 10.35 1679.24 6187.44 1.50 100.00 0  0  2  0  None 650.09 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:21,558:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:22,069:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:22,074:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:22,075:TEST-MODE:INFO: 24.69 24.16 24.13 24.21 26.16 0.00 -0.00 0.02 11.17 11.40 10.25 10.35 1680.20 6187.24 1.50 100.00 0  0  2  0  None 650.23 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:22,077:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:22,632:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:22,636:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:22,637:TEST-MODE:INFO: 24.69 24.16 24.13 24.22 26.16 0.00 -0.00 0.02 11.16 11.40 10.24 10.35 1680.78 6187.04 1.50 100.00 0  0  2  0  None 650.27 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:30:22,638:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:23,192:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:23,197:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:23,198:TEST-MODE:INFO: 24.69 24.16 24.13 24.21 26.16 0.00 -0.00 0.01 11.16 11.40 10.24 10.35 1681.56 6186.70 1.50 100.00 0  0  2  0  None 650.30 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:30:23,200:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:23,703:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:23,707:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:23,709:TEST-MODE:INFO: 24.69 24.16 24.13 24.21 26.16 0.00 -0.00 0.01 11.17 11.40 10.24 10.35 1682.30 6186.36 1.50 100.00 0  0  2  0  None 650.46 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:23,710:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:24,219:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:24,223:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:24,225:TEST-MODE:INFO: 24.69 24.16 24.13 24.21 26.16 0.01 -0.01 0.01 11.17 11.40 10.24 10.35 1683.08 6186.12 1.50 100.00 0  0  2  0  None 650.37 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:24,226:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:24,726:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:24,729:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:24,730:TEST-MODE:INFO: 24.69 24.17 24.13 24.21 26.16 0.01 -0.01 0.01 11.17 11.40 10.24 10.35 1683.80 6185.94 1.50 100.00 0  0  2  0  None 650.44 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:24,731:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:25,253:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:25,257:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:25,259:TEST-MODE:INFO: 24.69 24.17 24.13 24.21 26.16 0.00 -0.00 0.01 11.17 11.40 10.24 10.35 1684.38 6185.56 1.50 100.00 0  0  2  0  None 650.67 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:25,260:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:25,756:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:25,760:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:25,762:TEST-MODE:INFO: 24.69 24.18 24.13 24.20 26.16 0.00 -0.00 0.01 11.17 11.40 10.25 10.35 1684.94 6185.28 1.50 100.00 0  0  2  0  None 650.66 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:25,763:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:26,283:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:26,288:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:26,290:TEST-MODE:INFO: 24.69 24.17 24.13 24.20 26.16 0.00 -0.01 0.00 11.17 11.40 10.25 10.35 1685.24 6185.18 1.50 100.00 0  0  2  0  None 650.62 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:26,291:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:26,841:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:26,846:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:26,848:TEST-MODE:INFO: 24.69 24.17 24.12 24.20 26.16 -0.01 -0.01 0.00 11.17 11.40 10.24 10.36 1685.64 6184.90 1.50 100.00 0  0  2  0  None 650.69 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:26,849:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:27,354:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:27,360:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:27,363:TEST-MODE:INFO: 24.69 24.17 24.12 24.20 26.16 -0.01 -0.01 0.00 11.16 11.40 10.24 10.35 1686.04 6184.64 1.50 100.00 0  0  2  0  None 650.74 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:30:27,365:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:27,875:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:30:27,879:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:30:27,881:TEST-MODE:INFO: 24.69 24.17 24.12 24.20 26.16 -0.01 -0.01 0.00 11.17 11.40 10.24 10.35 1686.38 6184.58 1.50 100.00 0  0  2  0  None 650.74 Buffering (0/1) CONTROLLED DESCENDING   1        0.99  0.01  
+2021-10-24 12:30:27,882:TEST-MODE:INFO: mega in control
+2021-10-24 12:30:28,261:TEST-MODE:CRITICAL: user initiated safe system shutdown
+2021-10-24 12:30:28,262:TEST-MODE:INFO: skipping nano safe shutdown: disabled

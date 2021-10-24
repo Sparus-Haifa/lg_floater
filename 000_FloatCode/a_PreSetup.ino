@@ -102,4 +102,4 @@ float GasVol, GasVolPrev, BladdVol;
 
 // limits of the bladder volume in CC
 #define BladderUpperLimit 620
-#define BladderLowerLimit 30
+#define BladderLowerLimit 40

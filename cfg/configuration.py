@@ -30,13 +30,13 @@ class MissionState(Enum):
 
 
 app = {
-    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation" : False,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     "host_ip" : "127.0.0.1",
     # "host_ip" : "192.168.1.75",
 
     "disable_safety" : True,
-    "test_mode" : False,
+    "test_mode" : True,
     "test_mode_udp_port" : 5000,
     "disable_altimeter" : True,
     "skip_arduino_compile" : True
@@ -123,14 +123,14 @@ task = {
     # "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    # "planned_mission" : [5, 0, 5, 0],
-    "planned_mission" : [5, "E"],
-    "hold_on_taget_duration" : 10,  # seconds
+    # "planned_mission" : [1, 0, 1, 0], # mission 2
+    "planned_mission" : [1, "E"],  # mission 3
+    "hold_on_taget_duration" : 60,  # seconds
     "hold_on_target_distance" : 0.4,  # meters
-    "min_ascend_descend_distance" : 10,  # meters
-    "kp" : 1000,
-    "kd" : 60,
-    "ki" : 0,  # 0.001
+    "min_ascend_descend_distance" : 0.2,  # meters
+    "kp" : 40,
+    "kd" : 750,
+    "ki" : 0.001,  # 0.001
     # "target_depth" : 30.0  # millibar
     # "max_time_off_duration" : 100.0
 

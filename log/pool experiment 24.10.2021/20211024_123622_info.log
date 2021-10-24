@@ -1,0 +1,1545 @@
+2021-10-24 12:36:22,723:TEST-MODE:INFO: init
+2021-10-24 12:36:22,724:TEST-MODE:INFO: loading settings:
+2021-10-24 12:36:22,725:TEST-MODE:INFO: [app]: simulation = False
+2021-10-24 12:36:22,726:TEST-MODE:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 12:36:22,727:TEST-MODE:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 12:36:22,727:TEST-MODE:INFO: [app]: disable_safety = True
+2021-10-24 12:36:22,728:TEST-MODE:INFO: [app]: test_mode = True
+2021-10-24 12:36:22,729:TEST-MODE:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 12:36:22,729:TEST-MODE:INFO: [app]: disable_altimeter = True
+2021-10-24 12:36:22,730:TEST-MODE:INFO: [app]: skip_arduino_compile = True
+2021-10-24 12:36:22,730:TEST-MODE:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 12:36:22,730:TEST-MODE:INFO: [serial]: timeout = 3
+2021-10-24 12:36:22,731:TEST-MODE:INFO: [serial]: baud_rate = 115200
+2021-10-24 12:36:22,731:TEST-MODE:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 12:36:22,731:TEST-MODE:INFO: [serial_safety]: timeout = 3
+2021-10-24 12:36:22,732:TEST-MODE:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 12:36:22,732:TEST-MODE:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 12:36:22,732:TEST-MODE:INFO: [task]: planned_mission = [1, 0, 1, 0]
+2021-10-24 12:36:22,733:TEST-MODE:INFO: [task]: hold_on_taget_duration = 60
+2021-10-24 12:36:22,733:TEST-MODE:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 12:36:22,734:TEST-MODE:INFO: [task]: min_ascend_descend_distance = 0.2
+2021-10-24 12:36:22,735:TEST-MODE:INFO: [task]: kp = 40
+2021-10-24 12:36:22,735:TEST-MODE:INFO: [task]: kd = 1000
+2021-10-24 12:36:22,735:TEST-MODE:INFO: [task]: ki = 0.001
+2021-10-24 12:36:22,736:TEST-MODE:INFO: [pressure]: epsilon = 0.5
+2021-10-24 12:36:22,736:TEST-MODE:INFO: [pressure]: avg_samples = 5
+2021-10-24 12:36:22,736:TEST-MODE:INFO: [pressure]: precision = 2
+2021-10-24 12:36:22,737:TEST-MODE:INFO: [temperature]: avg_samples = 5
+2021-10-24 12:36:22,737:TEST-MODE:INFO: [temperature]: precision = 2
+2021-10-24 12:36:22,737:TEST-MODE:INFO: [imu]: avg_samples = 5
+2021-10-24 12:36:22,738:TEST-MODE:INFO: [imu]: precision = 2
+2021-10-24 12:36:22,738:TEST-MODE:INFO: [bladder]: avg_samples = 1
+2021-10-24 12:36:22,739:TEST-MODE:INFO: [bladder]: precision = 2
+2021-10-24 12:36:22,739:TEST-MODE:INFO: [altimeter]: avg_samples = 1
+2021-10-24 12:36:22,740:TEST-MODE:INFO: [altimeter]: precision = 2
+2021-10-24 12:36:22,740:TEST-MODE:INFO: [rpm]: avg_samples = 1
+2021-10-24 12:36:22,741:TEST-MODE:INFO: [rpm]: precision = 2
+2021-10-24 12:36:22,741:TEST-MODE:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 12:36:22,742:TEST-MODE:INFO: [safety]: timeout = 30
+2021-10-24 12:36:22,742:TEST-MODE:WARNING: Safety is disabled
+2021-10-24 12:36:22,743:TEST-MODE:WARNING: Altimeter is disabled
+2021-10-24 12:36:22,744:TEST-MODE:WARNING: Test mode
+2021-10-24 12:36:22,745:TEST-MODE:INFO: Pressure controller was initialized successfully
+2021-10-24 12:36:22,746:TEST-MODE:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 12:36:22,746:TEST-MODE:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 12:36:22,748:TEST-MODE:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 12:36:22,748:TEST-MODE:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 12:36:22,749:TEST-MODE:INFO: HP pressure sensor was initialized successfully
+2021-10-24 12:36:22,749:TEST-MODE:INFO: AP pressure sensor was initialized successfully
+2021-10-24 12:36:22,749:TEST-MODE:INFO: Temperature controller was initialized successfully
+2021-10-24 12:36:22,750:TEST-MODE:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 12:36:22,750:TEST-MODE:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 12:36:22,751:TEST-MODE:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 12:36:22,751:TEST-MODE:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 12:36:22,751:TEST-MODE:INFO: AT temperature sensor was initialized successfully
+2021-10-24 12:36:22,752:TEST-MODE:INFO: IMU controller was initialized successfully
+2021-10-24 12:36:22,752:TEST-MODE:INFO: X IMU sensor was initialized successfully
+2021-10-24 12:36:22,753:TEST-MODE:INFO: Y IMU sensor was initialized successfully
+2021-10-24 12:36:22,753:TEST-MODE:INFO: Z IMU sensor was initialized successfully
+2021-10-24 12:36:22,753:TEST-MODE:INFO: Bladder volume controller was initialized successfully
+2021-10-24 12:36:22,754:TEST-MODE:INFO: Altimeter controller was initialized successfully
+2021-10-24 12:36:22,754:TEST-MODE:INFO: rpm controller was initialized successfully
+2021-10-24 12:36:22,755:TEST-MODE:INFO: Pump flag controller was initialized successfully
+2021-10-24 12:36:22,755:TEST-MODE:INFO: Bladder flag controller was initialized successfully
+2021-10-24 12:36:22,756:TEST-MODE:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 12:36:22,756:TEST-MODE:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 12:36:22,756:TEST-MODE:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 12:36:22,757:TEST-MODE:INFO: Iridium flag controller was initialized successfully
+2021-10-24 12:36:22,759:TEST-MODE:INFO: SerialComm was initialized successfully
+2021-10-24 12:36:22,776:TEST-MODE:INFO: Profile file loaded successfully
+2021-10-24 12:36:22,777:TEST-MODE:INFO: Profile class was initialized successfully
+2021-10-24 12:36:22,777:TEST-MODE:INFO: setting state to MissionState.IDLE
+2021-10-24 12:36:22,863:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:22,868:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:22,869:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (1/5) Buffering (0/5) Buffering (1/5) 0  0  None None None None None 617.06 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:22,870:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:23,025:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:23,028:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL   EL   BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:23,029:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) Buffering (2/5) Buffering (0/5) Buffering (2/5) 1.51 100.00 None None 2  None None 617.06 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:23,030:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:23,183:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:23,185:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL   EL   BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:23,186:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (0/5) Buffering (0/5) Buffering (3/5) Buffering (3/5) Buffering (0/5) Buffering (3/5) 1.51 100.00 None None 2  None None 617.06 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:23,187:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:24,177:TEST-MODE:ERROR: unknown header: SU:0.00
+2021-10-24 12:36:26,435:TEST-MODE:ERROR: unknown header: Date: 10/24/2021 Time
+2021-10-24 12:36:28,138:TEST-MODE:ERROR: unknown header: SU:1.00
+2021-10-24 12:36:28,647:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:28,650:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT    X               Y               Z               BP1             BP2             TP1   TP2   HP              AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:28,651:TEST-MODE:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 25.45 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (2/5) Buffering (2/5) 10.02 10.29 Buffering (2/5) 6316.84 1.51 100.00 0  0  2  None None 617.39 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:28,651:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:29,157:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:29,159:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT    X     Y    Z    BP1             BP2             TP1   TP2   HP              AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:29,160:TEST-MODE:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 25.45 -0.02 0.00 0.01 Buffering (3/5) Buffering (3/5) 10.02 10.29 Buffering (3/5) 6316.56 1.51 100.00 0  0  2  None None 617.37 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:29,161:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:29,667:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:29,669:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT    X     Y    Z    BP1             BP2             TP1   TP2   HP              AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:29,670:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 25.45 -0.01 0.00 0.00 Buffering (4/5) Buffering (4/5) 10.03 10.29 Buffering (4/5) 6316.20 1.51 100.00 0  0  2  None None 617.42 Buffering (0/1) STOP  IDLE         None     None  None  
+2021-10-24 12:36:29,671:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:30,194:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:30,197:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:30,198:TEST-MODE:INFO: 24.53 24.09 24.72 24.89 25.45 -0.01 0.01 0.00 11.10 11.27 10.03 10.29 1603.26 6315.98 1.51 100.00 0  0  2  None None 617.30 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:30,198:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:30,694:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:30,696:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:30,697:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 0.00 0.01 0.00 11.09 11.27 10.03 10.29 1603.60 6313.74 1.51 100.00 0  0  2  None None 617.39 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:30,697:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:31,222:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:31,224:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:31,225:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 0.00 0.01 0.00 11.09 11.27 10.03 10.29 1603.70 6313.68 1.51 100.00 0  0  2  None None 617.46 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:31,226:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:31,731:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:31,734:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:31,734:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 0.00 0.02 0.00 11.09 11.27 10.03 10.29 1603.82 6313.62 1.51 100.00 0  0  2  None None 617.43 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:31,735:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:32,259:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:32,262:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:32,263:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 0.00 0.02 0.00 11.09 11.27 10.03 10.29 1603.92 6313.60 1.51 100.00 0  0  2  None None 617.48 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:32,263:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:32,770:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:32,772:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:32,773:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 -0.00 0.02 0.00 11.09 11.27 10.02 10.29 1604.04 6313.36 1.51 100.00 0  0  2  None None 617.53 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:32,774:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:33,298:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:33,300:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:33,301:TEST-MODE:INFO: 24.61 24.07 24.34 24.57 25.30 -0.00 0.02 0.00 11.09 11.27 10.03 10.29 1603.88 6313.06 1.51 100.00 0  0  2  None None 617.72 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:33,302:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:33,807:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:33,810:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:33,811:TEST-MODE:INFO: 24.61 24.07 24.34 24.56 25.30 -0.00 0.02 0.00 11.09 11.27 10.03 10.29 1603.88 6312.98 1.51 100.00 0  0  2  None None 617.55 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:33,811:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:34,341:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:34,343:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:34,344:TEST-MODE:INFO: 24.60 24.07 24.34 24.57 25.30 -0.00 0.02 0.00 11.09 11.27 10.03 10.29 1603.90 6312.76 1.51 100.00 0  0  2  None None 617.68 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:34,345:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:34,848:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:34,851:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:34,852:TEST-MODE:INFO: 24.61 24.07 24.34 24.57 25.30 -0.00 0.02 0.00 11.09 11.27 10.03 10.29 1604.04 6312.68 1.51 100.00 0  0  2  None None 617.57 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:34,852:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:35,376:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:35,379:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:35,380:TEST-MODE:INFO: 24.61 24.07 24.34 24.58 25.30 -0.00 0.02 0.00 11.09 11.27 10.03 10.29 1604.12 6312.42 1.51 100.00 0  0  2  None None 617.86 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:35,380:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:35,888:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:35,891:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:35,892:TEST-MODE:INFO: 24.61 24.07 24.34 24.57 25.30 -0.01 0.01 0.01 11.09 11.27 10.03 10.29 1604.26 6312.48 1.51 100.00 0  0  2  None None 617.62 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:35,893:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:36,416:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:36,419:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:36,419:TEST-MODE:INFO: 24.61 24.07 24.35 24.58 25.30 -0.01 0.01 0.01 11.09 11.27 10.02 10.29 1604.46 6312.32 1.51 100.00 0  0  2  None None 617.72 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:36,420:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:36,924:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:36,927:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:36,928:TEST-MODE:INFO: 24.61 24.07 24.35 24.57 25.30 -0.01 0.01 0.01 11.09 11.27 10.02 10.29 1604.70 6312.16 1.51 100.00 0  0  2  None None 617.82 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:36,929:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:37,455:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:37,457:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:37,458:TEST-MODE:INFO: 24.61 24.07 24.35 24.57 25.29 -0.01 0.01 0.01 11.10 11.27 10.02 10.29 1604.78 6311.94 1.51 100.00 0  0  2  None None 617.77 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:37,459:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:37,970:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:37,972:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:37,973:TEST-MODE:INFO: 24.61 24.07 24.34 24.57 25.29 -0.00 0.01 -0.00 11.09 11.27 10.02 10.29 1604.80 6311.92 1.51 100.00 0  0  2  None None 617.88 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:37,974:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:38,497:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:38,500:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:38,501:TEST-MODE:INFO: 24.61 24.07 24.34 24.58 25.29 -0.00 0.01 -0.00 11.09 11.27 10.03 10.29 1605.04 6311.64 1.51 100.00 0  0  2  None None 617.93 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:38,502:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:39,009:TEST-MODE:INFO: State.STOP
+2021-10-24 12:36:39,012:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:39,013:TEST-MODE:INFO: 24.61 24.07 24.34 24.58 25.29 -0.01 0.01 -0.00 11.09 11.27 10.03 10.29 1605.06 6311.36 1.51 100.00 0  0  2  None None 618.03 Buffering (0/1) STOP  IDLE         None     None  10.67 
+2021-10-24 12:36:39,013:TEST-MODE:WARNING: Stopped
+2021-10-24 12:36:39,538:TEST-MODE:WARNING: restarting
+2021-10-24 12:36:39,547:TEST-MODE:INFO: State.INIT
+2021-10-24 12:36:39,549:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL   EL   BF   SF   PF   BV rpm             State MissionState Setpoint Error Depth 
+2021-10-24 12:36:39,550:TEST-MODE:INFO: Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) 0  0  None None None None None 0  Buffering (0/1) INIT  IDLE         None     None  10.67 
+2021-10-24 12:36:40,050:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:40,052:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:40,053:TEST-MODE:INFO: Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) 1.51 100.00 0  0  2  None None 617.97 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:40,054:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:36:40,578:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:40,581:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:40,582:TEST-MODE:INFO: Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) 1.51 100.00 0  0  2  None None 618.08 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:40,582:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:36:41,086:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:41,089:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:41,090:TEST-MODE:INFO: Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1.51 100.00 0  0  2  None None 618.03 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:41,090:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:36:41,614:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:41,616:TEST-MODE:INFO: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:41,617:TEST-MODE:INFO: Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1.51 100.00 0  0  2  None None 618.02 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:41,618:TEST-MODE:WARNING: sensor BT1 is not ready
+2021-10-24 12:36:42,126:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:42,129:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:42,130:TEST-MODE:INFO: 24.61 24.07 24.36 24.58 25.29 Buffering (3/5) Buffering (3/5) Buffering (3/5) 11.09 11.27 10.03 10.29 1605.48 6310.66 1.51 100.00 0  0  2  None None 618.10 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:42,131:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:36:42,655:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:42,658:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:42,659:TEST-MODE:INFO: 24.61 24.07 24.36 24.57 25.29 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.09 11.27 10.03 10.29 1605.72 6310.46 1.51 100.00 0  0  2  None None 618.19 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:42,659:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:36:43,167:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:43,169:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X               Y               Z               BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:43,170:TEST-MODE:INFO: 24.61 24.07 24.37 24.57 25.30 Buffering (4/5) Buffering (4/5) Buffering (4/5) 11.09 11.27 10.03 10.29 1605.82 6310.30 1.51 100.00 0  0  2  None None 618.30 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:43,171:TEST-MODE:WARNING: sensor X is not ready
+2021-10-24 12:36:43,694:TEST-MODE:INFO: State.WAIT_FOR_SENSOR_BUFFER
+2021-10-24 12:36:43,697:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                  MissionState Setpoint Error Depth 
+2021-10-24 12:36:43,698:TEST-MODE:INFO: 24.61 24.07 24.37 24.56 25.30 0.00 -0.00 0.00 11.09 11.27 10.03 10.29 1605.94 6310.18 1.51 100.00 0  0  2  None None 618.17 Buffering (0/1) WAIT_FOR_SENSOR_BUFFER IDLE         None     None  10.67 
+2021-10-24 12:36:44,203:TEST-MODE:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 12:36:44,206:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 12:36:44,207:TEST-MODE:INFO: 24.61 24.08 24.37 24.56 25.30 0.00 -0.00 0.00 11.09 11.27 10.03 10.29 1606.06 6310.04 1.51 100.00 0  0  2  None None 618.17 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  10.67 
+2021-10-24 12:36:44,208:TEST-MODE:INFO: depth sensors calibrated successfully
+2021-10-24 12:36:44,208:TEST-MODE:INFO: offset set on: 10.67
+2021-10-24 12:36:44,729:TEST-MODE:INFO: State.CALIBRATE_DEPTH_SENSORS
+2021-10-24 12:36:44,732:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State                   MissionState Setpoint Error Depth 
+2021-10-24 12:36:44,733:TEST-MODE:INFO: 24.61 24.07 24.38 24.55 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1606.22 6309.90 1.51 100.00 0  0  2  None None 618.30 Buffering (0/1) CALIBRATE_DEPTH_SENSORS IDLE         None     None  0.00  
+2021-10-24 12:36:45,256:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:45,258:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:45,259:TEST-MODE:INFO: 24.61 24.07 24.38 24.56 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1606.40 6309.74 1.51 100.00 0  0  2  None None 618.36 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:45,260:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:45,262:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:45,262:TEST-MODE:INFO: 0/10 secs
+2021-10-24 12:36:45,786:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:45,789:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:45,790:TEST-MODE:INFO: 24.61 24.08 24.38 24.55 25.30 -0.01 0.00 0.00 11.09 11.27 10.03 10.29 1606.56 6309.56 1.51 100.00 0  0  2  None None 618.50 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:45,791:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:45,791:TEST-MODE:INFO: 1/10 secs
+2021-10-24 12:36:46,290:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:46,292:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:46,294:TEST-MODE:INFO: 24.61 24.08 24.39 24.56 25.30 -0.01 0.00 0.00 11.09 11.27 10.03 10.29 1606.68 6309.28 1.51 100.00 0  0  2  None None 618.44 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:46,295:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:46,295:TEST-MODE:INFO: 1/10 secs
+2021-10-24 12:36:46,821:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:46,824:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:46,825:TEST-MODE:INFO: 24.61 24.07 24.39 24.56 25.30 -0.01 -0.00 0.00 11.09 11.27 10.03 10.29 1606.66 6309.12 1.51 100.00 0  0  2  None None 618.39 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:46,826:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:46,827:TEST-MODE:INFO: 2/10 secs
+2021-10-24 12:36:47,334:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:47,338:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:47,339:TEST-MODE:INFO: 24.61 24.08 24.39 24.56 25.30 -0.01 -0.00 0.00 11.10 11.27 10.03 10.29 1606.66 6308.90 1.51 100.00 0  0  2  None None 618.54 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:47,340:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:47,341:TEST-MODE:INFO: 2/10 secs
+2021-10-24 12:36:47,847:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:47,850:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:47,851:TEST-MODE:INFO: 24.61 24.08 24.38 24.56 25.30 -0.01 -0.01 0.00 11.09 11.27 10.03 10.29 1606.68 6308.70 1.51 100.00 0  0  2  None None 618.55 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:47,852:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:47,853:TEST-MODE:INFO: 3/10 secs
+2021-10-24 12:36:48,370:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:48,373:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:48,375:TEST-MODE:INFO: 24.61 24.08 24.38 24.57 25.30 -0.01 -0.01 0.00 11.09 11.27 10.03 10.29 1606.80 6308.56 1.51 100.00 0  0  2  None None 618.65 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:48,376:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:48,377:TEST-MODE:INFO: 3/10 secs
+2021-10-24 12:36:48,900:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:48,903:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:48,905:TEST-MODE:INFO: 24.61 24.08 24.38 24.56 25.30 0.00 -0.01 0.01 11.09 11.27 10.03 10.29 1606.94 6308.42 1.51 100.00 0  0  2  None None 618.59 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:48,906:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:48,907:TEST-MODE:INFO: 4/10 secs
+2021-10-24 12:36:49,407:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:49,411:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:49,412:TEST-MODE:INFO: 24.61 24.08 24.37 24.57 25.30 0.00 -0.01 0.01 11.09 11.27 10.03 10.29 1607.10 6308.08 1.51 100.00 0  0  2  None None 618.76 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:49,413:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:49,414:TEST-MODE:INFO: 4/10 secs
+2021-10-24 12:36:49,938:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:49,941:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:49,942:TEST-MODE:INFO: 24.61 24.08 24.37 24.57 25.29 -0.00 -0.02 0.01 11.09 11.27 10.03 10.29 1607.24 6307.98 1.51 100.00 0  0  2  None None 618.61 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:49,943:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:49,944:TEST-MODE:INFO: 5/10 secs
+2021-10-24 12:36:50,446:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:50,449:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:50,451:TEST-MODE:INFO: 24.61 24.07 24.37 24.58 25.29 -0.00 -0.02 0.01 11.09 11.27 10.03 10.29 1607.42 6307.94 1.51 100.00 0  0  2  None None 618.59 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:50,451:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:50,452:TEST-MODE:INFO: 5/10 secs
+2021-10-24 12:36:50,977:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:50,980:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:50,981:TEST-MODE:INFO: 24.61 24.07 24.36 24.58 25.29 -0.00 -0.03 0.01 11.09 11.27 10.03 10.29 1607.54 6307.88 1.51 100.00 0  0  2  None None 618.68 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:50,982:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:50,983:TEST-MODE:INFO: 6/10 secs
+2021-10-24 12:36:51,479:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:51,483:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:51,484:TEST-MODE:INFO: 24.61 24.08 24.36 24.59 25.29 -0.00 -0.03 0.01 11.09 11.27 10.03 10.29 1607.66 6307.72 1.51 100.00 0  0  2  None None 618.81 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:51,486:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:51,487:TEST-MODE:INFO: 6/10 secs
+2021-10-24 12:36:52,013:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:52,016:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:52,018:TEST-MODE:INFO: 24.61 24.07 24.36 24.59 25.29 -0.00 -0.03 0.01 11.10 11.27 10.03 10.29 1607.66 6307.76 1.51 100.00 0  0  2  None None 618.68 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:52,019:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:52,020:TEST-MODE:INFO: 7/10 secs
+2021-10-24 12:36:52,505:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:52,508:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:52,509:TEST-MODE:INFO: 24.61 24.07 24.35 24.60 25.29 -0.00 -0.03 0.01 11.10 11.27 10.03 10.29 1607.68 6307.62 1.51 100.00 0  0  2  None None 618.77 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:52,510:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:52,511:TEST-MODE:INFO: 7/10 secs
+2021-10-24 12:36:53,033:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:53,036:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:53,037:TEST-MODE:INFO: 24.61 24.07 24.35 24.60 25.29 -0.00 -0.02 0.01 11.10 11.27 10.03 10.29 1607.80 6307.48 1.51 100.00 0  0  2  None None 618.79 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:53,038:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:53,038:TEST-MODE:INFO: 8/10 secs
+2021-10-24 12:36:53,545:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:53,548:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:53,549:TEST-MODE:INFO: 24.61 24.07 24.34 24.60 25.30 -0.00 -0.02 0.01 11.10 11.27 10.03 10.29 1607.88 6307.30 1.51 100.00 0  0  2  None None 618.92 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:53,550:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:53,550:TEST-MODE:INFO: 8/10 secs
+2021-10-24 12:36:54,069:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:54,072:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:54,073:TEST-MODE:INFO: 24.61 24.07 24.34 24.60 25.29 -0.01 -0.02 0.00 11.10 11.27 10.03 10.29 1607.84 6307.18 1.51 100.00 0  0  2  None None 618.90 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:54,073:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:54,074:TEST-MODE:INFO: 9/10 secs
+2021-10-24 12:36:54,577:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:54,580:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:54,581:TEST-MODE:INFO: 24.61 24.07 24.33 24.60 25.30 -0.01 -0.02 0.00 11.10 11.27 10.03 10.29 1608.04 6306.96 1.51 100.00 0  0  2  None None 618.96 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:54,581:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:54,582:TEST-MODE:INFO: 9/10 secs
+2021-10-24 12:36:55,106:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:55,108:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:55,109:TEST-MODE:INFO: 24.61 24.07 24.33 24.60 25.30 -0.01 -0.02 -0.01 11.10 11.27 10.02 10.29 1608.10 6306.84 1.51 100.00 0  0  2  None None 618.90 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:55,110:TEST-MODE:INFO: Waiting for water
+2021-10-24 12:36:55,111:TEST-MODE:INFO: 10/10 secs
+2021-10-24 12:36:55,633:TEST-MODE:INFO: State.WAIT_FOR_WATER
+2021-10-24 12:36:55,636:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State          MissionState Setpoint Error Depth 
+2021-10-24 12:36:55,638:TEST-MODE:INFO: 24.61 24.07 24.32 24.59 25.29 -0.01 -0.00 -0.01 11.10 11.27 10.02 10.29 1608.06 6306.64 1.51 100.00 0  0  2  None None 618.97 Buffering (0/1) WAIT_FOR_WATER IDLE         None     None  0.00  
+2021-10-24 12:36:55,639:TEST-MODE:INFO: Done waiting for water
+2021-10-24 12:36:56,145:TEST-MODE:INFO: State.WAIT_TASK
+2021-10-24 12:36:56,148:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF   PF   BV     rpm             State     MissionState Setpoint Error Depth 
+2021-10-24 12:36:56,150:TEST-MODE:INFO: 24.61 24.07 24.32 24.59 25.29 -0.01 -0.00 -0.01 11.09 11.27 10.02 10.29 1608.08 6306.46 1.51 100.00 0  0  2  None None 619.08 Buffering (0/1) WAIT_TASK IDLE         None     None  -0.00 
+2021-10-24 12:36:56,153:TEST-MODE:INFO: sending dive command
+2021-10-24 12:36:56,155:TEST-MODE:INFO: setting target depth to 1 [dbar]
+2021-10-24 12:36:56,156:TEST-MODE:INFO: setting state to MissionState.DESCENDING
+2021-10-24 12:36:56,158:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,174:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,189:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,204:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,217:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,230:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,242:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,255:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,267:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,279:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,292:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,304:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,317:TEST-MODE:ERROR: unknown header: S:1.00
+2021-10-24 12:36:56,318:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,331:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,344:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,355:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,368:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,381:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:56,384:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:56,385:TEST-MODE:INFO: 24.61 24.07 24.32 24.59 25.29 -0.01 0.00 -0.01 11.09 11.27 10.02 10.29 1608.08 6306.38 1.51 100.00 0  0  2  1  None 619.03 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:36:56,386:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:56,387:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,402:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,416:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,427:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,439:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,451:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,462:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,474:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,486:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,498:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,510:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,521:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,533:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,545:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,557:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,569:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,580:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,592:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,603:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,615:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,626:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,638:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,650:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,661:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,673:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,685:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,696:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,708:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,719:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,731:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,743:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,754:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,766:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,777:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,789:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,801:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,812:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,824:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,836:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,847:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,859:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,871:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,882:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,894:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,906:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,918:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,929:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,941:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,953:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,964:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,976:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,988:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:56,999:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,011:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,023:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,034:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,046:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,058:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,069:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,081:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,093:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,104:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,116:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,128:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,139:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,151:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,162:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,174:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,186:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,197:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,209:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,221:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,232:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,244:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,257:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,269:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,281:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,294:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,307:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,318:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,330:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,341:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,353:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,366:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,377:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,390:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,401:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,413:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,426:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,437:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,449:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,461:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,472:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,485:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,498:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,511:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,523:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,535:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,547:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,559:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,572:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,584:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,596:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,607:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,621:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,635:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,647:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,659:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,674:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,686:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,699:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,712:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:57,715:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:57,716:TEST-MODE:INFO: 24.61 24.07 24.32 24.58 25.29 -0.01 0.00 -0.01 11.09 11.27 10.02 10.29 1602.08 6309.84 1.51 100.00 0  0  2  0  None 615.14 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:36:57,716:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:57,717:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,730:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,743:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,756:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,769:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,781:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,794:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,807:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,820:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,832:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,845:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,857:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,869:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,882:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,893:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,905:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,917:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,928:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,941:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,952:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,964:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,976:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:57,987:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,000:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,013:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,026:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,037:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,049:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,061:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,072:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,085:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,097:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,109:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,120:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,132:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,145:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,158:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,169:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,180:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,192:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,203:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,216:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,228:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:58,231:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:58,232:TEST-MODE:INFO: 24.61 24.07 24.32 24.58 25.30 -0.00 -0.00 -0.02 11.09 11.27 10.02 10.29 1596.66 6313.30 1.51 100.00 0  0  2  0  None 615.11 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:36:58,232:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:58,233:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,246:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,258:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,270:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,283:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,296:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,308:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,321:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,334:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,346:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,359:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,372:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,384:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,397:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,408:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,420:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,431:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,443:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,456:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,467:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,479:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,491:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,502:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,515:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,528:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,541:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,552:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,564:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,575:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,587:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,600:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,612:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,623:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,635:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,647:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,660:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,672:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,684:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,696:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,708:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,719:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,732:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:58,745:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:58,748:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:58,749:TEST-MODE:INFO: 24.61 24.07 24.33 24.57 25.30 -0.00 -0.01 -0.01 11.09 11.27 10.03 10.29 1591.72 6316.80 1.51 100.00 0  0  2  0  None 615.10 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:36:58,749:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:59,271:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:59,274:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:59,275:TEST-MODE:INFO: 24.61 24.07 24.33 24.57 25.30 -0.00 -0.01 -0.01 11.10 11.27 10.03 10.29 1586.94 6320.32 1.51 100.00 0  0  2  0  None 615.22 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:36:59,276:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:59,277:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,289:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,301:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,314:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,326:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,338:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,351:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,364:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,377:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,390:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,404:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,417:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,428:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,442:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,454:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,466:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,478:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,492:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,503:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,515:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,532:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,546:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,557:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,570:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,583:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,594:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,605:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,617:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,628:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,641:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,652:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,664:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,675:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,686:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,699:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,712:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,723:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,734:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,746:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,757:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,770:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,783:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:36:59,787:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:36:59,788:TEST-MODE:INFO: 24.61 24.07 24.34 24.56 25.30 -0.00 0.00 -0.01 11.10 11.27 10.03 10.29 1582.48 6323.70 1.51 100.00 0  0  2  0  None 615.29 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:36:59,789:TEST-MODE:INFO: mega in control
+2021-10-24 12:36:59,790:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,803:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,816:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,829:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,842:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,854:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,866:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,879:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,892:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,905:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,918:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,929:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,941:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,953:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,967:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,978:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:36:59,990:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,002:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,016:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,028:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,039:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,051:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,062:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,075:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,089:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,103:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,115:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,126:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,138:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,149:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,163:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,176:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,188:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,200:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,212:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,225:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,238:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,254:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,266:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,277:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,290:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:00,302:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:00,308:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:00,309:TEST-MODE:INFO: 24.61 24.07 24.35 24.56 25.30 -0.00 0.00 -0.01 11.09 11.27 10.03 10.29 1584.14 6323.46 1.51 100.00 0  0  2  0  None 615.40 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:00,310:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:00,876:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:00,881:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:00,882:TEST-MODE:INFO: 24.61 24.07 24.36 24.55 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1585.36 6323.24 1.51 100.00 0  0  2  0  None 615.36 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:00,883:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:01,381:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:01,384:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:01,385:TEST-MODE:INFO: 24.61 24.07 24.37 24.55 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1586.18 6322.84 1.51 100.00 0  0  2  0  None 615.58 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:01,387:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:01,908:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:01,910:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:01,911:TEST-MODE:INFO: 24.61 24.07 24.38 24.55 25.30 0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1587.10 6322.54 1.51 100.00 0  0  2  0  None 615.56 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:01,912:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:02,414:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:02,417:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:02,419:TEST-MODE:INFO: 24.61 24.07 24.39 24.55 25.30 0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1587.62 6322.16 1.51 100.00 0  0  2  0  None 615.71 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:02,420:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:02,943:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:02,948:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:02,950:TEST-MODE:INFO: 24.61 24.07 24.41 24.55 25.30 0.00 0.00 -0.00 11.09 11.27 10.03 10.29 1588.30 6321.90 1.51 100.00 0  0  2  0  None 615.69 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:02,951:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:03,457:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:03,460:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:03,462:TEST-MODE:INFO: 24.61 24.07 24.42 24.55 25.30 0.00 0.00 -0.00 11.09 11.27 10.03 10.29 1588.88 6321.54 1.51 100.00 0  0  2  0  None 615.75 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:03,463:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:03,979:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:03,984:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:03,985:TEST-MODE:INFO: 24.61 24.07 24.42 24.55 25.30 0.00 0.00 -0.00 11.09 11.27 10.03 10.29 1589.48 6321.30 1.51 100.00 0  0  2  0  None 615.84 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:03,987:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:04,498:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:04,503:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:04,505:TEST-MODE:INFO: 24.61 24.07 24.43 24.55 25.30 0.00 0.00 -0.00 11.09 11.27 10.03 10.29 1589.84 6321.08 1.51 100.00 0  0  2  0  None 615.80 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:04,506:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:05,017:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:05,021:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:05,023:TEST-MODE:INFO: 24.61 24.07 24.44 24.55 25.30 0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1590.32 6320.88 1.51 100.00 0  0  2  0  None 615.93 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:05,024:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:05,525:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:05,529:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:05,530:TEST-MODE:INFO: 24.61 24.07 24.44 24.55 25.30 0.00 -0.00 -0.01 11.10 11.27 10.03 10.29 1590.66 6320.68 1.51 100.00 0  0  2  0  None 615.91 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:05,531:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:05,532:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,546:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,560:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,573:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,586:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,600:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,613:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,626:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,640:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,654:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,667:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,681:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,693:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,707:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,719:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,731:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,744:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,756:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,770:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,782:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,794:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,807:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,823:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,837:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,851:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,863:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,875:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,888:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,900:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,915:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,927:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,939:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,952:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,967:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,981:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:05,994:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:06,007:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:06,019:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:06,032:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:06,046:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:06,060:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:06,064:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:06,065:TEST-MODE:INFO: 24.60 24.07 24.45 24.55 25.30 0.00 -0.00 -0.02 11.09 11.27 10.03 10.29 1590.96 6320.58 1.51 100.00 0  0  2  0  None 615.86 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:06,066:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:06,566:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:06,570:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:06,571:TEST-MODE:INFO: 24.60 24.07 24.45 24.55 25.30 0.00 -0.00 -0.02 11.09 11.27 10.03 10.29 1591.40 6320.36 1.51 100.00 0  0  2  0  None 616.09 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:06,572:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:07,092:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:07,096:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:07,097:TEST-MODE:INFO: 24.60 24.07 24.46 24.54 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1591.78 6320.20 1.51 100.00 0  0  2  0  None 616.02 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:07,099:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:07,611:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:07,616:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:07,618:TEST-MODE:INFO: 24.60 24.07 24.47 24.54 25.30 -0.00 -0.00 -0.01 11.09 11.27 10.03 10.29 1592.16 6319.98 1.51 100.00 0  0  2  0  None 616.17 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:07,619:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:08,129:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:08,133:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:08,135:TEST-MODE:INFO: 24.60 24.07 24.47 24.54 25.30 -0.01 0.00 -0.01 11.10 11.27 10.03 10.29 1592.58 6319.80 1.51 100.00 0  0  2  0  None 616.11 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:08,136:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:08,137:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,151:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,165:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,179:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,192:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,207:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,220:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,234:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,248:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,260:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,272:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,285:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,299:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,311:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,324:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,337:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,351:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,363:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,376:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,388:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,401:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,415:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,429:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,443:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,456:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,468:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,481:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,495:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,507:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,520:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,532:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,545:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,559:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,573:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,586:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,598:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,611:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,623:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,637:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,651:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:08,655:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:08,656:TEST-MODE:INFO: 24.61 24.07 24.47 24.54 25.30 -0.01 0.00 -0.01 11.10 11.27 10.03 10.29 1592.82 6319.62 1.51 100.00 0  0  2  0  None 616.11 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:08,657:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:08,659:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,673:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,686:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,700:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,714:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,727:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,740:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,755:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,769:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,784:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,798:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,811:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,824:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,837:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,849:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,861:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,875:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,888:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,900:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,913:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,925:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,939:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,953:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,966:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,978:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:08,991:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,003:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,016:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,030:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,042:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,054:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,067:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,081:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,095:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,107:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,119:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,131:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,144:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,157:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,170:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:09,174:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:09,175:TEST-MODE:INFO: 24.61 24.07 24.48 24.54 25.31 -0.01 0.01 -0.02 11.10 11.27 10.03 10.29 1593.06 6319.40 1.51 100.00 0  0  2  0  None 616.37 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:09,176:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:09,178:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,191:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,204:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,217:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,230:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,244:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,257:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,271:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,283:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,295:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,308:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,321:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,335:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,348:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,361:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,373:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,387:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,400:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,413:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,425:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,437:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,449:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,460:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,472:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,483:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,495:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,507:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,520:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,533:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,544:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,555:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,567:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,578:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,591:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,603:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,615:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,626:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,637:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,650:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,663:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,674:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,685:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,697:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,708:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,721:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:09,733:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:09,737:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:09,739:TEST-MODE:INFO: 24.60 24.07 24.48 24.53 25.31 -0.01 0.00 -0.01 11.09 11.27 10.03 10.29 1593.42 6319.14 1.51 100.00 0  0  2  0  None 616.31 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:09,740:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:10,240:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:10,243:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:10,245:TEST-MODE:INFO: 24.61 24.07 24.48 24.53 25.31 -0.01 0.00 -0.01 11.09 11.27 10.03 10.29 1593.64 6318.96 1.51 100.00 0  0  2  0  None 616.37 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:10,246:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:10,763:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:10,767:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:10,769:TEST-MODE:INFO: 24.61 24.07 24.48 24.52 25.31 -0.02 0.01 -0.00 11.09 11.27 10.03 10.29 1593.96 6318.76 1.51 100.00 0  0  2  0  None 616.33 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:10,770:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:11,271:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:11,275:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:11,276:TEST-MODE:INFO: 24.61 24.07 24.48 24.52 25.31 -0.02 0.01 -0.00 11.09 11.27 10.03 10.29 1594.38 6318.44 1.51 100.00 0  0  2  0  None 616.46 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:11,277:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:11,809:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:11,812:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:11,814:TEST-MODE:INFO: 24.61 24.07 24.48 24.51 25.31 -0.01 0.01 -0.00 11.09 11.27 10.03 10.29 1594.66 6318.26 1.51 100.00 0  0  2  0  None 616.57 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:11,815:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:12,317:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:12,320:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:12,322:TEST-MODE:INFO: 24.61 24.07 24.48 24.50 25.31 -0.01 0.01 -0.00 11.10 11.27 10.03 10.29 1594.78 6318.04 1.51 100.00 0  0  2  0  None 616.55 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:12,323:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:12,324:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,338:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,351:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,364:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,378:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,391:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,405:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,418:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,432:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,445:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,459:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,473:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,485:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,499:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,511:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,524:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,536:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,548:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,562:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,575:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,587:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,599:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,611:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,624:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,636:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,649:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,660:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,672:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,684:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,697:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,709:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,721:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,733:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,745:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,758:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,771:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,783:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,794:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,806:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,818:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,831:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,843:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:12,846:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:12,847:TEST-MODE:INFO: 24.61 24.07 24.48 24.49 25.31 -0.00 0.00 -0.00 11.10 11.27 10.03 10.29 1595.12 6317.96 1.51 100.00 0  0  2  0  None 616.50 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:12,847:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:12,848:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,861:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,873:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,886:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,899:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,910:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,923:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,935:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,948:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,961:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,972:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,984:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:12,996:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,009:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,020:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,032:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,043:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,055:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,068:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,080:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,092:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,103:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,115:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,129:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,142:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,155:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,167:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,178:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,190:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,202:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,215:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,227:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,239:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,250:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,264:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,277:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,289:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,300:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,312:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,324:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,337:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,350:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:13,353:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:13,355:TEST-MODE:INFO: 24.61 24.07 24.48 24.50 25.31 -0.00 0.00 -0.00 11.10 11.27 10.03 10.29 1595.24 6317.72 1.51 100.00 0  0  2  0  None 616.59 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:13,355:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:13,357:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,369:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,382:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,395:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,407:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,420:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,433:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,446:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,459:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,471:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,484:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,497:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,509:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,521:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,534:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,546:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,558:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,569:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,581:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,595:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,607:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,619:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,630:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,642:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,655:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,668:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,681:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,693:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,705:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,717:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,728:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,742:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,753:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,765:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,777:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,791:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,804:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,816:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,828:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,840:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,852:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,865:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,878:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:13,881:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:13,882:TEST-MODE:INFO: 24.61 24.07 24.48 24.49 25.31 0.00 -0.00 0.01 11.10 11.27 10.03 10.29 1595.36 6317.50 1.51 100.00 0  0  2  0  None 616.66 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:13,883:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:13,884:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,897:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,909:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,922:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,935:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,947:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,960:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,973:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,986:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:13,999:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,010:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,022:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,039:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,051:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,062:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,074:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,086:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,100:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,112:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,124:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,136:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,148:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,161:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,175:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,188:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,199:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,211:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,223:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,235:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,249:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,260:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,272:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,284:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,298:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,313:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,325:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,337:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,349:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,361:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,374:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,387:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:14,390:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:14,391:TEST-MODE:INFO: 24.61 24.07 24.48 24.50 25.30 0.00 -0.00 0.01 11.10 11.27 10.03 10.29 1595.66 6317.34 1.51 100.00 0  0  2  0  None 616.70 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:14,392:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:14,393:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,406:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,419:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,432:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,445:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,457:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,470:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,484:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,497:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,510:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,523:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,543:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,555:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,568:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,579:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,592:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,604:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,616:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,629:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,641:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,653:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,665:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,677:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,690:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,703:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,716:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,728:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,740:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,752:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,765:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,776:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,788:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,800:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,812:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,825:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,837:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,850:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,862:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,874:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,886:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,899:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,912:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:14,915:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:14,916:TEST-MODE:INFO: 24.61 24.07 24.48 24.49 25.30 -0.00 -0.00 0.00 11.10 11.27 10.03 10.29 1595.86 6317.14 1.51 100.00 0  0  2  0  None 616.73 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:14,917:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:14,918:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,931:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,944:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,957:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,969:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,981:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:14,995:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,008:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,021:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,034:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,046:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,058:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,069:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,082:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,094:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,106:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,118:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,133:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,144:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,156:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,168:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,180:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,193:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,206:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,219:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,231:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,242:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,254:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,266:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,280:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,291:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,304:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,319:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,331:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,345:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,358:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,370:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,385:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,397:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,410:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,423:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:15,426:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:15,427:TEST-MODE:INFO: 24.62 24.07 24.48 24.50 25.30 -0.00 -0.00 0.00 11.10 11.27 10.03 10.29 1596.00 6316.82 1.51 100.00 0  0  2  0  None 616.86 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:15,428:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:15,429:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,442:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,455:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,468:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,481:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,495:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,508:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,522:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,535:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,547:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,559:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,572:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,583:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,595:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,607:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,618:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,630:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,642:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,654:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,667:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,679:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,690:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,702:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,718:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,730:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,743:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,756:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,768:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,779:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,791:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,804:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,816:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,827:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,839:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,851:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,864:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,877:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,889:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,900:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,912:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,924:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,937:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,950:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:15,954:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:15,955:TEST-MODE:INFO: 24.62 24.07 24.48 24.49 25.30 0.00 -0.01 -0.01 11.10 11.27 10.03 10.29 1596.32 6316.66 1.51 100.00 0  0  2  0  None 616.81 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:15,956:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:15,958:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,971:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,984:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:15,997:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,010:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,025:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,038:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,051:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,064:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,076:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,088:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,100:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,113:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,125:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,136:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,148:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,160:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,173:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,185:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,197:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,208:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,220:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,233:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,246:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,259:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,271:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,283:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,295:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,306:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,320:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,331:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,343:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,355:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,367:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,380:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,393:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,404:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,416:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,428:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,440:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,453:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,466:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:16,470:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:16,471:TEST-MODE:INFO: 24.62 24.07 24.48 24.49 25.31 0.00 -0.01 -0.01 11.10 11.27 10.03 10.29 1596.60 6316.50 1.51 100.00 0  0  2  0  None 616.88 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:16,472:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:16,474:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,487:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,500:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,513:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,525:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,538:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,551:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,564:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,577:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,590:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,603:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,616:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,627:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,641:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,652:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,664:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,676:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,688:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,702:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,714:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,725:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,736:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,748:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,760:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,773:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,785:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,796:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,808:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,819:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,831:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,844:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,855:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,867:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,878:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,890:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,903:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,916:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,930:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,942:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,954:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,965:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,978:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:16,991:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:16,994:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:16,995:TEST-MODE:INFO: 24.62 24.07 24.48 24.49 25.31 -0.00 -0.01 -0.01 11.10 11.27 10.03 10.29 1596.72 6316.30 1.51 100.00 0  0  2  0  None 616.97 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:16,996:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:16,996:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,009:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,022:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,035:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,047:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,060:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,072:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,085:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,102:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,113:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,125:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,137:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,150:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,166:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,178:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,190:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,203:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,214:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,230:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,241:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,253:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,266:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,279:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,295:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,307:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,319:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,330:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,342:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,356:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,371:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,383:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,395:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,408:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,424:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,436:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,448:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,460:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,471:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,484:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:17,497:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:17,500:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:17,501:TEST-MODE:INFO: 24.62 24.07 24.48 24.49 25.31 -0.00 -0.01 -0.01 11.09 11.27 10.03 10.29 1597.00 6316.06 1.51 100.00 0  0  2  0  None 617.03 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:17,502:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:18,019:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:18,022:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:18,023:TEST-MODE:INFO: 24.62 24.07 24.47 24.48 25.31 -0.00 0.00 -0.01 11.09 11.27 10.03 10.29 1597.34 6315.90 1.51 100.00 0  0  2  0  None 616.99 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:18,023:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:18,532:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:18,535:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y    Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:18,536:TEST-MODE:INFO: 24.62 24.07 24.47 24.48 25.31 -0.00 0.00 -0.01 11.09 11.27 10.03 10.29 1597.62 6315.54 1.51 100.00 0  0  2  0  None 617.17 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:18,537:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:19,053:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:19,056:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:19,057:TEST-MODE:INFO: 24.62 24.07 24.46 24.47 25.30 -0.01 -0.00 -0.01 11.09 11.27 10.03 10.29 1597.80 6315.20 1.51 100.00 0  0  2  0  None 617.21 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:19,058:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:19,561:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:19,565:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:19,567:TEST-MODE:INFO: 24.62 24.07 24.46 24.47 25.30 -0.01 -0.00 -0.01 11.09 11.27 10.03 10.29 1597.92 6314.92 1.51 100.00 0  0  2  0  None 617.28 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:19,568:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:20,094:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:20,097:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:20,098:TEST-MODE:INFO: 24.62 24.07 24.46 24.46 25.30 -0.00 -0.01 -0.01 11.09 11.27 10.03 10.29 1598.14 6314.80 1.51 100.00 0  0  2  0  None 617.17 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  0.00  
+2021-10-24 12:37:20,099:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:20,593:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:20,597:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X     Y     Z     BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:20,598:TEST-MODE:INFO: 24.62 24.07 24.46 24.45 25.30 -0.00 -0.01 -0.01 11.09 11.27 10.02 10.29 1598.38 6314.58 1.51 100.00 0  0  2  0  None 617.24 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:37:20,599:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:20,600:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,615:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,629:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,643:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,656:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,669:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,682:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,695:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,708:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,721:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,734:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,747:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,759:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,770:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,784:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,797:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,809:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,821:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,833:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,846:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,861:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,873:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,886:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,900:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,914:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,928:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,940:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,952:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,965:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,980:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:20,992:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,004:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,017:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,029:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,047:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,061:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,073:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,086:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,102:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,116:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,130:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:21,133:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:21,135:TEST-MODE:INFO: 24.61 24.07 24.46 24.44 25.30 0.00 -0.00 0.01 11.09 11.27 10.02 10.29 1598.58 6314.50 1.51 100.00 0  0  2  0  None 617.26 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:37:21,136:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:21,138:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,152:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,165:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,179:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,192:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,206:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,220:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,234:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,248:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,261:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,273:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,291:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,303:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,316:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,328:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,341:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,356:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,368:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,381:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,393:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,407:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,420:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,435:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,447:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,459:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,472:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,484:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,498:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,511:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,523:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,535:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,549:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,565:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,577:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,589:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,601:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,614:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,628:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,641:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:21,644:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:21,645:TEST-MODE:INFO: 24.61 24.07 24.46 24.43 25.30 0.00 -0.00 0.01 11.09 11.27 10.02 10.29 1598.78 6314.34 1.51 100.00 0  0  2  0  None 617.39 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:37:21,646:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:21,647:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,660:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,674:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,687:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,699:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,712:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,726:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,740:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,753:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,766:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,779:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,792:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,804:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,817:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,828:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,840:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,852:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,863:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,877:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,888:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,900:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,912:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,924:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,937:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,950:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,963:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,975:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,986:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:21,998:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,010:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,023:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,035:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,047:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,058:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,075:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,089:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,101:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,112:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,125:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,137:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,150:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,163:TEST-MODE:INFO: State.CONTROLLED
+2021-10-24 12:37:22,166:TEST-MODE:INFO: BT1   BT2   TT1   TT2   AT    X    Y     Z    BP1   BP2   TP1   TP2   HP      AP      PD   PC     HL EL BF SF PF   BV     rpm             State      MissionState Setpoint Error Depth 
+2021-10-24 12:37:22,167:TEST-MODE:INFO: 24.61 24.07 24.45 24.43 25.30 0.00 -0.00 0.01 11.09 11.27 10.02 10.29 1599.00 6314.28 1.51 100.00 0  0  2  0  None 617.34 Buffering (0/1) CONTROLLED DESCENDING   1        1.00  -0.00 
+2021-10-24 12:37:22,168:TEST-MODE:INFO: mega in control
+2021-10-24 12:37:22,170:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,182:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,195:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,208:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,221:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,234:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,248:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,261:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,273:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,285:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,299:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,312:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,326:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,339:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,351:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,363:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,375:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,389:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,400:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,412:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,424:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,437:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,449:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,461:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,472:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,484:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,497:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,510:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,524:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,535:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,547:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,558:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,570:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,583:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,595:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,606:TEST-MODE:WARNING: min_bladder_reached False
+2021-10-24 12:37:22,617:TEST-MODE:CRITICAL: user initiated safe system shutdown
+2021-10-24 12:37:22,618:TEST-MODE:INFO: skipping nano safe shutdown: disabled

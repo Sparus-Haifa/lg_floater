@@ -1,0 +1,75 @@
+2021-10-24 11:18:25,511:INFO: init
+2021-10-24 11:18:25,512:INFO: loading settings:
+2021-10-24 11:18:25,512:INFO: [app]: simulation = False
+2021-10-24 11:18:25,513:INFO: [app]: simulation_udp_port = 12000
+2021-10-24 11:18:25,513:INFO: [app]: host_ip = 127.0.0.1
+2021-10-24 11:18:25,513:INFO: [app]: disable_safety = True
+2021-10-24 11:18:25,514:INFO: [app]: test_mode = False
+2021-10-24 11:18:25,514:INFO: [app]: test_mode_udp_port = 5000
+2021-10-24 11:18:25,514:INFO: [app]: disable_altimeter = True
+2021-10-24 11:18:25,515:INFO: [app]: skip_arduino_compile = False
+2021-10-24 11:18:25,515:INFO: [serial]: port = /dev/ttyACM0
+2021-10-24 11:18:25,516:INFO: [serial]: timeout = 3
+2021-10-24 11:18:25,516:INFO: [serial]: baud_rate = 115200
+2021-10-24 11:18:25,516:INFO: [serial_safety]: port = /dev/ttyUSB0
+2021-10-24 11:18:25,517:INFO: [serial_safety]: timeout = 3
+2021-10-24 11:18:25,517:INFO: [serial_safety]: baud_rate = 115200
+2021-10-24 11:18:25,518:INFO: [task]: min_time_off_duration_limit = 0.5
+2021-10-24 11:18:25,518:INFO: [task]: planned_mission = [1, 0, 1, 0]
+2021-10-24 11:18:25,518:INFO: [task]: hold_on_taget_duration = 60
+2021-10-24 11:18:25,519:INFO: [task]: hold_on_target_distance = 0.4
+2021-10-24 11:18:25,519:INFO: [task]: min_ascend_descend_distance = 5
+2021-10-24 11:18:25,520:INFO: [task]: kp = 1000
+2021-10-24 11:18:25,520:INFO: [task]: kd = 60
+2021-10-24 11:18:25,521:INFO: [task]: ki = 0.001
+2021-10-24 11:18:25,521:INFO: [pressure]: epsilon = 0.5
+2021-10-24 11:18:25,521:INFO: [pressure]: avg_samples = 5
+2021-10-24 11:18:25,522:INFO: [pressure]: precision = 2
+2021-10-24 11:18:25,522:INFO: [temperature]: avg_samples = 5
+2021-10-24 11:18:25,523:INFO: [temperature]: precision = 2
+2021-10-24 11:18:25,523:INFO: [imu]: avg_samples = 5
+2021-10-24 11:18:25,523:INFO: [imu]: precision = 2
+2021-10-24 11:18:25,524:INFO: [bladder]: avg_samples = 1
+2021-10-24 11:18:25,524:INFO: [bladder]: precision = 2
+2021-10-24 11:18:25,524:INFO: [altimeter]: avg_samples = 1
+2021-10-24 11:18:25,525:INFO: [altimeter]: precision = 2
+2021-10-24 11:18:25,525:INFO: [rpm]: avg_samples = 1
+2021-10-24 11:18:25,525:INFO: [rpm]: precision = 2
+2021-10-24 11:18:25,526:INFO: [pickup]: wait_for_water_duration = 10
+2021-10-24 11:18:25,526:INFO: [safety]: timeout = 30
+2021-10-24 11:18:25,526:WARNING: Safety is disabled
+2021-10-24 11:18:25,527:WARNING: Altimeter is disabled
+2021-10-24 11:18:25,528:INFO: Pressure controller was initialized successfully
+2021-10-24 11:18:25,529:INFO: BP1 pressure sensor was initialized successfully
+2021-10-24 11:18:25,529:INFO: BP2 pressure sensor was initialized successfully
+2021-10-24 11:18:25,530:INFO: TP1 pressure sensor was initialized successfully
+2021-10-24 11:18:25,530:INFO: TP2 pressure sensor was initialized successfully
+2021-10-24 11:18:25,531:INFO: HP pressure sensor was initialized successfully
+2021-10-24 11:18:25,531:INFO: AP pressure sensor was initialized successfully
+2021-10-24 11:18:25,532:INFO: Temperature controller was initialized successfully
+2021-10-24 11:18:25,532:INFO: BT1 temperature sensor was initialized successfully
+2021-10-24 11:18:25,533:INFO: BT2 temperature sensor was initialized successfully
+2021-10-24 11:18:25,533:INFO: TT1 temperature sensor was initialized successfully
+2021-10-24 11:18:25,534:INFO: TT2 temperature sensor was initialized successfully
+2021-10-24 11:18:25,534:INFO: AT temperature sensor was initialized successfully
+2021-10-24 11:18:25,535:INFO: IMU controller was initialized successfully
+2021-10-24 11:18:25,535:INFO: X IMU sensor was initialized successfully
+2021-10-24 11:18:25,535:INFO: Y IMU sensor was initialized successfully
+2021-10-24 11:18:25,536:INFO: Z IMU sensor was initialized successfully
+2021-10-24 11:18:25,536:INFO: Bladder volume controller was initialized successfully
+2021-10-24 11:18:25,537:INFO: Altimeter controller was initialized successfully
+2021-10-24 11:18:25,537:INFO: rpm controller was initialized successfully
+2021-10-24 11:18:25,538:INFO: Pump flag controller was initialized successfully
+2021-10-24 11:18:25,538:INFO: Bladder flag controller was initialized successfully
+2021-10-24 11:18:25,538:INFO: Hull leak flag controller was initialized successfully
+2021-10-24 11:18:25,539:INFO: Engine leak flag controller was initialized successfully
+2021-10-24 11:18:25,539:INFO: Full surface initiated flag controller was initialized successfully
+2021-10-24 11:18:25,540:INFO: Iridium flag controller was initialized successfully
+2021-10-24 11:18:25,540:DEBUG: attempting to init serial comm
+2021-10-24 11:18:25,540:DEBUG:  port:/dev/ttyACM0
+2021-10-24 11:18:25,541:DEBUG:  baud_rate:115200
+2021-10-24 11:18:25,542:INFO: SerialComm was initialized successfully
+2021-10-24 11:18:25,543:DEBUG: attempting to load profile: cfg/profile.txt
+2021-10-24 11:18:25,557:INFO: Profile file loaded successfully
+2021-10-24 11:18:25,558:INFO: Profile class was initialized successfully
+2021-10-24 11:18:25,610:INFO: compiling mega code
