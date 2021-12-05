@@ -7,8 +7,8 @@ from time import sleep
 
 
 class UdpComm():
-    def __init__(self, name, port, log) -> None:
-        self.log = log
+    def __init__(self, name, port) -> None:
+        # self.log = log
         self.name = name
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.server_socket.settimeout(1.0)
@@ -17,6 +17,11 @@ class UdpComm():
         self.server_socket.bind(('', port))
         # self.address= ("127.0.0.1", 12003)
         self.address= ("127.0.0.1", port)
+
+    def __del__(self):
+        #print("Closing server socket:", self.sock)
+        self.server_socket.shutdown(socket.SHUT_RDWR)
+        self.server_socket.close()
 
 
 
@@ -35,7 +40,7 @@ class UdpComm():
 
     def write(self, message = b"noting\n"):
         line = bytes(message, encoding='utf-8')
-        self.log.debug(f"rpi>{self.name}: {message}")
+        # self.log.debug(f"rpi>{self.name}: {message}")
         self.server_socket.sendto(line, self.address)
 
 

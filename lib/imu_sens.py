@@ -14,7 +14,7 @@ class IMU(Sensor):
         self.log.info(f"{self.name} IMU sensor was initialized successfully")
 
     #IMU sample looks like XYZ:x,y,z,a
-    def add_sample(self, sample):
+    async def add_sample(self, sample):
         # sample_arr = sample.split(":")[1].split(",")
         # if len(sample_arr) != 4:
         #     self.log.write("-W- IMU add_sample - invalid sample {}\n".format(sample))
@@ -26,7 +26,7 @@ class IMU(Sensor):
         # self.t.append(float(sample))
 
         # super().add_sample(float(sample))
-        super().add_sample(sample)
+        await super().add_sample(sample)
 
     # def getLast(self):
     #     if len(self.t)<1:

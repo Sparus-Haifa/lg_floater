@@ -17,10 +17,10 @@ class Press(Sensor):
         self.log.info(f"{self.name} pressure sensor was initialized successfully")
 
 
-    def add_sample(self, sample):
+    async def add_sample(self, sample):
         # TODO: try catch parse
         # super().add_sample(float(sample))
-        super().add_sample(sample)
+        await super().add_sample(sample)
 
     # def getLast(self):
     #     if len(self.t)<self.avg_samples:

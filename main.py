@@ -1456,7 +1456,7 @@ def main():
         csv_log = logger.get_csv_log()
 
 
-        settings = [cfg.app, cfg.serial, cfg.serial_safety, cfg.task, cfg.pressure, cfg.temperature, cfg.imu, cfg.bladder, cfg.altimeter, cfg.rpm, cfg.pickup, cfg.safety]
+        settings = [cfg.app, cfg.serial, cfg.serial_safety, cfg.task, cfg.pressure, cfg.temperature, cfg.imu, cfg.bladder, cfg.altimeter, cfg.rpm, cfg.pickup, cfg.safety] # TODO remove this ugly thing
         names =     ["app", "serial", "serial_safety", "task", "pressure", "temperature", "imu", "bladder", "altimeter", "rpm", "pickup", "safety"]
 
         if cfg.app["simulation"]:

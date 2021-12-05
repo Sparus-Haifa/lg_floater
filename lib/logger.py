@@ -69,6 +69,7 @@ class Logger:
         self.csv_log.addHandler(file_handler_csv)
 
 
+
     def get_log(self):
         return self.log
 

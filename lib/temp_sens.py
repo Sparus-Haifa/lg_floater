@@ -13,7 +13,7 @@ class Temp(Sensor):
         self._queues_are_full = False
         self.log.info(f"{self.name} temperature sensor was initialized successfully")
 
-    def add_sample(self, sample_arr):
+    async def add_sample(self, sample_arr):
         # if len(sample_arr) != 2:
             # return
 
@@ -24,7 +24,7 @@ class Temp(Sensor):
 
         # self.t.append(float(sample_arr))
         # super().add_sample(float(sample_arr))
-        super().add_sample(sample_arr)
+        await super().add_sample(sample_arr)
 
         # self.log.write("Added temperature sample: {}\n".format(str(sample_arr)))
 

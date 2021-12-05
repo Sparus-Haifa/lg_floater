@@ -1,4 +1,6 @@
 from collections import deque
+from transitions.extensions.asyncio import HierarchicalAsyncMachine
+
 class Sensor:
     def __init__(self, name, avg_samples, precision, log):
         self.name = name
@@ -6,6 +8,10 @@ class Sensor:
         self.t = deque(maxlen=self.avg_samples)
         self.precision = precision
         self.log = log
+        self.machine = HierarchicalAsyncMachine(self, states=['active', 'faulty'], transitions = [], ignore_invalid_triggers=True)
+        self.machine.add_transition('sensor_is_responding', 'initial', 'active', unless=['is_active'])
+
+
 
 
     def reset(self):
@@ -26,8 +32,11 @@ class Sensor:
         return round(avg,self.precision)
         # return round(self.t[-1],self.precision)
 
-    def add_sample(self, sample):
+    async def add_sample(self, sample):
+        if not self.state == 'active':
+            await self.to_active()
         # TODO: try catch parse
+        # self.log.debug(f'{self.name}:{sample}')
         try:
             value = float(sample)
         # except Exception as e:

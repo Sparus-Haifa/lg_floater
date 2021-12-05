@@ -1,6 +1,5 @@
-from collections import deque
-from os import name
-from lib.sensor import Sensor
+from transitions.extensions.asyncio import HierarchicalAsyncMachine
+
 
 class Flag:
     def __init__(self, name, log):
@@ -14,31 +13,22 @@ class Flag:
         # self._queues_are_full = False
         self.log.info(f"{self.name} flag controller was initialized successfully")
 
+        self.machine = HierarchicalAsyncMachine(self, states=[], transitions = [])
+        # self.machine.add_transition('flag_is_responding', 'initial', 'active', unless=['is_active'])
+
     def reset(self):
         self.log.debug(f"clearing flag {self.name} data")
         self.status = None
 
-    def add_sample(self, sample_arr):
-        # if len(sample_arr) != 2:
-            # return
+    async def add_sample(self, sample_arr):
+        # if not self.state == 'active':
+        #     await self.to_active()
+        # await self.flag_is_responding()
 
-        # sample_id = sample_arr[0].lower()
-        # sample_val = float(sample_arr[1])
-
+    
         self.status=int(float(sample_arr))
         # self.status=sample_arr
 
-        # self.log.info("Added temperature sample: {}\n".format(str(sample_arr)))
-
-        # We can start using the samples once:
-        #       We received data from all temperature sensors
-        #       We received enough samples from all sensors
-        # if not self._queues_are_full:
-        #     if len(self.t1) == self.avg_samples and \
-        #             len(self.t2) == self.avg_samples and \
-        #             len(self.t3) == self.avg_samples and \
-        #             len(self.t4) == self.avg_samples:
-        #         self._queues_are_full = True
 
     def getLast(self):
         return self.status
