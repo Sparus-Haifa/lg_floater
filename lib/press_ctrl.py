@@ -29,7 +29,7 @@ class Press_ctrl():
                 return False
         return True
 
-    def senseWater(self):
+    async def senseWater(self):
         # TODO: handle failed sensors
         tp1 = self.sensors["TP1"]
         tp2 = self.sensors["TP2"]
@@ -99,7 +99,7 @@ class Press_ctrl():
         return self.getAvgDepthSensorsRead()
 
 
-    def calibrate(self):
+    async def calibrate(self):
         offset = self.get_bottom_sernsors_avg()
         if offset is None:
             self.log.error('depth sensors calibration failed')

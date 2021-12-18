@@ -19,7 +19,7 @@ class Altimeter(Sensor):
         self.distance.clear()
         self.confidance.clear()
 
-    def add_sample(self, sample_arr):
+    async def add_sample(self, sample_arr):
         if self.skipNext:
             self.skipNext = False
             print("skipping adding alt sample")
@@ -35,7 +35,7 @@ class Altimeter(Sensor):
 
         self.distance.append(value)
 
-    def add_confidance(self, sample):
+    async def add_confidance(self, sample):
         if self.skipNext:
             self.skipNext = False
             print("skipping adding confidance sample")
