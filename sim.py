@@ -17,6 +17,7 @@ class Comm():
         self.client_socket.setblocking(False)
         # self.addr = ("127.0.0.1", 12000)
         self.addr = (cfg.app["host_ip"], cfg.app["simulation_udp_port"])
+        # self.client_socket.bind(self.addr)
         # self.client_socket.connect(self.addr)
         self.pid = 0
         self.lastPID = 0
@@ -50,9 +51,15 @@ class Comm():
 
 
     def sendMessage(self, message = b'test'):
-        # message 
+        # message
+        # try: 
         self.client_socket.sendto(message, self.addr)
-        # self.client_socket.sendall(message)
+        # except Exception as e:
+        #     pass
+        #     # print(e)
+        # # self.client_socket.sendall(message)
+        # pass
+        
 
 
     def recieveMessage(self):
@@ -61,13 +68,14 @@ class Comm():
                 message, address = self.client_socket.recvfrom(1024)
             except Exception as e:
                 '''no data yet..'''
+                # print(e)
                 break
                 pass
                 # print(e)
                 # print('''no data yet..''')
             else:
                 # message = message.upper()
-                # print(message)
+                print(message)
                 s = message.decode('utf-8','ignore')
                 header, value = s.strip().split(":")
                 # value = float(value)
@@ -86,6 +94,7 @@ class Comm():
                 elif header=="S":
                     print('full surface')
                     self.fresh_full_surface = True
+                    self.sendMessage(bytes(f"FS:{value}",'utf-8'))
                     if int(value) == 1:
                         self.direction = 1
                     else:
@@ -329,6 +338,9 @@ class YuriSim():
                         if self.pumpIsOn:
                             turnOffPump()
                             self.comm.full_surface = False
+                            self.comm.sendMessage(bytes(f"FS:0",'utf-8'))
+
+
 
                 elif self.comm.timeOn > 0.0:
 
@@ -826,4 +838,8 @@ if __name__=="__main__":
     comm = Comm()
     # print("hello")
     sim = YuriSim(comm)
-    sim.startSim()
+    try:
+        sim.startSim()
+    except KeyboardInterrupt:
+        print('closing socket')
+        comm.client_socket.close()

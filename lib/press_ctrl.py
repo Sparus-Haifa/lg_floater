@@ -112,4 +112,6 @@ class Press_ctrl():
 
 
     def get_depth(self):
-        return self.getAvgDepthSensorsRead() - self.offset
+        if self.isBufferFull():
+            return self.getAvgDepthSensorsRead() - self.offset
+        return "Buffering"

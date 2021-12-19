@@ -1,28 +1,39 @@
 import asyncio
 # from transitions.core import Transition
 from transitions import State
+import transitions
 from transitions.extensions.asyncio import HierarchicalAsyncMachine, NestedAsyncState
 # from cfg.configuration import State
 from lib.logger import Logger
 import logging
 
 from sensors import Sensors
-import signal
+# import signal
+import socket
 
 
 
 class DatagramDriver(asyncio.DatagramProtocol):
-    def __init__(self, queue) -> None:
+    def __init__(self, queue, driver) -> None:
         super().__init__()
         self.queue = queue
+        self.driver = driver
         
     def connection_made(self, transport) -> None:  # "Used by asyncio"
         self.transport = transport
+        # self.driver.send_test_message(b"\n")
+
 
     def datagram_received(self, data, addr) -> None:  # "Main entrypoint for processing message"
+        if not self.driver.client_address:
+            self.driver.client_address = addr[0]
+            self.driver.client_port = addr[1]
         # Here is where you would push message to whatever methods/classes you want.
         self.queue.put_nowait(data.decode())
         # asyncio.create_task(self.queue.put(data.decode()))
+        
+
+
 
 
 
@@ -38,17 +49,37 @@ class Driver:
         self.sensors = Sensors()
         self.controller = Controller()
 
-        self.mission = [30, 0, 30, 15, 'E']
+        self.client_address = None
+        self.client_port = None
+
+        self.mission = [20, 0, 20, 15, 5, 'E']
+        self.target_depth = None
+
+        self.condition = asyncio.Condition()
 
 
-        self.states = ['PID', 'wait_for_pickup', 'emergency']
+        # self.states = ['PID', 'wait_for_pickup', 'emergency']
+        self.states = [
+            {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
+            {'name': 'calibrating', 'on_enter': 'calibrate'},
+            {'name': 'sensingWater', 'on_enter': 'sense_water'},
+            {'name': 'executingTask', 'initial': 'loading', 'children': [
+                {'name': 'loading', 'on_enter': 'set_next_target'},
+                {'name': 'sendingDescendCommand', 'on_enter': 'send_descend_command'},
+                {'name': 'waitingForDescendAcknowledge', 'on_enter': 'wait_for_descend_acknowledge'},
+                {'name': 'descending', 'on_enter': 'descend'},
+                {'name': 'controlling', 'initial': 'enRoute', 'children': [
+                    {"name": "enRoute", 'on_enter': 'hibernate'},
+                    {"name": "calculating", 'on_enter': 'calculate_pid'}
+                ]
+                }
+                ]
+            }
+            ]
+
         self.transitions = [
-            ['init', 'initial', 'PID']
+            ['resend_dive', 'waitingForDescendAcknowledge', 'sendingDescendCommand']
         ]
-        self.states.append(NestedAsyncState(name="sensorBuffer", on_enter="check_sensor_buffer"))
-        self.states.append(NestedAsyncState(name="calibrating", on_enter="calibrate"))
-        self.states.append(NestedAsyncState(name="waitingForWater", on_enter="sense_water"))
-        self.states.append(NestedAsyncState(name="waitingTask", on_enter="set_next_target"))
 
 
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
@@ -72,6 +103,14 @@ class Driver:
             # print(self.state)
             # await asyncio.sleep(0.1)
 
+    def send_test_message(self, message) -> None:
+        sock = socket.socket(socket.AF_INET,  # Internet
+                            socket.SOCK_DGRAM)  # UDP
+        sock.sendto(message.encode(), (self.client_address, self.client_port))
+        print(f"message {message} sent to {self.client_address}  {self.client_port}")
+        # sock.flush()
+        # sock.close()
+
     async def handle_message(self, msg):
         header, value = msg.split(':')
         if not value:
@@ -85,18 +124,41 @@ class Driver:
             case 'HL':
                 await self.sensors.leak_h_flag.add_sample(value)
                 asyncio.create_task(self.handle_HL())
-            case 'EL': await self.sensors.leak_e_flag.add_sample(value)
-            case 'BF': await self.sensors.bladder_flag.add_sample(value)
-            case 'PD': await self.sensors.altimeter.add_sample(value)
-            case 'PC': await self.sensors.altimeter.add_confidance(value)
-            case 'PU': await self.sensors.pumpFlag.add_sample(value)
-            case 'RPM':  self.sensors.rpm.add_sample(value)
-            case 'PF':  self.sensors.pumpFlag.add_sample(value)
-            case 'BV':  await self.sensors.bladderVolume.add_sample(value)
-            case 'FS':  self.sensors.full_surface_flag.add_sample(value)
-            case 'I' | 'IR':  self.sensors.iridium_flag.add_sample(value)
+            case 'EL':  await self.sensors.leak_e_flag.add_sample(value)
+            case 'BF':  await self.sensors.bladder_flag.add_sample(value)
+            case 'PD':  await self.sensors.altimeter.add_sample(value)
+            case 'PC':  await self.sensors.altimeter.add_confidance(value)
+            # case 'PU':  await self.sensors.pumpFlag.add_sample(value)
+            case 'RPM': await self.sensors.rpm.add_sample(value)
+            case 'PF':  await self.handle_pump_flag(value)
+            case 'BV':  
+                await self.sensors.bladderVolume.add_sample(value)
+                await self.log_sensors()
+                async with self.condition:
+                    self.condition.notify()
+                # self.condition.notify_all()
+            case 'FS' | 'S':  await self.handle_full_surface_flag(value)
+            case 'I' | 'IR':  await self.sensors.iridium_flag.add_sample(value)
 
             case _ : pass # print(f'error {msg}')
+
+    async def handle_pump_flag(self, value):
+        await self.sensors.pumpFlag.add_sample(value)
+
+    async def handle_full_surface_flag(self, value):
+        await self.sensors.full_surface_flag.add_sample(value)
+        fs_flag = self.sensors.full_surface_flag.getLast()
+
+        match fs_flag:
+            case 0: 
+                print('dive or surface done')
+                asyncio.create_task(self.to_executingTask_controlling())
+
+            case 1: 
+                print('init full dive')
+                asyncio.create_task(self.to_executingTask_descending())
+
+            case 2: print('init full surface')
 
     async def handle_HL(self):
         # await self.to_PID()
@@ -163,7 +225,6 @@ class Driver:
         # BT1   BT2   TT1   TT2   X    Y    Z   BP1    BP2    TP1    TP2    HP  PD          PC  H1 H2 pump BV       rpm  PF State      
         # 23.66 23.14 23.29 23.34 0.01 -0.0 0.0 1031.6 1035.3 1022.4 1034.0 0.0 -26607.0000 9.0 0  0  0    650.0000 None 0  State.INIT
 
-
     async def log_sensors(self):
         # print('logging sensors')
         res = {}
@@ -183,30 +244,29 @@ class Driver:
             # print(f"{key} {value}")
             res[key]=value
 
-        res["PD"]=self.sensors.altimeter.getLast()
-        res["PC"]=self.sensors.altimeter.getConfidance()
-        res["HL"]=self.sensors.leak_h_flag.state   # self.sensors.leak_h_flag.getLast()
-        res["EL"]=self.sensors.leak_e_flag.getLast()
-        res["BF"]=self.sensors.bladder_flag.state   # self.sensors.bladder_flag.getLast()
-        res["SF"]=self.sensors.full_surface_flag.getLast()
-        res["PF"]=self.sensors.pumpFlag.state   # self.sensors.pumpFlag.getLast()
-        res["BV"]=self.sensors.bladderVolume.getLast()
-        res["rpm"]=self.sensors.rpm.getLast()
-        res["State"]=self.state   # self.sensors.current_state.name
-        res['MissionState']=self.state    # self.sensors.current_mission_state.name
-        res['Setpoint']=self.controller.target_depth
-        res['Error']=self.controller.error
-        res['Depth']=self.controller.current_depth
+        res["PD"] = self.sensors.altimeter.getLast()
+        res["PC"] = self.sensors.altimeter.getConfidance()
+        res["HL"] = self.sensors.leak_h_flag.state   # self.sensors.leak_h_flag.getLast()
+        res["EL"] = self.sensors.leak_e_flag.getLast()
+        res["BF"] = self.sensors.bladder_flag.state   # self.sensors.bladder_flag.getLast()
+        res["SF"] = self.sensors.full_surface_flag.getLast()
+        res["PF"] = self.sensors.pumpFlag.state   # self.sensors.pumpFlag.getLast()
+        res["BV"] = self.sensors.bladderVolume.getLast()
+        res["rpm"] = self.sensors.rpm.getLast()
+        res["State"] = self.state   # self.sensors.current_state.name
+        # res['MissionState'] = self.state    # self.sensors.current_mission_state.name
+        res['Setpoint'] = self.target_depth
+        res['Error'] = self.controller.error
+        res['Depth'] = self.sensors.pressureController.get_depth()  # self.controller.current_depth
 
         self.fancy_log(res, False)
   
-        await asyncio.sleep(2)
-        asyncio.create_task(self.log_sensors())
+        # await asyncio.sleep(2)
+        # asyncio.create_task(self.log_sensors())
 
     async def sensors_are_calibrated(self):
         print('calibrating')
         return self.sensors.pressureController.calibrate()
-
 
     async def check_sensor_buffer(self):
         print('checking sensor buffer')
@@ -216,7 +276,7 @@ class Driver:
             asyncio.create_task(self.to_calibrating())
             return
         await asyncio.sleep(1)
-        asyncio.create_task(self.check_sensor_buffer())
+        asyncio.create_task(self.to_buffering())
 
     async def sensors_are_ready(self):
         bypassSens = ["rpm"]
@@ -232,30 +292,27 @@ class Driver:
 
         return True      
 
-
     async def calibrate(self):
         print("calibrating")
-
-        await asyncio.sleep(10)
-
-        # asyncio.create_task(self.to_calibrating())
-
+        await asyncio.sleep(5)
         res = await self.sensors.pressureController.calibrate()
         if res == True:
-            asyncio.create_task(self.to_waitingForWater())
+            asyncio.create_task(self.to_sensingWater())
             return
         
         asyncio.create_task(self.to_calibrating())
 
     async def sense_water(self):
         print("waiting for water")
-        await asyncio.sleep(10)
+        await asyncio.sleep(5)
         res = await self.sensors.pressureController.senseWater()
         if res == True:
-            asyncio.create_task(self.to_waitingTask())
+            asyncio.create_task(self.to_executingTask())
+            # asyncio.create_task(self.to_executingTask_loading())
+
             return
         
-        asyncio.create_task(self.to_waitingForWater())
+        asyncio.create_task(self.to_sensingWater())
 
     async def set_next_target(self):
         print("set_next_target")
@@ -266,11 +323,51 @@ class Driver:
 
         match next_depth:
             case 'E': print('emegency')
-            case number if isinstance(number, int) or isinstance(number, float): print(f"got depth {number}")
-            case _ : print(f"error {_}")
+            case number if isinstance(number, int) or isinstance(number, float):
+                print(f"got depth {number}")
+                self.target_depth = number
+                asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            case _ : print(f"error {next_depth}")
+  
+    async def send_descend_command(self):
+        print('sending descend command')
+        # self.comm.write("S:1\n")
+        await self.to_executingTask_waitingForDescendAcknowledge()
+        # self.send_test_message("\n")
+        self.send_test_message("S:1\n")
 
+        await asyncio.sleep(10)
+        print(self.state)
+        if self.state == 'executingTask_waitingForDescendAcknowledge':
+            print('dive command didn\'t reach')
+            asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            # asyncio.create_task(self.resend_dive())
+
+    async def descend(self):
+        print('descending...')
+
+    async def wait_for_descend_acknowledge(self):
+        pass
+
+    async def control(self):
+        pass
+
+    async def hibernate(self):
+        print('hibernate')
+        async with self.condition:
+            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 10)
+            print("There's no running command now, exiting.")
+            asyncio.create_task(self.to_executingTask_controlling_calculating())
+        pass
         
+    async def test_condition(self):
+        async with self.condition:
+            await self.condition.wait_for(lambda: isinstance(self.sensors.pressureController.get_depth(), float))
+            print('condition is met!')
 
+    async def calculate_pid(self):
+        self.log.debug("calculating PID")
+        print('PID')
 
 
 
@@ -278,7 +375,7 @@ async def sequence(driver):
     loop = asyncio.get_event_loop()
     # check_buffer = driver.check_sensor_buffer()
     # loop.create_task(check_buffer)
-    await driver.to_sensorBuffer()
+    await driver.to_buffering()
 
 
 class Controller:
@@ -286,7 +383,7 @@ class Controller:
         self.current_depth = None
         self.target_depth = None
         self.error = None
-        self.states = ['wait_for_sensor_buffer', 'wait_for_safety','inflate_bladder', 'calibrate_depth_sensors', 'wait_for_water', 'exec_task', 'end_task', 'sleep_safety', 'wait_for_pickup', 'emergency', 'stop', 'controlled']
+        self.states = ['wait_for_sensor_buffer', 'wait_for_safety','inflate_bladder', 'calibrate_depth_sensors', 'wait_for_water', 'exec_task', 'end_task', 'sleep_safety', 'wait_for_pickup', 'emergency', 'stop', 'controlling']
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
 
 
@@ -317,7 +414,15 @@ def main():
 
 
 
-    t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue), local_addr=('0.0.0.0', 12000), )
+    test_con = driver.test_condition()
+    loop.create_task(test_con)
+
+
+
+    # udp_driver = DatagramDriver(queue)
+    # t = loop.create_datagram_endpoint(udp_driver, local_addr=('0.0.0.0', 12000), )
+
+    t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue, driver), local_addr=('0.0.0.0', 12000), )
     loop.run_until_complete(t) # Server starts listening
     # loop.create_task(t)
 
@@ -327,8 +432,8 @@ def main():
     loop.create_task(c) # Start writing messages (or running tests)
 
     # loop.run_until_complete(driver.log_sensors())
-    l = driver.log_sensors()
-    loop.create_task(l)
+    # l = driver.log_sensors()
+    # loop.create_task(l)
 
     seq = sequence(driver)
     loop.create_task(seq)
@@ -336,6 +441,8 @@ def main():
     # driver.machine.to_wait_for_sensor_buffer()
 
     # loop.run_forever()
+
+
 
     
 

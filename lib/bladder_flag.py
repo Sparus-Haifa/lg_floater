@@ -12,7 +12,7 @@ class BladderFlag(Flag):
 
 
     async def add_sample(self, sample_arr):
-        print(sample_arr)
+        # print(sample_arr)
         # if self.state == 'initial'
         match int(sample_arr):
             case 0: await self.to_nonempty()
