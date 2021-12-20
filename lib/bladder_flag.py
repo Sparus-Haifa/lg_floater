@@ -6,9 +6,9 @@ class BladderFlag(Flag):
 
 
         self.machine.add_states(['full', 'empty', 'nonempty'], ignore_invalid_triggers=True)
-        self.machine.add_transition('to_full', ['initial', 'nonempty'], 'full')
-        self.machine.add_transition('to_empty', ['initial', 'nonempty'], 'empty')
-        self.machine.add_transition('to_nonempty', ['initial', 'full', 'empty'], 'nonempty')
+        # self.machine.add_transition('to_full', ['initial', 'nonempty'], 'full')
+        # self.machine.add_transition('to_empty', ['initial', 'nonempty'], 'empty')
+        # self.machine.add_transition('to_nonempty', ['initial', 'full', 'empty'], 'nonempty')
 
 
     async def add_sample(self, sample_arr):

@@ -13,7 +13,9 @@ class Press_ctrl():
         self.log = log
         self.log.info("Pressure controller was initialized successfully")
         self.sensors = {}
-        self.offset = 0
+        self.offset = None
+        self.avg = None
+        # self.depth = None
 
 
     def addSensor(self, header):
@@ -79,7 +81,10 @@ class Press_ctrl():
             avg = 0
             count = 0
             for sensor in self.sensors:
-                value = float(self.sensors[sensor].getLast())
+                value = self.sensors[sensor].getLast()
+                if not isinstance(value, float):  # if still buffering
+                    continue
+                value = float(value)
                 # print(f"{sensor}:{value}")
                 if not (0.1 < value < 655.36):
                     self.log.error(f"error in {sensor } sensor value: {value} is out of bound!")
@@ -98,6 +103,9 @@ class Press_ctrl():
         # TODO: todo
         return self.getAvgDepthSensorsRead()
 
+    async def calculate_avg(self):
+        self.avg = self.getAvgDepthSensorsRead()
+
 
     async def calibrate(self):
         offset = self.get_bottom_sernsors_avg()
@@ -112,6 +120,6 @@ class Press_ctrl():
 
 
     def get_depth(self):
-        if self.isBufferFull():
-            return self.getAvgDepthSensorsRead() - self.offset
-        return "Buffering"
+        if self.avg and self.offset:
+            return self.avg - self.offset
+        return None

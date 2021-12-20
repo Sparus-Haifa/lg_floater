@@ -5,7 +5,11 @@ import time
 # from time import sleep, time
 base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(base_path + os.sep + "cfg")
-import configuration as cfg
+# import configuration as cfg
+import cfg.configuration as cfg
+
+
+MIN_TIME_OFF_DURATION = cfg.task['min_time_off_duration_limit']
 
 class PID:
     def __init__(self, log):
@@ -150,6 +154,11 @@ class PID:
         # timeOn + timeOff = timeOn / dc
         timeOff = timeOn / dc - timeOn
         # print("timeOff",timeOff)
+
+        if timeOff < MIN_TIME_OFF_DURATION:
+                time_off_duration = MIN_TIME_OFF_DURATION
+
+
         return timeOff
 
 

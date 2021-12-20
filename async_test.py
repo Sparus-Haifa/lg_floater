@@ -10,6 +10,10 @@ import logging
 from sensors import Sensors
 # import signal
 import socket
+from lib.pid_ctrl import PID
+
+
+
 
 
 
@@ -47,13 +51,18 @@ class Driver:
 
         self.queue = queue
         self.sensors = Sensors()
-        self.controller = Controller()
+        # self.controller = Controller()
+        self.pid_controller = PID(self.log)
 
         self.client_address = None
         self.client_port = None
 
         self.mission = [20, 0, 20, 15, 5, 'E']
         self.target_depth = None
+        self.depth = None
+        self.error = None
+
+        self.time_off_duration = None
 
         self.condition = asyncio.Condition()
 
@@ -69,8 +78,11 @@ class Driver:
                 {'name': 'waitingForDescendAcknowledge', 'on_enter': 'wait_for_descend_acknowledge'},
                 {'name': 'descending', 'on_enter': 'descend'},
                 {'name': 'controlling', 'initial': 'enRoute', 'children': [
-                    {"name": "enRoute", 'on_enter': 'hibernate'},
-                    {"name": "calculating", 'on_enter': 'calculate_pid'}
+                    {'name': "enRoute", 'on_enter': 'hibernate'},
+                    {'name': "calculating", 'on_enter': 'calculate_pid'},
+                    {'name': "starting", 'on_enter': 'ignite'},
+                    {'name': "timeOn", 'on_enter': 'timeOn'},
+                    {'name': "timeOff", 'on_enter': 'timeOff'}
                 ]
                 }
                 ]
@@ -133,12 +145,17 @@ class Driver:
             case 'PF':  await self.handle_pump_flag(value)
             case 'BV':  
                 await self.sensors.bladderVolume.add_sample(value)
+                await self.sensors.pressureController.calculate_avg()
+                self.depth = self.sensors.pressureController.get_depth()
+                if self.target_depth and self.depth:
+                    self.error = self.target_depth - self.depth
                 await self.log_sensors()
                 async with self.condition:
                     self.condition.notify()
                 # self.condition.notify_all()
             case 'FS' | 'S':  await self.handle_full_surface_flag(value)
             case 'I' | 'IR':  await self.sensors.iridium_flag.add_sample(value)
+            case 'D': await self.sensors.direction_flag.add_sample(value)
 
             case _ : pass # print(f'error {msg}')
 
@@ -256,8 +273,10 @@ class Driver:
         res["State"] = self.state   # self.sensors.current_state.name
         # res['MissionState'] = self.state    # self.sensors.current_mission_state.name
         res['Setpoint'] = self.target_depth
-        res['Error'] = self.controller.error
-        res['Depth'] = self.sensors.pressureController.get_depth()  # self.controller.current_depth
+        res['Error'] = self.error
+        res['Depth'] = self.depth  # self.controller.current_depth
+        res['avg_p'] = self.sensors.pressureController.avg
+        res['direction'] = self.sensors.direction_flag.state
 
         self.fancy_log(res, False)
   
@@ -285,6 +304,7 @@ class Driver:
                 self.log.warning(f"sensor {sensor} is not ready")
                 return False
         bypassFlag = ["PF", "FS", "I"]
+        bypassFlag.append('D')
         for flag in self.sensors.flags:
             if flag not in bypassFlag and not self.sensors.flags[flag].isBufferFull():
                 self.log.warning(f"flag {flag} is not ready")
@@ -368,6 +388,78 @@ class Driver:
     async def calculate_pid(self):
         self.log.debug("calculating PID")
         print('PID')
+        scalar = self.pid_controller.pid(self.error)
+        direction, voltage, dc, time_on_duration, time_off_duration = self.pid_controller.unpack(scalar, self.error)  # this is the line.
+
+        # await self.sensors.direction_flag.add_sample(direction)
+
+        valid_pid = await self.check_pid_is_valid(direction, voltage, time_on_duration, time_off_duration)
+
+        if valid_pid:
+            if self.sensors.pumpFlag.state == 'on':
+                self.log.critical("pump is already on!!!")
+                return
+
+            asyncio.create_task(self.to_executingTask_controlling_starting())  # FIXME: dangerous, put await?
+            self.time_off_duration = time_off_duration
+
+            # send pid
+            self.send_test_message(f"V:{voltage}\n")
+            self.send_test_message(f"D:{direction}\n")
+            self.send_test_message(f"T:{time_on_duration}\n")
+
+            return
+
+
+        await asyncio.sleep(1)
+        # asyncio.create_task(self.to_executingTask_controlling_calculating())
+        asyncio.create_task(self.calculate_pid())
+
+        # while True:
+        #     print(self.sensors.bladder_flag.state)
+        #     await asyncio.sleep(1)
+
+    async def check_pid_is_valid(self, direction, voltage, time_on_duration, time_off_duration):
+
+        if voltage == 0:
+            return False
+
+        if self.sensors.bladder_flag.state == 'full' and direction == 2:  # and self.sensors.direction_flag.state == 'up':
+            self.log.info("Bladder is at max volume")
+            return False
+            
+        if self.sensors.bladder_flag.state == 'empty' and direction == 1: # and self.sensors.direction_flag.state == 'down':
+            self.log.info("Bladder is at min volume")
+            return False
+
+        self.log.info(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{time_on_duration}  timeOff:{time_off_duration}")
+        return True
+
+
+    async def ignite(self):
+        self.log.info("waiting for pump to start")
+        async with self.condition:
+            await self.condition.wait_for(lambda: self.sensors.pumpFlag.state == 'on')
+            print("pump truned on!") 
+            asyncio.create_task(self.to_executingTask_controlling_timeOn())
+
+
+    async def timeOn(self):
+        self.log.info("time on")
+        async with self.condition:
+            await self.condition.wait_for(lambda: self.sensors.pumpFlag.state == 'off')
+            self.log.info("time on is done")
+            asyncio.create_task(self.to_executingTask_controlling_timeOff())      
+
+    async def timeOff(self):
+        self.log.info("time off")
+        await asyncio.sleep(self.time_off_duration)
+        self.log.info('sleep is over!')
+        asyncio.create_task(self.to_executingTask_controlling_calculating())
+
+
+
+            
 
 
 

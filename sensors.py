@@ -5,6 +5,8 @@ from lib.bladder_volume import Bladder
 from lib.bladder_flag import BladderFlag
 from lib.pump_flag import PumpFlag
 
+from lib.direction_flag import DirectionFlag
+
 
 from lib.press_ctrl import *
 from lib.temp_ctrl import *
@@ -69,6 +71,8 @@ class Sensors:
             self.leak_e_flag = Flag("Engine leak", self.log)  # EL
             self.full_surface_flag = Flag("Full surface initiated", self.log)   
             self.iridium_flag = Flag("Iridium", self.log)  # I    
+            # 
+            self.direction_flag = DirectionFlag("direction", self.log)
 
     def addSensorsToDict(self):
         for sensor in self.temperatureSensors:
@@ -91,3 +95,4 @@ class Sensors:
         self.flags["BF"]=self.bladder_flag
         self.flags["FS"]=self.full_surface_flag
         self.flags["I"]=self.iridium_flag
+        self.flags["D"]=self.direction_flag
