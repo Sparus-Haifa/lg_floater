@@ -12,8 +12,15 @@ from sensors import Sensors
 import socket
 from lib.pid_ctrl import PID
 
+from transitions import Machine
+from transitions.extensions.states import add_state_features, Tags, Timeout
+
+from transitions.extensions.asyncio import AsyncTimeout, AsyncMachine
 
 
+@add_state_features(AsyncTimeout)
+class TimeoutMachine(HierarchicalAsyncMachine):
+    pass
 
 
 
@@ -43,9 +50,11 @@ class DatagramDriver(asyncio.DatagramProtocol):
 
         # self.log_data.append(data)
 
-
+# @add_state_features(AsyncTimeout)
 class Driver:
     def __init__(self, queue) -> None:
+
+
         self.log = logging.getLogger("normal")
         self.log_csv = logging.getLogger("csv")
 
@@ -66,10 +75,18 @@ class Driver:
 
         self.condition = asyncio.Condition()
 
+        pid_states =[
+            {'name': "idle", 'on_enter': 'control'},
+            {'name': "calculating", 'on_enter': 'calculate_pid'},
+            {'name': "starting", 'on_enter': 'ignite'},
+            {'name': "timeOn", 'on_enter': 'timeOn'},
+            {'name': "timeOff", 'on_enter': 'timeOff'}
+        ]
+
 
         # self.states = ['PID', 'wait_for_pickup', 'emergency']
         self.states = [
-            {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
+            {'name': 'buffering', 'on_enter': 'check_sensor_buffer', 'timeout': 1, 'on_timeout': 'timeout_cb'},
             {'name': 'calibrating', 'on_enter': 'calibrate'},
             {'name': 'sensingWater', 'on_enter': 'sense_water'},
             {'name': 'executingTask', 'initial': 'loading', 'children': [
@@ -77,14 +94,8 @@ class Driver:
                 {'name': 'sendingDescendCommand', 'on_enter': 'send_descend_command'},
                 {'name': 'waitingForDescendAcknowledge', 'on_enter': 'wait_for_descend_acknowledge'},
                 {'name': 'descending', 'on_enter': 'descend'},
-                {'name': 'controlling', 'initial': 'enRoute', 'children': [
-                    {'name': "enRoute", 'on_enter': 'hibernate'},
-                    {'name': "calculating", 'on_enter': 'calculate_pid'},
-                    {'name': "starting", 'on_enter': 'ignite'},
-                    {'name': "timeOn", 'on_enter': 'timeOn'},
-                    {'name': "timeOff", 'on_enter': 'timeOff'}
-                ]
-                }
+                {'name': 'enRoute', 'initial': 'idle', 'children': pid_states},
+                {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
                 ]
             }
             ]
@@ -94,7 +105,8 @@ class Driver:
         ]
 
 
-        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
+        # self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
+        self.machine = TimeoutMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
         self.machine.add_transition('hull_leak_emergency', '*', 'emergency', unless=['is_wait_for_pickup', 'is_emergency'])
         self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
         self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
@@ -169,7 +181,7 @@ class Driver:
         match fs_flag:
             case 0: 
                 print('dive or surface done')
-                asyncio.create_task(self.to_executingTask_controlling())
+                asyncio.create_task(self.to_executingTask_enRoute())
 
             case 1: 
                 print('init full dive')
@@ -297,6 +309,10 @@ class Driver:
         await asyncio.sleep(1)
         asyncio.create_task(self.to_buffering())
 
+    async def timeout_cb(self):
+        while True:
+            print("timeout")
+
     async def sensors_are_ready(self):
         bypassSens = ["rpm"]
         for sensor in self.sensors.sensors:
@@ -370,15 +386,28 @@ class Driver:
         pass
 
     async def control(self):
-        pass
+        asyncio.create_task(self.hibernate())
+        asyncio.create_task(self.reach_goal())
+        
 
     async def hibernate(self):
         print('hibernate')
         async with self.condition:
             await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 10)
             print("There's no running command now, exiting.")
-            asyncio.create_task(self.to_executingTask_controlling_calculating())
+            asyncio.create_task(self.to_executingTask_enRoute_calculating())
         pass
+
+
+    async def reach_goal(self):
+        print('hold on taget. timer started/reset')
+        async with self.condition:
+            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 1)
+            print("hold position!")
+            # asyncio.create_task(self.to_executingTask_holdPosition_calculating())
+        pass
+
+
         
     async def test_condition(self):
         async with self.condition:
@@ -400,7 +429,7 @@ class Driver:
                 self.log.critical("pump is already on!!!")
                 return
 
-            asyncio.create_task(self.to_executingTask_controlling_starting())  # FIXME: dangerous, put await?
+            asyncio.create_task(self.to_executingTask_enRoute_starting())  # FIXME: dangerous, put await?
             self.time_off_duration = time_off_duration
 
             # send pid
@@ -412,7 +441,7 @@ class Driver:
 
 
         await asyncio.sleep(1)
-        # asyncio.create_task(self.to_executingTask_controlling_calculating())
+        # asyncio.create_task(self.to_executingTask_enRoute_calculating())
         asyncio.create_task(self.calculate_pid())
 
         # while True:
@@ -441,7 +470,7 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.pumpFlag.state == 'on')
             print("pump truned on!") 
-            asyncio.create_task(self.to_executingTask_controlling_timeOn())
+            asyncio.create_task(self.to_executingTask_enRoute_timeOn())
 
 
     async def timeOn(self):
@@ -449,17 +478,23 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.pumpFlag.state == 'off')
             self.log.info("time on is done")
-            asyncio.create_task(self.to_executingTask_controlling_timeOff())      
+            asyncio.create_task(self.to_executingTask_enRoute_timeOff())      
 
     async def timeOff(self):
         self.log.info("time off")
         await asyncio.sleep(self.time_off_duration)
         self.log.info('sleep is over!')
-        asyncio.create_task(self.to_executingTask_controlling_calculating())
+        asyncio.create_task(self.to_executingTask_enRoute_calculating())
 
 
 
-            
+    async def global_timer(self):
+        pass
+
+    async def mission_timer(self):
+        pass
+
+
 
 
 
@@ -475,7 +510,7 @@ class Controller:
         self.current_depth = None
         self.target_depth = None
         self.error = None
-        self.states = ['wait_for_sensor_buffer', 'wait_for_safety','inflate_bladder', 'calibrate_depth_sensors', 'wait_for_water', 'exec_task', 'end_task', 'sleep_safety', 'wait_for_pickup', 'emergency', 'stop', 'controlling']
+        self.states = ['wait_for_sensor_buffer', 'wait_for_safety','inflate_bladder', 'calibrate_depth_sensors', 'wait_for_water', 'exec_task', 'end_task', 'sleep_safety', 'wait_for_pickup', 'emergency', 'stop', 'enRoute']
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
 
 
