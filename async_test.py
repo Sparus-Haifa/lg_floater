@@ -86,7 +86,7 @@ class Driver:
 
         # self.states = ['PID', 'wait_for_pickup', 'emergency']
         self.states = [
-            {'name': 'buffering', 'on_enter': 'check_sensor_buffer', 'timeout': 1, 'on_timeout': 'timeout_cb'},
+            {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
             {'name': 'calibrating', 'on_enter': 'calibrate'},
             {'name': 'sensingWater', 'on_enter': 'sense_water'},
             {'name': 'executingTask', 'initial': 'loading', 'children': [
@@ -97,7 +97,7 @@ class Driver:
                 {'name': 'enRoute', 'initial': 'idle', 'children': pid_states},
                 {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
                 ]
-            }
+            , 'timeout': 15, 'on_timeout': 'timeout_cb'}
             ]
 
         self.transitions = [
@@ -111,6 +111,14 @@ class Driver:
         self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
         self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
         # self.to_wait_for_sensor_buffer()
+
+        class MissionPlanner:
+            pass
+
+
+        self.planner = MissionPlanner()
+
+        self.planner_machine = TimeoutMachine(model=self.planner, states=['loading', 'dive', 'enRoute', 'holdPosition'])
         
 
     async def consume(self):
@@ -282,13 +290,14 @@ class Driver:
         res["PF"] = self.sensors.pumpFlag.state   # self.sensors.pumpFlag.getLast()
         res["BV"] = self.sensors.bladderVolume.getLast()
         res["rpm"] = self.sensors.rpm.getLast()
-        res["State"] = self.state   # self.sensors.current_state.name
         # res['MissionState'] = self.state    # self.sensors.current_mission_state.name
         res['Setpoint'] = self.target_depth
         res['Error'] = self.error
         res['Depth'] = self.depth  # self.controller.current_depth
         res['avg_p'] = self.sensors.pressureController.avg
         res['direction'] = self.sensors.direction_flag.state
+        res["State"] = self.state   # self.sensors.current_state.name
+        res['planner'] = self.planner.state
 
         self.fancy_log(res, False)
   
@@ -344,6 +353,7 @@ class Driver:
         res = await self.sensors.pressureController.senseWater()
         if res == True:
             asyncio.create_task(self.to_executingTask())
+            asyncio.create_task(self.planner.to_loading())
             # asyncio.create_task(self.to_executingTask_loading())
 
             return
