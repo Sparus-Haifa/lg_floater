@@ -17,6 +17,34 @@ from transitions.extensions.states import add_state_features, Tags, Timeout
 
 from transitions.extensions.asyncio import AsyncTimeout, AsyncMachine
 
+import serial_asyncio
+
+class OutputProtocol(asyncio.Protocol):
+    def connection_made(self, transport):
+        self.transport = transport
+        print('port opened', transport)
+        transport.serial.rts = False  # You can manipulate Serial object via transport
+        transport.write(b'Hello, World!\n')  # Write serial data via transport
+
+    def data_received(self, data):
+        print('data received', repr(data))
+        # if b'\n' in data:
+        #     self.transport.close()
+
+    def connection_lost(self, exc):
+        print('port closed')
+        self.transport.loop.stop()
+
+    def pause_writing(self):
+        print('pause writing')
+        print(self.transport.get_write_buffer_size())
+
+    def resume_writing(self):
+        print(self.transport.get_write_buffer_size())
+        print('resume writing')
+
+
+
 
 @add_state_features(AsyncTimeout)
 class TimeoutMachine(HierarchicalAsyncMachine):
@@ -415,10 +443,9 @@ class Driver:
 
     async def set_next_target(self):
         print("set_next_target")
-        if not self.mission:
-            print("end mission")
 
         if not self.mission:
+            print("end mission")
             if self.sense_water:
                 asyncio.create_task(self.to_pickup())
                 return
@@ -744,6 +771,10 @@ def main():
 
     # loop.run_forever()
 
+    # asyncio_serial
+    # coro = serial_asyncio.create_serial_connection(loop, OutputProtocol, '/dev/ttyUSB0', baudrate=115200)
+    coro = serial_asyncio.create_serial_connection(loop, OutputProtocol, 'COM4', baudrate=115200)
+    loop.create_task(coro)
 
 
     
