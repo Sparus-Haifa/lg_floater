@@ -5,10 +5,10 @@ class PumpFlag(Flag):
         super().__init__(name, log)
 
 
-        self.machine.add_states(['off', 'on', 'failure'], ignore_invalid_triggers=True)
-        self.machine.add_transition('to_on', '*', 'on')
-        self.machine.add_transition('to_off', '*', 'off')
-        self.machine.add_transition('to_failure', '*', 'failure')
+        self.machine.add_states(['off', 'on', 'failure'])
+        # self.machine.add_transition('to_on', '*', 'on')
+        # self.machine.add_transition('to_off', '*', 'off')
+        # self.machine.add_transition('to_failure', '*', 'failure')
 
 
     async def add_sample(self, sample_arr):

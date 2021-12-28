@@ -139,6 +139,19 @@ class Comm():
 
 
 
+# Const params
+MASS_FLOATER = 19.3 # 19.4 # kg
+MASS_WEIGHT = 1.0 # kg
+GRAVITY  = 9.8 # m/sec^2
+VOLUME_FLOATER = 0.01965 # m^3
+MAX_BLADDER_VOLUME = 0.00065 # m^3
+FW = 1025 # kg / m^3
+BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW # Volume * g * fw
+DRAG_COEFFECIENT = 0.82 * 3
+FLOATAREA = 3.14 * 0.18 * 0.18 / 4
+BCONST = 0.5 * FW * DRAG_COEFFECIENT * FLOATAREA # drag_coefficient * Object_area * fluid_density (FW)
+FPS = 2
+
 class YuriSim():
     def __init__(self, comm):
         self.comm = comm
@@ -221,18 +234,7 @@ class YuriSim():
         on_ground = False
         first_loop_sync = True
 
-        # Const params
-        MASS_FLOATER = 19.3 # 19.4 # kg
-        MASS_WEIGHT = 1.0 # kg
-        GRAVITY  = 9.8 # m/sec^2
-        VOLUME_FLOATER = 0.01965 # m^3
-        MAX_BLADDER_VOLUME = 0.00065 # m^3
-        FW = 1025 # kg / m^3
-        BUOYANCY_FLOATER = GRAVITY * VOLUME_FLOATER * FW # Volume * g * fw
-        DRAG_COEFFECIENT = 0.82 * 3
-        FLOATAREA = 3.14 * 0.18 * 0.18 / 4
-        BCONST = 0.5 * FW * DRAG_COEFFECIENT * FLOATAREA # drag_coefficient * Object_area * fluid_density (FW)
-        FPS = 2
+
         
         # Variables
         acceleration = .000
@@ -324,6 +326,7 @@ class YuriSim():
                         self.flags["BF"]=2
                     else:
                         self.flags["BF"]=0
+
                     limitPump = self.comm.direction == 1.0 and bladderIsEmpty or self.comm.direction == 2.0 and bladderIsFull
 
                     if limitPump: # turn off pump
@@ -396,8 +399,9 @@ class YuriSim():
                                 print("pump limit reached")
                                 if bladderIsEmpty:
                                     print("bladder is empty")
+                                
                                 if bladderIsFull:
-                                    print(bladderIsFull)
+                                    print("bladder Is Full")
                                 
 
                             if self.pumpIsOn:
@@ -764,6 +768,18 @@ class YuriSim():
     
     def sendPumpSensors(self):
         self.sendStats("RPM")
+        bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+        bladderIsEmpty = self.currentBladderVolume == 0
+        
+        
+        if bladderIsEmpty:
+            self.flags["BF"]=1
+        elif bladderIsFull:
+            self.flags["BF"]=2
+        else:
+            self.flags["BF"]=0
+
+        self.sendMessage("BF",self.flags["BF"], True)
         self.sendStats("BV")
         # for sensorNum in range(len(self.sensorNames)-1,len(self.sensorNames)-3,-1):
         #     print("sending sensor",sensorNum)
@@ -771,13 +787,28 @@ class YuriSim():
 
     def sendAllSensors(self):
         for sensor in self.sensors:
-            if sensor!="RPM" and sensor!="PF":
+            if sensor not in ["RPM", "BV"]:
                 self.sendStats(sensor)
         
         for flag in self.flags:
-            if flag != "PF":
+            if flag not in ["PF", "BF"]:
                 value = self.flags[flag]
                 self.sendMessage(flag,value, True)
+
+        # last one should be BV
+        bladderIsFull = self.currentBladderVolume == MAX_BLADDER_VOLUME
+        bladderIsEmpty = self.currentBladderVolume == 0
+        
+        if bladderIsEmpty:
+            self.flags["BF"]=1
+        elif bladderIsFull:
+            self.flags["BF"]=2
+        else:
+            self.flags["BF"]=0
+
+        self.sendMessage("BF",self.flags["BF"], True)
+        self.sendStats("BV")
+
         # for sensorNum in range(len(self.sensorNames) - 1):
         #     self.sendStats(sensorNum)
 

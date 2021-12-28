@@ -4,6 +4,7 @@ from lib.altimeter import Altimeter
 from lib.bladder_volume import Bladder
 from lib.bladder_flag import BladderFlag
 from lib.pump_flag import PumpFlag
+from lib.iridium_flag import IridiumFlag
 
 from lib.direction_flag import DirectionFlag
 
@@ -70,7 +71,7 @@ class Sensors:
             self.leak_h_flag = Flag("Hull leak", self.log)  # HL
             self.leak_e_flag = Flag("Engine leak", self.log)  # EL
             self.full_surface_flag = Flag("Full surface initiated", self.log)   
-            self.iridium_flag = Flag("Iridium", self.log)  # I    
+            self.iridium_flag = IridiumFlag("Iridium", self.log)  # I    
             # 
             self.direction_flag = DirectionFlag("direction", self.log)
 

@@ -133,7 +133,7 @@ task = {
     "hold_on_target_distance" : 0.4,  # meters
     "min_ascend_descend_distance" : 5,  # meters
     "kp" : 20,  # 40,
-    "kd" : 750,
+    "kd" : 0,  # 750,
     "ki" : 0.001,  # 0.001
     # "target_depth" : 30.0  # millibar
     # "max_time_off_duration" : 100.0
