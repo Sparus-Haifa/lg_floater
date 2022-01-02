@@ -110,7 +110,7 @@ class Safety:
 
 
 class Driver:
-    def __init__(self, queue_mega, queue_nano, transport_nano) -> None:
+    def __init__(self, queue_mega, queue_nano, transport_nano, queue_cli) -> None:
 
 
         self.log = logging.getLogger("normal")
@@ -118,6 +118,7 @@ class Driver:
 
         self.queue_mega = queue_mega
         self.queue_nano = queue_nano
+        self.queue_cli = queue_cli
         self.sensors = Sensors()
         # self.controller = Controller()
         self.pid_controller = PID(self.log)
@@ -186,8 +187,10 @@ class Driver:
 
 
         # self.planner = MissionPlanner()
-
-        
+    async def consume_cli(self):
+        while True:
+            msg = await self.queue_cli.get()
+            print(msg)        
 
     async def consume_mega(self):
         # log_normal = logging.getLogger("normal")
@@ -233,7 +236,7 @@ class Driver:
                 case 2: pass  # acknowledges weight was dropped on command
                 case 3:
                     print('ping')
-                    if self.depth < 1:
+                    if not self.depth or self.depth < 1:
                         self.send_nano_message("N:1")
                 case 4: 
                     # acknowledges weight was dropped due to over time
@@ -761,13 +764,13 @@ async def sequence(driver):
     await driver.to_buffering()
 
 
-async def reader(loop):
-    transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+# async def reader(loop):
+#     transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
 
-    while True:
-        await asyncio.sleep(2.0)
-        # protocol.resume_reading()
-        transport.write(b'N:1\n')
+#     while True:
+#         await asyncio.sleep(2.0)
+#         # protocol.resume_reading()
+#         transport.write(b'N:1\n')
 
 async def nano_driver(loop, queue_nano):
     transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
@@ -806,13 +809,15 @@ def main():
     # global queue_nano
     queue_nano = asyncio.Queue()
 
+    queue_cli = asyncio.Queue()
+
     loop = asyncio.new_event_loop()
     coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
 
     transport, protocol = loop.run_until_complete(coro)
 
 
-    driver = Driver(queue_mega, queue_nano, transport)
+    driver = Driver(queue_mega, queue_nano, transport, queue_cli)
 
 
 
@@ -840,6 +845,13 @@ def main():
 
     n = driver.consume_nano()
     loop.create_task(n)
+
+    c = driver.consume_cli()
+    loop.create_task(c)
+
+
+    cli_coro = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_cli, driver), local_addr=('0.0.0.0', 5000), )
+    loop.run_until_complete(cli_coro)
 
     # loop.run_until_complete(driver.log_sensors())
     # l = driver.log_sensors()
