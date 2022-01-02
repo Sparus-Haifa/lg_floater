@@ -19,7 +19,12 @@ from transitions.extensions.asyncio import AsyncTimeout, AsyncMachine
 
 import serial_asyncio
 
+# serial driver
 class OutputProtocol(asyncio.Protocol):
+    def __init__(self, queue) -> None:
+        super().__init__()
+        self.queue = queue
+
     def connection_made(self, transport):
         self.transport = transport
         print('port opened', transport)
@@ -27,9 +32,11 @@ class OutputProtocol(asyncio.Protocol):
         transport.write(b'Hello, World!\n')  # Write serial data via transport
 
     def data_received(self, data):
-        print('data received', repr(data))
+        # print('data received', repr(data))
         # if b'\n' in data:
         #     self.transport.close()
+        self.queue.put_nowait(data.decode())
+
 
     def connection_lost(self, exc):
         print('port closed')
@@ -52,6 +59,7 @@ class TimeoutMachine(HierarchicalAsyncMachine):
 
 
 
+# UDP driver
 class DatagramDriver(asyncio.DatagramProtocol):
     def __init__(self, queue, driver) -> None:
         super().__init__()
@@ -102,13 +110,14 @@ class Safety:
 
 
 class Driver:
-    def __init__(self, queue) -> None:
+    def __init__(self, queue_mega, queue_nano, transport_nano) -> None:
 
 
         self.log = logging.getLogger("normal")
         self.log_csv = logging.getLogger("csv")
 
-        self.queue = queue
+        self.queue_mega = queue_mega
+        self.queue_nano = queue_nano
         self.sensors = Sensors()
         # self.controller = Controller()
         self.pid_controller = PID(self.log)
@@ -126,7 +135,8 @@ class Driver:
 
         self.hold_on_target = True
 
-        self.condition = asyncio.Condition()
+        self.condition = asyncio.Condition()    # for notify
+        self.transport_nano = transport_nano    # output for nano
 
         pid_states =[
             {'name': "idle"},
@@ -151,7 +161,7 @@ class Driver:
                 {'name': 'descending', 'on_enter': 'descend'},
                 {'name': 'ascending', 'on_enter': 'ascend'},
                 {'name': 'enRoute', 'initial': 'calculating', 'children': pid_states},
-                {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
+                # {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
                 {'name': 'surface', 'on_enter': 'surface'}
                 ]
             },  # , 'timeout': 15, 'on_timeout': 'timeout_cb'
@@ -179,12 +189,12 @@ class Driver:
 
         
 
-    async def consume(self):
+    async def consume_mega(self):
         # log_normal = logging.getLogger("normal")
         # log_csv = logging.getLogger("csv")
         
         while True:
-            msg = await self.queue.get()
+            msg = await self.queue_mega.get()
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -192,6 +202,50 @@ class Driver:
             asyncio.create_task(self.handle_message(msg))
             # print(self.state)
             # await asyncio.sleep(0.1)
+
+    async def consume_nano(self):
+        # log_normal = logging.getLogger("normal")
+        # log_csv = logging.getLogger("csv")
+        
+        while True:
+            msg = await self.queue_nano.get()
+            # print(f'consumed: {msg}')
+            # log.debug(msg)
+            # log_csv.critical("a,a,a,a,a")
+
+            # asyncio.create_task(self.handle_message(msg))
+            print(msg)
+            serial_line = msg.strip().split(":")
+            if len(serial_line) < 2: # skip if no message
+                # print("Waiting for message from safety. Received: None")
+                return
+            header = serial_line[0]
+            if header!='NN':
+                return
+            value = None
+            try:
+                value = int(float(serial_line[1]))
+            except ValueError as e:
+                self.log.error(f"Error parsing value {serial_line[1]} from safety")
+                return  
+            match value:
+                case 1: pass  # ping acknowledge
+                case 2: pass  # acknowledges weight was dropped on command
+                case 3:
+                    print('ping')
+                    if self.depth < 1:
+                        self.send_nano_message("N:1")
+                case 4: 
+                    # acknowledges weight was dropped due to over time
+                    await self.to_emergency()
+                case 5: pass  # safety went to sleep
+                case 111: pass  # safety woke up (sleep was interrupted)
+
+    def send_nano_message(self, message) -> None:
+        # self.transport_nano.write(b'N:1\n')
+        self.transport_nano.write(message.encode('utf-8'))
+
+
 
     def send_test_message(self, message) -> None:
         sock = socket.socket(socket.AF_INET,  # Internet
@@ -396,7 +450,7 @@ class Driver:
             print('sensors are ready!')
             asyncio.create_task(self.to_calibrating())
             return
-        await asyncio.sleep(1)
+        await asyncio.sleep(3)
         asyncio.create_task(self.to_buffering())
 
     async def timeout_cb(self):
@@ -707,6 +761,20 @@ async def sequence(driver):
     await driver.to_buffering()
 
 
+async def reader(loop):
+    transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+
+    while True:
+        await asyncio.sleep(2.0)
+        # protocol.resume_reading()
+        transport.write(b'N:1\n')
+
+async def nano_driver(loop, queue_nano):
+    transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+    return transport
+
+
+
 class Controller:
     def __init__(self) -> None:
         self.current_depth = None
@@ -732,13 +800,22 @@ def main():
 
 
 
+    
+    queue_mega = asyncio.Queue()
 
-    queue = asyncio.Queue()
-    driver = Driver(queue)
-
-
+    # global queue_nano
+    queue_nano = asyncio.Queue()
 
     loop = asyncio.new_event_loop()
+    coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+
+    transport, protocol = loop.run_until_complete(coro)
+
+
+    driver = Driver(queue_mega, queue_nano, transport)
+
+
+
     # loop = asyncio.get_event_loop()
 
 
@@ -751,14 +828,18 @@ def main():
     # udp_driver = DatagramDriver(queue)
     # t = loop.create_datagram_endpoint(udp_driver, local_addr=('0.0.0.0', 12000), )
 
-    t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue, driver), local_addr=('0.0.0.0', 12000), )
+    t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', 12000), )
     loop.run_until_complete(t) # Server starts listening
     # loop.create_task(t)
 
 
     # loop.run_until_complete(driver.consume()) # Start writing messages (or running tests)
-    c = driver.consume()
+    c = driver.consume_mega()
     loop.create_task(c) # Start writing messages (or running tests)
+
+
+    n = driver.consume_nano()
+    loop.create_task(n)
 
     # loop.run_until_complete(driver.log_sensors())
     # l = driver.log_sensors()
@@ -773,8 +854,12 @@ def main():
 
     # asyncio_serial
     # coro = serial_asyncio.create_serial_connection(loop, OutputProtocol, '/dev/ttyUSB0', baudrate=115200)
-    coro = serial_asyncio.create_serial_connection(loop, OutputProtocol, 'COM4', baudrate=115200)
-    loop.create_task(coro)
+    # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+    # loop.create_task(coro)
+
+    # loop.create_task(reader(loop))
+
+    # transport.write(b'N:1\n')
 
 
     
