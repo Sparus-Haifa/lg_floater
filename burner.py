@@ -79,17 +79,18 @@ class ArduinoBurner:
         # sketch_path = '/home/pi/lg_floater/nano'
         # sketch_path = '/home/pi/lg_floater/TestSketch'
 
-        # sketch_path = '/home/pi/lg_floater/000_NanoCode'
-        # libraries_path = '/home/pi/lg_floater/000_NanoCode/libraries/*/'
+        sketch_path = '/home/pi/lg_floater/000_NanoCode'
+        libraries_path = '/home/pi/lg_floater/000_NanoCode/libraries/*/'
         
-        sketch_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\000_NanoCode.ino'
-        libraries_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\libraries'
+        # sketch_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\000_NanoCode.ino'
+        # libraries_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\libraries'
         
         libraries = glob(libraries_path)
-        fqbn = "arduino:avr:nano"
+        # fqbn = "arduino:avr:nano"
+        fqbn = "arduino:avr:nano:cpu=atmega328old"
         print('sketch_path', sketch_path)
-        # res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
-        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn)
+        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        # res = self.arduino_cli.compile(sketch_path, fqbn=fqbn)
         print(res)
 
         stdout = res['__stdout']
@@ -130,6 +131,7 @@ class ArduinoBurner:
             exit(1)
         # print(res)
         self.log.info('upload successful')
+        print('upload successful')
 
     def burn_boards(self):
 
@@ -196,8 +198,8 @@ def main():
     
 
     nano_address = '/dev/ttyUSB0'
-    # burner.burnNano(nano_address)
-    burner.burnNano("COM4")
+    burner.burnNano(nano_address)
+    # burner.burnNano("COM4")
             
 
 if __name__=='__main__':
