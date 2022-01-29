@@ -127,7 +127,9 @@ class Driver:
         self.client_port = None
 
         # self.mission = [5, 'E']
-        self.mission = [500, 0]
+        # self.mission = [500, 0]
+        self.mission = [15, 0, 15, 0]
+
         self.target_depth = None
         self.depth = None
         self.error = None
@@ -138,6 +140,8 @@ class Driver:
 
         self.condition = asyncio.Condition()    # for notify
         self.transport_nano = transport_nano    # output for nano
+
+        self.test_mode = AsyncMachine(states=['off', 'on'], initial='on')
 
         pid_states =[
             {'name': "idle"},
@@ -150,6 +154,7 @@ class Driver:
 
         # self.states = ['PID', 'wait_for_pickup', 'emergency']
         self.states = [
+            {'name': 'stopped'},
             {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
             {'name': 'calibrating', 'on_enter': 'calibrate'},
             {'name': 'sensingWater', 'on_enter': 'sense_water'},
@@ -180,8 +185,10 @@ class Driver:
         self.machine = TimeoutMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
         self.machine.add_transition('hull_leak_emergency', '*', 'emergency', unless=['is_wait_for_pickup', 'is_emergency'])
         self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
-        self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
+        # self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
         # self.to_wait_for_sensor_buffer()
+        # self.machine.add_transition('check_sensors', ['initial', 'buffering'], 'calibrating', before=['check_sensor_buffer'])
+
 
 
 
@@ -190,7 +197,30 @@ class Driver:
     async def consume_cli(self):
         while True:
             msg = await self.queue_cli.get()
-            print(msg)        
+            print(msg)
+            serial_line = msg.strip().split(':')
+            if len(serial_line)<2:
+                return
+            header, value = serial_line
+            match header:
+                case 'dive':
+                    print('dive command')
+                    await asyncio.create_task(self.test_mode.to_on())
+                    await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+                
+                case 'surface':
+                    print('surface command')
+                    await asyncio.create_task(self.test_mode.to_on())
+                    await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
+
+                case 'restart': 
+                    print('restarting')
+                    await asyncio.create_task(self.test_mode.to_off())
+                    await asyncio.create_task(self.to_buffering())
+                case 'stop': 
+                    await asyncio.create_task(self.test_mode.to_on())
+                    await asyncio.create_task(self.to_stopped())
+
 
     async def consume_mega(self):
         # log_normal = logging.getLogger("normal")
@@ -248,8 +278,6 @@ class Driver:
         # self.transport_nano.write(b'N:1\n')
         self.transport_nano.write(message.encode('utf-8'))
 
-
-
     def send_test_message(self, message) -> None:
         sock = socket.socket(socket.AF_INET,  # Internet
                             socket.SOCK_DGRAM)  # UDP
@@ -286,10 +314,10 @@ class Driver:
                 self.depth = self.sensors.pressureController.get_depth()
                 if self.target_depth is not None and self.depth is not None:
                     self.error = self.target_depth - self.depth
-                await self.log_sensors()
                 async with self.condition:
                     # self.condition.notify()
                     self.condition.notify_all()   
+                await self.log_sensors()
             case 'FS' | 'S':  
                 await self.sensors.full_surface_flag.add_sample(value)
                 # await self.handle_full_surface_flag(value)
@@ -451,8 +479,12 @@ class Driver:
         if await self.sensors_are_ready():
             # await self.sensors_buffers_are_full()
             print('sensors are ready!')
-            asyncio.create_task(self.to_calibrating())
-            return
+            if self.test_mode.is_off():
+                asyncio.create_task(self.to_calibrating())
+                return
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
         await asyncio.sleep(3)
         asyncio.create_task(self.to_buffering())
 
@@ -480,8 +512,12 @@ class Driver:
         await asyncio.sleep(5)
         res = await self.sensors.pressureController.calibrate()
         if res == True:
-            asyncio.create_task(self.to_sensingWater())
-            return
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
+            if self.test_mode.is_off():
+                asyncio.create_task(self.to_sensingWater())
+                return
         
         asyncio.create_task(self.to_calibrating())
 
@@ -490,10 +526,10 @@ class Driver:
         await asyncio.sleep(5)
         res = await self.sensors.pressureController.senseWater()
         if res == True:
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
             asyncio.create_task(self.to_executingTask())
-            # asyncio.create_task(self.planner.to_loading())
-            # asyncio.create_task(self.to_executingTask_loading())
-
             return
         
         asyncio.create_task(self.to_sensingWater())
@@ -542,7 +578,8 @@ class Driver:
         print(self.state)
         if self.state == 'executingTask_waitingForDescendAcknowledge':
             print('descend command didn\'t reach')
-            asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            # asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            asyncio.create_task(self.send_descend_command())  # FIXME
             # asyncio.create_task(self.resend_dive())
 
     async def send_ascend_command(self):
@@ -564,6 +601,11 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             print("recieved a descend flag - 1")
+
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
+
             asyncio.create_task(self.to_executingTask_descending())
 
     async def wait_for_ascend_acknowledge(self):
@@ -571,6 +613,11 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 2)
             print("recieved a ascend flag - 2")
+
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
+
             asyncio.create_task(self.to_executingTask_ascending())
             
     async def descend(self):
@@ -754,14 +801,18 @@ class Driver:
         asyncio.create_task(self.to_pickup())
 
 
-
+    async def burn_nano(self):
+        pass
 
 
 async def sequence(driver):
     loop = asyncio.get_event_loop()
     # check_buffer = driver.check_sensor_buffer()
     # loop.create_task(check_buffer)
-    await driver.to_buffering()
+
+    if driver.test_mode.is_off():
+        await driver.to_buffering()
+    # await driver.check_sensors()
 
 
 # async def reader(loop):

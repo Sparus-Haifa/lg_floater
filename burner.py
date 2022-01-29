@@ -78,13 +78,19 @@ class ArduinoBurner:
         self.log.info('compiling nano code')
         # sketch_path = '/home/pi/lg_floater/nano'
         # sketch_path = '/home/pi/lg_floater/TestSketch'
-        sketch_path = '/home/pi/lg_floater/000_NanoCode'
-        libraries_path = '/home/pi/lg_floater/000_NanoCode/libraries/*/'
+
+        # sketch_path = '/home/pi/lg_floater/000_NanoCode'
+        # libraries_path = '/home/pi/lg_floater/000_NanoCode/libraries/*/'
+        
+        sketch_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\000_NanoCode.ino'
+        libraries_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\libraries'
+        
         libraries = glob(libraries_path)
         fqbn = "arduino:avr:nano"
         print('sketch_path', sketch_path)
-        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
-        # print(res)
+        # res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn)
+        print(res)
 
         stdout = res['__stdout']
         # print(res)
@@ -150,7 +156,14 @@ class ArduinoBurner:
 
 def main():
 
-    burner = ArduinoBurner()
+
+    # from lib.logger import Logger
+    # logger = Logger(False)
+    # log = logger.get_log()
+    import logging
+    log = logging.getLogger()
+
+    burner = ArduinoBurner(log)
     board_list = burner.getList_offline()
 
     print(board_list)
@@ -179,11 +192,12 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    burner.burnMega(mega_address)
+    # burner.burnMega(mega_address)
     
 
     nano_address = '/dev/ttyUSB0'
-    burner.burnNano(nano_address)
+    # burner.burnNano(nano_address)
+    burner.burnNano("COM4")
             
 
 if __name__=='__main__':
