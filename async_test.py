@@ -24,18 +24,21 @@ class OutputProtocol(asyncio.Protocol):
     def __init__(self, queue) -> None:
         super().__init__()
         self.queue = queue
+        self.line = ""
 
     def connection_made(self, transport):
         self.transport = transport
         print('port opened', transport)
         transport.serial.rts = False  # You can manipulate Serial object via transport
-        transport.write(b'Hello, World!\n')  # Write serial data via transport
+        # transport.write(b'Hello, World!\n')  # Write serial data via transport
 
     def data_received(self, data):
         # print('data received', repr(data))
-        # if b'\n' in data:
+        self.line+=data.decode()
+        if b'\n' in data:
+            self.queue.put_nowait(self.line)
+            self.line = ''
         #     self.transport.close()
-        self.queue.put_nowait(data.decode())
 
 
     def connection_lost(self, exc):
@@ -103,9 +106,17 @@ class Safety:
             {'name': 'active'},
             {'name': 'disabled'},
             {'name': 'disconnected'},
-            {'name': 'sleepRequest'}
+            {'name': 'sleepRequest'},
+            {'name': 'sleepInterrupted'}
             ]
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
+        from gpio_controller_new import GPIOController
+        RPI_TRIGGER_PIN = 18
+        self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+        self.safety_trigger.high()
+        # self.safety_trigger.low()
+
+
 
 
 
@@ -190,8 +201,9 @@ class Driver:
         # self.machine.add_transition('check_sensors', ['initial', 'buffering'], 'calibrating', before=['check_sensor_buffer'])
 
 
-
-
+        # if not self.disable_safety:
+        self.safety = Safety()
+            
 
         # self.planner = MissionPlanner()
     async def consume_cli(self):
@@ -251,16 +263,19 @@ class Driver:
             serial_line = msg.strip().split(":")
             if len(serial_line) < 2: # skip if no message
                 # print("Waiting for message from safety. Received: None")
-                return
+                continue
+                # return
             header = serial_line[0]
             if header!='NN':
-                return
+                continue
+                # return
             value = None
             try:
                 value = int(float(serial_line[1]))
             except ValueError as e:
                 self.log.error(f"Error parsing value {serial_line[1]} from safety")
-                return  
+                continue
+                # return  
             match value:
                 case 1: pass  # ping acknowledge
                 case 2: pass  # acknowledges weight was dropped on command
@@ -272,7 +287,15 @@ class Driver:
                     # acknowledges weight was dropped due to over time
                     await self.to_emergency()
                 case 5: pass  # safety went to sleep
-                case 111: pass  # safety woke up (sleep was interrupted)
+                case 111: 
+                    print('safety woke up (sleep was interrupted)')
+                    await self.safety.to_sleepInterrupted()
+                case 222: 
+                    print('safety went to sleep (sleep initiated)')
+                    await self.safety.to_sleeping()
+
+
+            print(self.safety.state)
 
     def send_nano_message(self, message) -> None:
         # self.transport_nano.write(b'N:1\n')
@@ -823,9 +846,9 @@ async def sequence(driver):
 #         # protocol.resume_reading()
 #         transport.write(b'N:1\n')
 
-async def nano_driver(loop, queue_nano):
-    transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    return transport
+# async def nano_driver(loop, queue_nano):
+#     transport, protocol = await serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+#     return transport
 
 
 
@@ -863,7 +886,8 @@ def main():
     queue_cli = asyncio.Queue()
 
     loop = asyncio.new_event_loop()
-    coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+    # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+    coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
 
     transport, protocol = loop.run_until_complete(coro)
 
