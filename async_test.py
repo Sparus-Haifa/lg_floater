@@ -103,7 +103,10 @@ class Safety:
     def __init__(self) -> None:
         self.states = [
             {'name': 'sleeping'},
-            {'name': 'active'},
+            {'name': 'active', 'children': [
+                {'name': 'weightFixed'},
+                {'name': 'weightDropped'}
+            ]},
             {'name': 'disabled'},
             {'name': 'disconnected'},
             {'name': 'sleepRequest'},
@@ -115,6 +118,12 @@ class Safety:
         self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
         self.safety_trigger.high()
         # self.safety_trigger.low()
+
+    def high(self):
+        self.safety_trigger.high()
+
+    def low(self):
+        self.safety_trigger.low()
 
 
 
@@ -152,7 +161,7 @@ class Driver:
         self.condition = asyncio.Condition()    # for notify
         self.transport_nano = transport_nano    # output for nano
 
-        self.test_mode = AsyncMachine(states=['off', 'on'], initial='on')
+        self.test_mode = AsyncMachine(states=['off', 'on'], initial='off')
 
         pid_states =[
             {'name': "idle"},
@@ -166,6 +175,7 @@ class Driver:
         # self.states = ['PID', 'wait_for_pickup', 'emergency']
         self.states = [
             {'name': 'stopped'},
+            {'name': 'wakingSafety', 'on_enter': 'wakeup_safety'},
             {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
             {'name': 'calibrating', 'on_enter': 'calibrate'},
             {'name': 'sensingWater', 'on_enter': 'sense_water'},
@@ -182,7 +192,16 @@ class Driver:
                 {'name': 'surface', 'on_enter': 'surface'}
                 ]
             },  # , 'timeout': 15, 'on_timeout': 'timeout_cb'
-            {'name': 'emergency', 'on_enter': 'emergency'},
+            {'name': 'emergency', 'on_enter': 'emergency', 'children'=[
+                {'name': 'hullLeak'},
+                {'name': 'engineLeak'},
+                {'name': 'pumpFailure'}
+                {'name': 'safetyNotResponding'},
+                {'name': 'altimeter'},
+                {'name': 'lowBattery'},
+                {'name': 'softwareError'},
+                {'name': 'sensorError'}
+            ]},
             {'name': 'pickup', 'on_enter': 'wait_for_pickup'}
             
             ]
@@ -259,7 +278,7 @@ class Driver:
             # log_csv.critical("a,a,a,a,a")
 
             # asyncio.create_task(self.handle_message(msg))
-            print(msg)
+            # print(msg)
             serial_line = msg.strip().split(":")
             if len(serial_line) < 2: # skip if no message
                 # print("Waiting for message from safety. Received: None")
@@ -277,10 +296,16 @@ class Driver:
                 continue
                 # return  
             match value:
-                case 1: pass  # ping acknowledge
+                case 1:
+                    # ping acknowledge
+                    # print('ping acknowledge')
+                    if self.safety.is_sleepInterrupted():
+                        print('safety is active')
+                        await self.safety.to_active_weightFixed()
+                        await self.to_buffering()
                 case 2: pass  # acknowledges weight was dropped on command
                 case 3:
-                    print('ping')
+                    # print('ping')
                     if not self.depth or self.depth < 1:
                         self.send_nano_message("N:1")
                 case 4: 
@@ -290,12 +315,15 @@ class Driver:
                 case 111: 
                     print('safety woke up (sleep was interrupted)')
                     await self.safety.to_sleepInterrupted()
+                    self.send_nano_message('L:1')
                 case 222: 
                     print('safety went to sleep (sleep initiated)')
                     await self.safety.to_sleeping()
 
 
             print(self.safety.state)
+            print(self.state)
+
 
     def send_nano_message(self, message) -> None:
         # self.transport_nano.write(b'N:1\n')
@@ -308,6 +336,13 @@ class Driver:
         print(f"message {message} sent to {self.client_address}  {self.client_port}")
         # sock.flush()
         # sock.close()
+
+
+    async def wakeup_safety(self):
+        print('waking up safety')
+        self.safety.low()
+        # self.send_nano_message()
+
 
     async def handle_message(self, msg):
         header, value = msg.split(':')
@@ -486,6 +521,7 @@ class Driver:
         res['avg_p'] = self.sensors.pressureController.avg
         res['direction'] = self.sensors.direction_flag.state
         res["State"] = self.state   # self.sensors.current_state.name
+        res["SafetyState"] = self.safety.state   # 
         # res['planner'] = self.planner.state
 
         self.fancy_log(res, False)
@@ -834,7 +870,11 @@ async def sequence(driver):
     # loop.create_task(check_buffer)
 
     if driver.test_mode.is_off():
-        await driver.to_buffering()
+        # await driver.to_buffering()
+        await driver.to_wakingSafety()
+        print('try to move to state waking safety')
+
+
     # await driver.check_sensors()
 
 
