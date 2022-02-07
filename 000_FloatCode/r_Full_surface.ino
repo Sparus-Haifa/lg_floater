@@ -70,7 +70,7 @@ void FullSurface(int Direction)
 
     whilecounter = whilecounter + 1;
   }
- delay(1000);
+ delay(3000);
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= WHILE LOOP
   CalcBladderVol();
 

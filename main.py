@@ -831,7 +831,7 @@ class Controller():
             self.log.info("waiting for pickup")
 
 
-            if not self.iridium_command_was_sent and (self.iridium_cycle_timer is None or time.time() - self.iridium_cycle_timer > 20):
+            if not self.iridium_command_was_sent and (self.iridium_cycle_timer is None or time.time() - self.iridium_cycle_timer > 120):
                 self.log.info("Sending command to iridium")
                 self.iridium_command_was_sent = True
                 self.comm.write(f"I:1") 

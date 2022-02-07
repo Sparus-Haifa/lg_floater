@@ -123,14 +123,14 @@ task = {
     # "target_depth_in_meters" : 50,
     
     "min_time_off_duration_limit" : 0.5,
-    "planned_mission" : [10, 0], # mission1
+    # "planned_mission" : [10, 0], # mission1
     # "planned_mission" : [12, 0, 12,'E'], # mission 2
-    # "planned_mission" : [30, 0],  # mission 3
-    "hold_on_taget_duration" : 60 * 10,  # seconds - Mission1
+    "planned_mission" : [22, 0],  # mission 3
+    # "hold_on_taget_duration" : 60 * 10,  # seconds - Mission1
     # "hold_on_taget_duration" : 60 * 2,  # seconds - Mission2
-    # "hold_on_taget_duration" : 60 * 30,  # seconds - Mission3
+    "hold_on_taget_duration" : 60 * 20,  # seconds - Mission3
 
-    "hold_on_target_distance" : 0.4,  # meters
+    "hold_on_target_distance" : 4,  # meters
     "min_ascend_descend_distance" : 5,  # meters
     "kp" : 20,  # 40,
     "kd" : 750,
