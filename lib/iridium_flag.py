@@ -11,8 +11,8 @@ class IridiumFlag(Flag):
     async def add_sample(self, sample_arr):
         print(sample_arr)
         # if self.state == 'initial'
-        match int(float(sample_arr)):
-            case 0: await self.to_idle()
-            case 1: await self.to_transmitting()
-            # case 2: await self.to_failure()
+        num = int(float(sample_arr))
+        if num ==  0: await self.to_idle()
+        if num ==  1: await self.to_transmitting()
+        # case 2: await self.to_failure()
         return await super().add_sample(sample_arr)

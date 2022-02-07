@@ -14,8 +14,8 @@ class PumpFlag(Flag):
     async def add_sample(self, sample_arr):
         print(sample_arr)
         # if self.state == 'initial'
-        match int(sample_arr):
-            case 0: await self.to_off()
-            case 1: await self.to_on()
-            case 2: await self.to_failure()
+        num =  int(sample_arr)
+        if num == 0: await self.to_off()
+        if num == 1: await self.to_on()
+        if num == 2: await self.to_failure()
         return await super().add_sample(sample_arr)

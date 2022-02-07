@@ -33,12 +33,14 @@ class OutputProtocol(asyncio.Protocol):
         # transport.write(b'Hello, World!\n')  # Write serial data via transport
 
     def data_received(self, data):
-        # print('data received', repr(data))
-        self.line+=data.decode()
-        if b'\n' in data:
-            self.queue.put_nowait(self.line)
-            self.line = ''
+        print('data received', repr(data))
+        # self.line+=data.decode()
+        # if b'\n' in data:
+        #     self.queue.put_nowait(self.line)
+        #     self.line = ''
         #     self.transport.close()
+        self.queue.put_nowait(data.decode())
+
 
 
     def connection_lost(self, exc):
@@ -192,10 +194,10 @@ class Driver:
                 {'name': 'surface', 'on_enter': 'surface'}
                 ]
             },  # , 'timeout': 15, 'on_timeout': 'timeout_cb'
-            {'name': 'emergency', 'on_enter': 'emergency', 'children'=[
+            {'name': 'emergency', 'on_enter': 'emergency', 'children': [
                 {'name': 'hullLeak'},
                 {'name': 'engineLeak'},
-                {'name': 'pumpFailure'}
+                {'name': 'pumpFailure'},
                 {'name': 'safetyNotResponding'},
                 {'name': 'altimeter'},
                 {'name': 'lowBattery'},
@@ -233,24 +235,24 @@ class Driver:
             if len(serial_line)<2:
                 return
             header, value = serial_line
-            match header:
-                case 'dive':
-                    print('dive command')
-                    await asyncio.create_task(self.test_mode.to_on())
-                    await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
-                
-                case 'surface':
-                    print('surface command')
-                    await asyncio.create_task(self.test_mode.to_on())
-                    await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
+            # match header:
+            if header == 'dive':
+                print('dive command')
+                await asyncio.create_task(self.test_mode.to_on())
+                await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            
+            if header == 'surface':
+                print('surface command')
+                await asyncio.create_task(self.test_mode.to_on())
+                await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
-                case 'restart': 
-                    print('restarting')
-                    await asyncio.create_task(self.test_mode.to_off())
-                    await asyncio.create_task(self.to_buffering())
-                case 'stop': 
-                    await asyncio.create_task(self.test_mode.to_on())
-                    await asyncio.create_task(self.to_stopped())
+            if header == 'restart': 
+                print('restarting')
+                await asyncio.create_task(self.test_mode.to_off())
+                await asyncio.create_task(self.to_buffering())
+            if header == 'stop': 
+                await asyncio.create_task(self.test_mode.to_on())
+                await asyncio.create_task(self.to_stopped())
 
 
     async def consume_mega(self):
@@ -262,8 +264,9 @@ class Driver:
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
-
-            asyncio.create_task(self.handle_message(msg))
+            lines = msg.splitlines()
+            for line in lines:
+                asyncio.create_task(self.handle_message(line))
             # print(self.state)
             # await asyncio.sleep(0.1)
 
@@ -295,30 +298,30 @@ class Driver:
                 self.log.error(f"Error parsing value {serial_line[1]} from safety")
                 continue
                 # return  
-            match value:
-                case 1:
-                    # ping acknowledge
-                    # print('ping acknowledge')
-                    if self.safety.is_sleepInterrupted():
-                        print('safety is active')
-                        await self.safety.to_active_weightFixed()
-                        await self.to_buffering()
-                case 2: pass  # acknowledges weight was dropped on command
-                case 3:
-                    # print('ping')
-                    if not self.depth or self.depth < 1:
-                        self.send_nano_message("N:1")
-                case 4: 
-                    # acknowledges weight was dropped due to over time
-                    await self.to_emergency()
-                case 5: pass  # safety went to sleep
-                case 111: 
-                    print('safety woke up (sleep was interrupted)')
-                    await self.safety.to_sleepInterrupted()
-                    self.send_nano_message('L:1')
-                case 222: 
-                    print('safety went to sleep (sleep initiated)')
-                    await self.safety.to_sleeping()
+            # match value:
+            if value == 1:
+                # ping acknowledge
+                # print('ping acknowledge')
+                if self.safety.is_sleepInterrupted():
+                    print('safety is active')
+                    await self.safety.to_active_weightFixed()
+                    await self.to_buffering()
+            if value == 2: pass  # acknowledges weight was dropped on command
+            if value == 3:
+                # print('ping')
+                if not self.depth or self.depth < 1:
+                    self.send_nano_message("N:1")
+            if value == 4: 
+                # acknowledges weight was dropped due to over time
+                await self.to_emergency()
+            if value == 5: pass  # safety went to sleep
+            if value == 111: 
+                print('safety woke up (sleep was interrupted)')
+                await self.safety.to_sleepInterrupted()
+                self.send_nano_message('L:1')
+            if value == 222: 
+                print('safety went to sleep (sleep initiated)')
+                await self.safety.to_sleeping()
 
 
             print(self.safety.state)
@@ -345,44 +348,48 @@ class Driver:
 
 
     async def handle_message(self, msg):
-        header, value = msg.split(':')
+        try:
+            header, value = msg.split(':')
+        except ValueError as e:
+            print(f'{e}: [{msg}]')
+            return
         if not value:
             print('error')
             self.log.error(f'Message received without a value: {msg}')
 
-        match header:
-            case 'TT1' | 'TT2' | 'BT1' | 'BT2' | 'AT': await self.sensors.temperatureSensors[header].add_sample(value)
-            case 'TP1' | 'TP2' | 'BP1' | 'BP2' | 'HP' | 'AP': await self.sensors.pressureSensors[header].add_sample(value)
-            case 'X' | 'Y' | 'Z': await self.sensors.IMUSensors[header].add_sample(value)
-            case 'HL':
-                await self.sensors.leak_h_flag.add_sample(value)
-                asyncio.create_task(self.handle_HL())
-            case 'EL':  await self.sensors.leak_e_flag.add_sample(value)
-            case 'BF':  await self.sensors.bladder_flag.add_sample(value)
-            case 'PD':  
-                await self.sensors.altimeter.add_sample(value)
-                await self.handle_PD()
-            case 'PC':  await self.sensors.altimeter.add_confidance(value)
-            # case 'PU':  await self.sensors.pumpFlag.add_sample(value)
-            case 'RPM': await self.sensors.rpm.add_sample(value)
-            case 'PF':  await self.handle_pump_flag(value)
-            case 'BV':  
-                await self.sensors.bladderVolume.add_sample(value)
-                await self.sensors.pressureController.calculate_avg()
-                self.depth = self.sensors.pressureController.get_depth()
-                if self.target_depth is not None and self.depth is not None:
-                    self.error = self.target_depth - self.depth
-                async with self.condition:
-                    # self.condition.notify()
-                    self.condition.notify_all()   
-                await self.log_sensors()
-            case 'FS' | 'S':  
-                await self.sensors.full_surface_flag.add_sample(value)
-                # await self.handle_full_surface_flag(value)
-            case 'I' | 'IR':  await self.sensors.iridium_flag.add_sample(value)
-            case 'D': await self.sensors.direction_flag.add_sample(value)
+        # match header:
+        if header in  ['TT1', 'TT2', 'BT1', 'BT2', 'AT']: await self.sensors.temperatureSensors[header].add_sample(value)
+        if header in ['TP1', 'TP2', 'BP1', 'BP2', 'HP', 'AP']: await self.sensors.pressureSensors[header].add_sample(value)
+        if header in ['X', 'Y', 'Z'] : await self.sensors.IMUSensors[header].add_sample(value)
+        if header == 'HL':
+            await self.sensors.leak_h_flag.add_sample(value)
+            asyncio.create_task(self.handle_HL())
+        if header== 'EL':  await self.sensors.leak_e_flag.add_sample(value)
+        if header== 'BF':  await self.sensors.bladder_flag.add_sample(value)
+        if header== 'PD':  
+            await self.sensors.altimeter.add_sample(value)
+            await self.handle_PD()
+        if header== 'PC':  await self.sensors.altimeter.add_confidance(value)
+        # if header== 'PU':  await self.sensors.pumpFlag.add_sample(value)
+        if header== 'RPM': await self.sensors.rpm.add_sample(value)
+        if header== 'PF':  await self.handle_pump_flag(value)
+        if header== 'BV':  
+            await self.sensors.bladderVolume.add_sample(value)
+            await self.sensors.pressureController.calculate_avg()
+            self.depth = self.sensors.pressureController.get_depth()
+            if self.target_depth is not None and self.depth is not None:
+                self.error = self.target_depth - self.depth
+            async with self.condition:
+                # self.condition.notify()
+                self.condition.notify_all()   
+            await self.log_sensors()
+        if header in ['FS', 'S']:  
+            await self.sensors.full_surface_flag.add_sample(value)
+            # await self.handle_full_surface_flag(value)
+        if header in ['I', 'IR']:  await self.sensors.iridium_flag.add_sample(value)
+        if header== 'D': await self.sensors.direction_flag.add_sample(value)
 
-            case _ : pass # print(f'error {msg}')
+        else : pass # print(f'error {msg}')
 
     async def handle_pump_flag(self, value):
         await self.sensors.pumpFlag.add_sample(value)
@@ -390,16 +397,16 @@ class Driver:
     async def handle_full_surface_flag(self, value):
         fs_flag = self.sensors.full_surface_flag.getLast()
 
-        match fs_flag:
-            case 0: 
-                print('dive or surface done')
-                asyncio.create_task(self.to_executingTask_enRoute())
+        # match fs_flag:
+        if fs_flag== 0: 
+            print('dive or surface done')
+            asyncio.create_task(self.to_executingTask_enRoute())
 
-            case 1: 
-                print('init full dive')
-                asyncio.create_task(self.to_executingTask_descending())
+        if fs_flag== 1: 
+            print('init full dive')
+            asyncio.create_task(self.to_executingTask_descending())
 
-            case 2: print('init full surface')
+        if fs_flag== 2: print('init full surface')
 
     async def handle_HL(self):
         # await self.to_PID()
@@ -607,24 +614,24 @@ class Driver:
 
         next_depth = self.mission.pop(0)
 
-        match next_depth:
-            case 'E': 
-                print('emegency')
-                asyncio.create_task(self.to_emergency())
-            case number if isinstance(number, int) or isinstance(number, float):
-                print(f"got depth {number}")
-                self.target_depth = number
-                # self.error = self.target_depth - self.depth  # calculate again.  also on every bv
+        # match next_depth:
+        if next_depth == 'E': 
+            print('emegency')
+            asyncio.create_task(self.to_emergency())
+        if isinstance(next_depth, int) or isinstance(next_depth, float):
+            print(f"got depth {number}")
+            self.target_depth = number
+            # self.error = self.target_depth - self.depth  # calculate again.  also on every bv
 
-                
-                if self.target_depth == 0:
-                    asyncio.create_task(self.to_executingTask_surface())
-                elif  self.target_depth - self.depth > 0:
-                    asyncio.create_task(self.to_executingTask_sendingDescendCommand())
-                else:
-                    asyncio.create_task(self.to_executingTask_sendingAscendCommand())
+            
+            if self.target_depth == 0:
+                asyncio.create_task(self.to_executingTask_surface())
+            elif  self.target_depth - self.depth > 0:
+                asyncio.create_task(self.to_executingTask_sendingDescendCommand())
+            else:
+                asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
-            case _ : print(f"error {next_depth}")
+        else : print(f"error {next_depth}")
   
     async def send_descend_command(self):
         print('sending descend command')
@@ -917,20 +924,25 @@ def main():
 
 
 
+    loop = asyncio.new_event_loop()
     
-    queue_mega = asyncio.Queue()
+    queue_mega = asyncio.Queue(loop=loop)
 
     # global queue_nano
-    queue_nano = asyncio.Queue()
+    queue_nano = asyncio.Queue(loop=loop)
 
-    queue_cli = asyncio.Queue()
+    queue_cli = asyncio.Queue(loop=loop)
 
-    loop = asyncio.new_event_loop()
     # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
     coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
 
     transport, protocol = loop.run_until_complete(coro)
 
+
+
+    # init mega serial connection
+    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
+    transport, protocol = loop.run_until_complete(coro_mega)
 
     driver = Driver(queue_mega, queue_nano, transport, queue_cli)
 
@@ -940,8 +952,9 @@ def main():
 
 
 
-    test_con = driver.test_condition()
-    loop.create_task(test_con)
+
+    # test_con = driver.test_condition()
+    # loop.create_task(test_con)
 
 
 
