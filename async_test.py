@@ -33,13 +33,17 @@ class OutputProtocol(asyncio.Protocol):
         # transport.write(b'Hello, World!\n')  # Write serial data via transport
 
     def data_received(self, data):
-        print('data received', repr(data))
-        # self.line+=data.decode()
-        # if b'\n' in data:
-        #     self.queue.put_nowait(self.line)
+        # print('data received', repr(data))
+        self.line+=data.decode()
+        if b'\r\n' in data:
+            tokens = self.line.split('\r\n')
+            for token in tokens[:-1]:
+                # print('from mega: ' + token)
+                self.queue.put_nowait(token)
+            self.line=tokens[-1]
         #     self.line = ''
         #     self.transport.close()
-        self.queue.put_nowait(data.decode())
+        # self.queue.put_nowait(data.decode())
 
 
 
@@ -619,8 +623,8 @@ class Driver:
             print('emegency')
             asyncio.create_task(self.to_emergency())
         if isinstance(next_depth, int) or isinstance(next_depth, float):
-            print(f"got depth {number}")
-            self.target_depth = number
+            print(f"got depth {next_depth}")
+            self.target_depth = next_depth
             # self.error = self.target_depth - self.depth  # calculate again.  also on every bv
 
             
@@ -877,8 +881,8 @@ async def sequence(driver):
     # loop.create_task(check_buffer)
 
     if driver.test_mode.is_off():
-        # await driver.to_buffering()
-        await driver.to_wakingSafety()
+        await driver.to_buffering()
+        # await driver.to_wakingSafety()
         print('try to move to state waking safety')
 
 
@@ -933,18 +937,21 @@ def main():
 
     queue_cli = asyncio.Queue(loop=loop)
 
-    # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
 
-    transport, protocol = loop.run_until_complete(coro)
+    # Nano
+    # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+    # coro = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
+    # transport, protocol = loop.run_until_complete(coro)
 
 
 
     # init mega serial connection
-    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
-    transport, protocol = loop.run_until_complete(coro_mega)
+    # coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
+    # transport, protocol = loop.run_until_complete(coro_mega)
 
-    driver = Driver(queue_mega, queue_nano, transport, queue_cli)
+    # driver = Driver(queue_mega, queue_nano, transport, queue_cli)
+    driver = Driver(queue_mega, queue_nano, None, queue_cli)
+
 
 
 
