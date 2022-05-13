@@ -14,8 +14,10 @@ class BladderFlag(Flag):
     async def add_sample(self, sample_arr):
         # print(sample_arr)
         # if self.state == 'initial'
-        num =  int(sample_arr)
+        await super().add_sample(sample_arr)
+        num =  self.getLast()
         if num == 0: await self.to_nonempty()
         if num == 1: await self.to_empty()
         if num == 2: await self.to_full()
-        return await super().add_sample(sample_arr)
+        return
+        
