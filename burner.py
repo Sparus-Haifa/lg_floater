@@ -29,12 +29,16 @@ class ArduinoBurner:
     def burnMega(self, address: str):
         self.log.info('compiling mega code')
         # sketch_path = '/home/pi/lg_floater/TestSketch'
-        sketch_path = '/home/pi/lg_floater/000_FloatCode'
+        # sketch_path = '/home/pi/lg_floater/000_FloatCode'
+        sketch_path = '/home/pi/lg_floater/000_FloatCode_sim'
         libraries_path = '/home/pi/lg_floater/000_FloatCode/libraries/*/'
-        fqbn = 'arduino:avr:mega'
+        # fqbn = 'arduino:avr:mega'
+        fqbn = 'arduino:avr:uno'
         libraries = glob(libraries_path)
         # self.arduino_cli.lib.install(libraries=libraries_path)
+        print('compiling...')
         res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        print('done')
         # print(res)
         # self.log.debug(res)
         stdout = res['__stdout']
@@ -163,7 +167,13 @@ def main():
     # logger = Logger(False)
     # log = logger.get_log()
     import logging
-    log = logging.getLogger()
+    log = logging.getLogger('burner')
+    log.setLevel(logging.DEBUG)
+    # create console handler and set level to debug
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    log.addHandler(ch)
+    log.debug('init')
 
     burner = ArduinoBurner(log)
     board_list = burner.getList_offline()
@@ -194,7 +204,7 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    # burner.burnMega(mega_address)
+    burner.burnMega(mega_address)
     
 
     nano_address = '/dev/ttyUSB0'
