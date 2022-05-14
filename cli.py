@@ -4,7 +4,7 @@ import socket
 # import random
 import cfg.configuration as cfg
 from enum import Enum
-
+import json
 
 
 class Comm():
@@ -53,6 +53,7 @@ menu = """
 8. send PID
 9. restart
 10. dive
+11. calibrate
 0. stop
 """
 
@@ -127,19 +128,28 @@ class CLI():
             from_user = input()
             
             if from_user == '1':
-                value = input("value:")
-                try:
-                    value = float(value)
-                except ValueError as e:
-                    print(e)
-                    print("illegal value")
-                    continue
+                mission_input = input("mission:")
+                depths = mission_input.split(',')
+                mission = []
+                for value in depths:
+                    if value == 'E':
+                        mission.append('E')
+                        continue
+                    try:
+                        value = float(value)
+                    except ValueError as e:
+                        print(e)
+                        print("illegal value")
+                        break
 
-                if value < 0:
-                    print("illegal value")
-                    continue
-                print(f"setting depth to {value}")
-                self.com.sendMessage(f"depth:{value}")
+                    if value < 0:
+                        print("illegal value")
+                        break
+                    
+                    mission.append(value)
+
+                print(f"setting mission to {mission}")
+                self.com.sendMessage(f"mission:{json.dumps(mission)}")
 
             if from_user == '2':
                 print("water test")
@@ -176,6 +186,10 @@ class CLI():
             if from_user == '10':
                 print('dive')
                 self.com.sendMessage("dive:0")
+
+            if from_user == '11':
+                print('calibrate')
+                self.com.sendMessage("calibrate:0")
             
             if from_user == '0':
                 print("stopping")
