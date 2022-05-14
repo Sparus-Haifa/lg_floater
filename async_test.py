@@ -19,6 +19,8 @@ from transitions.extensions.asyncio import AsyncTimeout, AsyncMachine
 
 import serial_asyncio
 
+import json
+
 # serial driver
 class OutputProtocol(asyncio.Protocol):
     def __init__(self, queue) -> None:
@@ -139,6 +141,7 @@ class Driver:
     def __init__(self, queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition) -> None:
 
 
+        self.simulation = True  # use UDP or serial
         self.log = logging.getLogger("normal")
         self.log_csv = logging.getLogger("csv")
 
@@ -247,19 +250,26 @@ class Driver:
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
             
-            if header == 'surface':
+            elif header == 'surface':
                 print('surface command')
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
-            if header == 'restart': 
+            elif header == 'restart': 
                 print('restarting')
                 await asyncio.create_task(self.test_mode.to_off())
                 await asyncio.create_task(self.to_buffering())
-            if header == 'stop': 
+            elif header == 'stop': 
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_stopped())
+            
+            elif header == 'mission': 
+                self.mission = json.loads(value)
+                await asyncio.create_task(self.to_executingTask_loading())
 
+            elif header == 'calibrate': 
+                await asyncio.create_task(self.to_calibrating())
+              
 
     async def consume_mega(self):
         # log_normal = logging.getLogger("normal")
@@ -316,11 +326,12 @@ class Driver:
             elif value == 2: pass  # acknowledges weight was dropped on command
             elif value == 3:
                 # print('ping')
-                if not self.depth or self.depth < 1:
-                    self.send_nano_message("N:1")
+                # if not self.depth or self.depth < 1:  # why?
+                self.send_nano_message("N:1")
                     # print('sent n:1')
             elif value == 4: 
                 # acknowledges weight was dropped due to over time
+                print('weight was dropped due to over time!')
                 await self.to_emergency()
             elif value == 5: pass  # safety went to sleep
             elif value == 111: 
@@ -343,13 +354,13 @@ class Driver:
         self.transport_nano.write(message.encode('utf-8'))
 
     def send_mega_message(self, message) -> None:
-        self.transport_mega.write(message.encode('utf-8'))
-
-        if False:  # sim
+        if not self.simulation:
+            self.transport_mega.write(message.encode('utf-8'))
+        else:
             sock = socket.socket(socket.AF_INET,  # Internet
                                 socket.SOCK_DGRAM)  # UDP
             sock.sendto(message.encode(), (self.client_address, self.client_port))
-            print(f"message {message} sent to {self.client_address}  {self.client_port}")
+            # print(f"message {message} sent to {self.client_address}  {self.client_port}")
         # sock.flush()
         # sock.close()
 
@@ -428,6 +439,7 @@ class Driver:
         # print('handling hl')
         value = self.sensors.leak_h_flag.getLast()
         if value == 1:
+            print('HL!')
             await self.hull_leak_emergency()
 
     async def handle_PD(self):
@@ -620,6 +632,11 @@ class Driver:
         asyncio.create_task(self.sense_water())
 
     async def set_next_target(self):
+        if self.depth is None:
+            # await asyncio.create_task(self.to_calibrating())
+            print('no calibration')
+            return
+
         print("set_next_target")
 
         if not self.mission:
@@ -635,7 +652,7 @@ class Driver:
 
         # match next_depth:
         if next_depth == 'E': 
-            print('emegency')
+            print('emegency test - next depth')
             asyncio.create_task(self.to_emergency())
         if isinstance(next_depth, int) or isinstance(next_depth, float):
             print(f"got depth {next_depth}")
@@ -687,11 +704,15 @@ class Driver:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             print("recieved a descend flag - 1")
 
-        #     if self.test_mode.is_on():
-        #         asyncio.create_task(self.to_stopped())
-        #         return
+            if self.test_mode.is_on():
+                asyncio.create_task(self.to_stopped())
+                return
 
-        #     asyncio.create_task(self.to_executingTask_descending())
+            # if executing task
+            asyncio.create_task(self.to_executingTask_descending())
+
+            # else
+            # to stopped
 
     async def wait_for_ascend_acknowledge(self):
         print('waiting ascend ack')
@@ -872,18 +893,22 @@ class Driver:
 
     async def surface(self):
         print('surfacing...')
+        # Send command
         self.send_mega_message("S:2\n")
-
+        # wait until you sense air
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.pressureController.senseAir())
             print("sensing air")
+        # Send a single iridium message
         await self.sensors.iridium_flag.to_requesting()
         self.send_mega_message("I:1\n")
+        # Wait for message to be sent
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.iridium_flag.is_idle())
         print('trasmition is over')
         await asyncio.sleep(20)
-        asyncio.create_task(self.to_pickup())
+        # asyncio.create_task(self.to_pickup())
+        asyncio.create_task(self.to_executingTask_loading())
 
 
     async def burn_nano(self):
@@ -962,8 +987,10 @@ def main():
 
 
     # init mega serial connection
-    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
-    transport_mega, protocol = loop.run_until_complete(coro_mega)
+    # coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
+    transport_mega = None
+    # transport_mega, protocol = loop.run_until_complete(coro_mega)
+
 
     # driver = Driver(queue_mega, queue_nano, transport, queue_cli)
     condition = asyncio.Condition(loop=loop)    # for notify
