@@ -12,10 +12,14 @@ void CalcBladderVol()
   float AccPress = PresSensor.pressure() - 10;
   SendMsg("AP", AccPress);
 
+  // Filling at full bladder
   GasVol = P1 * V1 * (AccTemp + 273.15) / (AccPress * 0.987 / 1000.0) / T1;
-  BladdVol = GasVol - 1430 + 650;
-
-  //BladdVol = 1.0215 * BladdVol; // - 50.92;
+  BladdVol = GasVol - 1430 + 725 - 10; // correction of -10 
+  BladdVol = BladdVol*1.311 - 8.6623; // Correction from filling test
+  
+  // Filling at empty bladder
+  //  GasVol = P1 * V1 * (AccTemp + 273.15) / (AccPress * 0.987 / 1000.0) / T1;
+  //  BladdVol = GasVol - V1;
 
   SendMsg("BV", BladdVol);
 
