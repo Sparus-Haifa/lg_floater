@@ -47,7 +47,7 @@ IridiumSBD  modem(IridiumSerial);    // Declare IRIDIUM object
 TinyGPSPlus tinygps;                // Declare TINY GPS object
 static const int ledPin = LED_BUILTIN;
 
-#define BEACON_INTERVAL 60         // Time between transmissions (seconds)
+#define BEACON_INTERVAL 120         // Time between transmissions (seconds)
 #define BeaconT 5                   // Duration of beacon function (minutes)
 
 // IMU object
@@ -93,13 +93,18 @@ unsigned long PreviousMillis = 0, LoopCounter = 1;
 #define HullLeakPin         50  // Hull Leak Signal Pin
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER PARAMETERS
+// limits of the bladder volume in CC
+#define BladderUpperLimit 440
+#define BladderLowerLimit 20
+
 // V1 = 0.7 L for accumulator full of oil, V1=1.4L for accumulator empty of oil
 //float V1 = 1430 - 724;
-float V1 = 1430;
-float P1 = 6134 * (0.98692 / 1000.0);
-float T1 = (273.15 + 23.55);
+//float V1 = 1430;
+float A = 113.1; // cm^2
+float X0 = 9.45;  // cm
+float V0 = 705;   // cc
+float X1 = 13.4;  // cm
+float V1 = V0 + (X1 - X0)*A;          // Initial filling gas volume in cc
+float P1 = 1014 * (0.98692 / 1000.0); // Initial filling gas pressure in bar
+float T1 = (273.15 + 25.95);          // Initial filling gas temperaure in C
 float GasVol, GasVolPrev, BladdVol;
-
-// limits of the bladder volume in CC
-#define BladderUpperLimit 620
-#define BladderLowerLimit 30
