@@ -122,15 +122,17 @@ class Safety:
             ]
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
         from gpio_controller_new import GPIOController
-        RPI_TRIGGER_PIN = 18
+        RPI_TRIGGER_PIN = 14
         self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
-        self.safety_trigger.high()
-        # self.safety_trigger.low()
+        # self.safety_trigger.high()
+        self.safety_trigger.low()
 
     def high(self):
+        print('gpio high')
         self.safety_trigger.high()
 
     def low(self):
+        print('gpio low')
         self.safety_trigger.low()
 
 
@@ -141,7 +143,7 @@ class Driver:
     def __init__(self, queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition) -> None:
 
 
-        self.simulation = True  # use UDP or serial
+        self.simulation = False  # use UDP or serial
         self.log = logging.getLogger("normal")
         self.log_csv = logging.getLogger("csv")
 
@@ -157,7 +159,8 @@ class Driver:
 
         # self.mission = [5, 'E']
         # self.mission = [500, 0]
-        self.mission = [15, 0, 15, 0]
+        # self.mission = [15, 0, 15, 0]
+        self.mission = [0.8, 0]
 
         self.target_depth = None
         self.depth = None
@@ -448,6 +451,9 @@ class Driver:
 
         # if cfg.app["disable_altimeter"]:
         #     return
+        # print('altimeter')
+        return
+
         value = self.sensors.altimeter.getLast()
         confidance = self.sensors.altimeter.getConfidance()
         if confidance > 50:
@@ -981,15 +987,16 @@ def main():
 
     # Nano
     # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
-    transport_nano, protocol = loop.run_until_complete(coro_nano)
+    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
+    # transport_nano, protocol = loop.run_until_complete(coro_nano)
+    transport_nano = None
 
 
 
     # init mega serial connection
-    # coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
-    transport_mega = None
-    # transport_mega, protocol = loop.run_until_complete(coro_mega)
+    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
+    transport_mega, protocol = loop.run_until_complete(coro_mega)
+    # transport_mega = None
 
 
     # driver = Driver(queue_mega, queue_nano, transport, queue_cli)
