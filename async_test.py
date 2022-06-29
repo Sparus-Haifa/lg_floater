@@ -22,6 +22,8 @@ import serial_asyncio
 import json
 
 import os
+
+from datetime import datetime
 # serial driver
 class OutputProtocol(asyncio.Protocol):
     def __init__(self, queue) -> None:
@@ -156,14 +158,18 @@ class Driver:
 
         
         self.simulation = True  # use UDP or serial
+        # Log
+        # date_time_str = datetime.now().strftime("%m/%d/%Y_%H:%M:%S")
+        date_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+
         # first file logger
         format_normal = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-        self.log = setup_logger('normal', os.path.join('log', 'first_logfile.log'), format_normal)
+        self.log = setup_logger('normal', os.path.join('log', f'{date_time_str}_noraml.log'), format_normal)
         # self.log.info('This is just info message')
 
         # second file logger
         format_csv = logging.Formatter('%(asctime)s %(message)s')
-        self.log_csv = setup_logger('csv', os.path.join('log', 'second_logfile.log'), format_csv)
+        self.log_csv = setup_logger('csv', os.path.join('log', f'{date_time_str}_csv.log'), format_csv)
         # self.log_csv.error('This is an error message')
 
         # self.log = logging.getLogger("normal")
