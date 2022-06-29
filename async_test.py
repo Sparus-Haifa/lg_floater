@@ -21,6 +21,7 @@ import serial_asyncio
 
 import json
 
+import os
 # serial driver
 class OutputProtocol(asyncio.Protocol):
     def __init__(self, queue) -> None:
@@ -141,9 +142,34 @@ class Driver:
     def __init__(self, queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition) -> None:
 
 
+        def setup_logger(name, log_file, format, level=logging.INFO):
+            """To setup as many loggers as you want"""
+
+            handler = logging.FileHandler(log_file)        
+            handler.setFormatter(format)
+
+            logger = logging.getLogger(name)
+            logger.setLevel(level)
+            logger.addHandler(handler)
+
+            return logger
+
+        
         self.simulation = True  # use UDP or serial
-        self.log = logging.getLogger("normal")
-        self.log_csv = logging.getLogger("csv")
+        # first file logger
+        format_normal = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        self.log = setup_logger('normal', os.path.join('log', 'first_logfile.log'), format_normal)
+        # self.log.info('This is just info message')
+
+        # second file logger
+        format_csv = logging.Formatter('%(asctime)s %(message)s')
+        self.log_csv = setup_logger('csv', os.path.join('log', 'second_logfile.log'), format_csv)
+        # self.log_csv.error('This is an error message')
+
+        # self.log = logging.getLogger("normal")
+        # self.log_csv = logging.getLogger("csv")
+        
+        self.add_headers_to_csv = True  # add headers to csv file
 
         self.queue_mega = queue_mega
         self.queue_nano = queue_nano
@@ -232,7 +258,7 @@ class Driver:
 
 
         # if not self.disable_safety:
-        self.safety = Safety()
+        # self.safety = Safety()
             
 
         # self.planner = MissionPlanner()
@@ -483,7 +509,7 @@ class Driver:
         # print()
         if csv:
             if self.add_headers_to_csv:
-                self.csv_log.critical(",".join(headers))
+                self.log_csv.critical(",".join(headers))
                 self.add_headers_to_csv = False
         else:
             self.log.info("".join(headers))
@@ -511,7 +537,7 @@ class Driver:
             values.append(full_line)
         # print()
         if csv:
-            self.csv_log.critical(",".join(values))
+            self.log_csv.critical(",".join(values))
         else:
             self.log.info("".join(values))
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -558,7 +584,7 @@ class Driver:
         # res["SafetyState"] = self.safety.state   # 
         # res['planner'] = self.planner.state
 
-        self.fancy_log(res, False)
+        self.fancy_log(res, True)
   
         # await asyncio.sleep(2)
         # asyncio.create_task(self.log_sensors())
@@ -745,17 +771,17 @@ class Driver:
 
 
 
-    async def control(self):
-        asyncio.create_task(self.hibernate())
-        asyncio.create_task(self.reach_goal())
+    # async def control(self):
+    #     asyncio.create_task(self.hibernate())
+    #     asyncio.create_task(self.reach_goal())
         
-    async def hibernate(self):
-        print('hibernate')
-        async with self.condition:
-            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 10)
-            print("There's no running command now, exiting.")
-            asyncio.create_task(self.to_executingTask_enRoute_calculating())
-        pass
+    # async def hibernate(self):
+    #     print('hibernate')
+    #     async with self.condition:
+    #         await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 10)
+    #         print("There's no running command now, exiting.")
+    #         asyncio.create_task(self.to_executingTask_enRoute_calculating())
+    #     pass
 
     async def reach_goal(self):
         print('hold on taget. timer started/reset')
@@ -961,10 +987,10 @@ def main():
     logging.basicConfig()
     logging.root.setLevel(logging.NOTSET)
     logging.getLogger('transitions').setLevel(logging.WARNING)
-    global log
+    # global log
     # log = logging.getLogger("normal")
     # log.setLevel(logging.NOTSET)
-    global log_csv
+    # global log_csv
     # log_csv = logging.getLogger("csv")
 
 
@@ -981,8 +1007,9 @@ def main():
 
     # Nano
     # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
-    transport_nano, protocol = loop.run_until_complete(coro_nano)
+    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
+    # transport_nano, protocol = loop.run_until_complete(coro_nano)
+    transport_nano = None
 
 
 
