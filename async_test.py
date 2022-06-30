@@ -112,6 +112,9 @@ class Mission:
 
 class Safety:
     def __init__(self) -> None:
+        # self.log = logging.getLogger("normal")
+        # self.log("safety init")
+        print("safety init")
         self.states = [
             {'name': 'sleeping'},
             {'name': 'active', 'children': [
@@ -124,19 +127,28 @@ class Safety:
             {'name': 'sleepInterrupted'}
             ]
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
-        from gpio_controller_new import GPIOController
-        RPI_TRIGGER_PIN = 14
-        self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+        # from gpio_controller_new import GPIOController
+        import RPi.GPIO as GPIO
+        self.RPI_TRIGGER_PIN = 14
+        GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.RPI_TRIGGER_PIN, GPIO.OUT)
+        # self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
+        self.GPIO = GPIO
         # self.safety_trigger.high()
-        self.safety_trigger.low()
+        self.high()
+        # self.safety_trigger.low()
+        # self.low()
 
     def high(self):
         print('gpio high')
-        self.safety_trigger.high()
+        # self.safety_trigger.high()
+        self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.HIGH)
 
     def low(self):
         print('gpio low')
-        self.safety_trigger.low()
+        # self.safety_trigger.low()
+        self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.LOW)
 
 
 
@@ -225,6 +237,7 @@ class Driver:
         self.states = [
             {'name': 'stopped'},
             {'name': 'wakingSafety', 'on_enter': 'wakeup_safety'},
+            {'name': 'sleepingSafety', 'on_enter': 'sleep_safety'},
             {'name': 'buffering', 'on_enter': 'check_sensor_buffer'},
             {'name': 'calibrating', 'on_enter': 'calibrate'},
             {'name': 'sensingWater', 'on_enter': 'sense_water'},
@@ -307,6 +320,14 @@ class Driver:
 
             elif header == 'calibrate': 
                 await asyncio.create_task(self.to_calibrating())
+
+            elif header == 'wakeup_safety': 
+                self.test_mode = True
+                await asyncio.create_task(self.to_wakingSafety())
+
+            elif header == 'sleep_safety': 
+                self.test_mode = True
+                await asyncio.create_task(self.to_sleepingSafety())
               
 
     async def consume_mega(self):
@@ -356,14 +377,14 @@ class Driver:
             # match value:
             if value == 1:
                 # ping acknowledge
-                # print('ping acknowledge')
+                print('ping acknowledge')
                 if self.safety.is_sleepInterrupted():
                     print('safety is active')
                     await self.safety.to_active_weightFixed()
                     # await self.to_buffering()
             elif value == 2: pass  # acknowledges weight was dropped on command
             elif value == 3:
-                # print('ping')
+                print('ping')
                 # if not self.depth or self.depth < 1:  # why?
                 self.send_nano_message("N:1")
                     # print('sent n:1')
@@ -408,6 +429,11 @@ class Driver:
         self.safety.low()
         # self.send_nano_message()
 
+    async def sleep_safety(self):
+        print('sleeping safety')
+        self.safety.high()
+        # self.send_nano_message()
+
 
     async def handle_message(self, msg):
         # print(msg)
@@ -445,7 +471,7 @@ class Driver:
             async with self.condition:
                 # self.condition.notify()
                 self.condition.notify_all()   
-            await self.log_sensors()
+            # await self.log_sensors()  # LOG SENSORS
         if header in ['FS', 'S']: 
             print("surface/dive")
             await self.sensors.full_surface_flag.add_sample(value)
@@ -599,7 +625,7 @@ class Driver:
         # res["SafetyState"] = self.safety.state   # 
         # res['planner'] = self.planner.state
 
-        self.fancy_log(res, True)
+        self.fancy_log(res, False)
   
         # await asyncio.sleep(2)
         # asyncio.create_task(self.log_sensors())
@@ -1022,9 +1048,9 @@ def main():
 
     # Nano
     # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
-    # transport_nano, protocol = loop.run_until_complete(coro_nano)
-    transport_nano = None
+    coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
+    transport_nano, protocol = loop.run_until_complete(coro_nano)
+    # transport_nano = None
 
 
 
@@ -1038,6 +1064,10 @@ def main():
     condition = asyncio.Condition(loop=loop)    # for notify
 
     driver = Driver(queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition)
+
+    # if not self.disable_safety:
+    safety = Safety()
+    driver.safety = safety
 
 
 
@@ -1097,12 +1127,35 @@ def main():
 
 
     
+    try:
+        loop.run_forever()
+    except KeyboardInterrupt as e:
+        print(e)
+        print('disable safety')
+        if driver.safety is not None:
+            pass
+            # # await self.safety.to_sleeping()
+            # loop = asyncio.new_event_loop()
+            # c = driver.safety.to_sleeping()
+            # loop.create_task(c)
+            # safety = Safety()
+            import time
+            safety.high()
+            time.sleep(1)
+            safety.low()
+            time.sleep(1)
+            safety.high()
+            time.sleep(1)
+            safety.low()
+            time.sleep(1)
+            safety.high()
 
-    loop.run_forever()
 
-    loop.close()
-
-
+    try:
+        loop.close()
+    except RuntimeError as e:
+        print('loop error')
+        print(e)
 
 if __name__=='__main__':
     main()
