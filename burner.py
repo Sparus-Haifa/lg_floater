@@ -29,11 +29,11 @@ class ArduinoBurner:
     def burnMega(self, address: str):
         self.log.info('compiling mega code')
         # sketch_path = '/home/pi/lg_floater/TestSketch'
-        # sketch_path = '/home/pi/lg_floater/000_FloatCode'
-        sketch_path = '/home/pi/lg_floater/000_FloatCode_sim'
+        sketch_path = '/home/pi/lg_floater/000_FloatCode'
+        # sketch_path = '/home/pi/lg_floater/000_FloatCode_sim'
         libraries_path = '/home/pi/lg_floater/000_FloatCode/libraries/*/'
-        # fqbn = 'arduino:avr:mega'
-        fqbn = 'arduino:avr:uno'
+        fqbn = 'arduino:avr:mega'
+        # fqbn = 'arduino:avr:uno'
         libraries = glob(libraries_path)
         # self.arduino_cli.lib.install(libraries=libraries_path)
         print('compiling...')
@@ -56,6 +56,7 @@ class ArduinoBurner:
         # test compilation
         if not success:
             self.log.critical('compilation failure')
+            print(stderr)
             self.log.critical(stderr)
             exit(1)
         self.log.info('compilation successful')
@@ -90,8 +91,8 @@ class ArduinoBurner:
         # libraries_path = 'C:\\nir\\lg_floater_async\\000_NanoCode\\libraries'
         
         libraries = glob(libraries_path)
-        # fqbn = "arduino:avr:nano"
-        fqbn = "arduino:avr:nano:cpu=atmega328old"
+        fqbn = "arduino:avr:nano"
+        # fqbn = "arduino:avr:nano:cpu=atmega328old"
         print('sketch_path', sketch_path)
         res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
         # res = self.arduino_cli.compile(sketch_path, fqbn=fqbn)
@@ -208,7 +209,7 @@ def main():
     
 
     nano_address = '/dev/ttyUSB0'
-    burner.burnNano(nano_address)
+    # burner.burnNano(nano_address)
     # burner.burnNano("COM4")
             
 

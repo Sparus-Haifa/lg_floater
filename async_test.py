@@ -136,9 +136,9 @@ class Safety:
         # self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
         self.GPIO = GPIO
         # self.safety_trigger.high()
-        self.high()
+        # self.high()
         # self.safety_trigger.low()
-        # self.low()
+        self.low()
 
     def high(self):
         print('gpio high')
@@ -174,7 +174,7 @@ class Driver:
             return logger
 
         
-        self.simulation = True  # use UDP or serial
+        # self.simulation = True  # use UDP or serial
         # Log
         # date_time_str = datetime.now().strftime("%m/%d/%Y_%H:%M:%S")
         date_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -471,7 +471,7 @@ class Driver:
             async with self.condition:
                 # self.condition.notify()
                 self.condition.notify_all()   
-            # await self.log_sensors()  # LOG SENSORS
+            await self.log_sensors()  # LOG SENSORS
         if header in ['FS', 'S']: 
             print("surface/dive")
             await self.sensors.full_surface_flag.add_sample(value)
@@ -1048,9 +1048,9 @@ def main():
 
     # Nano
     # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
-    transport_nano, protocol = loop.run_until_complete(coro_nano)
-    # transport_nano = None
+    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
+    # transport_nano, protocol = loop.run_until_complete(coro_nano)
+    transport_nano = None
 
 
 
@@ -1065,6 +1065,8 @@ def main():
 
     driver = Driver(queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition)
 
+
+    # SAFETY
     # if not self.disable_safety:
     safety = Safety()
     driver.safety = safety
@@ -1139,15 +1141,15 @@ def main():
             # c = driver.safety.to_sleeping()
             # loop.create_task(c)
             # safety = Safety()
-            import time
-            safety.high()
-            time.sleep(1)
-            safety.low()
-            time.sleep(1)
-            safety.high()
-            time.sleep(1)
-            safety.low()
-            time.sleep(1)
+            # import time
+            # safety.high()
+            # time.sleep(1)
+            # safety.low()
+            # time.sleep(1)
+            # safety.high()
+            # time.sleep(1)
+            # safety.low()
+            # time.sleep(1)
             safety.high()
 
 

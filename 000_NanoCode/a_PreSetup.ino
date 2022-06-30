@@ -18,7 +18,7 @@ int DropWeightFlag = 0, LoopFlag = 0;
 unsigned long PreviousMillisIn = 0, PreviousMillisOut = 0;
 #define HBwait  15000      // Wait time (in milliseconds)
 #define MotorTimeHigh  30000   // Duration of DW motor actuation
-#define MotorTimeLow   32000   // Motor speed is lower in this direction
+#define MotorTimeLow   31000   // Motor speed is lower in this direction
 
 bool rpiIsAlive = false;
 int graceTime = 5000;

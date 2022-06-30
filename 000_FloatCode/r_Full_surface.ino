@@ -27,7 +27,6 @@ void FullSurface(int Direction)
 
   else
   {
-    SendMsg("FS", 0);
     return;
   }
 
@@ -70,10 +69,8 @@ void FullSurface(int Direction)
 
     whilecounter = whilecounter + 1;
   }
- delay(1000);
-  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= WHILE LOOP
-  CalcBladderVol();
 
+  //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= WHILE LOOP
   while (BF == 0)
   {
     wdt_reset(); // reset the watchdog each loop

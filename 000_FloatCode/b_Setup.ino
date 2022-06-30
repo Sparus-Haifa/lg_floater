@@ -44,7 +44,7 @@ void setup()
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= MUX SETUP
   // BOTTOM MUX
-  InitMUX(BottomMux);
+  //InitMUX(BottomMux);
 
   // TOP MUX
   InitMUX(TopMux);
