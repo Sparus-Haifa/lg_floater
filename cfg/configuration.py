@@ -30,7 +30,7 @@ class MissionState(Enum):
 
 
 app = {
-    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation" : False,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     "host_ip" : "127.0.0.1",
     # "host_ip" : "192.168.1.75",

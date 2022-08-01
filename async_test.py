@@ -26,10 +26,11 @@ import os
 from datetime import datetime
 # serial driver
 class OutputProtocol(asyncio.Protocol):
-    def __init__(self, queue) -> None:
+    def __init__(self, queue, name) -> None:
         super().__init__()
         self.queue = queue
         self.line = ""
+        self.name = name
 
     def connection_made(self, transport):
         self.transport = transport
@@ -43,7 +44,7 @@ class OutputProtocol(asyncio.Protocol):
         if b'\r\n' in data:
             tokens = self.line.split('\r\n')
             for token in tokens[:-1]:
-                # print('from mega: ' + token)
+                # print(f'from {self.name}: ' + token)
                 self.queue.put_nowait(token)
             self.line=tokens[-1]
         #     self.line = ''
@@ -136,9 +137,9 @@ class Safety:
         # self.safety_trigger = GPIOController(RPI_TRIGGER_PIN)
         self.GPIO = GPIO
         # self.safety_trigger.high()
-        # self.high()
+        self.high()
         # self.safety_trigger.low()
-        self.low()
+        # self.low()
 
     def high(self):
         print('gpio high')
@@ -155,7 +156,7 @@ class Safety:
 
 
 class Driver:
-    def __init__(self, queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition) -> None:
+    def __init__(self, queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety) -> None:
 
 
         self.simulation = False  # use UDP or serial
@@ -197,6 +198,7 @@ class Driver:
         self.queue_mega = queue_mega
         self.queue_nano = queue_nano
         self.queue_cli = queue_cli
+        self.queue_payload = queue_payload
         self.sensors = Sensors()
         # self.controller = Controller()
         self.pid_controller = PID(self.log)
@@ -219,8 +221,10 @@ class Driver:
 
         # self.condition = asyncio.Condition()    # for notify
         self.condition = condition
+        self.condition_safety = condition_safety
         self.transport_nano = transport_nano    # output for nano
         self.transport_mega = transport_mega    # output for mega
+        self.transport_payload = transport_payload  # output for payload
 
         self.test_mode = AsyncMachine(states=['off', 'on'], initial='on')
 
@@ -333,6 +337,8 @@ class Driver:
     async def consume_mega(self):
         # log_normal = logging.getLogger("normal")
         # log_csv = logging.getLogger("csv")
+        self.log.info('init consume mega')
+        # print("waiting for mega message")
         
         while True:
             msg = await self.queue_mega.get()
@@ -345,9 +351,29 @@ class Driver:
             # print(self.state)
             # await asyncio.sleep(0.1)
 
+    async def consume_payload(self):
+        self.log.info('init consume payload')
+        while True:
+            msg = await self.queue_payload.get()
+            print(msg)
+            lines = msg.splitlines()
+            for line in lines:
+                # asyncio.create_task(self.handle_message(line))
+                self.log.info(line)
+                try:
+                    header, value = line.split(':')
+                    if header == 'PT' : await self.sensors.payload_flag.add_sample(value)
+                except ValueError as e:
+                    print(f'{e}: [{line}]')
+                    # return
+                if not value:
+                    print('error')
+                    self.log.error(f'Message received without a value: {line}')
+
     async def consume_nano(self):
         # log_normal = logging.getLogger("normal")
         # log_csv = logging.getLogger("csv")
+        self.log.info("init consume nano")
         
         while True:
             msg = await self.queue_nano.get()
@@ -377,29 +403,38 @@ class Driver:
             # match value:
             if value == 1:
                 # ping acknowledge
-                print('ping acknowledge')
+                self.log.info('ping acknowledge')
                 if self.safety.is_sleepInterrupted():
-                    print('safety is active')
+                    self.log.info('safety is active')
                     await self.safety.to_active_weightFixed()
                     # await self.to_buffering()
             elif value == 2: pass  # acknowledges weight was dropped on command
             elif value == 3:
-                print('ping')
+                self.log.info('safety ping')
                 # if not self.depth or self.depth < 1:  # why?
                 self.send_nano_message("N:1")
                     # print('sent n:1')
             elif value == 4: 
                 # acknowledges weight was dropped due to over time
-                print('weight was dropped due to over time!')
+                self.log.warning('weight was dropped due to over time!')
                 await self.to_emergency()
-            elif value == 5: pass  # safety went to sleep
+            elif value == 5: 
+                pass  # safety received go to sleep command
+  
             elif value == 111: 
-                print('safety woke up (sleep was interrupted). waiting on first ping...')
+                self.log.info('safety woke up (sleep was interrupted). waiting on first ping...')
                 await self.safety.to_sleepInterrupted()
+                await asyncio.sleep(5)
                 self.send_nano_message('L:1')
             elif value == 222: 
-                print('safety went to sleep (sleep initiated)')
+                # self.safety
+                self.log.info("222")
+                print(222)
+                async with self.condition_safety:
+                    self.condition_safety.notify_all() 
+                self.log.info('safety went to sleep (sleep initiated)')
                 await self.safety.to_sleeping()
+
             else:
                 print('unknown nano msg', msg)
 
@@ -410,6 +445,7 @@ class Driver:
 
     def send_nano_message(self, message) -> None:
         # self.transport_nano.write(b'N:1\n')
+        self.log.info(f"send_to_nano:{message}")
         self.transport_nano.write(message.encode('utf-8'))
 
     def send_mega_message(self, message) -> None:
@@ -432,6 +468,14 @@ class Driver:
     async def sleep_safety(self):
         print('sleeping safety')
         self.safety.high()
+        self.log.info("safety GPIO high")
+        await asyncio.sleep(2)
+        self.send_nano_message("N:5")
+        async with self.condition_safety:
+            # await self.condition_safety.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
+            await self.condition_safety.wait_for(lambda: self.safety.is_sleeping())
+            print("condition met")
+            
         # self.send_nano_message()
 
 
@@ -478,6 +522,7 @@ class Driver:
             # await self.handle_full_surface_flag(value)
         if header in ['I', 'IR']:  await self.sensors.iridium_flag.add_sample(value)
         if header == 'D': await self.sensors.direction_flag.add_sample(value)
+
 
         else : pass # print(f'error {msg}')
 
@@ -624,6 +669,7 @@ class Driver:
         res["State"] = self.state   # self.sensors.current_state.name
         # res["SafetyState"] = self.safety.state   # 
         # res['planner'] = self.planner.state
+        res['Payload'] = self.sensors.payload_flag.getLast()
 
         self.fancy_log(res, False)
   
@@ -825,10 +871,10 @@ class Driver:
     #     pass
 
     async def reach_goal(self):
-        print('hold on taget. timer started/reset')
+        self.log.info('hold on taget. timer started/reset')
         async with self.condition:
-            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 1)
-        print("hold position!")
+            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.5)
+        self.log.info("hold position!")
         # self.hold_on_target = 1
         await asyncio.sleep(20)
         self.hold_on_target = False
@@ -1040,30 +1086,86 @@ def main():
     
     queue_mega = asyncio.Queue(loop=loop)
 
-    # global queue_nano
     queue_nano = asyncio.Queue(loop=loop)
 
     queue_cli = asyncio.Queue(loop=loop)
 
+    queue_payload = asyncio.Queue(loop=loop)
+
+
+    def listPorts():
+        """!
+        @brief Provide a list of names of serial ports that can be opened as well as a
+        a list of Arduino models.
+        @return A tuple of the port list and a corresponding list of device descriptions
+        """
+
+        # import serial
+        import serial.tools.list_ports
+
+        ports = list(  serial.tools.list_ports.comports() )
+
+        serial_ports = {}
+        for port in ports:
+            # print(port, port.description)
+            # if not port.description.startswith( "Arduino" ):
+            #     # correct for the somewhat questionable design choice for the USB
+            #     # description of the Arduino Uno
+            #     if port.manufacturer is not None:
+            #         if port.manufacturer.startswith( "Arduino" ) and \
+            #         port.device.endswith( port.description ):
+            #             port.description = "Arduino Uno"
+            #         else:
+            #             continue
+            #     else:
+            #         continue
+            # if port.device:
+            #     resultPorts.append( port.device )
+            #     descriptions.append( str( port.description ) )
+            if port.description.startswith("FT232R"):
+                serial_ports['nano']=port.device
+            elif port.description.startswith("USB"):
+                serial_ports['payload']=port.device
+            elif port.description.startswith("ttyACM0"):
+                serial_ports['mega']=port.device
+
+
+        return (serial_ports)
+
+    serial_ports = listPorts()
+    print(serial_ports)
+    # listPorts()
+
+    # return
+
 
     # Nano
-    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
-    # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), '/dev/ttyUSB0', baudrate=115200)
-    # transport_nano, protocol = loop.run_until_complete(coro_nano)
-    transport_nano = None
+    if 'nano' in serial_ports:
+        # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
+        coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano, "nano"), serial_ports['nano'], baudrate=115200)
+        transport_nano, protocol = loop.run_until_complete(coro_nano)
+    else:
+        transport_nano = None
 
 
 
     # init mega serial connection
-    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega), '/dev/ttyACM0', baudrate=115200)
+    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
     transport_mega, protocol = loop.run_until_complete(coro_mega)
     # transport_mega = None
 
 
-    # driver = Driver(queue_mega, queue_nano, transport, queue_cli)
-    condition = asyncio.Condition(loop=loop)    # for notify
+    # Payload_imu serial connection
+    coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
+    transport_payload, protocol = loop.run_until_complete(coro_payload)
+    # transport_payload = None
 
-    driver = Driver(queue_mega, queue_nano, transport_mega, transport_nano, queue_cli, condition)
+
+    condition = asyncio.Condition(loop=loop)    # for notify
+    condition_safety = asyncio.Condition(loop=loop)    # for notify
+
+
+    driver = Driver(queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety)
 
 
     # SAFETY
@@ -1093,15 +1195,16 @@ def main():
 
 
     # loop.run_until_complete(driver.consume()) # Start writing messages (or running tests)
-    c = driver.consume_mega()
-    loop.create_task(c) # Start writing messages (or running tests)
 
 
-    n = driver.consume_nano()
-    loop.create_task(n)
+    loop.create_task(driver.consume_mega()) # Start writing messages (or running tests)
 
-    c = driver.consume_cli()
-    loop.create_task(c)
+    loop.create_task(driver.consume_nano())
+
+    loop.create_task(driver.consume_cli())
+
+    
+    loop.create_task(driver.consume_payload())
 
 
     cli_coro = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_cli, driver), local_addr=('0.0.0.0', 5000), )
@@ -1141,7 +1244,7 @@ def main():
             # c = driver.safety.to_sleeping()
             # loop.create_task(c)
             # safety = Safety()
-            # import time
+            import time
             # safety.high()
             # time.sleep(1)
             # safety.low()
@@ -1150,7 +1253,10 @@ def main():
             # time.sleep(1)
             # safety.low()
             # time.sleep(1)
-            safety.high()
+            # safety.high()
+            # driver.send_nano_message("N:5")
+            loop.run_until_complete(driver.sleep_safety())
+            time.sleep(2)
 
 
     try:

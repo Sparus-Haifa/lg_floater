@@ -138,6 +138,61 @@ class ArduinoBurner:
         self.log.info('upload successful')
         print('upload successful')
 
+
+
+    def burnUno(self, address: str):
+        self.log.info('compiling uno code')
+        sketch_path = '/home/pi/lg_floater/000_Payload'
+        libraries_path = '/home/pi/lg_floater/000_Payload/libraries/*/'
+        # fqbn = 'arduino:avr:mega'
+        fqbn = 'arduino:avr:uno'
+        libraries = glob(libraries_path)
+        # self.arduino_cli.lib.install(libraries=libraries_path)
+        print('compiling...')
+        res = self.arduino_cli.compile(sketch_path, fqbn=fqbn, library=libraries)
+        print('done')
+        # print(res)
+        # self.log.debug(res)
+        stdout = res['__stdout']
+        stdout_dict = json.loads(stdout)
+        compiler_out = stdout_dict['compiler_out']
+        print(compiler_out)
+        compiler_err = stdout_dict['compiler_err']
+        print(compiler_err)
+        success = stdout_dict['success']
+
+
+        stderr = res['__stderr']
+        # print(stderr)
+
+        # test compilation
+        if not success:
+            self.log.critical('compilation failure')
+            print(stderr)
+            self.log.critical(stderr)
+            exit(1)
+        self.log.info('compilation successful')
+        self.log.info('uploading uno code')
+
+
+
+        builder_result = stdout_dict['builder_result']
+        build_path = builder_result['build_path']
+        
+    
+        
+        # upload bin to arduino
+        try:
+            self.arduino_cli.upload(sketch_path, fqbn=fqbn, input_dir=build_path, port=address, verify=True)
+        except pyduinocli.ArduinoError as e:
+            self.log.critical(e)
+            exit(1)
+        # print(res)
+        self.log.info('upload successful')
+
+
+
+
     def burn_boards(self):
 
         ports = self.getList_offline()
@@ -205,12 +260,16 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    burner.burnMega(mega_address)
+    # burner.burnMega(mega_address)
     
 
-    nano_address = '/dev/ttyUSB0'
+    nano_address = '/dev/ttyUSB1'
     # burner.burnNano(nano_address)
     # burner.burnNano("COM4")
+
+
+    payload_address = '/dev/ttyUSB1'
+    burner.burnUno(payload_address)
             
 
 if __name__=='__main__':
