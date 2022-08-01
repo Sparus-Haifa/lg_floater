@@ -30,7 +30,8 @@ class Logger:
         log_csv = caurrent_date + "_" + current_time + ".csv"
 
         folder_path = os.path.join('log', caurrent_date)
-        os.mkdir(folder_path)
+        if not os.path.isdir(folder_path):
+            os.mkdir(folder_path)
         full_path_notset = os.path.join(folder_path, log_notset)
         full_path_info = os.path.join(folder_path, log_info)
         full_path_csv = os.path.join(folder_path, log_csv)
