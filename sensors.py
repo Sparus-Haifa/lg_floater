@@ -75,6 +75,9 @@ class Sensors:
             # 
             self.direction_flag = DirectionFlag("direction", self.log)
 
+            # Payload flag
+            self.payload_flag = Flag("Payload", self.log) # PT
+
     def addSensorsToDict(self):
         for sensor in self.temperatureSensors:
             self.sensors[sensor]=self.temperatureSensors[sensor]
@@ -97,3 +100,4 @@ class Sensors:
         self.flags["FS"]=self.full_surface_flag
         self.flags["I"]=self.iridium_flag
         self.flags["D"]=self.direction_flag
+        self.flags["PT"]=self.payload_flag
