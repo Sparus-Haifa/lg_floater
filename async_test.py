@@ -160,34 +160,41 @@ class Driver:
 
 
         self.simulation = False  # use UDP or serial
+        logger = Logger(self.simulation)
+        self.log = logger.get_log()
+        self.log_csv = logger.get_csv_log()
+        self.log.debug('init')
+        self.log.info('init')
+        # self.log_csv.warning("test")
+
         # self.log = logging.getLogger("normal")
         # self.log_csv = logging.getLogger("csv")
-        def setup_logger(name, log_file, format, level=logging.INFO):
-            """To setup as many loggers as you want"""
+        # def setup_logger(name, log_file, format, level=logging.INFO):
+        #     """To setup as many loggers as you want"""
 
-            handler = logging.FileHandler(log_file)        
-            handler.setFormatter(format)
+        #     handler = logging.FileHandler(log_file)        
+        #     handler.setFormatter(format)
 
-            logger = logging.getLogger(name)
-            logger.setLevel(level)
-            logger.addHandler(handler)
+        #     logger = logging.getLogger(name)
+        #     logger.setLevel(level)
+        #     logger.addHandler(handler)
 
-            return logger
+        #     return logger
 
         
         # self.simulation = True  # use UDP or serial
         # Log
         # date_time_str = datetime.now().strftime("%m/%d/%Y_%H:%M:%S")
-        date_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
+        # date_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         # first file logger
-        format_normal = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-        self.log = setup_logger('normal', os.path.join('log', f'{date_time_str}_noraml.log'), format_normal)
+        # format_normal = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+        # self.log = setup_logger('normal', os.path.join('log', f'{date_time_str}_noraml.log'), format_normal)
         # self.log.info('This is just info message')
 
         # second file logger
-        format_csv = logging.Formatter('%(asctime)s %(message)s')
-        self.log_csv = setup_logger('csv', os.path.join('log', f'{date_time_str}_csv.log'), format_csv)
+        # format_csv = logging.Formatter('%(asctime)s %(message)s')
+        # self.log_csv = setup_logger('csv', os.path.join('log', f'{date_time_str}_csv.log'), format_csv)
         # self.log_csv.error('This is an error message')
 
         # self.log = logging.getLogger("normal")
@@ -671,7 +678,7 @@ class Driver:
         # res['planner'] = self.planner.state
         res['Payload'] = self.sensors.payload_flag.getLast()
 
-        self.fancy_log(res, False)
+        self.fancy_log(res, True)
   
         # await asyncio.sleep(2)
         # asyncio.create_task(self.log_sensors())

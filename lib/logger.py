@@ -25,14 +25,15 @@ class Logger:
 
         #e.g. 20210310_103412.log
         # s = log_name = caurrent_date + "_" + current_time + ".log"
-        log_notset = caurrent_date + "_" + current_time + "_notset.log"
+        log_notset = caurrent_date + "_" + current_time + "_debug.log"
         log_info = caurrent_date + "_" + current_time + "_info.log"
         log_csv = caurrent_date + "_" + current_time + ".csv"
 
-
-        full_path_notset = os.path.join('log',log_notset)
-        full_path_info = os.path.join('log',log_info)
-        full_path_csv = os.path.join('log',log_csv)
+        folder_path = os.path.join('log', caurrent_date)
+        os.mkdir(folder_path)
+        full_path_notset = os.path.join(folder_path, log_notset)
+        full_path_info = os.path.join(folder_path, log_info)
+        full_path_csv = os.path.join(folder_path, log_csv)
 
 
         file_handler_notset = logging.FileHandler(full_path_notset)
