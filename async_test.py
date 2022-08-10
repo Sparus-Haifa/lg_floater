@@ -487,7 +487,7 @@ class Driver:
 
 
     async def handle_message(self, msg):
-        # print(msg)
+        self.log.debug(msg)
         try:
             header, value = msg.split(':')
         except ValueError as e:
@@ -601,9 +601,10 @@ class Driver:
             headers.append(full_line)
         # print()
         if csv:
-            if self.add_headers_to_csv:
+            if self.add_headers_to_csv: # Add headers
                 self.log_csv.critical(",".join(headers))
                 self.add_headers_to_csv = False
+            self.log.critical("".join(headers))
         else:
             self.log.info("".join(headers))
 
@@ -631,6 +632,7 @@ class Driver:
         # print()
         if csv:
             self.log_csv.critical(",".join(values))
+            self.log.critical("".join(values))
         else:
             self.log.info("".join(values))
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -1078,9 +1080,10 @@ class Controller:
 def main():
     # logger = Logger(False)
 
-    logging.basicConfig()
-    logging.root.setLevel(logging.NOTSET)
-    logging.getLogger('transitions').setLevel(logging.WARNING)
+    # logging.basicConfig()
+    # logging.root.setLevel(logging.NOTSET)
+    # logging.getLogger('transitions').setLevel(logging.WARNING)
+
     # global log
     # log = logging.getLogger("normal")
     # log.setLevel(logging.NOTSET)
