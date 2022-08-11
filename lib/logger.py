@@ -30,12 +30,8 @@ class Logger:
         log_csv = caurrent_date + "_" + current_time + ".csv"
 
         folder_path = os.path.join('log', caurrent_date)
-<<<<<<< HEAD
         print(folder_path)
         if not os.path.exists(folder_path):
-=======
-        if not os.path.isdir(folder_path):
->>>>>>> 329e78d1b0b7b5f0c24b536e9c801e41ecbbf4b9
             os.mkdir(folder_path)
         full_path_notset = os.path.join(folder_path, log_notset)
         full_path_info = os.path.join(folder_path, log_info)
@@ -49,7 +45,7 @@ class Logger:
         file_handler_csv = logging.FileHandler(full_path_csv)
 
 
-        console_handler.setLevel(logging.WARNING)
+        console_handler.setLevel(logging.INFO)
         file_handler_notset.setLevel(logging.NOTSET)
         file_handler_info.setLevel(logging.INFO)
         file_handler_csv.setLevel(logging.NOTSET)
@@ -63,6 +59,7 @@ class Logger:
             formatter    = logging.Formatter('%(asctime)s.%(msecs)03d:%(levelname)s: %(message)s', datefmt='%Y-%m-%d,%H:%M:%S')
 
         csv_formatter    = logging.Formatter('%(asctime)s.%(msecs)03d,%(message)s', datefmt='%Y-%m-%d,%H:%M:%S')
+        
         
         console_handler.setFormatter(formatter)
         file_handler_notset.setFormatter(formatter)

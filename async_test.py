@@ -118,7 +118,10 @@ class Safety:
         # print("safety init")
         self.transport = transport
         self.states = [
-            {'name': 'sleeping'},
+            {'name': 'sleeping', 'children': [
+                {'name': 'weightFixed'},
+                {'name': 'weightDropped'}
+            ]},
             {'name': 'active', 'children': [
                 {'name': 'weightFixed'},
                 {'name': 'weightDropped'}
@@ -129,7 +132,7 @@ class Safety:
             {'name': 'sleepRequest'},
             {'name': 'sleepInterrupted'}
             ]
-        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
+        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[], initial="sleeping_weightFixed")
         if online:
             self.to_enabled()
         else:
@@ -184,11 +187,13 @@ class Driver:
 
 
         self.simulation = False  # use UDP or serial
-        logger = Logger(self.simulation)
-        self.log = logger.get_log()
-        self.log_csv = logger.get_csv_log()
-        self.log.debug('init')
-        self.log.info('init')
+        # logger = Logger(self.simulation)
+        # self.log = logger.get_log()
+        # self.log_csv = logger.get_csv_log()
+        self.log = logging.getLogger("normal")
+        self.log_csv = logging.getLogger("csv")
+        # self.log.debug('init driver')
+        self.log.info('init driver')
         # self.log_csv.warning("test")
 
         # self.log = logging.getLogger("normal")
@@ -375,8 +380,9 @@ class Driver:
                 self.log.critical("emergency") 
                 # self.test_mode = True
                 await asyncio.create_task(self.test_mode.to_on())
-                # await asyncio.create_task(self.to_emergency())
-                await asyncio.create_task(self.safety.drop_weight())
+                await asyncio.create_task(self.to_emergency())
+                # await asyncio.create_task(self.safety.drop_weight())
+                self.safety.drop_weight()
 
               
 
@@ -455,7 +461,9 @@ class Driver:
                     self.log.info('safety is active')
                     await self.safety.to_active_weightFixed()
                     # await self.to_buffering()
-            elif value == 2: pass  # acknowledges weight was dropped on command
+            elif value == 2:
+                self.log.warning("safety acknowledges weight was dropped on command")
+                asyncio.create_task(self.safety.to_active_weightDropped())
             elif value == 3:
                 self.log.info('safety ping')
                 # if not self.depth or self.depth < 1:  # why?
@@ -477,6 +485,7 @@ class Driver:
                 # self.safety
                 self.log.info("222")
                 print(222)
+                self.safety.high() # keep safety asleep
                 async with self.condition_safety:
                     self.condition_safety.notify_all() 
                 self.log.info('safety went to sleep (sleep initiated)')
@@ -489,11 +498,6 @@ class Driver:
             # print(self.safety.state)
             # print(self.state)
 
-
-    # def send_nano_message(self, message) -> None:
-    #     # self.transport_nano.write(b'N:1\n')
-    #     self.log.info(f"send_to_nano:{message}")
-    #     self.transport_nano.write(message.encode('utf-8'))
 
     def send_mega_message(self, message) -> None:
         if not self.simulation:
@@ -622,7 +626,7 @@ class Driver:
             elif value <= 10:
                 self.log.critical("Red line! Aborting mission!")
                 # self.drop_weight()
-                self.current_state = State.EMERGENCY
+                self.current_state = State.EMERGENCY  # TODO: fix
 
     def fancy_log(self, res, csv):
         headers = []
@@ -1020,8 +1024,8 @@ class Driver:
         asyncio.create_task(self.to_executingTask_enRoute_calculating())
 
     async def emergency(self):
-        print('emergency')
-        print('sending surface command')
+        self.log.critical('emergency')
+        self.log.critical('sending surface command')
 
         # self.safety.
 
@@ -1137,6 +1141,13 @@ def main():
     # log.setLevel(logging.NOTSET)
     # global log_csv
     # log_csv = logging.getLogger("csv")
+
+    simulation = False
+    logger = Logger(simulation)
+    log = logging.getLogger("normal")
+
+    log.info("init log")
+
 
 
 
@@ -1323,6 +1334,7 @@ def main():
     except RuntimeError as e:
         print('loop error')
         print(e)
+
 
 if __name__=='__main__':
     main()
