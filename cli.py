@@ -54,6 +54,7 @@ menu = """
 9. restart
 10. dive
 11. calibrate
+12. emergency
 0. stop
 """
 
@@ -190,6 +191,10 @@ class CLI():
             if from_user == '11':
                 print('calibrate')
                 self.com.sendMessage("calibrate:0")
+
+            if from_user == '12':
+                print('emergency')
+                self.com.sendMessage("emergency:0")
             
             if from_user == '0':
                 print("stopping")
