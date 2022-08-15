@@ -112,22 +112,31 @@ class Mission:
         self.machine = TimeoutMachine(model=self, states=self.states)
 
 class Safety:
-    def __init__(self) -> None:
-        # self.log = logging.getLogger("normal")
-        # self.log("safety init")
-        print("safety init")
+    def __init__(self, online, transport) -> None:
+        self.log = logging.getLogger("normal")
+        self.log.info("safety init")
+        # print("safety init")
+        self.transport = transport
         self.states = [
-            {'name': 'sleeping'},
+            {'name': 'sleeping', 'children': [
+                {'name': 'weightFixed'},
+                {'name': 'weightDropped'}
+            ]},
             {'name': 'active', 'children': [
                 {'name': 'weightFixed'},
                 {'name': 'weightDropped'}
             ]},
             {'name': 'disabled'},
             {'name': 'disconnected'},
+            {'name': 'enabled'},
             {'name': 'sleepRequest'},
             {'name': 'sleepInterrupted'}
             ]
-        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[])
+        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[], initial="sleeping_weightFixed")
+        if online:
+            self.to_enabled()
+        else:
+            self.to_disabled()
         # from gpio_controller_new import GPIOController
         import RPi.GPIO as GPIO
         self.RPI_TRIGGER_PIN = 14
@@ -141,15 +150,33 @@ class Safety:
         # self.safety_trigger.low()
         # self.low()
 
-    def high(self):
-        print('gpio high')
+    def high(self): # asleep
+        self.log.debug('gpio high')
         # self.safety_trigger.high()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.HIGH)
 
-    def low(self):
-        print('gpio low')
+    def low(self): # awake
+        self.log.debug('gpio low')
         # self.safety_trigger.low()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.LOW)
+
+    # def emergency(self):
+    # # sending the command to drop the dropweight to saftey
+    def drop_weight(self):
+        # if self.drop_weight_command_sent:
+            # self.log.debug("waiting for weight to drop")
+        # else:
+        # self.log.info("dropping weight")
+            # if not self.disable_safety:
+        self.send_nano_message("N:2")
+
+            # self.drop_weight_command_sent = True
+
+    def send_nano_message(self, message) -> None:
+        # self.transport_nano.write(b'N:1\n')
+        self.log.debug(f"send_to_nano:{message}")
+        print(f"send_to_nano:{message}")
+        self.transport.write(message.encode('utf-8'))
 
 
 
@@ -160,11 +187,13 @@ class Driver:
 
 
         self.simulation = False  # use UDP or serial
-        logger = Logger(self.simulation)
-        self.log = logger.get_log()
-        self.log_csv = logger.get_csv_log()
-        self.log.debug('init')
-        self.log.info('init')
+        # logger = Logger(self.simulation)
+        # self.log = logger.get_log()
+        # self.log_csv = logger.get_csv_log()
+        self.log = logging.getLogger("normal")
+        self.log_csv = logging.getLogger("csv")
+        # self.log.debug('init driver')
+        self.log.info('init driver')
         # self.log_csv.warning("test")
 
         # self.log = logging.getLogger("normal")
@@ -307,7 +336,12 @@ class Driver:
                 return
             header, value = serial_line
             # match header:
-            if header == 'dive':
+            if header == 'water':
+                print("water test")
+                await asyncio.create_task(self.test_mode.to_on())
+                await asyncio.create_task(self.to_sensingWater())
+        
+            elif header == 'dive':
                 print('dive command')
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
@@ -333,12 +367,23 @@ class Driver:
                 await asyncio.create_task(self.to_calibrating())
 
             elif header == 'wakeup_safety': 
-                self.test_mode = True
+                # self.test_mode = True
+                await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_wakingSafety())
 
             elif header == 'sleep_safety': 
-                self.test_mode = True
+                # self.test_mode = True
+                await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_sleepingSafety())
+
+            elif header == 'emergency':
+                self.log.critical("emergency") 
+                # self.test_mode = True
+                await asyncio.create_task(self.test_mode.to_on())
+                await asyncio.create_task(self.to_emergency())
+                # await asyncio.create_task(self.safety.drop_weight())
+                self.safety.drop_weight()
+
               
 
     async def consume_mega(self):
@@ -384,7 +429,8 @@ class Driver:
         
         while True:
             msg = await self.queue_nano.get()
-            # print(msg)
+            print(msg)
+            self.log.debug(msg)
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -415,11 +461,13 @@ class Driver:
                     self.log.info('safety is active')
                     await self.safety.to_active_weightFixed()
                     # await self.to_buffering()
-            elif value == 2: pass  # acknowledges weight was dropped on command
+            elif value == 2:
+                self.log.warning("safety acknowledges weight was dropped on command")
+                asyncio.create_task(self.safety.to_active_weightDropped())
             elif value == 3:
                 self.log.info('safety ping')
                 # if not self.depth or self.depth < 1:  # why?
-                self.send_nano_message("N:1")
+                self.safety.send_nano_message("N:1")
                     # print('sent n:1')
             elif value == 4: 
                 # acknowledges weight was dropped due to over time
@@ -432,11 +480,12 @@ class Driver:
                 self.log.info('safety woke up (sleep was interrupted). waiting on first ping...')
                 await self.safety.to_sleepInterrupted()
                 await asyncio.sleep(5)
-                self.send_nano_message('L:1')
+                self.safety.send_nano_message('L:1')
             elif value == 222: 
                 # self.safety
                 self.log.info("222")
                 print(222)
+                self.safety.high() # keep safety asleep
                 async with self.condition_safety:
                     self.condition_safety.notify_all() 
                 self.log.info('safety went to sleep (sleep initiated)')
@@ -449,11 +498,6 @@ class Driver:
             # print(self.safety.state)
             # print(self.state)
 
-
-    def send_nano_message(self, message) -> None:
-        # self.transport_nano.write(b'N:1\n')
-        self.log.info(f"send_to_nano:{message}")
-        self.transport_nano.write(message.encode('utf-8'))
 
     def send_mega_message(self, message) -> None:
         if not self.simulation:
@@ -468,26 +512,29 @@ class Driver:
 
 
     async def wakeup_safety(self):
-        print('waking up safety')
+        # print('waking up safety')
+        self.log.info('waking up safety')
+
         self.safety.low()
-        # self.send_nano_message()
+        # self.safety.send_nano_message()
 
     async def sleep_safety(self):
-        print('sleeping safety')
+        # print('sleeping safety')
+        self.log.info('sleeping safety')
         self.safety.high()
         self.log.info("safety GPIO high")
         await asyncio.sleep(2)
-        self.send_nano_message("N:5")
+        self.safety.send_nano_message("N:5")
         async with self.condition_safety:
             # await self.condition_safety.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             await self.condition_safety.wait_for(lambda: self.safety.is_sleeping())
             print("condition met")
             
-        # self.send_nano_message()
+        # self.safety.send_nano_message()
 
 
     async def handle_message(self, msg):
-        # print(msg)
+        self.log.debug(msg)
         try:
             header, value = msg.split(':')
         except ValueError as e:
@@ -579,7 +626,7 @@ class Driver:
             elif value <= 10:
                 self.log.critical("Red line! Aborting mission!")
                 # self.drop_weight()
-                self.current_state = State.EMERGENCY
+                self.current_state = State.EMERGENCY  # TODO: fix
 
     def fancy_log(self, res, csv):
         headers = []
@@ -601,9 +648,10 @@ class Driver:
             headers.append(full_line)
         # print()
         if csv:
-            if self.add_headers_to_csv:
+            if self.add_headers_to_csv: # Add headers
                 self.log_csv.critical(",".join(headers))
                 self.add_headers_to_csv = False
+            self.log.critical("".join(headers))
         else:
             self.log.info("".join(headers))
 
@@ -631,6 +679,7 @@ class Driver:
         # print()
         if csv:
             self.log_csv.critical(",".join(values))
+            self.log.critical("".join(values))
         else:
             self.log.info("".join(values))
         # BT1   BT2   TT1   TT2   AT AP X    Y     Z    BP1     BP2     TP1     TP2     HP PD       PC   H1   H2   pump rpm
@@ -674,9 +723,11 @@ class Driver:
         res['avg_p'] = self.sensors.pressureController.avg
         res['direction'] = self.sensors.direction_flag.state
         res["State"] = self.state   # self.sensors.current_state.name
-        # res["SafetyState"] = self.safety.state   # 
+        res["Safety"] = self.safety.state   # 
         # res['planner'] = self.planner.state
         res['Payload'] = self.sensors.payload_flag.getLast()
+        res['TestMode'] = self.test_mode.state
+        
 
         self.fancy_log(res, True)
   
@@ -973,8 +1024,11 @@ class Driver:
         asyncio.create_task(self.to_executingTask_enRoute_calculating())
 
     async def emergency(self):
-        print('emergency')
-        print('sending surface command')
+        self.log.critical('emergency')
+        self.log.critical('sending surface command')
+
+        # self.safety.
+
         self.send_mega_message("S:2\n")
         
         # TODO: drop weight
@@ -1078,14 +1132,22 @@ class Controller:
 def main():
     # logger = Logger(False)
 
-    logging.basicConfig()
-    logging.root.setLevel(logging.NOTSET)
-    logging.getLogger('transitions').setLevel(logging.WARNING)
+    # logging.basicConfig()
+    # logging.root.setLevel(logging.NOTSET)
+    # logging.getLogger('transitions').setLevel(logging.WARNING)
+
     # global log
     # log = logging.getLogger("normal")
     # log.setLevel(logging.NOTSET)
     # global log_csv
     # log_csv = logging.getLogger("csv")
+
+    simulation = False
+    logger = Logger(simulation)
+    log = logging.getLogger("normal")
+
+    log.info("init log")
+
 
 
 
@@ -1151,10 +1213,10 @@ def main():
         # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
         coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano, "nano"), serial_ports['nano'], baudrate=115200)
         transport_nano, protocol = loop.run_until_complete(coro_nano)
+        safety = Safety(True, transport_nano)
     else:
         transport_nano = None
-
-
+        safety = Safety(False, transport_nano)
 
     # init mega serial connection
     coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
@@ -1175,10 +1237,11 @@ def main():
     driver = Driver(queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety)
 
 
+
     # SAFETY
     # if not self.disable_safety:
-    safety = Safety()
     driver.safety = safety
+
 
 
 
@@ -1271,6 +1334,7 @@ def main():
     except RuntimeError as e:
         print('loop error')
         print(e)
+
 
 if __name__=='__main__':
     main()

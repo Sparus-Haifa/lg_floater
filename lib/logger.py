@@ -30,11 +30,14 @@ class Logger:
         log_csv = caurrent_date + "_" + current_time + ".csv"
 
         folder_path = os.path.join('log', caurrent_date)
-        if not os.path.isdir(folder_path):
+        print(folder_path)
+        if not os.path.exists(folder_path):
             os.mkdir(folder_path)
         full_path_notset = os.path.join(folder_path, log_notset)
         full_path_info = os.path.join(folder_path, log_info)
         full_path_csv = os.path.join(folder_path, log_csv)
+
+        print(full_path_csv)
 
 
         file_handler_notset = logging.FileHandler(full_path_notset)
@@ -42,7 +45,7 @@ class Logger:
         file_handler_csv = logging.FileHandler(full_path_csv)
 
 
-        console_handler.setLevel(logging.WARNING)
+        console_handler.setLevel(logging.INFO)
         file_handler_notset.setLevel(logging.NOTSET)
         file_handler_info.setLevel(logging.INFO)
         file_handler_csv.setLevel(logging.NOTSET)
@@ -51,11 +54,12 @@ class Logger:
         
 
         if test_mode:
-            formatter    = logging.Formatter('%(asctime)s:TEST-MODE:%(levelname)s: %(message)s')
+            formatter    = logging.Formatter('%(asctime)s.%(msecs)03d:TEST-MODE:%(levelname)s: %(message)s', datefmt='%Y-%m-%d,%H:%M:%S')
         else:
-            formatter    = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
+            formatter    = logging.Formatter('%(asctime)s.%(msecs)03d:%(levelname)s: %(message)s', datefmt='%Y-%m-%d,%H:%M:%S')
 
-        csv_formatter    = logging.Formatter('%(asctime)s,%(message)s')
+        csv_formatter    = logging.Formatter('%(asctime)s.%(msecs)03d,%(message)s', datefmt='%Y-%m-%d,%H:%M:%S')
+        
         
         console_handler.setFormatter(formatter)
         file_handler_notset.setFormatter(formatter)
@@ -69,6 +73,9 @@ class Logger:
         self.log.addHandler(file_handler_notset)
         self.log.addHandler(file_handler_info)
         self.csv_log.addHandler(file_handler_csv)
+        # self.csv_log.addHandler(console_handler)
+
+        
 
 
 
