@@ -5,14 +5,15 @@ void loop()
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= RECEIVE INCOMING DATA
   ReceiveMsg();
 
-  while (LoopFlag == 0)
+  if (LoopFlag == 0)
   {
     Sleep();
     delay(5000);
 
-    ReceiveMsg();
+    // ReceiveMsg();
     PreviousMillisOut = millis();
     PreviousMillisIn = millis();
+    return;
   }
 
   // send outgoing Heart Beat every 20 seconds

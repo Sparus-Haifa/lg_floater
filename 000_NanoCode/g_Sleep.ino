@@ -39,5 +39,6 @@ void Sleep()
   SendMsg("NN", 111);    // 111 - for NANO awake
   PreviousMillisOut = millis();
   PreviousMillisIn = millis();
-  LoopFlag = 0;
+  // LoopFlag = 1;
+  // LoopFlag = 0;
 }
