@@ -155,11 +155,17 @@ class Safety:
 
     def high(self): # asleep
         self.log.debug('gpio high')
+        if self.state=="disabled":
+            self.errror("safety is disabled")
+            return
         # self.safety_trigger.high()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.HIGH)
 
     def low(self): # awake
         self.log.debug('gpio low')
+        if self.state=="disabled":
+            self.errror("safety is disabled")
+            return
         # self.safety_trigger.low()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.LOW)
 
@@ -248,7 +254,8 @@ class Driver:
         # self.mission = [5, 'E']
         # self.mission = [500, 0]
         # self.mission = [15, 0, 15, 0]
-        self.mission = [0.8, 0]
+        # self.mission = [0.8, 0]
+        self.mission = [20, 0]
 
         self.target_depth = None
         self.depth = None
@@ -615,17 +622,19 @@ class Driver:
         # if cfg.app["disable_altimeter"]:
         #     return
         # print('altimeter')
-        return
+        # return
 
         value = self.sensors.altimeter.getLast()
         confidance = self.sensors.altimeter.getConfidance()
         if confidance > 50:
             if 10 < value and value <= 20:
-                while True:
-                    self.log.warning("Yellow line! Ending mission!")
+                # while True:
+                self.log.warning("Yellow line! Ending mission!")
                 # Alert
                 # self.surface()
-                self.current_state = State.END_TASK
+                # self.current_state = State.END_TASK
+                if self.state != "emergency":
+                    await self.to_emergency()
             elif value <= 10:
                 self.log.critical("Red line! Aborting mission!")
                 # self.drop_weight()
