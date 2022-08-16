@@ -1387,7 +1387,7 @@ def main():
             # time.sleep(1)
             # safety.high()
             # driver.send_nano_message("N:5")
-            if not driver.safety.is_sleeping():
+            if not driver.safety.is_sleeping(allow_substates=True):
                 loop.run_until_complete(driver.sleep_safety())
                 time.sleep(2)
             """Cleanup tasks tied to the service's shutdown."""
