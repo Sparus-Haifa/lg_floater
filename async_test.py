@@ -133,10 +133,13 @@ class Safety:
             {'name': 'sleepInterrupted'}
             ]
         self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[], initial="sleeping_weightFixed")
-        if online:
-            self.to_enabled()
-        else:
-            self.to_disabled()
+        
+        if not online:
+            # self.to_disabled()
+            self.state="disabled"
+            return
+            
+        self.to_enabled()
         # from gpio_controller_new import GPIOController
         import RPi.GPIO as GPIO
         self.RPI_TRIGGER_PIN = 14
@@ -186,7 +189,7 @@ class Driver:
     def __init__(self, queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety) -> None:
 
 
-        self.simulation = False  # use UDP or serial
+        self.simulation = True  # use UDP or serial
         # logger = Logger(self.simulation)
         # self.log = logger.get_log()
         # self.log_csv = logger.get_csv_log()
@@ -764,7 +767,7 @@ class Driver:
             if sensor not in bypassSens and not self.sensors.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 self.log.warning(f"sensor {sensor} is not ready")
                 return False
-        bypassFlag = ["PF", "FS", "I"]
+        bypassFlag = ["PF", "FS", "I", "PT"]
         bypassFlag.append('D')
         for flag in self.sensors.flags:
             if flag not in bypassFlag and not self.sensors.flags[flag].isBufferFull():
@@ -841,7 +844,7 @@ class Driver:
         else : print(f"error {next_depth}")
   
     async def send_descend_command(self):
-        print('sending descend command')
+        self.log.info('sending descend command')
         # self.comm.write("S:1\n")
         self.send_mega_message("S:1\n")
         asyncio.create_task(self.to_executingTask_waitingForDescendAcknowledge())
@@ -856,7 +859,7 @@ class Driver:
             # asyncio.create_task(self.resend_dive())
 
     async def send_ascend_command(self):
-        print('sending ascend command')
+        self.log.info('sending ascend command')
         # self.comm.write("S:1\n")
         self.send_mega_message("S:2\n")
         await self.to_executingTask_waitingForAscendAcknowledge()
@@ -870,7 +873,7 @@ class Driver:
             # asyncio.create_task(self.resend_dive())
 
     async def wait_for_descend_acknowledge(self):
-        print('waiting descend ack')
+        self.log.info('waiting descend ack')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             print("recieved a descend flag - 1")
@@ -886,7 +889,7 @@ class Driver:
             # to stopped
 
     async def wait_for_ascend_acknowledge(self):
-        print('waiting ascend ack')
+        self.log.info('waiting ascend ack')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 2)
             print("recieved a ascend flag - 2")
@@ -898,7 +901,7 @@ class Driver:
             asyncio.create_task(self.to_executingTask_ascending())
             
     async def descend(self):
-        print('descending...')
+        self.log.info('descending...')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
             print("recieved: descend flag is over - 0")
@@ -906,7 +909,7 @@ class Driver:
             asyncio.create_task(self.reach_goal())
 
     async def ascend(self):
-        print('ascending...')
+        self.log.info('ascending...')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
             print("recieved: ascend flag is over - 0")
@@ -1129,6 +1132,23 @@ class Controller:
 
 
 
+
+def log_exceptions(loop, context):
+    """
+    Exception handler
+    """
+        # first, handle with default handler
+    exception = context.get('exception')
+    loop.default_exception_handler(context)
+    msg = context.get("exception", context["message"])
+    if isinstance(exception, ZeroDivisionError):
+        print("In exception handler.")
+    logger = logging.getLogger("normal")
+    logger.error(f"Caught exception: {msg}")
+    logger.exception("Unhandled exception")
+    logger.exception(context)
+
+
 def main():
     # logger = Logger(False)
 
@@ -1142,16 +1162,21 @@ def main():
     # global log_csv
     # log_csv = logging.getLogger("csv")
 
-    simulation = False
+    simulation = True
     logger = Logger(simulation)
     log = logging.getLogger("normal")
 
     log.info("init log")
 
 
+    
+
+
 
 
     loop = asyncio.new_event_loop()
+
+    loop.set_exception_handler(log_exceptions)
     
     queue_mega = asyncio.Queue(loop=loop)
 
@@ -1219,15 +1244,20 @@ def main():
         safety = Safety(False, transport_nano)
 
     # init mega serial connection
-    coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
-    transport_mega, protocol = loop.run_until_complete(coro_mega)
-    # transport_mega = None
 
+    if not simulation:
+        coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
+        transport_mega, protocol = loop.run_until_complete(coro_mega)
+    else:
+        transport_mega = None
 
     # Payload_imu serial connection
-    coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
-    transport_payload, protocol = loop.run_until_complete(coro_payload)
-    # transport_payload = None
+    
+    if 'payload' in serial_ports:
+        coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
+        transport_payload, protocol = loop.run_until_complete(coro_payload)
+    else:
+        transport_payload = None
 
 
     condition = asyncio.Condition(loop=loop)    # for notify
@@ -1259,6 +1289,7 @@ def main():
     # udp_driver = DatagramDriver(queue)
     # t = loop.create_datagram_endpoint(udp_driver, local_addr=('0.0.0.0', 12000), )
 
+    # Simulation - Listen to UDP/IP
     t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', 12000), )
     loop.run_until_complete(t) # Server starts listening
     # loop.create_task(t)
@@ -1305,8 +1336,9 @@ def main():
     try:
         loop.run_forever()
     except KeyboardInterrupt as e:
-        print(e)
-        print('disable safety')
+        # log.exception(e)
+        log.info('graceful shutdown')
+        log.info('disabling safety. please wait...')
         if driver.safety is not None:
             pass
             # # await self.safety.to_sleeping()
@@ -1327,6 +1359,21 @@ def main():
             # driver.send_nano_message("N:5")
             loop.run_until_complete(driver.sleep_safety())
             time.sleep(2)
+            """Cleanup tasks tied to the service's shutdown."""
+            # logging.info(f"Received exit signal {signal.name}...")
+            logging.info("Closing database connections")
+            logging.info("Nacking outstanding messages")
+            tasks = [t for t in asyncio.all_tasks() if t is not
+                    asyncio.current_task()]
+
+            [task.cancel() for task in tasks]
+
+            logging.info(f"Cancelling {len(tasks)} outstanding tasks")
+            asyncio.gather(*tasks, return_exceptions=True)
+            logging.info(f"Flushing metrics")
+            loop.stop()
+    except AttributeError as e:
+        log.exception(e)
 
 
     try:
