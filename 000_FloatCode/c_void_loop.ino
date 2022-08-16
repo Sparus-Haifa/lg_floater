@@ -39,6 +39,8 @@ void loop()
       wdt_disable();
       IridiumBeacon();
       wdt_enable(WDTO_4S);
+            SendMsg("FS", 0);
+
     }
   }
 
@@ -55,6 +57,8 @@ void loop()
   {
     FullSurface(FullSurfaceFlag);
     FullSurfaceFlag = 0;
+    SendMsg("FS", 0);
+
   }
 
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= IRIDIUM BEACON
