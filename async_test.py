@@ -31,6 +31,8 @@ class OutputProtocol(asyncio.Protocol):
         self.queue = queue
         self.line = ""
         self.name = name
+        self.log = logging.getLogger("normal")
+        
 
     def connection_made(self, transport):
         self.transport = transport
@@ -44,7 +46,7 @@ class OutputProtocol(asyncio.Protocol):
         if b'\r\n' in data:
             tokens = self.line.split('\r\n')
             for token in tokens[:-1]:
-                # print(f'from {self.name}: ' + token)
+                self.log.debug(f'from {self.name}: ' + token)
                 self.queue.put_nowait(token)
             self.line=tokens[-1]
         #     self.line = ''
@@ -195,7 +197,7 @@ class Driver:
     def __init__(self, queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety) -> None:
 
 
-        self.simulation = True  # use UDP or serial
+        self.simulation = False  # use UDP or serial
         # logger = Logger(self.simulation)
         # self.log = logger.get_log()
         # self.log_csv = logger.get_csv_log()
@@ -345,27 +347,29 @@ class Driver:
             if len(serial_line)<2:
                 return
             header, value = serial_line
+            self.log.info(f"CLI:{header}:{value}")
             # match header:
             if header == 'water':
-                print("water test")
+                self.log.info("water test")
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_sensingWater())
         
             elif header == 'dive':
-                print('dive command')
+                self.log.info('dive command')
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_executingTask_sendingDescendCommand())
             
             elif header == 'surface':
-                print('surface command')
+                self.log.info('surface command')
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
             elif header == 'restart': 
-                print('restarting')
+                prin('restarting')
                 await asyncio.create_task(self.test_mode.to_off())
                 await asyncio.create_task(self.to_buffering())
-            elif header == 'stop': 
+            elif header == 'stop':
+                self.log.info("stop") 
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_stopped())
             
@@ -392,7 +396,12 @@ class Driver:
                 await asyncio.create_task(self.test_mode.to_on())
                 await asyncio.create_task(self.to_emergency())
                 # await asyncio.create_task(self.safety.drop_weight())
+                # self.safety.drop_weight()
+
+            elif header == "drop":
+                self.log.info("drop")
                 self.safety.drop_weight()
+                
 
               
 
@@ -417,16 +426,18 @@ class Driver:
         self.log.info('init consume payload')
         while True:
             msg = await self.queue_payload.get()
-            print(msg)
+            # print("pl msg")
+            # print(msg)
             lines = msg.splitlines()
             for line in lines:
                 # asyncio.create_task(self.handle_message(line))
-                self.log.info(line)
+                # self.log.info(line)
                 try:
                     header, value = line.split(':')
                     if header == 'PT' : await self.sensors.payload_flag.add_sample(value)
                 except ValueError as e:
-                    print(f'{e}: [{line}]')
+                    # print(f'{e}: [{line}]')
+                    continue
                     # return
                 if not value:
                     print('error')
@@ -474,6 +485,7 @@ class Driver:
             elif value == 2:
                 self.log.warning("safety acknowledges weight was dropped on command")
                 asyncio.create_task(self.safety.to_active_weightDropped())
+                self.safety.high()
             elif value == 3:
                 self.log.info('safety ping')
                 # if not self.depth or self.depth < 1:  # why?
@@ -483,7 +495,8 @@ class Driver:
                 # acknowledges weight was dropped due to over time
                 self.log.warning('weight was dropped due to over time!')
                 await self.to_emergency()
-            elif value == 5: 
+            elif value == 5:
+                self.log.warning("safety received go to sleep command")
                 pass  # safety received go to sleep command
   
             elif value == 111: 
@@ -499,7 +512,10 @@ class Driver:
                 async with self.condition_safety:
                     self.condition_safety.notify_all() 
                 self.log.info('safety went to sleep (sleep initiated)')
-                await self.safety.to_sleeping()
+                if self.safety.is_active_weightDropped():
+                    await self.safety.to_sleeping_weightDropped()
+                else:
+                    await self.safety.to_sleeping()
 
             else:
                 print('unknown nano msg', msg)
@@ -544,7 +560,7 @@ class Driver:
 
 
     async def handle_message(self, msg):
-        self.log.debug(msg)
+        # self.log.debug(msg)
         try:
             header, value = msg.split(':')
         except ValueError as e:
@@ -626,6 +642,8 @@ class Driver:
 
         value = self.sensors.altimeter.getLast()
         confidance = self.sensors.altimeter.getConfidance()
+        if self.depth is None or self.is_stopped():
+            return
         if confidance > 50:
             if 10 < value and value <= 20:
                 # while True:
@@ -638,7 +656,9 @@ class Driver:
             elif value <= 10:
                 self.log.critical("Red line! Aborting mission!")
                 # self.drop_weight()
-                self.current_state = State.EMERGENCY  # TODO: fix
+                # self.current_state = State.EMERGENCY  # TODO: fix
+                if self.state != "emergency":
+                    await self.to_emergency()
 
     def fancy_log(self, res, csv):
         headers = []
@@ -1171,7 +1191,7 @@ def main():
     # global log_csv
     # log_csv = logging.getLogger("csv")
 
-    simulation = True
+    simulation = False
     logger = Logger(simulation)
     log = logging.getLogger("normal")
 
@@ -1263,6 +1283,7 @@ def main():
     # Payload_imu serial connection
     
     if 'payload' in serial_ports:
+        log.info("payload connected")
         coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
         transport_payload, protocol = loop.run_until_complete(coro_payload)
     else:
@@ -1366,8 +1387,9 @@ def main():
             # time.sleep(1)
             # safety.high()
             # driver.send_nano_message("N:5")
-            loop.run_until_complete(driver.sleep_safety())
-            time.sleep(2)
+            if not driver.safety.is_sleeping():
+                loop.run_until_complete(driver.sleep_safety())
+                time.sleep(2)
             """Cleanup tasks tied to the service's shutdown."""
             # logging.info(f"Received exit signal {signal.name}...")
             logging.info("Closing database connections")
