@@ -601,7 +601,7 @@ class Driver:
             await self.sensors.full_surface_flag.add_sample(value)
             # await self.handle_full_surface_flag(value)
         if header in ['I', 'IR']:  await self.sensors.iridium_flag.add_sample(value)
-        if header == 'D': await self.sensors.direction_flag.add_sample(value)
+        # if header == 'D': await self.sensors.direction_flag.add_sample(value)
 
 
         else : pass # print(f'error {msg}')
@@ -1004,6 +1004,10 @@ class Driver:
             self.send_mega_message(f"V:{voltage}\n")
             self.send_mega_message(f"D:{direction}\n")
             self.send_mega_message(f"T:{time_on_duration}\n")
+
+            # log pid
+            await self.sensors.direction_flag.add_sample(value)
+
 
             asyncio.create_task(self.to_executingTask_enRoute_starting())  # FIXME: dangerous, put await?
             return
