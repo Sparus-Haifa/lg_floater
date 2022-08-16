@@ -531,7 +531,7 @@ class YuriSim():
             # seafloorInMeters = 20
             # seafloorDepth = (3000 - self.surfacePressure)/100
             seafloorDepth = self.seafloor_depth
-            # seafloor = height - 70 - 60
+            # seafloor = height - 70 - 60afloorDepth - self.depth)
             # if self.depth*PIXELRATIO >= seafloor:
             #     self.depth = seafloor/PIXELRATIO
             # print(f"self.depth >= seafloorDepth:")
@@ -543,7 +543,7 @@ class YuriSim():
                 print("Crash!")
 
             self.sensors["PD"]=seafloorDepth - self.depth
-            self.sensors["PC"]= (100 - self.sensors["PD"]*100/seafloorDepth)
+            self.sensors["PC"]= abs((100 - (seafloorDepth - self.depth)*100/seafloorDepth))
 
             # self.depth=y
             y = self.depth * PIXELRATIO
