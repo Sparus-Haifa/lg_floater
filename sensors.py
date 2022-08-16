@@ -71,9 +71,13 @@ class Sensors:
             self.leak_h_flag = Flag("Hull leak", self.log)  # HL
             self.leak_e_flag = Flag("Engine leak", self.log)  # EL
             self.full_surface_flag = Flag("Full surface initiated", self.log)   
-            self.iridium_flag = IridiumFlag("Iridium", self.log)  # I    
-            # 
+            self.iridium_flag = IridiumFlag("Iridium", self.log)  # I   
+
+            # Direction
             self.direction_flag = DirectionFlag("direction", self.log)
+
+            # Voltage
+            self.voltage_sensor = Sensor("Voltage", avg_samples=1, precision=1, log=self.log)
 
             # Payload flag
             self.payload_flag = Flag("Payload", self.log) # PT
