@@ -24,6 +24,10 @@ import json
 import os
 
 from datetime import datetime
+
+import cfg.configuration as cfg
+
+
 # serial driver
 class OutputProtocol(asyncio.Protocol):
     def __init__(self, queue, name) -> None:
@@ -113,10 +117,25 @@ class Mission:
         # ['loading', 'dive', 'enRoute', 'holdPosition']
         self.machine = TimeoutMachine(model=self, states=self.states)
 
+
+class Payload():
+    def __init__(self, online):
+        self.log = logging.getLogger("noraml")
+        self.log.info("payload controller init")
+        self.states = [
+            {'name:': 'offline'},
+            {'name': 'online'}
+        ]
+        self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=[], initial="offline")
+        if online:
+            self.to_online()
+
+        
+
 class Safety:
     def __init__(self, online, transport) -> None:
         self.log = logging.getLogger("normal")
-        self.log.info("safety init")
+        self.log.info("safety controller init")
         # print("safety init")
         self.transport = transport
         self.states = [
@@ -158,7 +177,7 @@ class Safety:
     def high(self): # asleep
         self.log.debug('gpio high')
         if self.state=="disabled":
-            self.errror("safety is disabled")
+            self.log.error("safety is disabled")
             return
         # self.safety_trigger.high()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.HIGH)
@@ -166,7 +185,7 @@ class Safety:
     def low(self): # awake
         self.log.debug('gpio low')
         if self.state=="disabled":
-            self.errror("safety is disabled")
+            self.log.error("safety is disabled")
             return
         # self.safety_trigger.low()
         self.GPIO.output(self.RPI_TRIGGER_PIN, self.GPIO.LOW)
@@ -186,6 +205,9 @@ class Safety:
     def send_nano_message(self, message) -> None:
         # self.transport_nano.write(b'N:1\n')
         self.log.debug(f"send_to_nano:{message}")
+        if self.is_disabled():
+            self.log.error("safety is disabled")
+            return
         print(f"send_to_nano:{message}")
         self.transport.write(message.encode('utf-8'))
 
@@ -207,38 +229,6 @@ class Driver:
         self.log.info('init driver')
         # self.log_csv.warning("test")
 
-        # self.log = logging.getLogger("normal")
-        # self.log_csv = logging.getLogger("csv")
-        # def setup_logger(name, log_file, format, level=logging.INFO):
-        #     """To setup as many loggers as you want"""
-
-        #     handler = logging.FileHandler(log_file)        
-        #     handler.setFormatter(format)
-
-        #     logger = logging.getLogger(name)
-        #     logger.setLevel(level)
-        #     logger.addHandler(handler)
-
-        #     return logger
-
-        
-        # self.simulation = True  # use UDP or serial
-        # Log
-        # date_time_str = datetime.now().strftime("%m/%d/%Y_%H:%M:%S")
-        # date_time_str = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-        # first file logger
-        # format_normal = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
-        # self.log = setup_logger('normal', os.path.join('log', f'{date_time_str}_noraml.log'), format_normal)
-        # self.log.info('This is just info message')
-
-        # second file logger
-        # format_csv = logging.Formatter('%(asctime)s %(message)s')
-        # self.log_csv = setup_logger('csv', os.path.join('log', f'{date_time_str}_csv.log'), format_csv)
-        # self.log_csv.error('This is an error message')
-
-        # self.log = logging.getLogger("normal")
-        # self.log_csv = logging.getLogger("csv")
         
         self.add_headers_to_csv = True  # add headers to csv file
 
@@ -257,7 +247,7 @@ class Driver:
         # self.mission = [500, 0]
         # self.mission = [15, 0, 15, 0]
         # self.mission = [0.8, 0]
-        self.mission = [20, 0]
+        self.mission = [1.0, 0]
 
         self.target_depth = None
         self.depth = None
@@ -481,7 +471,11 @@ class Driver:
                 if self.safety.is_sleepInterrupted():
                     self.log.info('safety is active')
                     await self.safety.to_active_weightFixed()
-                    # await self.to_buffering()
+                    if self.is_wakingSafety():
+                        if self.test_mode.is_off():
+                            await self.to_buffering()
+                        else:
+                            await self.to_stopped()
             elif value == 2:
                 self.log.warning("safety acknowledges weight was dropped on command")
                 asyncio.create_task(self.safety.to_active_weightDropped())
@@ -500,9 +494,17 @@ class Driver:
                 pass  # safety received go to sleep command
   
             elif value == 111: 
+                if not self.is_wakingSafety():
+                    self.log.error("Safety woke up accidently!!")
+                    print('waiting')
+                    await sleep_safety()
+                    print('waiting done')
+                    continue
+
+                
                 self.log.info('safety woke up (sleep was interrupted). waiting on first ping...')
                 await self.safety.to_sleepInterrupted()
-                await asyncio.sleep(5)
+                await asyncio.sleep(2)
                 self.safety.send_nano_message('L:1')
             elif value == 222: 
                 # self.safety
@@ -545,7 +547,7 @@ class Driver:
         # self.safety.send_nano_message()
 
     async def sleep_safety(self):
-        # print('sleeping safety')
+        print('sleeping safety')
         self.log.info('sleeping safety')
         self.safety.high()
         self.log.info("safety GPIO high")
@@ -837,13 +839,13 @@ class Driver:
     async def set_next_target(self):
         if self.depth is None:
             # await asyncio.create_task(self.to_calibrating())
-            print('no calibration')
+            self.log.error('no calibration')
             return
 
         print("set_next_target")
 
         if not self.mission:
-            print("end mission")
+            self.log.info("end mission")
             if self.sense_water:
                 asyncio.create_task(self.to_pickup())
                 return
@@ -855,10 +857,10 @@ class Driver:
 
         # match next_depth:
         if next_depth == 'E': 
-            print('emegency test - next depth')
+            self.log.info('emegency test - next depth')
             asyncio.create_task(self.to_emergency())
         if isinstance(next_depth, int) or isinstance(next_depth, float):
-            print(f"got depth {next_depth}")
+            self.log.info(f"got depth {next_depth}")
             self.target_depth = next_depth
             # self.error = self.target_depth - self.depth  # calculate again.  also on every bv
 
@@ -870,7 +872,7 @@ class Driver:
             else:
                 asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
-        else : print(f"error {next_depth}")
+        else : self.log.critical(f"error {next_depth}")
   
     async def send_descend_command(self):
         self.log.info('sending descend command')
@@ -882,7 +884,7 @@ class Driver:
         await asyncio.sleep(10)
         print(self.state)
         if self.state == 'executingTask_waitingForDescendAcknowledge':
-            print('descend command didn\'t reach')
+            self.log.error('descend command didn\'t reach')
             # asyncio.create_task(self.to_executingTask_sendingDescendCommand())
             asyncio.create_task(self.send_descend_command())  # FIXME
             # asyncio.create_task(self.resend_dive())
@@ -897,7 +899,7 @@ class Driver:
         await asyncio.sleep(10)
         print(self.state)
         if self.state == 'executingTask_waitingForAscendAcknowledge':
-            print('ascend command didn\'t reach')
+            self.log.error('ascend command didn\'t reach')
             asyncio.create_task(self.to_executingTask_sendingAscendCommand())
             # asyncio.create_task(self.resend_dive())
 
@@ -905,7 +907,7 @@ class Driver:
         self.log.info('waiting descend ack')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
-            print("recieved a descend flag - 1")
+            self.log.debug("recieved a descend flag - 1")
 
             if self.test_mode.is_on():
                 asyncio.create_task(self.to_stopped())
@@ -921,7 +923,7 @@ class Driver:
         self.log.info('waiting ascend ack')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 2)
-            print("recieved a ascend flag - 2")
+            self.log.debug("recieved a ascend flag - 2")
 
             if self.test_mode.is_on():
                 asyncio.create_task(self.to_stopped())
@@ -933,7 +935,7 @@ class Driver:
         self.log.info('descending...')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
-            print("recieved: descend flag is over - 0")
+            self.log.debug("recieved: descend flag is over - 0")
             asyncio.create_task(self.to_executingTask_enRoute())
             asyncio.create_task(self.reach_goal())
 
@@ -941,7 +943,7 @@ class Driver:
         self.log.info('ascending...')
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
-            print("recieved: ascend flag is over - 0")
+            self.log.debug("recieved: ascend flag is over - 0")
             asyncio.create_task(self.to_executingTask_enRoute())
             asyncio.create_task(self.reach_goal())
 
@@ -966,7 +968,7 @@ class Driver:
             await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.5)
         self.log.info("hold position!")
         # self.hold_on_target = 1
-        await asyncio.sleep(20)
+        await asyncio.sleep(90)
         self.hold_on_target = False
         # await self.condition.wait_for(lambda: abs(self.state == '')
         # asyncio.create_task(self.to_executingTask_holdPosition_calculating())
@@ -1177,9 +1179,10 @@ def log_exceptions(loop, context):
     if isinstance(exception, ZeroDivisionError):
         print("In exception handler.")
     logger = logging.getLogger("normal")
-    logger.error(f"Caught exception: {msg}")
+    # logger.error(f"Caught exception: {msg}")
+    print(f"Caught exception: {msg}")
     logger.exception("Unhandled exception")
-    logger.exception(context)
+    # logger.exception(context)
 
 
 def main():
@@ -1195,7 +1198,7 @@ def main():
     # global log_csv
     # log_csv = logging.getLogger("csv")
 
-    simulation = False
+    simulation = cfg.app["simulation"]
     logger = Logger(simulation)
     log = logging.getLogger("normal")
 
@@ -1218,6 +1221,8 @@ def main():
     queue_cli = asyncio.Queue(loop=loop)
 
     queue_payload = asyncio.Queue(loop=loop)
+
+    corutines = []
 
 
     def listPorts():
@@ -1271,16 +1276,18 @@ def main():
         # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
         coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano, "nano"), serial_ports['nano'], baudrate=115200)
         transport_nano, protocol = loop.run_until_complete(coro_nano)
-        safety = Safety(True, transport_nano)
+        corutines.append(coro_nano)
+        safety = Safety(online = True, transport = transport_nano)
     else:
         transport_nano = None
-        safety = Safety(False, transport_nano)
+        safety = Safety(online = False, transport = transport_nano)
 
     # init mega serial connection
 
     if not simulation:
         coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
         transport_mega, protocol = loop.run_until_complete(coro_mega)
+        corutines.append(coro_mega)
     else:
         transport_mega = None
 
@@ -1290,6 +1297,7 @@ def main():
         log.info("payload connected")
         coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
         transport_payload, protocol = loop.run_until_complete(coro_payload)
+        corutines.append(coro_payload)
     else:
         transport_payload = None
 
@@ -1324,33 +1332,43 @@ def main():
     # t = loop.create_datagram_endpoint(udp_driver, local_addr=('0.0.0.0', 12000), )
 
     # Simulation - Listen to UDP/IP
-    t = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', 12000), )
-    loop.run_until_complete(t) # Server starts listening
+    udp_mega_corutine = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', 12000), )
+    loop.run_until_complete(udp_mega_corutine) # Server starts listening
+    corutines.append(udp_mega_corutine)
+    
     # loop.create_task(t)
+    cli_coro = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_cli, driver), local_addr=('0.0.0.0', 5000), )
+    loop.run_until_complete(cli_coro)
+    corutines.append(cli_coro)
 
 
     # loop.run_until_complete(driver.consume()) # Start writing messages (or running tests)
 
-
-    loop.create_task(driver.consume_mega()) # Start writing messages (or running tests)
-
-    loop.create_task(driver.consume_nano())
-
-    loop.create_task(driver.consume_cli())
-
     
-    loop.create_task(driver.consume_payload())
+    consume_mega_corutine = loop.create_task(driver.consume_mega()) # Start writing messages (or running tests)
+    corutines.append(consume_mega_corutine)
+    
+    consume_nano_corutine = loop.create_task(driver.consume_nano())
+    corutines.append(consume_nano_corutine)
+
+    consume_cli_corutine = loop.create_task(driver.consume_cli())
+    corutines.append(consume_cli_corutine)
+
+    consume_payload_corutine = loop.create_task(driver.consume_payload())
+    corutines.append(consume_payload_corutine)
 
 
-    cli_coro = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_cli, driver), local_addr=('0.0.0.0', 5000), )
-    loop.run_until_complete(cli_coro)
+
+
 
     # loop.run_until_complete(driver.log_sensors())
     # l = driver.log_sensors()
     # loop.create_task(l)
 
     seq = sequence(driver)
-    loop.create_task(seq)
+    seq_corutine =  loop.create_task(seq)
+    corutines.append(seq_corutine)
+
 
     # driver.machine.to_wait_for_sensor_buffer()
 
@@ -1391,31 +1409,43 @@ def main():
             # time.sleep(1)
             # safety.high()
             # driver.send_nano_message("N:5")
-            if not driver.safety.is_sleeping(allow_substates=True):
+            if not driver.safety.is_sleeping(allow_substates=True) and not driver.safety.is_disabled():
                 loop.run_until_complete(driver.sleep_safety())
                 time.sleep(2)
-            """Cleanup tasks tied to the service's shutdown."""
-            # logging.info(f"Received exit signal {signal.name}...")
-            logging.info("Closing database connections")
-            logging.info("Nacking outstanding messages")
-            tasks = [t for t in asyncio.all_tasks() if t is not
-                    asyncio.current_task()]
+        """Cleanup tasks tied to the service's shutdown."""
+        # logging.info(f"Received exit signal {signal.name}...")
+        log.info("Closing database connections")
+        log.info("Nacking outstanding messages")
+        tasks = [t for t in asyncio.all_tasks(loop) if t is not
+                asyncio.current_task()]
+        
+        # # tasks = corutines
 
-            [task.cancel() for task in tasks]
+        [task.cancel() for task in tasks]
 
-            logging.info(f"Cancelling {len(tasks)} outstanding tasks")
-            asyncio.gather(*tasks, return_exceptions=True)
-            logging.info(f"Flushing metrics")
-            loop.stop()
+            # loop.run_forever()
+        # tasks = Task.all_tasks()
+        for t in [t for t in tasks if not (t.done() or t.cancelled())]:
+            # give canceled tasks the last chance to run
+            loop.run_until_complete(t)
+
+        log.info(f"Cancelling {len(tasks)} outstanding tasks")
+        asyncio.gather(*tasks, return_exceptions=True)
+        log.info(f"Flushing metrics")
+            # loop.stop()
     except AttributeError as e:
         log.exception(e)
 
-
-    try:
-        loop.close()
     except RuntimeError as e:
         print('loop error')
         print(e)
+
+    finally:
+        print('stopping loop')
+        tasks = [t for t in asyncio.all_tasks(loop) if t is not asyncio.current_task()]
+        loop.run_until_complete(asyncio.wait(tasks))
+        loop.stop()
+
 
 
 if __name__=='__main__':
