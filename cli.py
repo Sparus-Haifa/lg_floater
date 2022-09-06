@@ -55,6 +55,7 @@ menu = """
 10. dive
 11. calibrate
 12. emergency
+13. drop weight
 0. stop
 """
 
@@ -195,6 +196,10 @@ class CLI():
             if from_user == '12':
                 print('emergency')
                 self.com.sendMessage("emergency:0")
+
+            if from_user == '13':
+                print('drop weight')
+                self.com.sendMessage("drop:0")
             
             if from_user == '0':
                 print("stopping")

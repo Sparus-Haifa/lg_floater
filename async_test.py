@@ -23,6 +23,10 @@ import json
 
 import os
 
+# import cfg
+import cfg.configuration as cfg
+
+
 from datetime import datetime
 
 import cfg.configuration as cfg
@@ -204,7 +208,7 @@ class Safety:
 
     def send_nano_message(self, message) -> None:
         # self.transport_nano.write(b'N:1\n')
-        self.log.debug(f"send_to_nano:{message}")
+        self.log.debug(f">NANO:{message}")
         if self.is_disabled():
             self.log.error("safety is disabled")
             return
@@ -219,7 +223,8 @@ class Driver:
     def __init__(self, queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety) -> None:
 
 
-        self.simulation = False  # use UDP or serial
+        # self.simulation = False  # use UDP or serial
+        self.simulation = cfg.app["simulation"]  # use UDP or serial
         # logger = Logger(self.simulation)
         # self.log = logger.get_log()
         # self.log_csv = logger.get_csv_log()
@@ -247,7 +252,8 @@ class Driver:
         # self.mission = [500, 0]
         # self.mission = [15, 0, 15, 0]
         # self.mission = [0.8, 0]
-        self.mission = [1.0, 0]
+        # self.mission = [20, 0]
+        self.mission = cfg.task['mission']
 
         self.target_depth = None
         self.depth = None
@@ -255,7 +261,7 @@ class Driver:
 
         self.time_off_duration = None
 
-        self.hold_on_target = True
+        self.done_holding_target = True
 
         # self.condition = asyncio.Condition()    # for notify
         self.condition = condition
@@ -292,7 +298,7 @@ class Driver:
                 {'name': 'descending', 'on_enter': 'descend'},
                 {'name': 'ascending', 'on_enter': 'ascend'},
                 {'name': 'enRoute', 'initial': 'calculating', 'children': pid_states},
-                # {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
+                {'name': 'holdPosition', 'initial': 'idle', 'children': pid_states},
                 {'name': 'surface', 'on_enter': 'surface'}
                 ]
             },  # , 'timeout': 15, 'on_timeout': 'timeout_cb'
@@ -319,6 +325,8 @@ class Driver:
         self.machine = TimeoutMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
         self.machine.add_transition('hull_leak_emergency', '*', 'emergency', unless=['is_wait_for_pickup', 'is_emergency'])
         self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
+        # self.machine.add_transition('hold', 'executingTask_enRoute_', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
+
         # self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
         # self.to_wait_for_sensor_buffer()
         # self.machine.add_transition('check_sensors', ['initial', 'buffering'], 'calibrating', before=['check_sensor_buffer'])
@@ -355,7 +363,7 @@ class Driver:
                 await asyncio.create_task(self.to_executingTask_sendingAscendCommand())
 
             elif header == 'restart': 
-                prin('restarting')
+                self.log.info('restarting')
                 await asyncio.create_task(self.test_mode.to_off())
                 await asyncio.create_task(self.to_buffering())
             elif header == 'stop':
@@ -403,6 +411,7 @@ class Driver:
         
         while True:
             msg = await self.queue_mega.get()
+            self.log.debug(f"MEGA:{msg}")
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -416,6 +425,7 @@ class Driver:
         self.log.info('init consume payload')
         while True:
             msg = await self.queue_payload.get()
+            self.log.debug(f"PAYLOAD:{msg}")
             # print("pl msg")
             # print(msg)
             lines = msg.splitlines()
@@ -440,8 +450,8 @@ class Driver:
         
         while True:
             msg = await self.queue_nano.get()
-            print(msg)
-            self.log.debug(msg)
+            # print(msg)
+            self.log.debug(f"NANO:{msg}")
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -528,6 +538,7 @@ class Driver:
 
 
     def send_mega_message(self, message) -> None:
+        self.log.debug(f">MEGA:{message}")
         if not self.simulation:
             self.transport_mega.write(message.encode('utf-8'))
         else:
@@ -562,7 +573,7 @@ class Driver:
 
 
     async def handle_message(self, msg):
-        # self.log.debug(msg)
+        # self.log.debug(f"MEGA:{msg}")
         try:
             header, value = msg.split(':')
         except ValueError as e:
@@ -597,9 +608,10 @@ class Driver:
             async with self.condition:
                 # self.condition.notify()
                 self.condition.notify_all()   
+                self.log.debug('notify')
             await self.log_sensors()  # LOG SENSORS
         if header in ['FS', 'S']: 
-            print("surface/dive")
+            self.log.debug("surface/dive")
             await self.sensors.full_surface_flag.add_sample(value)
             # await self.handle_full_surface_flag(value)
         if header in ['I', 'IR']:  await self.sensors.iridium_flag.add_sample(value)
@@ -756,6 +768,7 @@ class Driver:
         res['Depth'] = self.depth  # self.controller.current_depth
         res['avg_p'] = self.sensors.pressureController.avg
         res['direction'] = self.sensors.direction_flag.state
+        res['Voltage'] = self.sensors.voltage_sensor.getLast()
         res["State"] = self.state   # self.sensors.current_state.name
         res["Safety"] = self.safety.state   # 
         # res['planner'] = self.planner.state
@@ -793,7 +806,7 @@ class Driver:
             print("timeout")
 
     async def sensors_are_ready(self):
-        bypassSens = ["rpm"]
+        bypassSens = ["rpm", "Voltage"]
         for sensor in self.sensors.sensors:
             if sensor not in bypassSens and not self.sensors.sensors[sensor].isBufferFull(): # TODO: fix rpm and [and sensor!="PF"]
                 self.log.warning(f"sensor {sensor} is not ready")
@@ -842,10 +855,10 @@ class Driver:
             self.log.error('no calibration')
             return
 
-        print("set_next_target")
+        self.log.info("setting next target")
 
         if not self.mission:
-            self.log.info("end mission")
+            self.log.info("ending mission")
             if self.sense_water:
                 asyncio.create_task(self.to_pickup())
                 return
@@ -854,6 +867,9 @@ class Driver:
             return
 
         next_depth = self.mission.pop(0)
+        self.done_holding_target = False # reset hold on target
+        self.holding_on_target = False # am i currently on "holding on target state/timer"
+
 
         # match next_depth:
         if next_depth == 'E': 
@@ -909,6 +925,10 @@ class Driver:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             self.log.debug("recieved a descend flag - 1")
 
+            await self.sensors.direction_flag.add_sample(1)
+            await self.sensors.voltage_sensor.add_sample(100)
+            
+
             if self.test_mode.is_on():
                 asyncio.create_task(self.to_stopped())
                 return
@@ -925,6 +945,10 @@ class Driver:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 2)
             self.log.debug("recieved a ascend flag - 2")
 
+            await self.sensors.direction_flag.add_sample(2)
+            await self.sensors.voltage_sensor.add_sample(100)
+
+
             if self.test_mode.is_on():
                 asyncio.create_task(self.to_stopped())
                 return
@@ -936,6 +960,8 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
             self.log.debug("recieved: descend flag is over - 0")
+            await self.sensors.direction_flag.add_sample(0)
+            await self.sensors.voltage_sensor.add_sample(0)
             asyncio.create_task(self.to_executingTask_enRoute())
             asyncio.create_task(self.reach_goal())
 
@@ -944,6 +970,8 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 0)
             self.log.debug("recieved: ascend flag is over - 0")
+            await self.sensors.direction_flag.add_sample(0)
+            await self.sensors.voltage_sensor.add_sample(0)
             asyncio.create_task(self.to_executingTask_enRoute())
             asyncio.create_task(self.reach_goal())
 
@@ -963,13 +991,19 @@ class Driver:
     #     pass
 
     async def reach_goal(self):
-        self.log.info('hold on taget. timer started/reset')
+        self.log.info("en route to goal")
         async with self.condition:
             await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.5)
-        self.log.info("hold position!")
+        self.log.info('target reached! holding on taget! timer started/reset')
+        # self.log.info("holding position!")
+        self.holding_on_target = True
+
+        # await self.to_executingTask_enRoute_calculating
         # self.hold_on_target = 1
-        await asyncio.sleep(90)
-        self.hold_on_target = False
+        # self.done_holding_target = False
+        await asyncio.sleep(20)
+        self.done_holding_target = True
+        self.holding_on_target = False
         # await self.condition.wait_for(lambda: abs(self.state == '')
         # asyncio.create_task(self.to_executingTask_holdPosition_calculating())
         pass
@@ -983,11 +1017,12 @@ class Driver:
 
     async def calculate_pid(self):
         self.log.debug("calculating PID")
-        if self.hold_on_target == False:
+        if self.done_holding_target == True:
+            self.log.info("done holding on target - load new target")
+            self.done_holding_target = False
             asyncio.create_task(self.to_executingTask_loading())
-            self.hold_on_target = True
             return
-        print('PID')
+        self.log.info('Calculating PID')
         scalar = self.pid_controller.pid(self.error)
         direction, voltage, dc, time_on_duration, time_off_duration = self.pid_controller.unpack(scalar, self.error)  # this is the line.
 
@@ -1008,16 +1043,32 @@ class Driver:
             self.send_mega_message(f"T:{time_on_duration}\n")
 
             # log pid
-            await self.sensors.direction_flag.add_sample(value)
+            await self.sensors.direction_flag.add_sample(direction)
+            await self.sensors.voltage_sensor.add_sample(voltage)
 
+            if self.holding_on_target:
+                asyncio.create_task(self.to_executingTask_holdPosition_starting())  # FIXME: dangerous, put await?
 
-            asyncio.create_task(self.to_executingTask_enRoute_starting())  # FIXME: dangerous, put await?
+            else:
+                asyncio.create_task(self.to_executingTask_enRoute_starting())  # FIXME: dangerous, put await?
             return
+        
+        # zero volate and direction flags
+        await self.sensors.direction_flag.add_sample(0)
+        await self.sensors.voltage_sensor.add_sample(0)
 
+        # just setting the state
+        if self.holding_on_target:
+            asyncio.create_task(self.to_executingTask_holdPosition_calculating())
+        else:
+            asyncio.create_task(self.to_executingTask_enRoute_calculating())
 
-        await asyncio.sleep(1)
-        # asyncio.create_task(self.to_executingTask_enRoute_calculating())
-        asyncio.create_task(self.calculate_pid())
+        # await asyncio.sleep(1)
+        # calling state function on every iteration
+        async with self.condition:
+            await self.condition.wait()
+            # await asyncio.sleep(0.1)
+            asyncio.create_task(self.calculate_pid())
 
         # while True:
         #     print(self.sensors.bladder_flag.state)
@@ -1036,7 +1087,8 @@ class Driver:
             self.log.info("Bladder is at min volume")
             return False
 
-        self.log.info(f"sending PID - Voltage:{voltage}    direction:{direction}    timeOn:{time_on_duration}  timeOff:{time_off_duration}")
+        # PID is vaild!
+        self.log.info(f"sending PID - Voltage:{voltage:.4f}    direction:{direction:.4f}    timeOn:{time_on_duration:.4f}  timeOff:{time_off_duration:.4f}")
         return True
 
 
@@ -1044,8 +1096,12 @@ class Driver:
         self.log.info("waiting for pump to start")
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.pumpFlag.is_on())
-            print("pump truned on!") 
-            asyncio.create_task(self.to_executingTask_enRoute_timeOn())
+            print("pump truned on!")
+            
+            if self.holding_on_target:
+                asyncio.create_task(self.to_executingTask_holdPosition_timeOn())
+            else:
+                asyncio.create_task(self.to_executingTask_enRoute_timeOn())
 
 
     async def timeOn(self):
@@ -1053,13 +1109,23 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.pumpFlag.is_off())
             self.log.info("time on is done")
-            asyncio.create_task(self.to_executingTask_enRoute_timeOff())      
+            if self.holding_on_target:
+                asyncio.create_task(self.to_executingTask_holdPosition_timeOff())      
+            else:
+                asyncio.create_task(self.to_executingTask_enRoute_timeOff())      
 
     async def timeOff(self):
         self.log.info("time off")
+        # zero volate and direction flags
+        await self.sensors.direction_flag.add_sample(0)
+        await self.sensors.voltage_sensor.add_sample(0)
+
         await asyncio.sleep(self.time_off_duration)
         self.log.info('time off is over!')
-        asyncio.create_task(self.to_executingTask_enRoute_calculating())
+        if self.holding_on_target:
+            asyncio.create_task(self.to_executingTask_holdPosition_calculating())
+        else:
+            asyncio.create_task(self.to_executingTask_enRoute_calculating())
 
     async def emergency(self):
         self.log.critical('emergency')
@@ -1198,7 +1264,8 @@ def main():
     # global log_csv
     # log_csv = logging.getLogger("csv")
 
-    simulation = cfg.app["simulation"]
+    # simulation = False
+    simulation = cfg.app['simulation']
     logger = Logger(simulation)
     log = logging.getLogger("normal")
 
