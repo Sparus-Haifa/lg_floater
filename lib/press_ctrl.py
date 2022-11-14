@@ -18,8 +18,8 @@ class Press_ctrl():
         # self.depth = None
 
 
-    def addSensor(self, header):
-        sensor = Press(header,self.avg_samples,self.precision,self.log)
+    def addSensor(self, header, offset=0):
+        sensor = Press(header,self.avg_samples,self.precision,self.log, offset)
         self.sensors[header]=sensor
 
     def getSensors(self):

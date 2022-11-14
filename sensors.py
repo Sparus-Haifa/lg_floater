@@ -32,7 +32,7 @@ class Sensors:
     def setupSensors(self):
             # Pressure
             self.pressureController = Press_ctrl(cfg.pressure["avg_samples"], cfg.pressure["precision"], cfg.pressure["epsilon"], self.log)
-            self.pressureController.addSensor("BP1")
+            self.pressureController.addSensor("BP1", offset=-68)
             self.pressureController.addSensor("BP2")
             self.pressureController.addSensor("TP1")
             self.pressureController.addSensor("TP2")

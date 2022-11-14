@@ -2,7 +2,7 @@ from collections import deque
 from transitions.extensions.asyncio import HierarchicalAsyncMachine
 
 class Sensor:
-    def __init__(self, name, avg_samples, precision, log):
+    def __init__(self, name, avg_samples, precision, log, offset = 0):
         self.name = name
         self.avg_samples = avg_samples
         self.t = deque(maxlen=self.avg_samples)
@@ -10,6 +10,7 @@ class Sensor:
         self.log = log
         self.machine = HierarchicalAsyncMachine(self, states=['active', 'faulty'], transitions = [], ignore_invalid_triggers=True)
         self.machine.add_transition('sensor_is_responding', 'initial', 'active', unless=['is_active'])
+        self.offset = offset
 
 
 
@@ -38,7 +39,7 @@ class Sensor:
         # TODO: try catch parse
         # self.log.debug(f'{self.name}:{sample}')
         try:
-            value = float(sample)
+            value = float(sample) + self.offset
         # except Exception as e:
         except ValueError as e:
             # print(e)
