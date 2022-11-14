@@ -30,6 +30,7 @@ class Logger:
         log_csv = caurrent_date + "_" + current_time + ".csv"
 
         folder_path = os.path.join('log', caurrent_date)
+        self.path = folder_path
         print(folder_path)
         if not os.path.exists(folder_path):
             os.mkdir(folder_path)
