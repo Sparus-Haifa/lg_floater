@@ -10,6 +10,11 @@ void setup()
 
   pinMode(WakeUpPin, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
+
+  //microswitch
+  pinMode(ComPin, INPUT); // common pin
+  pinMode(NCPin, OUTPUT); //
+  pinMode(NOPin, OUTPUT); //
   
   PreviousMillisOut = millis();
 

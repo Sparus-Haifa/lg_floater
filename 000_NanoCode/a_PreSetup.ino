@@ -14,6 +14,13 @@ char OutgoingIdentifier[2];
 //-=-=-=-=-=-=-=-=-=-=-=-=-= FLAGS
 int DropWeightFlag = 0, LoopFlag = 0;
 
+//-=-=-=-=-=-=-=-=-=-=-=-=-= MICRO SWITCH
+#define ComPin 8 // common pin (input)
+#define NCPin 10 // output
+#define NOPin 12 // output
+
+bool MS = LOW;
+
 //-=-=-=-=-=-=-=-=-=-=-=-=-= GENERAL
 unsigned long PreviousMillisIn = 0, PreviousMillisOut = 0;
 #define HBwait  15000      // Wait time (in milliseconds)
