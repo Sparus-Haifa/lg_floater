@@ -51,7 +51,8 @@ class OutputProtocol(asyncio.Protocol):
     def data_received(self, data):
         # print('data received', repr(data))
         self.line+=data.decode()
-        if b'\r\n' in data:
+        # if b'\r\n' in data:
+        if '\r\n' in self.line:
             tokens = self.line.split('\r\n')
             for token in tokens[:-1]:
                 self.log.debug(f'from {self.name}: ' + token)
@@ -658,7 +659,7 @@ class Driver:
         confidance = self.sensors.altimeter.getConfidance()
         if self.depth is None or self.is_stopped():
             return
-        if confidance > 50:
+        if False and confidance > 50:
             if 10 < value and value <= 20:
                 # while True:
                 self.log.warning("Yellow line! Ending mission!")
@@ -993,7 +994,9 @@ class Driver:
     async def reach_goal(self):
         self.log.info("en route to goal")
         async with self.condition:
-            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.5)
+            await self.condition.wait_for(lambda: abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.1)
+            self.log.debug('abs(self.target_depth - self.sensors.pressureController.get_depth()) < 0.1')
+            self.log.debug(str(self.target_depth) +' - ' + str(self.sensors.pressureController.get_depth()) +' < 0.1')
         self.log.info('target reached! holding on taget! timer started/reset')
         # self.log.info("holding position!")
         self.holding_on_target = True
@@ -1001,7 +1004,7 @@ class Driver:
         # await self.to_executingTask_enRoute_calculating
         # self.hold_on_target = 1
         # self.done_holding_target = False
-        await asyncio.sleep(20)
+        await asyncio.sleep(120)
         self.done_holding_target = True
         self.holding_on_target = False
         # await self.condition.wait_for(lambda: abs(self.state == '')

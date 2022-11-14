@@ -260,7 +260,7 @@ def main():
     #         print(f'skipping board {serialNumber}')
 
     mega_address = '/dev/ttyACM0'
-    # burner.burnMega(mega_address)
+    burner.burnMega(mega_address)
     
 
     nano_address = '/dev/ttyUSB1'
@@ -269,7 +269,7 @@ def main():
 
 
     payload_address = '/dev/ttyUSB1'
-    burner.burnUno(payload_address)
+    # burner.burnUno(payload_address)
             
 
 if __name__=='__main__':

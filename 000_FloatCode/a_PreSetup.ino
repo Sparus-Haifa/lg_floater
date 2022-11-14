@@ -95,7 +95,7 @@ unsigned long PreviousMillis = 0, LoopCounter = 1;
 //-=-=-=-=-=-=-=-=-=-=-=-=-= BLADDER PARAMETERS
 // limits of the bladder volume in CC
 #define BladderUpperLimit 500
-#define BladderLowerLimit 50
+#define BladderLowerLimit 100
 
 // V1 = 0.7 L for accumulator full of oil, V1=1.4L for accumulator empty of oil
 //float V1 = 1430 - 724;

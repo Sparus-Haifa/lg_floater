@@ -43,6 +43,7 @@ void FullSurface(int Direction)
   // Verify that the Pump started
   delay(500);
   PumpRPM = RPMRead();
+  SendMsg("RPM", PumpRPM);
 
   int whilecounter = 1;
 
@@ -60,6 +61,7 @@ void FullSurface(int Direction)
     delay(1000);
 
     PumpRPM = RPMRead();
+    SendMsg("RPM", PumpRPM);
     if (whilecounter >= 3)
     {
       SendMsg("PF", 2);
@@ -70,18 +72,22 @@ void FullSurface(int Direction)
     whilecounter = whilecounter + 1;
   }
 
+  
+
   //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= WHILE LOOP
-  while (BF == 0)
+  while (BF == 0 || ((BF == 1) && (Direction == 2)) || ((BF == 2) && (Direction == 1)) )
   {
     wdt_reset(); // reset the watchdog each loop
     delay(50);
+    SendMsg("RPM", PumpRPM);
 
     // Calculate bladder volume
     CalcBladderVol();
 
-    if (BF != 0)
+    if ( ((BF == 1) && (Direction == 1)) || ((BF == 2) && (Direction == 2)))
     {
       D2Acmd(0); // Send STOP signal to pump
+      SendMsg("RPM", 0);
       break;
     }
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= END of WHILE LOOP
@@ -89,7 +95,7 @@ void FullSurface(int Direction)
 
   wdt_reset();
   //wdt_disable(); // disable watchdog after exit from while() loop
-
+  
   D2Acmd(0); // Send STOP signal to pump
   delay(200);
   digitalWrite(ValvePin, LOW);

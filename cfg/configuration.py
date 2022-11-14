@@ -30,7 +30,7 @@ class MissionState(Enum):
 
 
 app = {
-    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation" : False,  # app sends debug data to sim, udp - not serial
     "simulation_udp_port" : 12000,
     "host_ip" : "127.0.0.1",
     # "host_ip" : "192.168.1.75",
@@ -106,7 +106,7 @@ task_emergency = {
 }
 
 task = {
-    "mission" : [10, 0], # mission1
+    "mission" : [1.0, 0], # mission1
     # "type": 1, # 1- pressure, 2-density, 3-profiling
     # "duration": 300, # seconds
     # "setpoint": 300, # will be used for types 1 & 2
@@ -133,7 +133,7 @@ task = {
     "hold_on_target_distance" : 0.4,  # meters
     "min_ascend_descend_distance" : 5,  # meters
     "kp" : 20,  # 40,
-    "kd" : 0,  # 750,
+    "kd" : 750,
     "ki" : 0.001,  # 0.001
     # "target_depth" : 30.0  # millibar
     # "max_time_off_duration" : 100.0
