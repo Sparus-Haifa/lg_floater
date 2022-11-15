@@ -55,7 +55,7 @@ class OutputProtocol(asyncio.Protocol):
         if '\r\n' in self.line:
             tokens = self.line.split('\r\n')
             for token in tokens[:-1]:
-                self.log.debug(f'from {self.name}: ' + token)
+                self.log.debug(f'{self.name}>RPi: ' + token)
                 self.queue.put_nowait(token)
             self.line=tokens[-1]
         #     self.line = ''
@@ -412,7 +412,7 @@ class Driver:
         
         while True:
             msg = await self.queue_mega.get()
-            self.log.debug(f"MEGA:{msg}")
+            # self.log.debug(f"MEGA:{msg}")
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -426,7 +426,7 @@ class Driver:
         self.log.info('init consume payload')
         while True:
             msg = await self.queue_payload.get()
-            self.log.debug(f"PAYLOAD:{msg}")
+            # self.log.debug(f"PAYLOAD:{msg}")
             # print("pl msg")
             # print(msg)
             lines = msg.splitlines()
@@ -452,7 +452,7 @@ class Driver:
         while True:
             msg = await self.queue_nano.get()
             # print(msg)
-            self.log.debug(f"NANO:{msg}")
+            # self.log.debug(f"NANO:{msg}")
             # print(f'consumed: {msg}')
             # log.debug(msg)
             # log_csv.critical("a,a,a,a,a")
@@ -1272,7 +1272,7 @@ def main():
     logger = Logger(simulation)
     log = logging.getLogger("normal")
 
-    log.info("init log")
+    log.info(f"init log at {logger.path}")
 
 
     
