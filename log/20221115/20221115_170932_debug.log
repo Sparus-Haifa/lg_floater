@@ -1,0 +1,333 @@
+2022-11-15,17:09:32.523:INFO: init log at log/20221115
+2022-11-15,17:09:32.597:INFO: safety controller init
+2022-11-15,17:09:32.645:DEBUG: gpio high
+2022-11-15,17:09:32.650:INFO: init driver
+2022-11-15,17:09:32.652:INFO: Pressure controller was initialized successfully
+2022-11-15,17:09:32.659:INFO: BP1 pressure sensor was initialized successfully
+2022-11-15,17:09:32.666:INFO: BP2 pressure sensor was initialized successfully
+2022-11-15,17:09:32.671:INFO: TP1 pressure sensor was initialized successfully
+2022-11-15,17:09:32.677:INFO: TP2 pressure sensor was initialized successfully
+2022-11-15,17:09:32.682:INFO: HP pressure sensor was initialized successfully
+2022-11-15,17:09:32.688:INFO: AP pressure sensor was initialized successfully
+2022-11-15,17:09:32.689:INFO: Temperature controller was initialized successfully
+2022-11-15,17:09:32.695:INFO: BT1 temperature sensor was initialized successfully
+2022-11-15,17:09:32.701:INFO: BT2 temperature sensor was initialized successfully
+2022-11-15,17:09:32.707:INFO: TT1 temperature sensor was initialized successfully
+2022-11-15,17:09:32.713:INFO: TT2 temperature sensor was initialized successfully
+2022-11-15,17:09:32.719:INFO: AT temperature sensor was initialized successfully
+2022-11-15,17:09:32.720:INFO: IMU controller was initialized successfully
+2022-11-15,17:09:32.727:INFO: X IMU sensor was initialized successfully
+2022-11-15,17:09:32.733:INFO: Y IMU sensor was initialized successfully
+2022-11-15,17:09:32.739:INFO: Z IMU sensor was initialized successfully
+2022-11-15,17:09:32.745:INFO: Bladder volume controller was initialized successfully
+2022-11-15,17:09:32.751:INFO: Altimeter controller was initialized successfully
+2022-11-15,17:09:32.757:INFO: rpm controller was initialized successfully
+2022-11-15,17:09:32.758:INFO: Pump flag controller was initialized successfully
+2022-11-15,17:09:32.766:INFO: Bladder flag controller was initialized successfully
+2022-11-15,17:09:32.773:INFO: Hull leak flag controller was initialized successfully
+2022-11-15,17:09:32.776:INFO: Engine leak flag controller was initialized successfully
+2022-11-15,17:09:32.779:INFO: Full surface initiated flag controller was initialized successfully
+2022-11-15,17:09:32.783:INFO: Iridium flag controller was initialized successfully
+2022-11-15,17:09:32.790:INFO: direction flag controller was initialized successfully
+2022-11-15,17:09:32.809:INFO: Payload flag controller was initialized successfully
+2022-11-15,17:09:32.964:DEBUG: mega>RPi: LC:103.00
+2022-11-15,17:09:32.965:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:32.966:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:32.966:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:32.966:DEBUG: mega>RPi: 0
+2022-11-15,17:09:32.967:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:32.967:DEBUG: mega>RPi: AP:1200.10
+2022-11-15,17:09:32.968:DEBUG: mega>RPi: BV:318.82
+2022-11-15,17:09:32.968:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:32.969:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:32.969:DEBUG: mega>RPi: Y:0.01
+2022-11-15,17:09:32.969:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:32.970:DEBUG: mega>RPi: PD:2.41
+2022-11-15,17:09:32.970:DEBUG: mega>RPi: PC:25.00
+2022-11-15,17:09:32.971:DEBUG: mega>RPi: LC:103.00
+2022-11-15,17:09:32.971:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:32.972:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:32.972:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:32.972:DEBUG: mega>RPi: 0
+2022-11-15,17:09:32.973:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:32.973:DEBUG: mega>RPi: AP:1200.10
+2022-11-15,17:09:32.974:DEBUG: mega>RPi: BV:318.82
+2022-11-15,17:09:32.974:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:32.975:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:32.975:DEBUG: mega>RPi: Y:0.01
+2022-11-15,17:09:32.975:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:32.976:DEBUG: mega>RPi: PD:2.41
+2022-11-15,17:09:32.976:DEBUG: mega>RPi: PC:25.00
+2022-11-15,17:09:32.977:DEBUG: mega>RPi: LC:103.00
+2022-11-15,17:09:32.977:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:32.978:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:32.978:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:32.981:INFO: init consume mega
+2022-11-15,17:09:32.986:INFO: init consume nano
+2022-11-15,17:09:32.988:INFO: init consume payload
+2022-11-15,17:09:33.002:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:33.003:DEBUG: notify
+2022-11-15,17:09:33.006:CRITICAL: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL      EL BF      SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety               Payload TestMode 
+2022-11-15,17:09:33.009:CRITICAL: Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) 0  0  initial 0  initial None initial 318.82 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping_weightFixed None    on       
+2022-11-15,17:09:33.022:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:33.024:DEBUG: notify
+2022-11-15,17:09:33.026:CRITICAL: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety               Payload TestMode 
+2022-11-15,17:09:33.029:CRITICAL: Buffering (2/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) 2.41 25.00 initial 0  nonempty None initial 318.82 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping_weightFixed None    on       
+2022-11-15,17:09:34.061:DEBUG: mega>RPi: SU:0.00
+2022-11-15,17:09:34.081:DEBUG: nano>RPi: NN:222.00
+2022-11-15,17:09:34.082:INFO: 222
+2022-11-15,17:09:34.083:DEBUG: gpio high
+2022-11-15,17:09:34.083:INFO: safety went to sleep (sleep initiated)
+2022-11-15,17:09:34.089:DEBUG: mega>RPi: BT1:24.27
+2022-11-15,17:09:34.118:DEBUG: mega>RPi: BT2:24.09
+2022-11-15,17:09:34.175:DEBUG: mega>RPi: BP1:1072.40
+2022-11-15,17:09:34.237:DEBUG: mega>RPi: BP2:1016.60
+2022-11-15,17:09:34.294:DEBUG: mega>RPi: HP:1138.90
+2022-11-15,17:09:34.323:DEBUG: mega>RPi: AT:22.68
+2022-11-15,17:09:34.380:DEBUG: mega>RPi: AP:1210.20
+2022-11-15,17:09:34.408:DEBUG: mega>RPi: TT1:24.09
+2022-11-15,17:09:34.437:DEBUG: mega>RPi: TT2:24.09
+2022-11-15,17:09:34.495:DEBUG: mega>RPi: TP1:1014.10
+2022-11-15,17:09:34.552:DEBUG: mega>RPi: TP2:1025.30
+2022-11-15,17:09:34.553:DEBUG: mega>RPi: 
+2022-11-15,17:09:34.814:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:34.815:DEBUG: mega>RPi: Y:0.00
+2022-11-15,17:09:34.816:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:35.125:DEBUG: mega>RPi: Date: 11/17/2022 Time: 09:26:05
+2022-11-15,17:09:36.825:DEBUG: mega>RPi: SU:1.00
+2022-11-15,17:09:36.826:DEBUG: mega>RPi: LC:1.00
+2022-11-15,17:09:36.907:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:36.908:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:36.920:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:36.936:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:36.993:DEBUG: mega>RPi: BP1:1071.70
+2022-11-15,17:09:37.050:DEBUG: mega>RPi: BP2:1017.10
+2022-11-15,17:09:37.108:DEBUG: mega>RPi: HP:1138.90
+2022-11-15,17:09:37.123:DEBUG: mega>RPi: TT1:25.22
+2022-11-15,17:09:37.136:DEBUG: mega>RPi: TT2:25.31
+2022-11-15,17:09:37.194:DEBUG: mega>RPi: TP1:1014.70
+2022-11-15,17:09:37.251:DEBUG: mega>RPi: TP2:1025.10
+2022-11-15,17:09:37.267:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:37.325:DEBUG: mega>RPi: AP:1200.70
+2022-11-15,17:09:37.326:DEBUG: mega>RPi: BV:318.19
+2022-11-15,17:09:37.326:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:37.328:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:37.329:DEBUG: notify
+2022-11-15,17:09:37.331:CRITICAL: BT1   BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:37.334:CRITICAL: 24.58 Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) 2.41 25.00 initial 0  nonempty None initial 318.19 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:37.339:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:37.339:DEBUG: mega>RPi: Y:0.00
+2022-11-15,17:09:37.340:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:37.366:DEBUG: mega>RPi: PD:2.47
+2022-11-15,17:09:37.370:DEBUG: mega>RPi: PC:27.00
+2022-11-15,17:09:37.370:DEBUG: mega>RPi: LC:2.00
+2022-11-15,17:09:37.448:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:37.448:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:37.464:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:37.477:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:37.533:DEBUG: mega>RPi: BP1:1073.20
+2022-11-15,17:09:37.592:DEBUG: mega>RPi: BP2:1017.30
+2022-11-15,17:09:37.653:DEBUG: mega>RPi: HP:1139.00
+2022-11-15,17:09:37.664:DEBUG: mega>RPi: TT1:25.23
+2022-11-15,17:09:37.677:DEBUG: mega>RPi: TT2:25.30
+2022-11-15,17:09:37.739:DEBUG: mega>RPi: TP1:1014.10
+2022-11-15,17:09:37.795:DEBUG: mega>RPi: TP2:1025.10
+2022-11-15,17:09:37.808:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:37.866:DEBUG: mega>RPi: AP:1200.80
+2022-11-15,17:09:37.870:DEBUG: mega>RPi: BV:318.08
+2022-11-15,17:09:37.871:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:37.873:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:37.874:DEBUG: notify
+2022-11-15,17:09:37.876:CRITICAL: BT1   BT2             TT1             TT2             AT    X               Y               Z               BP1             BP2             TP1             TP2             HP              AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:37.879:CRITICAL: 24.58 Buffering (3/5) Buffering (3/5) Buffering (3/5) 23.26 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1202.38 2.47 27.00 initial 0  nonempty None initial 318.08 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:37.884:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:37.885:DEBUG: mega>RPi: Y:0.01
+2022-11-15,17:09:37.886:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:37.919:DEBUG: mega>RPi: PD:2.85
+2022-11-15,17:09:37.923:DEBUG: mega>RPi: PC:30.00
+2022-11-15,17:09:37.924:DEBUG: mega>RPi: LC:3.00
+2022-11-15,17:09:38.001:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:38.002:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:38.017:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:38.029:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:38.087:DEBUG: mega>RPi: BP1:1074.80
+2022-11-15,17:09:38.144:DEBUG: mega>RPi: BP2:1017.40
+2022-11-15,17:09:38.207:DEBUG: mega>RPi: HP:1139.40
+2022-11-15,17:09:38.218:DEBUG: mega>RPi: TT1:25.22
+2022-11-15,17:09:38.230:DEBUG: mega>RPi: TT2:25.30
+2022-11-15,17:09:38.292:DEBUG: mega>RPi: TP1:1013.90
+2022-11-15,17:09:38.349:DEBUG: mega>RPi: TP2:1025.90
+2022-11-15,17:09:38.362:DEBUG: mega>RPi: AT:23.40
+2022-11-15,17:09:38.419:DEBUG: mega>RPi: AP:1200.20
+2022-11-15,17:09:38.423:DEBUG: mega>RPi: BV:318.67
+2022-11-15,17:09:38.424:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:38.425:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:38.427:DEBUG: notify
+2022-11-15,17:09:38.429:CRITICAL: BT1   BT2             TT1             TT2             AT    X    Y    Z    BP1             BP2             TP1             TP2             HP              AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:38.432:CRITICAL: 24.58 Buffering (4/5) Buffering (4/5) Buffering (4/5) 23.26 0.00 0.01 0.00 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1202.40 2.85 30.00 initial 0  nonempty None initial 318.67 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:38.438:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:38.440:DEBUG: mega>RPi: Y:0.01
+2022-11-15,17:09:38.441:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:38.476:DEBUG: mega>RPi: PD:3.11
+2022-11-15,17:09:38.477:DEBUG: mega>RPi: PC:21.00
+2022-11-15,17:09:38.478:DEBUG: mega>RPi: LC:4.00
+2022-11-15,17:09:38.558:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:38.559:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:38.570:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:38.587:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:38.643:DEBUG: mega>RPi: BP1:1073.60
+2022-11-15,17:09:38.701:DEBUG: mega>RPi: BP2:1017.10
+2022-11-15,17:09:38.759:DEBUG: mega>RPi: HP:1139.00
+2022-11-15,17:09:38.775:DEBUG: mega>RPi: TT1:25.23
+2022-11-15,17:09:38.787:DEBUG: mega>RPi: TT2:25.30
+2022-11-15,17:09:38.845:DEBUG: mega>RPi: TP1:1014.30
+2022-11-15,17:09:38.902:DEBUG: mega>RPi: TP2:1025.70
+2022-11-15,17:09:38.918:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:38.975:DEBUG: mega>RPi: AP:1200.50
+2022-11-15,17:09:38.976:DEBUG: mega>RPi: BV:318.40
+2022-11-15,17:09:38.977:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:38.978:DEBUG: notify
+2022-11-15,17:09:38.980:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:38.983:CRITICAL: 24.58 24.12 25.00 25.06 23.26 0.00 0.01 0.00 9.45 10.17 10.14 10.25 1139.04 1202.48 3.11 21.00 initial 0  nonempty None initial 318.40 Buffering (0/1) None     None  None  10.00 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:38.989:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:38.990:DEBUG: mega>RPi: Y:0.01
+2022-11-15,17:09:38.991:DEBUG: mega>RPi: Z:-0.00
+2022-11-15,17:09:39.032:DEBUG: mega>RPi: PD:3.81
+2022-11-15,17:09:39.037:DEBUG: mega>RPi: PC:0.00
+2022-11-15,17:09:39.038:DEBUG: mega>RPi: LC:5.00
+2022-11-15,17:09:39.115:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:39.119:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:39.131:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:39.143:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:39.201:DEBUG: mega>RPi: BP1:1074.10
+2022-11-15,17:09:39.262:DEBUG: mega>RPi: BP2:1016.80
+2022-11-15,17:09:39.320:DEBUG: mega>RPi: HP:1138.70
+2022-11-15,17:09:39.332:DEBUG: mega>RPi: TT1:25.23
+2022-11-15,17:09:39.348:DEBUG: mega>RPi: TT2:25.30
+2022-11-15,17:09:39.406:DEBUG: mega>RPi: TP1:1014.00
+2022-11-15,17:09:39.464:DEBUG: mega>RPi: TP2:1025.20
+2022-11-15,17:09:39.475:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:39.537:DEBUG: mega>RPi: AP:1200.60
+2022-11-15,17:09:39.537:DEBUG: mega>RPi: BV:318.29
+2022-11-15,17:09:39.538:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:39.540:DEBUG: notify
+2022-11-15,17:09:39.542:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:39.545:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.45 10.17 10.14 10.25 1139.00 1200.56 3.81 0.00 initial 0  nonempty None initial 318.29 Buffering (0/1) None     None  None  10.00 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:39.598:DEBUG: mega>RPi: PD:4.53
+2022-11-15,17:09:39.602:DEBUG: mega>RPi: PC:0.00
+2022-11-15,17:09:39.603:DEBUG: mega>RPi: LC:6.00
+2022-11-15,17:09:39.680:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:39.684:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:39.697:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:39.708:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:39.766:DEBUG: mega>RPi: BP1:1073.40
+2022-11-15,17:09:39.828:DEBUG: mega>RPi: BP2:1017.20
+2022-11-15,17:09:39.884:DEBUG: mega>RPi: HP:1138.70
+2022-11-15,17:09:39.897:DEBUG: mega>RPi: TT1:25.23
+2022-11-15,17:09:39.914:DEBUG: mega>RPi: TT2:25.31
+2022-11-15,17:09:39.971:DEBUG: mega>RPi: TP1:1014.00
+2022-11-15,17:09:40.028:DEBUG: mega>RPi: TP2:1025.40
+2022-11-15,17:09:40.041:DEBUG: mega>RPi: AT:23.40
+2022-11-15,17:09:40.102:DEBUG: mega>RPi: AP:1199.80
+2022-11-15,17:09:40.102:DEBUG: mega>RPi: BV:319.10
+2022-11-15,17:09:40.103:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:40.105:DEBUG: notify
+2022-11-15,17:09:40.107:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:40.110:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1138.96 1200.38 4.53 0.00 initial 0  nonempty None initial 319.10 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:40.118:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:40.119:DEBUG: mega>RPi: Y:0.00
+2022-11-15,17:09:40.120:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:40.120:DEBUG: mega>RPi: PD:4.60
+2022-11-15,17:09:40.121:DEBUG: mega>RPi: PC:0.00
+2022-11-15,17:09:40.121:DEBUG: mega>RPi: LC:7.00
+2022-11-15,17:09:40.193:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:40.196:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:40.208:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:40.221:DEBUG: mega>RPi: BT2:24.14
+2022-11-15,17:09:40.279:DEBUG: mega>RPi: BP1:1074.90
+2022-11-15,17:09:40.339:DEBUG: mega>RPi: BP2:1017.40
+2022-11-15,17:09:40.397:DEBUG: mega>RPi: HP:1139.50
+2022-11-15,17:09:40.410:DEBUG: mega>RPi: TT1:25.23
+2022-11-15,17:09:40.425:DEBUG: mega>RPi: TT2:25.30
+2022-11-15,17:09:40.483:DEBUG: mega>RPi: TP1:1013.90
+2022-11-15,17:09:40.541:DEBUG: mega>RPi: TP2:1025.50
+2022-11-15,17:09:40.552:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:40.614:DEBUG: mega>RPi: AP:1200.30
+2022-11-15,17:09:40.615:DEBUG: mega>RPi: BV:318.61
+2022-11-15,17:09:40.616:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:40.618:DEBUG: notify
+2022-11-15,17:09:40.620:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:40.624:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.26 1139.06 1200.28 4.60 0.00 initial 0  nonempty None initial 318.61 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:40.650:DEBUG: mega>RPi: PD:0.00
+2022-11-15,17:09:40.654:DEBUG: mega>RPi: PC:0.00
+2022-11-15,17:09:40.655:DEBUG: mega>RPi: LC:8.00
+2022-11-15,17:09:40.733:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:40.734:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:40.748:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:40.761:DEBUG: mega>RPi: BT2:24.13
+2022-11-15,17:09:40.819:DEBUG: mega>RPi: BP1:1074.50
+2022-11-15,17:09:40.876:DEBUG: mega>RPi: BP2:1017.20
+2022-11-15,17:09:40.937:DEBUG: mega>RPi: HP:1139.40
+2022-11-15,17:09:40.950:DEBUG: mega>RPi: TT1:25.24
+2022-11-15,17:09:40.961:DEBUG: mega>RPi: TT2:25.31
+2022-11-15,17:09:41.023:DEBUG: mega>RPi: TP1:1014.20
+2022-11-15,17:09:41.081:DEBUG: mega>RPi: TP2:1025.60
+2022-11-15,17:09:41.093:DEBUG: mega>RPi: AT:23.40
+2022-11-15,17:09:41.150:DEBUG: mega>RPi: AP:1200.50
+2022-11-15,17:09:41.154:DEBUG: mega>RPi: BV:318.36
+2022-11-15,17:09:41.156:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:41.158:DEBUG: notify
+2022-11-15,17:09:41.161:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:41.165:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1139.06 1200.34 0.00 0.00 initial 0  nonempty None initial 318.36 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:41.172:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:41.173:DEBUG: mega>RPi: Y:0.00
+2022-11-15,17:09:41.174:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:41.196:DEBUG: mega>RPi: PD:1.85
+2022-11-15,17:09:41.197:DEBUG: mega>RPi: PC:50.00
+2022-11-15,17:09:41.198:DEBUG: mega>RPi: LC:9.00
+2022-11-15,17:09:41.278:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:41.279:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:41.289:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:41.306:DEBUG: mega>RPi: BT2:24.14
+2022-11-15,17:09:41.364:DEBUG: mega>RPi: BP1:1074.20
+2022-11-15,17:09:41.421:DEBUG: mega>RPi: BP2:1017.10
+2022-11-15,17:09:41.478:DEBUG: mega>RPi: HP:1138.50
+2022-11-15,17:09:41.495:DEBUG: mega>RPi: TT1:25.24
+2022-11-15,17:09:41.506:DEBUG: mega>RPi: TT2:25.31
+2022-11-15,17:09:41.564:DEBUG: mega>RPi: TP1:1014.20
+2022-11-15,17:09:41.622:DEBUG: mega>RPi: TP2:1025.30
+2022-11-15,17:09:41.638:DEBUG: mega>RPi: AT:23.41
+2022-11-15,17:09:41.695:DEBUG: mega>RPi: AP:1200.50
+2022-11-15,17:09:41.696:DEBUG: mega>RPi: BV:318.40
+2022-11-15,17:09:41.697:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:41.699:DEBUG: notify
+2022-11-15,17:09:41.702:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:41.706:CRITICAL: 24.66 24.13 25.23 25.31 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1138.96 1200.34 1.85 50.00 initial 0  nonempty None initial 318.40 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:41.736:DEBUG: mega>RPi: PD:2.15
+2022-11-15,17:09:41.737:DEBUG: mega>RPi: PC:21.00
+2022-11-15,17:09:41.738:DEBUG: mega>RPi: LC:10.00
+2022-11-15,17:09:41.814:DEBUG: mega>RPi: HL:0.00
+2022-11-15,17:09:41.818:DEBUG: mega>RPi: EL:0.00
+2022-11-15,17:09:41.831:DEBUG: mega>RPi: BT1:24.66
+2022-11-15,17:09:41.842:DEBUG: mega>RPi: BT2:24.14
+2022-11-15,17:09:41.904:DEBUG: mega>RPi: BP1:1074.20
+2022-11-15,17:09:41.962:DEBUG: mega>RPi: BP2:1016.90
+2022-11-15,17:09:42.019:DEBUG: mega>RPi: HP:1139.30
+2022-11-15,17:09:42.032:DEBUG: mega>RPi: TT1:25.24
+2022-11-15,17:09:42.048:DEBUG: mega>RPi: TT2:25.31
+2022-11-15,17:09:42.104:DEBUG: mega>RPi: TP1:1014.00
+2022-11-15,17:09:42.162:DEBUG: mega>RPi: TP2:1025.40
+2022-11-15,17:09:42.178:DEBUG: mega>RPi: AT:23.40
+2022-11-15,17:09:42.236:DEBUG: mega>RPi: AP:1200.30
+2022-11-15,17:09:42.238:DEBUG: mega>RPi: BV:318.57
+2022-11-15,17:09:42.238:DEBUG: mega>RPi: BF:0.00
+2022-11-15,17:09:42.240:DEBUG: notify
+2022-11-15,17:09:42.242:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:42.245:CRITICAL: 24.66 24.14 25.24 25.31 23.40 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1139.08 1200.28 2.15 21.00 initial 0  nonempty None initial 318.57 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:42.251:DEBUG: mega>RPi: X:0.00
+2022-11-15,17:09:42.253:DEBUG: mega>RPi: Y:0.00
+2022-11-15,17:09:42.254:DEBUG: mega>RPi: Z:0.00
+2022-11-15,17:09:42.267:INFO: graceful shutdown
+2022-11-15,17:09:42.268:INFO: disabling safety. please wait...
+2022-11-15,17:09:42.269:INFO: Closing database connections
+2022-11-15,17:09:42.270:INFO: Nacking outstanding messages

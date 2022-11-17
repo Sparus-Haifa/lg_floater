@@ -24,8 +24,8 @@ bool MS = LOW;
 //-=-=-=-=-=-=-=-=-=-=-=-=-= GENERAL
 unsigned long PreviousMillisIn = 0, PreviousMillisOut = 0;
 #define HBwait  15000      // Wait time (in milliseconds)
-#define MotorTimeHigh  5000   // Duration of DW motor actuation    origin: 30,000
-#define MotorTimeLow   5000   // Motor speed is lower in this direction    origin: 32,000
+#define MotorTimeHigh  15000   // Duration of DW motor actuation    origin: 30,000
+#define MotorTimeLow   15000   // Motor speed is lower in this direction    origin: 32,000
 
 bool rpiIsAlive = false;
 int graceTime = 5000;

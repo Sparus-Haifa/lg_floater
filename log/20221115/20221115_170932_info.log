@@ -1,0 +1,69 @@
+2022-11-15,17:09:32.523:INFO: init log at log/20221115
+2022-11-15,17:09:32.597:INFO: safety controller init
+2022-11-15,17:09:32.650:INFO: init driver
+2022-11-15,17:09:32.652:INFO: Pressure controller was initialized successfully
+2022-11-15,17:09:32.659:INFO: BP1 pressure sensor was initialized successfully
+2022-11-15,17:09:32.666:INFO: BP2 pressure sensor was initialized successfully
+2022-11-15,17:09:32.671:INFO: TP1 pressure sensor was initialized successfully
+2022-11-15,17:09:32.677:INFO: TP2 pressure sensor was initialized successfully
+2022-11-15,17:09:32.682:INFO: HP pressure sensor was initialized successfully
+2022-11-15,17:09:32.688:INFO: AP pressure sensor was initialized successfully
+2022-11-15,17:09:32.689:INFO: Temperature controller was initialized successfully
+2022-11-15,17:09:32.695:INFO: BT1 temperature sensor was initialized successfully
+2022-11-15,17:09:32.701:INFO: BT2 temperature sensor was initialized successfully
+2022-11-15,17:09:32.707:INFO: TT1 temperature sensor was initialized successfully
+2022-11-15,17:09:32.713:INFO: TT2 temperature sensor was initialized successfully
+2022-11-15,17:09:32.719:INFO: AT temperature sensor was initialized successfully
+2022-11-15,17:09:32.720:INFO: IMU controller was initialized successfully
+2022-11-15,17:09:32.727:INFO: X IMU sensor was initialized successfully
+2022-11-15,17:09:32.733:INFO: Y IMU sensor was initialized successfully
+2022-11-15,17:09:32.739:INFO: Z IMU sensor was initialized successfully
+2022-11-15,17:09:32.745:INFO: Bladder volume controller was initialized successfully
+2022-11-15,17:09:32.751:INFO: Altimeter controller was initialized successfully
+2022-11-15,17:09:32.757:INFO: rpm controller was initialized successfully
+2022-11-15,17:09:32.758:INFO: Pump flag controller was initialized successfully
+2022-11-15,17:09:32.766:INFO: Bladder flag controller was initialized successfully
+2022-11-15,17:09:32.773:INFO: Hull leak flag controller was initialized successfully
+2022-11-15,17:09:32.776:INFO: Engine leak flag controller was initialized successfully
+2022-11-15,17:09:32.779:INFO: Full surface initiated flag controller was initialized successfully
+2022-11-15,17:09:32.783:INFO: Iridium flag controller was initialized successfully
+2022-11-15,17:09:32.790:INFO: direction flag controller was initialized successfully
+2022-11-15,17:09:32.809:INFO: Payload flag controller was initialized successfully
+2022-11-15,17:09:32.981:INFO: init consume mega
+2022-11-15,17:09:32.986:INFO: init consume nano
+2022-11-15,17:09:32.988:INFO: init consume payload
+2022-11-15,17:09:33.002:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:33.006:CRITICAL: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD PC HL      EL BF      SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety               Payload TestMode 
+2022-11-15,17:09:33.009:CRITICAL: Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (1/5) 0  0  initial 0  initial None initial 318.82 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping_weightFixed None    on       
+2022-11-15,17:09:33.022:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:33.026:CRITICAL: BT1             BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety               Payload TestMode 
+2022-11-15,17:09:33.029:CRITICAL: Buffering (2/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) Buffering (1/5) Buffering (1/5) Buffering (1/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (0/5) Buffering (2/5) 2.41 25.00 initial 0  nonempty None initial 318.82 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping_weightFixed None    on       
+2022-11-15,17:09:34.082:INFO: 222
+2022-11-15,17:09:34.083:INFO: safety went to sleep (sleep initiated)
+2022-11-15,17:09:37.328:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:37.331:CRITICAL: BT1   BT2             TT1             TT2             AT              X               Y               Z               BP1             BP2             TP1             TP2             HP              AP              PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:37.334:CRITICAL: 24.58 Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (2/5) Buffering (4/5) 2.41 25.00 initial 0  nonempty None initial 318.19 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:37.873:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:37.876:CRITICAL: BT1   BT2             TT1             TT2             AT    X               Y               Z               BP1             BP2             TP1             TP2             HP              AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:37.879:CRITICAL: 24.58 Buffering (3/5) Buffering (3/5) Buffering (3/5) 23.26 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) Buffering (3/5) 1202.38 2.47 27.00 initial 0  nonempty None initial 318.08 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:38.425:ERROR: error /0. no valid pressure sensors data available
+2022-11-15,17:09:38.429:CRITICAL: BT1   BT2             TT1             TT2             AT    X    Y    Z    BP1             BP2             TP1             TP2             HP              AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:38.432:CRITICAL: 24.58 Buffering (4/5) Buffering (4/5) Buffering (4/5) 23.26 0.00 0.01 0.00 Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) Buffering (4/5) 1202.40 2.85 30.00 initial 0  nonempty None initial 318.67 Buffering (0/1) None     None  None  None  initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:38.980:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:38.983:CRITICAL: 24.58 24.12 25.00 25.06 23.26 0.00 0.01 0.00 9.45 10.17 10.14 10.25 1139.04 1202.48 3.11 21.00 initial 0  nonempty None initial 318.40 Buffering (0/1) None     None  None  10.00 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:39.542:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:39.545:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.45 10.17 10.14 10.25 1139.00 1200.56 3.81 0.00 initial 0  nonempty None initial 318.29 Buffering (0/1) None     None  None  10.00 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:40.107:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:40.110:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1138.96 1200.38 4.53 0.00 initial 0  nonempty None initial 319.10 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:40.620:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:40.624:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.26 1139.06 1200.28 4.60 0.00 initial 0  nonempty None initial 318.61 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:41.161:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC   HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:41.165:CRITICAL: 24.66 24.13 25.23 25.30 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1139.06 1200.34 0.00 0.00 initial 0  nonempty None initial 318.36 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:41.702:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:41.706:CRITICAL: 24.66 24.13 25.23 25.31 23.41 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1138.96 1200.34 1.85 50.00 initial 0  nonempty None initial 318.40 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:42.242:CRITICAL: BT1   BT2   TT1   TT2   AT    X    Y    Z    BP1  BP2   TP1   TP2   HP      AP      PD   PC    HL      EL BF       SF   PF      BV     rpm             Setpoint Error Depth avg_p direction Voltage         State   Safety   Payload TestMode 
+2022-11-15,17:09:42.245:CRITICAL: 24.66 24.14 25.24 25.31 23.40 0.00 0.01 0.00 9.46 10.17 10.14 10.25 1139.08 1200.28 2.15 21.00 initial 0  nonempty None initial 318.57 Buffering (0/1) None     None  None  10.01 initial   Buffering (0/1) initial sleeping None    on       
+2022-11-15,17:09:42.267:INFO: graceful shutdown
+2022-11-15,17:09:42.268:INFO: disabling safety. please wait...
+2022-11-15,17:09:42.269:INFO: Closing database connections
+2022-11-15,17:09:42.270:INFO: Nacking outstanding messages
