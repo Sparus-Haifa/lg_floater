@@ -1,4 +1,5 @@
 import asyncio
+from re import A
 # from transitions.core import Transition
 from transitions import State
 import transitions
@@ -22,6 +23,8 @@ import serial_asyncio
 import json
 
 import os
+
+from enum import Enum, auto
 
 # import cfg
 import cfg.configuration as cfg
@@ -218,7 +221,18 @@ class Safety:
 
 
 
-
+# enum of different emergency states
+class Emergency(Enum):
+    NONE = auto()
+    HULL_LEAK = auto()
+    ENGINE_LEAK = auto()
+    PUMP_FAILURE = auto()
+    SAFETY_NOT_RESPONDING = auto()
+    ALTIMETER_YELLOW_LINE = auto()
+    ALTIMETER_RED_LINE = auto()
+    LOW_BATTERY = auto()
+    SOFTWARE_ERROR = auto()
+    SENSOR_ERROR = auto()
 
 class Driver:
     def __init__(self, queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety) -> None:
@@ -275,6 +289,11 @@ class Driver:
 
         self.test_mode = AsyncMachine(states=['off', 'on'], initial='on')
 
+
+
+        self.emergencies = []
+        self.emergency_task = None # await asyncio.create_task(self.emergency())
+
         pid_states =[
             {'name': "idle"},
             {'name': "calculating", 'on_enter': 'calculate_pid'},
@@ -305,7 +324,7 @@ class Driver:
                 {'name': 'surface', 'on_enter': 'surface'}
                 ]
             },  # , 'timeout': 15, 'on_timeout': 'timeout_cb'
-            {'name': 'emergency', 'on_enter': 'emergency', 'children': [
+            {'name': 'emergency', 'children': [
                 {'name': 'hullLeak'},
                 {'name': 'engineLeak'},
                 {'name': 'pumpFailure'},
@@ -326,8 +345,8 @@ class Driver:
 
         # self.machine = HierarchicalAsyncMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
         self.machine = TimeoutMachine(self, states=self.states, transitions=self.transitions, ignore_invalid_triggers=True) # , initial='wait_for_sensor_buffer')
-        self.machine.add_transition('hull_leak_emergency', '*', 'emergency', unless=['is_wait_for_pickup', 'is_emergency'])
-        self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
+        # self.machine.add_transition('hull_leak_emergency', '*', 'emergency', unless=['is_wait_for_pickup', 'is_emergency'])
+        # self.machine.add_transition('sensors_buffers_are_full', 'wait_for_sensor_buffer', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
         # self.machine.add_transition('hold', 'executingTask_enRoute_', 'calibrate_depth_sensors', conditions=['sensors_are_ready'])
 
         # self.machine.add_transition('calibrate_sensors', ['calibrate_depth_sensors'], 'wait_for_water', conditions=['sensors_are_calibrated'], before=['sensors_are_calibrated'])
@@ -375,14 +394,12 @@ class Driver:
                 print('stopping')
                 self.log.info("stop") 
                 await asyncio.create_task(self.test_mode.to_on())
-                for task in self.running_tasks:
-                    print(task, task.get_name())
-                    task.cancel()
-                # if pump is on, wait for it to finish
-                if self.sensors.pumpFlag.state == 'on':
-                    async with self.condition:
-                        await self.condition.wait_for(lambda: self.sensors.pumpFlag.is_off())
-                self.log.info("pump is off")
+                # stop all tasks
+                await asyncio.create_task(self.stop_tasks())
+                # restart emergency task
+                self.emergency_task.cancel()
+                self.emergency_task = asyncio.create_task(self.emergency())
+                # change state to stopped
                 asyncio.create_task(self.to_stopped())
             
             elif header == 'mission': 
@@ -403,10 +420,11 @@ class Driver:
                 asyncio.create_task(self.to_sleepingSafety())
 
             elif header == 'emergency':
-                self.log.critical("emergency") 
+                self.log.warning("CLI:emergency") 
                 # self.test_mode = True
                 # await asyncio.create_task(self.test_mode.to_on())
-                asyncio.create_task(self.to_emergency())
+                self.emergencies.append(Emergency.NONE)
+                # asyncio.create_task(self.to_emergency())
                 # await asyncio.create_task(self.safety.drop_weight())
                 # self.safety.drop_weight()
 
@@ -429,7 +447,7 @@ class Driver:
             # log_csv.critical("a,a,a,a,a")
             lines = msg.splitlines()
             for line in lines:
-                asyncio.create_task(self.handle_message(line))
+                asyncio.create_task(self.handle_message(line)) # TODO: add await?
             # print(self.state)
             # await asyncio.sleep(0.1)
 
@@ -510,6 +528,10 @@ class Driver:
             elif value == 4: 
                 # acknowledges weight was dropped due to over time
                 self.log.warning('weight was dropped due to over time!')
+                # check if safety not responding is already detected
+                if Emergency.SAFETY_NOT_RESPONDING in self.emergencies:
+                    return
+                self.emergencies.append(Emergency.SAFETY_NOT_RESPONDING)
                 await self.to_emergency()
             elif value == 5:
                 self.log.warning("safety received go to sleep command")
@@ -602,7 +624,9 @@ class Driver:
         if header == 'HL':
             await self.sensors.leak_h_flag.add_sample(value)
             asyncio.create_task(self.handle_HL())
-        if header == 'EL':  await self.sensors.leak_e_flag.add_sample(value)
+        if header == 'EL':
+            await self.sensors.leak_e_flag.add_sample(value)
+            asyncio.create_task(self.handle_EL())
         if header == 'BF':  await self.sensors.bladder_flag.add_sample(value)
         if header == 'PD':  
             await self.sensors.altimeter.add_sample(value)
@@ -651,12 +675,28 @@ class Driver:
         if fs_flag== 2: print('init full surface')
 
     async def handle_HL(self):
-        # await self.to_PID()
-        # print('handling hl')
         value = self.sensors.leak_h_flag.getLast()
         if value == 1:
-            print('HL!')
-            await self.hull_leak_emergency()
+            # print('HL!')
+            # check if hull leak is already detected
+            if Emergency.HULL_LEAK in self.emergencies: return
+            self.log.critical('hull leak detected')
+            # add emergency
+            self.emergencies.append(Emergency.HULL_LEAK)
+            # change state to emergency
+            asyncio.create_task(self.to_emergency())
+
+    async def handle_EL(self):
+        value = self.sensors.leak_e_flag.getLast()
+        if value == 1:
+            # print('EL!')
+            # check if engine leak is already detected
+            if Emergency.ENGINE_LEAK in self.emergencies: return
+            self.log.critical('engine leak detected')
+            # add emergency
+            self.emergencies.append(Emergency.ENGINE_LEAK)
+            # change state to emergency
+            asyncio.create_task(self.to_emergency())
 
     async def handle_PD(self):
         # TODO: decide which comes first from arduino
@@ -899,8 +939,12 @@ class Driver:
         # match next_depth:
         if next_depth == 'E': 
             self.log.info('emegency test - next depth')
-            task = asyncio.create_task(self.to_emergency())
-            self.running_tasks.append(task)
+            # add emergency test to emergencies list
+            self.emergencies.append(Emergency.NONE)
+            # change state to emergency
+            asyncio.create_task(self.to_emergency())
+        
+        # check if next_depth is a number
         if isinstance(next_depth, int) or isinstance(next_depth, float):
             self.log.info(f"got depth {next_depth}")
             self.target_depth = next_depth
@@ -1181,36 +1225,73 @@ class Driver:
             task = asyncio.create_task(self.to_executingTask_enRoute_calculating())
             self.running_tasks.append(task)
 
-    async def emergency(self):
-        self.log.critical('emergency')
-        self.log.critical('sending surface command')
-
-        # stop all tasks
+    # stop all tasks
+    async def stop_tasks(self):
         for task in self.running_tasks:
             task.cancel()
 
         # if pump is on, wait for it to turn off
         if self.sensors.pumpFlag.state == 'on':
+            self.log.info("waiting for pump to turn off")
             async with self.condition:
                 await self.condition.wait_for(lambda: self.sensors.pumpFlag.is_off())
+                self.log.info("pump turned off")
 
-    
+        self.running_tasks = []
 
-        # self.safety.
+    async def emergency(self):
+        # continuesly check if there is an emergency
+        self.log.info("emergency handler started")
+        while not self.emergencies:
+            await asyncio.sleep(1)
 
-        self.send_mega_message("S:2\n")
-        
-        # TODO: drop weight
+        self.log.warning('emergency detected!')
 
-        # TODO: sense air
+        # change state to emergency
+        await asyncio.create_task(self.to_emergency())
+
+        # stop all tasks
+        self.log.info("stopping all tasks")
+        await self.stop_tasks()
+
+        # check if pump didn't fail
+        if not self.sensors.pumpFlag.state == 'failure':
+            self.log.info('sending surface command')
+            self.send_mega_message("S:2\n")
+
+        critical_emergencies =  [Emergency.ALTIMETER_RED_LINE, Emergency.ENGINE_LEAK, Emergency.PUMP_FAILURE, Emergency.HULL_LEAK]
+
+        # check if we should drop the weight
+        # if [Emergency.ALTIMETER_RED_LINE, Emergency.ENGINE_LEAK, Emergency.PUMP_FAILURE, Emergency.HULL_LEAK] in self.emergencies:
+        if any(emergency in critical_emergencies for emergency in self.emergencies):
+            # drop the weight
+            self.log.critical('sending drop weight command')
+                    
+
+        # check if we've reached the surface every 5 seconds with a timeout of 30 seconds
+        self.log.info("waiting for surface")
         async with self.condition:
-            await self.condition.wait_for(lambda: self.sensors.pressureController.senseAir())
+            await self.condition.wait_for(lambda: self.sensors.pressureController.senseAir())# TODO: add timeout, if depth isn't changing for 5 seconds, then we are on the surface or stuck
+            
+            self.log.info("surface reached")
 
         self.log.info("we've reached the surface!")
 
-        asyncio.create_task(self.to_pickup())
+        # start the pickup task without changing the state
+        task = asyncio.create_task(self.wait_for_pickup())
+        self.running_tasks.append(task)
 
-        # TODO: to_pickup
+        # periodically check if we should drop the weight
+        while True:
+            # print(self.emergencies)
+            # if [Emergency.ALTIMETER_RED_LINE, Emergency.ENGINE_LEAK, Emergency.PUMP_FAILURE, Emergency.HULL_LEAK] in self.emergencies:
+            if any(emergency in critical_emergencies for emergency in self.emergencies):
+                # drop the weight
+                self.log.critical('sending drop weight command')
+                # self.send_mega_message("S:3\n")
+                return
+            await asyncio.sleep(1)
+
 
     async def sense_air(self):
         return self.sensors.pressureController.senseAir()
@@ -1224,15 +1305,18 @@ class Driver:
 
     async def wait_for_pickup(self):
         self.log.info("Sending command to iridium")
-
-        await self.sensors.iridium_flag.to_requesting()
-        self.send_mega_message("I:1\n")
-        async with self.condition:
-            await self.condition.wait_for(lambda: self.sensors.iridium_flag.is_idle())
-        print('trasmition is over')
-        await asyncio.sleep(20)
-        task = asyncio.create_task(self.wait_for_pickup())
-        self.running_tasks.append(task)
+        while True:
+            self.log.info("waiting for iridium to be ready")
+            await self.sensors.iridium_flag.to_requesting()
+            self.log.info("iridium is ready")
+            self.log.info("sending iridium message")
+            self.send_mega_message("I:1\n")
+            async with self.condition:
+                await self.condition.wait_for(lambda: self.sensors.iridium_flag.is_idle())
+            self.log.info("iridium message sent")
+            await asyncio.sleep(60)
+            # task = asyncio.create_task(self.wait_for_pickup())
+            # self.running_tasks.append(task)
 
 
     async def surface(self):
@@ -1494,6 +1578,11 @@ def main():
 
     consume_payload_corutine = loop.create_task(driver.consume_payload())
     corutines.append(consume_payload_corutine)
+
+    # start emergency task
+    emergency_corutine = loop.create_task(driver.emergency())
+    driver.emergency_task = emergency_corutine
+    corutines.append(emergency_corutine)
 
 
 
