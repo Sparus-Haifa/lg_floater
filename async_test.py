@@ -278,7 +278,6 @@ class Driver:
 
         self.done_holding_target = True
 
-        self.running_tasks = []
 
         # self.condition = asyncio.Condition()    # for notify
         self.condition = condition
@@ -290,17 +289,19 @@ class Driver:
         self.test_mode = AsyncMachine(states=['off', 'on'], initial='on')
 
 
+        self.running_tasks = []
 
         self.emergencies = []
         self.emergency_task = None # await asyncio.create_task(self.emergency())
 
         pid_states =[
             {'name': "idle"},
-            {'name': "calculating", 'on_enter': 'calculate_pid'},
-            {'name': "starting", 'on_enter': 'ignite','timeout': 60, 'on_timeout': 'calculate_pid'},
-            {'name': "timeOn", 'on_enter': 'timeOn'},
-            {'name': "timeOff", 'on_enter': 'timeOff'}
+            {'name': "calculating", 'on_enter': 'launch_calculate_pid'},
+            {'name': "starting", 'on_enter': 'launch_ignite','timeout': 60, 'on_timeout': 'calculate_pid'},
+            {'name': "timeOn", 'on_enter': 'launch_timeOn'},
+            {'name': "timeOff", 'on_enter': 'launch_timeOff'}
         ]
+
 
 
         # self.states = ['PID', 'wait_for_pickup', 'emergency']
@@ -360,6 +361,11 @@ class Driver:
 
         # self.planner = MissionPlanner()
 
+    async def create_task(self, coro):
+        task = asyncio.create_task(coro)
+        self.running_tasks.append(task)
+        return task
+
 
     async def consume_cli(self):
         while True:
@@ -389,7 +395,9 @@ class Driver:
             elif header == 'restart': 
                 self.log.info('restarting')
                 await asyncio.create_task(self.test_mode.to_off())
-                asyncio.create_task(self.to_buffering())
+                task = asyncio.create_task(self.to_buffering())
+                task.set_name('buffering')
+                self.running_tasks.append(task)
             elif header == 'stop':
                 print('stopping')
                 self.log.info("stop") 
@@ -711,21 +719,28 @@ class Driver:
         confidance = self.sensors.altimeter.getConfidance()
         if self.depth is None or self.is_stopped():
             return
-        if False and confidance > 50:
+        if confidance > 50:
             if 10 < value and value <= 20:
                 # while True:
-                self.log.warning("Yellow line! Ending mission!")
                 # Alert
                 # self.surface()
                 # self.current_state = State.END_TASK
-                if self.state != "emergency":
-                    await self.to_emergency()
+                # if self.state != "emergency":
+                #     await self.to_emergency()
+                if Emergency.ALTIMETER_YELLOW_LINE in self.emergencies: return
+                self.log.critical("Yellow line! Ending mission!")
+                self.emergencies.append(Emergency.ALTIMETER_YELLOW_LINE)
+                asyncio.create_task(self.to_emergency())
+
             elif value <= 10:
+                if Emergency.ALTIMETER_RED_LINE in self.emergencies: return
                 self.log.critical("Red line! Aborting mission!")
+                self.emergencies.append(Emergency.ALTIMETER_RED_LINE)
+                asyncio.create_task(self.to_emergency())
                 # self.drop_weight()
                 # self.current_state = State.EMERGENCY  # TODO: fix
-                if self.state != "emergency":
-                    await self.to_emergency()
+                # if self.state != "emergency":
+                #     await self.to_emergency()
 
     def fancy_log(self, res, csv):
         headers = []
@@ -845,6 +860,7 @@ class Driver:
             print('sensors are ready!')
             if self.test_mode.is_off():
                 task = asyncio.create_task(self.to_calibrating())
+                task.set_name('to_calibrating')
                 self.running_tasks.append(task)
                 return
             if self.test_mode.is_on():
@@ -1101,6 +1117,31 @@ class Driver:
             await self.condition.wait_for(lambda: isinstance(self.sensors.pressureController.get_depth(), float))
             print('condition is met!')
 
+
+    async def launch_calculate_pid(self):
+        self.log.info('launching calculate_pid')
+        task = asyncio.create_task(self.calculate_pid())
+        self.running_tasks.append(task)
+
+
+    async def launch_ignite(self):
+        self.log.info('launching ignite')
+        task = asyncio.create_task(self.ignite())
+        self.running_tasks.append(task)
+
+        
+    async def launch_timeOn(self):
+        self.log.info('launching timeOn')
+        task = asyncio.create_task(self.timeOn())
+        self.running_tasks.append(task)
+
+
+    async def launch_timeOff(self):
+        self.log.info('launching timeOff')
+        task = asyncio.create_task(self.timeOff())
+        self.running_tasks.append(task)
+        
+
     async def calculate_pid(self):
         self.log.debug("calculating PID")
         if self.done_holding_target == True:
@@ -1227,8 +1268,23 @@ class Driver:
 
     # stop all tasks
     async def stop_tasks(self):
+        self.log.info("stopping all tasks")
+        # print(self.running_tasks)
         for task in self.running_tasks:
+            print(task)
+            print(f"{task.get_coro().__qualname__} , Finished: {task.done()}")
+            # if task.get_coro().__qualname__ == 'HierarchicalAsyncMachine.trigger_event':
+            if task.done():
+                continue
             task.cancel()
+            try:
+                await task
+            except asyncio.CancelledError:
+                print(f"task {task.get_name()} is cancelled now")
+        
+        # print(self.running_tasks)
+        self.running_tasks = []
+        
 
         # if pump is on, wait for it to turn off
         if self.sensors.pumpFlag.state == 'on':
@@ -1237,7 +1293,7 @@ class Driver:
                 await self.condition.wait_for(lambda: self.sensors.pumpFlag.is_off())
                 self.log.info("pump turned off")
 
-        self.running_tasks = []
+        # self.running_tasks = []
 
     async def emergency(self):
         # continuesly check if there is an emergency
@@ -1245,19 +1301,21 @@ class Driver:
         while not self.emergencies:
             await asyncio.sleep(1)
 
-        self.log.warning('emergency detected!')
-
+        self.log.critical('emergency detected!')
         # change state to emergency
+
         await asyncio.create_task(self.to_emergency())
 
         # stop all tasks
-        self.log.info("stopping all tasks")
-        await self.stop_tasks()
+        self.log.info("stopping all tasks from emergency handler")
+        # await self.stop_tasks()
+        await asyncio.create_task(self.stop_tasks())
 
-        # check if pump didn't fail
-        if not self.sensors.pumpFlag.state == 'failure':
-            self.log.info('sending surface command')
-            self.send_mega_message("S:2\n")
+
+        await asyncio.create_task(self.to_emergency())
+
+
+
 
         critical_emergencies =  [Emergency.ALTIMETER_RED_LINE, Emergency.ENGINE_LEAK, Emergency.PUMP_FAILURE, Emergency.HULL_LEAK]
 
@@ -1266,6 +1324,13 @@ class Driver:
         if any(emergency in critical_emergencies for emergency in self.emergencies):
             # drop the weight
             self.log.critical('sending drop weight command')
+
+
+        # check if pump didn't fail
+        if not self.sensors.pumpFlag.state == 'failure':
+            self.log.info('sending surface command')
+            self.send_mega_message("S:2\n")
+        
                     
 
         # check if we've reached the surface every 5 seconds with a timeout of 30 seconds
