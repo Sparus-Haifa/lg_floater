@@ -11,13 +11,18 @@ from pygame.event import pump
 
 class Comm():
     def __init__(self) -> None:
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.client_socket.settimeout(1.0)
-        self.client_socket.setblocking(False)
+        self.incoming_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.outgoing_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # self.outgoing_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.incoming_socket.settimeout(0.01)
+        self.incoming_socket.setblocking(False)
         # self.addr = ("127.0.0.1", 12000)
-        self.addr = (cfg.app["host_ip"], cfg.app["simulation_udp_port"])
-        # self.client_socket.bind(self.addr)
+        # self.addr = (cfg.app["host_ip"], cfg.app["simulation_udp_port"])
+        self.outgoing_address = (cfg.app["host_ip"], cfg.app["simulation_udp_port"])
+        my_ip = socket.gethostbyname(socket.gethostname())
+        print("my_ip: ", my_ip)
+        self.my_address = (my_ip, cfg.app["simulation_udp_port"])
+        self.incoming_socket.bind(('192.168.1.124', 12000))
         # self.client_socket.connect(self.addr)
         self.pid = 0
         self.lastPID = 0
@@ -53,7 +58,7 @@ class Comm():
     def sendMessage(self, message = b'test'):
         # message
         # try: 
-        self.client_socket.sendto(message, self.addr)
+        self.outgoing_socket.sendto(message, self.outgoing_address)
         # except Exception as e:
         #     pass
         #     # print(e)
@@ -63,79 +68,81 @@ class Comm():
 
 
     def recieveMessage(self):
-        while True:
-            try:
-                message, address = self.client_socket.recvfrom(1024)
-            except Exception as e:
-                '''no data yet..'''
-                # print(e)
-                break
-                pass
-                # print(e)
-                # print('''no data yet..''')
-            else:
-                # message = message.upper()
-                print(message)
-                s = message.decode('utf-8','ignore')
-                header, value = s.strip().split(":")
-                # value = float(value)
-                # print("header",header)
-                # print("value",value)
-                if header=="V":
-                    self.voltage = float(value)
-                elif header=="D":
-                    self.direction = int(value)
-                elif header=="T":
-                    self.timeOn = float(value)
-                    self.pumpOnTimeStamp = time.time()
-                    self.freshPID = True
-                    print("timeOn (PID) command recieved")
+        # while True:
+        try:
+            message, address = self.incoming_socket.recvfrom(1024)
+            print(message)
+        except Exception as e:
+            '''no data yet..'''
+            # print(e)
+            # break
+            return
+            pass
+            # print(e)
+            # print('''no data yet..''')
+        else:
+            # message = message.upper()
+            print(message)
+            s = message.decode('utf-8','ignore')
+            header, value = s.strip().split(":")
+            # value = float(value)
+            # print("header",header)
+            # print("value",value)
+            if header=="V":
+                self.voltage = float(value)
+            elif header=="D":
+                self.direction = int(value)
+            elif header=="T":
+                self.timeOn = float(value)
+                self.pumpOnTimeStamp = time.time()
+                self.freshPID = True
+                print("timeOn (PID) command recieved")
 
-                elif header=="S":
-                    print('full surface')
-                    self.fresh_full_surface = True
-                    self.sendMessage(bytes(f"FS:{value}",'utf-8'))
-                    if int(value) == 1:
-                        self.direction = 1
-                    else:
-                        self.direction = 2
-
-                elif header=="I":
-                    message = "I:1.00"
-                    self.sendMessage(bytes(f"{message}",'utf-8'))
-                    self.iridium = time.time()
-                    print("starting iridium")
-                    
-
-
-                # for debug only
-                elif header=="PID":
-                    self.lastPID = float(value)
-                    self.pid = float(value)
-                elif header=="d":
-                    self.d = float(value)
-                elif header=="p":
-                    self.p = float(value)
-                elif header=="kd":
-                    self.kd = float(value)
-                elif header=="kp":
-                    self.kp = float(value)
-                elif header=="target":
-                    self.targetDepth = float(value)
-                elif header=="error":
-                    self.error = float(value)
-                elif header=="phase":
-                    self.phase = int(value)
-                elif header=="O":
-                    self.timeOff = float(value)
-                elif header=="State":
-                    self.current_state = State[value.split(".")[1]]
-                elif header=="weight":
-                    self.weight_dropped = True
-                elif header=='dc':
-                    self.dc = float(value)
+            elif header=="S":
+                print('full surface')
+                self.fresh_full_surface = True
+                self.sendMessage(bytes(f"FS:{value}",'utf-8'))
+                if int(value) == 1:
+                    self.direction = 1
                 else:
-                    print("Unknown header:", header)
+                    self.direction = 2
+
+            elif header=="I":
+                message = "I:1.00"
+                self.sendMessage(bytes(f"{message}",'utf-8'))
+                self.iridium = time.time()
+                print("starting iridium")
+                
+
+
+            # for debug only
+            elif header=="PID":
+                self.lastPID = float(value)
+                self.pid = float(value)
+            elif header=="d":
+                self.d = float(value)
+            elif header=="p":
+                self.p = float(value)
+            elif header=="kd":
+                self.kd = float(value)
+            elif header=="kp":
+                self.kp = float(value)
+            elif header=="target":
+                self.targetDepth = float(value)
+            elif header=="error":
+                self.error = float(value)
+            elif header=="phase":
+                self.phase = int(value)
+            elif header=="O":
+                self.timeOff = float(value)
+            elif header=="State":
+                self.current_state = State[value.split(".")[1]]
+            elif header=="weight":
+                self.weight_dropped = True
+            elif header=='dc':
+                self.dc = float(value)
+            else:
+                print("Unknown header:", header)
 
 
 
@@ -165,7 +172,7 @@ class YuriSim():
             "X":0.01,
             "Y":-0.00,
             "Z":0.00,
-            "BP1":1051.60,
+            "BP1":1051.60 + 68,
             "BP2":1055.30,
             "TP1":1002.40,
             "TP2":1004.00,
@@ -432,7 +439,8 @@ class YuriSim():
                             
                             self.offTimer = elapsed - self.comm.timeOn
                 else:
-                    print("idle - waiting for PID command")
+                    pass
+                    # print("idle - waiting for PID command")
 
             
             # elif self.comm.current_state == State.END_TASK:
@@ -873,4 +881,5 @@ if __name__=="__main__":
         sim.startSim()
     except KeyboardInterrupt:
         print('closing socket')
-        comm.client_socket.close()
+        # comm.client_socket.close()
+        comm.incoming_socket.close()
