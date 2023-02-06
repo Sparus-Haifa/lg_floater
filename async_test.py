@@ -407,12 +407,16 @@ class Driver:
                 # restart emergency task
                 self.log.info("stopping emergency task")
                 if self.emergency_task is not None:
-                    await self.emergency_task.cancel()
+                    self.emergency_task.cancel()
                     self.log.info("awaiting emegency cancel")
+                    # try:
+                    #     await self.emergency_task
+                    # except asyncio.CancelledError:
                     try:
                         await self.emergency_task
                     except asyncio.CancelledError:
-                        print(f"task {emergency} is cancelled now")
+                        pass
+                        print(f"task emergency is cancelled now")
                     self.log.info("emergency task stopped")
                 self.emergency_task = asyncio.create_task(self.emergency())
                 # change state to stopped
@@ -1307,9 +1311,20 @@ class Driver:
     async def emergency(self):
         # continuesly check if there is an emergency
         self.log.info("emergency handler started")
+        task = asyncio.current_task()
         while not self.emergencies:
             self.log.info("emergency online")
-            await asyncio.sleep(1)
+            if task.cancelled():
+                print("Task was cancelled")
+                return
+            try:
+                await asyncio.sleep(1)
+            except asyncio.CancelledError:
+                print("Task was cancelled")
+                return
+
+
+
 
         self.log.critical('emergency detected!')
         # change state to emergency
@@ -1508,15 +1523,15 @@ def main():
 
     loop.set_exception_handler(log_exceptions)
     
-    queue_mega = asyncio.Queue(loop=loop)
-    queue_nano = asyncio.Queue(loop=loop)
-    queue_cli = asyncio.Queue(loop=loop)
-    queue_payload = asyncio.Queue(loop=loop)
+    # queue_mega = asyncio.Queue(loop=loop)
+    # queue_nano = asyncio.Queue(loop=loop)
+    # queue_cli = asyncio.Queue(loop=loop)
+    # queue_payload = asyncio.Queue(loop=loop)
 
-    # queue_mega = asyncio.Queue()
-    # queue_nano = asyncio.Queue()
-    # queue_cli = asyncio.Queue()
-    # queue_payload = asyncio.Queue()
+    queue_mega = asyncio.Queue()
+    queue_nano = asyncio.Queue()
+    queue_cli = asyncio.Queue()
+    queue_payload = asyncio.Queue()
 
     corutines = []
 
@@ -1598,11 +1613,11 @@ def main():
         transport_payload = None
 
 
-    condition = asyncio.Condition(loop=loop)    # for notify
-    condition_safety = asyncio.Condition(loop=loop)    # for notify
+    # condition = asyncio.Condition(loop=loop)    # for notify
+    # condition_safety = asyncio.Condition(loop=loop)    # for notify
 
-    # condition = asyncio.Condition()    # for notify
-    # condition_safety = asyncio.Condition()    # for notify
+    condition = asyncio.Condition()    # for notify
+    condition_safety = asyncio.Condition()    # for notify
 
 
     driver = Driver(queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety)
@@ -1657,9 +1672,11 @@ def main():
     corutines.append(consume_payload_corutine)
 
     # start emergency task
-    # emergency_corutine = loop.create_task(driver.emergency())
-    # driver.emergency_task = emergency_corutine
-    # corutines.append(emergency_corutine)
+    emergency_corutine = loop.create_task(driver.emergency())
+    # emergency_corutine = asyncio.create_task(driver.emergency())
+
+    driver.emergency_task = emergency_corutine
+    corutines.append(emergency_corutine)
 
 
 
