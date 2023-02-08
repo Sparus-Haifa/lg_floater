@@ -30,10 +30,11 @@ class MissionState(Enum):
 
 
 app = {
-    "simulation" : False,  # app sends debug data to sim, udp - not serial
-    "simulation_udp_port" : 12000,
-    # "host_ip" : "127.0.0.1",
-    "host_ip" : "192.168.1.75",
+    "simulation" : True,  # app sends debug data to sim, udp - not serial
+    "simulation_udp_out_port" : 12000,
+    "simulation_udp_in_port" : 12001,
+    "host_ip" : "127.0.0.1",
+    # "host_ip" : "192.168.1.75",
 
     "disable_safety" : True,
     "test_mode" : True,
@@ -106,7 +107,7 @@ task_emergency = {
 }
 
 task = {
-    "mission" : [0.4, 0, 0.5, 0], # mission1
+    "mission" : [10.0, 0, 10.0, 0], # mission1
     # "type": 1, # 1- pressure, 2-density, 3-profiling
     # "duration": 300, # seconds
     # "setpoint": 300, # will be used for types 1 & 2
@@ -151,5 +152,5 @@ safety = {
 }
 
 simulation = {
-    "seafloor_depth" : 45  # meters. should be set to 250 decibar
+    "seafloor_depth" : 15  # meters. should be set to 250 decibar
 }

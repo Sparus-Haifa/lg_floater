@@ -102,8 +102,8 @@ class DatagramDriver(asyncio.DatagramProtocol):
 
     def datagram_received(self, data, addr) -> None:  # "Main entrypoint for processing message"
         if not self.driver.client_address:
-            self.driver.client_address = addr[0]
-            self.driver.client_port = addr[1]
+            self.driver.client_address = "192.168.1.48" # addr[0]
+            self.driver.client_port = cfg.app['simulation_udp_in_port'] # addr[1]
         # Here is where you would push message to whatever methods/classes you want.
         self.queue.put_nowait(data.decode())
         # asyncio.create_task(self.queue.put(data.decode()))
@@ -592,7 +592,7 @@ class Driver:
 
 
     def send_mega_message(self, message) -> None:
-        self.log.debug(f">MEGA:{message}")
+        self.log.debug(f">MEGA({self.client_address}:{self.client_port}):{message}")
         if not self.simulation:
             self.transport_mega.write(message.encode('utf-8'))
         else:
@@ -1030,6 +1030,7 @@ class Driver:
         async with self.condition:
             await self.condition.wait_for(lambda: self.sensors.full_surface_flag.getLast() == 1)
             self.log.debug("recieved a descend flag - 1")
+            self.log.debug("self.sensors.full_surface_flag.getLast() == " + str(self.sensors.full_surface_flag.getLast()))
 
             await self.sensors.direction_flag.add_sample(1)
             await self.sensors.voltage_sensor.add_sample(100)
@@ -1646,7 +1647,7 @@ def main():
     # t = loop.create_datagram_endpoint(udp_driver, local_addr=('0.0.0.0', 12000), )
 
     # Simulation - Listen to UDP/IP
-    udp_mega_corutine = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', 12000), )
+    udp_mega_corutine = loop.create_datagram_endpoint(lambda: DatagramDriver(queue_mega, driver), local_addr=('0.0.0.0', cfg.app['simulation_udp_out_port']), )
     loop.run_until_complete(udp_mega_corutine) # Server starts listening
     corutines.append(udp_mega_corutine)
     
