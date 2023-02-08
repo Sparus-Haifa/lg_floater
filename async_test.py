@@ -594,14 +594,16 @@ class Driver:
     def send_mega_message(self, message) -> None:
         self.log.debug(f">MEGA({self.client_address}:{self.client_port}):{message}")
         if not self.simulation:
+            self.log.debug(f">MEGA:{message}")
             self.transport_mega.write(message.encode('utf-8'))
         else:
+            self.log.debug(f">MEGA ({self.client_address}:{self.client_port}):{message}")
             sock = socket.socket(socket.AF_INET,  # Internet
                                 socket.SOCK_DGRAM)  # UDP
             sock.sendto(message.encode(), (self.client_address, self.client_port))
             # print(f"message {message} sent to {self.client_address}  {self.client_port}")
-        # sock.flush()
-        # sock.close()
+            # sock.flush()
+            # sock.close()
 
 
     async def wakeup_safety(self):
@@ -1508,8 +1510,10 @@ def main():
     # log_csv = logging.getLogger("csv")
 
     # simulation = False
-    simulation = cfg.app['simulation']
-    logger = Logger(simulation)
+    SIMULATION = cfg.app['simulation']
+    # client_address = cfg.app['simulator_ip_address']
+    client_port = cfg.app['simulation_udp_port']
+    logger = Logger(SIMULATION)
     log = logging.getLogger("normal")
 
     log.info(f"init log at {logger.path}")
@@ -1584,7 +1588,7 @@ def main():
 
 
     # Nano
-    if 'nano' in serial_ports:
+    if not SIMULATION and 'nano' in serial_ports:
         # coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano), 'COM4', baudrate=115200)
         coro_nano = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_nano, "nano"), serial_ports['nano'], baudrate=115200)
         transport_nano, protocol = loop.run_until_complete(coro_nano)
@@ -1596,7 +1600,7 @@ def main():
 
     # init mega serial connection
 
-    if not simulation:
+    if not SIMULATION:
         coro_mega = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_mega, "mega"), serial_ports['mega'], baudrate=115200)
         transport_mega, protocol = loop.run_until_complete(coro_mega)
         corutines.append(coro_mega)
@@ -1605,7 +1609,7 @@ def main():
 
     # Payload_imu serial connection
     
-    if 'payload' in serial_ports:
+    if not SIMULATION and 'payload' in serial_ports:
         log.info("payload connected")
         coro_payload = serial_asyncio.create_serial_connection(loop, lambda: OutputProtocol(queue_payload, 'payload'), serial_ports['payload'], baudrate=115200)
         transport_payload, protocol = loop.run_until_complete(coro_payload)
@@ -1616,7 +1620,11 @@ def main():
 
     # condition = asyncio.Condition(loop=loop)    # for notify
     # condition_safety = asyncio.Condition(loop=loop)    # for notify
+    # condition = asyncio.Condition(loop=loop)    # for notify
+    # condition_safety = asyncio.Condition(loop=loop)    # for notify
 
+    condition = asyncio.Condition()    # for notify
+    condition_safety = asyncio.Condition()    # for notify
     condition = asyncio.Condition()    # for notify
     condition_safety = asyncio.Condition()    # for notify
 
@@ -1624,6 +1632,9 @@ def main():
     driver = Driver(queue_mega, transport_mega, queue_nano, transport_nano, queue_cli, queue_payload, transport_payload, condition, condition_safety)
 
 
+    # if SIMULATION:
+    #     driver.client_address = client_address
+    #     driver.client_port = client_port
 
     # SAFETY
     # if not self.disable_safety:
@@ -1674,7 +1685,8 @@ def main():
 
     # start emergency task
     emergency_corutine = loop.create_task(driver.emergency())
-    # emergency_corutine = asyncio.create_task(driver.emergency())
+    driver.emergency_task = emergency_corutine
+    corutines.append(emergency_corutine)
 
     driver.emergency_task = emergency_corutine
     corutines.append(emergency_corutine)
