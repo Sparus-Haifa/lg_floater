@@ -1158,6 +1158,10 @@ class Driver:
         
 
     async def calculate_pid(self):
+        # Wait for PF flag
+        async with self.condition:
+            await self.condition.wait()
+
         self.log.debug("calculating PID")
         if self.done_holding_target == True:
             self.log.info("done holding on target - load new target")
@@ -1202,6 +1206,8 @@ class Driver:
         await self.sensors.direction_flag.add_sample(0)
         await self.sensors.voltage_sensor.add_sample(0)
 
+
+
         # just setting the state
         if self.holding_on_target:
             task = asyncio.create_task(self.to_executingTask_holdPosition_calculating())
@@ -1210,13 +1216,11 @@ class Driver:
             task = asyncio.create_task(self.to_executingTask_enRoute_calculating())
             self.running_tasks.append(task)
 
-        # await asyncio.sleep(1)
-        # calling state function on every iteration
-        async with self.condition:
-            await self.condition.wait()
-            # await asyncio.sleep(0.1)
-            task = asyncio.create_task(self.calculate_pid())
-            self.running_tasks.append(task)
+        # # await asyncio.sleep(1)
+        # # calling state function on every iteration
+        #     # await asyncio.sleep(0.1)
+        #     task = asyncio.create_task(self.calculate_pid())
+        #     self.running_tasks.append(task)
 
         # while True:
         #     print(self.sensors.bladder_flag.state)
@@ -1623,8 +1627,8 @@ def main():
     # condition = asyncio.Condition(loop=loop)    # for notify
     # condition_safety = asyncio.Condition(loop=loop)    # for notify
 
-    condition = asyncio.Condition()    # for notify
-    condition_safety = asyncio.Condition()    # for notify
+    # condition = asyncio.Condition()    # for notify
+    # condition_safety = asyncio.Condition()    # for notify
     condition = asyncio.Condition()    # for notify
     condition_safety = asyncio.Condition()    # for notify
 
