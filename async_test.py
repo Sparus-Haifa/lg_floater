@@ -101,9 +101,9 @@ class DatagramDriver(asyncio.DatagramProtocol):
 
 
     def datagram_received(self, data, addr) -> None:  # "Main entrypoint for processing message"
-        if not self.driver.client_address:
-            self.driver.client_address = "192.168.1.48" # addr[0]
-            self.driver.client_port = cfg.app['simulation_udp_in_port'] # addr[1]
+        # if not self.driver.client_address:
+        #     self.driver.client_address = '192.168.1.48' # addr[0] # "192.168.1.48"
+        #     self.driver.client_port = cfg.app['simulation_udp_in_port'] # addr[1]
         # Here is where you would push message to whatever methods/classes you want.
         self.queue.put_nowait(data.decode())
         # asyncio.create_task(self.queue.put(data.decode()))
@@ -1512,7 +1512,7 @@ def main():
     # simulation = False
     SIMULATION = cfg.app['simulation']
     # client_address = cfg.app['simulator_ip_address']
-    client_port = cfg.app['simulation_udp_port']
+    # client_port = cfg.app['simulation_udp_port']
     logger = Logger(SIMULATION)
     log = logging.getLogger("normal")
 
@@ -1635,6 +1635,8 @@ def main():
     # if SIMULATION:
     #     driver.client_address = client_address
     #     driver.client_port = client_port
+    driver.client_address = cfg.app['simulator_ip'] # addr[0] # "192.168.1.48"
+    driver.client_port = cfg.app['simulation_udp_in_port'] # addr[1]
 
     # SAFETY
     # if not self.disable_safety:
